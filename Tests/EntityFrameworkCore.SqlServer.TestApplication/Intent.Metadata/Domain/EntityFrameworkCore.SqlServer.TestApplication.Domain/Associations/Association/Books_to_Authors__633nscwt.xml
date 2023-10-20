@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3c374558-f1fb-4f37-ac7a-92cfa12e9c14">
+  <sourceEnd id="3cb94464-3130-4c02-beca-73351a55faa6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Books</name>
+    <display>Books: Book[*]</display>
+    <order>0</order>
+    <typeReference id="b6341c2b-f648-4529-aaa0-e22b50ff243c">
+      <typeId>79d82834-806c-43eb-9844-d3335c1a2d03</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3c374558-f1fb-4f37-ac7a-92cfa12e9c14" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Authors</name>
+    <display>Authors: Author[*]   [* --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="f243c727-f5ea-46d8-af3d-a27cbba927a1">
+      <typeId>e2afe59a-1513-4603-9701-f068751f49b2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5679fb86-e403-4dc0-bf25-8446ef2d1d03" name="Join Table">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+        <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+        <properties>
+          <property name="9221d9ba-36a8-496e-8aea-7c2d782cc66b" display="Name" value="AuthorsOfBooks" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5679fb86-e403-4dc0-bf25-8446ef2d1d03" name="Join Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="9221d9ba-36a8-496e-8aea-7c2d782cc66b" display="Name" value="AuthorsOfBooks" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>
