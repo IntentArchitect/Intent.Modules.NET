@@ -1,4 +1,8 @@
-﻿### Version 4.4.12
+﻿### Version 4.4.13
+
+- Improvement: Added `Join Table` stereotype support to the module, for specifying *-* joining tables name explicitly.
+
+### Version 4.4.12
 
 - Fixed: Protected constructors required by EF would be generated for entities to be used with alternative persistence technologies.
 - Improvement: The MIGRATION_README file can now be configurable and mutable by subscribing to the `DbMigrationsReadMeCreatedEvent` event.
