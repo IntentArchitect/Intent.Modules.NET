@@ -21,6 +21,8 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.Templates.OAuthControll
         public OAuthControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
+        
+        
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
