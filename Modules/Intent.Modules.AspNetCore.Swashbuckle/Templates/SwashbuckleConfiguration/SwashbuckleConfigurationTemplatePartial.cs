@@ -24,6 +24,11 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
     public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
+        var useSimpleSchemaIDs = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIDs();
+        if (useSimpleSchemaIDs)
+        {
+            AddNugetDependency(NugetPackages.SwashbuckleCore);
+        }
         AddUsing("System");
         AddUsing("System.Collections.Generic");
         AddUsing("System.IO");
@@ -33,6 +38,11 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         AddUsing("Microsoft.Extensions.DependencyInjection");
         AddUsing("Microsoft.OpenApi.Models");
         AddUsing("Swashbuckle.AspNetCore.SwaggerUI");
+        if (useSimpleSchemaIDs)
+        {
+            AddUsing("Swashbuckle.Swagger");
+            AddUsing("ISchemaFilter = Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter");
+        }
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass("SwashbuckleConfiguration", @class =>
@@ -65,8 +75,9 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                     lambdaBlock.AddStatement("options.SupportNonNullableReferenceTypes();");
                                 }
 
-
-                                lambdaBlock.AddStatement("options.CustomSchemaIds(x => x.FullName);");
+                                lambdaBlock.AddStatement(useSimpleSchemaIDs
+                                    ? "options.CustomSchemaIds(type => type.FriendlyId().Replace(\"[\", \"Of\").Replace(\"]\", \"\"));"
+                                    : "options.CustomSchemaIds(x => x.FullName);");
 
                                 lambdaBlock.AddStatement(
                                     "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",

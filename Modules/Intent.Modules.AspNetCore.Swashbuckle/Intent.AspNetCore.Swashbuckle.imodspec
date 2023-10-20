@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>4.0.9-pre.0</version>
+  <version>4.0.9-pre2</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
@@ -58,6 +58,10 @@
       <settings>
         <setting id="7faaa6d0-c739-430f-a953-c78fb5e0a302" title="Mark non-nullable fields as required" type="checkbox">
           <isRequired>false</isRequired>
+        </setting>
+        <setting id="68427321-6418-474b-a816-26b406d7d262" title="Use simple schema IDs" type="checkbox">
+          <isRequired>false</isRequired>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>
