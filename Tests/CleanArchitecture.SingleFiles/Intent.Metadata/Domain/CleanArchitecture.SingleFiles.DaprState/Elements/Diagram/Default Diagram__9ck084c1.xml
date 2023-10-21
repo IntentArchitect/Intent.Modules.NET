@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="80d39c87-5e7a-4ab0-b53d-b27353594f62" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>023085ed-1b46-448a-b8ba-f9430708cc10</parentFolderId>
+  <packageId>023085ed-1b46-448a-b8ba-f9430708cc10</packageId>
+  <packageName>CleanArchitecture.SingleFiles.DaprState</packageName>
+  <diagram>
+    <targetPackageId>023085ed-1b46-448a-b8ba-f9430708cc10</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

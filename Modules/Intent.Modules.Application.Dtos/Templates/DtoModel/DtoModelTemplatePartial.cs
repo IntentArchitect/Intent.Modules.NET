@@ -52,21 +52,22 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
                     // See this article on how to handle NRTs for DTOs
                     // https://github.com/dotnet/docs/issues/18099
-                    @class.AddConstructor(ctor =>
+                    @class.AddConstructor();
+                    var ctor = @class.Constructors.First();
+                    if (IsNonPublicPropertyAccessors())
                     {
                         foreach (var field in Model.Fields)
                         {
-                            if (string.IsNullOrWhiteSpace(field.Value))
-                            {
-                                var typeInfo = GetTypeInfo(field.TypeReference);
-                                if (NeedsNullabilityAssignment(typeInfo))
-                                {
-                                    ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
-                                }
-                            }
+                            ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                            ctor.AddStatement($"{field.Name.ToPascalCase()} = {field.Name.ToParameterName()};");
                         }
-                    });
-                    if (!Model.IsAbstract)
+                    }
+                    else
+                    {
+                        PopulateDefaultCtor(ctor);
+                    }
+
+                    if (!Model.IsAbstract && ExecutionContext.Settings.GetDTOSettings().StaticFactoryMethod())
                     {
                         var genericTypes = Model.GenericTypes.Any()
                             ? $"<{string.Join(", ", model.GenericTypes)}>"
@@ -78,14 +79,28 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
-                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+
+                            if (IsNonPublicPropertyAccessors())
                             {
-                                foreach (var field in Model.Fields)
+                                method.AddInvocationStatement($"return new {base.GetTypeName(this)}{genericTypes}", block =>
                                 {
-                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
-                                }
-                                block.WithSemicolon();
-                            });
+                                    foreach (var field in Model.Fields)
+                                    {
+                                        block.AddArgument(field.Name.ToParameterName());
+                                    }
+                                });  
+                            }
+                            else
+                            {
+                                method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+                                {
+                                    foreach (var field in Model.Fields)
+                                    {
+                                        block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
+                                    }
+                                    block.WithSemicolon();
+                                });   
+                            }
                         });
                     }
 
@@ -111,7 +126,37 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 }));
             CSharpFile = csharpFile;
         }
-        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+
+        private bool IsNonPublicPropertyAccessors()
+        {
+            var setting = ExecutionContext.Settings.GetDTOSettings().PropertySetterAccessibility().AsEnum();
+            return setting switch
+            {
+                DTOSettings.PropertySetterAccessibilityOptionsEnum.Init => false,
+                DTOSettings.PropertySetterAccessibilityOptionsEnum.Internal => true,
+                DTOSettings.PropertySetterAccessibilityOptionsEnum.Private => true,
+                DTOSettings.PropertySetterAccessibilityOptionsEnum.Protected => true,
+                DTOSettings.PropertySetterAccessibilityOptionsEnum.Public => false,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+        private void PopulateDefaultCtor(CSharpConstructor ctor)
+        {
+            foreach (var field in Model.Fields)
+            {
+                if (string.IsNullOrWhiteSpace(field.Value))
+                {
+                    var typeInfo = GetTypeInfo(field.TypeReference);
+                    if (NeedsNullabilityAssignment(typeInfo))
+                    {
+                        ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
+                    }
+                }
+            }
+        }
+
+        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
                 || typeInfo.IsNullable == true

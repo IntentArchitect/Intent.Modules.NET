@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b7106ec8-3cd6-4cf6-8c31-c28e789b89df" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Behaviours</name>
+  <display>Behaviours</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>834aa50c-9f77-4fad-ab90-2e7bb807c6ef</parentFolderId>
+  <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+  <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3a125959-ce31-4dde-bec2-788447179fa0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="82c396b2-5a4d-4ab3-85b3-c8006e3227a8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f4078ba5-4337-4e40-a855-8e490cac53c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.LoggingBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.LoggingBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3c3d299e-14aa-40a7-8218-219a8a2e6c1e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ba801807-33dd-40a2-a8f1-1e55890b50d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="484185f1-fd98-4d63-8677-00f6826be3f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="eb7c97c3-d555-4539-b4d7-08517c3071b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</name>
+      <display>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</display>
+      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b7106ec8-3cd6-4cf6-8c31-c28e789b89df</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

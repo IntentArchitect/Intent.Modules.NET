@@ -29,7 +29,18 @@
   <parentFolderId>dd5e822d-d453-422e-99b2-bd2b1b953f68</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/with-composite-key" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata>
     <entry key="baseName" value="WithCompositeKey" />
   </metadata>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3c37cc91-d719-403e-b217-44b0b54fdfff">
+  <sourceEnd id="7a91e679-3b7e-4ef3-b195-61319833770d" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <name>Operation</name>
+    <display>published by : Agg1.Operation</display>
+    <order>0</order>
+    <typeReference id="40a85fb9-51c0-4d09-a2d5-4cebb8511b63">
+      <typeId>e075727f-a6ee-4f63-b9da-3e427d06807b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EFDomain</typePackageName>
+      <typePackageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3c37cc91-d719-403e-b217-44b0b54fdfff" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <name>Agg1Event</name>
+    <display>publishes : Agg1Event</display>
+    <order>0</order>
+    <typeReference id="000541dd-3c95-44c3-b145-99e7830c17fa">
+      <typeId>f2cc25f0-a1cd-478b-8a1b-5ba1591def25</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EFDomain</typePackageName>
+      <typePackageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

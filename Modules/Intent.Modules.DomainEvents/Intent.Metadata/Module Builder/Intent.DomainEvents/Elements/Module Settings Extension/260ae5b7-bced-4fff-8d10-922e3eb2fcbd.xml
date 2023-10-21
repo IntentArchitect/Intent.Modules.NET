@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="260ae5b7-bced-4fff-8d10-922e3eb2fcbd" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Domain Settings Extension</name>
+  <display>Domain Settings Extension: Domain Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="5134fd1e-cca4-4435-a4cb-b281935aa1e3">
+    <typeId>c4d1e35c-7c0d-4926-afe0-18f17563ce17</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</parentFolderId>
+  <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+  <packageName>Intent.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="afc698a3-1188-43e9-9ba4-df44a5f343d3" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Implement Domain Eventing on</name>
+      <display>Implement Domain Eventing on</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>260ae5b7-bced-4fff-8d10-922e3eb2fcbd</parentFolderId>
+      <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+      <packageName>Intent.DomainEvents</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="all" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ff379a8d-337b-4de4-91ea-00821340aca1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>All Aggregates</name>
+          <display>All Aggregates = all</display>
+          <isAbstract>false</isAbstract>
+          <value>all</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>afc698a3-1188-43e9-9ba4-df44a5f343d3</parentFolderId>
+          <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+          <packageName>Intent.DomainEvents</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fc42b3d3-e864-4cac-998b-d78411cc1493" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Aggregates with Modelled Domain Events</name>
+          <display>Aggregates with Modelled Domain Events = modelled-events</display>
+          <isAbstract>false</isAbstract>
+          <value>modelled-events</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>afc698a3-1188-43e9-9ba4-df44a5f343d3</parentFolderId>
+          <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+          <packageName>Intent.DomainEvents</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

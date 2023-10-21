@@ -40,14 +40,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCo
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
-            // if (application.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-            // {
-            //     return ArraySegment<CommandModel>.Empty;
-            // }
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                // .Where(command => command.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase)
-                //                   && command.GetClassModel()?.IsAggregateRoot() == true)
                 .ToList();
         }
     }

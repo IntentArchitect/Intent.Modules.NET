@@ -13,7 +13,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEventHandler
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DelayedNotificationEventHandler : IIntegrationEventHandler<DelayedNotificationEvent>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DelayedNotificationEventHandler()
         {
         }

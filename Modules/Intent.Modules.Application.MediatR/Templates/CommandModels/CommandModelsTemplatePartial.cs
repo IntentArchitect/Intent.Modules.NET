@@ -4,6 +4,8 @@ using System.Linq;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -11,7 +13,6 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -34,7 +35,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             FulfillsRole("Application.Contract.Command");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-            CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+            CSharpFile = new CSharpFile($"{this.GetCommandNamespace()}", $"{this.GetCommandFolderPath()}")
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {
@@ -43,17 +44,24 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                     @class.ImplementsInterface(Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest");
                     @class.ImplementsInterface(this.GetCommandInterfaceName());
 
-                    @class.AddConstructor(ctor =>
+                    @class.AddConstructor();
+                    var ctor = @class.Constructors.First();
+                    foreach (var property in Model.Properties)
                     {
-                        foreach (var property in Model.Properties)
+                        ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
-                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
-                            {
-                                p.IntroduceProperty(prop => prop.RepresentsModel(property));
-                            });
-                        }
-                    });
+                            param.AddMetadata("model", property);
+                            param.IntroduceProperty(prop => prop.RepresentsModel(property));
+                        });
+                    }
                 });
+
+            if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
+            {
+                FulfillsRole("Application.Command.Handler");
+                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Command);
+                CommandHandlerTemplate.Configure(this, model);
+            }
         }
 
         [IntentManaged(Mode.Fully)]

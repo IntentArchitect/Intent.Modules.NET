@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1e530069-332d-416d-9f03-9061d63d4630">
+  <sourceEnd id="30c33926-038b-4f8c-beba-5b829eb3cd6b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MongoInvoice</name>
+    <display>MongoInvoice: MongoInvoice</display>
+    <order>0</order>
+    <typeReference id="a80fc1cc-667d-4abe-9f57-40df4f10e370">
+      <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Mongo</typePackageName>
+      <typePackageId>ae010739-d7b2-4951-9c20-b50c0900adb8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1e530069-332d-416d-9f03-9061d63d4630" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MongoLines</name>
+    <display>MongoLines: MongoLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="27256bdc-5e47-455a-b12f-3141999915f4">
+      <typeId>192560c4-b212-4688-a10c-23ed43800e32</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Mongo</typePackageName>
+      <typePackageId>ae010739-d7b2-4951-9c20-b50c0900adb8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

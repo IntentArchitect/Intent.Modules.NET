@@ -11,8 +11,8 @@
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Application.Dtos.Pagination</typePackageName>
-    <typePackageId>9baa3476-269d-4a87-a854-34e150a93bc8</typePackageId>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
     <stereotypes />
     <genericTypeParameters>
       <genericTypeParameter id="302caa68-95a2-415a-aa94-54f33208d594">

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an open framework for collecting and exporting telemetry data.</summary>
   <description>Introduces an open framework for collecting and exporting telemetry data.</description>
@@ -42,8 +42,9 @@
         <setting id="ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e" title="Export" type="select">
           <isRequired>true</isRequired>
           <hint>Where to export the Telemetry data to.</hint>
-          <defaultValue>azure-application-insights</defaultValue>
+          <defaultValue>console</defaultValue>
           <options>
+            <option value="console" description="Console" />
             <option value="azure-application-insights" description="Azure Application Insights" />
           </options>
         </setting>

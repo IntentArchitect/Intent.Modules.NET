@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using Entities.PrivateSetters.TestApplication.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "1.0")]
-
 namespace Entities.PrivateSetters.TestApplication.Domain.Entities
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
         private List<Line> _lines = new List<Line>();
         private List<Tag> _tags = new List<Tag>();
 
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Invoice(DateTime date, IEnumerable<Tag> tags, IEnumerable<LineDataContract> lines)
         {
             Date = date;
@@ -26,7 +20,6 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
         /// <summary>
         /// Required by Entity Framework.
         /// </summary>
-        [IntentManaged(Mode.Fully)]
         protected Invoice()
         {
         }

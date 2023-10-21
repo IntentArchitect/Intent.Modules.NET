@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7bda402b-1ac1-41db-ad26-657a1590f492">
+  <sourceEnd id="9ab55036-9909-49e4-9c66-a7e205ca7a3d" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>CombinedAllTechs</name>
+    <display>publisher: CombinedAllTechs</display>
+    <order>0</order>
+    <typeReference id="0d9112e5-251d-4f70-a1e2-3de047e42260">
+      <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Eventing</typePackageName>
+      <typePackageId>f7975c06-f0bb-4941-ae2a-da74412e4408</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7bda402b-1ac1-41db-ad26-657a1590f492" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EfInvoiceCreated</name>
+    <display>publish: EfInvoiceCreated</display>
+    <order>5</order>
+    <typeReference id="9524dc00-d76d-4bfc-b995-956c998d609a">
+      <typeId>7ad0a7a7-100d-4c04-9106-4feb25e8a53e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Messages</typePackageName>
+      <typePackageId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

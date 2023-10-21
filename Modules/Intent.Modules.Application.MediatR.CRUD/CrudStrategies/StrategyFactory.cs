@@ -1,16 +1,18 @@
 ﻿using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
 internal static class StrategyFactory
 {
-    public static ICrudImplementationStrategy GetMatchedCommandStrategy(CommandHandlerTemplate template)
+    public static ICrudImplementationStrategy GetMatchedCommandStrategy(CSharpTemplateBase<CommandModel> template)
     {
         var strategies = new ICrudImplementationStrategy[]
         {
@@ -37,7 +39,7 @@ internal static class StrategyFactory
         return null;
     }
 
-    public static ICrudImplementationStrategy GetMatchedQueryStrategy(QueryHandlerTemplate template, IApplication application)
+    public static ICrudImplementationStrategy GetMatchedQueryStrategy(CSharpTemplateBase<QueryModel> template, IApplication application)
     {
         var strategies = new ICrudImplementationStrategy[]
         {

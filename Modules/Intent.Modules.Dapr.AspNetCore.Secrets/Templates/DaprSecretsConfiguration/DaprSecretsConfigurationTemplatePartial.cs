@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -81,7 +82,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DaprSecretsConfigurat
 /// because We are using SideKick we can not load the Secrets Config until the SideCar is ready which happened after ServicesConfiguration (StartUp.cs).
 /// https://github.com/dapr/dotnet-sdk/blob/master/src/Dapr.Extensions.Configuration/DaprSecretStoreConfigurationSource.cs
 /// </summary>");
-                        child.AddMethod("IConfigurationProvider", "Build", method => 
+                        child.AddMethod("IConfigurationProvider", "Build", method =>
                         {
                             method.AddParameter("IConfigurationBuilder", "builder")
                                 .AddStatement("return new DaprSecretsStoreProviderDeferred();");

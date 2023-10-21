@@ -4,9 +4,9 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
-using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -17,12 +17,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class GetByIdImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly QueryHandlerTemplate _template;
+        private readonly CSharpTemplateBase<QueryModel> _template;
         private readonly IApplication _application;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public GetByIdImplementationStrategy(QueryHandlerTemplate template, IApplication application)
+        public GetByIdImplementationStrategy(CSharpTemplateBase<QueryModel> template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField())

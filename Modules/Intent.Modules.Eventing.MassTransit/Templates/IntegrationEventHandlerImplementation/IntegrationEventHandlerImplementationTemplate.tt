@@ -19,7 +19,7 @@ namespace <#= Namespace #>
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : <#= this.GetIntegrationEventHandlerInterfaceName() #><<#= GetMessageName() #>>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public <#= ClassName #>()
         {
         }

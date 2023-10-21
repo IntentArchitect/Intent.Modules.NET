@@ -106,12 +106,26 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Where to export the Telemetry data to." isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="azure-application-insights" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="console" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="95d8bea5-b13e-42d2-a62b-836c22ec6a74" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Console</name>
+          <display>Console = console</display>
+          <isAbstract>false</isAbstract>
+          <value>console</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="03275095-a84b-4b07-8a2c-bf11a9be29e5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Azure Application Insights</name>
           <display>Azure Application Insights = azure-application-insights</display>

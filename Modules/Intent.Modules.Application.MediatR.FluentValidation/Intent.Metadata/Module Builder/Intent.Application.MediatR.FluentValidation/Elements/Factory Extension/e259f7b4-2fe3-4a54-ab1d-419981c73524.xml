@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e259f7b4-2fe3-4a54-ab1d-419981c73524" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CombineWithModelsTemplateFactoryExtension</name>
+  <display>CombineWithModelsTemplateFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19ac3196-c353-44e0-ba44-2e1930175b1f</parentFolderId>
+  <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+  <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

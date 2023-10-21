@@ -1,52 +1,66 @@
 using System.Collections.Generic;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentTypeExtensionMethods;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork;
-using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkBehaviour;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosPagedList;
 using Intent.Modules.CosmosDB.Templates.ReflectionHelper;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
 namespace Intent.Modules.CosmosDB.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCosmosDBDocumentName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetCosmosDBDocumentName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(CosmosDBDocumentTemplate.TemplateId, template.Model);
         }
 
-        public static string GetCosmosDBDocumentName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetCosmosDBDocumentName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(CosmosDBDocumentTemplate.TemplateId, model);
         }
 
-        public static string GetCosmosDBDocumentInterfaceName(this IIntentTemplate template)
+        public static string GetCosmosDBDocumentInterfaceName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
-            return template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId);
+            return template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetCosmosDBDocumentInterfaceName(this IIntentTemplate template, ClassModel model)
+        {
+            return template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId, model);
+        }
+
+        public static string GetCosmosDBDocumentOfTInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBDocumentOfTInterfaceTemplate.TemplateId);
         }
 
         public static string GetCosmosDBDocumentTypeExtensionMethodsName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBDocumentTypeExtensionMethodsTemplate.TemplateId);
         }
-        public static string GetCosmosDBRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+
+        public static string GetCosmosDBRepositoryName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(CosmosDBRepositoryTemplate.TemplateId, template.Model);
         }
 
-        public static string GetCosmosDBRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetCosmosDBRepositoryName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(CosmosDBRepositoryTemplate.TemplateId, model);
         }
@@ -66,11 +80,6 @@ namespace Intent.Modules.CosmosDB.Templates
             return template.GetTypeName(CosmosDBUnitOfWorkTemplate.TemplateId);
         }
 
-        public static string GetCosmosDBUnitOfWorkBehaviourName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(CosmosDBUnitOfWorkBehaviourTemplate.TemplateId);
-        }
-
         public static string GetCosmosDBUnitOfWorkInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBUnitOfWorkInterfaceTemplate.TemplateId);
@@ -84,6 +93,16 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosDBValueObjectDocumentName(this IIntentTemplate template, IElement model)
         {
             return template.GetTypeName(CosmosDBValueObjectDocumentTemplate.TemplateId, model);
+        }
+
+        public static string GetCosmosDBValueObjectDocumentInterfaceName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetCosmosDBValueObjectDocumentInterfaceName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId, model);
         }
 
         public static string GetCosmosPagedListName(this IIntentTemplate template)

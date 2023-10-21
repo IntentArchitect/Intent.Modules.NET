@@ -85,12 +85,12 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.0.0" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.0.1" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.10" />
+        <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.12" />
       </install>
     </detect>
     <detect id="Intent.Modelers.Services.CRUD.ServiceDispatch">

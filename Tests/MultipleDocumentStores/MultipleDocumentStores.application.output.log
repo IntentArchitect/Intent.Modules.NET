@@ -148,34 +148,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>6932953d-89bf-4334-a762-3c3f6ec10b65</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/CosmosDBUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDBUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6932953d-89bf-4334-a762-3c3f6ec10b65</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/DaprStateStoreUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6932953d-89bf-4334-a762-3c3f6ec10b65</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6932953d-89bf-4334-a762-3c3f6ec10b65</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/MongoDbUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -192,6 +168,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6932953d-89bf-4334-a762-3c3f6ec10b65</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -443,6 +427,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f14bd1de-7751-4762-abb0-9c408555f5ad</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#0fcbdf59-231a-426f-b338-58c8ac56cd60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Domain/Repositories/Documents/ICustomerCosmosDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomerCosmosDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -572,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>

@@ -18,9 +18,10 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventBase
     {
         public override string TemplateId => DomainEventBaseTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new DomainEventBaseTemplate(outputTarget, null);
+            return new DomainEventBaseTemplate(outputTarget);
         }
     }
 }

@@ -84,7 +84,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                 });
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

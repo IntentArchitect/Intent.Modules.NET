@@ -16,7 +16,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEventHandler
     {
         private readonly ILogger<BasketItemUpdatedEventHandler> _logger;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public BasketItemUpdatedEventHandler(ILogger<BasketItemUpdatedEventHandler> logger)
         {
             _logger = logger;

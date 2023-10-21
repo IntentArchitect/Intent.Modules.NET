@@ -162,6 +162,7 @@ internal static class AssertionMethodHelper
             ClassModel ownerEntity;
             if (field.Mapping?.Element == null &&
                 domainModel is not null &&
+                !HasIdAttribute(domainModel) &&
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
@@ -249,12 +250,6 @@ internal static class AssertionMethodHelper
         return codeLines;
     }
 
-    private static bool IsEquivalentType(IHasTypeReference attribute, IHasTypeReference dtoFieldModel)
-    {
-        return attribute.TypeReference.Element.SpecializationTypeId != dtoFieldModel.TypeReference.Element.SpecializationTypeId 
-               || attribute.TypeReference.IsCollection;
-    }
-
     private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
         ICSharpFileBuilderTemplate template, 
         string actualDtoVarName, 
@@ -287,6 +282,7 @@ internal static class AssertionMethodHelper
             // Implicit Owner ID case check
             ClassModel ownerEntity;
             if (field.Mapping?.Element == null &&
+                !HasIdAttribute(domainModel) &&
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
@@ -314,6 +310,11 @@ internal static class AssertionMethodHelper
                     var targetType = association.Element.AsClassModel();
                     var attributeName = association.Name.ToPascalCase();
                     var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
+
+                    if (domainModel.Attributes.All(attr => attr.Name != attributeName))
+                    {
+                        continue;
+                    }
 
                     codeLines.Add($"AssertEquivalent({actualDtoVarName}.{field.Name.ToPascalCase()}, {expectedEntityVarName}.{attributeName});");
                     
@@ -361,6 +362,17 @@ internal static class AssertionMethodHelper
         }
 
         return codeLines;
+    }
+    
+    private static bool HasIdAttribute(ClassModel domainModel)
+    {
+        return domainModel.Attributes.Any(attr => attr.IsPrimaryKey());
+    }
+
+    private static bool IsEquivalentType(IHasTypeReference attribute, IHasTypeReference dtoFieldModel)
+    {
+        return attribute.TypeReference.Element.SpecializationTypeId != dtoFieldModel.TypeReference.Element.SpecializationTypeId 
+               || attribute.TypeReference.IsCollection;
     }
 
     private static string GetAssertionMethodName(IElement targetType, string attributeName = "")

@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +30,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBRepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
@@ -38,13 +41,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                         ? $"<{string.Join(", ", Model.GenericTypes)}>"
                         : string.Empty;
                     var entityDocumentName = $"{this.GetCosmosDBDocumentName()}{genericTypeParameters}";
+                    var entityDocumentInterfaceName = $"{this.GetCosmosDBDocumentInterfaceName()}{genericTypeParameters}";
 
                     @class.Internal();
                     foreach (var genericType in Model.GenericTypes)
                     {
                         @class.AddGenericParameter(genericType);
                     }
-                    @class.ExtendsClass($"{this.GetCosmosDBRepositoryBaseName()}<{EntityInterfaceName}, {EntityStateName}, {entityDocumentName}>");
+
+                    var entityStateGenericTypeArgument = createEntityInterfaces
+                        ? $", {EntityStateTypeName}"
+                        : string.Empty;
+                    @class.ExtendsClass($"{this.GetCosmosDBRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}>");
                     @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}{genericTypeParameters}");
 
                     @class.AddConstructor(ctor =>
@@ -60,7 +68,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
 
                     if (pkAttribute.TypeReference?.Element.Name != "string")
                     {
-                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityInterfaceName}>", "FindByIdAsync", method =>
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityStateTypeName}>", "FindByIdAsync", method =>
                         {
                             method
                                 .Async()
@@ -69,7 +77,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                                 .WithExpressionBody($"await FindByIdAsync(id{pkAttribute.GetToString(this)}, cancellationToken)");
                         });
 
-                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityInterfaceName}>>", "FindByIdsAsync", method =>
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
                         {
                             AddUsing("System.Linq");
                             method
@@ -86,8 +94,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             ? $"<{string.Join(", ", Model.GenericTypes)}>"
             : string.Empty;
 
-        public string EntityInterfaceName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{GenericTypeParameters}";
-        public string EntityStateName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model)}{GenericTypeParameters}";
+        public string EntityTypeName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{GenericTypeParameters}";
+        public string EntityStateTypeName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model)}{GenericTypeParameters}";
 
         public override void AfterTemplateRegistration()
         {

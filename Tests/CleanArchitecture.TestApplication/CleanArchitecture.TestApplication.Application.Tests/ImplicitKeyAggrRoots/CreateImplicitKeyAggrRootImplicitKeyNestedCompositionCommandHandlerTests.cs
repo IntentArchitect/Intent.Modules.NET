@@ -46,11 +46,12 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             implicitKeyAggrRootRepository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None)!.Returns(Task.FromResult(existingOwnerEntity));
             var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
+            var implicitKeyNestedCompositionsSnapshot = existingOwnerEntity.ImplicitKeyNestedCompositions.ToArray();
             implicitKeyAggrRootRepository.UnitOfWork
                 .When(async x => await x.SaveChangesAsync(CancellationToken.None))
                 .Do(_ =>
                 {
-                    addedImplicitKeyNestedComposition = existingOwnerEntity.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
+                    addedImplicitKeyNestedComposition = existingOwnerEntity.ImplicitKeyNestedCompositions.Except(implicitKeyNestedCompositionsSnapshot).Single();
                     addedImplicitKeyNestedComposition.Id = expectedImplicitKeyAggrRootId;
                     addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = testCommand.ImplicitKeyAggrRootId;
                 });

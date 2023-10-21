@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7521b74-cb81-466f-8bbb-9f21b42befdb" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7389f718-8b54-44fe-9c4c-3ccc3c38e0e1</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="61767cf0-477c-42fe-abdf-48b0723241a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.UnitOfWorkInterface</name>
+      <display>Intent.Entities.Repositories.Api.UnitOfWorkInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7521b74-cb81-466f-8bbb-9f21b42befdb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="815cac98-b6cc-48e2-a84e-7548b34aa4b7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.TableStorage.TableStorageUnitOfWorkInterface</name>
+      <display>Intent.Azure.TableStorage.TableStorageUnitOfWorkInterface</display>
+      <externalReference>Intent.Azure.TableStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7521b74-cb81-466f-8bbb-9f21b42befdb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

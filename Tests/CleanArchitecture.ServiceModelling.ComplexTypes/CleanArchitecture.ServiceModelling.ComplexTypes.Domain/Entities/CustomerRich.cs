@@ -4,17 +4,10 @@ using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "1.0")]
-
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CustomerRich : IHasDomainEvent
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public CustomerRich(Address address)
         {
             Address = address;
@@ -23,7 +16,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
         /// <summary>
         /// Required by Entity Framework.
         /// </summary>
-        [IntentManaged(Mode.Fully)]
         protected CustomerRich()
         {
             Address = null!;

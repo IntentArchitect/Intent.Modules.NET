@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b45790a6-b28f-414b-a250-885ae4b543d1</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>23e5c553-c224-4c23-87dd-c5b31e262caf</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>23e5c553-c224-4c23-87dd-c5b31e262caf</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

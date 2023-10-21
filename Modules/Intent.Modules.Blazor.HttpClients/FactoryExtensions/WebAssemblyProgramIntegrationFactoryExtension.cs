@@ -1,14 +1,14 @@
+using System;
+using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Blazor.HttpClients.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
-using Intent.Modules.Blazor.HttpClients.Templates;
-using Intent.Modules.Common.CSharp.Builder;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -27,7 +27,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.Templates.DaprConfigurati
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
-                .AddUsing("System.Threading.Tasks")                
+                .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Dapr.Client")
                 .AddUsing("Dapr.Extensions.Configuration")
@@ -110,7 +110,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.Templates.DaprConfigurati
                             .AddField("CancellationTokenSource", "_cts", f => f.PrivateReadOnly().WithAssignment("new CancellationTokenSource()"))
                             .AddField("Task", "_subscribeTask", f => f.Private().WithAssignment("Task.CompletedTask"))
                             .AddField("bool", "_isStreaming", f => f.PrivateReadOnly().WithAssignment("true"));
-                        
+
                         child.AddConstructor();
                         child.AddMethod("void", "Dispose", method =>
                         {

@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.9" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.18" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -56,5 +56,19 @@
     <application id="50d558de-c495-4ed5-b9d0-de5dfdb4b4f1" name="MassTransit.RetryPolicy.Exponential" relativePath="MassTransit.RetryPolicy.Exponential/MassTransit.RetryPolicy.Exponential.application.config" />
     <application id="e27f2734-1034-404d-ac7d-f75f7e4c226f" name="EFCore.Lazy.Loading.Tests" relativePath="EFCore.Lazy.Loading.Tests/EFCore.Lazy.Loading.Tests.application.config" />
     <application id="2f4d3218-3dd2-46df-bba6-d00d7098a2b6" name="CosmosDBMultiTenancy" relativePath="CosmosDBMultiTenancy/CosmosDBMultiTenancy.application.config" />
+    <application id="aaf53608-ca0b-4cc7-a2ea-8e8a19c7fd67" name="CleanArchitecture.OnlyModeledDomainEvents" relativePath="CleanArchitecture.OnlyModeledDomainEvents/CleanArchitecture.OnlyModeledDomainEvents.application.config" />
+    <application id="5370419a-032b-47fb-a618-e03898c0eee4" name="CleanArchitecture.SingleFiles" relativePath="CleanArchitecture.SingleFiles/CleanArchitecture.SingleFiles.application.config" />
+    <application id="48652ca2-a60b-441f-b593-0eca38b87399" name="DtoSettings.Class.Init" relativePath="DtoSettings.Class.Init/DtoSettings.Class.Init.application.config" />
+    <application id="911db950-d9d5-4e0a-a0a2-33b988afcc64" name="DtoSettings.Class.Internal" relativePath="DtoSettings.Class.Internal/DtoSettings.Class.Internal.application.config" />
+    <application id="08952368-69ef-41f9-8cb3-9e6009b7602f" name="DtoSettings.Class.Private" relativePath="DtoSettings.Class.Private/DtoSettings.Class.Private.application.config" />
+    <application id="9cae4a38-dab6-4550-bb2f-56aded674e59" name="DtoSettings.Record.Public" relativePath="DtoSettings.Record.Public/DtoSettings.Record.Public.application.config" />
+    <application id="681cbcf0-f052-42f6-bb3c-fa06c3a93484" name="DtoSettings.Class.Protected" relativePath="DtoSettings.Class.Protected/DtoSettings.Class.Protected.application.config" />
+    <application id="ff8f718e-4941-4ade-b17b-a34d5061b780" name="DtoSettings.Record.Init" relativePath="DtoSettings.Record.Init/DtoSettings.Record.Init.application.config" />
+    <application id="65c392ab-89f2-4223-b88c-a1c829e3c609" name="DtoSettings.Record.Internal" relativePath="DtoSettings.Record.Internal/DtoSettings.Record.Internal.application.config" />
+    <application id="7300340b-0f97-4454-84ec-f75cb292bd84" name="DtoSettings.Record.Private" relativePath="DtoSettings.Record.Private/DtoSettings.Record.Private.application.config" />
+    <application id="4258acfe-c95e-4737-8c21-abbca52b6d62" name="DtoSettings.Record.Protected" relativePath="DtoSettings.Record.Protected/DtoSettings.Record.Protected.application.config" />
+    <application id="3d450dd7-4b01-4641-9828-8ba27fcdd370" name="TableStorage.Tests" relativePath="TableStorage.Tests/TableStorage.Tests.application.config" />
+    <application id="ba3debc4-493f-447c-bfff-f9dc07bcd2c6" name="CosmosDB.PrivateSetters" relativePath="CosmosDB.PrivateSetters/CosmosDB.PrivateSetters.application.config" />
+    <application id="eb8a85e0-59cb-434e-9c7d-56a07d44261f" name="CosmosDB.EntityInterfaces" relativePath="CosmosDB.EntityInterfaces/CosmosDB.EntityInterfaces.application.config" />
   </applications>
 </solution>

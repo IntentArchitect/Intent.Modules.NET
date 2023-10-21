@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6635716a-0876-499c-a89c-513a35ef55d3</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f513e84-3bc4-47cd-b383-3b4fb2d877a1</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f513e84-3bc4-47cd-b383-3b4fb2d877a1</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

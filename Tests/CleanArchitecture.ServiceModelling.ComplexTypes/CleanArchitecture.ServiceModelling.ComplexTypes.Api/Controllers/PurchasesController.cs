@@ -80,6 +80,10 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             [FromBody] UpdatePurchaseCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
             if (id != command.Id)
             {
                 return BadRequest();

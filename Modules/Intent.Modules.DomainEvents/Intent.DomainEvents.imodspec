@@ -61,5 +61,18 @@
   </files>
   <metadata />
   <moduleSettings />
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="260ae5b7-bced-4fff-8d10-922e3eb2fcbd" groupId="c4d1e35c-7c0d-4926-afe0-18f17563ce17" externalReference="260ae5b7-bced-4fff-8d10-922e3eb2fcbd">
+      <settings>
+        <setting id="afc698a3-1188-43e9-9ba4-df44a5f343d3" title="Implement Domain Eventing on" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>all</defaultValue>
+          <options>
+            <option value="all" description="All Aggregates" />
+            <option value="modelled-events" description="Aggregates with Modelled Domain Events" />
+          </options>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
 </package>

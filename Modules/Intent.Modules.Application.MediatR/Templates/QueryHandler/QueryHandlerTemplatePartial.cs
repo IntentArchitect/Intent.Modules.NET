@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -26,38 +27,52 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource(TemplateFulfillingRoles.Application.Query);
+
 
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+            CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}");
+            Configure(this, model);
+        }
 
-            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile();
+        }
+
+        public static void Configure(ICSharpFileBuilderTemplate template, QueryModel model)
+        {
+            template.AddNugetDependency(NuGetPackages.MediatR);
+            template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
+            template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+
+            template.CSharpFile
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MediatR")
-                .AddClass($"{Model.Name}Handler", @class =>
+                .AddClass($"{model.Name}Handler", @class =>
                 {
-                    @class.AddMetadata("model", Model);
-                    @class.WithBaseType(GetRequestHandlerInterface());
+                    @class.AddMetadata("handler", true);
+                    @class.AddMetadata("model", model);
+                    @class.WithBaseType(GetRequestHandlerInterface(template, model));
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute("IntentManaged(Mode.Ignore)");
                     });
-                    @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
+                    @class.AddMethod($"Task<{template.GetTypeName(model.TypeReference)}>", "Handle", method =>
                     {
-                        method.TryAddXmlDocComments(Model.InternalElement);
+                        method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                        method.AddParameter(GetQueryModelName(), "request");
+                        method.AddParameter(GetQueryModelName(template, model), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
                 });
+
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -77,16 +92,16 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             return CSharpFile.ToString();
         }
 
-        private string GetRequestHandlerInterface()
+        private static string GetRequestHandlerInterface(ICSharpTemplate template, QueryModel model)
         {
-            return Model.TypeReference.Element != null
-                ? $"IRequestHandler<{GetQueryModelName()}, {GetTypeName(Model.TypeReference)}>"
-                : $"IRequestHandler<{GetQueryModelName()}>";
+            return model.TypeReference.Element != null
+                ? $"IRequestHandler<{GetQueryModelName(template, model)}, {template.GetTypeName(model.TypeReference)}>"
+                : $"IRequestHandler<{GetQueryModelName(template, model)}>";
         }
 
-        private string GetQueryModelName()
+        private static string GetQueryModelName(ICSharpTemplate template, QueryModel model)
         {
-            return GetTypeName(QueryModelsTemplate.TemplateId, Model);
+            return template.GetTypeName(QueryModelsTemplate.TemplateId, model);
         }
     }
 }

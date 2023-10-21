@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.3.31</Version>
+    <Version>3.3.32</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>

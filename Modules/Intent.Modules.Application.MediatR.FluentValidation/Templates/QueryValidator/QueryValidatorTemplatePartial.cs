@@ -1,9 +1,13 @@
+using System;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.FluentValidation.Settings;
+using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
 
@@ -32,8 +36,29 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
-                model.GetConceptName())
+                additionalFolders: outputTarget.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
+                    ? Array.Empty<string>()
+                    : new[] { model.GetConceptName() })
         {
+            FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
+        }
+
+        public static void Configure(CSharpTemplateBase<QueryModel> template)
+        {
+            template.ConfigureForValidation(
+                dtoModel: new DTOModel(template.Model.InternalElement),
+                toValidateTemplateId: QueryModelsTemplate.TemplateId,
+                modelParameterName: "command",
+                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: template.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                repositoryInjectionEnabled: true);
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile();
         }
     }
 }

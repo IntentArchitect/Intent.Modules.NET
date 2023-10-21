@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -26,10 +24,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class UpdateImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly CSharpTemplateBase<CommandModel> _template;
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public UpdateImplementationStrategy(CommandHandlerTemplate template)
+        public UpdateImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
             _template = template;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
@@ -44,11 +42,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
+            
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField());
@@ -227,7 +226,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 codeLines.Add($"{property} = {updateMethodName}({dtoVarName}.{field.Name.ToPascalCase()});");
                             }
-                            _template.AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
+                            ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(updateMethodName, (IElement)attribute.TypeReference.Element, field);
                         }
                         else
                         {
@@ -254,7 +253,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 {
                                     codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {factoryMethodName}(x)).ToList());");
                                 }
-                                _template.AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
+                                ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(factoryMethodName, targetValueObject, field);
                                 break;
                             }
 
@@ -296,7 +295,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var domainTypeName = _template.GetTypeName(domainElement);
             var fieldIsNullable = field.TypeReference.IsNullable;
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var existingMethod = @class.FindMethod(x => x.Name == updateMethodName &&
                                                         x.ReturnType == domainTypeName &&
                                                         x.Parameters.FirstOrDefault()?.Type == domainTypeName &&

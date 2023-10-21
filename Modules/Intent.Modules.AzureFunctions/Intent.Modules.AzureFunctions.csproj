@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>4.0.11-pre.0</PackageVersion>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageVersion>4.0.11</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>

@@ -1,4 +1,6 @@
+using System;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -8,11 +10,14 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class DerivedTypeDocument : BaseTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
+    internal class DerivedTypeDocument : BaseTypeDocument, IDerivedTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
     {
+        public string DerivedTypeAggregateId { get; set; } = default!;
         public DerivedType ToEntity(DerivedType? entity = default)
         {
             entity ??= new DerivedType();
+
+            entity.DerivedTypeAggregateId = DerivedTypeAggregateId ?? throw new Exception($"{nameof(entity.DerivedTypeAggregateId)} is null");
             base.ToEntity(entity);
 
             return entity;
@@ -20,6 +25,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 
         public DerivedTypeDocument PopulateFromEntity(DerivedType entity)
         {
+            DerivedTypeAggregateId = entity.DerivedTypeAggregateId;
             base.PopulateFromEntity(entity);
 
             return this;

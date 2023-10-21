@@ -44,9 +44,9 @@ public static class ImplementationStrategyTemplatesExtensions
         return dtoTemplate.ClassName;
     }
 
-    public static void AddValueObjectFactoryMethod(this CommandHandlerTemplate template, string mappingMethodName, IElement domain, DTOFieldModel field)
+    public static void AddValueObjectFactoryMethod(this ICSharpFileBuilderTemplate template, string mappingMethodName, IElement domain, DTOFieldModel field)
     {
-        var @class = template.CSharpFile.Classes.First();
+        var @class = template.CSharpFile.Classes.First(x => x.HasMetadata("handler"));
         var targetDto = field.TypeReference.Element.AsDTOModel();
         if (!template.MethodExists(mappingMethodName, @class, targetDto))
         {
@@ -70,7 +70,7 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
-    public static bool MethodExists(this CommandHandlerTemplate template, string mappingMethodName, CSharpClass @class, DTOModel targetDto)
+    public static bool MethodExists(this ICSharpFileBuilderTemplate template, string mappingMethodName, CSharpClass @class, DTOModel targetDto)
     {
         return @class.FindMethod((method) =>
                                     method.Name == mappingMethodName
@@ -84,6 +84,7 @@ public static class ImplementationStrategyTemplatesExtensions
     }
 
 
+    // This is duplicated in Intent.Modules.Application.Shared
     public static ClassModel GetNestedCompositionalOwner(this ClassModel entity)
     {
         var aggregateRootClass = entity.AssociatedClasses
@@ -200,12 +201,13 @@ public static class ImplementationStrategyTemplatesExtensions
     // This is duplicated in Intent.Modules.Application.Shared
     public static IList<EntityNestedCompositionalIdAttribute> GetNestedCompositionalOwnerIdAttributes(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
-        while (entity != null)
+        var curEntity = entity;
+        while (curEntity is not null)
         {
-            var foreignKeys = entity.Attributes.Where(x => x.IsForeignKey()).ToArray();
+            var foreignKeys = curEntity.Attributes.Where(x => x.IsForeignKey()).ToArray();
             if (!foreignKeys.Any())
             {
-                entity = entity.ParentClass;
+                curEntity = curEntity.ParentClass;
                 continue;
             }
 
@@ -231,6 +233,19 @@ public static class ImplementationStrategyTemplatesExtensions
                 .ToList();
         }
 
+        // Nested Entity without Aggregate FK
+        var aggregateOwner = entity.GetNestedCompositionalOwner();
+        if (aggregateOwner is not null)
+        {
+            var pks = aggregateOwner.Attributes.Where(attr => attr.IsPrimaryKey()).ToArray();
+            if (pks.Any())
+            {
+                return pks
+                    .Select(attr => new EntityNestedCompositionalIdAttribute($"{owner.Name.ToPascalCase()}{attr.Name.ToPascalCase()}", GetKeyTypeName(attr.Type), attr))
+                    .ToList();
+            }
+        }
+        
         // Implicit Key:
         return new List<EntityNestedCompositionalIdAttribute>
         {

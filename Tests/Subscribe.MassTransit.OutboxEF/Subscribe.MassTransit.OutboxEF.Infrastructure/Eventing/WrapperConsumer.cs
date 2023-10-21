@@ -17,10 +17,12 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Eventing
         where THandler : IIntegrationEventHandler<TMessage>
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public WrapperConsumer(IServiceProvider serviceProvider)
+        public WrapperConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
         {
             _serviceProvider = serviceProvider;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)
@@ -30,6 +32,7 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Eventing
             var handler = _serviceProvider.GetService<THandler>()!;
             await handler.HandleAsync(context.Message, context.CancellationToken);
             await eventBus.FlushAllAsync(context.CancellationToken);
+            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
         }
     }
 

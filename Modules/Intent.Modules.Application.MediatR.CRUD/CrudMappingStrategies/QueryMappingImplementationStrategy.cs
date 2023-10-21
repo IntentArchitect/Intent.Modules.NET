@@ -12,6 +12,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
@@ -20,17 +21,19 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
     public class QueryMappingImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly QueryHandlerTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
+        private readonly QueryModel _model;
 
 
-        public QueryMappingImplementationStrategy(QueryHandlerTemplate template)
+        public QueryMappingImplementationStrategy(CSharpTemplateBase<QueryModel> template)
         {
-            _template = template;
+            _template = (ICSharpFileBuilderTemplate)template;
+            _model = template.Model;
         }
 
         public bool IsMatch()
         {
-            return _template.Model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null);
+            return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null);
         }
 
         public void ApplyStrategy()
@@ -42,13 +45,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
-            csharpMapping.SetFromReplacement(_template.Model, "request");
+            csharpMapping.SetFromReplacement(_model, "request");
             _template.CSharpFile.AddMetadata("mapping-manager", csharpMapping);
 
 
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
             var handleMethod = @class.FindMethod("Handle");
@@ -57,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
 
-            foreach (var queryAction in _template.Model.QueryEntityActions())
+            foreach (var queryAction in _model.QueryEntityActions())
             {
                 var foundEntity = queryAction.Element.AsClassModel();
                 if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
@@ -66,9 +68,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 }
             }
 
-            if (_template.Model.TypeReference.Element != null && domainInteractionManager.TrackedEntities.Any())
+            if (_model.TypeReference.Element != null && domainInteractionManager.TrackedEntities.Any())
             {
-                handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(_template.Model.TypeReference));
+                handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(_model.TypeReference));
             }
         }
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="317e521d-b33a-4782-85f5-d8ae42342c74">
+  <sourceEnd id="6435997e-a5a7-40fb-821a-679a42c52d4c" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <name>Constructor</name>
+    <display>published by : Customer.Constructor</display>
+    <order>0</order>
+    <typeReference id="c598ecb2-24fe-4291-baf4-bd0387d53a4a">
+      <typeId>936b2938-70d5-492c-b5ac-2f986c766169</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.OnlyModeledDomainEvents.Domain</typePackageName>
+      <typePackageId>94c23035-695e-4e5a-a8d0-979cc1e8d2e1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="317e521d-b33a-4782-85f5-d8ae42342c74" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <name>CustomerCreated</name>
+    <display>publishes : CustomerCreated</display>
+    <order>0</order>
+    <typeReference id="b44c540e-b27c-4e34-bd39-3620dfc59377">
+      <typeId>26ca65e9-89c6-43f7-875b-3c17c00ccc64</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.OnlyModeledDomainEvents.Domain</typePackageName>
+      <typePackageId>94c23035-695e-4e5a-a8d0-979cc1e8d2e1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

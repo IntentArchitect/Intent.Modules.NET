@@ -151,7 +151,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAg
                 dto.Should().NotBeNull();
                 dto.Id.Should().Be(entity.Id);
                 dto.Attribute.Should().Be(entity.Attribute);
-                AssertEquivalent(dto.ImplicitKeyNestedCompositions, entity.ImplicitKeyNestedCompositions);
             }
         }
 
@@ -166,7 +165,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.ImplicitKeyAg
             actualDto.Should().NotBeNull();
             actualDto.Id.Should().Be(expectedEntity.Id);
             actualDto.Attribute.Should().Be(expectedEntity.Attribute);
-            AssertEquivalent(actualDto.ImplicitKeyNestedCompositions, expectedEntity.ImplicitKeyNestedCompositions);
         }
 
         public static void AssertEquivalent(UpdateImplicitKeyAggrRootCommand expectedDto, ImplicitKeyAggrRoot actualEntity)

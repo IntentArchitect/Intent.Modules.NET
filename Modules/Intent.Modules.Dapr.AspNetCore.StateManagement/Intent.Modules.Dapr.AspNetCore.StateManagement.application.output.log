@@ -162,22 +162,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ce32eaec-6325-4912-989e-82fc86856b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprStateStoreUnitOfWorkBehaviour/DaprStateStoreUnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6b65fe76-a695-4d29-8710-57ce8b54ef28</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f6438026-b7b6-45a2-8011-7fae5b5a64cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DaprStateStoreUnitOfWorkInterface/DaprStateStoreUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

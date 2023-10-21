@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
@@ -18,10 +19,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
 public class GetAllPaginationImplementationStrategy : ICrudImplementationStrategy
 {
-    private readonly QueryHandlerTemplate _template;
+    private readonly CSharpTemplateBase<QueryModel> _template;
     private readonly Lazy<StrategyData> _matchingElementDetails;
 
-    public GetAllPaginationImplementationStrategy(QueryHandlerTemplate template)
+    public GetAllPaginationImplementationStrategy(CSharpTemplateBase<QueryModel> template)
     {
         _template = template;
         _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
@@ -36,7 +37,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
 
     public void ApplyStrategy()
     {
-        var @class = _template.CSharpFile.Classes.First();
+        var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
         var ctor = @class.Constructors.First();
         var repository = _matchingElementDetails.Value.Repository;
         ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField())
@@ -105,6 +106,8 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
             case "pagenum":
             case "pagenumber":
                 return true;
+            default:
+                break;
         }
 
         return false;
@@ -138,6 +141,8 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
             case "size":
             case "pagesize":
                 return true;
+            default:
+                break;
         }
 
         return false;

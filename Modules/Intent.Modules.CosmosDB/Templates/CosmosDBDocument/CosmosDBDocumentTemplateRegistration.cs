@@ -26,6 +26,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 
         public override string TemplateId => CosmosDBDocumentTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new CosmosDBDocumentTemplate(outputTarget, model);

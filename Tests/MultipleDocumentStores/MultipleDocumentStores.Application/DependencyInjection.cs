@@ -24,10 +24,8 @@ namespace MultipleDocumentStores.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(MongoDbUnitOfWorkBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(CosmosDBUnitOfWorkBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(DaprStateStoreUnitOfWorkBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();

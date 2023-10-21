@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Improvement: No longer refers to the latest pre-release of the `Intent.SoftwareFactory.CLI` tool.
+
 ### Version 1.0.0
 
-Initial release, see the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md) for more information on using this module.
+- New Feature: Initial release, see the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md) for more information on using this module.

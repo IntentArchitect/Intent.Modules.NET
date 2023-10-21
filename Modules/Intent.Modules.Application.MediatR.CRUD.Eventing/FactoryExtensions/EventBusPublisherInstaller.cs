@@ -51,8 +51,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                         return null;
                     }
 
-                    var @class = template.CSharpFile.Classes.First();
-                    if (!@class.TryGetMetadata("model", out var model) || model == null)
+                    var @class = template.CSharpFile.Classes.FirstOrDefault(x => x.HasMetadata("handler"));
+                    if (@class == null || !@class.TryGetMetadata("model", out var model) || model == null)
                     {
                         return null;
                     }
@@ -107,7 +107,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
             IApplication application)
         {
             var messageTemplate = template.GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, message);
-            var @class = template.CSharpFile.Classes.First();
+            var @class = template.CSharpFile.Classes.First(x => x.HasMetadata("handler"));
 
             switch (convention)
             {

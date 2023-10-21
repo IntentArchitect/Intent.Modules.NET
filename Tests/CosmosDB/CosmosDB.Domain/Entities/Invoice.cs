@@ -4,19 +4,12 @@ using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "1.0")]
-
 namespace CosmosDB.Domain.Entities
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice : IHasDomainEvent, IAuditable
     {
         private string? _id;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Invoice(string clientIdentifier, DateTime date, string number)
         {
             ClientIdentifier = clientIdentifier;
@@ -27,7 +20,6 @@ namespace CosmosDB.Domain.Entities
         /// <summary>
         /// Required for derived Cosmos DB documents.
         /// </summary>
-        [IntentManaged(Mode.Fully)]
         protected Invoice()
         {
             Id = null!;
@@ -61,7 +53,6 @@ namespace CosmosDB.Domain.Entities
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
-        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Update(DateTime date, string number, string clientIdentifier)
         {
             Date = date;

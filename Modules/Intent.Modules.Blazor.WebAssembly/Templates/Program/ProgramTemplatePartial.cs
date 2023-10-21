@@ -23,7 +23,7 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
     {
         private readonly IList<ContainerRegistrationRequest> _containerRegistrationRequests = new List<ContainerRegistrationRequest>();
         private readonly IList<ServiceConfigurationRequest> _serviceConfigurationRequests = new List<ServiceConfigurationRequest>();
-        
+
         public const string TemplateId = "Intent.Blazor.WebAssembly.ProgramTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -46,7 +46,7 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
                         method.AddStatement("builder.RootComponents.Add<HeadOutlet>(\"head::after\");");
                         method.AddStatement("await LoadAppSettings(builder);");
                         method.AddStatement("builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });");
-                        method.AddStatement("await builder.Build().RunAsync();", stmt => stmt.AddMetadata("run-builder", "true") );
+                        method.AddStatement("await builder.Build().RunAsync();", stmt => stmt.AddMetadata("run-builder", "true"));
                     });
 
                     @class.AddMethod("Task", "LoadAppSettings", method =>
@@ -76,150 +76,150 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
                         runStatement.InsertAbove(ServiceConfigurationRegistration(registration));
                     }
                 }, 1000);
-            
+
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
         }
-        
+
         private void HandleEvent(ContainerRegistrationRequest @event)
-    {
-        if (@event.Concern != "BlazorClient")
         {
-            return;
-        }
-
-        @event.MarkAsHandled();
-        _containerRegistrationRequests.Add(@event);
-
-        foreach (var templateDependency in @event.TemplateDependencies)
-        {
-            var template = GetTemplate<IClassProvider>(templateDependency);
-            if (template != null)
+            if (@event.Concern != "BlazorClient")
             {
-                AddUsing(template.Namespace);
+                return;
             }
 
-            AddTemplateDependency(templateDependency);
-        }
+            @event.MarkAsHandled();
+            _containerRegistrationRequests.Add(@event);
 
-        foreach (var ns in @event.RequiredNamespaces)
-        {
-            AddUsing(ns);
-        }
-    }
-
-    private void HandleEvent(ServiceConfigurationRequest @event)
-    {
-        if (@event.Concern != "BlazorClient")
-        {
-            return;
-        }
-
-        @event.MarkAsHandled();
-        _serviceConfigurationRequests.Add(@event);
-
-        foreach (var templateDependency in @event.TemplateDependencies)
-        {
-            var template = GetTemplate<IClassProvider>(templateDependency);
-            if (template != null)
+            foreach (var templateDependency in @event.TemplateDependencies)
             {
-                AddUsing(template.Namespace);
-            }
-
-            AddTemplateDependency(templateDependency);
-        }
-
-        foreach (var ns in @event.RequiredNamespaces)
-        {
-            AddUsing(ns);
-        }
-    }
-
-    private string DefineServiceRegistration(ContainerRegistrationRequest request)
-    {
-        string UseTypeOf(string type)
-        {
-            var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
-            return $"typeof({UseType(typeName)})";
-        }
-
-        var registrationType = request.Lifetime switch
-        {
-            ContainerRegistrationRequest.LifeTime.Singleton => "AddSingleton",
-            ContainerRegistrationRequest.LifeTime.PerServiceCall => "AddScoped",
-            ContainerRegistrationRequest.LifeTime.Transient => "AddTransient",
-            _ => "AddTransient"
-        };
-
-        var usesTypeOfFormat = request.ConcreteType.StartsWith("typeof(");
-        var hasInterface = request.InterfaceType != null;
-        var useProvider = request.ResolveFromContainer;
-
-        var concreteType = usesTypeOfFormat
-            ? UseTypeOf(request.ConcreteType)
-            : UseType(request.ConcreteType);
-
-        var interfaceType = hasInterface
-            ? usesTypeOfFormat
-                ? UseTypeOf(request.InterfaceType)
-                : UseType(request.InterfaceType)
-            : null;
-
-        // ReSharper disable ConditionIsAlwaysTrueOrFalse
-
-        // This is a 3 way truth table to string mapping:
-        return useProvider switch
-        {
-            false when !hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{concreteType}>();",
-            false when !hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({concreteType});",
-            false when hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{interfaceType}, {concreteType}>();",
-            false when hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({interfaceType}, {concreteType});",
-            true when !hasInterface && !usesTypeOfFormat => throw new InvalidOperationException(
-                $"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
-            true when !hasInterface && usesTypeOfFormat => throw new InvalidOperationException(
-                $"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
-            // These configurations can cause an infinite loop.
-            // true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetRequiredService<{concreteType}>());",
-            // true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetRequiredService({concreteType}));",
-            true when hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{interfaceType}>(provider => provider.GetRequiredService<{concreteType}>());",
-            true when hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({interfaceType}, provider => provider.GetRequiredService({concreteType}));",
-            _ => throw new InvalidOperationException()
-        };
-        // ReSharper restore ConditionIsAlwaysTrueOrFalse
-    }
-
-    private string ServiceConfigurationRegistration(ServiceConfigurationRequest registration)
-    {
-        string GetExtensionMethodParameterList()
-        {
-            if (registration.ExtensionMethodParameterList?.Any() != true)
-            {
-                return string.Empty;
-            }
-
-            var paramList = new List<string>();
-
-            foreach (var param in registration.ExtensionMethodParameterList)
-            {
-                switch (param)
+                var template = GetTemplate<IClassProvider>(templateDependency);
+                if (template != null)
                 {
-                    // Do we want to have Configuration as part of the Application registration?
-                    // case ServiceConfigurationRequest.ParameterType.Configuration:
-                    //     paramList.Add("configuration");
-                    //     break;
-                    default:
-                        throw new ArgumentOutOfRangeException(
-                            paramName: nameof(registration.ExtensionMethodParameterList),
-                            actualValue: param,
-                            message: "Type specified in parameter list is not known or supported");
+                    AddUsing(template.Namespace);
                 }
+
+                AddTemplateDependency(templateDependency);
             }
 
-            return string.Join(", ", paramList);
+            foreach (var ns in @event.RequiredNamespaces)
+            {
+                AddUsing(ns);
+            }
         }
 
-        return $"builder.Services.{registration.ExtensionMethodName}({GetExtensionMethodParameterList()});";
-    }
+        private void HandleEvent(ServiceConfigurationRequest @event)
+        {
+            if (@event.Concern != "BlazorClient")
+            {
+                return;
+            }
+
+            @event.MarkAsHandled();
+            _serviceConfigurationRequests.Add(@event);
+
+            foreach (var templateDependency in @event.TemplateDependencies)
+            {
+                var template = GetTemplate<IClassProvider>(templateDependency);
+                if (template != null)
+                {
+                    AddUsing(template.Namespace);
+                }
+
+                AddTemplateDependency(templateDependency);
+            }
+
+            foreach (var ns in @event.RequiredNamespaces)
+            {
+                AddUsing(ns);
+            }
+        }
+
+        private string DefineServiceRegistration(ContainerRegistrationRequest request)
+        {
+            string UseTypeOf(string type)
+            {
+                var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
+                return $"typeof({UseType(typeName)})";
+            }
+
+            var registrationType = request.Lifetime switch
+            {
+                ContainerRegistrationRequest.LifeTime.Singleton => "AddSingleton",
+                ContainerRegistrationRequest.LifeTime.PerServiceCall => "AddScoped",
+                ContainerRegistrationRequest.LifeTime.Transient => "AddTransient",
+                _ => "AddTransient"
+            };
+
+            var usesTypeOfFormat = request.ConcreteType.StartsWith("typeof(");
+            var hasInterface = request.InterfaceType != null;
+            var useProvider = request.ResolveFromContainer;
+
+            var concreteType = usesTypeOfFormat
+                ? UseTypeOf(request.ConcreteType)
+                : UseType(request.ConcreteType);
+
+            var interfaceType = hasInterface
+                ? usesTypeOfFormat
+                    ? UseTypeOf(request.InterfaceType)
+                    : UseType(request.InterfaceType)
+                : null;
+
+            // ReSharper disable ConditionIsAlwaysTrueOrFalse
+
+            // This is a 3 way truth table to string mapping:
+            return useProvider switch
+            {
+                false when !hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{concreteType}>();",
+                false when !hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({concreteType});",
+                false when hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{interfaceType}, {concreteType}>();",
+                false when hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({interfaceType}, {concreteType});",
+                true when !hasInterface && !usesTypeOfFormat => throw new InvalidOperationException(
+                    $"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                true when !hasInterface && usesTypeOfFormat => throw new InvalidOperationException(
+                    $"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                // These configurations can cause an infinite loop.
+                // true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetRequiredService<{concreteType}>());",
+                // true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetRequiredService({concreteType}));",
+                true when hasInterface && !usesTypeOfFormat => $"builder.Services.{registrationType}<{interfaceType}>(provider => provider.GetRequiredService<{concreteType}>());",
+                true when hasInterface && usesTypeOfFormat => $"builder.Services.{registrationType}({interfaceType}, provider => provider.GetRequiredService({concreteType}));",
+                _ => throw new InvalidOperationException()
+            };
+            // ReSharper restore ConditionIsAlwaysTrueOrFalse
+        }
+
+        private string ServiceConfigurationRegistration(ServiceConfigurationRequest registration)
+        {
+            string GetExtensionMethodParameterList()
+            {
+                if (registration.ExtensionMethodParameterList?.Any() != true)
+                {
+                    return string.Empty;
+                }
+
+                var paramList = new List<string>();
+
+                foreach (var param in registration.ExtensionMethodParameterList)
+                {
+                    switch (param)
+                    {
+                        // Do we want to have Configuration as part of the Application registration?
+                        // case ServiceConfigurationRequest.ParameterType.Configuration:
+                        //     paramList.Add("configuration");
+                        //     break;
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                paramName: nameof(registration.ExtensionMethodParameterList),
+                                actualValue: param,
+                                message: "Type specified in parameter list is not known or supported");
+                    }
+                }
+
+                return string.Join(", ", paramList);
+            }
+
+            return $"builder.Services.{registration.ExtensionMethodName}({GetExtensionMethodParameterList()});";
+        }
 
         public override void BeforeTemplateExecution()
         {

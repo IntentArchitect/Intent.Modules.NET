@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="fd9ecaef-b361-45de-8178-3868fba9e5f3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c40bd15f-e9c1-4324-8853-a5e96d67696d</parentFolderId>
-      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
-      <packageName>SignalR</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="c7d6819d-2ec6-4c80-820c-d2aad8000ba3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>

@@ -1,26 +1,30 @@
+### Version 4.1.6
+
+- Improvement: Added `SignUpSignInPolicyId` configuration option for specifying the PolicyId / User Flow for B2C.
+
 ### Version 4.1.4
 
-- Update: Nuget package version of `Microsoft.AspNetCore.Authentication.JwtBearer` is now bumped to the latest version based on the configured .NET version to eliminate the known security vulnerabilities.
+- Improvement: Nuget package version of `Microsoft.AspNetCore.Authentication.JwtBearer` is now bumped to the latest version based on the configured .NET version to eliminate the known security vulnerabilities.
 
 ### Version 4.1.3
 
-- Update: Internal dependency version update to keep compatibility with other modules.
+- Improvement: Internal dependency version update to keep compatibility with other modules.
 
 ### Version 4.1.2
 
-- Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
+- Improvement: dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.
 
 ### Version 4.1.1
 
-- Updated supported client version to [3.4.0-pre.0, 5.0.0).
+- Improvement: supported client version to [3.4.0-pre.0, 5.0.0).
 
 ### Version 4.1.0
 
-- Update: Incorporated changes based on changes made in `Intent.Application.Identity`.
+- Improvement: Incorporated changes based on changes made in `Intent.Application.Identity`.
 
 ### Version 3.3.1
 
-- Update: Null check added to HttpContext in the event that this gets used outside of an HttpContext scope.
+- Improvement: Null check added to HttpContext in the event that this gets used outside of an HttpContext scope.
 
 ### Version 3.3.0
 

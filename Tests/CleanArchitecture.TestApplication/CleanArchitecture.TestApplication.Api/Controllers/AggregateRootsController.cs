@@ -42,7 +42,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("api/aggregate-roots")]
+        [HttpPost("api/aggregate-roots", Name = "CreateAggregateRoot")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -71,6 +71,11 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.AggregateRootId == default)
+            {
+                command.AggregateRootId = aggregateRootId;
+            }
+
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();
@@ -132,6 +137,10 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateRootCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
             if (id != command.Id)
             {
                 return BadRequest();
@@ -157,6 +166,15 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
             [FromBody] UpdateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.AggregateRootId == default)
+            {
+                command.AggregateRootId = aggregateRootId;
+            }
+
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();

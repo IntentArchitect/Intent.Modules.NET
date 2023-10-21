@@ -62,7 +62,7 @@
   </templates>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.39" />
+    <dependency id="Intent.Common.CSharp" version="3.3.42" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
@@ -73,23 +73,23 @@
     <detect id="Intent.AzureFunctions">
       <install>
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.9" />
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.4" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.5" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.4" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.5" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.DependencyInjection.MediatR">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.4" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.5" />
       </install>
     </detect>
     <detect id="Intent.VisualStudio.Projects">
       <install>
-        <package id="Intent.VisualStudio.Projects" version="3.3.31" />
+        <package id="Intent.VisualStudio.Projects" version="3.3.32" />
       </install>
     </detect>
     <detect id="Intent.Application.DependencyInjection">
@@ -99,32 +99,32 @@
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.1" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.3" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD" version="5.2.5" />
+        <package id="Intent.Application.MediatR.CRUD" version="5.3.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.4.0" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.4.1" />
       </install>
     </detect>
     <detect id="Intent.MediatR.DomainEvents">
       <install>
-        <package id="Intent.MediatR.DomainEvents" version="4.3.0" />
+        <package id="Intent.MediatR.DomainEvents" version="4.3.1" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
-        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-alpha.19" />
+        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-beta.1" />
       </install>
     </detect>
     <detect id="Intent.OutputManager.RoslynWeaver">
       <install>
-        <package id="Intent.OutputManager.RoslynWeaver" version="4.3.0" />
+        <package id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
@@ -136,7 +136,16 @@
   <metadata>
     <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="2392c046-0aa7-4ee5-a77a-e954c4a7aab5" title="CQRS Settings" externalReference="2392c046-0aa7-4ee5-a77a-e954c4a7aab5">
+      <settings>
+        <setting id="02413035-08e9-47b2-8b89-798f38388243" title="Consolidate Command/Query associated files into single file" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Generate Commands and Queries' associated files (e.g. handlers, validators, etc) into the Command/Query file itself.</hint>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
   <factoryExtensions />
 </package>

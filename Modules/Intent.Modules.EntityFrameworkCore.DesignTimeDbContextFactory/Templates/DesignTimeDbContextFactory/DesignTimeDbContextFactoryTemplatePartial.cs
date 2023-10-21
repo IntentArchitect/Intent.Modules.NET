@@ -114,7 +114,8 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                     return;
                 }
 
-                for (var i = 0; i < dbContextCtor.Parameters.Count - returnStatement.Statements.Count; i++)
+                var currentCtorParamCount = returnStatement.Statements.Count;
+                for (var i = 0; i < dbContextCtor.Parameters.Count - currentCtorParamCount; i++)
                 {
                     returnStatement.AddArgument("null!");
                 }

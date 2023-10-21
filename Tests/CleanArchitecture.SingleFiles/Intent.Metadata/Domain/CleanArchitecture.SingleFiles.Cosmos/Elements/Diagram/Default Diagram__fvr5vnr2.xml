@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2e5c95c8-6fc1-4826-8bf1-61e3ca33c2b1" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</parentFolderId>
+  <packageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</packageId>
+  <packageName>CleanArchitecture.SingleFiles.Cosmos</packageName>
+  <diagram>
+    <targetPackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

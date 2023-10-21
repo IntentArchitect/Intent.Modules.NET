@@ -27,16 +27,19 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behav
             _dataSource = dataSource;
         }
 
-        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(
+            TRequest request,
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
-            // The pipeline execution is wrapped in a transaction scope to ensure that if any other
+            // The execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
             // transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-
             // locks are released, while write-locks are maintained for the duration of the
             // transaction). Learn more on this approach for EF Core:
             // https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 var response = await next();
 
@@ -45,9 +48,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behav
                 // helps optimize the application to handle a higher degree of concurrency.
                 await _dataSource.SaveChangesAsync(cancellationToken);
 
-                // Commit transaction if all commands succeed, transaction will auto-rollback when
+                // Commit transaction if everything succeeds, transaction will auto-rollback when
                 // disposed if anything failed.
                 transaction.Complete();
+
                 return response;
             }
         }

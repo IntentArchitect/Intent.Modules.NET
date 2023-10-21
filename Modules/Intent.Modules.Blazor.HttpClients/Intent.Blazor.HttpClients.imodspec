@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients</id>
-  <version>3.0.0</version>
+  <version>3.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</description>
@@ -56,7 +56,15 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.HttpClientJsonResponse</role>
+      <role>Blazor.HttpClient.JsonResponse</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.HttpClients.PagedResult" externalReference="2b0da9ce-a23d-4c7b-8d80-40957e6378cc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.HttpClient.PagedResult</role>
       <location>Common</location>
     </template>
     <template id="Intent.Blazor.HttpClients.ServiceContract" externalReference="25beaf48-777a-4ccd-bd1c-7c64df00b41d">
@@ -74,13 +82,13 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.Application.FluentValidation" version="3.7.3" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.37" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.2.4" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.0.1" />
     <dependency id="Intent.Modelers.WebClient" version="4.0.0" />
-    <dependency id="Intent.Application.FluentValidation" version="3.7.3" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

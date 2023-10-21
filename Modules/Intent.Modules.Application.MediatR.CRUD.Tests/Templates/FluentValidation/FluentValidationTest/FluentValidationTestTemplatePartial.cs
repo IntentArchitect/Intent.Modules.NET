@@ -145,7 +145,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 var domainIdAttr = domainElement.GetEntityPkAttribute(ExecutionContext);
                 var isCommandWithReturnId = Model.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
                                             && Model.TypeReference.Element != null;
-                
+
                 priClass.AddMethod($"{this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>",
                     "GetValidationBehaviour", method =>
                     {
@@ -153,7 +153,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                         var mainValidatorInstantiation = new CSharpInvocationStatement($"new {this.GetCommandValidatorName(Model)}")
                             .WithoutSemicolon();
-                        
+
                         if (MainValidatorHasValidatorProviderRequirement())
                         {
                             var dtoValidators = GetValidators(Model.Properties);
@@ -174,10 +174,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                             mainValidatorInstantiation.AddArgument("validatorProvider");
                         }
 
-                        if (TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var validatorTemplate))
+                        if (this.TryGetCommandValidatorTemplate(Model, out var validatorTemplate))
                         {
                             var validatorCtorParams = validatorTemplate.CSharpFile.Classes
-                                .FirstOrDefault()
+                                .FirstOrDefault(x => x.HasMetadata("validator"))
                                 ?.Constructors
                                 .FirstOrDefault()
                                 ?.Parameters
@@ -199,14 +199,21 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
     private bool MainValidatorHasValidatorProviderRequirement()
     {
-        return TryGetTemplate<ICSharpFileBuilderTemplate>(CommandValidatorTemplate.TemplateId, Model, out var template) &&
-               template.CSharpFile.Classes.First().Constructors.First().Parameters.Any(p => p.Type.Contains("IValidatorProvider"));
+        if (!this.TryGetCommandValidatorTemplate(Model, out var template))
+        {
+            return false;
+        }
+
+        var @class = template.CSharpFile.Classes.First(x => x.HasMetadata("validator"));
+        var constructor = @class.Constructors.First();
+
+        return constructor.Parameters.Any(p => p.Type.Contains("IValidatorProvider"));
     }
 
     private IReadOnlyCollection<(string DtoName, string ValidatorName, bool NeedsServiceProvider)> GetValidators(IEnumerable<DTOFieldModel> properties)
     {
         var list = new List<(string DtoName, string ValidatorName, bool NeedsServiceProvider)>();
-        
+
         foreach (var property in properties)
         {
             var dtoModel = property.TypeReference?.Element?.AsDTOModel();
@@ -216,7 +223,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
             {
                 continue;
             }
-            
+
             var more = GetValidators(dtoModel.Fields);
             list.Add((dtoTemplate, dtoValidatorTemplate, more.Any()));
             list.AddRange(more);

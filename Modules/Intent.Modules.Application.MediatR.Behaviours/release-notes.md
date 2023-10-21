@@ -1,3 +1,14 @@
+### Version 4.2.3
+
+- Fixed: The `Intent.CosmosDB` "peer" dependency would prevent installation of any other modules if the `Intent.CosmosDB` module was already installed.
+
+### Version 4.2.2
+
+- Improvement: `UnitOfWorkBehaviour` will now universally save changes for all of the following modules without separate `Behaviour`s being created for each:
+  - `Intent.CosmosDB`
+  - `Intent.Dapr.AspNetCore.StateManagement`
+  - `Intent.MongoDb`
+
 ### Version 4.1.3
 
 - Upgrade *Breaking Changes*: Upgraded to MediatR v12, which has breaking changes from.

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5227d396-85d7-44e1-bee9-5add650eacdf">
+  <sourceEnd id="fbeee882-077f-4b2c-a504-d22d49fd2dd5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DerivedTypes</name>
+    <display>DerivedTypes: DerivedType[*]</display>
+    <order>0</order>
+    <typeReference id="320ba894-53dd-43ea-baf2-bc2150b0a90b">
+      <typeId>563dcec1-bab5-4069-8042-6267fe16522d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5227d396-85d7-44e1-bee9-5add650eacdf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DerivedTypeAggregate</name>
+    <display>DerivedTypeAggregate: DerivedTypeAggregate   [* --&gt; 1]</display>
+    <order>1</order>
+    <typeReference id="06a2a06f-b3c7-4155-ac62-4e777887ca96">
+      <typeId>ae449d5d-e9c7-45f2-8118-00c9e26dd18a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

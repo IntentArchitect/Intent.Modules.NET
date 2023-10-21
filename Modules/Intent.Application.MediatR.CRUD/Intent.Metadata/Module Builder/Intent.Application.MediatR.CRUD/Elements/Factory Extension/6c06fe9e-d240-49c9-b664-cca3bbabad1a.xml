@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6c06fe9e-d240-49c9-b664-cca3bbabad1a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>IntegrationFactoryExtension</name>
-  <display>IntegrationFactoryExtension</display>
+  <name>MongoDbRepositoryUpdateExtension</name>
+  <display>MongoDbRepositoryUpdateExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

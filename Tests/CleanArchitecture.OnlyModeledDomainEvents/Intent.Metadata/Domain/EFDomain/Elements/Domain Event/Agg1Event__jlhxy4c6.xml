@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f2cc25f0-a1cd-478b-8a1b-5ba1591def25" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>Agg1Event</name>
+  <display>Agg1Event</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</parentFolderId>
+  <packageId>a4856319-a5c0-4c71-8d55-9f7d6e168d77</packageId>
+  <packageName>EFDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

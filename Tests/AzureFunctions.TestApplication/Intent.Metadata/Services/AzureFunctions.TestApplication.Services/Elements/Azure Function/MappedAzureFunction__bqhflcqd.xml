@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="fc3b319b-351b-471f-ac44-e86381258b89" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
+  <comment />
   <name>MappedAzureFunction</name>
   <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
   <isAbstract>false</isAbstract>
@@ -56,6 +57,14 @@
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
         <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="newazurefunction" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b6197544-7e0e-4900-a6e2-9747fb7e4ac4" name="OpenAPI Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" value="CustomOnAzureFunction" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

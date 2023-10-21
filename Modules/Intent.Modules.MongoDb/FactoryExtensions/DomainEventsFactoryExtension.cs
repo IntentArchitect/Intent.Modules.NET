@@ -80,7 +80,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 @class.AddMethod("Task", "DispatchEvents", method =>
                 {
                     method.Async().AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
-                    
+
                     string hasDomainEventsInterface = template.GetTypeName(HasDomainEventInterfaceTemplateId);
                     method.Private().Async();
                     method.AddWhileStatement("true", @while => @while

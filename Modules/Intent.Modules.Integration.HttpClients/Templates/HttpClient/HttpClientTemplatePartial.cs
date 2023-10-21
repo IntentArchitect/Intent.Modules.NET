@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.PagedResult;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -31,7 +32,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
             serviceContractTemplateId: ServiceContractTemplate.TemplateId,
             dtoContractTemplateId: DtoContractTemplate.TemplateId,
-            enumContractTemplateId: EnumContractTemplate.TemplateId)
+            enumContractTemplateId: EnumContractTemplate.TemplateId,
+            pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
         }
     }

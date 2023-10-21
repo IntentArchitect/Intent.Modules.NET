@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="72f7a3df-3654-4660-81f3-7864a59b5ccd">
+  <sourceEnd id="6813e4d4-9c5e-4f94-9732-13a74c0a068a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>EfInvoices</name>
+    <display>EfInvoices: EfInvoice</display>
+    <order>0</order>
+    <typeReference id="0e618bc1-31ff-409f-9715-61b5e649b071">
+      <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="72f7a3df-3654-4660-81f3-7864a59b5ccd" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>EfLines</name>
+    <display>EfLines: EfLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="aacb1177-a27e-4497-9e3a-eefbabc19d92">
+      <typeId>b498eca6-fb81-4a0a-abd5-29e816201fe7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3eabc9a8-3d05-44cd-a3f7-b4bd535ab367">
+  <sourceEnd id="13e74545-8cc4-4db5-a063-9ce2db8803b8" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>CombinedAllTechs</name>
+    <display>publisher: CombinedAllTechs</display>
+    <order>0</order>
+    <typeReference id="3d5ac6a4-6581-44b5-9614-35706ed4c9d7">
+      <typeId>c995fe1a-07b6-4f8c-90ea-96610ac2bb49</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Eventing</typePackageName>
+      <typePackageId>f7975c06-f0bb-4941-ae2a-da74412e4408</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3eabc9a8-3d05-44cd-a3f7-b4bd535ab367" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>CosmosInvoiceUpdated</name>
+    <display>publish: CosmosInvoiceUpdated</display>
+    <order>0</order>
+    <typeReference id="83b4f350-1a60-4f3b-b657-af7c9d63da27">
+      <typeId>a835180b-d003-4096-8f3b-21c88fba18fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Messages</typePackageName>
+      <typePackageId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

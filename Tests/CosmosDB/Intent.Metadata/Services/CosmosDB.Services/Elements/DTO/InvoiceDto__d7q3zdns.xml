@@ -248,7 +248,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="809cddd7-d014-49ba-a2a3-907ce892c4fe" name="LineItems" type="association" specialization="Association" />
+          <target id="809cddd7-d014-49ba-a2a3-907ce892c4fe" name="LineItems" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -299,7 +299,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6e800cb-63b7-4878-9c10-ac4be8765257" name="Client" type="association" specialization="Association" />
+          <target id="d6e800cb-63b7-4878-9c10-ac4be8765257" name="Client" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>

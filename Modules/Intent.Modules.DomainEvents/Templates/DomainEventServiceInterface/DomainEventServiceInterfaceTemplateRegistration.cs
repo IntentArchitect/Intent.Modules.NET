@@ -18,9 +18,10 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface
     {
         public override string TemplateId => DomainEventServiceInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new DomainEventServiceInterfaceTemplate(outputTarget, null);
+            return new DomainEventServiceInterfaceTemplate(outputTarget);
         }
     }
 }

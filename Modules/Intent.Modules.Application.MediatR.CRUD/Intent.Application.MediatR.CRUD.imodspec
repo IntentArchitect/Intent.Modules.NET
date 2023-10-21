@@ -15,17 +15,17 @@
     <decorator id="Intent.Application.MediatR.CRUD.QueryHandlerCrudDecorator" externalReference="c09b329c-dd0a-4d7f-858c-a012ae180b32" />
   </decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Application.MediatR.CRUD.IntegrationFactoryExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
+    <factoryExtension id="Intent.Application.MediatR.CRUD.MongoDbRepositoryUpdateExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.1.0" />
+    <dependency id="Intent.Application.MediatR" version="4.1.4" />
     <dependency id="Intent.Common" version="3.5.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.1.2" />
     <dependency id="Intent.Metadata.WebApi" version="4.2.4" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.4.5" />
+    <dependency id="Intent.Modelers.Services" version="3.4.8" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.0.2" />
     <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
@@ -36,7 +36,7 @@
         <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.8" />
       </install>
     </detect>&gt;
-    <detect id="Intent.Application.MediatR.CRUD.Tests"><install><package id="Intent.Application.MediatR.CRUD.Tests" version="1.3.1" /></install></detect></interoperability>
+    <detect id="Intent.Application.MediatR.CRUD.Tests"><install><package id="Intent.Application.MediatR.CRUD.Tests" version="1.3.2" /></install></detect></interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

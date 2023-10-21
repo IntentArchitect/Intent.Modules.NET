@@ -1,3 +1,11 @@
+### Version 5.4.2
+
+- Improvement: Now respects _OpenAPI Settings_ stereotype's _OperationId_ property for customizing the `operationId` for an endpoint, requires at least version `4.3.1` of the `Intent.Metadata.WebApi` module.
+
+### Version 5.4.1
+
+- Improvement: Internal model update for better identifying Controller Templates during Software Factory Execution.
+
 ### Version 5.4.0
 
 - Improvement: The heuristic for whether or not to annotate that particular controller methods can return a 404 response has been improved.

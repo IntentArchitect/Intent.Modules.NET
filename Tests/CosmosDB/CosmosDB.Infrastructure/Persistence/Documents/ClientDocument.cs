@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CosmosDB.Domain;
 using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class ClientDocument : ICosmosDBDocument<Client, ClientDocument>
+    internal class ClientDocument : IClientDocument, ICosmosDBDocument<Client, ClientDocument>
     {
         private string? _type;
         [JsonProperty("id")]
@@ -36,9 +37,9 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new Client();
 
-            entity.Identifier = Identifier;
+            entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
             entity.Type = Type;
-            entity.Name = Name;
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

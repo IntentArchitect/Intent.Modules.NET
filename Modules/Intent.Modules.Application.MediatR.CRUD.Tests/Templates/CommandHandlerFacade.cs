@@ -6,13 +6,11 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
-using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -42,12 +40,13 @@ internal class CommandHandlerFacade
         CommandIdFields = model.Properties.GetEntityIdFields(TargetDomainModel, activeTemplate.ExecutionContext);
         TargetDomainIdAttributes = TargetDomainModel.GetEntityPkAttributes(activeTemplate.ExecutionContext).ToList();
         SingularTargetDomainName = TargetDomainModel.Name.ToPascalCase();
+        PluralTargetDomainName = TargetDomainModel.Name.Pluralize().ToPascalCase();
         SingularCommandName = model.Name.ToPascalCase();
     }
 
-    private CommandHandlerTemplate _commandHandlerTemplate;
+    private CSharpTemplateBase<CommandModel> _commandHandlerTemplate;
 
-    public CommandHandlerTemplate CommandHandlerTemplate
+    public CSharpTemplateBase<CommandModel> CommandHandlerTemplate
     {
         get
         {
@@ -56,20 +55,38 @@ internal class CommandHandlerFacade
                 return _commandHandlerTemplate;
             }
 
-            if (!_activeTemplate.TryGetTemplate<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, _model, out var foundCommandHandlerTemplate))
-            {
-                throw new Exception($"Could not find {nameof(CommandHandlerTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
-            }
-
-            _commandHandlerTemplate = foundCommandHandlerTemplate;
+            _commandHandlerTemplate = _activeTemplate.GetCommandHandlerTemplate(_model, trackDependency: true)
+                                      ?? throw new Exception($"Could not find {nameof(CommandHandlerTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
 
             return _commandHandlerTemplate;
+        }
+    }
+
+    private CommandModelsTemplate _commandModelsTemplate;
+    public CommandModelsTemplate CommandModelsTemplate
+    {
+        get
+        {
+            if (_commandModelsTemplate is not null)
+            {
+                return _commandModelsTemplate;
+            }
+
+            if (!_activeTemplate.TryGetTemplate<CommandModelsTemplate>(CommandModelsTemplate.TemplateId, _model, out var foundCommandModelsTemplate))
+            {
+                throw new Exception($"Could not find {nameof(CommandModelsTemplate)} for CommandModel Id = {_model.Id} / Name = {_model.Name}");
+            }
+
+            _commandModelsTemplate = foundCommandModelsTemplate;
+
+            return _commandModelsTemplate;
         }
     }
 
     public ClassModel TargetDomainModel { get; }
     public string SingularCommandName { get; }
     public string SingularTargetDomainName { get; }
+    public string PluralTargetDomainName { get; }
     public IReadOnlyList<DTOFieldModel> CommandIdFields { get; }
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityIdAttribute> TargetDomainIdAttributes { get; }
 
@@ -204,16 +221,20 @@ internal class CommandHandlerFacade
             var variableName = commandTargetDomain switch { CommandTargetDomain.Aggregate => "existingEntity", CommandTargetDomain.NestedEntity => "existingOwnerEntity" };
 
             statements.Add($"var {variableName} = fixture.Create<{targetDomainClassType}>();");
-
+            
             if (commandTargetDomain is not CommandTargetDomain.NestedEntity)
             {
                 return;
             }
-
+            
             statements.Add($"var existingEntity = existingOwnerEntity.{OwnerToCompositeNavigationPropertyName}.First();");
             for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
             {
                 var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
+                if (ownerIdAttribute.Attribute is not null)
+                {
+                    continue;
+                }
                 var nestedIdAttribute = TargetDomainIdAttributes[index];
                 statements.Add($"existingEntity.{ownerIdAttribute.IdName.ToCSharpIdentifier()} = existingOwnerEntity.{nestedIdAttribute.IdName.ToCSharpIdentifier()};");
             }
@@ -239,7 +260,8 @@ internal class CommandHandlerFacade
                         {
                             var commandIdField = CommandIdFields[i];
                             var domainIdAttribute = TargetDomainIdAttributes[i];
-                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            fluent.AddChainStatement(
+                                $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, existingEntity.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                         }
                     }
 
@@ -256,7 +278,7 @@ internal class CommandHandlerFacade
                         var idField = CommandFieldsForOwnerId[index];
                         fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, existingOwnerEntity.{idAttribute.IdName.ToCSharpIdentifier()})");
                     }
-
+                    
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
                         var commandIdField = CommandIdFields[i];
@@ -331,7 +353,8 @@ internal class CommandHandlerFacade
                         {
                             var commandIdField = CommandIdFields[i];
                             var domainIdAttribute = TargetDomainIdAttributes[i];
-                            fluent.AddChainStatement($"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
+                            fluent.AddChainStatement(
+                                $"With(x => x.{commandIdField.Name.ToCSharpIdentifier()}, {entityVarName}.{domainIdAttribute.IdName.ToCSharpIdentifier()})");
                         }
                     }
 
@@ -343,13 +366,6 @@ internal class CommandHandlerFacade
                         .AddArgument(new CSharpLambdaBlock("comp").WithExpressionBody(fluent)));
 
                     fluent.AddChainStatement($"Without(x => x.{property.Name})");
-
-                    for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
-                    {
-                        var idAttribute = TargetDomainIdAttributes[index];
-                        var idField = CommandFieldsForOwnerId[index];
-                        fluent.AddChainStatement($"With(x => x.{idField.Name.ToCSharpIdentifier()}, {entityVarName}.{idAttribute.IdName.ToCSharpIdentifier()})");
-                    }
 
                     for (var i = 0; i < CommandIdFields.Count; i++)
                     {
@@ -380,6 +396,7 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttribute => $"expected{SingularTargetDomainName}{idAttribute.IdName.ToPascalCase()}",
             TargetDomainIdAttributes,
+            null,
             GetDoExpressionForAggregate(),
             DomainAggregateRepositoryVarName,
             true);
@@ -409,16 +426,25 @@ internal class CommandHandlerFacade
         return GetDomainRepositoryUnitOfWorkMockingStatements(
             idAttr => $"expected{idAttr.IdName.ToPascalCase()}",
             CompositeToOwnerIdAttributes,
+            GetInitializationStatements(),
             GetDoExpressionForAggregateOwner(),
             DomainAggregateOwnerRepositoryVarName,
             false);
+
+        IReadOnlyCollection<CSharpStatement> GetInitializationStatements()
+        {
+            var associationPropertyName = AggregateOwnerDomain.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
+            return new CSharpStatement[]
+            {
+                $"var {PluralTargetDomainName.ToCamelCase()}Snapshot = {aggregateOwnerEntityVarName}.{associationPropertyName}.ToArray();"
+            };
+        }
 
         CSharpStatement GetDoExpressionForAggregateOwner()
         {
             var block = new CSharpLambdaBlock("_");
             var associationPropertyName = AggregateOwnerDomain.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
-            block.AddStatement(
-                $@"added{SingularTargetDomainName} = {aggregateOwnerEntityVarName}.{associationPropertyName}.Single(p => {GetDomainIdKeyComparisonExpression("p", "default")});");
+            block.AddStatement($@"added{SingularTargetDomainName} = {aggregateOwnerEntityVarName}.{associationPropertyName}.Except({PluralTargetDomainName.ToCamelCase()}Snapshot).Single();");
 
             for (var index = 0; index < TargetDomainIdAttributes.Count; index++)
             {
@@ -426,10 +452,14 @@ internal class CommandHandlerFacade
                 var ownerIdAttribute = CompositeToOwnerIdAttributes[index];
                 block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName.ToCSharpIdentifier()} = expected{ownerIdAttribute.IdName.ToPascalCase()};");
             }
-
+            
             for (var index = 0; index < CompositeToOwnerIdAttributes.Count; index++)
             {
                 var idAttribute = CompositeToOwnerIdAttributes[index];
+                if (idAttribute.Attribute is not null)
+                {
+                    continue;
+                }
                 var idField = CommandFieldsForOwnerId[index];
                 block.AddStatement($@"added{SingularTargetDomainName}.{idAttribute.IdName} = {commandVarName}.{idField.Name.ToPascalCase()};");
             }
@@ -437,10 +467,11 @@ internal class CommandHandlerFacade
             return block;
         }
     }
-
+    
     private IReadOnlyCollection<CSharpStatement> GetDomainRepositoryUnitOfWorkMockingStatements(
         Func<ImplementationStrategyTemplatesExtensions.IEntityId, string> expectedDomainVarName,
         IReadOnlyList<ImplementationStrategyTemplatesExtensions.IEntityId> entityIdList,
+        IReadOnlyCollection<CSharpStatement> initializationStatements,
         CSharpStatement doExpression,
         string repositoryVarName,
         bool includeOnAddAssignment)
@@ -455,6 +486,12 @@ internal class CommandHandlerFacade
         }
 
         statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, TargetDomainModel)} added{SingularTargetDomainName} = null;");
+
+        if (initializationStatements is not null)
+        {
+            statements.AddRange(initializationStatements);
+        }
+
         if (includeOnAddAssignment)
         {
             statements.Add($"{repositoryVarName}.OnAdd(ent => added{SingularTargetDomainName} = ent);");
@@ -620,9 +657,9 @@ internal class CommandHandlerFacade
         var statements = new List<CSharpStatement>();
         var returns = response switch
         {
-            MockRepositoryResponse.ReturnDomainVariable => //$".Returns(Task.FromResult({entityVarName ?? throw new ArgumentNullException(nameof(entityVarName))}))",
+            MockRepositoryResponse.ReturnDomainVariable =>
                 $".Returns({GetFromResultExpression(entityVarName ?? throw new ArgumentNullException(nameof(entityVarName)), targetType, domainModel, true, false)})",
-            MockRepositoryResponse.ReturnDefault => //$".Returns(Task.FromResult<{targetType}>(default))",
+            MockRepositoryResponse.ReturnDefault =>
                 $".Returns({GetFromResultExpression("default", targetType, domainModel, false, false)})",
             _ => throw new ArgumentOutOfRangeException(nameof(response), response, null)
         };
@@ -674,7 +711,7 @@ internal class CommandHandlerFacade
 
     private IReadOnlyCollection<(string Type, string Name)> GetHandlerConstructorParameters()
     {
-        var ctor = CommandHandlerTemplate.CSharpFile.Classes.First().Constructors.First();
+        var ctor = ((ICSharpFileBuilderTemplate)CommandHandlerTemplate).CSharpFile.Classes.First(x => x.HasMetadata("handler")).Constructors.First();
         return ctor.Parameters
             .Select(param => (param.Type, param.Name.ToLocalVariableName()))
             .ToArray();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDBMultiTenancy.Domain.Entities;
+using CosmosDBMultiTenancy.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CosmosDBMultiTenancy.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IInvoiceRepository : ICosmosDBRepository<Invoice, Invoice>
+    public interface IInvoiceRepository : ICosmosDBRepository<Invoice, IInvoiceDocument>
     {
     }
 }

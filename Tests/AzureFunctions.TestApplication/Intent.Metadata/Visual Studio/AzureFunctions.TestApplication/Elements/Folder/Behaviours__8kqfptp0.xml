@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3d361b9d-0659-4478-9ac1-1aa6d3a4f760" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5d97067c-7715-443b-aee9-424e192ffe28</parentFolderId>
-      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
-      <packageName>AzureFunctions.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="62c5fd0f-8342-4c3e-89dc-1b5e49960c7d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>

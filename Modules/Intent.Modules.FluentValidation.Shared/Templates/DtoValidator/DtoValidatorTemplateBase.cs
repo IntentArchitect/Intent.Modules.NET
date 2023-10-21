@@ -90,22 +90,18 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         AddNugetDependency(NuGetPackages.FluentValidation);
 
         CSharpFile = new CSharpFile(
-                @namespace: @namespace ?? this.GetNamespace(additionalFolders),
-                relativeLocation: relativeLocation ?? this.GetFolderPath(additionalFolders))
-            .AddUsing("FluentValidation")
-            .AddClass($"{Model.Name}Validator", @class =>
-            {
-                this.ConfigureForValidation(
-                    validatorClass: @class,
-                    dtoModel: dtoModel,
-                    toValidateTypeName: GetTypeName(toValidateTemplateId, Model),
-                    modelParameterName: modelParameterName,
-                    dtoTemplateId: dtoTemplateId,
-                    dtoValidatorTemplateId: dtoValidatorTemplateId,
-                    validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
-                    uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
-                    repositoryInjectionEnabled: repositoryInjectionEnabled);
-            });
+            @namespace: @namespace ?? this.GetNamespace(additionalFolders),
+            relativeLocation: relativeLocation ?? this.GetFolderPath(additionalFolders));
+
+        this.ConfigureForValidation(
+            dtoModel: dtoModel,
+            toValidateTemplateId: toValidateTemplateId,
+            modelParameterName: modelParameterName,
+            dtoTemplateId: dtoTemplateId,
+            dtoValidatorTemplateId: dtoValidatorTemplateId,
+            validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
+            uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
+            repositoryInjectionEnabled: repositoryInjectionEnabled);
     }
 
     [IntentManaged(Mode.Fully)]

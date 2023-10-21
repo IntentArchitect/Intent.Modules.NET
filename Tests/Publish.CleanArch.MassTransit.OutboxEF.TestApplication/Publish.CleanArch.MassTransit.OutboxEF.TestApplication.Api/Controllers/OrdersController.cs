@@ -81,6 +81,10 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Controllers
             [FromBody] UpdateOrderCommand command,
             CancellationToken cancellationToken = default)
         {
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
             if (id != command.Id)
             {
                 return BadRequest();

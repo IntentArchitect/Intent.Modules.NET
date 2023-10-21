@@ -14,7 +14,7 @@ In some cases this approach is not possible since you may be needing to run migr
 
 ## How can this be used?
 
-Once the module is installed, locate the `DESIGN_TIME_MIGRATION_README.txt` in the Infrastructure project, under the `Persistence` folder. This readme file will give you commands that you can run in Visual Studio or in your command terminal that will execute locate your `DesignTimeDbContextFactory` instance (also located in the same folder as the readme file) to create a `DbContext` instance as opposed to the one that's produced by your Startup project.
+Once the module is installed, locate the `MIGRATION_README.txt` in the Infrastructure project, under the `Persistence` folder. This readme file will give you commands that you can run in Visual Studio or in your command terminal that will execute locate your `DesignTimeDbContextFactory` instance (also located in the same folder as the readme file) to create a `DbContext` instance as opposed to the one that's produced by your Startup project.
 
 There is a accompanying `appsettings.json` file in the Infrastructure project too where you can supply connection strings that will be used by the `DesignTimeDbContextFactory`. The readme file will explain how to make use of that.
 

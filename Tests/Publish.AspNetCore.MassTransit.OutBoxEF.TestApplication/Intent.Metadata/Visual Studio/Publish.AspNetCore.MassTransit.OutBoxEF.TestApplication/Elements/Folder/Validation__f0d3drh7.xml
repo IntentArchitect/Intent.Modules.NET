@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2c602200-af8d-418b-af9d-ebf173f9d762</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d4fd47bc-d17b-4434-a4d9-aae2c17c1515</parentFolderId>
+      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d4fd47bc-d17b-4434-a4d9-aae2c17c1515</parentFolderId>
+      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

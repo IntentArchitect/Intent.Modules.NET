@@ -38,13 +38,13 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .AfterBuild(file =>
             {
                 var facade = new CommandHandlerFacade(this, model);
-                
+
                 AddUsingDirectives(file);
                 facade.AddHandlerConstructorMockUsings();
 
@@ -119,7 +119,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                 });
             });
     }
-    
+
     private bool? _canRunTemplate;
 
     public override bool CanRunTemplate()
@@ -129,14 +129,14 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
             return _canRunTemplate.Value;
         }
 
-        var template = ExecutionContext.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, Model);
+        var template = this.GetCommandHandlerTemplate(Model, trackDependency: false);
         if (template is null)
         {
             _canRunTemplate = false;
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is DeleteImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

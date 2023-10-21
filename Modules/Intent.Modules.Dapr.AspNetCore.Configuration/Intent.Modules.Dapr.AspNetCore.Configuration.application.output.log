@@ -33,14 +33,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>00bcef41-099a-4a9b-8557-5399f39d2dfc</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>7402f353-d2bd-46d6-a243-0c1806ae36c5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5417e99-f080-4477-8950-d47ea09b8078</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dee32474-52fa-4f61-aec0-9493b5354764" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>TableEntities</name>
+  <display>TableEntities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f31b6af3-a758-40f0-b01d-20925f5e1545</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ef70bdbb-56ec-4fe3-9140-787df6e41553" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Azure.TableStorage.TableStorageTableEntityInterface</name>
+      <display>Intent.Azure.TableStorage.TableStorageTableEntityInterface</display>
+      <externalReference>Intent.Azure.TableStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dee32474-52fa-4f61-aec0-9493b5354764</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -3,6 +3,7 @@
   <name>Validation</name>
   <display>Validation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6dd6f310-14de-4810-9542-1a9933739af0</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d7d11133-231f-45d8-ba28-978a88dcad75</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -42,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d7d11133-231f-45d8-ba28-978a88dcad75</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3f005262-183d-4060-8c50-0d1cb5cb13a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</parentFolderId>
-      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
-      <packageName>GraphQL.MongoDb.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="757df6bc-8273-4f7d-a5fd-dce283e64011" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>

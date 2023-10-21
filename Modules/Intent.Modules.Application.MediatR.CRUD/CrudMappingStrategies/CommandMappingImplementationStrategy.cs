@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
@@ -7,23 +8,26 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
     public class CommandMappingImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
+        private readonly CommandModel _model;
 
 
-        public CommandMappingImplementationStrategy(CommandHandlerTemplate template)
+        public CommandMappingImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
-            _template = template;
+            _template = (ICSharpFileBuilderTemplate)template;
+            _model = template.Model;
         }
 
         public bool IsMatch()
         {
-            return _template.Model.CreateEntityActions().Any() || _template.Model.UpdateEntityActions().Any() || _template.Model.DeleteEntityActions().Any();
+            return _model.CreateEntityActions().Any() || _model.UpdateEntityActions().Any() || _model.DeleteEntityActions().Any();
         }
 
         public void ApplyStrategy()
@@ -31,7 +35,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
             var handleMethod = @class.FindMethod("Handle");
@@ -44,15 +47,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
-            csharpMapping.SetFromReplacement(_template.Model, "request");
+            csharpMapping.SetFromReplacement(_model, "request");
             _template.CSharpFile.AddMetadata("mapping-manager", csharpMapping);
             
-            foreach (var createAction in _template.Model.CreateEntityActions())
+            foreach (var createAction in _model.CreateEntityActions())
             {
                 handleMethod.AddStatements(domainInteractionManager.CreateEntity(createAction));
             }
 
-            foreach (var updateAction in _template.Model.UpdateEntityActions())
+            foreach (var updateAction in _model.UpdateEntityActions())
             {
                 var entity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel().ParentClass;
 
@@ -62,7 +65,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 handleMethod.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
             }
 
-            foreach (var deleteAction in _template.Model.DeleteEntityActions())
+            foreach (var deleteAction in _model.DeleteEntityActions())
             {
                 var foundEntity = deleteAction.Element.AsClassModel();
                 handleMethod.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
@@ -74,9 +77,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 handleMethod.AddStatement($"{entity.RepositoryFieldName}.Add({entity.VariableName});");
             }
 
-            if (_template.Model.TypeReference.Element != null)
+            if (_model.TypeReference.Element != null)
             {
-                var returnStatement = domainInteractionManager.GetReturnStatements(_template.Model.TypeReference);
+                var returnStatement = domainInteractionManager.GetReturnStatements(_model.TypeReference);
                 handleMethod.AddStatements(returnStatement);
             }
         }

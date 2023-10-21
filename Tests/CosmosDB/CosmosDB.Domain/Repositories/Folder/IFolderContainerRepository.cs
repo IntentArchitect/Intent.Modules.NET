@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Entities.Folder;
+using CosmosDB.Domain.Repositories.Documents.Folder;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CosmosDB.Domain.Repositories.Folder
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IFolderContainerRepository : ICosmosDBRepository<FolderContainer, FolderContainer>
+    public interface IFolderContainerRepository : ICosmosDBRepository<FolderContainer, IFolderContainerDocument>
     {
     }
 }

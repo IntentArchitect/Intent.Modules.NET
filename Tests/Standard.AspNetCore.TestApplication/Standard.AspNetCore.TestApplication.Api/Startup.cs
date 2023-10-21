@@ -43,6 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Api
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
+            services.AddTelemetryConfiguration(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 

@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c4ce562d-1f7b-4e2d-bf8d-1df12dc222ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7d0e9a61-01dd-4de3-89e6-971584fc087c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Api/Controllers/RegionsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RegionsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>37081828-861f-4de9-8956-3739da89e188</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -316,6 +324,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8048b7d9-c47e-48a4-989a-6acfa6868ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/CreateClientByCtor/CreateClientByCtorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/CreateClientByCtor/CreateClientByCtorCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8048b7d9-c47e-48a4-989a-6acfa6868ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/CreateClientByCtor/CreateClientByCtorCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8048b7d9-c47e-48a4-989a-6acfa6868ddc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/CreateClientByCtor/CreateClientByCtorCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2f442040-97ea-470e-83c5-cdaaa9f023ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Clients/DeleteClient/DeleteClientCommand.cs</ApplicationRelativeFilePath>
@@ -459,19 +491,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f490f5af-27f0-45c1-acf7-e3c37f1d37c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/UpdateClientByOp/UpdateClientByOpCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/UpdateClientByOp/UpdateClientByOpCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f490f5af-27f0-45c1-acf7-e3c37f1d37c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f490f5af-27f0-45c1-acf7-e3c37f1d37c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5ea2c9eb-52af-4255-b314-5efae2134bdd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5ea2c9eb-52af-4255-b314-5efae2134bdd</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Application/Common/Behaviours/CosmosDBUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosDBUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -496,6 +544,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5ea2c9eb-52af-4255-b314-5efae2134bdd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -672,7 +728,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/DerivedOfTS/DerivedOfTDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedOfTS/DerivedOfTDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
@@ -1075,6 +1131,174 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#2d9f143c-8140-455b-94bd-cd5c0579b48f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/CreateRegion/CreateRegionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/CreateRegion/CreateRegionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#2d9f143c-8140-455b-94bd-cd5c0579b48f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/CreateRegion/CreateRegionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/CreateRegion/CreateRegionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2d9f143c-8140-455b-94bd-cd5c0579b48f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/CreateRegion/CreateRegionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/CreateRegion/CreateRegionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#af81da19-d703-442f-af37-9719ba74f88d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/CreateRegionCountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/CreateRegionCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5d5745b2-9091-4ac0-a26a-2c7d0765720e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/DeleteRegion/DeleteRegionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/DeleteRegion/DeleteRegionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5d5745b2-9091-4ac0-a26a-2c7d0765720e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/DeleteRegion/DeleteRegionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/DeleteRegion/DeleteRegionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5d5745b2-9091-4ac0-a26a-2c7d0765720e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/DeleteRegion/DeleteRegionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/DeleteRegion/DeleteRegionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#92251adb-36b9-40c9-b1e4-2881eb47ba40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionById/GetRegionByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionById/GetRegionByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#92251adb-36b9-40c9-b1e4-2881eb47ba40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionById/GetRegionByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionById/GetRegionByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#92251adb-36b9-40c9-b1e4-2881eb47ba40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionById/GetRegionByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionById/GetRegionByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a4a17bc6-679c-47b9-920f-e66f7422307e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegions/GetRegionsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegions/GetRegionsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a4a17bc6-679c-47b9-920f-e66f7422307e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegions/GetRegionsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegions/GetRegionsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a4a17bc6-679c-47b9-920f-e66f7422307e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegions/GetRegionsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegions/GetRegionsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7c5dd61a-3dbb-45a4-b99c-963c0ade6620</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionsByName/GetRegionsByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionsByName/GetRegionsByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7c5dd61a-3dbb-45a4-b99c-963c0ade6620</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionsByName/GetRegionsByNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionsByName/GetRegionsByNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7c5dd61a-3dbb-45a4-b99c-963c0ade6620</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/GetRegionsByName/GetRegionsByNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/GetRegionsByName/GetRegionsByNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6c0994fb-dd03-41ad-8937-bf91b252c9f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/RegionDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/RegionDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6c0994fb-dd03-41ad-8937-bf91b252c9f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/RegionDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/RegionDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#64d9d448-b407-4004-ad10-c1ebc7da2ad3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/UpdateRegion/UpdateRegionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/UpdateRegion/UpdateRegionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#64d9d448-b407-4004-ad10-c1ebc7da2ad3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/UpdateRegion/UpdateRegionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/UpdateRegion/UpdateRegionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#64d9d448-b407-4004-ad10-c1ebc7da2ad3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Regions/UpdateRegion/UpdateRegionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/UpdateRegion/UpdateRegionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d25a3e41-986d-42d8-9b0e-34ae05377744</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#38eef633-3f9d-474a-9c2f-1a0ec0ee3ad0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1212,6 +1436,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/DerivedTypeAggregate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f089acd-cfc1-4912-8d4e-9959a10f4ea5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Entities/EntityOfT.cs</ApplicationRelativeFilePath>
@@ -1291,6 +1523,142 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#3097fe70-82d5-4a25-b292-01af48e97857</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/Folder/IFolderContainerDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Folder/IFolderContainerDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#fbcbfce7-bf55-49c4-a6eb-89551d1899b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IBaseOfTDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBaseOfTDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#85d4bd39-f73c-4237-b9f3-8c79df10fe2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IBaseTypeDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBaseTypeDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#8ae28b8f-c25c-4253-82ae-5132f2f126de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IClassContainerDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IClassContainerDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#d929830c-66b5-41d7-8354-ff99c7c1410c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IClientDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IClientDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#7babb8b5-cd8b-43ab-8ee8-f950633a2501</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/ICountryDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICountryDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#7c17e3ba-924e-49f1-8cdc-d941d78c6036</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IDerivedOfTDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedOfTDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IDerivedTypeAggregateDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedTypeAggregateDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#563dcec1-bab5-4069-8042-6267fe16522d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IDerivedTypeDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedTypeDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#1f089acd-cfc1-4912-8d4e-9959a10f4ea5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IEntityOfTDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEntityOfTDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#c1d7e051-c293-4746-8f96-ad890505e1bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IIdTestingDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIdTestingDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IInvoiceDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#628cad03-4441-4e85-9b38-30135d5664fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IInvoiceLogoDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IInvoiceLogoDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#a2fd5acc-33f4-4755-a358-ce8d59bc5077</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/ILineItemDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ILineItemDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#e172eac4-3e29-4e36-bcb2-4dc4f0a542dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IPackageContainerDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPackageContainerDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#4a82c482-de43-4131-98b6-1d7810327338</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IRegionDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRegionDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/Documents/IWithoutPartitionKeyDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWithoutPartitionKeyDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#3097fe70-82d5-4a25-b292-01af48e97857</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1336,6 +1704,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IDerivedOfTRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDerivedOfTRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IDerivedTypeAggregateRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedTypeAggregateRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1492,6 +1868,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregateDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#563dcec1-bab5-4069-8042-6267fe16522d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs</ApplicationRelativeFilePath>
@@ -1516,7 +1900,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
@@ -1640,6 +2024,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/DerivedOfTCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedOfTCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#ae449d5d-e9c7-45f2-8118-00c9e26dd18a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Infrastructure/Repositories/DerivedTypeAggregateCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypeAggregateCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

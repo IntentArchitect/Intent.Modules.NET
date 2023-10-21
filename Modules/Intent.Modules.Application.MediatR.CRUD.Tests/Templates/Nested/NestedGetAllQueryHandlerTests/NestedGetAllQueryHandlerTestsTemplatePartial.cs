@@ -46,7 +46,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                 .AfterBuild(file =>
                 {
                     var facade = new QueryHandlerFacade(this, model);
-                    
+
                     AddUsingDirectives(file);
                     facade.AddHandlerConstructorMockUsings();
 
@@ -101,7 +101,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     AddAssertionMethods();
                 });
         }
-        
+
         private bool? _canRunTemplate;
 
         public override bool CanRunTemplate()
@@ -111,14 +111,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                 return _canRunTemplate.Value;
             }
 
-            var template = ExecutionContext.FindTemplateInstance<QueryHandlerTemplate>(QueryHandlerTemplate.TemplateId, Model);
+            var template = this.GetQueryHandlerTemplate(Model, trackDependency: false);
             if (template is null)
             {
                 _canRunTemplate = false;
             }
             else if (StrategyFactory.GetMatchedQueryStrategy(template, Project.Application) is GetAllImplementationStrategy strategy && strategy.IsMatch())
             {
-                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+                _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
             }
             else
             {

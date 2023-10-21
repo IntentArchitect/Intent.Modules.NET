@@ -1,3 +1,7 @@
+### Version 5.4.0
+
+- Improvement: When Controller parameters match with Update Command fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command that are already populated via a Route parameter.
+
 ### Version 5.3.0
 
 - Fixed: Controller methods which return nullable types will no longer return `NotFound()` for `null` results. To force that a `404 Not Found` HTTP response be returned, a `throw new NotFoundException("<message>")` can be performed as appropriate.

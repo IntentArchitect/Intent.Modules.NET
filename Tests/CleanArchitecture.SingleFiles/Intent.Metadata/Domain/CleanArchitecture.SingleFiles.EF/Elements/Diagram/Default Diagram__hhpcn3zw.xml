@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fa365ce0-b5f7-4057-a52b-2a2b760a1129" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d1445bd8-9435-40a0-8ce9-7565b07e6251</parentFolderId>
+  <packageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</packageId>
+  <packageName>CleanArchitecture.SingleFiles.EF</packageName>
+  <diagram>
+    <targetPackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

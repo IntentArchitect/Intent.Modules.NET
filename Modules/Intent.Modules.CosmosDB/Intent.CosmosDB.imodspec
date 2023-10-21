@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.0.0-alpha.30</version>
+  <version>1.0.0-alpha.33</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -19,7 +19,15 @@
       <role>Infrastructure.Data.CosmosDB.Document</role>
       <location>Persistence/Documents</location>
     </template>
-    <template id="Intent.CosmosDB.CosmosDBDocumentInterface" externalReference="8a31d7fd-e4d1-4bf3-8916-2bd9209f2228">
+    <template id="Intent.CosmosDB.CosmosDBDocumentInterface" externalReference="00c4fd7f-ea90-4f8d-89a9-7146a9a39a3c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Contract</role>
+      <location>Repositories/Documents</location>
+    </template>
+    <template id="Intent.CosmosDB.CosmosDBDocumentOfTInterface" externalReference="8a31d7fd-e4d1-4bf3-8916-2bd9209f2228">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -67,14 +75,6 @@
       <role>Infrastructure.Data.UnitOfWork.CosmosDB</role>
       <location>Persistence</location>
     </template>
-    <template id="Intent.CosmosDB.CosmosDBUnitOfWorkBehaviour" externalReference="b34a84ca-8dbd-40f2-8636-3a4979fb564d">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Common</role>
-      <location>Common/Behaviours</location>
-    </template>
     <template id="Intent.CosmosDB.CosmosDBUnitOfWorkInterface" externalReference="0bc3183f-439f-4acc-a574-160bf21702ab">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -90,6 +90,14 @@
       </config>
       <role>Infrastructure.Data.CosmosDB.Document</role>
       <location>Persistence/Documents</location>
+    </template>
+    <template id="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" externalReference="77906c77-ca47-4304-bd31-ea2039b4f328">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Contract</role>
+      <location>Repositories/Documents</location>
     </template>
     <template id="Intent.CosmosDB.CosmosPagedList" externalReference="3d6e7abd-cc1f-4a55-b04f-e9b7355bd390">
       <config>
@@ -116,11 +124,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
-    <detect id="Intent.Modules.AspNetCore.MultiTenancy">
-      <install>
-        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="4.1.7" />
-      </install>
-    </detect>
+    <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.Dtos.AutoMapper">
       <install>
         <package id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.0" />
@@ -128,18 +132,34 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.1.3" />
+        <package id="Intent.Application.MediatR" version="4.1.4" />
       </install>
     </detect>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.3" />
+      </install>
+    </detect>
+    <detect id="Intent.Entities">
+      <install>
+        <package id="Intent.Entities" version="4.4.2-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Modules.AspNetCore.MultiTenancy">
+      <install>
+        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="4.1.8" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.42-pre.1" />
+    <dependency id="Intent.Common" version="3.4.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.42" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Entities.Repositories.Api" version="4.1.2" />
-    <dependency id="Intent.Metadata.DocumentDB" version="1.1.4" />
+    <dependency id="Intent.Entities.Repositories.Api" version="4.1.3" />
+    <dependency id="Intent.Metadata.DocumentDB" version="1.1.5" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

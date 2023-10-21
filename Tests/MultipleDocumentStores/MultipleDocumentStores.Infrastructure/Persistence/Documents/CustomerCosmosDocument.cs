@@ -4,6 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using MultipleDocumentStores.Domain.Common;
 using MultipleDocumentStores.Domain.Entities;
+using MultipleDocumentStores.Domain.Repositories.Documents;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
 {
-    internal class CustomerCosmosDocument : ICosmosDBDocument<CustomerCosmos, CustomerCosmosDocument>
+    internal class CustomerCosmosDocument : ICustomerCosmosDocument, ICosmosDBDocument<CustomerCosmos, CustomerCosmosDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;
@@ -21,8 +22,8 @@ namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
         {
             entity ??= new CustomerCosmos();
 
-            entity.Id = Id;
-            entity.Name = Name;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
 
             return entity;
         }

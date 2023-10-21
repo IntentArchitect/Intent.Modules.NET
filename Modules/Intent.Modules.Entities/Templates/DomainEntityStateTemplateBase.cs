@@ -37,24 +37,44 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         foreach (var attribute in Model.Attributes)
         {
-            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute, attribute.InternalElement, isBaseClass);
+            AddProperty(
+                @class: @class,
+                propertyName: attribute.Name,
+                typeReference: attribute.TypeReference,
+                model: attribute,
+                element: attribute.InternalElement,
+                isBaseClass: isBaseClass);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
                 !GetTypeName(attribute).Equals(InterfaceTemplate.GetTypeName(attribute)))
             {
-                AddInterfaceQualifiedProperty(@class, attribute.Name, attribute.TypeReference);
+                AddInterfaceQualifiedProperty(
+                    @class: @class,
+                    propertyName: attribute.Name,
+                    typeReference: attribute.TypeReference,
+                    model: attribute);
             }
         }
 
         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
         {
-            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd, associationEnd.InternalAssociationEnd, isBaseClass);
+            AddProperty(
+                @class: @class,
+                propertyName: associationEnd.Name,
+                typeReference: associationEnd,
+                model: associationEnd,
+                element: associationEnd.InternalAssociationEnd,
+                isBaseClass: isBaseClass);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !GetTypeName(associationEnd).Equals(InterfaceTemplate.GetTypeName(associationEnd)))
             {
-                AddInterfaceQualifiedProperty(@class, associationEnd.Name, associationEnd);
+                AddInterfaceQualifiedProperty(
+                    @class: @class,
+                    propertyName: associationEnd.Name,
+                    typeReference: associationEnd,
+                    model: associationEnd);
             }
         }
     }
@@ -89,7 +109,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
                 property.Getter
                     .WithExpressionImplementation($"{fieldName}.AsReadOnly()");
-                
+
                 property.Setter
                     .WithExpressionImplementation($"{fieldName} = new {AsListType()}(value)")
                     .Private()
@@ -104,9 +124,9 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 {
                     property.ProtectedSetter();
                 }
-                else 
-                { 
-                    property.PrivateSetter(); 
+                else
+                {
+                    property.PrivateSetter();
                 }
             }
 
@@ -126,25 +146,27 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         });
     }
 
-    protected void AddInterfaceQualifiedProperty(CSharpClass @class, string propertyName, ITypeReference typeReference)
+    protected void AddInterfaceQualifiedProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model)
     {
-        @class.AddProperty($"{InterfaceTemplate.GetTypeName(typeReference)}",
-            $"{this.GetDomainEntityInterfaceName()}.{propertyName.ToPascalCase()}", property =>
-            {
-                if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                {
-                    property.ReadOnly();
-                }
-                else
-                {
-                    property.Setter.WithExpressionImplementation($"{propertyName.ToPascalCase()} = {CastArgumentIfNecessary(typeReference, "value")}");
-                }
+        @class.AddProperty($"{InterfaceTemplate.GetTypeName(typeReference)}", $"{propertyName.ToPascalCase()}", property =>
+        {
+            property.ExplicitlyImplements(this.GetDomainEntityInterfaceName());
+            property.AddMetadata("model", model);
 
-                property.WithoutAccessModifier();
-                property.Getter.WithExpressionImplementation(typeReference.IsCollection && !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters()
-                    ? $"{propertyName.ToPascalCase()}.{UseStaticMethod(CollectionWrapperTemplate.TemplateId, "CreateWrapper")}<{InterfaceTemplate.GetTypeName((IElement)typeReference.Element)}, {GetTypeName((IElement)typeReference.Element)}>()"
-                    : $"{propertyName.ToPascalCase()}");
-            });
+            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                property.ReadOnly();
+            }
+            else
+            {
+                property.Setter.WithExpressionImplementation($"{propertyName.ToPascalCase()} = {CastArgumentIfNecessary(typeReference, "value")}");
+            }
+
+            property.WithoutAccessModifier();
+            property.Getter.WithExpressionImplementation(typeReference.IsCollection && !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters()
+                ? $"{propertyName.ToPascalCase()}.{UseStaticMethod(CollectionWrapperTemplate.TemplateId, "CreateWrapper")}<{InterfaceTemplate.GetTypeName((IElement)typeReference.Element)}, {GetTypeName((IElement)typeReference.Element)}>()"
+                : $"{propertyName.ToPascalCase()}");
+        });
 
         //if (typeReference.IsCollection &&
         //    !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())

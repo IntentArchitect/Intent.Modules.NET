@@ -4,11 +4,12 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.PagedResult;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,7 +29,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: model,
-                enumContractTemplateId: EnumContractTemplate.TemplateId)
+                enumContractTemplateId: EnumContractTemplate.TemplateId,
+                pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
         }
     }

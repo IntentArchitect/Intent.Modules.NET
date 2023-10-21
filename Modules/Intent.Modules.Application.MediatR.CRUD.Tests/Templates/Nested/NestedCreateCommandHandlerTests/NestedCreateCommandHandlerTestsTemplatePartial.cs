@@ -46,7 +46,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
             .AfterBuild(file =>
             {
                 var facade = new CommandHandlerFacade(this, model);
-                
+
                 AddUsingDirectives(file);
                 facade.AddHandlerConstructorMockUsings();
 
@@ -99,14 +99,14 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
             return _canRunTemplate.Value;
         }
 
-        var template = ExecutionContext.FindTemplateInstance<CommandHandlerTemplate>(CommandHandlerTemplate.TemplateId, Model);
+        var template = this.GetCommandHandlerTemplate(Model, trackDependency: false);
         if (template is null)
         {
             _canRunTemplate = false;
         }
         else if (StrategyFactory.GetMatchedCommandStrategy(template) is CreateImplementationStrategy strategy && strategy.IsMatch())
         {
-            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false;
+            _canRunTemplate = Model.GetClassModel()?.IsAggregateRoot() == false && Model.GetClassModel().InternalElement.Package.HasStereotype("Relational Database");
         }
         else
         {

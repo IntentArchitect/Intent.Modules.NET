@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="077a3250-6086-42b2-b19f-6c693480c71d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>66ada38c-0c1e-4cf2-9d83-6b9b49dba031</parentFolderId>
+  <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+  <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d600608e-fee0-480c-be6e-32b882d23bba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e0e999c6-ad34-45b4-8fd6-cf6973099310" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</name>
+      <display>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</display>
+      <externalReference>Intent.AspNetCore.HealthChecks</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a5d93d89-7d70-421d-b607-896b14edbe03" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ed8bca0e-a133-4360-ba9f-bc3a5c97ee79" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="62873ec0-11d5-4e08-90bf-563989e74fa9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="adbfb264-7150-4be9-a0e3-9dcc6c418f99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>077a3250-6086-42b2-b19f-6c693480c71d</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

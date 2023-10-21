@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="95facab9-f087-4ccf-8b49-0e3cc114c1fe" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca8e7db5-54da-4f00-aa50-68c424acf855</parentFolderId>
+  <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+  <packageName>CleanArchitecture.SingleFiles</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

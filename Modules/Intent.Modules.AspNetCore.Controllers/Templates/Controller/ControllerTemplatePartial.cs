@@ -45,6 +45,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     @class.WithBaseType("ControllerBase");
                     @class.AddConstructor();
                     @class.AddMetadata("model", Model);
+                    @class.AddMetadata("modelId", Model.Id);
                     foreach (var attribute in GetControllerAttributes())
                     {
                         @class.AddAttribute(attribute);
@@ -54,6 +55,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                         @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", operation);
+                            method.AddMetadata("modelId", operation.Id);
+                            method.AddMetadata("route", operation.Route);
                             method.Async();
                             method.WithComments(GetOperationComments(operation));
                             foreach (var attribute in GetOperationAttributes(operation))
@@ -64,6 +67,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
+                                    param.AddMetadata("model", parameter);
+                                    param.AddMetadata("modelId", parameter.Id);
+                                    param.AddMetadata("mappedPayloadProperty", parameter.MappedPayloadProperty);
+
                                     param.WithDefaultValue(parameter.Value);
                                     var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))
@@ -297,8 +304,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
+            var arguments = new List<string>();
+
+            if (GetPath(o) != null)
+            {
+                arguments.Add($"\"{GetPath(o)}\"");
+            }
+
+            var openApiSettings = o.InternalElement.GetStereotype("OpenAPI Settings");
+            if (openApiSettings != null)
+            {
+                var operationId = openApiSettings.GetProperty<string>("OperationId");
+                arguments.Add(string.IsNullOrWhiteSpace(operationId)
+                    ? $"Name = \"{o.Name}\""
+                    : $"Name = \"{operationId}\"");
+            }
+
+            var joinedArguments = arguments.Any()
+                ? $"({string.Join(", ", arguments)})"
+                : string.Empty;
+
             return new CSharpAttribute(
-                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]");
+                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{joinedArguments}]");
         }
 
         private string GetReturnType(IControllerOperationModel operation)

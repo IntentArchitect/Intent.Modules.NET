@@ -3,13 +3,26 @@
   <name>Repositories</name>
   <display>Repositories</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7005f66e-31f3-4140-af0e-130ef0af8b08</parentFolderId>
-  <stereotypes />
+  <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+  <packageName>CosmosDBMultiTenancy</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ef46e48d-2962-4617-9bf3-f905a625eea9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="d0b28779-be69-4f4f-b736-12be66af54ea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBRepository</name>
       <display>Intent.CosmosDB.CosmosDBRepository</display>
       <externalReference>Intent.CosmosDB</externalReference>
@@ -23,7 +36,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="de8c7fe2-f606-4b3c-a5c7-34e0fc826716" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="facee79a-14f3-4c51-a685-07ff18fc748a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBRepositoryBase</name>
       <display>Intent.CosmosDB.CosmosDBRepositoryBase</display>
       <externalReference>Intent.CosmosDB</externalReference>
@@ -37,7 +50,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="16d563a4-0470-406f-8143-072d1ebb9e02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="68826733-4ad3-4784-b3a7-ae98132b59b1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosPagedList</name>
       <display>Intent.CosmosDB.CosmosPagedList</display>
       <externalReference>Intent.CosmosDB</externalReference>

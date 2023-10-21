@@ -3,13 +3,25 @@
   <name>Documents</name>
   <display>Documents</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>25f804dc-383a-4a0a-a7a9-d7eff54837f7</parentFolderId>
-  <stereotypes />
+  <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+  <packageName>CosmosDBMultiTenancy</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="18913b8e-f968-4758-91c9-79eb8e4c6299" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ff3ad7cf-9143-4959-8e68-fc6be622461a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBDocument</name>
       <display>Intent.CosmosDB.CosmosDBDocument</display>
       <externalReference>Intent.CosmosDB</externalReference>
@@ -23,9 +35,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="27f454b2-e818-41f6-8386-6cb8bb205c32" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBDocumentInterface</name>
-      <display>Intent.CosmosDB.CosmosDBDocumentInterface</display>
+    <childElement id="3a74d316-80fe-4ea8-a279-5e00e436fe49" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBDocumentOfTInterface</name>
+      <display>Intent.CosmosDB.CosmosDBDocumentOfTInterface</display>
       <externalReference>Intent.CosmosDB</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -37,7 +49,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5697a559-2929-44b9-96aa-abb4e67b0fcb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="fd1afc55-3358-4b4e-8454-a1e9a6ca6755" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</name>
       <display>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</display>
       <externalReference>Intent.CosmosDB</externalReference>
@@ -51,7 +63,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="da5f0e01-ea19-4a6a-a6f1-04f96f0804a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="073cda0b-4e02-42d2-8879-df0b9c310ad3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBValueObjectDocument</name>
       <display>Intent.CosmosDB.CosmosDBValueObjectDocument</display>
       <externalReference>Intent.CosmosDB</externalReference>
@@ -65,7 +77,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f5d007b8-0b60-4c68-aa28-454e086d0085" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="186ab3be-fd57-4bab-9a4c-0cefb6524e6e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.ReflectionHelper</name>
       <display>Intent.CosmosDB.ReflectionHelper</display>
       <externalReference>Intent.CosmosDB</externalReference>

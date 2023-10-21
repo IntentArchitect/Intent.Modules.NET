@@ -26,6 +26,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
         public override string TemplateId => CosmosDBRepositoryBaseTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {
             return new CosmosDBRepositoryBaseTemplate(outputTarget, model);

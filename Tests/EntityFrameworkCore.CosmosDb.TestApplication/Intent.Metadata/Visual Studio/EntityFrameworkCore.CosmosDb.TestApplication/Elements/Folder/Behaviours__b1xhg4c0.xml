@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="85654658-39bb-47f1-ba53-56a2809d95aa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fe579691-4f3b-489b-aa9c-f7942532ed70</parentFolderId>
-      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
-      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="308be35b-48e9-4483-ae9b-5ced1ca4a5a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>

@@ -132,14 +132,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/MongoDbUnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
@@ -152,6 +144,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

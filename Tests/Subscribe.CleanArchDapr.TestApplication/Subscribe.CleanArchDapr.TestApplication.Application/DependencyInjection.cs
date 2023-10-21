@@ -26,7 +26,6 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(DaprStateStoreUnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;

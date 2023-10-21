@@ -14,6 +14,19 @@ internal static class DomainKeyExtensions
 {
     // This is duplicated in Intent.Modules.Application.MediatR.CRUD
     // Once we go through the Intent 4.1 we will need to upgrade and reconcile.
+    public static ClassModel GetNestedCompositionalOwner(this ClassModel entity)
+    {
+        var aggregateRootClass = entity.AssociatedClasses
+            .Where(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
+                        p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
+            .Select(s => s.Class)
+            .Distinct()
+            .SingleOrDefault();
+        return aggregateRootClass;
+    }
+    
+    // This is duplicated in Intent.Modules.Application.MediatR.CRUD
+    // Once we go through the Intent 4.1 we will need to upgrade and reconcile.
     public static EntityIdAttribute GetEntityPkAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
         return GetEntityPkAttributes(entity, executionContext).FirstOrDefault();
@@ -108,12 +121,13 @@ internal static class DomainKeyExtensions
     // Once we go through the Intent 4.1 we will need to upgrade and reconcile.
     public static IList<EntityNestedCompositionalIdAttribute> GetNestedCompositionalOwnerIdAttributes(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
-        while (entity != null)
+        var curEntity = entity;
+        while (curEntity is not null)
         {
-            var foreignKeys = entity.Attributes.Where(x => x.IsForeignKey()).ToArray();
+            var foreignKeys = curEntity.Attributes.Where(x => x.IsForeignKey()).ToArray();
             if (!foreignKeys.Any())
             {
-                entity = entity.ParentClass;
+                curEntity = curEntity.ParentClass;
                 continue;
             }
 
@@ -137,6 +151,19 @@ internal static class DomainKeyExtensions
                 })
                 .Select(attribute => new EntityNestedCompositionalIdAttribute(attribute.Name, GetKeyTypeName(attribute.Type), attribute))
                 .ToList();
+        }
+        
+        // Nested Entity without Aggregate FK
+        var aggregateOwner = entity.GetNestedCompositionalOwner();
+        if (aggregateOwner is not null)
+        {
+            var pks = aggregateOwner.Attributes.Where(attr => attr.IsPrimaryKey()).ToArray();
+            if (pks.Any())
+            {
+                return pks
+                    .Select(attr => new EntityNestedCompositionalIdAttribute($"{owner.Name.ToPascalCase()}{attr.Name.ToPascalCase()}", GetKeyTypeName(attr.Type), attr))
+                    .ToList();
+            }
         }
 
         // Implicit Key:

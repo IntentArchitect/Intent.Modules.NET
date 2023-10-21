@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="905165ef-bccf-45dc-9f4c-2ba261f245b9" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Filters</name>
+  <display>Filters</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cabcb58c-5deb-41d6-be66-d99cc7f2b3ea</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e3804bf2-e687-4916-9e73-eeb0914ad61d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>905165ef-bccf-45dc-9f4c-2ba261f245b9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

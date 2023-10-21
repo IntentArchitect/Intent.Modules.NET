@@ -5,6 +5,7 @@ using System.Text;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -22,11 +23,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     public class DomainOpImplementationStrategy : ICrudImplementationStrategy
     {
-        private readonly CommandHandlerTemplate _template;
+        private readonly CSharpTemplateBase<CommandModel> _template;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public DomainOpImplementationStrategy(CommandHandlerTemplate template)
+        public DomainOpImplementationStrategy(CSharpTemplateBase<CommandModel> template)
         {
             _template = template;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
@@ -47,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             _template.AddUsing("System.Linq");
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var ctor = @class.Constructors.First();
             var repository = _matchingElementDetails.Value.Repository;
             ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
@@ -196,7 +197,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 var constructMethod = parameter.TypeReference.IsCollection
                     ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
                     : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
-                _template.AddValueObjectFactoryMethod(mappingMethodName, (IElement)parameter.TypeReference.Element, mappedField);
+                ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(mappingMethodName, (IElement)parameter.TypeReference.Element, mappedField);
                 return constructMethod;
             }
 

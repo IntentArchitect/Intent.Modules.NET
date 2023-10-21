@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a9e20efc-d775-407b-9350-df18e22a5311</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConsumerUnitOfWorkDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConsumerUnitOfWorkDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#a9e20efc-d775-407b-9350-df18e22a5311</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConsumerUnitOfWorkDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConsumerUnitOfWorkDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#58f6ca28-016d-40b3-8d9a-16ad7e8ec3a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/OutboxTableSpecification.cs</ApplicationRelativeFilePath>
@@ -59,17 +43,9 @@
     <FileLog>
       <ProjectId>c66b22d9-d49e-4639-b8de-661e59f23d9a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#c66b22d9-d49e-4639-b8de-661e59f23d9a</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c66b22d9-d49e-4639-b8de-661e59f23d9a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

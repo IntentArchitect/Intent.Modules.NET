@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -34,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             FulfillsRole("Application.Contract.Query");
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-            CSharpFile = new CSharpFile($"{this.GetNamespace(additionalFolders: Model.GetConceptName())}", $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+            CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}")
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {
@@ -42,17 +45,25 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     AddAuthorization(@class);
                     @class.ImplementsInterface($"IRequest<{GetTypeName(Model.TypeReference)}>");
                     @class.ImplementsInterface(this.GetQueryInterfaceName());
-                    @class.AddConstructor(ctor =>
+
+                    @class.AddConstructor();
+                    var ctor = @class.Constructors.First();
+                    foreach (var property in Model.Properties)
                     {
-                        foreach (var property in Model.Properties)
+                        ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
-                            ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), p =>
-                            {
-                                p.IntroduceProperty(prop => prop.RepresentsModel(property));
-                            });
-                        }
-                    });
+                            param.AddMetadata("model", property);
+                            param.IntroduceProperty(prop => prop.RepresentsModel(property));
+                        });
+                    }
                 });
+
+            if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
+            {
+                FulfillsRole("Application.Query.Handler");
+                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
+                QueryHandlerTemplate.Configure(this, model);
+            }
         }
 
         [IntentManaged(Mode.Fully)]

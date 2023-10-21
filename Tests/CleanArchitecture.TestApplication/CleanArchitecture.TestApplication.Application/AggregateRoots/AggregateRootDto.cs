@@ -19,6 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
             AggregateAttr = null!;
             Composites = null!;
+            LimitedDomain = null!;
+            LimitedService = null!;
         }
 
         public static AggregateRootDto Create(
@@ -29,7 +31,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             AggregateRootAggregateSingleCDto? aggregate,
             EnumWithoutValues enumType1,
             EnumWithDefaultLiteral enumType2,
-            EnumWithoutDefaultLiteral enumType3)
+            EnumWithoutDefaultLiteral enumType3,
+            string limitedDomain,
+            string limitedService)
         {
             return new AggregateRootDto
             {
@@ -40,7 +44,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Aggregate = aggregate,
                 EnumType1 = enumType1,
                 EnumType2 = enumType2,
-                EnumType3 = enumType3
+                EnumType3 = enumType3,
+                LimitedDomain = limitedDomain,
+                LimitedService = limitedService
             };
         }
 
@@ -56,6 +62,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         public EnumWithoutValues EnumType1 { get; set; }
         public EnumWithDefaultLiteral EnumType2 { get; set; }
         public EnumWithoutDefaultLiteral EnumType3 { get; set; }
+        public string LimitedDomain { get; set; }
+        public string LimitedService { get; set; }
 
         public void Mapping(Profile profile)
         {

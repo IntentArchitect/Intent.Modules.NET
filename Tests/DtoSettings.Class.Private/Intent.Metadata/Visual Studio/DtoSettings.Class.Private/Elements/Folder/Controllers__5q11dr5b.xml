@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9540a152-6b7c-4ca7-b0fd-db574b12b142" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Controllers</name>
+  <display>Controllers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cabcb58c-5deb-41d6-be66-d99cc7f2b3ea</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e4ce6775-9c6b-459f-80c5-2e0b8c88d1dd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.Controller</name>
+      <display>Intent.AspNetCore.Controllers.Controller</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9540a152-6b7c-4ca7-b0fd-db574b12b142</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
