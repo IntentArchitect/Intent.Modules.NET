@@ -48,7 +48,7 @@
     <factoryExtension id="Intent.DomainEvents.DomainEventsDecoratorExtension" externalReference="1a2243e2-e591-40e0-a4b5-be7f1fec9de8" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.4-pre.1" />
+    <dependency id="Intent.Common" version="3.5.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />

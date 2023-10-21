@@ -12,14 +12,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ab9c88a3-d8e6-405d-9056-7e6e9227de12</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FolderExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#3e83b75d-9dff-4393-85fb-80801d1b6e22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
