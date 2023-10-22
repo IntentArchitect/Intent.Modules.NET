@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
@@ -13,7 +14,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
 
 internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProcessor
 {
-    public Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode)
+    public Dictionary<string, NuGetPackage> GetInstalledPackages(
+        string solutionModelId,
+        string projectPath,
+        XNode xNode)
     {
         var (prefix, namespaceManager, _) = xNode.Document.GetNamespaceManager();
 
@@ -30,14 +34,14 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
                     ? privateAssetsElement.Value
                         .Split(';')
                         .Select(y => y.Trim())
-                    : new string[0];
+                    : Array.Empty<string>();
 
                 var includeAssetsElement = element.XPathSelectElement($"{prefix}:IncludeAssets", namespaceManager);
                 var includeAssets = includeAssetsElement != null
                     ? includeAssetsElement.Value
                         .Split(';')
                         .Select(y => y.Trim())
-                    : new string[0];
+                    : Array.Empty<string>();
 
                 var name = element.Attribute("Include")?.Value;
 
@@ -46,6 +50,8 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
     }
 
     public string InstallPackages(
+        string solutionModelId,
+        IEnumerable<IStereotype> projectStereotypes,
         string projectPath,
         string projectContent,
         Dictionary<string, NuGetPackage> requestedPackages,

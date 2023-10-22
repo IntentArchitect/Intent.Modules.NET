@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using NuGet.Versioning;
@@ -13,7 +15,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemePro
 
 internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProcessor
 {
-    public Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode)
+    public Dictionary<string, NuGetPackage> GetInstalledPackages(
+        string solutionModelId,
+        string projectPath,
+        XNode xNode)
     {
         var projectFileDirectory = Path.GetDirectoryName(projectPath);
         if (projectFileDirectory == null)
@@ -59,6 +64,8 @@ internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProces
     }
 
     public string InstallPackages(
+        string solutionModelId,
+        IEnumerable<IStereotype> projectStereotypes,
         string projectPath,
         string projectContent,
         Dictionary<string, NuGetPackage> requestedPackages,

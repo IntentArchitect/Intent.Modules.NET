@@ -1,17 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Metadata.Models;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 
 internal class NuGetProject
 {
+    public string SolutionModelId { get; set; }
     public string ProjectId { get; set; }
+    public IEnumerable<IStereotype> ProjectStereotypes { get; set; }
     public string Name { get; set; }
     public string Content { get; set; }
-    public Dictionary<string, NuGetPackage> RequestedPackages { get; set; } = new Dictionary<string, NuGetPackage>();
-    public Dictionary<string, NuGetPackage> InstalledPackages { get; set; } = new Dictionary<string, NuGetPackage>();
-    public Dictionary<string, VersionRange> HighestVersions { get; set; } = new Dictionary<string, VersionRange>();
+    public Dictionary<string, NuGetPackage> RequestedPackages { get; set; } = new();
+    public Dictionary<string, NuGetPackage> InstalledPackages { get; set; } = new();
+    public Dictionary<string, VersionRange> HighestVersions { get; set; } = new();
     public string FilePath { get; set; }
     public INuGetSchemeProcessor Processor { get; set; }
 

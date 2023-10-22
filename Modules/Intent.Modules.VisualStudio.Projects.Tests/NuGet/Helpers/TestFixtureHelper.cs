@@ -4,11 +4,14 @@ using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Templates;
+using Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps;
 using Intent.Templates;
 using NSubstitute;
 
@@ -16,24 +19,78 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 
 internal static class TestFixtureHelper
 {
-    internal static ProjectImplementation CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+    public static IVisualStudioProjectTemplate CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
     {
-        return new ProjectImplementation(scheme, testVersion, testPackage, nugetPackagesToInstall);
+        var package = Substitute.For<IPackage>();
+        package.Id.Returns(string.Empty);
+        package.Stereotypes.Returns(Enumerable.Empty<IStereotype>());
+        package.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
+
+        var solution = new VisualStudioSolutionModel(package);
+
+        var project = Substitute.For<IVisualStudioProject>();
+        project.Solution.Returns(solution);
+
+        return new ProjectImplementation(
+            scheme: scheme,
+            testVersion: testVersion,
+            testPackage: testPackage,
+            nugetPackagesToInstall: nugetPackagesToInstall,
+            project: project);
     }
 
-    internal static NuGetProject CreateNuGetProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+
+
+    public static SdkSchemeProcessor CreateSdkProcessor()
     {
-        return NugetInstallerFactoryExtension.DetermineProjectNugetPackageInfo(CreateProject(scheme, testVersion, testPackage, nugetPackagesToInstall));
+        return new SdkSchemeProcessor(
+            application: CreateApplicationWithCpmTemplate(),
+            softwareFactoryEventDispatcher: Substitute.For<ISoftwareFactoryEventDispatcher>());
     }
 
-    internal class ProjectImplementation : IVisualStudioProjectTemplate
+    public static NuGetProject CreateNuGetProject(
+        VisualStudioProjectScheme? scheme,
+        INuGetSchemeProcessor processor,
+        TestVersion testVersion,
+        TestPackage testPackage,
+        IDictionary<string, string> nugetPackagesToInstall)
+    {
+        var processors = new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>();
+
+        foreach (var enumeratedScheme in Enum.GetValues<VisualStudioProjectScheme>())
+        {
+            processors[enumeratedScheme] = processor;
+        }
+
+        return NugetInstallerFactoryExtension.DetermineProjectNugetPackageInfo(
+            nuGetProjectSchemeProcessors: processors,
+            template: CreateProject(scheme, testVersion, testPackage, nugetPackagesToInstall));
+    }
+
+    public static IApplication CreateApplicationWithCpmTemplate()
+    {
+        var cpmTemplate = Substitute.For<ICpmTemplate>();
+        cpmTemplate.CanRunTemplate().Returns(false);
+
+        var application = Substitute.For<IApplication>();
+        application.GetApplicationTemplates().Returns(_ => new ITemplate[] { cpmTemplate });
+        return application;
+    }
+
+    public class ProjectImplementation : IVisualStudioProjectTemplate
     {
         private readonly IDictionary<string, string> _nugetPackagesToInstall;
 
-        public ProjectImplementation(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+        public ProjectImplementation(
+            VisualStudioProjectScheme? scheme,
+            TestVersion testVersion,
+            TestPackage testPackage,
+            IDictionary<string, string> nugetPackagesToInstall,
+            IVisualStudioProject project)
         {
             _nugetPackagesToInstall = nugetPackagesToInstall;
 
+            Project = project;
             Name = $"{(scheme.HasValue ? scheme.Value.ToString() : "null")}_{testVersion}_{(int)testPackage}";
             FilePath = GetPath(scheme, testVersion, (int)testPackage);
             OutputTarget = new VSProjectOutputTarget();
@@ -139,7 +196,7 @@ internal static class TestFixtureHelper
         }
     }
 
-    internal static string GetPath(VisualStudioProjectScheme? scheme, TestVersion testVersion, int number)
+    public static string GetPath(VisualStudioProjectScheme? scheme, TestVersion testVersion, int number)
     {
         string path;
         switch (scheme)
