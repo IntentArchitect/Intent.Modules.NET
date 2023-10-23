@@ -157,6 +157,10 @@ public class TenantHeaderOperationFilter : IOperationFilter
 
 Introduce Multi Tenant concepts in the `DbContext` class and Entity Configurations.
 
+> [!NOTE]
+> In order to create and update EF Core migration scripts against a Finbuckle-managed application, you will need to make use of the `Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory` module. More information can be found [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/README.md).
+> Both your API project and Infrastructure project's appsettings.json will need to be kept in sync when tenant database connection strings are updated.
+
 ```csharp
 public class ApplicationDbContext : DbContext, IUnitOfWork, IMultiTenantDbContext
 {
