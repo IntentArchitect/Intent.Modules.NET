@@ -1,3 +1,8 @@
+### Version 5.3.1
+
+- Improvement: Projecting for Commands now included aggregational foreign keys.
+- Fixed: Create CRUD scripts would create fields for _DomainEvent_s on constructors.
+
 ### Version 5.3.0
 
 - Fixed: Addressed an issue where the CRUD Conventions script would fail when generating for Composites.

@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.SingleFiles.Domain.Entities;
+using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -10,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
 {
-    internal class CosmosInvoiceDocument : ICosmosDBDocument<CosmosInvoice, CosmosInvoiceDocument>
+    internal class CosmosInvoiceDocument : ICosmosInvoiceDocument, ICosmosDBDocument<CosmosInvoice, CosmosInvoiceDocument>
     {
         private string? _type;
         [JsonProperty("type")]
@@ -21,14 +23,15 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
         }
         public string Id { get; set; } = default!;
         public string Description { get; set; } = default!;
-        public ICollection<CosmosLineDocument> CosmosLines { get; set; } = default!;
+        public List<CosmosLineDocument> CosmosLines { get; set; } = default!;
+        IReadOnlyList<ICosmosLineDocument> ICosmosInvoiceDocument.CosmosLines => CosmosLines;
 
         public CosmosInvoice ToEntity(CosmosInvoice? entity = default)
         {
             entity ??= new CosmosInvoice();
 
-            entity.Id = Id;
-            entity.Description = Description;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Description = Description ?? throw new Exception($"{nameof(entity.Description)} is null");
             entity.CosmosLines = CosmosLines.Select(x => x.ToEntity()).ToList();
 
             return entity;

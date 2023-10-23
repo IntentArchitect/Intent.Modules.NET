@@ -88,12 +88,14 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         }
 
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<TPT_AbstractBaseClass> TPT_AbstractBaseClasses { get; set; }
         public DbSet<TPH_AbstractBaseClass> TPH_AbstractBaseClasses { get; set; }
         public DbSet<TPT_AbstractBaseClassAssociated> TPT_AbstractBaseClassAssociateds { get; set; }
         public DbSet<TPH_AbstractBaseClassAssociated> TPH_AbstractBaseClassAssociateds { get; set; }
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<Branch> Branches { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
@@ -237,8 +239,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new AccTableFolderConfiguration());
             modelBuilder.ApplyConfiguration(new AccViewFolderConfiguration());
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new D_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());

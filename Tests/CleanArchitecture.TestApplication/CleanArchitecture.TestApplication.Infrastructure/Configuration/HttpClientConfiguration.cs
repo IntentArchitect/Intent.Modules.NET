@@ -20,6 +20,11 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Configuration
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
 
+            services.AddHttpClient<IPaginationForProxiesService, PaginationForProxiesServiceHttpClient>(http =>
+            {
+                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:PaginationForProxiesService:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:PaginationForProxiesService:Timeout") ?? TimeSpan.FromSeconds(100);
+            });
             services.AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryDtoParameterService:Uri");

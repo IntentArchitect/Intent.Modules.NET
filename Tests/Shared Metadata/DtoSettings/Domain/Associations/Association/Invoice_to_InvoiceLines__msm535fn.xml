@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="00253d09-6507-403a-85a7-9c1cad31924f">
+  <sourceEnd id="3280f655-78a2-4476-8753-8de45647380c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="1bedb7c2-7dd1-4890-8b0f-2ed34f3e2bd0">
+      <typeId>4db32430-16e4-4d67-90cc-5b283932c4fd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Domain</typePackageName>
+      <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="00253d09-6507-403a-85a7-9c1cad31924f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InvoiceLines</name>
+    <display>InvoiceLines: InvoiceLine[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="2192ba24-c271-4c06-b3e5-f48a2d402238">
+      <typeId>f95ddd47-82fb-48fa-b8a6-10190bb00420</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Domain</typePackageName>
+      <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

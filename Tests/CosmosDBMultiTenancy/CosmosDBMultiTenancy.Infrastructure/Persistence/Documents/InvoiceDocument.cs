@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CosmosDBMultiTenancy.Domain.Common;
 using CosmosDBMultiTenancy.Domain.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Entities;
+using CosmosDBMultiTenancy.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
 {
-    internal class InvoiceDocument : ICosmosDBDocument<Invoice, InvoiceDocument>
+    internal class InvoiceDocument : IInvoiceDocument, ICosmosDBDocument<Invoice, InvoiceDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;
@@ -27,10 +28,10 @@ namespace CosmosDBMultiTenancy.Infrastructure.Persistence.Documents
         {
             entity ??= new Invoice();
 
-            entity.Id = Id;
-            entity.Number = Number;
-            entity.TenantId = TenantId;
-            entity.CreatedBy = CreatedBy;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Number = Number ?? throw new Exception($"{nameof(entity.Number)} is null");
+            entity.TenantId = TenantId ?? throw new Exception($"{nameof(entity.TenantId)} is null");
+            entity.CreatedBy = CreatedBy ?? throw new Exception($"{nameof(entity.CreatedBy)} is null");
             entity.CreatedDate = CreatedDate;
             entity.UpdatedBy = UpdatedBy;
             entity.UpdatedDate = UpdatedDate;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b37a1bea-fc8b-4246-a4c0-65ad360063e0">
+  <sourceEnd id="7ec3f858-b1cf-44db-99ad-f71f3a90b562" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="472315a7-6ce1-4033-b20a-ebbe6a8d64aa">
+      <typeId>20e1d859-198e-4570-b6bb-565dd2986020</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Domain</typePackageName>
+      <typePackageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b37a1bea-fc8b-4246-a4c0-65ad360063e0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Customer</name>
+    <display>Customer: Customer   [1 --&gt; 1]</display>
+    <order>4</order>
+    <typeReference id="2d96e905-eb2a-4803-bb85-f0b621c3c8ff">
+      <typeId>e32ceb58-9f27-4ea2-b703-f075c9307b6a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Domain</typePackageName>
+      <typePackageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

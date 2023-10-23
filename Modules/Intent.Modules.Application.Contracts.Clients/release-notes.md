@@ -1,4 +1,8 @@
-﻿### Version 5.0.2
+﻿### Version 5.0.3
+
+- Improvement: Will now generate `PagedResult<TData>` if used by any mapped service proxies.
+
+### Version 5.0.2
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d05ee8e-747f-4120-9647-29ac784ef633" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
+  <name>Azure.TableStorage</name>
+  <display>Azure.TableStorage</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c9500561-2347-45f6-bbba-b7f77a2dfd42</parentFolderId>
+  <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+  <packageName>Intent.Azure.TableStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

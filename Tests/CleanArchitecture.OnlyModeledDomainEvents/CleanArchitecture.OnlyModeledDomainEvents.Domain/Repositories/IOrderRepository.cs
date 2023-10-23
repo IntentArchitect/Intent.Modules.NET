@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities;
+using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IOrderRepository : ICosmosDBRepository<Order, Order>
+    public interface IOrderRepository : ICosmosDBRepository<Order, IOrderDocument>
     {
     }
 }

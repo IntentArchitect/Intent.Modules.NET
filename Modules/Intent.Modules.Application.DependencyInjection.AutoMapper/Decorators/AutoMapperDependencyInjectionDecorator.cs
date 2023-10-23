@@ -25,7 +25,7 @@ namespace Intent.Modules.Application.DependencyInjection.AutoMapper.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddNugetDependency("AutoMapper.Extensions.Microsoft.DependencyInjection", "7.0.*");
+            _template.AddNugetDependency("AutoMapper.Extensions.Microsoft.DependencyInjection", "7.0.0");
         }
 
         public override string ServiceRegistration()

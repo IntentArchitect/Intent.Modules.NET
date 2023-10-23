@@ -1,4 +1,8 @@
-﻿### Version 5.0.5
+﻿### Version 5.0.6
+
+- Improvement: Added `PagedResult<TData>` as a Type Source for `HttpClient`s.
+
+### Version 5.0.5
 
 - Improvement: Enhanced the way the generated proxies are dealing with DTO parameters in the query to align with ASP.Net Core behaviour.
 

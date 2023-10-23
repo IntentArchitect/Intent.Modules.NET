@@ -4,6 +4,7 @@ using System.Linq;
 using CosmosDB.Domain.Common;
 using CosmosDB.Domain.Common.Interfaces;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -13,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class InvoiceDocument : ICosmosDBDocument<Invoice, InvoiceDocument>
+    internal class InvoiceDocument : IInvoiceDocument, ICosmosDBDocument<Invoice, InvoiceDocument>
     {
         private string? _type;
         public string Id { get; set; } = default!;
@@ -24,23 +25,25 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         public DateTimeOffset CreatedDate { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTimeOffset? UpdatedDate { get; set; }
-        public ICollection<LineItemDocument> LineItems { get; set; } = default!;
+        public List<LineItemDocument> LineItems { get; set; } = default!;
+        IReadOnlyList<ILineItemDocument> IInvoiceDocument.LineItems => LineItems;
         public InvoiceLogoDocument InvoiceLogo { get; set; } = default!;
+        IInvoiceLogoDocument IInvoiceDocument.InvoiceLogo => InvoiceLogo;
 
         public Invoice ToEntity(Invoice? entity = default)
         {
             entity ??= ReflectionHelper.CreateNewInstanceOf<Invoice>();
 
-            entity.Id = Id;
-            entity.ClientIdentifier = ClientIdentifier;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.ClientIdentifier = ClientIdentifier ?? throw new Exception($"{nameof(entity.ClientIdentifier)} is null");
             entity.Date = Date;
-            entity.Number = Number;
-            entity.CreatedBy = CreatedBy;
+            entity.Number = Number ?? throw new Exception($"{nameof(entity.Number)} is null");
+            entity.CreatedBy = CreatedBy ?? throw new Exception($"{nameof(entity.CreatedBy)} is null");
             entity.CreatedDate = CreatedDate;
             entity.UpdatedBy = UpdatedBy;
             entity.UpdatedDate = UpdatedDate;
             entity.LineItems = LineItems.Select(x => x.ToEntity()).ToList();
-            entity.InvoiceLogo = InvoiceLogo.ToEntity()!;
+            entity.InvoiceLogo = InvoiceLogo.ToEntity() ?? throw new Exception($"{nameof(entity.InvoiceLogo)} is null");
 
             return entity;
         }

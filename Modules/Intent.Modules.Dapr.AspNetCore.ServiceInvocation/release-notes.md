@@ -1,4 +1,8 @@
-﻿### Version 2.0.5
+﻿### Version 2.0.6
+
+- Improvement: Will now generate `PagedResult<TData>` if used by any mapped service proxies.
+
+### Version 2.0.5
 
 - Improvement: Enhanced the way the generated proxies are dealing with DTO parameters in the query to align with ASP.Net Core behaviour.
 

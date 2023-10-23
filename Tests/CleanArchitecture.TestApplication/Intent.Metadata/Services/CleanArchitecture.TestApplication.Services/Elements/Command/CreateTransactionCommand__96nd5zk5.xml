@@ -203,7 +203,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="b9a76d19-54d0-4024-a857-6562aa902228" name="Account" type="association" specialization="Association" />
+          <target id="b9a76d19-54d0-4024-a857-6562aa902228" name="Account" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>eb6f5485-b71b-4f36-8bcc-e048bfd26328</parentFolderId>

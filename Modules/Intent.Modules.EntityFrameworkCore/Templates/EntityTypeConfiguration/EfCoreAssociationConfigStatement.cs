@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -74,7 +75,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         if (associationEnd.OtherEnd().IsCollection)
         {
             statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
-            statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{getTableNameByConvention(associationEnd.OtherEnd().Class.Name + associationEnd.Class.Name)}\"))");
+            statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{GetJoiningTableName(associationEnd, getTableNameByConvention)}\"))");
             statement.RequiredProperties = new[]
             {
                 new RequiredEntityProperty(
@@ -101,6 +102,20 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
 
         return statement;
+    }
+
+    private static string GetJoiningTableName(AssociationEndModel associationEnd, Func<string, string> getTableNameByConvention)
+    {
+        if (!associationEnd.IsTargetEnd())
+        {
+            associationEnd = associationEnd.OtherEnd();
+        }
+        var targetEnd = associationEnd.InternalAssociationEnd.AsAssociationTargetEndModel();
+        if (targetEnd.HasJoinTable() && !string.IsNullOrEmpty(targetEnd.GetJoinTable().Name()))
+        {
+            return targetEnd.GetJoinTable().Name();
+        }
+        return getTableNameByConvention(associationEnd.OtherEnd().Class.Name + associationEnd.Class.Name);
     }
 
     private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd) : base(null)

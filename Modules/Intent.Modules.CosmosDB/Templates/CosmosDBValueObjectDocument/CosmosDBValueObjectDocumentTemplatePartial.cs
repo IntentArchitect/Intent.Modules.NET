@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -25,9 +26,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBValueObjectDocumentTemplate(IOutputTarget outputTarget, IElement model = null) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
                 {
+                    var genericTypeArguments = Model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", Model.GenericTypes)}>"
+                        : string.Empty;
+
+                    @class.ImplementsInterface($"{this.GetCosmosDBValueObjectDocumentInterfaceName()}{genericTypeArguments}");
+
                     var attributes = Model.ChildElements
                         .Where(x => x.IsAttributeModel())
                         .Select(x => x.AsAttributeModel())
@@ -45,7 +55,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         attributes: attributes,
                         associationEnds: Array.Empty<AssociationEndModel>(),
                         entityInterfaceTypeName: valueObjectTypeName,
-                        entityStateTypeName: valueObjectTypeName,
+                        entityImplementationTypeName: valueObjectTypeName,
                         entityRequiresReflectionConstruction: true,
                         entityRequiresReflectionPropertySetting: true,
                         isAggregate: false,

@@ -5,6 +5,7 @@ using Intent.Modules.Blazor.HttpClients.Templates.HttpClient;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Blazor.HttpClients.Templates.JsonResponse;
+using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
 using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -59,6 +60,11 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
         public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
+        }
+
+        public static string GetPagedResultName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(PagedResultTemplate.TemplateId);
         }
 
         public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel

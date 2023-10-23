@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using Intent.CosmosDB.Api;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
@@ -8,6 +9,8 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
+using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -17,7 +20,9 @@ namespace Intent.Modules.CosmosDB.Templates
             this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IEnumerable<AttributeModel> attributes,
-            IEnumerable<AssociationEndModel> associationEnds)
+            IEnumerable<AssociationEndModel> associationEnds,
+            string documentInterfaceTemplateId = null)
+                where TModel : IMetadataModel
         {
             foreach (var attribute in attributes)
             {
@@ -49,16 +54,42 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
                     }
                 });
+
+                if (documentInterfaceTemplateId == null)
+                {
+                    continue;
+                }
+
+                @class.AddProperty(template.GetDocumentInterfaceName(associationEnd.TypeReference), associationEnd.Name.ToPascalCase(), property =>
+                {
+                    property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                    property.Getter.WithExpressionImplementation(associationEnd.Name.ToPascalCase());
+                    property.WithoutSetter();
+                });
             }
         }
 
-        public static void AddCosmosDBMappingMethods(
-            this ICSharpTemplate template,
+        public static string GetDocumentInterfaceName<T>(this CSharpTemplateBase<T> template, ITypeReference typeReference)
+        {
+            var classProvider = template.GetTemplate<IClassProvider>(CosmosDBDocumentInterfaceTemplate.TemplateId, typeReference.Element);
+            var typeName = template.UseType(classProvider.FullTypeName());
+
+            if (typeReference.IsCollection)
+            {
+                typeName = template.UseType($"System.Collections.Generic.IReadOnlyList<{typeName}>");
+            }
+
+            return typeName;
+
+        }
+
+        public static void AddCosmosDBMappingMethods<TModel>(
+            this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
             IReadOnlyList<AssociationEndModel> associationEnds,
             string entityInterfaceTypeName,
-            string entityStateTypeName,
+            string entityImplementationTypeName,
             bool entityRequiresReflectionConstruction,
             bool entityRequiresReflectionPropertySetting,
             bool isAggregate,
@@ -68,9 +99,9 @@ namespace Intent.Modules.CosmosDB.Templates
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
                 : string.Empty;
 
-            @class.AddMethod($"{entityInterfaceTypeName}{genericTypeArguments}", "ToEntity", method =>
+            @class.AddMethod($"{entityImplementationTypeName}{genericTypeArguments}", "ToEntity", method =>
             {
-                method.AddParameter($"{entityStateTypeName}{genericTypeArguments}?", "entity", p =>
+                method.AddParameter($"{entityImplementationTypeName}{genericTypeArguments}?", "entity", p =>
                 {
                     if (!@class.IsAbstract)
                     {
@@ -81,8 +112,8 @@ namespace Intent.Modules.CosmosDB.Templates
                 if (!@class.IsAbstract)
                 {
                     var instantiation = entityRequiresReflectionConstruction
-                        ? $"{template.GetReflectionHelperName()}.CreateNewInstanceOf<{entityStateTypeName}{genericTypeArguments}>()"
-                        : $"new {entityStateTypeName}{genericTypeArguments}()";
+                        ? $"{template.GetReflectionHelperName()}.CreateNewInstanceOf<{entityImplementationTypeName}{genericTypeArguments}>()"
+                        : $"new {entityImplementationTypeName}{genericTypeArguments}()";
 
                     method.AddStatement($"entity ??= {instantiation};");
                 }
@@ -113,6 +144,12 @@ namespace Intent.Modules.CosmosDB.Templates
                         };
                     }
 
+                    if (template.IsNonNullableReferenceType(attribute.TypeReference))
+                    {
+                        assignmentValueExpression =
+                            $"{assignmentValueExpression} ?? throw new {template.UseType("System.Exception")}($\"{{nameof(entity.{attribute.Name.ToPascalCase()})}} is null\")";
+                    }
+
                     method.AddStatement(
                         entityRequiresReflectionPropertySetting
                             ? $"{template.GetReflectionHelperName()}.ForceSetProperty(entity, nameof({attribute.Name.ToPascalCase()}), {assignmentValueExpression});"
@@ -123,13 +160,17 @@ namespace Intent.Modules.CosmosDB.Templates
                 foreach (var associationEnd in associationEnds)
                 {
                     var nullable = associationEnd.IsNullable ? "?" : string.Empty;
-                    var nullableSuppression = associationEnd.IsNullable || entityRequiresReflectionPropertySetting ? string.Empty : "!";
 
-                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity(){nullableSuppression}";
+                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity()";
 
                     if (associationEnd.IsCollection)
                     {
                         assignmentValueExpression = $"{associationEnd.Name}{nullable}.Select(x => x.ToEntity()).ToList()";
+                    }
+                    else if (!associationEnd.IsNullable)
+                    {
+                        assignmentValueExpression =
+                            $"{assignmentValueExpression} ?? throw new {template.UseType("System.Exception")}($\"{{nameof(entity.{associationEnd.Name.ToPascalCase()})}} is null\")";
                     }
 
                     method.AddStatement(entityRequiresReflectionPropertySetting

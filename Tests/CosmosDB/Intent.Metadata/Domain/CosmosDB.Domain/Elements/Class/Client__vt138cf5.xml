@@ -93,5 +93,198 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="227427e8-d62a-4a51-9255-1d0acfa9b394" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>Client()</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d929830c-66b5-41d7-8354-ff99c7c1410c</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="48bc24b8-c292-4afe-83bd-d50543a38c47" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>Client(type: ClientType, name: string)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>b0cfe26a-d338-4d6d-a8df-a97c4e78f647</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d929830c-66b5-41d7-8354-ff99c7c1410c" name="Client" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d929830c-66b5-41d7-8354-ff99c7c1410c</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="2de69ed2-9caa-4f50-87c1-03c0329bd0b5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>type</name>
+          <display>in : type: ClientType</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ab5fb20c-c8c6-4d89-b489-f9a8c01f58fc">
+            <typeId>38eef633-3f9d-474a-9c2f-1a0ec0ee3ad0</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CosmosDB.Domain</typePackageName>
+            <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="7436efa7-7895-4cfe-803b-549e14340a15" name="Type" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>48bc24b8-c292-4afe-83bd-d50543a38c47</parentFolderId>
+          <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+          <packageName>CosmosDB.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b81d7117-105b-4194-8c15-61d3a39f2a0f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="eb237553-9ad5-4924-a053-f0041a8562ca">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="460a1bd7-d876-4294-a8a0-7897160fce72" name="Name" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>48bc24b8-c292-4afe-83bd-d50543a38c47</parentFolderId>
+          <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+          <packageName>CosmosDB.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="36e61f51-19bd-4b56-b387-cc6f912b888d" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Update</name>
+      <display>Update(type: ClientType, name: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f1780e29-e3a9-48fe-9025-f3a388e52221">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>b0cfe26a-d338-4d6d-a8df-a97c4e78f647</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d929830c-66b5-41d7-8354-ff99c7c1410c" name="Client" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d929830c-66b5-41d7-8354-ff99c7c1410c</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cce7b48c-c353-4454-8d8e-4d713c0990bf" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>type</name>
+          <display>in : type: ClientType</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e699ac55-3136-4070-a7ad-d95e1a2bdc07">
+            <typeId>38eef633-3f9d-474a-9c2f-1a0ec0ee3ad0</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CosmosDB.Domain</typePackageName>
+            <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="7436efa7-7895-4cfe-803b-549e14340a15" name="Type" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>36e61f51-19bd-4b56-b387-cc6f912b888d</parentFolderId>
+          <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+          <packageName>CosmosDB.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0dd54cb4-4fd7-4665-bf3e-db132a1d7536" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0b34154b-0529-4211-bda1-a38f0140de73">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="460a1bd7-d876-4294-a8a0-7897160fce72" name="Name" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>36e61f51-19bd-4b56-b387-cc6f912b888d</parentFolderId>
+          <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+          <packageName>CosmosDB.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

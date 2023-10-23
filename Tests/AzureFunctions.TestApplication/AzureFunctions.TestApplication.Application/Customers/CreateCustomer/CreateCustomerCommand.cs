@@ -8,6 +8,12 @@ using MediatR;
 
 namespace AzureFunctions.TestApplication.Application.Customers.CreateCustomer
 {
+    /// <summary>
+    /// Line 1
+    /// Line 2
+    /// Tab 	
+    /// Slash \
+    /// </summary>
     public class CreateCustomerCommand : IRequest<Guid>, ICommand
     {
         public CreateCustomerCommand(string name)
