@@ -5,6 +5,7 @@
   <supportedClientVersions>[3.3.14-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md</projectUrl>
   <authors>Intent Architect</authors>
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet visual-studio</tags>
