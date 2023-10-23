@@ -11,8 +11,8 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Templates;
 using Intent.Utils;
 

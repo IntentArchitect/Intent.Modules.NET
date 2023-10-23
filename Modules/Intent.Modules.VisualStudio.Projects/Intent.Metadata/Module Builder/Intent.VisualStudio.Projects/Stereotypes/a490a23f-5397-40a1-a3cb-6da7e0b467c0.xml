@@ -210,5 +210,19 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="6de4cc6f-2476-461c-9be9-b6ac0592a827">
+      <hint />
+      <name>Manage Package Versions Centrally</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unmanaged)</placeholder>
+      <valueOptions>
+        <option>(unspecified)</option>
+        <option>false</option>
+        <option>true</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

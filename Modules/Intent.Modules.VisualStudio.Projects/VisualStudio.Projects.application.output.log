@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#07e7b690-a59d-4b72-8440-4308a121d32c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/VisualStudioSolutionModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VisualStudioSolutionModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#3CDFF513-03D8-4BAB-9435-160108A086A3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/WCFServiceApplicationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -416,6 +424,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#807ee533-3ab8-4fe6-a06c-30d45eecf014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#807ee533-3ab8-4fe6-a06c-30d45eecf014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
