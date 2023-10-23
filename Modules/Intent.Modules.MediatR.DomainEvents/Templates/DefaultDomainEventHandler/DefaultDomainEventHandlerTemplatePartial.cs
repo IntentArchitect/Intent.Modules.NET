@@ -81,7 +81,6 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
             return GetTypeName(DomainEventNotificationTemplate.TemplateId);
         }
 
-
         private string GetDomainEventType()
         {
             return GetTypeName(DomainEventTemplate.TemplateId, Model);

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.Contracts.DomainMapping.Api;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -66,6 +67,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                         
                         foreach (var publish in model.PublishedIntegrationEvents())
                         {
+                            var mapping = publish.Mappings.SingleOrDefault();
+                            if (mapping == null)
+                            {
+                                throw new ElementException(publish.InternalAssociationEnd, "Mapping not specified.");
+                            }
                             var creation = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
                             AddPublishStatement(@class, new CSharpInvocationStatement("_eventBus.Publish")
                                 .AddArgument(creation));

@@ -6,11 +6,14 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using MessageModelExtensions = Intent.Modelers.Eventing.Api.MessageModelExtensions;
@@ -29,9 +32,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
         public IntegrationEventHandlerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(TemplateFulfillingRoles.Application.Command);
+            AddTypeSource(TemplateFulfillingRoles.Application.Query);
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -46,21 +51,24 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
 
                     foreach (var subscription in Model.IntegrationEventsSubscriptions())
                     {
-                        @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{this.GetIntegrationEventMessageName(MessageModelExtensions.AsMessageModel(subscription.TypeReference.Element))}>");
+                        @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName(subscription)}>");
                         @class.AddMethod("Task", "HandleAsync", method =>
                         {
                             method.Async();
-                            method.AddParameter(this.GetIntegrationEventMessageName(MessageModelExtensions.AsMessageModel(subscription.TypeReference.Element)), "message");
+                            method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
 
                             if (subscription.SentCommandDestinations().Any())
                             {
                                 var ctor = @class.Constructors.First();
-                                ctor.AddParameter(UseType("MediatR.ISender"), "mediator", param =>
+                                if (ctor.Parameters.All(x => x.Type != UseType("MediatR.ISender")))
                                 {
-                                    param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
-                                });
+                                    ctor.AddParameter(UseType("MediatR.ISender"), "mediator", param =>
+                                    {
+                                        param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
+                                    });
+                                }
                                 method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                                 var mappingManager = new CSharpClassMappingManager(this);
                                 mappingManager.AddMappingResolver(new CreateCommandMappingResolver(this));
@@ -83,6 +91,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                 });
         }
 
+        private string GetMessageName(SubscribeIntegrationEventTargetEndModel subscription)
+        {
+            return this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
+        }
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
@@ -97,6 +110,20 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
         {
             return CSharpFile.ToString();
         }
+
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var subscription in Model.IntegrationEventsSubscriptions())
+            {
+                ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                    .ForInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName(subscription)}>")
+                    .ForConcern("Application")
+                    .WithPriority(100)
+                    .HasDependency(GetTemplate<IClassProvider>(IntegrationEventHandlerInterfaceTemplate.TemplateId))
+                    .HasDependency(GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, subscription.TypeReference.Element)));
+            }
+        }
+
     }
 
     public class CreateCommandMappingResolver : IMappingTypeResolver
