@@ -69,7 +69,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                 }
 
                                 lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
-                                    ? "options.CustomSchemaIds(GetFriendlyName)"
+                                    ? "options.CustomSchemaIds(GetFriendlyName);"
                                     : "options.CustomSchemaIds(x => x.FullName);");
 
                                 lambdaBlock.AddStatement(
