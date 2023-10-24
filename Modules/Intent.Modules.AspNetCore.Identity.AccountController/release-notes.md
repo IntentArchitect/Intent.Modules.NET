@@ -1,4 +1,8 @@
-﻿### Version 2.0.2
+﻿### Version 2.1.3
+
+- Fixed: Login not working with Postgres, issue related to non UTC DateTime.
+
+### Version 2.0.2
 
 - Update: Nuget package version of `Microsoft.AspNetCore.Authentication.JwtBearer` is now bumped to the latest version based on the configured .NET version to eliminate the known security vulnerabilities.
 
