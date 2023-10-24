@@ -26,7 +26,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.8" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.9" />
       </install>
     </detect>
   </interoperability>

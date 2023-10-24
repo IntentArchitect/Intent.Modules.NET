@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.Behaviours</id>
-  <version>4.2.1</version>
+  <version>4.2.4</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Additional MediatR middleware pipeline behaviours</summary>
   <description>Additional MediatR middleware pipeline behaviours</description>
@@ -34,14 +34,6 @@
       <role>Application.Common</role>
       <location>Common/Behaviours</location>
     </template>
-    <template id="Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour" externalReference="6afdbc46-649f-4ed1-887b-eb61698526d6">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Common</role>
-      <location>Common/Behaviours</location>
-    </template>
     <template id="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" externalReference="01accc66-206d-450c-8c23-b671dd4a69d4">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -67,6 +59,25 @@
       <location>Common/Behaviours</location>
     </template>
   </templates>
+  <interoperability>
+    <!-- Minimum Compatible Versions -->
+    <detect id="Intent.CosmosDB">
+      <install>
+        <package id="Intent.CosmosDB" version="1.0.0-alpha.34" />
+      </install>
+    </detect>
+    <detect id="Intent.Dapr.AspNetCore.StateManagement">
+      <install>
+        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-beta.2" />
+      </install>
+    </detect>
+    <detect id="Intent.MongoDb">
+      <install>
+        <package id="Intent.MongoDb" version="1.0.7" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.5.1" />
     <dependency id="Intent.Application.MediatR" version="4.1.0" />
