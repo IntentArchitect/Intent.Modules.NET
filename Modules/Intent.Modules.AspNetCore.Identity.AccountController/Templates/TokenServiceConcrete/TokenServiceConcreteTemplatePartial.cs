@@ -67,7 +67,7 @@ var expiration = TimeSpan.FromMinutes(_configuration.GetSection(""JwtToken:AuthT
                         method.AddStatement("var randomNumber = new byte[32];");
                         method.AddUsingBlock("var rng = RandomNumberGenerator.Create()", block => block
                             .AddStatement("rng.GetBytes(randomNumber);")
-                            .AddStatement(@"return (Convert.ToBase64String(randomNumber), DateTime.Now.AddDays(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3));"));
+                            .AddStatement(@"return (Convert.ToBase64String(randomNumber), DateTime.UtcNow.AddDays(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3));"));
                     });
                     @class.AddMethod("ClaimsPrincipal", "GetPrincipalFromExpiredToken", method =>
                     {
