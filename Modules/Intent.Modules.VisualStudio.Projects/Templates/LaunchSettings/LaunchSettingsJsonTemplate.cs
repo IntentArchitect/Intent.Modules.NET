@@ -270,7 +270,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             return new TemplateFileConfig(
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.Basic,
-                fileName: "launchsettings",
+                fileName: "launchSettings",
                 fileExtension: "json",
                 relativeLocation: "Properties"
             );
