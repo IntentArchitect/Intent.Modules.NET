@@ -23,12 +23,10 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
+        var useSimpleSchemaIdentifiers = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIdentifiers();
+        var markNonNullableFieldsAsRequired = ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired();
+
         AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
-        var useSimpleSchemaIDs = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIDs();
-        if (useSimpleSchemaIDs)
-        {
-            AddNugetDependency(NugetPackages.SwashbuckleCore);
-        }
         AddUsing("System");
         AddUsing("System.Collections.Generic");
         AddUsing("System.IO");
@@ -38,11 +36,6 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         AddUsing("Microsoft.Extensions.DependencyInjection");
         AddUsing("Microsoft.OpenApi.Models");
         AddUsing("Swashbuckle.AspNetCore.SwaggerUI");
-        if (useSimpleSchemaIDs)
-        {
-            AddUsing("Swashbuckle.Swagger");
-            AddUsing("ISchemaFilter = Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter");
-        }
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass("SwashbuckleConfiguration", @class =>
@@ -69,14 +62,14 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                         .WithArgumentsOnNewLines()
                                     );
 
-                                if (ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired())
+                                if (markNonNullableFieldsAsRequired)
                                 {
                                     lambdaBlock.AddStatement("options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();");
                                     lambdaBlock.AddStatement("options.SupportNonNullableReferenceTypes();");
                                 }
 
-                                lambdaBlock.AddStatement(useSimpleSchemaIDs
-                                    ? "options.CustomSchemaIds(type => type.FriendlyId().Replace(\"[\", \"Of\").Replace(\"]\", \"\"));"
+                                lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
+                                    ? "options.CustomSchemaIds(GetFriendlyName)"
                                     : "options.CustomSchemaIds(x => x.FullName);");
 
                                 lambdaBlock.AddStatement(
@@ -134,9 +127,30 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                         .WithArgumentsOnNewLines()
                         .AddMetadata("UseSwaggerUI", true));
                 });
+
+                if (useSimpleSchemaIdentifiers)
+                {
+                    @class.AddMethod("string", "GetFriendlyName", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter(UseType("System.Type"), "modelType");
+
+                        method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                        {
+                            @if.AddStatement("return modelType.Name.Replace(\"[]\", \"Array\");");
+                        });
+
+                        method.AddStatement(@"var genericTypeArguments = modelType.GetGenericArguments()
+                .Select(GetFriendlyName);", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement(
+                            "return $\"{modelType.Name.Split('`')[0]}Of{string.Join(\"And\", genericTypeArguments)}\";",
+                            s => s.SeparatedFromPrevious());
+                    });
+                }
             });
 
-        if (ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired())
+        if (markNonNullableFieldsAsRequired)
         {
             CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile);
         }
@@ -148,7 +162,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
             .AddClass("RequireNonNullablePropertiesSchemaFilter", @class =>
             {
                 @class.Internal();
-                @class.ExtendsClass("ISchemaFilter");
+                @class.ExtendsClass(UseType("Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter"));
                 @class.AddMethod("void", "Apply", method =>
                 {
                     method.AddParameter("OpenApiSchema", "model");
