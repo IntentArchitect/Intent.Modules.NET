@@ -1,7 +1,8 @@
-﻿using Intent.Modules.Common.CSharp.Mapping;
+﻿using Intent.Modelers.Eventing.Api;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions;
+namespace Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 
 public class MessageCreationMappingTypeResolver : IMappingTypeResolver
 {
@@ -20,13 +21,9 @@ public class MessageCreationMappingTypeResolver : IMappingTypeResolver
         //}
 
         var model = mappingModel.Model;
-        if (model.SpecializationType == "Message" || model.TypeReference?.Element?.SpecializationType == "Eventing DTO")
+        if (model.IsMessageModel() || model.TypeReference?.Element?.IsEventingDTOModel() == true)
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
-        }
-        if (model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(mappingModel, _sourceTemplate);
         }
 
         return null;

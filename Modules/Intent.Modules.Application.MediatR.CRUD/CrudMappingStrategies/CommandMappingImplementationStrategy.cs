@@ -48,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(_model, "request");
-            _template.CSharpFile.AddMetadata("mapping-manager", csharpMapping);
+            handleMethod.AddMetadata("mapping-manager", csharpMapping);
             
             foreach (var createAction in _model.CreateEntityActions())
             {

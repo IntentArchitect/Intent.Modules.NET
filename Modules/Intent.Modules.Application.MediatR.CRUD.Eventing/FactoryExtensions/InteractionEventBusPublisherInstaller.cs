@@ -1,12 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Eventing.Contracts.DomainMapping.Api;
 using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -51,39 +55,63 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                     continue;
                 }
 
-                template.AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
                 template.CSharpFile.AfterBuild(file =>
-                    {
-                        var @class = file.Classes.First();
-                        var constructor = @class.Constructors.First();
-                        constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", ctor => ctor.IntroduceReadonlyField());
+                {
+                    AddPublishingLogic(template, file.Classes.First().FindMethod("Handle"), model.PublishedIntegrationEvents());
+                });
+            }
 
-                        if (!file.TryGetMetadata<CSharpClassMappingManager>("mapping-manager", out var csharpMapping))
-                        {
-                            csharpMapping = new CSharpClassMappingManager(template);
-                        }
-                        csharpMapping.AddMappingResolver(new MessageCreationMappingTypeResolver(template));
-                        csharpMapping.SetFromReplacement(model.InternalElement, "request");
-                        
-                        foreach (var publish in model.PublishedIntegrationEvents())
-                        {
-                            var mapping = publish.Mappings.SingleOrDefault();
-                            if (mapping == null)
-                            {
-                                throw new ElementException(publish.InternalAssociationEnd, "Mapping not specified.");
-                            }
-                            var creation = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
-                            AddPublishStatement(@class, new CSharpInvocationStatement("_eventBus.Publish")
-                                .AddArgument(creation));
-                        }
-                    });
+            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Application.DomainEventHandler.Explicit");
+            foreach (var template in templates)
+            {
+                var model = (template as ITemplateWithModel)?.Model as DomainEventHandlerModel ?? throw new Exception("Unable to resolve CommandModel for Application.Command.Handler template");
+                if (!model.HandledDomainEvents().Any(x => x.PublishedIntegrationEvents().Any()))
+                {
+                    continue;
+                }
+
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    foreach (var handledDomainEvent in model.HandledDomainEvents())
+                    {
+                        AddPublishingLogic(template, file.GetReferenceForModel(handledDomainEvent) as CSharpClassMethod, handledDomainEvent.PublishedIntegrationEvents());
+                    }
+                });
             }
         }
-        
 
-        private static void AddPublishStatement(CSharpClass @class, CSharpStatement publishStatement)
+        private static void AddPublishingLogic(ICSharpFileBuilderTemplate template, CSharpClassMethod method, IEnumerable<PublishIntegrationEventTargetEndModel> publishes)
         {
-            var method = @class.FindMethod("Handle");
+            var constructor = method.Class.Constructors.First();
+            if (constructor.Parameters.All(x => x.Type != template.GetTypeName(EventBusInterfaceTemplate.TemplateId)))
+            {
+                constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", ctor => ctor.IntroduceReadonlyField());
+            }
+
+            if (!method.TryGetMetadata<CSharpClassMappingManager>("mapping-manager", out var csharpMapping))
+            {
+                csharpMapping = new CSharpClassMappingManager(template);
+            }
+
+            csharpMapping.AddMappingResolver(new MessageCreationMappingTypeResolver(template));
+
+            template.AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
+            foreach (var publish in publishes)
+            {
+                var mapping = publish.Mappings.SingleOrDefault();
+                if (mapping == null)
+                {
+                    throw new ElementException(publish.InternalAssociationEnd, "Mapping not specified.");
+                }
+                csharpMapping.SetFromReplacement(publish.OtherEnd().TypeReference.Element, "request");
+                var newMessageStatement = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
+                AddPublishStatement(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement));
+            }
+        }
+
+
+        private static void AddPublishStatement(CSharpClassMethod method, CSharpStatement publishStatement)
+        {
             var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
 
             if (returnClause != null)
@@ -95,6 +123,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 method.Statements.Add(publishStatement);
             }
         }
-        
+
     }
 }

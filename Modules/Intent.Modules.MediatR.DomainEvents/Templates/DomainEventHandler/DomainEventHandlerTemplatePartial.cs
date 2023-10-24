@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
@@ -12,6 +13,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
@@ -49,6 +51,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
 
                         @class.AddMethod("Task", "Handle", method =>
                         {
+                            method.RepresentsModel(handledDomainEvents);
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");

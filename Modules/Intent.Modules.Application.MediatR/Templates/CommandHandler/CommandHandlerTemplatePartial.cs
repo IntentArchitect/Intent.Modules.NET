@@ -67,7 +67,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                        method.AddParameter(GetCommandModelName(template, model), "request");
+                        method.AddParameter(GetCommandModelName(template, model), "request", p => p.RepresentsModel(model));
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
