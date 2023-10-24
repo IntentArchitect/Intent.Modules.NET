@@ -1,3 +1,7 @@
+### Version 3.4.1
+
+- Fixed: `launchSettings.json` was incorrectly generated as `launchsettings.json` which would cause issues on case-sensitive file systems.
+
 ### Version 3.4.0
 
 - New Feature: It is now possible to enable [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) for a Solution in the Visual Studio designer. Refer to the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#central-package-management) for more information.
