@@ -14,7 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions;
@@ -118,7 +117,7 @@ public class DomainInteractionsManager
 
     public void InjectRepositoryForEntity(ClassModel foundEntity, out string repositoryFieldName)
     {
-        var repositoryInterface = (_template as IntentTemplateBase).GetEntityRepositoryInterfaceName(foundEntity);
+        var repositoryInterface = _template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, foundEntity);
         var repositoryName = repositoryInterface[1..].ToCamelCase();
         var temp = default(string);
 

@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -49,6 +53,43 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
+
+                            var csharpMapping = new CSharpClassMappingManager(this);
+                            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
+                            var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
+
+                            csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
+                            method.AddMetadata("mapping-manager", csharpMapping);
+
+                            foreach (var createAction in handledDomainEvents.CreateEntityActions())
+                            {
+                                method.AddStatements(domainInteractionManager.CreateEntity(createAction));
+                            }
+
+                            foreach (var updateAction in handledDomainEvents.UpdateEntityActions())
+                            {
+                                var entity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel().ParentClass;
+
+                                method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
+
+                                method.AddStatement(string.Empty);
+                                method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
+                            }
+
+                            foreach (var deleteAction in handledDomainEvents.DeleteEntityActions())
+                            {
+                                var foundEntity = deleteAction.Element.AsClassModel();
+                                method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
+                                method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
+                            }
+
+                            foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+                            {
+                                method.AddStatement($"{entity.RepositoryFieldName}.Add({entity.VariableName});");
+                            }
                         });
                     }
                 }).AfterBuild(file =>
