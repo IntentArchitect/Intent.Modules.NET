@@ -8,6 +8,16 @@ namespace CosmosDB.Domain.Entities
     public class Client : IHasDomainEvent
     {
         private string? _identifier;
+
+        public Client()
+        {
+        }
+
+        public Client(ClientType type, string name)
+        {
+            Type = type;
+            Name = name;
+        }
         public string Identifier
         {
             get => _identifier ??= Guid.NewGuid().ToString();
@@ -19,5 +29,11 @@ namespace CosmosDB.Domain.Entities
         public string Name { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
+        public void Update(ClientType type, string name)
+        {
+            Type = type;
+            Name = name;
+        }
     }
 }

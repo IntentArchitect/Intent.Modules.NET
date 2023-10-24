@@ -70,7 +70,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                     param.AddMetadata("model", parameter);
                                     param.AddMetadata("modelId", parameter.Id);
                                     param.AddMetadata("mappedPayloadProperty", parameter.MappedPayloadProperty);
-                                    
+
                                     param.WithDefaultValue(parameter.Value);
                                     var attr = GetParameterBindingAttribute(parameter);
                                     if (!string.IsNullOrWhiteSpace(attr))
@@ -304,8 +304,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
+            var arguments = new List<string>();
+
+            if (GetPath(o) != null)
+            {
+                arguments.Add($"\"{GetPath(o)}\"");
+            }
+
+            var openApiSettings = o.InternalElement.GetStereotype("OpenAPI Settings");
+            if (openApiSettings != null)
+            {
+                var operationId = openApiSettings.GetProperty<string>("OperationId");
+                arguments.Add(string.IsNullOrWhiteSpace(operationId)
+                    ? $"Name = \"{o.Name}\""
+                    : $"Name = \"{operationId}\"");
+            }
+
+            var joinedArguments = arguments.Any()
+                ? $"({string.Join(", ", arguments)})"
+                : string.Empty;
+
             return new CSharpAttribute(
-                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]");
+                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{joinedArguments}]");
         }
 
         private string GetReturnType(IControllerOperationModel operation)

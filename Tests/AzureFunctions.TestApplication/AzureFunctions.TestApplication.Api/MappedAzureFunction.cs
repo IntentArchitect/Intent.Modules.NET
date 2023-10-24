@@ -39,7 +39,7 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("MappedAzureFunction")]
-        [OpenApiOperation("MappedAzureFunction", tags: new[] { "Newazurefunction" }, Description = "Mapped azure function")]
+        [OpenApiOperation("CustomOnAzureFunction", tags: new[] { "Newazurefunction" }, Description = "Mapped azure function")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleMappedRequest))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

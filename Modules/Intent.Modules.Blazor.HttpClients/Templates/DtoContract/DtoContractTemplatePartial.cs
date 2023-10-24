@@ -8,12 +8,13 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.EnumContract;
+using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
-using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
@@ -35,7 +36,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: model,
-                enumContractTemplateId: EnumContractTemplate.TemplateId)
+                enumContractTemplateId: EnumContractTemplate.TemplateId,
+                pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
         }
     }

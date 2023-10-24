@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,6 +23,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosPagedListTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Microsoft.Azure.CosmosRepository")
@@ -30,14 +33,36 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
                 {
                     @class
                         .Internal()
-                        .AddGenericParameter("TDomain", out var tDomain)
+                        .AddGenericParameter("TDomain", out var tDomain);
+
+                    var tDomainState = tDomain;
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericParameter("TDomainState", out tDomainState);
+                    }
+                    
+                    @class
                         .AddGenericParameter("TDocument", out var tDocument)
                         .WithBaseType($"List<{tDomain}>")
                         .ImplementsInterface($"{this.GetPagedResultInterfaceName()}<{tDomain}>")
                         .AddGenericTypeConstraint(tDomain, c => c
-                            .AddType("class"))
+                            .AddType("class"));
+
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericTypeConstraint(tDomainState, c => c
+                                .AddType("class")
+                                .AddType(tDomain));
+                    }
+
+                    var tDomainStateConstraint = createEntityInterfaces
+                        ? $", {tDomainState}"
+                        : string.Empty;
+                    @class
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDomain}, {tDocument}>"))
+                            .AddType($"{this.GetCosmosDBDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"))
                         ;
 
                     @class.AddProperty("int", "TotalCount", prop => prop.WithoutSetter());

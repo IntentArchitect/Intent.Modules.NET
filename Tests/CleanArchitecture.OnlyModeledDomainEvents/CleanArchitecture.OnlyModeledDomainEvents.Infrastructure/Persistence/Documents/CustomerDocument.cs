@@ -1,4 +1,6 @@
+using System;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities;
+using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -8,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Persistence.Documents
 {
-    internal class CustomerDocument : ICosmosDBDocument<Customer, CustomerDocument>
+    internal class CustomerDocument : ICustomerDocument, ICosmosDBDocument<Customer, CustomerDocument>
     {
         private string? _type;
         [JsonProperty("type")]
@@ -23,7 +25,7 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Persistence.D
         {
             entity ??= new Customer();
 
-            entity.Id = Id;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
 
             return entity;
         }

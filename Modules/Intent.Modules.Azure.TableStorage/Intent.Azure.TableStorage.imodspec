@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Azure.TableStorage</id>
+  <version>1.0.0-beta.4</version>
+  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <summary>Azure Table Storage Database Provider implementation.</summary>
+  <description>Azure Table Storage Database Provider implementation.</description>
+  <authors>Intent Architect</authors>
+  <tags>csharp dotnet table storage azure documentdb database persistence</tags>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Azure.TableStorage/README.md</projectUrl>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates>
+    <template id="Intent.Azure.TableStorage.TableStorageRepository" externalReference="fdb71443-1048-4459-83a1-4173b5c5c4af">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageRepositoryBase" externalReference="257265f6-acb1-4796-acb9-9b32eb599727">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageRepositoryInterface" externalReference="cf59ff5e-3a7f-4d27-b766-df0208f7fdd5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Contract</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageTableAdapterInterface" externalReference="1c23f4ed-4b10-407e-bd4f-b48c6b853301">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.TableStorage.Table</role>
+      <location>Persistence/Tables</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageTableEntity" externalReference="35e53847-af58-4ef7-94bb-b28abdd7bfcc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.TableStorage.Table</role>
+      <location>Persistence/Tables</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageTableEntityInterface" externalReference="d48f340f-f81a-44d4-bfe2-851c1391e464">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Contract</role>
+      <location>Repositories/TableEntities</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageUnitOfWork" externalReference="31adb394-3081-4628-bfcc-90b210559e7f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.UnitOfWork.TableStorage</role>
+      <location>Persistence</location>
+    </template>
+    <template id="Intent.Azure.TableStorage.TableStorageUnitOfWorkInterface" externalReference="ef9d9622-3f82-4fcb-a819-f0145c63fca8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.UnitOfWork.TableStorage</role>
+      <location>Common/Interfaces</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Azure.TableStorage.EnsureParameterlessConstructorsExtension" externalReference="ec674ac5-f083-409f-8f27-3de0a2897a28" />
+    <factoryExtension id="Intent.Azure.TableStorage.EntityFactoryExtension" externalReference="24d0bbd6-e038-425a-bdca-c9b1786c977d" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.4" />
+      </install>
+    </detect>
+  </interoperability>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.4.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.43" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Metadata.DocumentDB" version="1.1.6" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.6" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Azure.TableStorage/Intent.Azure.TableStorage.pkg.config" externalReference="17a7166d-9245-4414-82bf-0c32c64a7c45" />
+  </metadata>
+</package>

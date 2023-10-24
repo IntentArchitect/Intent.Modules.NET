@@ -1,4 +1,6 @@
+using System;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
@@ -8,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {
-    internal class EntityOfTDocument<T> : ICosmosDBDocument<EntityOfT<T>, EntityOfTDocument<T>>
+    internal class EntityOfTDocument<T> : IEntityOfTDocument<T>, ICosmosDBDocument<EntityOfT<T>, EntityOfTDocument<T>>
     {
         private string? _type;
         [JsonProperty("type")]
@@ -24,8 +26,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             entity ??= new EntityOfT<T>();
 
-            entity.Id = Id;
-            entity.GenericAttribute = GenericAttribute;
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.GenericAttribute = GenericAttribute ?? throw new Exception($"{nameof(entity.GenericAttribute)} is null");
 
             return entity;
         }

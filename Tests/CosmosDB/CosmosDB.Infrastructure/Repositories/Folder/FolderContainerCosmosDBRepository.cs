@@ -1,5 +1,6 @@
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities.Folder;
+using CosmosDB.Domain.Repositories.Documents.Folder;
 using CosmosDB.Domain.Repositories.Folder;
 using CosmosDB.Infrastructure.Persistence;
 using CosmosDB.Infrastructure.Persistence.Documents.Folder;
@@ -11,7 +12,7 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDB.Infrastructure.Repositories.Folder
 {
-    internal class FolderContainerCosmosDBRepository : CosmosDBRepositoryBase<FolderContainer, FolderContainer, FolderContainerDocument>, IFolderContainerRepository
+    internal class FolderContainerCosmosDBRepository : CosmosDBRepositoryBase<FolderContainer, FolderContainerDocument, IFolderContainerDocument>, IFolderContainerRepository
     {
         public FolderContainerCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             IRepository<FolderContainerDocument> cosmosRepository,

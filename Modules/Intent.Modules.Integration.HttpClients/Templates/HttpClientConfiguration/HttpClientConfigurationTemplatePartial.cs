@@ -41,7 +41,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         }
 
         public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
-   
+
         public override void BeforeTemplateExecution()
         {
             foreach (var proxy in Model.Distinct(new ServiceModelComparer()))

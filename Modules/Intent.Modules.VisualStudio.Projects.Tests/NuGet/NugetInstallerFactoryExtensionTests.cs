@@ -4,6 +4,7 @@ using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
+using Shouldly;
 using Xunit;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
@@ -30,7 +31,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
         }
 
         [Fact]
-        public void ConsolidatationNotTriggeredWhenVersionsAreTheSame()
+        public void ConsolidationNotTriggeredWhenVersionsAreTheSame()
         {
             // Arrange
             var tracing = new TestTracing();
@@ -43,6 +44,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Act
             sut.Execute(
+                nuGetProjectSchemeProcessors: new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
+                {
+                    [VisualStudioProjectScheme.Sdk] = TestFixtureHelper.CreateSdkProcessor()
+                },
                 applicationProjects: projects,
                 tracing: tracing,
                 saveProjectDelegate: (filePath, content) => { },
@@ -65,6 +70,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Act
             sut.Execute(
+                nuGetProjectSchemeProcessors: new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
+                {
+                    [VisualStudioProjectScheme.Sdk] = TestFixtureHelper.CreateSdkProcessor()
+                },
                 applicationProjects: projects,
                 tracing: tracing,
                 saveProjectDelegate: (path, content) => saved.Add((path, content)),
@@ -74,16 +83,15 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             Assert.Collection(saved, nuGetProject =>
             {
                 Assert.Equal(project2.FilePath, nuGetProject.path);
-                Assert.Equal(
+                    nuGetProject.content.ReplaceLineEndings().ShouldBe(
                     XDocument.Parse(
-@"<Project Sdk=""Microsoft.NET.Sdk"">
+                        @"<Project Sdk=""Microsoft.NET.Sdk"">
 
   <ItemGroup>
     <PackageReference Include=""TestPackage.One"" Version=""2.0.0"" />
   </ItemGroup>
 
-</Project>", LoadOptions.PreserveWhitespace).ToString(),
-                    nuGetProject.content);
+</Project>", LoadOptions.PreserveWhitespace).ToString().ReplaceLineEndings());
             });
         }
 
@@ -103,16 +111,22 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Act
             sut.Execute(applicationProjects: projects,
+                nuGetProjectSchemeProcessors: new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
+                {
+                    [VisualStudioProjectScheme.Sdk] = TestFixtureHelper.CreateSdkProcessor()
+                },
                 tracing: tracing,
-                saveProjectDelegate: (path, content) => saved.Add((path, content)),
+                saveProjectDelegate: (path, content) =>
+                {
+                    saved.Add((path, content));
+                },
                 dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
 
             // Assert
             Assert.Collection(saved, nuGetProject =>
             {
                 Assert.Equal(project2.FilePath, nuGetProject.path);
-                Assert.Equal(
-                    XDocument.Parse(
+                nuGetProject.content.ReplaceLineEndings().ShouldBe(XDocument.Parse(
 @"<Project Sdk=""Microsoft.NET.Sdk"">
 
   <ItemGroup>
@@ -120,8 +134,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
     <PackageReference Include=""TestPackage.Two"" Version=""2.0.0"" />
   </ItemGroup>
 
-</Project>", LoadOptions.PreserveWhitespace).ToString(),
-                    nuGetProject.content);
+</Project>", LoadOptions.PreserveWhitespace).ToString().ReplaceLineEndings());
             });
         }
     }

@@ -161,7 +161,6 @@
       <name>Sealed</name>
       <display>Sealed</display>
       <isAbstract>false</isAbstract>
-      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aac8a446-047c-468b-809b-ca28989b558b</parentFolderId>
@@ -175,40 +174,38 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Should DTO's have the sealed access modifier?" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="no" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Should DTOs have the sealed access modifier?" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements>
-        <childElement id="1b3d1194-fa3c-4265-9954-43bf01c1a756" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>yes</name>
-          <display>yes</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9fd57931-91b4-45ba-aca4-eb38d91b7f97</parentFolderId>
-          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
-          <packageName>Intent.Application.Dtos</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="75bc04ed-f0d6-4471-b28a-1f747aba6967" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>no</name>
-          <display>no</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9fd57931-91b4-45ba-aca4-eb38d91b7f97</parentFolderId>
-          <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
-          <packageName>Intent.Application.Dtos</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
+      <childElements />
+    </childElement>
+    <childElement id="c2df571f-f917-41a2-933e-cfef7999c597" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Static Factory Method</name>
+      <display>Static Factory Method</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aac8a446-047c-468b-809b-ca28989b558b</parentFolderId>
+      <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+      <packageName>Intent.Application.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Should DTOs have a static factory method?" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

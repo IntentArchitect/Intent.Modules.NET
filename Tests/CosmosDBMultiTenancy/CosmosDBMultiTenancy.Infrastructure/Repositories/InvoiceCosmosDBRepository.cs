@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using CosmosDBMultiTenancy.Application.Common.Interfaces;
 using CosmosDBMultiTenancy.Domain.Entities;
 using CosmosDBMultiTenancy.Domain.Repositories;
+using CosmosDBMultiTenancy.Domain.Repositories.Documents;
 using CosmosDBMultiTenancy.Infrastructure.Persistence;
 using CosmosDBMultiTenancy.Infrastructure.Persistence.Documents;
 using Finbuckle.MultiTenant;
@@ -14,7 +15,7 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDBMultiTenancy.Infrastructure.Repositories
 {
-    internal class InvoiceCosmosDBRepository : CosmosDBRepositoryBase<Invoice, Invoice, InvoiceDocument>, IInvoiceRepository
+    internal class InvoiceCosmosDBRepository : CosmosDBRepositoryBase<Invoice, InvoiceDocument, IInvoiceDocument>, IInvoiceRepository
     {
         public InvoiceCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<InvoiceDocument> cosmosRepository,

@@ -10,6 +10,7 @@ using Intent.Modelers.WebClient.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
 using Intent.RoslynWeaver.Attributes;

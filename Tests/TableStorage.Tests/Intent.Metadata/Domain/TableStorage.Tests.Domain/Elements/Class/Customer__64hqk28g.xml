@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e32ceb58-9f27-4ea2-b703-f075c9307b6a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Customer</name>
+  <display>Customer</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0d498098-1bfb-49eb-b1de-76f363a6feb9</parentFolderId>
+  <packageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</packageId>
+  <packageName>TableStorage.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="06b00d88-19ec-4546-8169-72b61f2a76ce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f5a75a6a-5d82-4b0e-98e9-9b096fc2e1c4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e32ceb58-9f27-4ea2-b703-f075c9307b6a</parentFolderId>
+      <packageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</packageId>
+      <packageName>TableStorage.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

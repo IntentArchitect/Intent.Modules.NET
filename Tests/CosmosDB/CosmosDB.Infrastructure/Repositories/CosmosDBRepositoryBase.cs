@@ -19,10 +19,9 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace CosmosDB.Infrastructure.Repositories
 {
-    internal abstract class CosmosDBRepositoryBase<TDomain, TPersistence, TDocument> : ICosmosDBRepository<TDomain, TPersistence>
-        where TPersistence : TDomain
+    internal abstract class CosmosDBRepositoryBase<TDomain, TDocument, TDocumentInterface> : ICosmosDBRepository<TDomain, TDocumentInterface>
         where TDomain : class
-        where TDocument : ICosmosDBDocument<TDomain, TDocument>, new()
+        where TDocument : ICosmosDBDocument<TDomain, TDocument>, TDocumentInterface, new()
     {
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
@@ -100,7 +99,7 @@ namespace CosmosDB.Infrastructure.Repositories
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
@@ -119,7 +118,7 @@ namespace CosmosDB.Infrastructure.Repositories
         }
 
         public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -144,11 +143,10 @@ namespace CosmosDB.Infrastructure.Repositories
         }
 
         /// <summary>
-        /// Adapts a <typeparamref name="TPersistence"/> predicate to a <typeparamref name="TDocument"/> predicate.
+        /// Adapts a <typeparamref name="TDocumentInterface"/> predicate to a <typeparamref name="TDocument"/> predicate.
         /// </summary>
-        private static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TPersistence, bool>> expression)
+        private static Expression<Func<TDocument, bool>> AdaptFilterPredicate(Expression<Func<TDocumentInterface, bool>> expression)
         {
-            if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.");
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);

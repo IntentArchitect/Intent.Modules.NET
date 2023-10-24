@@ -445,6 +445,7 @@
       </childElements>
     </childElement>
     <childElement id="668f5ee5-516d-4f41-996d-ee046d587834" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment />
       <name>MappedAzureFunction</name>
       <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
       <isAbstract>false</isAbstract>
@@ -506,8 +507,8 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Application.Dtos.Pagination</typePackageName>
-        <typePackageId>9baa3476-269d-4a87-a854-34e150a93bc8</typePackageId>
+        <typePackageName>Intent.Modelers.Services</typePackageName>
+        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
         <stereotypes />
         <genericTypeParameters>
           <genericTypeParameter id="6361c890-b9e8-4bdc-a562-746e970a80a1">

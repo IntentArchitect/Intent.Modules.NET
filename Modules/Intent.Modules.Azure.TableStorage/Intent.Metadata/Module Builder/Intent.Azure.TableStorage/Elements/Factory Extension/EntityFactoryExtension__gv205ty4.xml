@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="24d0bbd6-e038-425a-bdca-c9b1786c977d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityFactoryExtension</name>
+  <display>EntityFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>17a7166d-9245-4414-82bf-0c32c64a7c45</parentFolderId>
+  <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+  <packageName>Intent.Azure.TableStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

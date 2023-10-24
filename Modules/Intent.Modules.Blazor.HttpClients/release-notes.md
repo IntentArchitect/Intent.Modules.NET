@@ -1,4 +1,8 @@
-﻿### Version 3.0.0
+﻿### Version 3.0.1
+
+- Improvement: Will now generate `PagedResult<TData>` if used by any mapped service proxies.
+
+### Version 3.0.0
 
 - Improvement: Generation of `System.ComponentModel.DataAnnotations` attributes on DTOs has now been broken out into its own `Intent.Blazor.HttpClients.Dtos.DataAnnotations` module.
 - Improvement: Updated module to work with `Intent.Blazor.WenAssembly` module.

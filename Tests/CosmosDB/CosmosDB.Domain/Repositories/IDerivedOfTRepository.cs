@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CosmosDB.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDerivedOfTRepository : ICosmosDBRepository<DerivedOfT, DerivedOfT>
+    public interface IDerivedOfTRepository : ICosmosDBRepository<DerivedOfT, IDerivedOfTDocument>
     {
     }
 }

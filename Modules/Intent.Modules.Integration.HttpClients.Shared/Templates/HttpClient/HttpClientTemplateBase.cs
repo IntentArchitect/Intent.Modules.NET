@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
@@ -26,7 +27,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         string jsonResponseTemplateId,
         string serviceContractTemplateId,
         string dtoContractTemplateId,
-        string enumContractTemplateId)
+        string enumContractTemplateId,
+        string pagedResultTemplateId)
         : base(templateId, outputTarget, model)
     {
         var endpoints = Model.GetMappedEndpoints().ToArray();
@@ -35,6 +37,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
         AddTypeSource(serviceContractTemplateId);
         AddTypeSource(dtoContractTemplateId);
         AddTypeSource(enumContractTemplateId);

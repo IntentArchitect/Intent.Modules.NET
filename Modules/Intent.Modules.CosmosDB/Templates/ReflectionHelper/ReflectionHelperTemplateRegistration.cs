@@ -18,6 +18,7 @@ namespace Intent.Modules.CosmosDB.Templates.ReflectionHelper
     {
         public override string TemplateId => ReflectionHelperTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ReflectionHelperTemplate(outputTarget);
