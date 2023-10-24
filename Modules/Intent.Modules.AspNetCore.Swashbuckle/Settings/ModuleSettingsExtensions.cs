@@ -38,5 +38,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Settings
         {
             return _groupSettings.GetSetting(settingId);
         }
+
+        public bool MarkNonNullableFieldsAsRequired() => bool.TryParse(_groupSettings.GetSetting("7faaa6d0-c739-430f-a953-c78fb5e0a302")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool UseSimpleSchemaIDs() => bool.TryParse(_groupSettings.GetSetting("68427321-6418-474b-a816-26b406d7d262")?.Value.ToPascalCase(), out var result) && result;
     }
 }
