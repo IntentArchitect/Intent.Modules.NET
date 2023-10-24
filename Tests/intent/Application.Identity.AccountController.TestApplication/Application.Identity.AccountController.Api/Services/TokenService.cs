@@ -50,7 +50,7 @@ namespace Application.Identity.AccountController.Api.Services
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(randomNumber);
-                return (Convert.ToBase64String(randomNumber), DateTime.Now.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes").Get<int?>() ?? 3));
+                return (Convert.ToBase64String(randomNumber), DateTime.UtcNow.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes").Get<int?>() ?? 3));
             }
         }
 

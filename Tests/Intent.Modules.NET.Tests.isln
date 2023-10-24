@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.18" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.20" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -70,5 +70,9 @@
     <application id="3d450dd7-4b01-4641-9828-8ba27fcdd370" name="TableStorage.Tests" relativePath="TableStorage.Tests/TableStorage.Tests.application.config" />
     <application id="ba3debc4-493f-447c-bfff-f9dc07bcd2c6" name="CosmosDB.PrivateSetters" relativePath="CosmosDB.PrivateSetters/CosmosDB.PrivateSetters.application.config" />
     <application id="eb8a85e0-59cb-434e-9c7d-56a07d44261f" name="CosmosDB.EntityInterfaces" relativePath="CosmosDB.EntityInterfaces/CosmosDB.EntityInterfaces.application.config" />
+    <application id="3da3e00d-d69c-4e7d-bcd0-820d9d44f19e" name="SwashbuckleSettings.SimpleSchemaId" relativePath="SwashbuckleSettings.SimpleSchemaId/SwashbuckleSettings.SimpleSchemaId.application.config" />
+    <application id="add3b1ec-3004-4cb3-b2c2-1f5ad0a94c98" name="SwashbuckleSettings.NonNullableMandatory" relativePath="SwashbuckleSettings.NonNullableMandatory/SwashbuckleSettings.NonNullableMandatory.application.config" />
+    <application id="258a4504-901d-4cc2-94b0-7b23ae69050f" name="SwashbuckleSettings.None" relativePath="SwashbuckleSettings.None/SwashbuckleSettings.None.application.config" />
+    <application id="a26894fb-e873-47c8-b57a-5646890e1fcb" name="SwashbuckleSettings.All" relativePath="SwashbuckleSettings.All/SwashbuckleSettings.All.application.config" />
   </applications>
 </solution>

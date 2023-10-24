@@ -11,9 +11,23 @@ This modules specifically deals with
 
 For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
 
-## XML comments
+## Settings
 
-To enable XML comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for both the `<ApplicationName>.Api` and `<ApplicationName>.Application` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
+### Mark non-nullable fields as required
+
+Default setting: _enabled_
+
+Controls whether or not non-nullable properties cause `"nullable": true` to be added to them in their generated schema.
+
+### Use simple schema identifiers
+
+Default setting: _disabled_
+
+By default, schema identifiers have been configured to be the fully qualified type name so as to avoid conflicts with otherwise identically named types. When this option is enabled "simple" identifiers without a namespace are generated instead.
+
+## Inclusion of XML documentation comments
+
+To enable inclusion of XML documentation comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for both the `<ApplicationName>.Api` and `<ApplicationName>.Application` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
 
 ## Related Modules
 
