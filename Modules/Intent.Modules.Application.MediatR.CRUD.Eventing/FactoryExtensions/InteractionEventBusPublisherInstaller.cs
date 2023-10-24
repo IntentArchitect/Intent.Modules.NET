@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
 
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    AddPublishingLogic(template, file.Classes.First().FindMethod("Handle"), model.PublishedIntegrationEvents());
+                    AddPublishingLogic(template, file.Classes.First().FindMethod("Handle"), "request", model.PublishedIntegrationEvents());
                 });
             }
 
@@ -74,13 +74,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 {
                     foreach (var handledDomainEvent in model.HandledDomainEvents())
                     {
-                        AddPublishingLogic(template, file.GetReferenceForModel(handledDomainEvent) as CSharpClassMethod, handledDomainEvent.PublishedIntegrationEvents());
+                        AddPublishingLogic(template, file.GetReferenceForModel(handledDomainEvent) as CSharpClassMethod, "notification.DomainEvent", handledDomainEvent.PublishedIntegrationEvents());
                     }
                 });
             }
         }
 
-        private static void AddPublishingLogic(ICSharpFileBuilderTemplate template, CSharpClassMethod method, IEnumerable<PublishIntegrationEventTargetEndModel> publishes)
+        private static void AddPublishingLogic(ICSharpFileBuilderTemplate template, CSharpClassMethod method, string replacement, IEnumerable<PublishIntegrationEventTargetEndModel> publishes)
         {
             var constructor = method.Class.Constructors.First();
             if (constructor.Parameters.All(x => x.Type != template.GetTypeName(EventBusInterfaceTemplate.TemplateId)))
@@ -103,7 +103,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 {
                     throw new ElementException(publish.InternalAssociationEnd, "Mapping not specified.");
                 }
-                csharpMapping.SetFromReplacement(publish.OtherEnd().TypeReference.Element, "request");
+                csharpMapping.SetFromReplacement(publish.OtherEnd().TypeReference.Element, replacement);
                 var newMessageStatement = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
                 AddPublishStatement(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement));
             }
