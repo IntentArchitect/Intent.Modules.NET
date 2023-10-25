@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Publish.CleanArch.GooglePubSub.TestApplication.Api.Filters;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +33,8 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Configuration
                             Version = "v1",
                             Title = "Publish.CleanArch.GooglePubSub.TestApplication API"
                         });
+                    options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
+                    options.SupportNonNullableReferenceTypes();
                     options.CustomSchemaIds(x => x.FullName);
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
@@ -89,6 +93,21 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Configuration
                     options.EnableFilter(string.Empty);
                     options.OAuthScopeSeparator(" ");
                 });
+        }
+    }
+
+    internal class RequireNonNullablePropertiesSchemaFilter : ISchemaFilter
+    {
+        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        {
+            var additionalRequiredProps = model.Properties
+                .Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))
+                .Select(x => x.Key);
+
+            foreach (var propKey in additionalRequiredProps)
+            {
+                model.Required.Add(propKey);
+            }
         }
     }
 }

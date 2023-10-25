@@ -2,9 +2,11 @@
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
+//Clients depend on this class
+namespace Intent.Modules.VisualStudio.Projects.NuGet;
 
-internal static class XmlNamespaceHelper
+//Clients depend on this class
+public static class XmlNamespaceHelper
 {
     public static (string Prefix, XmlNamespaceManager NamespaceManager, string NamespaceName) GetNamespaceManager(this XDocument document)
     {

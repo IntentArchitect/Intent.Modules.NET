@@ -158,6 +158,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
     private void CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile cSharpFile)
     {
+        cSharpFile.AddUsing("System.Linq");
         cSharpFile
             .AddClass("RequireNonNullablePropertiesSchemaFilter", @class =>
             {

@@ -267,7 +267,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
     /// <summary>
     /// Identifies the debug target to run.
     /// </summary>
-    public enum CommandName { DebugRoslynComponent, Docker, DockerCompose, Executable, Iis, IisExpress, MsixPackage, Project };
+    public enum CommandName { DebugRoslynComponent, Docker, DockerCompose, Executable, Iis, IisExpress, MsixPackage, Project, WSL2 };
 
     public partial class LaunchSettings
     {
