@@ -126,8 +126,8 @@
       <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#418c6192-1fbf-4d24-81f7-f1a060223c2c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Properties/launchsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

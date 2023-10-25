@@ -208,7 +208,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="9a36a034-6013-4c39-b273-6771766b0532" name="Address" type="association" specialization="Association" />
+          <target id="9a36a034-6013-4c39-b273-6771766b0532" name="Address" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>85a85fd8-323f-40f4-948a-0ca3cd11d947</parentFolderId>

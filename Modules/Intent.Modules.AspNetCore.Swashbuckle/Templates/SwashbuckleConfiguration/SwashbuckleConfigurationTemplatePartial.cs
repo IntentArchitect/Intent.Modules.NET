@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Swashbuckle.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -22,6 +23,9 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
+        var useSimpleSchemaIdentifiers = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIdentifiers();
+        var markNonNullableFieldsAsRequired = ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired();
+
         AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
         AddUsing("System");
         AddUsing("System.Collections.Generic");
@@ -58,7 +62,15 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                         .WithArgumentsOnNewLines()
                                     );
 
-                                lambdaBlock.AddStatement("options.CustomSchemaIds(x => x.FullName);");
+                                if (markNonNullableFieldsAsRequired)
+                                {
+                                    lambdaBlock.AddStatement("options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();");
+                                    lambdaBlock.AddStatement("options.SupportNonNullableReferenceTypes();");
+                                }
+
+                                lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
+                                    ? "options.CustomSchemaIds(GetFriendlyName);"
+                                    : "options.CustomSchemaIds(x => x.FullName);");
 
                                 lambdaBlock.AddStatement(
                                     "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",
@@ -114,6 +126,59 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                             .AddStatement($@"options.EnableFilter(string.Empty);"))
                         .WithArgumentsOnNewLines()
                         .AddMetadata("UseSwaggerUI", true));
+                });
+
+                if (useSimpleSchemaIdentifiers)
+                {
+                    @class.AddMethod("string", "GetFriendlyName", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter(UseType("System.Type"), "modelType");
+
+                        method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                        {
+                            @if.AddStatement("return modelType.Name.Replace(\"[]\", \"Array\");");
+                        });
+
+                        method.AddStatement(@"var genericTypeArguments = modelType.GetGenericArguments()
+                .Select(GetFriendlyName);", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement(
+                            "return $\"{modelType.Name.Split('`')[0]}Of{string.Join(\"And\", genericTypeArguments)}\";",
+                            s => s.SeparatedFromPrevious());
+                    });
+                }
+            });
+
+        if (markNonNullableFieldsAsRequired)
+        {
+            CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile);
+        }
+    }
+
+    private void CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile cSharpFile)
+    {
+        cSharpFile.AddUsing("System.Linq");
+        cSharpFile
+            .AddClass("RequireNonNullablePropertiesSchemaFilter", @class =>
+            {
+                @class.Internal();
+                @class.ExtendsClass(UseType("Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter"));
+                @class.AddMethod("void", "Apply", method =>
+                {
+                    method.AddParameter("OpenApiSchema", "model");
+                    method.AddParameter("SchemaFilterContext", "context");
+
+                    method.AddMethodChainStatement("var additionalRequiredProps = model.Properties", chainStatement =>
+                    {
+                        chainStatement.AddChainStatement("Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))");
+                        chainStatement.AddChainStatement("Select(x => x.Key)");
+                    });
+
+                    method.AddForEachStatement("propKey", "additionalRequiredProps", @foreach =>
+                    {
+                        @foreach.AddStatement("model.Required.Add(propKey);");
+                    });
                 });
             });
     }

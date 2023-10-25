@@ -70,8 +70,8 @@
       <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Properties/launchsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

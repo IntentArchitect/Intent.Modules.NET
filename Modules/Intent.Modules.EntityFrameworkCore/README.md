@@ -127,6 +127,14 @@ The `Default Constraint` stereotype can be manually applied to an attribute, all
 
 ![Default Constraint visual](./docs/images/default-constraint-stereotype.png)
 
+### Join Table Constraint - Association stereotype
+
+The `Join Table` stereotype allows you to specify SQL table name for the joining table implied by a `many to many` relationshiop in your model, if required.
+
+The `Join Table` stereotype can be manually applied to an association, allowing you to specify the joining table's name. This stereotype is visualized by stereotype's icon.
+
+![Join Table visual](./docs/images/jointable.png)
+
 ### Schema - Entity / Package / Folder stereotype
 
 The `Schema` stereotype allows you to specify the SQL Schema for your tables / views , if required.

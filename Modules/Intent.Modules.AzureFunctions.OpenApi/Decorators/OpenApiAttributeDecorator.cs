@@ -7,6 +7,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -14,6 +15,7 @@ using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualBasic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -60,12 +62,19 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 var runMethod = @class.FindMethod("Run");
                 runMethod.AddAttribute("OpenApiOperation", att =>
                 {
-                    var operationElement = GetOperationInfo();
+                    var endpointElement = _template.Model.InternalElement;
+                    var operationId = endpointElement.Name;
 
-                    att.AddArgument($"\"{operationElement.Name}\"");
+                    var openApiSettingsOperationId = endpointElement.GetStereotype("OpenAPI Settings")?.GetProperty<string>("OperationId");
+                    if (!string.IsNullOrWhiteSpace(openApiSettingsOperationId))
+                    {
+                        operationId = openApiSettingsOperationId;
+                    }
+
+                    att.AddArgument($"\"{operationId}\"");
                     var grouping = GetOperationGrouping(endpointModel);
                     att.AddArgument($"tags: new [] {{\"{grouping}\"}}");
-                    att.AddArgument($"Description = \"{GetDescription(operationElement)}\"");
+                    att.AddArgument($"Description = \"{GetDescription(endpointElement)}\"");
                 });
 
 
@@ -117,19 +126,6 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             }, 10);
         }
 
-        private IElement GetOperationInfo()
-        {
-            var mappedOperation = _template.Model.InternalElement.AsOperationModel() ??
-                (_template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null);
-
-            if (mappedOperation != null)
-            {
-                return mappedOperation.InternalElement;
-            }
-
-            return _template.Model.InternalElement;
-        }
-
         private string GetParameterLocation(HttpInputSource? source)
         {
             return source switch
@@ -141,9 +137,20 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
             };
         }
 
-        private static string GetDescription(IElement operation)
+        private static string GetDescription(IElement endpointElement)
         {
-            return !string.IsNullOrEmpty(operation.Comment) ? operation.Comment : operation.Name.ToSentenceCase();
+            if (!string.IsNullOrWhiteSpace(endpointElement.Comment))
+            {
+                return SymbolDisplay.FormatLiteral(endpointElement.Comment, false);
+            }
+
+            var mappedOperation = endpointElement.MappedElement?.Element.AsOperationModel();
+            if (!string.IsNullOrWhiteSpace(mappedOperation?.Comment))
+            {
+                return SymbolDisplay.FormatLiteral(mappedOperation.Comment, false);
+            }
+
+            return endpointElement.Name.ToSentenceCase();
         }
 
         private string GetOperationGrouping(IHttpEndpointModel endpointModel)

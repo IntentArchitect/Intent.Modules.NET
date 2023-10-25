@@ -118,8 +118,8 @@
       <ProjectId>51943174-2235-4aa6-90a0-cacb540fefcc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#51943174-2235-4aa6-90a0-cacb540fefcc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Api/Properties/launchsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -427,6 +427,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f14bd1de-7751-4762-abb0-9c408555f5ad</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#0fcbdf59-231a-426f-b338-58c8ac56cd60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Domain/Repositories/Documents/ICustomerCosmosDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomerCosmosDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -556,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>

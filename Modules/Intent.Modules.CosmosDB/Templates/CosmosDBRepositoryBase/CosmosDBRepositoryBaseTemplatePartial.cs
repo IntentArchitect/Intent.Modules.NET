@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -43,16 +45,43 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     @class
                         .Internal()
                         .Abstract()
-                        .AddGenericParameter("TDomain", out var tDomain)
-                        .AddGenericParameter("TPersistence", out var tPersistence)
+                        .AddGenericParameter("TDomain", out var tDomain);
+
+                    var tDomainState = tDomain;
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericParameter("TDomainState", out tDomainState);
+                    }
+
+                    @class
                         .AddGenericParameter("TDocument", out var tDocument)
-                        .ImplementsInterface($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomain}, {tPersistence}>")
-                        .AddGenericTypeConstraint(tPersistence, c => c
-                            .AddType(tDomain))
+                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface);
+
+                    var selectGenericTypeArgument = createEntityInterfaces
+                        ? $"<{tDocument}, {tDomain}>"
+                        : string.Empty;
+
+                    @class
+                        .ImplementsInterface($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomain}, {tDocumentInterface}>")
                         .AddGenericTypeConstraint(tDomain, c => c
-                            .AddType("class"))
+                            .AddType("class"));
+
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericTypeConstraint(tDomainState, c => c
+                                .AddType("class")
+                                .AddType(tDomain));
+                    }
+
+                    var tDomainStateConstraint = createEntityInterfaces
+                        ? $", {tDomainState}"
+                        : string.Empty;
+                    @class
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetCosmosDBDocumentInterfaceName()}<{tDomain}, {tDocument}>")
+                            .AddType($"{this.GetCosmosDBDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>")
+                            .AddType(tDocumentInterface)
                             .AddType("new()"))
                         ;
 
@@ -120,7 +149,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Async()
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement("var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);", c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                        .AddStatement("var results = documents.Select(document => document.ToEntity()).ToList();")
+                        .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
                         .AddStatement("Track(results);")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
@@ -150,14 +179,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
                             .AddStatement(
                                 "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
                                 , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                            .AddStatement("var results = documents.Select(document => document.ToEntity()).ToList();")
+                            .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
                             .AddStatement("Track(results);")
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
                     });
@@ -177,17 +206,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
+                        var tDomainStateGenericTypeArgument = createEntityInterfaces
+                            ? $", {tDomainState}"
+                            : string.Empty;
                         method
                             .AddStatement(
                                 "var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);",
                                 c => c.AddMetadata(MetadataNames.PagedDocumentsDeclarationStatement, true))
                             .AddStatement("Track(pagedDocuments.Items.Select(document => document.ToEntity()));")
-                            .AddStatement($"return new {this.GetCosmosPagedListName()}<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+                            .AddStatement($"return new {this.GetCosmosPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(pagedDocuments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
@@ -200,29 +232,28 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             c => c.AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true))
                         .AddStatement(
                             "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                        .AddStatement("var results = documents.Select(document => document.ToEntity()).ToList();")
+                        .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
                         .AddStatement("Track(results);")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod("Expression<Func<TDocument, bool>>", "AdaptFilterPredicate", method =>
+                    @class.AddMethod($"Expression<Func<{tDocument}, bool>>", "AdaptFilterPredicate", method =>
                     {
                         method
                             .Private()
                             .Static()
-                            .AddParameter("Expression<Func<TPersistence, bool>>", "expression")
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "expression")
                             .WithComments(new[]
                             {
                                 "/// <summary>",
-                                "/// Adapts a <typeparamref name=\"TPersistence\"/> predicate to a <typeparamref name=\"TDocument\"/> predicate.",
+                                $"/// Adapts a <typeparamref name=\"{tDocumentInterface}\"/> predicate to a <typeparamref name=\"{tDocument}\"/> predicate.",
                                 "/// </summary>"
                             });
 
-                        method.AddStatement("if (!typeof(TPersistence).IsAssignableFrom(typeof(TDocument))) throw new Exception($\"{typeof(TPersistence)} is not assignable from {typeof(TDocument)}.\");");
                         method.AddStatement("var beforeParameter = expression.Parameters.Single();");
-                        method.AddStatement("var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);");
+                        method.AddStatement($"var afterParameter = Expression.Parameter(typeof({tDocument}), beforeParameter.Name);");
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
-                        method.AddStatement("return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
+                        method.AddStatement($"return Expression.Lambda<Func<{tDocument}, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
 
                     });
 

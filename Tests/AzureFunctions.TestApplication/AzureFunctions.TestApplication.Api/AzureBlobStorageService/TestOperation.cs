@@ -33,7 +33,7 @@ namespace AzureFunctions.TestApplication.Api
         }
 
         [FunctionName("TestOperation")]
-        [OpenApiOperation("TestOperation", tags: new[] { "AzureBlobStorage" }, Description = "Test operation")]
+        [OpenApiOperation("CustomOnOperation", tags: new[] { "AzureBlobStorage" }, Description = "Test operation")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "azure-blob-storage/test-operation")] HttpRequest req,

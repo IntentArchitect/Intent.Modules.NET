@@ -1,3 +1,8 @@
+### Version 4.4.2
+
+- Improvement: Primary domain entity interface qualified properties now also have a `model` metadata populated for identification in other modules.
+- Fixed: Updated explicit implementations on domain entities to use actual explicit implementation methods on CSharpFileBuilder.
+
 ### Version 4.4.0
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.

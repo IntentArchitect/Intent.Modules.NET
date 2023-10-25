@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -31,7 +32,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosDBDocumentTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
             AddTypeSource(CosmosDBValueObjectDocumentTemplate.TemplateId);
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
@@ -43,22 +44,30 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 {
                     @class.Internal();
 
-                    if (model.IsAbstract)
+                    if (Model.IsAbstract)
                     {
                         @class.Abstract();
                     }
 
-                    foreach (var genericType in model.GenericTypes)
+                    foreach (var genericType in Model.GenericTypes)
                     {
                         @class.AddGenericParameter(genericType);
                     }
 
-                    if (model.ParentClass != null)
+                    if (Model.ParentClass != null)
                     {
-                        var genericTypeArguments = model.ParentClass.GenericTypes.Any()
-                            ? $"<{string.Join(", ", model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>"
+                        var genericTypeArguments = Model.ParentClass.GenericTypes.Any()
+                            ? $"<{string.Join(", ", Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName))}>"
                             : string.Empty;
-                        @class.WithBaseType($"{this.GetCosmosDBDocumentName(model.ParentClass)}{genericTypeArguments}");
+
+                        @class.WithBaseType($"{this.GetCosmosDBDocumentName(Model.ParentClass)}{genericTypeArguments}");
+                    }
+
+                    {
+                        var genericTypeArguments = Model.GenericTypes.Any()
+                            ? $"<{string.Join(", ", Model.GenericTypes)}>"
+                            : string.Empty;
+                        @class.ImplementsInterface($"{this.GetCosmosDBDocumentInterfaceName()}{genericTypeArguments}");
                     }
                 })
                 .OnBuild(file =>
@@ -78,7 +87,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         .Where(x => entityPropertyIds.Contains(x.Id) && x.IsNavigable)
                         .ToList();
 
-                    if (model.IsAggregateRoot())
+                    if (Model.IsAggregateRoot())
                     {
                         AddPropertiesForAggregate(@class);
                     }
@@ -87,34 +96,41 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         this.AddCosmosDBDocumentProperties(
                             @class: @class,
                             attributes: attributes,
-                            associationEnds: associationEnds);
+                            associationEnds: associationEnds,
+                            documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId);
                     }
 
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
                         associationEnds: associationEnds,
-                        entityInterfaceTypeName: EntityInterfaceName,
-                        entityStateTypeName: EntityStateName,
+                        entityInterfaceTypeName: EntityTypeName,
+                        entityImplementationTypeName: EntityStateTypeName,
                         entityRequiresReflectionConstruction: Model.Constructors.Any() &&
                                                               Model.Constructors.All(x => x.Parameters.Count != 0),
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
-                        isAggregate: model.IsAggregateRoot(),
-                        hasBaseType: model.ParentClass != null);
+                        isAggregate: Model.IsAggregateRoot(),
+                        hasBaseType: Model.ParentClass != null);
                 }, 1000);
         }
 
         private void AddPropertiesForAggregate(CSharpClass @class)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             var genericTypeArguments = Model.GenericTypes.Any()
                 ? $"<{string.Join(", ", Model.GenericTypes)}>"
                 : string.Empty;
+            var tDomainStateConstraint = createEntityInterfaces
+                ? $", {EntityStateTypeName}{genericTypeArguments}"
+                : string.Empty;
             @class.ImplementsInterface(
-                $"{this.GetCosmosDBDocumentInterfaceName()}<{EntityInterfaceName}{genericTypeArguments}, {@class.Name}{genericTypeArguments}>");
+                $"{this.GetCosmosDBDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}>");
 
             var pkAttribute = Model.GetPrimaryKeyAttribute();
             var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
-                .Properties.Where(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
+                .Properties.Where(x => x.ExplicitlyImplementing == null &&
+                                       x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
                 .ToArray();
 
             // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for IItem.Id:
@@ -156,7 +172,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 {
                     @class.AddProperty("string?", "PartitionKey", property =>
                     {
-                        property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                        property.ExplicitlyImplements(this.GetCosmosDBDocumentOfTInterfaceName());
                         property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}");
                         property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)} = value!");
                     });
@@ -213,12 +229,25 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
                     }
                 });
+
+                if (metadataModel is not AssociationTargetEndModel targetEndModel)
+                {
+                    continue;
+                }
+
+                @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
+                    property =>
+                    {
+                        property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                        property.Getter.WithExpressionImplementation(entityProperty.Name);
+                        property.WithoutSetter();
+                    });
             }
         }
 
-        public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+        public string EntityStateTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public string EntityTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
 
-        public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]

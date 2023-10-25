@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
-using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -17,76 +16,146 @@ namespace Intent.Modules.DocumentDB.Shared
     internal static class EntityFactoryExtensionHelper
     {
         public static void Execute(
-            IApplication application, 
-            Func<ClassModel, bool> dbProviderApplies, 
+            IApplication application,
+            Func<ClassModel, bool> dbProviderApplies,
             bool initializePrimaryKeyOnAggregateRoots,
             bool makeNonPersistentPropertiesVirtual)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
-            foreach (var template in templates)
+            // Implementation
             {
-                var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
-                if (!dbProviderApplies(templateModel))
+                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+                foreach (var template in templates)
                 {
-                    continue;
+                    var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
+                    if (!dbProviderApplies(templateModel))
+                    {
+                        continue;
+                    }
+
+                    template.CSharpFile.OnBuild(file =>
+                    {
+                        file.AddUsing("System");
+                        var @class = file.Classes.First();
+                        var model = @class.GetMetadata<ClassModel>("model");
+
+                        var toChangeNavigationProperties = GetNavigableAggregateAssociations(model);
+                        foreach (var navigation in toChangeNavigationProperties)
+                        {
+                            // Remove the "Entity" Properties and backing fields, there can be
+                            // multiple if there are explicit interface implementations
+                            var properties = @class.GetAllProperties()
+                                .Where(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                            metadataModel.Id == navigation.Id)
+                                .ToArray();
+                            foreach (var property in properties)
+                            {
+                                @class.Properties.Remove(property);
+                            }
+
+                            var field = @class.Fields
+                                .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                                     metadataModel.Id == navigation.Id);
+                            if (field != null)
+                            {
+                                @class.Fields.Remove(field);
+                            }
+                        }
+
+                        var pks = model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
+                        if (!pks.Any())
+                        {
+                            return;
+                        }
+
+                        var primaryKeyProperties = new List<CSharpProperty>();
+                        foreach (var attribute in pks)
+                        {
+                            var existingPk = @class
+                                .GetAllProperties()
+                                .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+                            var fieldName = $"_{attribute.Name.ToCamelCase()}";
+
+                            if (!model.IsAggregateRoot() || initializePrimaryKeyOnAggregateRoots)
+                            {
+                                InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
+                            }
+
+                            primaryKeyProperties.Add(existingPk);
+                        }
+
+                        if (!@class.TryGetMetadata("primary-keys", out _))
+                        {
+                            @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
+                        }
+
+                        if (makeNonPersistentPropertiesVirtual)
+                        {
+                            MakeNonPersistentPropertiesVirtual(@class);
+                        }
+                    });
                 }
+            }
 
-                template.CSharpFile.OnBuild((Action<CSharpFile>)(file =>
+            // Interface
+            {
+                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
+                foreach (var template in templates)
                 {
-                    file.AddUsing("System");
-                    var @class = file.Classes.First();
-                    var model = @class.GetMetadata<ClassModel>("model");
-
-                    var toChangeNavigationProperties = GetNavigableAggregateAssociations(model);
-                    foreach (var navigation in toChangeNavigationProperties)
+                    var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
+                    if (!dbProviderApplies(templateModel))
                     {
-                        //Remove the "Entity" Properties and backing fields
-                        var property = @class.GetAllProperties()
-                            .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
-                                                 metadataModel.Id == navigation.Id);
-                        @class.Properties.Remove(property);
-
-                        var field = @class.Fields
-                            .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
-                                                 metadataModel.Id == navigation.Id);
-                        if (field != null)
-                        {
-                            @class.Fields.Remove(field);
-                        }
+                        continue;
                     }
 
-                    var pks = model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
-                    if (!pks.Any())
+                    template.CSharpFile.OnBuild(file =>
                     {
-                        return;
-                    }
-
-                    var primaryKeyProperties = new List<CSharpProperty>();
-                    foreach (var attribute in pks)
-                    {
-                        var existingPk = @class
-                            .GetAllProperties()
-                            .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
-                        var fieldName = $"_{attribute.Name.ToCamelCase()}";
-
-                        if (!model.IsAggregateRoot() || initializePrimaryKeyOnAggregateRoots)
+                        var @interface = file.Interfaces.FirstOrDefault();
+                        if (@interface == null)
                         {
-                            InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
+                            return;
                         }
 
-                        primaryKeyProperties.Add(existingPk);
-                    }
+                        var model = @interface.GetMetadata<ClassModel>("model");
 
-                    if (!@class.TryGetMetadata("primary-keys", out _))
-                    {
-                        @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
-                    }
+                        var toChangeNavigationProperties = GetNavigableAggregateAssociations(model);
+                        foreach (var navigation in toChangeNavigationProperties)
+                        {
+                            //Remove the "Entity" Properties and backing fields
+                            var property = @interface.Properties
+                                .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                                     metadataModel.Id == navigation.Id);
+                            @interface.Properties.Remove(property);
 
-                    if (makeNonPersistentPropertiesVirtual)
-                    {
-                        MakeNonPersistentPropertiesVirtual(@class);
-                    }
-                }));
+                            var field = @interface.Fields
+                                .FirstOrDefault(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
+                                                     metadataModel.Id == navigation.Id);
+                            if (field != null)
+                            {
+                                @interface.Fields.Remove(field);
+                            }
+                        }
+
+                        var pks = model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
+                        if (!pks.Any())
+                        {
+                            return;
+                        }
+
+                        var primaryKeyProperties = new List<CSharpProperty>();
+                        foreach (var attribute in pks)
+                        {
+                            var existingPk = @interface.Properties
+                                .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
+
+                            primaryKeyProperties.Add(existingPk);
+                        }
+
+                        if (!@interface.TryGetMetadata("primary-keys", out _))
+                        {
+                            @interface.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
+                        }
+                    });
+                }
             }
         }
 

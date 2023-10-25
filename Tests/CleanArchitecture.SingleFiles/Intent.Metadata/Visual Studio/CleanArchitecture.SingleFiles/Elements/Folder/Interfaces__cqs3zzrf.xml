@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="afbc4af9-0717-44e3-aca8-f616a7dd4075" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</name>
-      <display>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</display>
-      <externalReference>Intent.CosmosDB</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</parentFolderId>
-      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
-      <packageName>CleanArchitecture.SingleFiles</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="3ece469b-e89f-4135-a3b9-ad508aeac2f1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</name>
       <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</display>
@@ -79,6 +63,20 @@
       <parentFolderId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</parentFolderId>
       <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
       <packageName>CleanArchitecture.SingleFiles</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0f6d325e-60b2-44cb-9729-1c1a156c606d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</name>
+      <display>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -146,6 +146,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<string>("Suppress Warnings");
             }
 
+            public ManagePackageVersionsCentrallyOptions ManagePackageVersionsCentrally()
+            {
+                return new ManagePackageVersionsCentrallyOptions(_stereotype.GetProperty<string>("Manage Package Versions Centrally"));
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;
@@ -430,6 +435,50 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 Unspecified,
                 Disable,
                 Enable
+            }
+            public class ManagePackageVersionsCentrallyOptions
+            {
+                public readonly string Value;
+
+                public ManagePackageVersionsCentrallyOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public ManagePackageVersionsCentrallyOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "(unspecified)":
+                            return ManagePackageVersionsCentrallyOptionsEnum.Unspecified;
+                        case "false":
+                            return ManagePackageVersionsCentrallyOptionsEnum.False;
+                        case "true":
+                            return ManagePackageVersionsCentrallyOptionsEnum.True;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsUnspecified()
+                {
+                    return Value == "(unspecified)";
+                }
+                public bool IsFalse()
+                {
+                    return Value == "false";
+                }
+                public bool IsTrue()
+                {
+                    return Value == "true";
+                }
+            }
+
+            public enum ManagePackageVersionsCentrallyOptionsEnum
+            {
+                Unspecified,
+                False,
+                True
             }
         }
 

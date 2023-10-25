@@ -123,5 +123,6 @@
     <application id="92ee89ba-5c27-445d-9418-ee24e0cd20f6" name="Intent.Modules.Blazor.WebAssembly.Metadata" relativePath="Intent.Modules.Blazor.WebAssembly.Metadata/Intent.Modules.Blazor.WebAssembly.Metadata.application.config" />
     <application id="007bc5e4-978a-4a04-8c15-a206673a3b4f" name="Intent.Modules.Blazor.Server" relativePath="Intent.Modules.Blazor.Server/Intent.Modules.Blazor.Server.application.config" />
     <application id="7951a529-b874-48dc-bed9-7fa0bdd418f4" name="Intent.Modules.Entities.BasicAuditing" relativePath="Intent.Modules.Entities.BasicAuditing/Intent.Modules.Entities.BasicAuditing.application.config" />
+    <application id="6e53e156-5533-4def-95e4-e4cd8bb4f992" name="Intent.Modules.Azure.TableStorage" relativePath="Intent.Modules.Azure.TableStorage/Intent.Modules.Azure.TableStorage.application.config" />
   </applications>
 </solution>

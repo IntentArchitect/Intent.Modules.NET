@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBDocumentInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBDocumentOfTInterface", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Persistence.Documents
 {

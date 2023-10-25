@@ -139,7 +139,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="b825ef3f-1085-4169-8082-cf5c33ea15c9" name="ImplicitKeyNestedCompositions" type="association" specialization="Association" />
+          <target id="b825ef3f-1085-4169-8082-cf5c33ea15c9" name="ImplicitKeyNestedCompositions" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>692b9881-11a4-4e0d-b793-0b956e07bdb4</parentFolderId>

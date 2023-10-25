@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F36B7415-4066-4503-8EA3-582B0A81CC86}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CosmosDB.PrivateSetters.Api", "CosmosDB.PrivateSetters.Api\CosmosDB.PrivateSetters.Api.csproj", "{07E37433-D16D-4131-A898-E2D85F366B82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{FC4A93EF-0BEC-4034-BA5E-ED782D66B147}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.PrivateSetters.Application", "CosmosDB.PrivateSetters.Application\CosmosDB.PrivateSetters.Application.csproj", "{B7A6DB15-E1C5-461C-A475-981A79392809}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6FA03274-1C42-4209-B733-DF43B5D7FF3A}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.PrivateSetters.Domain", "CosmosDB.PrivateSetters.Domain\CosmosDB.PrivateSetters.Domain.csproj", "{D25A3E41-986D-42D8-9B0E-34AE05377744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F14F568A-FDA6-4248-88DF-0B731D62CACC}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.PrivateSetters.Infrastructure", "CosmosDB.PrivateSetters.Infrastructure\CosmosDB.PrivateSetters.Infrastructure.csproj", "{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07E37433-D16D-4131-A898-E2D85F366B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E37433-D16D-4131-A898-E2D85F366B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E37433-D16D-4131-A898-E2D85F366B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E37433-D16D-4131-A898-E2D85F366B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A6DB15-E1C5-461C-A475-981A79392809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A6DB15-E1C5-461C-A475-981A79392809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A6DB15-E1C5-461C-A475-981A79392809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A6DB15-E1C5-461C-A475-981A79392809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25A3E41-986D-42D8-9B0E-34AE05377744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25A3E41-986D-42D8-9B0E-34AE05377744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25A3E41-986D-42D8-9B0E-34AE05377744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25A3E41-986D-42D8-9B0E-34AE05377744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{07E37433-D16D-4131-A898-E2D85F366B82} = {F36B7415-4066-4503-8EA3-582B0A81CC86}
+		{B7A6DB15-E1C5-461C-A475-981A79392809} = {FC4A93EF-0BEC-4034-BA5E-ED782D66B147}
+		{D25A3E41-986D-42D8-9B0E-34AE05377744} = {6FA03274-1C42-4209-B733-DF43B5D7FF3A}
+		{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC} = {F14F568A-FDA6-4248-88DF-0B731D62CACC}
+	EndGlobalSection
+EndGlobal

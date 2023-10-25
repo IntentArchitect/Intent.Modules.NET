@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using CosmosDB.PrivateSetters.Domain.Common;
+using Intent.RoslynWeaver.Attributes;
+
+namespace CosmosDB.PrivateSetters.Domain.Entities
+{
+    public abstract class BaseOfT<T> : IHasDomainEvent
+    {
+        private string? _id;
+
+        public string Id
+        {
+            get => _id ??= Guid.NewGuid().ToString();
+            protected set => _id = value;
+        }
+
+        public T GenericAttribute { get; protected set; }
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+    }
+}

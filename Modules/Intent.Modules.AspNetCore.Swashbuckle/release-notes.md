@@ -1,3 +1,8 @@
+### Version 4.0.9
+
+- Improvement: All non-nullable properties can now be marked as such and specified as mandatory in the generated `swagger.json` file by enabling the _Mark non-nullable fields as required_ application setting (thank you to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/4) for this).
+- Improvement: It is now possible to opt-in to using simple schema identifiers as opposed to the current default of "fully qualified identifiers" by enabling the _Use simple schema identifiers_ application setting (thank you to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/4) for this).
+
 ### Version 4.0.8
 
 - Improvement: XML comments if generated will be now applied, see [here](https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.AspNetCore.Swashbuckle/README.md#xml-comments) for more information.

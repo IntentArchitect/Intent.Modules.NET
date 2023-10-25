@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#c078f360-0073-495a-bd69-d9e4a9712bb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/PaginationForProxiesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationForProxiesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#b56c28f8-663f-4374-b2e1-e91a8d18ee9c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/QueryDtoParameterController.cs</ApplicationRelativeFilePath>
@@ -294,8 +302,8 @@
       <ProjectId>23156ea2-5268-45cf-a247-a74d47935f62</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#23156ea2-5268-45cf-a247-a74d47935f62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Properties/launchsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3131,6 +3139,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>27244089-3e99-4634-8c09-f3a02db199e7</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/Contracts/PagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#4d21edc9-1c51-48fa-a261-426721a8b01e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/IPaginationForProxiesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPaginationForProxiesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#1e67e885-c969-4163-9f30-afb414f9bddb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3448,6 +3472,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Pagination/LogEntryDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fec03c78-aea1-42b0-b54e-446173ac7b6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/PaginationForProxies/PaginatedResult/PaginatedResultQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationForProxies/PaginatedResult/PaginatedResultQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fec03c78-aea1-42b0-b54e-446173ac7b6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/PaginationForProxies/PaginatedResult/PaginatedResultQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationForProxies/PaginatedResult/PaginatedResultQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fec03c78-aea1-42b0-b54e-446173ac7b6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/PaginationForProxies/PaginatedResult/PaginatedResultQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationForProxies/PaginatedResult/PaginatedResultQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5142,8 +5190,8 @@
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#4db14e1a-8b17-4990-bfef-8951cf818e01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/Properties/launchsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6056,6 +6104,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#4d21edc9-1c51-48fa-a261-426721a8b01e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/PaginationForProxiesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PaginationForProxiesServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,3 +1,7 @@
+### Version 4.0.8
+
+- Fixed: Constructor introduced when non-public property accessor setting is configured.
+
 ### Version 4.0.7
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.

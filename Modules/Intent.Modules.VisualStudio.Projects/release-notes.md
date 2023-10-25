@@ -1,3 +1,12 @@
+### Version 3.4.1
+
+- Improvement: Added `WSL2` as a CommandName option for `launchsettings.json`.
+- Fixed: `launchSettings.json` was incorrectly generated as `launchsettings.json` which would cause issues on case-sensitive file systems (thank you to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/5) for this).
+
+### Version 3.4.0
+
+- New Feature: It is now possible to enable [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) for a Solution in the Visual Studio designer. Refer to the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#central-package-management) for more information.
+
 ### Version 3.3.32
 
 - Fixed: Folder Options no longer targets `Folder`s from `Intent.Common.Types` which causes conflicts with the `Folder` type in the Visual Studio module.

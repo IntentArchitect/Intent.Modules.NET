@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -16,7 +17,8 @@ internal static class PersistenceUnitOfWork
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
             template.GetTemplate<ICSharpTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _);
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
     }
 
     public static void ApplyUnitOfWorkImplementations(
@@ -34,6 +36,7 @@ internal static class PersistenceUnitOfWork
         var daprParameterName = $"daprStateStore{fieldSuffix.ToPascalCase()}";
         var efParameterName = fieldSuffix;
         var mongoDbParameterName = $"mongoDb{fieldSuffix.ToPascalCase()}";
+        var tableStorageParameterName = $"tableStorage{fieldSuffix.ToPascalCase()}";
 
         var useTransactionScope = false;
         var useOutsideTransactionScope = false;
@@ -81,6 +84,18 @@ internal static class PersistenceUnitOfWork
 
             useOutsideTransactionScope = true;
         }
+
+        var requiresTableStorage = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
+        if (requiresTableStorage)
+        {
+            constructor.AddParameter(
+                template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
+                tableStorageParameterName,
+                c => c.IntroduceReadonlyField());
+
+            useOutsideTransactionScope = true;
+        }
+
 
         var hasSeparateResultDeclaration = useTransactionScope && useOutsideTransactionScope;
         if (hasSeparateResultDeclaration && returnType != null)
@@ -180,6 +195,12 @@ internal static class PersistenceUnitOfWork
         if (requiresMongoDb)
         {
             hasCSharpStatements.AddStatement($"await _{mongoDbParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            separatedFromPrevious = null;
+        }
+
+        if (requiresTableStorage)
+        {
+            hasCSharpStatements.AddStatement($"await _{tableStorageParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 
