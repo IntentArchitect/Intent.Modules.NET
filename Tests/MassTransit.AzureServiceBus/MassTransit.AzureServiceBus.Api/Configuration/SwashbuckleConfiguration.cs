@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -33,6 +34,8 @@ namespace MassTransit.AzureServiceBus.Api.Configuration
                             Version = "v1",
                             Title = "MassTransit.AzureServiceBus API"
                         });
+                    options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
+                    options.SupportNonNullableReferenceTypes();
                     options.CustomSchemaIds(x => x.FullName);
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
@@ -91,6 +94,21 @@ namespace MassTransit.AzureServiceBus.Api.Configuration
                     options.EnableFilter(string.Empty);
                     options.OAuthScopeSeparator(" ");
                 });
+        }
+    }
+
+    internal class RequireNonNullablePropertiesSchemaFilter : ISchemaFilter
+    {
+        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        {
+            var additionalRequiredProps = model.Properties
+                .Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))
+                .Select(x => x.Key);
+
+            foreach (var propKey in additionalRequiredProps)
+            {
+                model.Required.Add(propKey);
+            }
         }
     }
 }

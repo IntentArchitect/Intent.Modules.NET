@@ -37,9 +37,9 @@ namespace SwashbuckleSettings.SimpleSchemaId.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 });
+            services.AddApplication(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
-            services.AddApplication(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

@@ -32,6 +32,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
             services.AddSwaggerGen(
                 options =>
                 {
+                    options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
+                    options.SupportNonNullableReferenceTypes();
                     options.CustomSchemaIds(x => x.FullName);
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
@@ -99,6 +101,21 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
             foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion))
             {
                 options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"{options.OAuthConfigObject.AppName} {description.GroupName}");
+            }
+        }
+    }
+
+    internal class RequireNonNullablePropertiesSchemaFilter : ISchemaFilter
+    {
+        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        {
+            var additionalRequiredProps = model.Properties
+                .Where(x => !x.Value.Nullable && !model.Required.Contains(x.Key))
+                .Select(x => x.Key);
+
+            foreach (var propKey in additionalRequiredProps)
+            {
+                model.Required.Add(propKey);
             }
         }
     }
