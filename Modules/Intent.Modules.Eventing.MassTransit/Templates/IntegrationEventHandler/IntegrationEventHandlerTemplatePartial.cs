@@ -73,6 +73,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                                 var mappingManager = new CSharpClassMappingManager(this);
                                 mappingManager.AddMappingResolver(new CreateCommandMappingResolver(this));
                                 mappingManager.SetFromReplacement(subscription, "message");
+                                mappingManager.SetFromReplacement(subscription.Element, "message");
                                 foreach (var sendCommand in subscription.SentCommandDestinations().Where(x => x.Mappings.Any()))
                                 {
                                     method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
