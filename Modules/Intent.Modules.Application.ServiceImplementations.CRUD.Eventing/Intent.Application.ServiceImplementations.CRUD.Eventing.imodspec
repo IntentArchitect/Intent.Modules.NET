@@ -17,7 +17,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="4.0.4" />
-    <dependency id="Intent.Common" version="3.5.0-pre.0" />
+    <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.33" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.1.2" />

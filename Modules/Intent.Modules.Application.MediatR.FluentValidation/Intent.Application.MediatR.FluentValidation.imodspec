@@ -51,7 +51,7 @@
   <dependencies>
     <dependency id="Intent.Application.FluentValidation" version="3.8.2" />
     <dependency id="Intent.Application.MediatR" version="4.1.4" />
-    <dependency id="Intent.Common" version="3.5.0-pre.0" />
+    <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.42" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />

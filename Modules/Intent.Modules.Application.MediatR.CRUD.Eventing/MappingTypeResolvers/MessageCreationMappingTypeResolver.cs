@@ -25,7 +25,6 @@ public class MessageCreationMappingTypeResolver : IMappingTypeResolver
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
         }
-
         return null;
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>4.2.0-pre.0</version>
-  <supportedClientVersions>[4.0.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>5.0.0-beta.0</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>
   <authors>Intent Architect</authors>
@@ -48,11 +48,11 @@
     <factoryExtension id="Intent.DomainEvents.DomainEventsDecoratorExtension" externalReference="1a2243e2-e591-40e0-a4b5-be7f1fec9de8" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0-pre.0" />
+    <dependency id="Intent.Common" version="3.5.0-beta.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
-    <dependency id="Intent.Modelers.Domain.Events" version="3.6.0-pre.0" />
+    <dependency id="Intent.Modelers.Domain.Events" version="3.6.0-beta.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
