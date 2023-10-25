@@ -86,7 +86,7 @@ namespace Intent.Modules.Constants
             }
 
             public const string Mappings = "Application.Mappings";
-            public const string DomainEventHandler = "Application.DomainEventHandler";
+            public const string DomainEventHandler = "Application.DomainEventHandler.Default";
         }
 
         public static class Infrastructure
