@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
 
-internal static class XmlNamespaceHelper
+public static class XmlNamespaceHelper
 {
     public static (string Prefix, XmlNamespaceManager NamespaceManager, string NamespaceName) GetNamespaceManager(this XDocument document)
     {
