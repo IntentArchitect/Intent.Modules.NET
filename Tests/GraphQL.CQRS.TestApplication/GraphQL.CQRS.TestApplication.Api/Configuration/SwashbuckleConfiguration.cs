@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using GraphQL.CQRS.TestApplication.Api.Filters;
 using GraphQL.CQRS.TestApplication.Application;

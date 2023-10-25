@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using CosmosDB.PrivateSetters.Api.Filters;
 using CosmosDB.PrivateSetters.Application;

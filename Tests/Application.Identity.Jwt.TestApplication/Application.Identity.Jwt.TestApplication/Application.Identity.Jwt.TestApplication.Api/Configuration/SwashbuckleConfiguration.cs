@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Application.Identity.Jwt.TestApplication.Api.Filters;
 using Application.Identity.Jwt.TestApplication.Application;

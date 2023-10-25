@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using CosmosDB.EntityInterfaces.Api.Filters;
 using CosmosDB.EntityInterfaces.Application;

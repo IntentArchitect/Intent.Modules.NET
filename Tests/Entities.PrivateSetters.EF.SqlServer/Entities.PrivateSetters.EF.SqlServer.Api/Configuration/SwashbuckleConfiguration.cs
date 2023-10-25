@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Entities.PrivateSetters.EF.SqlServer.Api.Filters;
 using Entities.PrivateSetters.EF.SqlServer.Application;
