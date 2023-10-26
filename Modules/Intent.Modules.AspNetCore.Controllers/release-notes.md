@@ -1,3 +1,7 @@
+### Version 5.4.3
+
+- Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
+
 ### Version 5.4.2
 
 - Improvement: Now respects _OpenAPI Settings_ stereotype's _OperationId_ property for customizing the `operationId` for an endpoint, requires at least version `4.3.1` of the `Intent.Metadata.WebApi` module.

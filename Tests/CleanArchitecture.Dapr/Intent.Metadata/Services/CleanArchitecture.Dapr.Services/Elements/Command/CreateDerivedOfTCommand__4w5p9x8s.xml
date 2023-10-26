@@ -117,7 +117,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="1f9e1b1d-d36e-48d3-919f-58069ce3448d" name="BaseOfT" type="association" specialization="Generalization" />
+          <target id="1f9e1b1d-d36e-48d3-919f-58069ce3448d" name="BaseOfT" type="association" specialization="Generalization Target End" />
           <target id="e4aad7cb-0d74-43f6-9c73-dd233c698ccf" name="GenericTypeAttribute" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>

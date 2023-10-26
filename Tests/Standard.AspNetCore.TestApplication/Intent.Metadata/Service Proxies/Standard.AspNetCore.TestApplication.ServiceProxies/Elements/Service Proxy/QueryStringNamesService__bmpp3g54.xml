@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="94d5e299-01f5-4540-ada4-c15e182e5c78" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>QueryStringNamesService</name>
+  <display>QueryStringNamesService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>a3039e69-7ab0-4ab4-8784-54706aa3fcd8</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="b5e34b80-1fc3-4792-894f-3bfa0ae21fb7" name="QueryStringNames" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>66b18d80-8a0a-427c-ae55-a046e43f655f</parentFolderId>
+  <packageId>66b18d80-8a0a-427c-ae55-a046e43f655f</packageId>
+  <packageName>Standard.AspNetCore.TestApplication.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="893a6a29-b9e6-416d-9a1d-8c6b38a6b1c1" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Operation</name>
+      <display>Operation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dbf82f9a-6ee3-40c9-9f78-c8983005074a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b5229c4b-dd16-4cfe-80c7-cc854803f53f" name="Operation" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>94d5e299-01f5-4540-ada4-c15e182e5c78</parentFolderId>
+      <packageId>66b18d80-8a0a-427c-ae55-a046e43f655f</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

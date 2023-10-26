@@ -92,6 +92,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -126,6 +127,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -194,6 +196,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="MY-HEADER" isActive="true" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -262,6 +265,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Form" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -296,6 +300,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Form" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -364,6 +369,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -432,6 +438,7 @@
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>

@@ -107,7 +107,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                 }
                                 else
                                 {
-                                    method.AddStatement($"queryParams.Add(\"{queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                    method.AddStatement($"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
                                 }
                             }
 
@@ -129,7 +129,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                             var bodyParam = bodyParams.Single();
 
                             method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
-                            //Changed to UTF8 as Default can be sketchy..https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
+                            // Changed to UTF8 as Default can be sketchy:
+                            // https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
                             method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , \"application/json\");");
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))

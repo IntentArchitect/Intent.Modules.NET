@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a575ade1-e3ef-45d7-b85a-4cfd49d63683</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/NamedQueryStringsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStringsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#94822e16-398b-41b6-aa4e-a06d3779fe53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/OperationsClassesController.cs</ApplicationRelativeFilePath>
@@ -3148,6 +3156,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d6d46aba-0653-489a-a910-a75684dbae29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/INamedQueryStringsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INamedQueryStringsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#4d21edc9-1c51-48fa-a261-426721a8b01e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IntegrationServices/IPaginationForProxiesService.cs</ApplicationRelativeFilePath>
@@ -3376,6 +3392,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1e7ada7c-e257-4760-a1f9-85d170636777</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1e7ada7c-e257-4760-a1f9-85d170636777</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1e7ada7c-e257-4760-a1f9-85d170636777</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5116,6 +5156,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff50fc8-597d-4f8d-89eb-3d8bee9c7d39</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#5b210238-8ba5-4423-9471-0287aafcdb8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Implementations/NamedQueryStringsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStringsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5ff50fc8-597d-4f8d-89eb-3d8bee9c7d39</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClient#96a967fc-4cac-444e-8409-36fe946ef90d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Implementations/SecuredServiceHttpClient.cs</ApplicationRelativeFilePath>
@@ -5136,6 +5184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Implementations/ValidationServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5112de09-b5eb-4c2b-932c-c6ec1313abac</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#5b210238-8ba5-4423-9471-0287aafcdb8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/INamedQueryStringsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INamedQueryStringsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6104,6 +6160,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#d6d46aba-0653-489a-a910-a75684dbae29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/NamedQueryStringsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStringsServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

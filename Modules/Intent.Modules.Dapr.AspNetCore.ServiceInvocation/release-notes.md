@@ -1,4 +1,8 @@
-﻿### Version 2.0.6
+﻿### Version 2.0.7
+
+- Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
+
+### Version 2.0.6
 
 - Improvement: Will now generate `PagedResult<TData>` if used by any mapped service proxies.
 
