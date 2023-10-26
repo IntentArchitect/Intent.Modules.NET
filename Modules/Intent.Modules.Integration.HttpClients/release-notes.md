@@ -1,4 +1,8 @@
-﻿### Version 5.0.6
+﻿### Version 5.0.7
+
+- Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
+
+### Version 5.0.6
 
 - Improvement: Added `PagedResult<TData>` as a Type Source for `HttpClient`s.
 
