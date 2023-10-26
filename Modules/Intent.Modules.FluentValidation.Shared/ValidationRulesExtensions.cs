@@ -132,6 +132,11 @@ public static class ValidationRulesExtensions
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
                     {
+                        if (!TryGetMappedAttribute(field, out var mappedAttribute))
+                        { 
+                            continue; 
+                        }
+
                         @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"CheckUniqueConstraint_{field.Name.ToPascalCase()}", method =>
                         {
                             method.Private().Async();
@@ -151,7 +156,6 @@ public static class ValidationRulesExtensions
                                 return;
                             }
 
-                            var mappedAttribute = field.Mapping.Element.AsAttributeModel();
                             if (IsCreateDto(dtoModel))
                             {
                                 method.AddStatement($"return !await {repositoryFieldName}.AnyAsync(p => p.{mappedAttribute.Name.ToPascalCase()} == value, cancellationToken);");
