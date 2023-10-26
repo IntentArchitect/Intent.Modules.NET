@@ -20,6 +20,12 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 });
 
             services
+                .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");
+                });
+
+            services
                 .AddHttpClient<ISecuredService, SecuredServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");

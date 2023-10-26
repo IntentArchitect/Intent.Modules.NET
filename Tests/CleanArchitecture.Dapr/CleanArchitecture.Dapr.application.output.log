@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.DaprConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DaprConfigurationConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfigurationConfiguration.cs</ApplicationRelativeFilePath>
@@ -88,6 +96,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/InvoicesController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoicesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#0b83da4d-f95e-4588-ab9e-eed511bba6cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/NamedQueryStringsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStringsController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -568,7 +584,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/DerivedOfTS/DerivedOfTDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedOfTS/DerivedOfTDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
@@ -704,7 +720,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/DerivedDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Deriveds/DerivedDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
@@ -784,6 +800,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Deriveds/UpdateDerived/UpdateDerivedCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Deriveds/UpdateDerived/UpdateDerivedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3de165a8-0596-4f97-9e34-01dad7cc991e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#818638bc-6f9c-466a-b4a6-86617b751e6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/IntegrationServices/INamedQueryStringsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INamedQueryStringsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1072,6 +1096,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Invoices/UpdateInvoiceInvoiceLine/UpdateInvoiceInvoiceLineCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/UpdateInvoiceInvoiceLine/UpdateInvoiceInvoiceLineCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#afaeab03-8c10-4943-b033-9a6d1b15eaca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#afaeab03-8c10-4943-b033-9a6d1b15eaca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#afaeab03-8c10-4943-b033-9a6d1b15eaca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1520,6 +1568,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Eventing/EventBusImplementation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusImplementation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>86524229-7b28-431b-a77f-8b447f226613</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient#818638bc-6f9c-466a-b4a6-86617b751e6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/HttpClients/NamedQueryStringsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStringsServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

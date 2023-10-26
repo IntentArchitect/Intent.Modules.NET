@@ -146,7 +146,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="1d322314-e5d4-4a32-a34b-aee2456f8848" name="Client" type="association" specialization="Association" />
+          <target id="1d322314-e5d4-4a32-a34b-aee2456f8848" name="Client" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>e84b527d-8c72-4776-8747-8132cb211c48</parentFolderId>
@@ -197,7 +197,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="380df71d-604f-4043-9146-fade2dc1360a" name="InvoiceLines" type="association" specialization="Association" />
+          <target id="380df71d-604f-4043-9146-fade2dc1360a" name="InvoiceLines" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>e84b527d-8c72-4776-8747-8132cb211c48</parentFolderId>

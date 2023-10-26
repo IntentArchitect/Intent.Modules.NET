@@ -43,6 +43,7 @@ namespace CleanArchitecture.Dapr.Api
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
+            services.AddDaprServices();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

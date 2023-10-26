@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="818638bc-6f9c-466a-b4a6-86617b751e6c" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>NamedQueryStringsService</name>
+  <display>NamedQueryStringsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>d4e2dacd-90bd-4d8e-829b-bed69f1b8631</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="54dc2464-246c-461d-9fbd-d03956c25688" name="CleanArchitecture.Dapr.Services" type="association" specialization="Package Reference" />
+      <target id="0b83da4d-f95e-4588-ab9e-eed511bba6cf" name="NamedQueryStrings" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>1c435b4c-650a-4071-996b-efe5d945bbaf</parentFolderId>
+  <packageId>1c435b4c-650a-4071-996b-efe5d945bbaf</packageId>
+  <packageName>ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c8816fc5-b460-4f62-8b3a-7b6a0e239119" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>NamedQueryStrings</name>
+      <display>NamedQueryStrings(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="da8e7daa-d712-4a98-b215-6d1fd3fb1c67">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="afaeab03-8c10-4943-b033-9a6d1b15eaca" name="NamedQueryStringsCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>818638bc-6f9c-466a-b4a6-86617b751e6c</parentFolderId>
+      <packageId>1c435b4c-650a-4071-996b-efe5d945bbaf</packageId>
+      <packageName>ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
