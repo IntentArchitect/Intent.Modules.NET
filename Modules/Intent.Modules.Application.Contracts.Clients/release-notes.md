@@ -1,4 +1,8 @@
-﻿### Version 5.0.3
+﻿### Version 5.0.4
+
+- Improvement: Updated version for `Intent.Metadata.WebApi` dependency.
+
+### Version 5.0.3
 
 - Improvement: Will now generate `PagedResult<TData>` if used by any mapped service proxies.
 

@@ -357,7 +357,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 HttpInputSource.FromBody => "[FromBody]",
                 HttpInputSource.FromForm => "[FromForm]",
                 HttpInputSource.FromHeader => $"[FromHeader(Name = \"{parameter.HeaderName ?? parameter.Name}\")]",
-                HttpInputSource.FromQuery => "[FromQuery]",
+                HttpInputSource.FromQuery => $"[FromQuery{(!string.IsNullOrWhiteSpace(parameter.QueryStringName) ? $"(Name = \"{parameter.QueryStringName}\")" : string.Empty)}]",
                 HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };

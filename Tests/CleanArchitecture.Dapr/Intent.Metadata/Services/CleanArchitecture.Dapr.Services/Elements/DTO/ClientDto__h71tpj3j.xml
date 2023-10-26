@@ -146,7 +146,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="e0847cdc-016f-4aa9-9bbe-d567fd516213" name="Tags" type="association" specialization="Association" />
+          <target id="e0847cdc-016f-4aa9-9bbe-d567fd516213" name="Tags" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>bbf954dc-a9e6-4c49-af8b-04cbf6e8859e</parentFolderId>

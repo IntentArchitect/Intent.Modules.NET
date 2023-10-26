@@ -386,24 +386,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
-            switch (value)
+            switch (value.ToLower())
             {
-                case "DebugRoslynComponent":
+                case "debugroslyncomponent":
                     return CommandName.DebugRoslynComponent;
-                case "Docker":
+                case "docker":
                     return CommandName.Docker;
-                case "DockerCompose":
+                case "dockercompose":
                     return CommandName.DockerCompose;
-                case "Executable":
+                case "executable":
                     return CommandName.Executable;
-                case "IIS":
+                case "iis":
                     return CommandName.Iis;
-                case "IISExpress":
+                case "iisexpress":
                     return CommandName.IisExpress;
-                case "MsixPackage":
+                case "msixpackage":
                     return CommandName.MsixPackage;
-                case "Project":
+                case "project":
                     return CommandName.Project;
+                case "wsl2":
+                    return CommandName.WSL2;
             }
             throw new Exception("Cannot unmarshal type CommandName");
         }
@@ -441,6 +443,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     return;
                 case CommandName.Project:
                     serializer.Serialize(writer, "Project");
+                    return;
+                case CommandName.WSL2:
+                    serializer.Serialize(writer, "WSL2");
                     return;
             }
             throw new Exception("Cannot marshal type CommandName");

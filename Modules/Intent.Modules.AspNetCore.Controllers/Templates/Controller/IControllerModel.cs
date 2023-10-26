@@ -36,6 +36,7 @@ public interface IControllerParameterModel : IHasName, IHasTypeReference, IMetad
 {
     HttpInputSource? Source { get; }
     string HeaderName { get; }
+    string QueryStringName { get; }
     ICanBeReferencedType MappedPayloadProperty { get; }
     string Value { get; }
 }

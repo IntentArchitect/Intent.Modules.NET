@@ -83,6 +83,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b5e34b80-1fc3-4792-894f-3bfa0ae21fb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/QueryStringNamesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryStringNamesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>375a71e8-9d95-4d3e-a4a1-7c89fc73e87c</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -284,6 +292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#b5e34b80-1fc3-4792-894f-3bfa0ae21fb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/QueryStringNamesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryStringNamesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/VersionOneService.cs</ApplicationRelativeFilePath>
@@ -328,6 +344,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IMultiVersionServiceProxy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMultiVersionServiceProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b6f9c76-4730-4f09-913a-f5fde3e0eb35</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#94d5e299-01f5-4540-ada4-c15e182e5c78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IntegrationServices/IQueryStringNamesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQueryStringNamesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -400,6 +424,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IPluralsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPluralsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#b5e34b80-1fc3-4792-894f-3bfa0ae21fb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IQueryStringNamesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQueryStringNamesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -672,6 +704,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/MultiVersionServiceProxyHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiVersionServiceProxyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69880d7a-1db3-4fb8-b222-92442bb62907</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#94d5e299-01f5-4540-ada4-c15e182e5c78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/QueryStringNamesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryStringNamesServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

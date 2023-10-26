@@ -50,6 +50,7 @@ public class CqrsControllerModel : IControllerModel
                     typeReference: x.TypeReference,
                     source: x.Source,
                     headerName: x.HeaderName,
+                    queryStringName: x.QueryStringName,
                     mappedPayloadProperty: x.MappedPayloadProperty,
                     value: x.Value))
                 .ToList<IControllerParameterModel>(),

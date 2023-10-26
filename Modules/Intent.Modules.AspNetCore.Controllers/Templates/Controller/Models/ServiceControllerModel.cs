@@ -90,6 +90,7 @@ public class ServiceControllerModel : IControllerModel
             typeReference: model.TypeReference,
             source: model.Source,
             headerName: model.HeaderName,
+            queryStringName: model.QueryStringName,
             mappedPayloadProperty: model.MappedPayloadProperty,
             value: model.Value);
     }
@@ -160,6 +161,7 @@ public class ControllerParameterModel : IControllerParameterModel
         ITypeReference typeReference,
         HttpInputSource? source,
         string headerName,
+        string queryStringName,
         ICanBeReferencedType mappedPayloadProperty,
         string value)
     {
@@ -168,6 +170,7 @@ public class ControllerParameterModel : IControllerParameterModel
         TypeReference = typeReference;
         Source = source;
         HeaderName = headerName;
+        QueryStringName = queryStringName;
         MappedPayloadProperty = mappedPayloadProperty;
         Value = value;
     }
@@ -177,6 +180,7 @@ public class ControllerParameterModel : IControllerParameterModel
     public ITypeReference TypeReference { get; }
     public HttpInputSource? Source { get; }
     public string HeaderName { get; }
+    public string QueryStringName { get; }
     public ICanBeReferencedType MappedPayloadProperty { get; }
     public string Value { get; }
 }

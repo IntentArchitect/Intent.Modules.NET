@@ -35,6 +35,11 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MultiVersionServiceProxy:Uri");
                 http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:MultiVersionServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
             });
+            services.AddHttpClient<IQueryStringNamesService, QueryStringNamesServiceHttpClient>(http =>
+            {
+                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryStringNamesService:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:QueryStringNamesService:Timeout") ?? TimeSpan.FromSeconds(100);
+            });
             services.AddHttpClient<IVersionOneServiceProxy, VersionOneServiceProxyHttpClient>(http =>
             {
                 http.BaseAddress = configuration.GetValue<Uri>("HttpClients:VersionOneServiceProxy:Uri");
