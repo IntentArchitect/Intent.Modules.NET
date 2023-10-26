@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
     {
         public override string Id => "Intent.AspNetCore.Identity.SocialLogin.ApplicationSecurityConfigurationFactoryExtension";
         private const string SocialSettingsGroupName = "SocialLogin";
-        
+
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnBeforeTemplateExecution(IApplication application)
@@ -186,7 +186,7 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
                     .AddStatement(
                         GetStringOptionStatement(nameof(SocialSettings.Google.ClientSecret), settingGroupName))
                     .AddStatement("options.SignInScheme = IdentityConstants.ExternalScheme;")
-                ).WithoutSemicolon();;
+                ).WithoutSemicolon();
 
             authStatement.AddChainStatement(invocationStatement);
         }
@@ -260,7 +260,7 @@ namespace Intent.Modules.AspNetCore.Identity.SocialLogin.FactoryExtensions
         private static string GetStringOptionStatement(string optionName, string groupName)
         {
             return
-                $@"options.{optionName} = configuration.GetSection(""{groupName}:{optionName}"").Get<string>();";
+                $@"options.{optionName} = configuration.GetSection(""{groupName}:{optionName}"").Get<string>()!;";
         }
 
         private class SocialSettings
