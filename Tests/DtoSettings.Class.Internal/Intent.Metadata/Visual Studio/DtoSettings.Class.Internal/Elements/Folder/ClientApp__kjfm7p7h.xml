@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="9b8f6f36-7128-4909-8a79-88581bfe7a2d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Interfaces</name>
-  <display>Interfaces</display>
+<class id="7303a6fd-0eb9-4ee5-be6d-4546291f663f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>ClientApp</name>
+  <display>ClientApp</display>
+  <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>e5c2d28b-aa2c-4b33-ab38-3b1c1e10d36f</parentFolderId>
+  <parentFolderId>6eb376e8-1793-4e64-9bd3-def0e26045d2</parentFolderId>
   <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
   <packageName>DtoSettings.Class.Internal</packageName>
   <stereotypes>
@@ -21,20 +23,18 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2dabd9f9-4f77-4ce4-bc40-bc1760da078f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbContextInterface</name>
-      <display>Intent.EntityFrameworkCore.DbContextInterface</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
+    <childElement id="15e30e65-5476-40dc-8526-5b1bc264c79a" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Front End</name>
+      <display>Front End</display>
+      <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>9b8f6f36-7128-4909-8a79-88581bfe7a2d</parentFolderId>
+      <parentFolderId>7303a6fd-0eb9-4ee5-be6d-4546291f663f</parentFolderId>
       <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
       <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

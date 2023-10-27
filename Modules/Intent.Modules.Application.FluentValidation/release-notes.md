@@ -1,3 +1,7 @@
+### Version 3.8.3
+
+- Fixed: A Software Factory crash around `DTO Unique Constraint validation` for DTO's mapping to constructors / operations.
+
 ### Version 3.8.1
 
 - Fixed: Using composite Index unique constraint validation didn't use the correct using directives or indicate that a repository was needed.
