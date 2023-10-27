@@ -12,6 +12,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
+using CleanArchitecture.TestApplication.Domain.Entities.Inheritance;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
@@ -25,6 +26,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
@@ -63,6 +65,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<IntegrationTriggering> IntegrationTriggerings { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
+        public DbSet<BaseClass> BaseClasses { get; set; }
+        public DbSet<ConcreteClass> ConcreteClasses { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
@@ -118,6 +122,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
+            modelBuilder.ApplyConfiguration(new BaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteClassConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
             modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping2Configuration());
