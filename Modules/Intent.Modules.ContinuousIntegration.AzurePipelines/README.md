@@ -4,7 +4,7 @@ This module generates a basic `azure-pipeline.yml` file for [Azure Pipelines](ht
 
 - Build all `.csproj` files in the repository.
 - Run unit tests for any `.csproj` whose name is suffixed with `Tests`.
-- Run the [Intent Architect Software Factory CLI](https://docs.intentarchitect.com/articles/cli-tools/software-factory-cli/software-factory-cli.html) tool to detect possible outstanding changes.
+- Run the [Intent Architect Software Factory CLI](https://docs.intentarchitect.com/articles/tools/software-factory-cli/software-factory-cli.html) tool to detect possible outstanding changes.
 
 ## Creating a pipeline
 
