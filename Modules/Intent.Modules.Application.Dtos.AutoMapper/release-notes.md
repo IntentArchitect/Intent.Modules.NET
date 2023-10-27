@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Fixed: Making a mapping from Entity that inherits from a base class to a DTO causes compiler errors.
+
 ### Version 4.0.4
 
 - Mapping extensions now use expression statements instead of method bodies.
