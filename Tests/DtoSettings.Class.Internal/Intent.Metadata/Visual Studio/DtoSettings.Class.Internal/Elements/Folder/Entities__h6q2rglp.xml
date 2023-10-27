@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="5e637978-ddc4-476d-a58f-a45c85807f11" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Repositories</name>
-  <display>Repositories</display>
+<class id="52942bdc-403b-423c-b177-c38cae3305a5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Entities</name>
+  <display>Entities</display>
+  <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>1</order>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>ea896b97-95fc-4174-b76d-d8cf786aaff8</parentFolderId>
+  <parentFolderId>12f3b11f-ff32-4619-a943-2342124afb50</parentFolderId>
   <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
   <packageName>DtoSettings.Class.Internal</packageName>
   <stereotypes>
@@ -22,14 +23,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a2a9731b-b83e-41f6-b6ec-22cb568bd588" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="c4f41cbb-1b34-465c-98b3-0ced9426a5ab" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntity</name>
+      <display>Intent.Entities.DomainEntity</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>5e637978-ddc4-476d-a58f-a45c85807f11</parentFolderId>
+      <parentFolderId>52942bdc-403b-423c-b177-c38cae3305a5</parentFolderId>
       <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
       <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
@@ -38,14 +39,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e60fbbc5-73a9-47f9-97db-cfc5e39cf575" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.PagedList</name>
-      <display>Intent.EntityFrameworkCore.Repositories.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="c2c9c614-4cf1-4916-8aca-034f36ec4fbf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityInterface</name>
+      <display>Intent.Entities.DomainEntityInterface</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>5e637978-ddc4-476d-a58f-a45c85807f11</parentFolderId>
+      <parentFolderId>52942bdc-403b-423c-b177-c38cae3305a5</parentFolderId>
       <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
       <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
@@ -54,14 +55,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="065068e3-e66b-461c-9e60-d25019dc83d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="c5414838-3669-4afd-a35a-9f85b3782283" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityState</name>
+      <display>Intent.Entities.DomainEntityState</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>5e637978-ddc4-476d-a58f-a45c85807f11</parentFolderId>
+      <parentFolderId>52942bdc-403b-423c-b177-c38cae3305a5</parentFolderId>
       <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
       <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
@@ -70,20 +71,18 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="544df209-1575-4a92-a3eb-f1351e3f0c99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.RepositoryBase</name>
-      <display>Intent.EntityFrameworkCore.Repositories.RepositoryBase</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="8ef8cd02-50e4-4b67-9361-12a1eb0f1924" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Domain.Entity</name>
+      <display>Domain.Entity</display>
+      <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>5e637978-ddc4-476d-a58f-a45c85807f11</parentFolderId>
+      <parentFolderId>52942bdc-403b-423c-b177-c38cae3305a5</parentFolderId>
       <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
       <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>
