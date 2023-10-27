@@ -6108,6 +6108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#ec140c2c-11e5-448c-afa7-43414c79114d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DDD/IContractOnlyDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/IContractOnlyDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
       <CorrelationId>Intent.DomainServices.DomainServiceInterface#a3810e59-7d70-4bc2-be3d-052898de4840</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DDD/IDataContractDomainService.cs</ApplicationRelativeFilePath>
