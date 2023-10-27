@@ -7,6 +7,24 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstrain
 {
     public class AggregateWithUniqueConstraintIndexElement : IHasDomainEvent
     {
+        public AggregateWithUniqueConstraintIndexElement(string singleUniqueField,
+            string compUniqueFieldA,
+            string compUniqueFieldB)
+        {
+            SingleUniqueField = singleUniqueField;
+            CompUniqueFieldA = compUniqueFieldA;
+            CompUniqueFieldB = compUniqueFieldB;
+        }
+
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        protected AggregateWithUniqueConstraintIndexElement()
+        {
+            SingleUniqueField = null!;
+            CompUniqueFieldA = null!;
+            CompUniqueFieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string SingleUniqueField { get; set; }

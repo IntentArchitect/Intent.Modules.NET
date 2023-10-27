@@ -7,6 +7,7 @@ using CleanArchitecture.TestApplication.Api.Controllers.ResponseTypes;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.CreateAggregateWithUniqueConstraintIndexElement;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.CreateAggregateWithUniqueConstraintIndexStereotype;
+using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.CreateViaContructor;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.DeleteAggregateWithUniqueConstraintIndexElement;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.DeleteAggregateWithUniqueConstraintIndexStereotype;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.GetAggregateWithUniqueConstraintIndexElementById;
@@ -70,6 +71,22 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetAggregateWithUniqueConstraintIndexElementById), new { id = result }, new JsonResponse<Guid>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpPost("api/unique-index-constraint")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> CreateViaContructor(
+            [FromBody] CreateViaContructorCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
 
         /// <summary>

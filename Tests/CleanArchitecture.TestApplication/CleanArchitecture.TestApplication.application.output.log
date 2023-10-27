@@ -4036,6 +4036,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#e5283055-7005-406d-8855-f15199b473c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
