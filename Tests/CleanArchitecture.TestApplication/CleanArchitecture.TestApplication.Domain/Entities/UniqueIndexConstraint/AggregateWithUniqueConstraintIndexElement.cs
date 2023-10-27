@@ -19,7 +19,8 @@ namespace CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstrain
         /// <summary>
         /// Required by Entity Framework.
         /// </summary>
-        protected AggregateWithUniqueConstraintIndexElement()
+        [IntentManaged(Mode.Ignore)]
+        public AggregateWithUniqueConstraintIndexElement()
         {
             SingleUniqueField = null!;
             CompUniqueFieldA = null!;
