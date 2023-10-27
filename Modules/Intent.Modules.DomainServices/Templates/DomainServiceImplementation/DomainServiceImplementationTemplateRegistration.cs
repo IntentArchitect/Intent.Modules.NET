@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.DomainServices.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -35,7 +36,10 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DomainServiceModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetDomainServiceModels();
+            return _metadataManager.Domain(application)
+                .GetDomainServiceModels()
+                .Where(p => !p.HasContractOnly())
+                .ToArray();
         }
     }
 }

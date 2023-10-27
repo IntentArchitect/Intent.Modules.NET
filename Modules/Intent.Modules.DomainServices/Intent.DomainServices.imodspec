@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainServices</id>
-  <version>1.1.1</version>
+  <version>1.1.2-pre.0</version>
   <supportedClientVersions>[3.4.0, 5.0.0-a)</supportedClientVersions>
   <summary>Domain Services interface and implementation for C#.</summary>
   <description>Domain Services interface and implementation for C#.</description>
@@ -43,5 +43,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.DomainServices/Intent.DomainServices.pkg.config" externalReference="4dd5ea09-bece-4f26-bfeb-2904a26e2895" />
+  </metadata>
 </package>
