@@ -1,3 +1,7 @@
+### Version 3.7.1
+
+- Fixed: A Software Factory crash around `DTO Unique Constraint validation` for DTO's mapping to constructors / operations.
+
 ### Version 3.7.0
 
 - Improvement: DTO Validators will no longer be generated for DTOs which are outbound only.

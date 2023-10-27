@@ -1,3 +1,7 @@
+### Version 4.4.2
+
+- Fixed: A Software Factory crash around `DTO Unique Constraint validation` for DTO's mapping to constructors / operations.
+
 ### Version 4.4.0
 
 - Improvement: `[IntentManaged(Mode.Fully)]` is no longer added to the `ConfigureValidationRules` method as it's redundant.
