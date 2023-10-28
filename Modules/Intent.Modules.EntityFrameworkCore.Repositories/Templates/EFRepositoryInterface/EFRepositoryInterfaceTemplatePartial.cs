@@ -82,6 +82,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
+                        .AddMethod("bool", "Any", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
                         .AddProperty(this.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop => prop
                             .ReadOnly()
                         )
