@@ -868,6 +868,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#09ee5afb-c595-4540-9374-505d0f005a40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/ConcreteClassAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/ConcreteClassAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#2d06c35e-03a2-4e07-80c7-e0a6e48319b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/CreateConcreteClassCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/CreateConcreteClassCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#2d06c35e-03a2-4e07-80c7-e0a6e48319b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/CreateConcreteClassCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/CreateConcreteClassCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#18b37ce7-7a9e-4026-a3f7-88d76893a995</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/DeleteConcreteClassCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/DeleteConcreteClassCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#ee5a2d50-29d2-4f44-ac85-77c376c3f6e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/GetConcreteClassByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClassByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#0d0dcb3b-0d4c-46dc-a8f8-f8b885b562c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/GetConcreteClassesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClassesQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#8ae1cec0-92c8-408e-b8ef-980b108bee14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/UpdateConcreteClassCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/UpdateConcreteClassCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#8ae1cec0-92c8-408e-b8ef-980b108bee14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Inheritance/ConcreteClasses/UpdateConcreteClassCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/UpdateConcreteClassCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -3096,6 +3160,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e7a9d841-a060-4a0a-9f3a-f510f8bf4d64</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/ConcreteClassDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/ConcreteClassDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e7a9d841-a060-4a0a-9f3a-f510f8bf4d64</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/ConcreteClassDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/ConcreteClassDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#2d06c35e-03a2-4e07-80c7-e0a6e48319b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#2d06c35e-03a2-4e07-80c7-e0a6e48319b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2d06c35e-03a2-4e07-80c7-e0a6e48319b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#18b37ce7-7a9e-4026-a3f7-88d76893a995</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#18b37ce7-7a9e-4026-a3f7-88d76893a995</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#18b37ce7-7a9e-4026-a3f7-88d76893a995</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/DeleteConcreteClass/DeleteConcreteClassCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ee5a2d50-29d2-4f44-ac85-77c376c3f6e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ee5a2d50-29d2-4f44-ac85-77c376c3f6e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ee5a2d50-29d2-4f44-ac85-77c376c3f6e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClassById/GetConcreteClassByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#0d0dcb3b-0d4c-46dc-a8f8-f8b885b562c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#0d0dcb3b-0d4c-46dc-a8f8-f8b885b562c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0d0dcb3b-0d4c-46dc-a8f8-f8b885b562c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/GetConcreteClasses/GetConcreteClassesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8ae1cec0-92c8-408e-b8ef-980b108bee14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8ae1cec0-92c8-408e-b8ef-980b108bee14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8ae1cec0-92c8-408e-b8ef-980b108bee14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClasses/UpdateConcreteClass/UpdateConcreteClassCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5724,6 +5924,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Inheritance/BaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/BaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#09ee5afb-c595-4540-9374-505d0f005a40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Inheritance/ConcreteClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Nullability/NullabilityPeer.cs</ApplicationRelativeFilePath>
@@ -5984,6 +6200,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Inheritance/IBaseClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/IBaseClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#09ee5afb-c595-4540-9374-505d0f005a40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Inheritance/IConcreteClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/IConcreteClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6412,6 +6644,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Inheritance/BaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/BaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#09ee5afb-c595-4540-9374-505d0f005a40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Inheritance/ConcreteClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1f291e05-96d6-4c0d-8c3c-0e1b9ba85441</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Nullability/NullabilityPeerConfiguration.cs</ApplicationRelativeFilePath>
@@ -6600,6 +6848,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Enums/ClassWithEnumsRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Enums/ClassWithEnumsRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Inheritance/BaseClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/BaseClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#09ee5afb-c595-4540-9374-505d0f005a40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Inheritance/ConcreteClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/ConcreteClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

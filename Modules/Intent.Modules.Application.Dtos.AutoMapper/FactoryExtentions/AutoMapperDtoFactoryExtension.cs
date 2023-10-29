@@ -17,6 +17,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
+using GeneralizationTargetEndModel = Intent.Modelers.Domain.Api.GeneralizationTargetEndModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -140,7 +141,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
         private static string GetPath(IEnumerable<IElementMappingPathTarget> path)
         {
             return string.Join(".", path
-                .Where(x => x.Specialization != GeneralizationModel.SpecializationType)
+                .Where(x => x.Specialization != "Generalization Target End" && x.Specialization != GeneralizationModel.SpecializationType)
                 .Select(x =>
                 {
                     // Can't just .ToPascalCase(), since it turns string like "Count(x => x.IsAssigned())" into "Count(x => X.IsAssigned())"
