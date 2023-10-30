@@ -24,7 +24,7 @@ When Domain Modeling using the Table Storage primary keys will composite keys [P
 
 ![Domain Model](docs/images/table-storage-domain-model.png)
 
-It's also worth noting that the Table Storage paradigm the data is flat, if you do model compositional relationship's in you model, these will be `json` serialzied into the flat table.
+It's also worth noting that the Table Storage paradigm the data is flat, if you do model compositional relationship's in you model, these will be `json` serialized into the flat table.
 
 ![Storage View](docs/images/storage-view.png)
 
