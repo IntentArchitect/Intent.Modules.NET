@@ -5340,6 +5340,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>

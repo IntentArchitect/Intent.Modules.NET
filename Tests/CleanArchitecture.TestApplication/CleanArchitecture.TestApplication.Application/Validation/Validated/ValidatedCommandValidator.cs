@@ -24,6 +24,10 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
             RuleFor(v => v.Field)
                 .NotNull()
                 .CustomAsync(ValidateFieldAsync);
+
+            RuleFor(v => v.Email)
+                .NotNull()
+                .EmailAddress();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]

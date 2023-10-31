@@ -9,11 +9,13 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
 {
     public class ValidatedCommand : IRequest, ICommand
     {
-        public ValidatedCommand(string field)
+        public ValidatedCommand(string field, string email)
         {
             Field = field;
+            Email = email;
         }
 
         public string Field { get; set; }
+        public string Email { get; set; }
     }
 }

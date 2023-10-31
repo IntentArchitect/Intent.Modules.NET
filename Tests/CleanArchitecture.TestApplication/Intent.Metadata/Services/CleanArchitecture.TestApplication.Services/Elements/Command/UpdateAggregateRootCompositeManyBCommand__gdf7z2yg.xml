@@ -84,6 +84,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
@@ -135,6 +136,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
@@ -186,6 +188,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
@@ -237,6 +240,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
@@ -267,7 +271,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="0a3ead52-3caf-437c-8f5d-629ab489564e" name="Composite" type="association" specialization="Association" />
+          <target id="0a3ead52-3caf-437c-8f5d-629ab489564e" name="Composite" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>095c5ed0-1106-4475-9a90-33f5eaf115bb</parentFolderId>
@@ -288,6 +292,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
@@ -318,7 +323,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="3ae78344-7dda-4b5b-ae38-364f8d39adb1" name="Composites" type="association" specialization="Association" />
+          <target id="3ae78344-7dda-4b5b-ae38-364f8d39adb1" name="Composites" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>095c5ed0-1106-4475-9a90-33f5eaf115bb</parentFolderId>
@@ -339,6 +344,7 @@
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
