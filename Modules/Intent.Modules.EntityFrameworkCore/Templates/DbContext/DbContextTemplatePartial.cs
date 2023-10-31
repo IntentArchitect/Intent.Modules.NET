@@ -28,12 +28,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
+        private readonly Lazy<DbContextInterfaceTemplate> _interfaceTemplate;
         private readonly List<CapturedEntityTypeConfiguration> _capturedEntityTypeConfigurations = new();
         private bool _addedPostTypeConfigProcess;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            _interfaceTemplate = new Lazy<DbContextInterfaceTemplate>(() => GetTemplate<DbContextInterfaceTemplate>(
+                templateId: DbContextInterfaceTemplate.TemplateId,
+                options: new TemplateDiscoveryOptions
+                {
+                    TrackDependency = false
+                }));
+
             FulfillsRole("Infrastructure.Data.DbContext");
 
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
@@ -73,7 +81,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 1, Make = ""Ferrari"", Model = ""F40"" },
     new Car() { CarId = 2, Make = ""Ferrari"", Model = ""F50"" },
-    new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
+    new Car() { CarId = 3, Make = ""Lamborghini"", Model = ""Countach"" });
 */");
                     });
 
@@ -97,7 +105,10 @@ modelBuilder.Entity<Car>().HasData(
                 _capturedEntityTypeConfigurations.Add(new CapturedEntityTypeConfiguration
                 {
                     Event = typeConfiguration,
-                    DbSetElementType = GetEntityName(typeConfiguration.Template.Model),
+                    DbSetElementType = GetEntityName(this, typeConfiguration.Template.Model),
+                    InterfaceDbSetElementType = _interfaceTemplate.Value.IsEnabled
+                        ? GetEntityName(_interfaceTemplate.Value, typeConfiguration.Template.Model)
+                        : null,
                     DbSetName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize(),
                     Prefix = string.Concat(((IHasFolder)typeConfiguration.Template.Model).GetParentFolderNames().Select(s => s.ToPascalCase()))
                 });
@@ -148,20 +159,35 @@ modelBuilder.Entity<Car>().HasData(
                 dbSetElementTypeLookup.Remove(entry.DbSetElementType);
 
                 // Ensure that the GetTypeName system picks up the duplicate and re-resolves them to a full type name
-                entry.DbSetElementType = GetEntityName(entry.Event.Template.Model);
-                collisionEntry.DbSetElementType = GetEntityName(collisionEntry.Event.Template.Model);
+                entry.DbSetElementType = GetEntityName(this, entry.Event.Template.Model);
+                collisionEntry.DbSetElementType = GetEntityName(this, collisionEntry.Event.Template.Model);
+                if (_interfaceTemplate.Value.IsEnabled)
+                {
+                    entry.InterfaceDbSetElementType = GetEntityName(_interfaceTemplate.Value, entry.Event.Template.Model);
+                    collisionEntry.InterfaceDbSetElementType = GetEntityName(_interfaceTemplate.Value, collisionEntry.Event.Template.Model);
+                }
 
                 dbSetElementTypeLookup.Add(entry.DbSetElementType, entry);
                 dbSetElementTypeLookup.Add(collisionEntry.DbSetElementType, collisionEntry);
             }
 
             var @class = CSharpFile.Classes.First();
+            var @interface = _interfaceTemplate.Value.CSharpFile.Interfaces.First();
+
             foreach (var entry in _capturedEntityTypeConfigurations)
             {
                 @class.AddProperty(
                     type: $"DbSet<{entry.DbSetElementType}>",
                     name: entry.DbSetName,
                     configure: prop => prop.AddMetadata("model", entry.Event.Template.Model));
+
+                if (_interfaceTemplate.Value.IsEnabled)
+                {
+                    @interface.AddProperty(
+                        type: $"DbSet<{entry.InterfaceDbSetElementType}>",
+                        name: entry.DbSetName,
+                        configure: prop => prop.WithoutSetter());
+                }
 
                 @class.Methods.First(x => x.Name.Equals("OnModelCreating"))
                     .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(entry.Event.Template)}());",
@@ -175,11 +201,13 @@ modelBuilder.Entity<Car>().HasData(
 
         public override void BeforeTemplateExecution()
         {
-            if (!TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkInterface))
+            if (_interfaceTemplate.Value.IsEnabled)
             {
+                AddTemplateDependency(_interfaceTemplate.Value.Id);
+
                 ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                     .ToRegister(this)
-                    .ForInterface(GetTemplate<IClassProvider>(DbContextInterfaceTemplate.TemplateId))
+                    .ForInterface(_interfaceTemplate.Value)
                     .ForConcern("Infrastructure")
                     .WithResolveFromContainer()
                     .WithPerServiceCallLifeTime());
@@ -202,9 +230,9 @@ modelBuilder.Entity<Car>().HasData(
             return CSharpFile.ToString();
         }
 
-        public string GetEntityName(ClassModel model)
+        private static string GetEntityName(IIntentTemplate template, ClassModel model)
         {
-            return GetTypeName("Domain.Entity", model);
+            return template.GetTypeName("Domain.Entity", model);
         }
 
         public string GetEntityNameOnly(ClassModel model)
@@ -237,9 +265,9 @@ modelBuilder.Entity<Car>().HasData(
             try
             {
                 var interfaces = new List<string>();
-                if (TryGetTypeName(DbContextInterfaceTemplate.TemplateId, out var dbContextInterface))
+                if (_interfaceTemplate.Value.IsEnabled)
                 {
-                    interfaces.Add(dbContextInterface);
+                    interfaces.Add(this.GetDbContextInterfaceName());
                 }
 
                 return interfaces;
@@ -266,6 +294,7 @@ modelBuilder.Entity<Car>().HasData(
             public string DbSetElementType { get; set; }
             public string DbSetName { get; set; }
             public string Prefix { get; set; }
+            public string InterfaceDbSetElementType { get; set; }
         }
     }
 }

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,17 +23,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         {
             _metadataManager = metadataManager;
         }
-        public override string TemplateId => DbContextInterfaceTemplate.TemplateId;
 
-        // This is a bit of a hack, and is an indicator that this template should not exist in this module:
-        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
-        {
-            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Entities.Repositories.Api"))
-            {
-                return;
-            }
-            base.DoRegistration(registry, application);
-        }
+        public override string TemplateId => DbContextInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
@@ -46,9 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
-                .ToList();
+            return _metadataManager.Domain(application).GetClassModels().ToList();
         }
     }
 }
