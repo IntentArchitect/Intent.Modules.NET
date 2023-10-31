@@ -1,6 +1,7 @@
 ﻿### Version 3.0.2
 
 - Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
+- Fixed: Removed unnecessary dependency on the `Intent.Application.FluentValidation` module.
 
 ### Version 3.0.1
 

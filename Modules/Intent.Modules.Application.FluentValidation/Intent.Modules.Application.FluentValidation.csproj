@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>3.8.3-pre.0</Version>
+    <Version>3.8.3-pre.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -27,9 +27,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
-
-  <Import Project="..\Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems" Label="Shared" />
-  <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <None Include="..\..\logo.png">

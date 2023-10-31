@@ -83,6 +83,13 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.FactoryExtensio
                                         .AddArgument($"{field.GetValidations().MaxLength()}, ErrorMessage = \"{field.Name.ToSentenceCase()} must be {field.GetValidations().MaxLength()} or less characters.\""));
                             }
 
+                            if (field.GetValidations().EmailAddress())
+                            {
+                                AddValidation(attributesToAdd, "EmailAddress",
+                                    () => new CSharpAttribute("EmailAddress")
+                                        .AddArgument($"ErrorMessage = \"{field.Name.ToSentenceCase()} must be a valid email address.\""));
+                            }
+
                             if (field.GetValidations().Min() != null && field.GetValidations().Max() != null &&
                                 int.TryParse(field.GetValidations().Min(), out var min) && int.TryParse(field.GetValidations().Max(), out var max))
                             {
