@@ -13,13 +13,27 @@ This module produces the following artifacts:
 - **Querys**- Classes representing all the modelled `Query`s.
 - **QueryHandlers** - MediatR request handlers for all the modelled `Query`s
 
+## CQRS Settings
+
+### CQRS Settings - Consolidate Command/Query associated files into single file
+
+When set to `disabled` (the default), each command/query is generated into its own sub-folder with its handler and validator (when applicable) alongside it in the same sub-folder.
+
+![File view when consolidation disabled](docs/cqrs-consolidate-disabled.png)
+
+When set to `enabled`, commands and queries no longer have their own sub-folders and files which used to be generated alongside them are now instead generated into the handler/command file itself.
+
+![File view when consolidation enabled](docs/cqrs-consolidate-enabled.png)
+
+## Examples
+
 This module consumes:
 
 ![CQRTS Modelling](docs/images/cqrs-modeling.png)
 
-And produce artifacts similar to this
+And produce artifacts similar to:
 
-## Command Example
+### Command Example
 
 ```csharp
 public class CreateCustomerCommand : IRequest<Guid>, ICommand
@@ -37,7 +51,7 @@ public class CreateCustomerCommand : IRequest<Guid>, ICommand
 }
 ```
 
-## CommandHandler Example
+### CommandHandler Example
 
 ```csharp
 public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
