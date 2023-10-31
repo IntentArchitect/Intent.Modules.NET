@@ -1,4 +1,8 @@
-﻿### Version 4.4.13
+﻿### Version 4.4.14
+
+- Improvement: Enabled option to enable generation of `IApplicationDbContext` for use in an application's "Application" layer. See the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---generate-dbcontext-interface) for more information.
+
+### Version 4.4.13
 
 - Improvement: Added `Join Table` stereotype support to the module, for specifying *-* joining tables name explicitly.
 

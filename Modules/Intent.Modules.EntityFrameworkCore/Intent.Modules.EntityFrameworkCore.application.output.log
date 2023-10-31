@@ -130,22 +130,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

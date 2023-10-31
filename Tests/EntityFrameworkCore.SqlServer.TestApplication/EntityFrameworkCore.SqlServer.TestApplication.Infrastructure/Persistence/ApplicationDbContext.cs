@@ -50,7 +50,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IUnitOfWork
+    public class ApplicationDbContext : DbContext, IApplicationDbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
         private readonly ICurrentUserService _currentUserService;

@@ -10,7 +10,7 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 * [`app.settings` configuration](#factory-extension--dependency-injection).
 * [Dependency Injection wiring](#factory-extension--dependency-injection).
 
-For more information on Entity Framework Core, check out their [official documentation](https://learn.microsoft.com/en-us/ef/core/).
+For more information on Entity Framework Core, check out their [official documentation](https://learn.microsoft.com/ef/core/).
 
 ## Module Settings
 
@@ -41,14 +41,21 @@ The value of this setting is a string as follows : {Precision},{Scale}
 
 For example 18,4 would be 18 precision, 4 scale.
 
-For more info on decimal types check out [SQL Server decimal](https://learn.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql).
+For more info on decimal types check out [SQL Server decimal](https://learn.microsoft.com/sql/t-sql/data-types/decimal-and-numeric-transact-sql).
 
 ### Database Settings - `Lazy loading with proxies`
 
 This setting allows you to configure whether or not you would like like to use Entity Frameworks, Lazy loading with proxies feature.
 This setting is on by default, but can be turned off if you don't want this behaviour.
 
-For more info on lazy loading with proxies check out [the official documentation](https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy#lazy-loading-with-proxies).
+For more info on lazy loading with proxies check out [the official documentation](https://learn.microsoft.com/ef/core/querying/related-data/lazy#lazy-loading-with-proxies).
+
+### Database Settings - `Generate DbContext interface`
+
+When enabled, an `IApplicationDbContext` will be generated in the "Application" layer. The `IApplicationDbContext` exposes all the [`DbSet<TEntity>`](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1) properties of the DbContext.
+
+> [!NOTE]
+> A NuGet package reference to `Microsoft.EntityFrameworkCore` is added to the "Application" layer project's `.csproj` as this is the assembly containing the `DbSet<TEntity>` type. This should be considered if you're adhering to the Clean Architecture principle of keeping your "application" layer as clean as possible of references.
 
 ## Domain Designer modeling
 
@@ -198,7 +205,7 @@ In Entity Framework Core there are 3 ways to model inheritance namely:
 * Table per type (TPT).
 * Table per concrete type (TPC).
 
-For more information on modeling inheritance with Entity Framework Core see the [documentation](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
+For more information on modeling inheritance with Entity Framework Core see the [documentation](https://learn.microsoft.com/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
 
 #### Table per hierarchy
 
@@ -367,7 +374,7 @@ dotnet ef database update --startup-project "SimplifiedEShopTutorial.Api" --proj
 
 ```
 
-For more information on EF Migrations check out [Microsoft's official documentation](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
+For more information on EF Migrations check out [Microsoft's official documentation](https://learn.microsoft.com/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
 
 ### Factory Extension : Dependency Injection  
 
