@@ -29,52 +29,56 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface"));
-            if (template != null && template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface"));
+            if (templates.Any() && templates.First().ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
             {
-                template.CSharpFile.OnBuild(file =>
+                foreach (var template in templates)
                 {
-                    var @interface = template.CSharpFile.Interfaces.First();
-                    var model = @interface.GetMetadata<IMetadataModel>("model");
-                    if (template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var entityTemplate))
-                    {
-                        entityTemplate.CSharpFile.AfterBuild(file =>
-                        {
-                            var rootEntity = file.Classes.First();
-                            while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
-                            {
-                                rootEntity = rootEntity.BaseType;
-                            }
 
-                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
+                    template.CSharpFile.OnBuild(file =>
+                    {
+                        var @interface = template.CSharpFile.Interfaces.First();
+                        var model = @interface.GetMetadata<IMetadataModel>("model");
+                        if (template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var entityTemplate))
+                        {
+                            entityTemplate.CSharpFile.AfterBuild(file =>
                             {
-                                @interface.AddMethod($"{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
+                                var rootEntity = file.Classes.First();
+                                while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
                                 {
-                                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                    if (pks.Length == 1)
-                                    {
-                                        var pk = pks.First();
-                                        method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
-                                    }
-                                    else
-                                    {
-                                        method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
-                                    }
-                                });
-                                if (pks.Length == 1)
+                                    rootEntity = rootEntity.BaseType;
+                                }
+
+                                if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
                                 {
-                                    @interface.AddMethod($"List<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}>", "FindByIds", method =>
+                                    @interface.AddMethod($"{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
                                     {
                                         method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                        var pk = pks.First();
-                                        method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
+                                        if (pks.Length == 1)
+                                        {
+                                            var pk = pks.First();
+                                            method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                        }
+                                        else
+                                        {
+                                            method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
+                                        }
                                     });
+                                    if (pks.Length == 1)
+                                    {
+                                        @interface.AddMethod($"List<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}>", "FindByIds", method =>
+                                        {
+                                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                                            var pk = pks.First();
+                                            method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
+                                        });
+                                    }
                                 }
-                            }
-                        });
-                    }
+                            });
+                        }
 
-                });
+                    });
+                }
             }
         }
     }
