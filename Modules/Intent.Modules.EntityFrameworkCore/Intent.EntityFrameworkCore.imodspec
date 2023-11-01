@@ -112,6 +112,10 @@
           <hint>Generates an IApplicationDbContext file when enabled.</hint>
           <defaultValue>false</defaultValue>
         </setting>
+        <setting id="ef908c62-0692-405f-849e-ac09c30181dd" title="Use split queries by default" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Sets UseQuerySplittingBehavior to QuerySplittingBehavior.SplitQuery</hint>
+        </setting>
       </settings>
     </groupExtension>
   </moduleSettingsExtensions>
