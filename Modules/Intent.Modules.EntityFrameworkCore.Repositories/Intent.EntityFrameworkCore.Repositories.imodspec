@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>4.2.9</version>
+  <version>4.2.10-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Repositories for Domain Entities</summary>
   <description>Generates Repositories for Domain Entities</description>
@@ -85,8 +85,19 @@
     <install target="Domain" src="modelers/Domain Extensions.designer.settings" externalReference="832ed209-7f66-4714-9228-7705564004e8" />
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.pkg.config" externalReference="5869084c-2a08-4e40-a5c9-ff26220470c8" />
   </metadata>
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="c3e6ba1b-aea2-436a-80a7-4bfab3a78ab6" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="c3e6ba1b-aea2-436a-80a7-4bfab3a78ab6">
+      <settings>
+        <setting id="ce8b3b8e-fe64-4017-aa16-f56e768fc52d" title="Add synchronous methods to repositories" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Adds the synchronous equivalents for repository asynchronous repository methods.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.EntityRepositoryInterfaceSyncExtension" externalReference="03e4264c-744e-4b91-a96d-ae175d36008b" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.PagedListFactoryExtension" externalReference="5a0baf83-b93a-428d-8f47-3bf1b6a67f99" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.StoredProcedureFactoryExtension" externalReference="9e59c198-59ae-4bda-ab55-caa7830d951f" />
   </factoryExtensions>
