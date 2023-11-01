@@ -19,8 +19,8 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
@@ -80,7 +80,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                 AddMethods(@class, entityTemplate, rootEntity, true);
                                 if (ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                                 {
-                                    AddMethods(@class, entityTemplate, rootEntity, false);
+                                    AddMethods(@class, entityTemplate, rootEntity, makeAsync: false, makefully: true);
                                 }
                             }
                         });
@@ -88,7 +88,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 });
         }
 
-        private void AddMethods(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, CSharpClass rootEntity, bool makeAsync)
+        private void AddMethods(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, CSharpClass rootEntity, bool makeAsync, bool makefully = false)
         {
             var pks = rootEntity.GetPropertiesWithPrimaryKey();
             string returnType = $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}";
@@ -98,6 +98,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 if (makeAsync)
                 {
                     method.Async();
+                }
+                if (makefully)
+                {
+                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
                 }
                 if (pks.Length == 1)
                 {
@@ -132,6 +136,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                     if (makeAsync)
                     {
                         method.Async();
+                    }
+                    if (makefully)
+                    {
+                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
                     }
                     method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
                     if (makeAsync)

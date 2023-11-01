@@ -15,8 +15,8 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase
 {
@@ -328,7 +328,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
         public string PagedListClassName => GetTypeName(PagedListTemplate.TemplateId);
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
