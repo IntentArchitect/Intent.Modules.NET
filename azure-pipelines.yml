@@ -4,6 +4,7 @@ trigger:
     include:
     - master
     - development
+    - development-*
 
 resources:
   pipelines:
@@ -15,6 +16,10 @@ resources:
         - 'refs/tags/publish/client/*'
 
 variables:
+- name: 'isDevelopment'
+  value: $[or(startsWith(variables['Build.SourceBranch'], 'refs/heads/development-'), in(variables['Build.SourceBranch'], 'refs/heads/development'))]
+- name: 'isMaster'
+  value: $[in(variables['Build.SourceBranch'], 'refs/heads/master')]
 - name: 'vstsFeed'
   value: '4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/intentarchitect-feed'
 - name: 'vstsFeedUrl'
@@ -110,7 +115,7 @@ steps:
 # Push the NuGet packages to the DevOps artifact feed so that it's available to other pipelines
 - task: NuGetCommand@2
   displayName: 'nuget push'
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/development'))
+  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
   inputs:
       command: 'push'
       feedsToUse: 'select'
@@ -132,7 +137,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'Update Project URLs in imodspecs'
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), in(true, variables.isDevelopment))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -181,7 +186,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'install intent packager'
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/development'))
+  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -190,7 +195,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'filter modules to publish'
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/development'))
+  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: inline
     pwsh: true
@@ -223,7 +228,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'publish modules'
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/development'))
+  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
   env:
     DOTNET_NOLOGO: '1'
   inputs:
