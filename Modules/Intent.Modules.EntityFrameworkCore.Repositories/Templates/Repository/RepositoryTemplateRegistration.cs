@@ -11,8 +11,8 @@ using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
@@ -28,6 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         public override string TemplateId => RepositoryTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new RepositoryTemplate(outputTarget, model);

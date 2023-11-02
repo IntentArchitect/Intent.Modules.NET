@@ -9,12 +9,14 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
+using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase
 {
@@ -191,6 +193,90 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddStatement($"return await QueryInternal(filterExpression).AnyAsync(cancellationToken);");
                     });
 
+                    if (ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
+                    {
+                        @class.AddMethod($"{tDomain}?", "Find", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                            method.AddStatement($"return QueryInternal(filterExpression).SingleOrDefault<{tDomain}>();");
+                        });
+                        @class.AddMethod($"{tDomain}?", "Find", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
+                            method.AddStatement($"return QueryInternal(filterExpression, linq).SingleOrDefault<{tDomain}>();");
+                        });
+
+                        @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddStatement($"return QueryInternal(x => true).ToList<{tDomain}>();");
+                        });
+                        @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                            method.AddStatement($"return QueryInternal(filterExpression).ToList<{tDomain}>();");
+                        });
+                        @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
+                            method.AddStatement($"return QueryInternal(filterExpression, linq).ToList<{tDomain}>();");
+                        });
+
+                        @class.AddMethod($"{this.GetPagedResultInterfaceName()}<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter("int", "pageNo")
+                                .AddParameter("int", "pageSize");
+                            method.AddStatement($"var query = QueryInternal(x => true);")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .WithArgumentsOnNewLines());
+                        });
+                        @class.AddMethod($"{this.GetPagedResultInterfaceName()}<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                                .AddParameter("int", "pageNo")
+                                .AddParameter("int", "pageSize");
+                            method.AddStatement($"var query = QueryInternal(filterExpression);")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .WithArgumentsOnNewLines());
+                        });
+
+                        @class.AddMethod($"{this.GetPagedResultInterfaceName()}<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                                .AddParameter("int", "pageNo")
+                                .AddParameter("int", "pageSize")
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
+                            method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .WithArgumentsOnNewLines());
+                        });
+
+                        @class.AddMethod("int", "Count", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
+                            method.AddStatement($"return QueryInternal(filterExpression).Count();");
+                        });
+                    }
+
                     @class.AddMethod($"IQueryable<{tPersistence}>", "QueryInternal", method =>
                     {
                         method.Protected();
@@ -242,7 +328,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
         public string PagedListClassName => GetTypeName(PagedListTemplate.TemplateId);
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

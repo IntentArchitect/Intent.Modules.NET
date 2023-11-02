@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.8.3-pre.0</version>
+  <version>3.8.3-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -10,7 +10,7 @@
   <templates />
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet validation</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.FluentValidation/README.md</projectUrl>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Application.FluentValidation.FluentValidationDependencyInjectionExtension" externalReference="b1cedb3a-e6f8-4395-98f3-f6c85526e7e1" />

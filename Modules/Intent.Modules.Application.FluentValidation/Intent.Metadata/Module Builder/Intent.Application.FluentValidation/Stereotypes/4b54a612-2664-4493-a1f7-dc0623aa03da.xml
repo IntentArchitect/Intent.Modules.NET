@@ -129,6 +129,18 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <lookupTypes />
       <isActiveFunction>return Predicate != "" &amp;&amp; Predicate != null</isActiveFunction>
     </property>
+    <property id="85282cb5-5e12-4eb0-9568-7ccee0685e12">
+      <name>Email Address</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>let type = element.typeReference.getType();
+return type ? type.getName() == "string" : false;</isActiveFunction>
+    </property>
     <property id="e441d802-9aea-4d74-b5f9-1cd2527f3719">
       <comment>This is a legacy property, we keep it for backwards compatibility with older metadata, it is now replaced by the "Must" property.</comment>
       <hint>Creates a separate method to validate this field</hint>

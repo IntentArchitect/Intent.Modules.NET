@@ -100,6 +100,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#de0ef5ea-a2d4-40b2-ab87-abbc6d150a03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/ValidationTestingController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationTestingController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/VersionOneController.cs</ApplicationRelativeFilePath>
@@ -300,6 +308,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#de0ef5ea-a2d4-40b2-ab87-abbc6d150a03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/ValidationTestingService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationTestingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/VersionOneService.cs</ApplicationRelativeFilePath>
@@ -436,6 +452,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#de0ef5ea-a2d4-40b2-ab87-abbc6d150a03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IValidationTestingService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationTestingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#867df351-f179-4b7a-9119-f6e24425f9dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IVersionOneService.cs</ApplicationRelativeFilePath>
@@ -544,6 +568,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Standard.AspNetCore.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.TestApplication.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidationDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/ValidationDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

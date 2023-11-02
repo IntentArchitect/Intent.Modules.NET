@@ -26,6 +26,7 @@ namespace Standard.AspNetCore.TestApplication.Application
             services.AddTransient<IMultiVersionService, MultiVersionService>();
             services.AddTransient<IPluralsService, PluralsService>();
             services.AddTransient<IQueryStringNamesService, QueryStringNamesService>();
+            services.AddTransient<IValidationTestingService, ValidationTestingService>();
             services.AddTransient<IVersionOneService, VersionOneService>();
             return services;
         }

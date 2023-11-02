@@ -330,6 +330,11 @@ public static class ValidationRulesExtensions
             validationRuleChain.AddChainStatement($"LessThanOrEqualTo({validations.Max()})");
         }
 
+        if (validations.EmailAddress())
+        {
+            validationRuleChain.AddChainStatement("EmailAddress()");
+        }
+
         if (!string.IsNullOrWhiteSpace(validations.Predicate()))
         {
             var message = !string.IsNullOrWhiteSpace(validations.PredicateMessage()) ? $".WithMessage(\"{validations.PredicateMessage()}\")" : string.Empty;

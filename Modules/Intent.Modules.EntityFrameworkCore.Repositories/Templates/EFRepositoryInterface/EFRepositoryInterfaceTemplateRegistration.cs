@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
     {
         public override string TemplateId => EFRepositoryInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new EFRepositoryInterfaceTemplate(outputTarget);

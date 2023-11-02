@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -7,6 +8,8 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
+using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -53,6 +56,23 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                         .AddChainStatement("ToListAsync(cancellationToken)"));
                     method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
                 });
+                if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
+                {
+                    @class.AddMethod($"{pagedResultInterfaceName}<{T}>", "Create", method =>
+                    {
+                        method.Static();
+                        method.AddParameter($"IQueryable<{T}>", "source")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize");
+                        method.AddStatement("var count = source.Count();");
+                        method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+                        method.AddStatement(new CSharpMethodChainStatement("var results = source")
+                            .AddChainStatement("Skip(skip)")
+                            .AddChainStatement("Take(pageSize)")
+                            .AddChainStatement("ToList()"));
+                        method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
+                    });
+                }
             });
         }
     }

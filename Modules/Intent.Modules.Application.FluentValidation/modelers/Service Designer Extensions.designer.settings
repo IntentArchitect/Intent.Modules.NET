@@ -26,4 +26,5 @@ stereotype.getProperty("Must").setValue(true);
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
 </settings>
