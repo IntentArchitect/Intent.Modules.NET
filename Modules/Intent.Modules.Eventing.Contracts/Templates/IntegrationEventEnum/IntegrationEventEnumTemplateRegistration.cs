@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Types.Api;
@@ -38,6 +39,8 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum
         {
             return _metadataManager.GetSubscribedToEnumModels(application)
                 .Union(_metadataManager.GetPublishedEnumModels(application))
+                .Union(_metadataManager.GetExplicitlyPublishedEnumModels(application))
+                .Union(_metadataManager.GetExplicitlySubscribedToEnumModels(application))
                 .Except(_metadataManager.GetDesigner(application.Id, "Domain").GetEnumModels())
                 .ToArray();
         }
