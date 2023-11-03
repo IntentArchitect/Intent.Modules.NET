@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
     {
         public override string TemplateId => MappingProfileTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MappingProfileTemplate(outputTarget, null);
+            return new MappingProfileTemplate(outputTarget);
         }
     }
 }

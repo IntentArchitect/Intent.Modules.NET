@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>49c326c7-719d-409f-8e61-4cbea4443bce</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#22299b62-9ced-4555-9a2a-d00c3ebf8512</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b0225cce-0742-4d48-86fb-4a39405a280d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.ODataQuery.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.ODataQuery.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b0225cce-0742-4d48-86fb-4a39405a280d</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b0225cce-0742-4d48-86fb-4a39405a280d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.ODataQuery.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.ODataQuery.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

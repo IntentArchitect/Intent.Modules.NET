@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c728fd6f-1d65-4d54-96b7-b1d7c45ea647" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EFRepositoryExtension</name>
+  <display>EFRepositoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- Improvement: Updated `AutoMapper` NuGet package to 12.0.1.
+
 ### Version 4.0.4
 
 - Updated `IdentityServer4.EntityFramework` nuget package to 7.0.9.
