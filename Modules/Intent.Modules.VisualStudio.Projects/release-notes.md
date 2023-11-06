@@ -1,5 +1,6 @@
 ### Version 3.4.1
 
+- Improvement: Removed `Could not determine framework element for project "<project path>". If you're using a "Directory.Build.props" file, change the project's Target Framework to "(unspecified)"` warning.
 - Improvement: Added `WSL2` as a CommandName option for `launchsettings.json`.
 - Fixed: `launchSettings.json` was incorrectly generated as `launchsettings.json` which would cause issues on case-sensitive file systems (thank you to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/5) for this).
 

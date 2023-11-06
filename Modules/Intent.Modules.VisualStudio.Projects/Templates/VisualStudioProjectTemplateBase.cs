@@ -333,9 +333,6 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
                       GetPropertyGroupElement(doc, "TargetFrameworks");
         if (element == null)
         {
-            Logging.Log.Warning($"Could not determine framework element for project \"{FilePath}\". " +
-                                "If you're using a \"Directory.Build.props\" file, change the project's Target " +
-                                "Framework to \"(unspecified)\".");
             return false;
         }
 
