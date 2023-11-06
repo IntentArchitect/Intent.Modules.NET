@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Intent.Engine;
+using Intent.Modules.AspNetCore.ODataQuery.Settings;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
+
+namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class StartupExtension : FactoryExtensionBase
+    {
+        public override string Id => "Intent.AspNetCore.ODataQuery.StartupExtension";
+
+        [IntentManaged(Mode.Ignore)]
+        public override int Order => 0;
+
+        protected override void OnAfterTemplateRegistrations(IApplication application)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Startup));
+
+            template?.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var addControllers = @class.FindMethod("ConfigureServices")?.FindStatement(s => s.HasMetadata("configure-services-controllers-generic"));
+                if (addControllers == null) return;
+                if (addControllers.Parent is not CSharpMethodChainStatement chain) return;
+                template.AddUsing("Microsoft.AspNetCore.OData");
+                template.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOData);
+                chain.AddChainStatement(new CSharpInvocationStatement("AddOData").WithArgumentsOnNewLines().WithoutSemicolon(), stmt =>
+                    {
+                        CSharpInvocationStatement invocation = (CSharpInvocationStatement)stmt;
+                        CSharpLambdaBlock lambda;
+                        if (!invocation.Statements.Any())
+                        {
+                            lambda = new CSharpLambdaBlock("options");
+                            invocation.AddArgument(lambda);
+                        }
+                        else
+                        {
+                            lambda = invocation.Statements.First() as CSharpLambdaBlock;
+                        }
+                        var odataConfig = new StringBuilder();
+                        var settings = template.ExecutionContext.Settings.GetODataQuerySettings();
+                        if (settings.AllowFilterOption())
+                        {
+                            odataConfig.Append(".Filter()");
+                        }
+                        if (settings.AllowOrderByOption())
+                        {
+                            odataConfig.Append(".OrderBy()");
+                        }
+                        if (settings.AllowExpandOption())
+                        {
+                            odataConfig.Append(".Expand()");
+                        }
+                        if (settings.AllowSelectOption())
+                        {
+                            odataConfig.Append(".Select()");
+                        }
+                        if (settings.AllowCountOption())
+                        {
+                            odataConfig.Append(".Count()");
+                        }
+                        if (!string.IsNullOrEmpty(settings.MaxTop()))
+                        {
+                            if (int.TryParse(settings.MaxTop(), out var _))
+                            {
+                                odataConfig.Append($".SetMaxTop({settings.MaxTop()})");
+                            }
+                        }
+                        lambda.AddStatement($"options{odataConfig};");
+                    });
+            }, 10);
+        }
+    }
+}

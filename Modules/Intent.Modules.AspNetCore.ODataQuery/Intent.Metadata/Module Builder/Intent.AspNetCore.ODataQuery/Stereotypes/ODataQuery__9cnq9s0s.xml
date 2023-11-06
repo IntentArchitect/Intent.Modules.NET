@@ -20,88 +20,14 @@
   <packageId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</packageId>
   <packageName>Intent.AspNetCore.ODataQuery</packageName>
   <properties>
-    <property id="2f99d474-0273-4bd5-94d2-c2be4b9bf5ab">
-      <name>Enable Expand</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="d4ff2490-cf63-41ab-bd40-acde533d77a1">
+    <property id="922f9a05-e789-435b-9d07-44bc8645bb7c">
       <name>Enable Select</name>
       <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="42a92ddd-4bfa-443e-bb1a-e1153b2d9b74">
-      <name>Enable Filter</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="e0d34baf-c3df-4d46-b9bf-ac5509db2f34">
-      <name>Enable OrderBy</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="372728c6-c599-4f09-ae40-ee1bc05f8be1">
-      <name>Enable Count</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
-    <property id="922f9a05-e789-435b-9d07-44bc8645bb7c">
-      <name>Enable SkipToken</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue></defaultValue>
-      <valueOptions>
-        <option />
-        <option>Enabled</option>
-        <option>Disabled</option>
-      </valueOptions>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
       <lookupTypes />
     </property>
   </properties>
