@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.14</version>
+  <version>4.4.15-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -112,9 +112,10 @@
           <hint>Generates an IApplicationDbContext file when enabled.</hint>
           <defaultValue>false</defaultValue>
         </setting>
-        <setting id="ef908c62-0692-405f-849e-ac09c30181dd" title="Use split queries by default" type="switch">
+        <setting id="ef908c62-0692-405f-849e-ac09c30181dd" title="Enable split queries globally" type="switch">
           <isRequired>false</isRequired>
-          <hint>Sets UseQuerySplittingBehavior to QuerySplittingBehavior.SplitQuery</hint>
+          <hint>Sets the `UseQuerySplittingBehavior` option on the DbContext to `SplitQuery`.</hint>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </groupExtension>

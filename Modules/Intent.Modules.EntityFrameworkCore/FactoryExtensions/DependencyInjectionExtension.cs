@@ -8,7 +8,6 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
@@ -31,14 +30,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
@@ -100,83 +91,62 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             });
         }
 
-        private string GetSqlServerExtendedConnectionString(ICSharpProject project)
+        private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
         {
-            if (project.IsNetApp(7))
-            {
-                return ";Encrypt=False";
-            }
-            return string.Empty;
+            return project.IsNetApp(7) ? ";Encrypt=False" : string.Empty;
         }
 
-        private AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection)
+        private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection)
         {
+            const string connection = "\"DefaultConnection\"";
             var addDbContext = new AddDbContextStatement(dependencyInjection.GetDbContextName());
-            var connection = "\"DefaultConnection\"";
             var statements = new List<CSharpStatement>();
 
-            var useSplitQueriesByDefault = dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().UseSplitQueriesByDefault();
-            CSharpLambdaBlock dbContextOptionsBuilderStatement;
+            var enableSplitQueriesGlobally = dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().EnableSplitQueriesGlobally();
+
+            var migrationsAssemblyStatement = $"MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)";
+            var dbContextOptionsBuilderStatement = enableSplitQueriesGlobally
+                ? new CSharpLambdaBlock("b")
+                    .AddStatement($"b.{migrationsAssemblyStatement};")
+                    .AddStatement("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);")
+                : new CSharpStatement($"b => b.{migrationsAssemblyStatement}");
 
             switch (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(dependencyInjection.OutputTarget.GetProject()));
 
-                    statements.Add(new CSharpInvocationStatement($@"options.UseInMemoryDatabase")
-                        .AddArgument($@"{connection}", a => a.AddMetadata("is-connection-string", true)));
+                    statements.Add(new CSharpInvocationStatement("options.UseInMemoryDatabase")
+                        .AddArgument($"{connection}", a => a.AddMetadata("is-connection-string", true)));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
 
-                    dbContextOptionsBuilderStatement = new CSharpLambdaBlock("b")
-                        .AddStatement($"b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName);");
-
-                    if (useSplitQueriesByDefault)
-                    {
-                        dbContextOptionsBuilderStatement.AddStatement("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);");
-                    }
-
-                    statements.Add(new CSharpInvocationStatement($@"options.UseSqlServer")
+                    statements.Add(new CSharpInvocationStatement("options.UseSqlServer")
                         .WithArgumentsOnNewLines()
-                        .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
+                        .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
 
-                    dbContextOptionsBuilderStatement = new CSharpLambdaBlock("b")
-                        .AddStatement($"b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName);");
-
-                    if (useSplitQueriesByDefault)
-                    {
-                        dbContextOptionsBuilderStatement.AddStatement("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);");
-                    }
-                    statements.Add(new CSharpInvocationStatement($@"options.UseNpgsql")
+                    statements.Add(new CSharpInvocationStatement("options.UseNpgsql")
                         .WithArgumentsOnNewLines()
-                        .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
+                        .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
-
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                     dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
 
-                    dbContextOptionsBuilderStatement = new CSharpLambdaBlock("b")
-                        .AddStatement($"b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName);");
-
-                    if (useSplitQueriesByDefault)
-                    {
-                        dbContextOptionsBuilderStatement.AddStatement("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);");
-                    }
-                    statements.Add(new CSharpInvocationStatement($@"options.UseMySql")
+                    statements.Add(new CSharpInvocationStatement("options.UseMySql")
                         .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
-                        .AddArgument($@"ServerVersion.Parse(""8.0"")")
+                        .AddArgument(@"ServerVersion.Parse(""8.0"")")
                         .AddArgument(dbContextOptionsBuilderStatement));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
 
-                    statements.Add(new CSharpInvocationStatement($@"options.UseCosmos")
+                    statements.Add(new CSharpInvocationStatement("options.UseCosmos")
                         .WithArgumentsOnNewLines()
                         .AddArgument(@"configuration[""Cosmos:AccountEndpoint""]")
                         .AddArgument(@"configuration[""Cosmos:AccountKey""]")
@@ -185,17 +155,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");
             }
+
             if (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().LazyLoadingWithProxies())
             {
-                statements.Add($@"options.UseLazyLoadingProxies();");
+                statements.Add("options.UseLazyLoadingProxies();");
             }
+
             addDbContext.AddConfigOptionStatements(statements);
             return addDbContext;
-        }
-
-        public IEnumerable<string> DeclareUsings()
-        {
-            yield return "Microsoft.EntityFrameworkCore";
         }
     }
 }
