@@ -1,4 +1,4 @@
-﻿### Version 4.1.6
+﻿### Version 4.1.7
 
 - Fixed: `QueryHander` and `CommandHandler` where incorrectly using `WithBaseType` instead of `InmplementsInterface` for `IRequestHandler`.
 

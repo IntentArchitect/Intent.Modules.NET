@@ -1,4 +1,4 @@
-### Version 4.0.5
+### Version 4.0.6
 
 - Improvement: Updated `AutoMapper` NuGet package to `12.0.1` 
 
