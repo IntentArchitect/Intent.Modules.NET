@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{EE1C380A-8669-4631-A016-4AC8B2B92358}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFrameworkCore.SqlServer.SplitQueries.Api", "EntityFrameworkCore.SqlServer.SplitQueries.Api\EntityFrameworkCore.SqlServer.SplitQueries.Api.csproj", "{7DB01CA0-64A2-4A48-960D-D7BD60012905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{C7312429-301E-46E0-8CBF-1458981299EB}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.SplitQueries.Application", "EntityFrameworkCore.SqlServer.SplitQueries.Application\EntityFrameworkCore.SqlServer.SplitQueries.Application.csproj", "{E6779BDD-C21F-480C-9395-2AEA60701013}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{8BA69F5C-A2CC-48B7-95B2-7709D9937CE5}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.SplitQueries.Domain", "EntityFrameworkCore.SqlServer.SplitQueries.Domain\EntityFrameworkCore.SqlServer.SplitQueries.Domain.csproj", "{EF13EAA4-48CF-455F-AB42-B4F4EE340F91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C9993F13-17EB-43D5-8015-1523D982A67B}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.SplitQueries.Infrastructure", "EntityFrameworkCore.SqlServer.SplitQueries.Infrastructure\EntityFrameworkCore.SqlServer.SplitQueries.Infrastructure.csproj", "{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DB01CA0-64A2-4A48-960D-D7BD60012905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB01CA0-64A2-4A48-960D-D7BD60012905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB01CA0-64A2-4A48-960D-D7BD60012905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB01CA0-64A2-4A48-960D-D7BD60012905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6779BDD-C21F-480C-9395-2AEA60701013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6779BDD-C21F-480C-9395-2AEA60701013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6779BDD-C21F-480C-9395-2AEA60701013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6779BDD-C21F-480C-9395-2AEA60701013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF13EAA4-48CF-455F-AB42-B4F4EE340F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF13EAA4-48CF-455F-AB42-B4F4EE340F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF13EAA4-48CF-455F-AB42-B4F4EE340F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF13EAA4-48CF-455F-AB42-B4F4EE340F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DB01CA0-64A2-4A48-960D-D7BD60012905} = {EE1C380A-8669-4631-A016-4AC8B2B92358}
+		{E6779BDD-C21F-480C-9395-2AEA60701013} = {C7312429-301E-46E0-8CBF-1458981299EB}
+		{EF13EAA4-48CF-455F-AB42-B4F4EE340F91} = {8BA69F5C-A2CC-48B7-95B2-7709D9937CE5}
+		{2F4AE803-44DE-4ABC-ABF4-BFC4D2D1ABCC} = {C9993F13-17EB-43D5-8015-1523D982A67B}
+	EndGlobalSection
+EndGlobal
