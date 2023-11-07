@@ -1,5 +1,6 @@
 using System;
 using FluentValidation;
+using GraphQL.MongoDb.TestApplication.Application.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,13 +12,13 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public CreateUserCommandValidator()
+        public CreateUserCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
         [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull();
@@ -29,7 +30,8 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
                 .NotNull();
 
             RuleFor(v => v.AssignedPrivileges)
-                .NotNull();
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserAssignedPrivilegeDto>()!));
 
         }
     }

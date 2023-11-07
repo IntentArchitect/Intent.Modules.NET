@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behaviours;
+using EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

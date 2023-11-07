@@ -187,6 +187,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5c3f6e83-297d-4ffb-87b7-c8d0e623ecca</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c3f6e83-297d-4ffb-87b7-c8d0e623ecca</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>848f131a-c455-42bf-8804-c2363a45ff8d</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -232,6 +248,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/CreateInvoiceLineDataContractDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>848f131a-c455-42bf-8804-c2363a45ff8d</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#336dcd35-25e7-4ddd-899a-dc32d7e61ca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceLineDataContractDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -352,6 +376,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/OperationLineDataContractDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>848f131a-c455-42bf-8804-c2363a45ff8d</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a89e5ea9-a773-41c2-9368-6748ae3563e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/OperationLineDataContractDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>848f131a-c455-42bf-8804-c2363a45ff8d</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1960,6 +2000,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OptionalToOneSourceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OptionalToOneSources/OptionalToOneSourceDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>848f131a-c455-42bf-8804-c2363a45ff8d</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
