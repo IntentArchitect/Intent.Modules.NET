@@ -240,8 +240,8 @@
       <childElements />
     </childElement>
     <childElement id="ef908c62-0692-405f-849e-ac09c30181dd" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Use split queries by default</name>
-      <display>Use split queries by default</display>
+      <name>Enable split queries globally</name>
+      <display>Enable split queries globally</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -256,8 +256,8 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Sets UseQuerySplittingBehavior to QuerySplittingBehavior.SplitQuery" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Sets the `UseQuerySplittingBehavior` option on the DbContext to `SplitQuery`." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

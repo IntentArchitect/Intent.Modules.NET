@@ -123,7 +123,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
 
         public static bool GenerateDbContextInterface(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
 
-        public static bool UseSplitQueriesByDefault(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("ef908c62-0692-405f-849e-ac09c30181dd")?.Value.ToPascalCase(), out var result) && result;
+        public static bool EnableSplitQueriesGlobally(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("ef908c62-0692-405f-849e-ac09c30181dd")?.Value.ToPascalCase(), out var result) && result;
     }
 
     //public static class ModuleSettingsExtensions
