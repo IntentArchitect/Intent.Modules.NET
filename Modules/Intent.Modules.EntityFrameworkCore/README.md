@@ -57,6 +57,10 @@ When enabled, an `IApplicationDbContext` will be generated in the "Application" 
 > [!NOTE]
 > A NuGet package reference to `Microsoft.EntityFrameworkCore` is added to the "Application" layer project's `.csproj` as this is the assembly containing the `DbSet<TEntity>` type. This should be considered if you're adhering to the Clean Architecture principle of keeping your "application" layer as clean as possible of references.
 
+### Database Settings - `Enable split queries globally`
+
+When enabled, configures the DbContext to have [split queries enabled globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally).
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
