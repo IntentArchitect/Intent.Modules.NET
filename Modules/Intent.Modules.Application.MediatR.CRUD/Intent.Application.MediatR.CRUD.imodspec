@@ -33,7 +33,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.9" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.2.10" />
       </install>
     </detect>&gt;
     <detect id="Intent.Application.MediatR.CRUD.Tests"><install><package id="Intent.Application.MediatR.CRUD.Tests" version="1.3.2" /></install></detect></interoperability>
