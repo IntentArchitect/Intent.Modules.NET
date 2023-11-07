@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.8.3</version>
+  <version>3.8.4</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -38,6 +38,7 @@
     <detect id="Intent.AspNetCore.Controllers.Dispatch.MediatR">
       <install>
         <package id="Intent.Application.MediatR.FluentValidation" version="4.4.2" />
+        <package id="Intent.Application.FluentValidation.Dtos" version="3.7.1" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions.Interop.Contracts">
