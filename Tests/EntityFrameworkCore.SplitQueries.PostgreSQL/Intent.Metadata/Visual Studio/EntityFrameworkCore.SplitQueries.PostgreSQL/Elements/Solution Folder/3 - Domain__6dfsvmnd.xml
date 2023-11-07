@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8ba69f5c-a2cc-48b7-95b2-7709d9937ce5" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
