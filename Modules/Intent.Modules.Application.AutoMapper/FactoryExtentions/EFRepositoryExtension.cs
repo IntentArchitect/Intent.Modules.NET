@@ -45,20 +45,20 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             template.CSharpFile.OnBuild(file => 
             {
                 var @interface = file.Interfaces.First();
-                @interface.AddMethod("Task<IEnumerable<TProjection>>", "FindAllProjectToAsync", method => 
+                @interface.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method => 
                 {
                     method
                         .AddGenericParameter("TProjection")
-                        .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression")
+                        .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
-                    @interface.AddMethod("IEnumerable<TProjection>", "FindAllProjectTo", method =>
+                    @interface.AddMethod("List<TProjection>", "FindAllProjectTo", method =>
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression")
+                            .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
                             ;
                     });
 
@@ -102,12 +102,12 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     constructor.AddParameter("IMapper", "mapper", p => p.IntroduceReadonlyField() );
                 }
 
-                @class.AddMethod("Task<IEnumerable<TProjection>>", "FindAllProjectToAsync", method =>
+                @class.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method =>
                 {
                     method
                         .Async()
                         .AddGenericParameter("TProjection")
-                        .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression")
+                        .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
@@ -116,11 +116,11 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
-                    @class.AddMethod("IEnumerable<TProjection>", "FindAllProjectTo", method =>
+                    @class.AddMethod("List<TProjection>", "FindAllProjectTo", method =>
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression");
+                            .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression");
                         method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
                         .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")

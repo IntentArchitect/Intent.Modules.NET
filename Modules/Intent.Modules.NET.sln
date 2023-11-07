@@ -253,7 +253,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.UnitOfWork.P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.TableStorage", "Intent.Modules.Azure.TableStorage\Intent.Modules.Azure.TableStorage.csproj", "{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.ODataQuery", "Intent.Modules.AspNetCore.ODataQuery\Intent.Modules.AspNetCore.ODataQuery.csproj", "{B0225CCE-0742-4D48-86FB-4A39405A280D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.ODataQuery", "Intent.Modules.AspNetCore.ODataQuery\Intent.Modules.AspNetCore.ODataQuery.csproj", "{B0225CCE-0742-4D48-86FB-4A39405A280D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

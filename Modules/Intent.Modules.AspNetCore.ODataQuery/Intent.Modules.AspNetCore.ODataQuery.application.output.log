@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5a879e4-3051-48ce-951a-be7c9068ff89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b5235e94-ce0d-4278-a5c5-0ee52c1c6bcf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EFRepositoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EFRepositoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5a879e4-3051-48ce-951a-be7c9068ff89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1ee783d5-7aca-40cb-a37b-65e018985876</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/QueryExtension.cs</ApplicationRelativeFilePath>

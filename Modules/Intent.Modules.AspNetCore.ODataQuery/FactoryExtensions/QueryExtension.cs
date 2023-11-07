@@ -1,21 +1,24 @@
-using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
-using Intent.Plugins.FactoryExtensions;
-using Intent.RoslynWeaver.Attributes;
+using System;
 using System.Linq;
-using Intent.Modules.Constants;
+using System.Reflection;
+using System.Threading;
+using Intent.AspNetCore.ODataQuery.Api;
+using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.AspNetCore.ODataQuery.Api;
 using Intent.Modules.AspNetCore.ODataQuery.Settings;
-using Intent.Utils;
-using System;
-using static Intent.Modules.Constants.TemplateFulfillingRoles.Repository;
-using System.Reflection;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
+using static Intent.Modules.Constants.TemplateFulfillingRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -35,7 +38,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 .Where(qm => qm.HasODataQuery())
                 .ToArray();
 
-            foreach (var queryModel in queryModels) 
+            foreach (var queryModel in queryModels)
             {
                 var queryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Query, queryModel.Id);
                 if (!queryTemplate.ExecutionContext.Settings.GetODataQuerySettings().AllowSelectOption() && queryModel.GetODataQuery().EnableSelect())
@@ -46,17 +49,50 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
 
                 UpdateQuery(application, queryTemplate, queryModel, queryModel.GetODataQuery().EnableSelect());
                 UpdateHandler(application, queryModel, queryModel.GetODataQuery().EnableSelect());
+                UpdateController(application, queryModel, queryModel.GetODataQuery().EnableSelect());
 
-                
             }
         }
 
-        private void UpdateQuery(IApplication application, ICSharpFileBuilderTemplate template, QueryModel queryMdoel, bool enableSelect)
+        private void UpdateController(IApplication application, QueryModel queryModel, bool enableSelect)
+        {
+
+            var controllerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", queryModel.InternalElement.ParentElement.Id);
+            if (controllerTemplate == null) return;
+            controllerTemplate?.CSharpFile.OnBuild(file =>
+            {
+                controllerTemplate.AddUsing("Microsoft.AspNetCore.OData.Query");
+                var @class = file.Classes.First();
+                var method = @class.FindMethod(m => m.HasMetadata("modelId") && m.GetMetadata<string>("modelId") == queryModel.Id);
+
+                if (enableSelect)
+                {
+                    method.WithReturnType("Task<IActionResult>");
+                }
+                var dtoModel = queryModel.TypeReference.Element.AsDTOModel() ?? throw new Exception($"Expected DTO return type OData Query. {queryModel.Name} found {controllerTemplate.GetTypeName(queryModel.TypeReference)}");
+
+                var odataParam = $"ODataQueryOptions<{controllerTemplate.GetTypeName(dtoModel.InternalElement)}>";
+                if (method.Parameters.LastOrDefault()?.Type == "CancellationToken")
+                {
+                    method.Parameters.Insert(method.Parameters.Count - 1, new Common.CSharp.Builder.CSharpParameter(odataParam, "odataOptions"));
+                }
+                else
+                {
+                    method.AddParameter(odataParam, "odataOptions");
+                }
+                var dispatchStatement = method.FindStatement(stmt => stmt.GetText("").Contains("_mediator.Send"));
+                dispatchStatement.Replace(new CSharpStatement(dispatchStatement.GetText("").Replace("), cancellationToken", $"{(queryModel.Properties.Count > 0 ? ", " : "")}odataOptions.ApplyTo), cancellationToken")));
+
+            }, 100);
+        }
+
+        private void UpdateQuery(IApplication application, ICSharpFileBuilderTemplate template, QueryModel queryModel, bool enableSelect)
         {
             template?.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-
+                template.AddUsing("System");
+                template.AddUsing("System.Linq");
                 if (enableSelect)
                 {
                     var requestInterface = @class.Interfaces.FirstOrDefault(x => x.StartsWith("IRequest"));
@@ -66,7 +102,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     @class.Interfaces[index] = "IRequest<IEnumerable>";
                 }
                 var constructor = @class.Constructors.First();
-                var dtoModel = queryMdoel.TypeReference.Element.AsDTOModel() ?? throw new Exception($"Expected DTO return type OData Query. {queryMdoel.Name} found {template.GetTypeName(queryMdoel.TypeReference)}");                
+                var dtoModel = queryModel.TypeReference.Element.AsDTOModel() ?? throw new Exception($"Expected DTO return type OData Query. {queryModel.Name} found {template.GetTypeName(queryModel.TypeReference)}");
                 constructor.AddParameter($"Func<IQueryable<{template.GetTypeName(dtoModel.InternalElement)}>, IQueryable>", "transform", param => param.IntroduceProperty(prop => prop.ReadOnly()));
             }, 100);
         }
@@ -78,7 +114,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 var handlerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.MediatR.QueryHandler", queryModel.Id);
                 handlerTemplate?.CSharpFile.OnBuild(file =>
                 {
-                    var @class = file.Classes.First();
+                    var @class = file.Classes.First(x => x.HasMetadata("handler"));
                     var requestInterface = @class.Interfaces.FirstOrDefault(x => x.StartsWith("IRequestHandler"));
                     if (requestInterface == null) return;
                     int index = @class.Interfaces.IndexOf(requestInterface);
@@ -88,7 +124,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     var method = @class.FindMethod("Handle");
                     if (method == null) return;
                     handlerTemplate.AddUsing("System.Collections");
-                    method.WithReturnType("IEnumerable");
+                    method.WithReturnType("Task<IEnumerable>");
                 }, 100);
             }
         }

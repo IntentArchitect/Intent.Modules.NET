@@ -1,4 +1,8 @@
-﻿### Version 4.1.4
+﻿### Version 4.1.6
+
+- Fixed: `QueryHander` and `CommandHandler` where incorrectly using `WithBaseType` instead of `InmplementsInterface` for `IRequestHandler`.
+
+### Version 4.1.4
 
 - Improvement: Introduced new "Consolidate Command/Query associated files into single file" setting. When enabled, commands/queries are no longer generated into sub-folders and their respective handlers and validators (as applicable) are now embedded within them as opposed to being generated separately. See the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.MediatR/README.md#cqrs-settings) for more details.
 - Improvement: Internal model update for better identifying Command / Query Templates during Software Factory Execution.

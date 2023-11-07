@@ -10,6 +10,7 @@
   <templates></templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.ODataQuery.EFRepositoryExtension" externalReference="b5235e94-ce0d-4278-a5c5-0ee52c1c6bcf" />
     <factoryExtension id="Intent.AspNetCore.ODataQuery.QueryExtension" externalReference="1ee783d5-7aca-40cb-a37b-65e018985876" />
     <factoryExtension id="Intent.AspNetCore.ODataQuery.StartupExtension" externalReference="79f071dc-8f83-4823-983e-118dcedc3d7d" />
   </factoryExtensions>
@@ -58,6 +59,16 @@
     <detect id="Intent.AspNetCore.Controllers">
       <install>
         <package id="Intent.AspNetCore.Controllers" version="5.4.3-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR">
+      <install>
+        <package id="Intent.Application.MediatR" version="4.1.6-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.CRUD">
+      <install>
+        <package id="Intent.Application.MediatR.CRUD" version="5.3.3-pre.0" />
       </install>
     </detect>
   </interoperability>
