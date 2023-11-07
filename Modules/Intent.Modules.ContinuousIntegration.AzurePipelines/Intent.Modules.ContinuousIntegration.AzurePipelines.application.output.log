@@ -34,22 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>4e491216-aade-49e9-acd7-c57273b3ce0c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#651675ac-9a4e-4f01-bac7-800166055ef3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AzurePipelines/AzurePipelinesTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzurePipelines/AzurePipelinesTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4e491216-aade-49e9-acd7-c57273b3ce0c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateT4#651675ac-9a4e-4f01-bac7-800166055ef3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AzurePipelines/AzurePipelinesTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzurePipelines/AzurePipelinesTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4e491216-aade-49e9-acd7-c57273b3ce0c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#651675ac-9a4e-4f01-bac7-800166055ef3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzurePipelines/AzurePipelinesTemplatePartial.cs</ApplicationRelativeFilePath>

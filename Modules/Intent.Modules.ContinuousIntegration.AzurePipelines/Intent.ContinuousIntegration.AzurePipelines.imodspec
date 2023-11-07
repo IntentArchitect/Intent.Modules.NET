@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ContinuousIntegration.AzurePipelines</id>
-  <version>1.0.1</version>
-  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <version>1.0.2-pre.0</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</summary>
   <description>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</description>
   <authors>Intent Architect</authors>
