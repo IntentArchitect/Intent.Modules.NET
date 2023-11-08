@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CameraRepository : RepositoryBase<Camera, Camera, ApplicationDbContext>, ICameraRepository
     {
-        public CameraRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public CameraRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -45,8 +45,6 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Settings
 
         public bool AllowExpandOption() => bool.TryParse(_groupSettings.GetSetting("e1ef66ba-3e3c-47c5-8a25-55bd827fcd3b")?.Value.ToPascalCase(), out var result) && result;
 
-        public bool AllowCountOption() => bool.TryParse(_groupSettings.GetSetting("eefbc0af-d028-4fc3-94a3-3b3f28ff5dee")?.Value.ToPascalCase(), out var result) && result;
-
         public bool AllowSelectOption() => bool.TryParse(_groupSettings.GetSetting("73866e5a-1fba-4637-af2b-9c3cfc1786cd")?.Value.ToPascalCase(), out var result) && result;
 
         public string MaxTop() => _groupSettings.GetSetting("8bafbb9e-e756-4e07-8ff3-da57e4b3c190")?.Value;

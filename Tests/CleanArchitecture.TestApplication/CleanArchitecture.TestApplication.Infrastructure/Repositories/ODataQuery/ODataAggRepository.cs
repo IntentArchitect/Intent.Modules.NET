@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CleanArchitecture.TestApplication.Domain.Entities.ComplexTypes;
+using AutoMapper;
+using CleanArchitecture.TestApplication.Domain.Entities.ODataQuery;
 using CleanArchitecture.TestApplication.Domain.Repositories;
-using CleanArchitecture.TestApplication.Domain.Repositories.ComplexTypes;
+using CleanArchitecture.TestApplication.Domain.Repositories.ODataQuery;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.ComplexTypes
+namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.ODataQuery
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CustomerCTRepository : RepositoryBase<CustomerCT, CustomerCT, ApplicationDbContext>, ICustomerCTRepository
+    public class ODataAggRepository : RepositoryBase<ODataAgg, ODataAgg, ApplicationDbContext>, IODataAggRepository
     {
-        public CustomerCTRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ODataAggRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
-        public async Task<CustomerCT?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ODataAgg?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<List<CustomerCT>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<ODataAgg>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

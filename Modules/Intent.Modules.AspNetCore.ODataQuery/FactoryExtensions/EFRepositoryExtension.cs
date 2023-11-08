@@ -42,6 +42,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
         {
             template.CSharpFile.OnBuild(file =>
             {
+                template.AddUsing("System.Collections");
+
                 var @interface = file.Interfaces.First();
                 @interface.AddMethod("Task<IEnumerable>", "FindAllProjectToWithTransformationAsync", method =>
                 {

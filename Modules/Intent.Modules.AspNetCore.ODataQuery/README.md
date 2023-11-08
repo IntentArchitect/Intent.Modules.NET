@@ -22,7 +22,7 @@ This module consumes your `ODataQuery` enabled `Query`s, which you design in the
 - QueryHandler changes, adjusts return types if required.
 - CRUD Changes, wires requests to new project and transform repository operations.
 - EF Repository Changes, adds new OData projection and transformation operations to repositories .
-- Swashbucke swagger integration, updates swagger schema to include OData query parameter options.
+- Swashbuckle swagger integration, updates swagger schema to include OData query parameter options.
 
 These CosmosDB patterns are realized using [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository).
 
@@ -42,7 +42,7 @@ To leverage the OData Query functionality simply apply the `ODataQuery` stereoty
 
 The Query must meet the following criteria:
 
-- The `Query` must be mapped onto a domain `Class`.
+- The `Query` must be mapped onto a domain `Class` (which has a repository).
 - The `Query` must return a `Dto` collection.
 
 ## Using the OData `Select`  feature

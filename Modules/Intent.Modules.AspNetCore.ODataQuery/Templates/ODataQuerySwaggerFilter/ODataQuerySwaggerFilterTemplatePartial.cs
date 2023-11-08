@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                 .AddClass($"ODataQueryFilter", @class =>
                 {
                     AddUsing("System.Linq");
-                    AddUsing("System.Collections");                    
+                    AddUsing("System.Collections");
                     AddUsing("System.Reflection");
                     AddUsing("System.Threading.Tasks");
                     AddUsing("Microsoft.AspNetCore.Mvc");
@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                     AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
 
-                    @class.AddMethod("void", "Apply", method => 
+                    @class.AddMethod("void", "Apply", method =>
                     {
                         method
                             .AddParameter("OpenApiOperation", "operation")
@@ -50,7 +50,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                                 .FirstOrDefault(x => MatchODataQueryOptions(x.Param))?.Index ?? -1;", s => s.SeparatedFromPrevious());
                         method.AddStatement("var parameter = operation.Parameters[index];");
 
-                        method.AddIfStatement("parameter == null", c => 
+                        method.AddIfStatement("parameter == null", c =>
                         {
                             c.SeparatedFromPrevious();
                             c.AddStatement("return;");
@@ -80,13 +80,9 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                         {
                             method.AddStatement("operation.Parameters.Add(OdataParameter(\"$orderby\", \"Determines what values are used to order a collection of records. (e.g. $orderby=Address1_Country,Address1_City desc)\"));");
                         }
-                        if (settings.AllowCountOption())
-                        {
-                            method.AddStatement("operation.Parameters.Add(OdataParameter(\"$count\", \"Determines whether a count should be returned (e.g. $count=true)\"));");
-                        }
                     });
 
-                    @class.AddMethod("bool", "MatchODataQueryOptions", method => 
+                    @class.AddMethod("bool", "MatchODataQueryOptions", method =>
                     {
                         method
                             .Private()

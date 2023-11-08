@@ -46,6 +46,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     Logging.Log.Warning($"`Select enabled` for OData Query : {queryModel.Name} but `Select` is disabled at an API level.");
                     return;
                 }
+                queryTemplate.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOData);
 
                 UpdateQuery(application, queryTemplate, queryModel, queryModel.GetODataQuery().EnableSelect());
                 UpdateHandler(application, queryModel, queryModel.GetODataQuery().EnableSelect());
@@ -74,19 +75,19 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 var odataParam = $"ODataQueryOptions<{controllerTemplate.GetTypeName(dtoModel.InternalElement)}>";
                 if (method.Parameters.LastOrDefault()?.Type == "CancellationToken")
                 {
-                    method.Parameters.Insert(method.Parameters.Count - 1, new Common.CSharp.Builder.CSharpParameter(odataParam, "odataOptions"));
+                    method.Parameters.Insert(method.Parameters.Count - 1, new Common.CSharp.Builder.CSharpParameter(odataParam, "oDataOptions"));
                 }
                 else
                 {
-                    method.AddParameter(odataParam, "odataOptions");
+                    method.AddParameter(odataParam, "oDataOptions");
                 }
-                method.InsertStatement(0, $"ValidateODataOptions(odataOptions{(enableSelect ? ", true" : "")});");
-                var dispatchStatement = method.FindStatement(stmt => stmt.GetText("").Contains("_mediator.Send"));
-                dispatchStatement.Replace(new CSharpStatement(dispatchStatement.GetText("").Replace("), cancellationToken", $"{(queryModel.Properties.Count > 0 ? ", " : "")}odataOptions.ApplyTo), cancellationToken")));
+                method.InsertStatement(0, $"ValidateODataOptions(oDataOptions{(enableSelect ? ", true" : "")});");
+                var dispatchStatement = method.FindStatement(stmt => stmt.ToString().Contains("_mediator.Send"));
+                dispatchStatement.Replace(new CSharpStatement(dispatchStatement.ToString().Replace("), cancellationToken", $"{(queryModel.Properties.Count > 0 ? ", " : "")}oDataOptions.ApplyTo), cancellationToken")));
 
                 if (@class.FindMethod("ValidateODataOptions") == null)
                 {
-                    @class.AddMethod("void", "ValidateODataOptions", method => 
+                    @class.AddMethod("void", "ValidateODataOptions", method =>
                     {
                         method
                             .Private()
@@ -94,7 +95,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                             .AddParameter($"ODataQueryOptions<{genericArg}>", "options")
                             .AddParameter("bool", "enableSelect", p => p.WithDefaultValue("false"));
                         method.AddStatement($"var settings = new {controllerTemplate.UseType("Microsoft.AspNetCore.OData.Query.Validator.ODataValidationSettings")}();");
-                        method.AddIfStatement("!enableSelect", stmt => 
+                        method.AddIfStatement("!enableSelect", stmt =>
                         {
                             stmt.AddStatement("settings.AllowedQueryOptions = AllowedQueryOptions.All & ~AllowedQueryOptions.Select;");
                         });

@@ -57,11 +57,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
             if (config.AllowsSelect)
             {
-                handleMethod.AddStatement($"return await {repository.FieldName}.FindAllProjectToWithTransformationAsync<{_template.GetDtoName(config.DtoToReturn)}>(filterExpression: null, transform: request.Transform, cancellationToken: cancellationToken);");
+                handleMethod.AddStatement($"return await {repository.FieldName}.FindAllProjectToWithTransformationAsync(filterExpression: null, transform: request.Transform, cancellationToken: cancellationToken);");
             }
             else
             {
-                handleMethod.AddStatement($"return await {repository.FieldName}.FindAllProjectToAsync<{_template.GetDtoName(config.DtoToReturn)}>(filterExpression: null, filterProjection: request.Transform, cancellationToken: cancellationToken);");
+                handleMethod.AddStatement($"return await {repository.FieldName}.FindAllProjectToAsync(filterExpression: null, filterProjection: request.Transform, cancellationToken: cancellationToken);");
             }
         }
 

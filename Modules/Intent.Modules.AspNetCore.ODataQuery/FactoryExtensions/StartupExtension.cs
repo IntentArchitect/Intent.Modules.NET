@@ -37,7 +37,6 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 if (addControllers == null) return;
                 if (addControllers.Parent is not CSharpMethodChainStatement chain) return;
                 template.AddUsing("Microsoft.AspNetCore.OData");
-                template.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOData);
                 chain.AddChainStatement(new CSharpInvocationStatement("AddOData").WithArgumentsOnNewLines().WithoutSemicolon(), stmt =>
                     {
                         CSharpInvocationStatement invocation = (CSharpInvocationStatement)stmt;
@@ -68,10 +67,6 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         if (settings.AllowSelectOption())
                         {
                             odataConfig.Append(".Select()");
-                        }
-                        if (settings.AllowCountOption())
-                        {
-                            odataConfig.Append(".Count()");
                         }
                         if (!string.IsNullOrEmpty(settings.MaxTop()))
                         {
