@@ -11,6 +11,7 @@ using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -37,21 +38,21 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup")
-            ?.CSharpFile.AfterBuild(file =>
+        var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+        template?.CSharpFile.AfterBuild(_ =>
+        {
+            template.StartupFile.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureMultiTenancy({ctx.Configuration});");
+            template.StartupFile.ConfigureApp((statements, ctx) =>
             {
-                file.Classes.First().FindMethod("ConfigureServices")
-                    ?.AddStatement("services.ConfigureMultiTenancy(Configuration);");
-
-                var statement = file.Classes.First().FindMethod("Configure")
-                    .FindStatement(s => s.GetText(string.Empty).Contains("app.UseRouting()"))
-                    ?.InsertBelow("app.UseMultiTenancy();");
-
-                if (statement == null)
+                var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
+                if (useRoutingStatement == null)
                 {
                     throw new("app.UseRouting() was not configured");
                 }
+
+                useRoutingStatement.InsertBelow($"{ctx.App}.UseMultiTenancy();");
             });
+        }, 10);
 
         var configurations = new List<(string ConnectionStringName, ApplyConfiguration ApplyConfiguration)>();
         foreach (var tryGetConfiguration in new[] { TryGetEfCoreConfiguration, TryGetMongoDbConfiguration })
@@ -314,7 +315,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 var method = file.Classes.First().FindMethod("SetupInMemoryStore");
                 if (method != null)
                 {
-                    method.Parameters[0] = new($"InMemoryStoreOptions<{extendedInfoTypeName}>", "options");
+                    method.Parameters[0] = new($"InMemoryStoreOptions<{extendedInfoTypeName}>", "options", file);
                 }
             }
 

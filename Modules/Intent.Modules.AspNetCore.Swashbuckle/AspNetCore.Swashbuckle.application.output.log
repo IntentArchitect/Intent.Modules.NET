@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#ff189556-1a54-46dc-9cfb-e86ba6f4e67b</CorrelationId>
+      <ProjectId>0752149d-d931-47d9-896a-3f2a781fd09a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e763a07f-47e8-4ca3-924d-7c4efb567c38</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/SwashbuckleCoreWebStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleCoreWebStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#ff189556-1a54-46dc-9cfb-e86ba6f4e67b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/SwashbuckleCoreWebStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleCoreWebStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/SwashbuckleStartupConfigurationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SwashbuckleStartupConfigurationExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -50,14 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#02e221e7-1e0c-4e5d-b434-8acd587a6bd3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Program/ProgramDecoratorBase.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Program/ProgramDecoratorBase.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4801c180-6756-4496-a4e0-d9b08a8f6674</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Program/ProgramTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -70,14 +62,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Program/ProgramTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#58920714-64fa-4c4c-890f-00ae8bc33a0c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Startup/StartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

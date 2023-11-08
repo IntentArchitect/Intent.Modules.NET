@@ -1,3 +1,7 @@
+### Version 2.0.0
+
+- Improvement: Updated to support use of top-level statements and minimal hosting model improvements introduced in [`Intent.AspNetCore` version 6.0.0](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore/release-notes.md#version-600).
+
 ### Version 1.1.2
 
 - Improvement: Console exporter added and set as default one so as to allow apps to run without having to configure APM connection strings.

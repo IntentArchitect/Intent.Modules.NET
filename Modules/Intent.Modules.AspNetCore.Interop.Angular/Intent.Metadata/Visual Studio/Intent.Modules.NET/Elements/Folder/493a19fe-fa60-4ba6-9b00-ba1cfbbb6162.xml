@@ -3,7 +3,7 @@
   <name>FactoryExtensions</name>
   <display>FactoryExtensions</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</parentFolderId>
@@ -21,11 +21,26 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="ab890c81-5a44-4479-8c58-0ddc152c002a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.FactoryExtension</name>
+      <display>Intent.ModuleBuilder.Templates.FactoryExtension</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>493a19fe-fa60-4ba6-9b00-ba1cfbbb6162</parentFolderId>
+      <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="1a8dc843-6bb2-4029-a2f8-440314e4a829" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>ModuleBuilder.Templates.FactoryExtension</name>
       <display>ModuleBuilder.Templates.FactoryExtension</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>493a19fe-fa60-4ba6-9b00-ba1cfbbb6162</parentFolderId>

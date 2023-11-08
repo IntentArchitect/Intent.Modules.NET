@@ -1,15 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.HealthChecks.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -63,7 +62,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
 
                         method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
-                    
+
                     @class.AddMethod("IEndpointRouteBuilder", "MapDefaultHealthChecks", method =>
                     {
                         method.Static();
@@ -111,15 +110,15 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
         private void AddHealthCheckUi(CSharpClassMethod method)
         {
             if (!ExecutionContext.Settings.GetHealthChecks().HealthChecksUI()) { return; }
-            
+
             AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(OutputTarget));
             AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(OutputTarget));
 
-            method.AddInvocationStatement("services.AddHealthChecksUI", stmt=>stmt
+            method.AddInvocationStatement("services.AddHealthChecksUI", stmt => stmt
                 .AddArgument(new CSharpLambdaBlock("settings")
                     .AddStatement(@$"settings.AddHealthCheckEndpoint(""{ExecutionContext.GetApplicationConfig().Name}"", ""/hc"");"))
                 .WithoutSemicolon());
@@ -180,9 +179,9 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         expression: "hcBuilder.AddMongoDb",
                         connectionStringNameVar: Infrastructure.MongoDb.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.MongoDb.Property.ConnectionStringSettingPath);
+                default:
+                    return null;
             }
-
-            return null;
         }
 
         private static CSharpInvocationStatement GetDatabaseHealthCheckStatement(
@@ -218,20 +217,18 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                 .ToRegister("ConfigureHealthChecks", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
 
-            var startup = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("App.Startup"));
-            startup?.CSharpFile.AfterBuild(file =>
+            var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(TemplateDependency.OnTemplate(IAppStartupTemplate.RoleName));
+            startup?.CSharpFile.AfterBuild(_ =>
             {
-                var priClass = file.Classes.First();
-
-                var useEndpointsBlock = (IHasCSharpStatements)priClass.FindMethod("Configure")
-                    ?.FindStatement(s => s.GetText("").Contains("UseEndpoints"));
-                
-                useEndpointsBlock?.InsertStatement(0, "endpoints.MapDefaultHealthChecks();");
-                
-                if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+                startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
-                    useEndpointsBlock?.InsertStatement(1, @"endpoints.MapDefaultHealthChecksUI();");
-                }
+                    statements.InsertStatement(0, $"{context.Endpoints}.MapDefaultHealthChecks();");
+
+                    if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
+                    {
+                        statements.InsertStatement(1, $"{context.Endpoints}.MapDefaultHealthChecksUI();");
+                    }
+                });
             });
         }
 

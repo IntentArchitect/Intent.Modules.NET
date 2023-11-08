@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b105b15-9d7b-425c-b739-1b4e40c2b9a9" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>SerilogStartupConfigurationExtension</name>
+  <display>SerilogStartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8b0c1ac1-fec4-498c-8f04-76519c498003</parentFolderId>
+  <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+  <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

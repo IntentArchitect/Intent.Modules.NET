@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity.UI</id>
-  <version>1.0.2</version>
-  <supportedClientVersions>[3.2.0, 5.0.0-a)</supportedClientVersions>
+  <version>2.0.0-beta.0</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>ASP.NET Core Identity UI is the default Razor Pages built-in UI for the ASP.NET Core Identity framework.</summary>
   <description>ASP.NET Core Identity UI is the default Razor Pages built-in UI for the ASP.NET Core Identity framework.</description>
@@ -22,8 +22,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.AspNetCore.Identity" version="4.0.4" />
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common" version="3.5.0-beta.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.4" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>
