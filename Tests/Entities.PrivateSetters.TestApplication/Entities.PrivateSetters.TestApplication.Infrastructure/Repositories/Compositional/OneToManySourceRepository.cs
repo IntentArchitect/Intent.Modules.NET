@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositional;
@@ -17,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Co
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OneToManySourceRepository : RepositoryBase<OneToManySource, OneToManySource, ApplicationDbContext>, IOneToManySourceRepository
     {
-        public OneToManySourceRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public OneToManySourceRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

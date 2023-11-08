@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class BasketRepository : RepositoryBase<Basket, Basket, ApplicationDbContext>, IBasketRepository
     {
-        public BasketRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public BasketRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

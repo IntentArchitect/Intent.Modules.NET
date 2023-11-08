@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.BasicAudit;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class Audit_DerivedClassRepository : RepositoryBase<Audit_DerivedClass, Audit_DerivedClass, ApplicationDbContext>, IAudit_DerivedClassRepository
     {
-        public Audit_DerivedClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public Audit_DerivedClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

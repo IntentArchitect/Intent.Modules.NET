@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Reposit
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PurchaseRepository : RepositoryBase<Purchase, Purchase, ApplicationDbContext>, IPurchaseRepository
     {
-        public PurchaseRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public PurchaseRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

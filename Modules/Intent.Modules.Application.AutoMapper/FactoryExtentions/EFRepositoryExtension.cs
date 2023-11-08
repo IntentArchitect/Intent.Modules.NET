@@ -44,6 +44,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
         {
             template.CSharpFile.OnBuild(file => 
             {
+                template.AddNugetDependency(NugetPackages.AutoMapper);
                 var @interface = file.Interfaces.First();
                 @interface.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method => 
                 {

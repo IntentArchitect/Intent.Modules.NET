@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using Entities.PrivateSetters.TestApplication.Application.Common.Behaviours;
+using Entities.PrivateSetters.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,8 @@ namespace Entities.PrivateSetters.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }

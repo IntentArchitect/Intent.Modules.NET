@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.InheritanceAssociations;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TPH_MiddleAbstract_RootRepository : RepositoryBase<TPH_MiddleAbstract_Root, TPH_MiddleAbstract_Root, ApplicationDbContext>, ITPH_MiddleAbstract_RootRepository
     {
-        public TPH_MiddleAbstract_RootRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TPH_MiddleAbstract_RootRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

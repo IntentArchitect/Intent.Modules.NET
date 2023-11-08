@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Associations;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class E_RequiredCompositeNavRepository : RepositoryBase<E_RequiredCompositeNav, E_RequiredCompositeNav, ApplicationDbContext>, IE_RequiredCompositeNavRepository
     {
-        public E_RequiredCompositeNavRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public E_RequiredCompositeNavRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Behaviours;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
+using MassTransit.RabbitMQ.Application.Common.Validation;
 using MassTransit.RabbitMQ.Application.IntegrationEventHandlers;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MediatR;
@@ -31,6 +32,7 @@ namespace MassTransit.RabbitMQ.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
         }

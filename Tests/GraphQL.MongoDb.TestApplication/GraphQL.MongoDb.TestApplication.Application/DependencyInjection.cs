@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using FluentValidation;
 using GraphQL.MongoDb.TestApplication.Application.Common.Behaviours;
+using GraphQL.MongoDb.TestApplication.Application.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,8 @@ namespace GraphQL.MongoDb.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }

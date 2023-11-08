@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Reposit
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerAnemicRepository : RepositoryBase<CustomerAnemic, CustomerAnemic, ApplicationDbContext>, ICustomerAnemicRepository
     {
-        public CustomerAnemicRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public CustomerAnemicRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

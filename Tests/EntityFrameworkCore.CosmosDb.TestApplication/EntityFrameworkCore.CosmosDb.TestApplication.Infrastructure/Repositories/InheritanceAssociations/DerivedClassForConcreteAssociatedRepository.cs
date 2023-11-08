@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DerivedClassForConcreteAssociatedRepository : RepositoryBase<DerivedClassForConcreteAssociated, DerivedClassForConcreteAssociated, ApplicationDbContext>, IDerivedClassForConcreteAssociatedRepository
     {
-        public DerivedClassForConcreteAssociatedRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public DerivedClassForConcreteAssociatedRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

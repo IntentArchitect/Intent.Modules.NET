@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Associations;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class Q_DestNameDiffRepository : RepositoryBase<Q_DestNameDiff, Q_DestNameDiff, ApplicationDbContext>, IQ_DestNameDiffRepository
     {
-        public Q_DestNameDiffRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public Q_DestNameDiffRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

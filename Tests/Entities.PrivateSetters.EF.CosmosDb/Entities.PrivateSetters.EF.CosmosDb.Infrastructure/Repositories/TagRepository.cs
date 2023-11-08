@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.PrivateSetters.EF.CosmosDb.Domain.Entities;
 using Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories;
 using Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TagRepository : RepositoryBase<Tag, Tag, ApplicationDbContext>, ITagRepository
     {
-        public TagRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TagRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

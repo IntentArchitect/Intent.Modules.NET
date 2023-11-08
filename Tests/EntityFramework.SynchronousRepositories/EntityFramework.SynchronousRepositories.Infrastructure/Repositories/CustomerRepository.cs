@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFramework.SynchronousRepositories.Domain.Entities;
 using EntityFramework.SynchronousRepositories.Domain.Repositories;
 using EntityFramework.SynchronousRepositories.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerRepository : RepositoryBase<Customer, Customer, ApplicationDbContext>, ICustomerRepository
     {
-        public CustomerRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public CustomerRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

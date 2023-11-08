@@ -29,15 +29,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
             _template.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
-
-                var addControllerStatement = new CSharpMethodChainStatement("services").AddChainStatement(new CSharpInvocationStatement("AddControllers").WithArgumentsOnNewLines().WithoutSemicolon(), invocation =>
-                {
-                    invocation.AddMetadata("configure-services-controllers-generic", true);
-                });
-
                 @class.Methods.First(x => x.Name == "ConfigureServices")
-                    .InsertStatement(0, addControllerStatement);
-
+                    .InsertStatement(0, new CSharpInvocationStatement("services.AddControllers").WithArgumentsOnNewLines(), s => s.AddMetadata("configure-services-controllers-generic", true));
                 @class.Methods.First(x => x.Name == "Configure")
                     .Statements.OfType<EndpointsStatement>().First()
                     .AddEndpointConfiguration(new CSharpStatement("endpoints.MapControllers();").AddMetadata("configure-endpoints-controllers-generic", true));

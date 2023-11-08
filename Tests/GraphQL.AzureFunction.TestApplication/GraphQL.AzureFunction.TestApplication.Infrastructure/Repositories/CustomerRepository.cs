@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using GraphQL.AzureFunction.TestApplication.Domain.Entities;
 using GraphQL.AzureFunction.TestApplication.Domain.Repositories;
 using GraphQL.AzureFunction.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace GraphQL.AzureFunction.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerRepository : RepositoryBase<Customer, Customer, ApplicationDbContext>, ICustomerRepository
     {
-        public CustomerRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public CustomerRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

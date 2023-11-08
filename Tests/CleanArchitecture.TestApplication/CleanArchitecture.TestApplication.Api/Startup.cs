@@ -34,17 +34,15 @@ namespace CleanArchitecture.TestApplication.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddControllers(
-                    opt =>
-                    {
-                        opt.Filters.Add<ExceptionFilter>();
-                    })
-                .AddOData(
-                    options =>
-                    {
-                        options.Filter().OrderBy().Select().SetMaxTop(200);
-                    });
+            services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                })
+            .AddOData(options =>
+            {
+                options.Filter().OrderBy().Select().SetMaxTop(200);
+            });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureCors(Configuration);

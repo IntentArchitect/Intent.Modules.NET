@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
@@ -17,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Ag
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ManyToOneDestRepository : RepositoryBase<ManyToOneDest, ManyToOneDest, ApplicationDbContext>, IManyToOneDestRepository
     {
-        public ManyToOneDestRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ManyToOneDestRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

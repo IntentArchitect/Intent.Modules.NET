@@ -33,50 +33,56 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
             template?.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
-                var addControllers = @class.FindMethod("ConfigureServices")?.FindStatement(s => s.HasMetadata("configure-services-controllers-generic"));
-                if (addControllers == null) return;
-                if (addControllers.Parent is not CSharpMethodChainStatement chain) return;
+
+                if (@class.FindMethod("ConfigureServices")
+                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
+                    CSharpInvocationStatement controllersStatement)
+                {
+                    return;
+                }
+
                 template.AddUsing("Microsoft.AspNetCore.OData");
-                chain.AddChainStatement(new CSharpInvocationStatement("AddOData").WithArgumentsOnNewLines().WithoutSemicolon(), stmt =>
+                controllersStatement.WithoutSemicolon();
+                controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddOData"), stmt =>
+                {
+                    CSharpInvocationStatement invocation = (CSharpInvocationStatement)stmt;
+                    CSharpLambdaBlock lambda;
+                    if (!invocation.Statements.Any())
                     {
-                        CSharpInvocationStatement invocation = (CSharpInvocationStatement)stmt;
-                        CSharpLambdaBlock lambda;
-                        if (!invocation.Statements.Any())
+                        lambda = new CSharpLambdaBlock("options");
+                        invocation.AddArgument(lambda);
+                    }
+                    else
+                    {
+                        lambda = invocation.Statements.First() as CSharpLambdaBlock;
+                    }
+                    var odataConfig = new StringBuilder();
+                    var settings = template.ExecutionContext.Settings.GetODataQuerySettings();
+                    if (settings.AllowFilterOption())
+                    {
+                        odataConfig.Append(".Filter()");
+                    }
+                    if (settings.AllowOrderByOption())
+                    {
+                        odataConfig.Append(".OrderBy()");
+                    }
+                    if (settings.AllowExpandOption())
+                    {
+                        odataConfig.Append(".Expand()");
+                    }
+                    if (settings.AllowSelectOption())
+                    {
+                        odataConfig.Append(".Select()");
+                    }
+                    if (!string.IsNullOrEmpty(settings.MaxTop()))
+                    {
+                        if (int.TryParse(settings.MaxTop(), out var _))
                         {
-                            lambda = new CSharpLambdaBlock("options");
-                            invocation.AddArgument(lambda);
+                            odataConfig.Append($".SetMaxTop({settings.MaxTop()})");
                         }
-                        else
-                        {
-                            lambda = invocation.Statements.First() as CSharpLambdaBlock;
-                        }
-                        var odataConfig = new StringBuilder();
-                        var settings = template.ExecutionContext.Settings.GetODataQuerySettings();
-                        if (settings.AllowFilterOption())
-                        {
-                            odataConfig.Append(".Filter()");
-                        }
-                        if (settings.AllowOrderByOption())
-                        {
-                            odataConfig.Append(".OrderBy()");
-                        }
-                        if (settings.AllowExpandOption())
-                        {
-                            odataConfig.Append(".Expand()");
-                        }
-                        if (settings.AllowSelectOption())
-                        {
-                            odataConfig.Append(".Select()");
-                        }
-                        if (!string.IsNullOrEmpty(settings.MaxTop()))
-                        {
-                            if (int.TryParse(settings.MaxTop(), out var _))
-                            {
-                                odataConfig.Append($".SetMaxTop({settings.MaxTop()})");
-                            }
-                        }
-                        lambda.AddStatement($"options{odataConfig};");
-                    });
+                    }
+                    lambda.AddStatement($"options{odataConfig};");
+                });
             }, 10);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Entities;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Repositories;
 using Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AuditedRepository : RepositoryBase<Audited, Audited, ApplicationDbContext>, IAuditedRepository
     {
-        public AuditedRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public AuditedRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories;
 using CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class Agg1Repository : RepositoryBase<Agg1, Agg1, ApplicationDbContext>, IAgg1Repository
     {
-        public Agg1Repository(ApplicationDbContext dbContext) : base(dbContext)
+        public Agg1Repository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
