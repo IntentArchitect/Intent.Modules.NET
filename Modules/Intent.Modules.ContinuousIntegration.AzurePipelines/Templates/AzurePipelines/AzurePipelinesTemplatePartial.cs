@@ -25,13 +25,13 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
         {
             DataFile = new DataFile($"azure-pipelines", "../", overwriteBehaviour: OverwriteBehaviour.OnceOff)
                 .WithYamlWriter(alwaysQuoteStrings: true)
-                .WithRootDictionary(this, dictionary =>
+                .WithRootObject(this, dictionary =>
                 {
                     dictionary.WithBlankLinesBetweenItems();
 
-                    dictionary.WithDictionary("trigger", trigger =>
+                    dictionary.WithObject("trigger", trigger =>
                     {
-                        trigger.WithDictionary("branches", branches =>
+                        trigger.WithObject("branches", branches =>
                         {
                             branches.WithArray("include", array =>
                             {
@@ -40,26 +40,26 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
                         });
                     });
 
-                    dictionary.WithDictionary("pool", pool =>
+                    dictionary.WithObject("pool", pool =>
                     {
                         pool.WithValue("vmImage", "ubuntu-latest");
                     });
 
                     dictionary.WithArray("variables", variables =>
                     {
-                        variables.WithDictionary(variable =>
+                        variables.WithObject(variable =>
                         {
                             variable.WithValue("name", "buildConfiguration");
                             variable.WithValue("value", "debug");
                         });
 
-                        variables.WithDictionary(variable =>
+                        variables.WithObject(variable =>
                         {
                             variable.WithValue("name", "intentSolutionPath");
                             variable.WithValue("value", "intent");
                         });
 
-                        variables.WithDictionary(variable =>
+                        variables.WithObject(variable =>
                         {
                             variable.CommentedOut();
                             variable.WithValue("group", "Intent Architect Credentials");
@@ -70,11 +70,11 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
                     {
                         steps.WithBlankLinesBetweenItems();
 
-                        steps.WithDictionary(step =>
+                        steps.WithObject(step =>
                         {
                             step.WithValue("task", "DotNetCoreCLI@2");
                             step.WithValue("displayName", "dotnet build $(buildConfiguration)");
-                            step.WithDictionary("inputs", inputs =>
+                            step.WithObject("inputs", inputs =>
                             {
                                 inputs.WithValue("command", "build");
                                 inputs.WithValue("projects", "**/*.csproj");
@@ -82,11 +82,11 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
                             });
                         });
 
-                        steps.WithDictionary(step =>
+                        steps.WithObject(step =>
                         {
                             step.WithValue("task", "DotNetCoreCLI@2");
                             step.WithValue("displayName", "dotnet test");
-                            step.WithDictionary("inputs", inputs =>
+                            step.WithObject("inputs", inputs =>
                             {
                                 inputs.WithValue("command", "test");
                                 inputs.WithValue("projects", "**/*Tests/*.csproj");
@@ -94,11 +94,11 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
                             });
                         });
 
-                        steps.WithDictionary(step =>
+                        steps.WithObject(step =>
                         {
                             step.WithValue("task", "PowerShell@2");
                             step.WithValue("displayName", "install intent cli");
-                            step.WithDictionary("inputs", inputs =>
+                            step.WithObject("inputs", inputs =>
                             {
                                 inputs.WithValue("targetType", "inline");
                                 inputs.WithValue("pwsh", true);
@@ -106,17 +106,17 @@ namespace Intent.Modules.ContinuousIntegration.AzurePipelines.Templates.AzurePip
                             });
                         });
 
-                        steps.WithDictionary(step =>
+                        steps.WithObject(step =>
                         {
                             step.WithValue("task", "PowerShell@2");
                             step.WithValue("displayName", "run intent cli");
-                            step.WithDictionary("env", env =>
+                            step.WithObject("env", env =>
                             {
                                 env.WithValue("INTENT_USER", "$(intent-architect-user)");
                                 env.WithValue("INTENT_PASS", "$(intent-architect-password)");
                                 env.WithValue("INTENT_SOLUTION_PATH", "$(intentSolutionPath)");
                             });
-                            step.WithDictionary("inputs", inputs =>
+                            step.WithObject("inputs", inputs =>
                             {
                                 inputs.WithValue("targetType", "inline");
                                 inputs.WithValue("pwsh", true);
