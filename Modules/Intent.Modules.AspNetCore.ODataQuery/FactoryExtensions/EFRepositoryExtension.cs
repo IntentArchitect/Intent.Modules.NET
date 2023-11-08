@@ -1,11 +1,11 @@
+using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.AspNetCore.ODataQuery.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
-using Intent.Modules.AspNetCore.ODataQuery.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

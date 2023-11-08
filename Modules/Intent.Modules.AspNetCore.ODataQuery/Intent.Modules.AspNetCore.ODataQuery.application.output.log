@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f5a879e4-3051-48ce-951a-be7c9068ff89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#d03b3262-faad-40cc-9961-40b9b913596b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/SwaggerConfigExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SwaggerConfigExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b0225cce-0742-4d48-86fb-4a39405a280d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,6 +70,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6ca600a-5870-464b-805a-844a689b88c8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#794c2498-93df-46ce-ae0d-f10794f995e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6ca600a-5870-464b-805a-844a689b88c8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#794c2498-93df-46ce-ae0d-f10794f995e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuerySwaggerFilter/ODataQuerySwaggerFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6ca600a-5870-464b-805a-844a689b88c8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

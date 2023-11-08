@@ -80,8 +80,27 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 {
                     method.AddParameter(odataParam, "odataOptions");
                 }
+                method.InsertStatement(0, $"ValidateODataOptions(odataOptions{(enableSelect ? ", true" : "")});");
                 var dispatchStatement = method.FindStatement(stmt => stmt.GetText("").Contains("_mediator.Send"));
                 dispatchStatement.Replace(new CSharpStatement(dispatchStatement.GetText("").Replace("), cancellationToken", $"{(queryModel.Properties.Count > 0 ? ", " : "")}odataOptions.ApplyTo), cancellationToken")));
+
+                if (@class.FindMethod("ValidateODataOptions") == null)
+                {
+                    @class.AddMethod("void", "ValidateODataOptions", method => 
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TDto", out var genericArg)
+                            .AddParameter($"ODataQueryOptions<{genericArg}>", "options")
+                            .AddParameter("bool", "enableSelect", p => p.WithDefaultValue("false"));
+                        method.AddStatement($"var settings = new {controllerTemplate.UseType("Microsoft.AspNetCore.OData.Query.Validator.ODataValidationSettings")}();");
+                        method.AddIfStatement("!enableSelect", stmt => 
+                        {
+                            stmt.AddStatement("settings.AllowedQueryOptions = AllowedQueryOptions.All & ~AllowedQueryOptions.Select;");
+                        });
+                        method.AddStatement("options.Validate(settings);");
+                    });
+                }
 
             }, 100);
         }
