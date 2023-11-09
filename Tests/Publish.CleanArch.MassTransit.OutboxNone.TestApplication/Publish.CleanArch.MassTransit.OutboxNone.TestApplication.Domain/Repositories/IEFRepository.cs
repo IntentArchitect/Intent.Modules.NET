@@ -26,5 +26,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Reposi
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
+        Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
     }
 }

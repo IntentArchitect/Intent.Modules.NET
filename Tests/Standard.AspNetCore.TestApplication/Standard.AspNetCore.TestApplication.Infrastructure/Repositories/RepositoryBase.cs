@@ -187,5 +187,14 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Repositories
             var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await dtoProjection.ToListAsync(cancellationToken);
         }
+
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await dtoProjection.FirstOrDefaultAsync(cancellationToken);
+        }
     }
 }
