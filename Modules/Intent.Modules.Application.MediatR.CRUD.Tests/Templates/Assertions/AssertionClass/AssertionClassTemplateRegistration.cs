@@ -43,8 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.Ass
                 .Select(command => command.GetClassModel())
                 .Where(model => model is not null && model.IsAggregateRoot())
                 .Union(_metadataManager.Services(application).GetQueryModels()
-                    .Select(query => query.Mapping?.Element?.AsClassModel()
-                                     ?? query.GetPaginatedClassModel())
+                    .Select(query => query.GetClassModel())
                     .Where(model => model is not null && model.IsAggregateRoot()))
                 .ToArray();
         }
