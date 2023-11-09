@@ -75,7 +75,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                 var odataParam = $"ODataQueryOptions<{controllerTemplate.GetTypeName(dtoModel.InternalElement)}>";
                 if (method.Parameters.LastOrDefault()?.Type == "CancellationToken")
                 {
-                    method.Parameters.Insert(method.Parameters.Count - 1, new Common.CSharp.Builder.CSharpParameter(odataParam, "oDataOptions"));
+                    method.InsertParameter(method.Parameters.Count - 1, odataParam, "oDataOptions");
                 }
                 else
                 {
