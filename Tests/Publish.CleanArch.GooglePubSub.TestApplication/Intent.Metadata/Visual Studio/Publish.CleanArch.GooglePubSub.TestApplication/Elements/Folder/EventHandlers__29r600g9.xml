@@ -62,6 +62,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f4fb7c21-c3c9-4866-a7e3-3936a29e11cb</parentFolderId>
+      <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

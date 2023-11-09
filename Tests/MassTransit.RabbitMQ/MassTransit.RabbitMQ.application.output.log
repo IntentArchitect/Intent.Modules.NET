@@ -267,7 +267,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d7a18c1e-841d-4036-86a6-2d9a6a900264</ProjectId>
+      <ProjectId>7ff85714-634c-428c-99fe-3fa1cdac3eaf</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
@@ -275,7 +275,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d7a18c1e-841d-4036-86a6-2d9a6a900264</ProjectId>
+      <ProjectId>7ff85714-634c-428c-99fe-3fa1cdac3eaf</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>

@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>318a8300-41cd-4b33-9737-cb14eaa85485</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

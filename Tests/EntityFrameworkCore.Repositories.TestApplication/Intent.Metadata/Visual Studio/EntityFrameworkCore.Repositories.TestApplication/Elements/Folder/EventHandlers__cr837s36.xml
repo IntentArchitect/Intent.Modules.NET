@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>428e04aa-6e53-4620-a146-6fa1239f1170</parentFolderId>
+      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

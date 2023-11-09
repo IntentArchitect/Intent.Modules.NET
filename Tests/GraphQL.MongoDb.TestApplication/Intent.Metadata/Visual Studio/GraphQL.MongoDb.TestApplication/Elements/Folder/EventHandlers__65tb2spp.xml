@@ -62,6 +62,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4ca88759-cc3f-474e-8d5d-06f97a75ca0e</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

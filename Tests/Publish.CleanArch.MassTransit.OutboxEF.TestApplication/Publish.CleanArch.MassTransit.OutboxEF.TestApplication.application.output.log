@@ -275,7 +275,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e5251775-9372-498c-931f-742b1aa1206f</ProjectId>
+      <ProjectId>2ad3f86e-7b6b-4b5c-83c5-d16fe6a8c6fe</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
@@ -283,7 +283,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e5251775-9372-498c-931f-742b1aa1206f</ProjectId>
+      <ProjectId>2ad3f86e-7b6b-4b5c-83c5-d16fe6a8c6fe</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
@@ -291,7 +291,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e5251775-9372-498c-931f-742b1aa1206f</ProjectId>
+      <ProjectId>2ad3f86e-7b6b-4b5c-83c5-d16fe6a8c6fe</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
@@ -299,7 +299,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e5251775-9372-498c-931f-742b1aa1206f</ProjectId>
+      <ProjectId>2ad3f86e-7b6b-4b5c-83c5-d16fe6a8c6fe</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>

@@ -7,8 +7,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d2a020bf-1f7b-4cb6-b30f-d3a17ef3b877</parentFolderId>
-  <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-  <packageName>AzureKeyVault</packageName>
+  <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -29,8 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</parentFolderId>
-      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-      <packageName>AzureKeyVault</packageName>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,8 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</parentFolderId>
-      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-      <packageName>AzureKeyVault</packageName>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -61,8 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</parentFolderId>
-      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-      <packageName>AzureKeyVault</packageName>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -77,8 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</parentFolderId>
-      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-      <packageName>AzureKeyVault</packageName>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
