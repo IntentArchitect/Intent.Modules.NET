@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Fixed: Migration improvement using Roslyn instead of Regex to avoid updating incorrect IntentManaged attributes.
+
 ### Version 1.0.1
 
 - Improvement: Added support for the [new Email Address](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.FluentValidation/release-notes.md#version-383) option on the Validation stereotype.

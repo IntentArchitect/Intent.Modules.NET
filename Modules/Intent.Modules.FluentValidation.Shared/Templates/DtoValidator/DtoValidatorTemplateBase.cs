@@ -1,5 +1,5 @@
 using System;
-using System.Text.RegularExpressions;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -7,6 +7,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Editing;
 
 namespace Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 
@@ -128,20 +132,34 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     {
         public string Execute(string currentText)
         {
-            const string pattern = @"\[IntentManaged\((Mode\.Fully[^]]+)\)\]";
-            int counter = 0;  // Counter to keep track of replacements made
+            var syntaxTree = CSharpSyntaxTree.ParseText(currentText);
 
-            return Regex.Replace(currentText, pattern, match =>
+            var root = syntaxTree.GetRoot();
+            using var workspace = new AdhocWorkspace();
+            
+            var services = workspace.Services;
+            var editor = new SyntaxEditor(root, services);
+            
+            var attributeLists = root.DescendantNodes()
+                .OfType<ConstructorDeclarationSyntax>()
+                .SelectMany(c => c.AttributeLists);
+            
+            foreach (var attributeList in attributeLists)
             {
-                // If the Mode.Fully pattern is detected and this is the first occurrence, replace it
-                if (counter == 0 && match.Groups[1].Value.Contains("Mode.Fully"))
+                var intentManagedAttributes = attributeList.Attributes
+                    .Where(attr => attr.Name.ToString().EndsWith("IntentManaged"));
+
+                foreach (var attribute in intentManagedAttributes)
                 {
-                    counter++;  // Increase the counter to prevent further replacements
-                    return "[IntentManaged(Mode.Merge)]";
+                    var newArgumentList = SyntaxFactory.ParseAttributeArgumentList("(Mode.Merge)");
+
+                    editor.ReplaceNode(attribute, attribute.WithArgumentList(newArgumentList));
                 }
-                // If not the first occurrence or Mode.Fully is not detected, keep the original string
-                return match.Value;
-            });
+            }
+
+            var newRoot = editor.GetChangedRoot();
+
+            return newRoot.ToFullString();
         }
 
         public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
