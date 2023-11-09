@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ValueObjects;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PersonWithAddressNormalRepository : RepositoryBase<PersonWithAddressNormal, PersonWithAddressNormal, ApplicationDbContext>, IPersonWithAddressNormalRepository
     {
-        public PersonWithAddressNormalRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public PersonWithAddressNormalRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

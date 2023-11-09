@@ -221,7 +221,7 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="57184be0-4cdc-41b8-a807-9055b7385c04" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6e93e84d-c768-4328-a44b-286f0376dabb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
       <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
       <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>

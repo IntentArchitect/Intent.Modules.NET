@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPT.Polymorphic;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TPT_Poly_TopLevelRepository : RepositoryBase<TPT_Poly_TopLevel, TPT_Poly_TopLevel, ApplicationDbContext>, ITPT_Poly_TopLevelRepository
     {
-        public TPT_Poly_TopLevelRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TPT_Poly_TopLevelRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

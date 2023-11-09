@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Operations;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Operatio
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OperationsClassRepository : RepositoryBase<OperationsClass, OperationsClass, ApplicationDbContext>, IOperationsClassRepository
     {
-        public OperationsClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public OperationsClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

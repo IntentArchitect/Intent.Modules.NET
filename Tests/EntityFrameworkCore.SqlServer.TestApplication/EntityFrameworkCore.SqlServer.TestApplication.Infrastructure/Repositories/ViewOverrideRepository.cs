@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ViewOverrideRepository : RepositoryBase<ViewOverride, ViewOverride, ApplicationDbContext>, IViewOverrideRepository
     {
-        public ViewOverrideRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ViewOverrideRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -35,5 +35,7 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         IPagedResult<TDomain> FindAll(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq);
         int Count(Expression<Func<TPersistence, bool>> filterExpression);
         bool Any(Expression<Func<TPersistence, bool>> filterExpression);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
+        List<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression);
     }
 }

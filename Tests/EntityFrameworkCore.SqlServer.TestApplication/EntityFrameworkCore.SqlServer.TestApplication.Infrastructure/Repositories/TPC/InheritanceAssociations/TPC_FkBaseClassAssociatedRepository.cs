@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.InheritanceAssociations;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TPC_FkBaseClassAssociatedRepository : RepositoryBase<TPC_FkBaseClassAssociated, TPC_FkBaseClassAssociated, ApplicationDbContext>, ITPC_FkBaseClassAssociatedRepository
     {
-        public TPC_FkBaseClassAssociatedRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TPC_FkBaseClassAssociatedRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

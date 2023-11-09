@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -20,10 +23,12 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
         where TDomain : class
     {
         private readonly TDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public RepositoryBase(TDbContext dbContext)
+        public RepositoryBase(TDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _mapper = mapper;
         }
 
         public IUnitOfWork UnitOfWork => _dbContext;
@@ -172,6 +177,37 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await dtoProjection.ToListAsync(cancellationToken);
+        }
+
+        public async Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> transform,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var response = transform(dtoProjection);
+            return await response.Cast<object>().ToListAsync();
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> filterProjection,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var response = filterProjection(dtoProjection);
+            return await response.Cast<TProjection>().ToListAsync();
         }
     }
 }

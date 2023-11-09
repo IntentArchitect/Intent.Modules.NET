@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.InheritanceAssociations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.InheritanceAssociations;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class MiddleAbstract_RootRepository : RepositoryBase<MiddleAbstract_Root, MiddleAbstract_Root, ApplicationDbContext>, IMiddleAbstract_RootRepository
     {
-        public MiddleAbstract_RootRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public MiddleAbstract_RootRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

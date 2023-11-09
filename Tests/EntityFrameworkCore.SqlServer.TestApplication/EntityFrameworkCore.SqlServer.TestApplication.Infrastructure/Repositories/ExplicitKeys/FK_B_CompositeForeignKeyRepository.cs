@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.ExplicitKeys;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class FK_B_CompositeForeignKeyRepository : RepositoryBase<FK_B_CompositeForeignKey, FK_B_CompositeForeignKey, ApplicationDbContext>, IFK_B_CompositeForeignKeyRepository
     {
-        public FK_B_CompositeForeignKeyRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public FK_B_CompositeForeignKeyRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

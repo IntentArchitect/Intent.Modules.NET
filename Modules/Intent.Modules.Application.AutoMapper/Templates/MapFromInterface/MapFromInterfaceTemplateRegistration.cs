@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MapFromInterface
     {
         public override string TemplateId => MapFromInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MapFromInterfaceTemplate(outputTarget, null);
+            return new MapFromInterfaceTemplate(outputTarget);
         }
     }
 }

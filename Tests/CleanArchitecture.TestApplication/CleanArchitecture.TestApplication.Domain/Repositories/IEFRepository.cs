@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -25,5 +26,8 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories
         Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
+        Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> transform, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> filterProjection, CancellationToken cancellationToken = default);
     }
 }

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.38" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.42" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -123,5 +123,6 @@
     <application id="007bc5e4-978a-4a04-8c15-a206673a3b4f" name="Intent.Modules.Blazor.Server" relativePath="Intent.Modules.Blazor.Server/Intent.Modules.Blazor.Server.application.config" />
     <application id="7951a529-b874-48dc-bed9-7fa0bdd418f4" name="Intent.Modules.Entities.BasicAuditing" relativePath="Intent.Modules.Entities.BasicAuditing/Intent.Modules.Entities.BasicAuditing.application.config" />
     <application id="6e53e156-5533-4def-95e4-e4cd8bb4f992" name="Intent.Modules.Azure.TableStorage" relativePath="Intent.Modules.Azure.TableStorage/Intent.Modules.Azure.TableStorage.application.config" />
+    <application id="49c326c7-719d-409f-8e61-4cbea4443bce" name="Intent.Modules.AspNetCore.ODataQuery" relativePath="Intent.Modules.AspNetCore.ODataQuery/Intent.Modules.AspNetCore.ODataQuery.application.config" />
   </applications>
 </solution>

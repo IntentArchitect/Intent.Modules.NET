@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DataContractClassRepository : RepositoryBase<DataContractClass, DataContractClass, ApplicationDbContext>, IDataContractClassRepository
     {
-        public DataContractClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public DataContractClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

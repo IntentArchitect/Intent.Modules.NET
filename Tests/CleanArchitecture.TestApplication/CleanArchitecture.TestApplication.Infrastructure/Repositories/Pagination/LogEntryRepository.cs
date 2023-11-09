@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Pagination;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Paginati
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class LogEntryRepository : RepositoryBase<LogEntry, LogEntry, ApplicationDbContext>, ILogEntryRepository
     {
-        public LogEntryRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public LogEntryRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

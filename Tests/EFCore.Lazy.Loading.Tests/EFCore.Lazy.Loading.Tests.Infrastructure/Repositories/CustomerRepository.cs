@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EFCore.Lazy.Loading.Tests.Domain.Entities;
 using EFCore.Lazy.Loading.Tests.Domain.Repositories;
 using EFCore.Lazy.Loading.Tests.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace EFCore.Lazy.Loading.Tests.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerRepository : RepositoryBase<Customer, Customer, ApplicationDbContext>, ICustomerRepository
     {
-        public CustomerRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public CustomerRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

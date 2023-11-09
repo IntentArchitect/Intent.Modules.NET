@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Enums
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ClassWithEnumsRepository : RepositoryBase<ClassWithEnums, ClassWithEnums, ApplicationDbContext>, IClassWithEnumsRepository
     {
-        public ClassWithEnumsRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ClassWithEnumsRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

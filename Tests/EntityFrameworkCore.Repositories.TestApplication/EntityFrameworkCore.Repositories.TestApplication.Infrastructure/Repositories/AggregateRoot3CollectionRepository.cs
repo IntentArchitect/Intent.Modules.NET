@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AggregateRoot3CollectionRepository : RepositoryBase<AggregateRoot3Collection, AggregateRoot3Collection, ApplicationDbContext>, IAggregateRoot3CollectionRepository
     {
-        public AggregateRoot3CollectionRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public AggregateRoot3CollectionRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

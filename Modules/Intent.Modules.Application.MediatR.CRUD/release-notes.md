@@ -2,6 +2,10 @@
 
 - Improvement: Better CRUD support for composite keys.
 
+### Version 5.3.2
+
+- Improvement: Added CRUD Strategy for ODataQuery.
+
 ### Version 5.3.1
 
 - Improvement: Projecting for Commands now included aggregational foreign keys.

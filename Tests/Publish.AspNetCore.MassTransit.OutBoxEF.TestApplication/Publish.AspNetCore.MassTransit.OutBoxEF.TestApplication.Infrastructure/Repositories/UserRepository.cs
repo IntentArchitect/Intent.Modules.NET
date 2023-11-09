@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UserRepository : RepositoryBase<User, User, ApplicationDbContext>, IUserRepository
     {
-        public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public UserRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

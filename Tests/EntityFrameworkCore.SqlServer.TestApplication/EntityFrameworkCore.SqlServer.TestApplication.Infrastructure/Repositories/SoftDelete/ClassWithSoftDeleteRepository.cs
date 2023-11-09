@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.SoftDelete;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.SoftDelete;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ClassWithSoftDeleteRepository : RepositoryBase<ClassWithSoftDelete, ClassWithSoftDelete, ApplicationDbContext>, IClassWithSoftDeleteRepository
     {
-        public ClassWithSoftDeleteRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ClassWithSoftDeleteRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

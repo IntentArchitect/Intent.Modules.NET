@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using DtoSettings.Class.Private.Domain.Entities;
 using DtoSettings.Class.Private.Domain.Repositories;
 using DtoSettings.Class.Private.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace DtoSettings.Class.Private.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class InvoiceRepository : RepositoryBase<Invoice, Invoice, ApplicationDbContext>, IInvoiceRepository
     {
-        public InvoiceRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public InvoiceRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

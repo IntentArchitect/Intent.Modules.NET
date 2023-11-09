@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using RichDomain.Domain.Entities;
 using RichDomain.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace RichDomain.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PersonRepository : RepositoryBase<IPerson, Person, ApplicationDbContext>, IPersonRepository
     {
-        public PersonRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public PersonRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

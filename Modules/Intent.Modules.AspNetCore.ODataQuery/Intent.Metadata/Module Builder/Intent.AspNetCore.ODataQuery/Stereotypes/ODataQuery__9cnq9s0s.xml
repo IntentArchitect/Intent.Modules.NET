@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a321ab87-a4a2-4a09-a9ca-2cb6ecd758be" version="3.1.0">
+  <name>ODataQuery</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="e71b0662-e29d-4db2-868b-8a12464b25d0">Query</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>280f373f-b217-4d06-a7b1-14bce9ec8f2f</parentFolderId>
+  <order>0</order>
+  <packageId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</packageId>
+  <packageName>Intent.AspNetCore.ODataQuery</packageName>
+  <properties>
+    <property id="922f9a05-e789-435b-9d07-44bc8645bb7c">
+      <name>Enable Select</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class RoleRepository : RepositoryBase<Role, Role, ApplicationDbContext>, IRoleRepository
     {
-        public RoleRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public RoleRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

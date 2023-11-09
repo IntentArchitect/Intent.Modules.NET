@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.ConventionBasedEventPublishing;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Conventi
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class IntegrationTriggeringRepository : RepositoryBase<IntegrationTriggering, IntegrationTriggering, ApplicationDbContext>, IIntegrationTriggeringRepository
     {
-        public IntegrationTriggeringRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public IntegrationTriggeringRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

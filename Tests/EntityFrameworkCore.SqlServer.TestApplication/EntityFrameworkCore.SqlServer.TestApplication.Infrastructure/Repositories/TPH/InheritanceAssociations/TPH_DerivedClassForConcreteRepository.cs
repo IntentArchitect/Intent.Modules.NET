@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.InheritanceAssociations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPH.InheritanceAssociations;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TPH_DerivedClassForConcreteRepository : RepositoryBase<TPH_DerivedClassForConcrete, TPH_DerivedClassForConcrete, ApplicationDbContext>, ITPH_DerivedClassForConcreteRepository
     {
-        public TPH_DerivedClassForConcreteRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TPH_DerivedClassForConcreteRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
