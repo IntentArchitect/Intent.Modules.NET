@@ -300,6 +300,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a9f819a1-bd04-4406-91d1-59cfb2b3c57f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Clients/ClientDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#0a48e0e7-cbd4-49cc-a052-c3e0a2ec6072</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommand.cs</ApplicationRelativeFilePath>
@@ -656,6 +664,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>772ca090-a8a1-4c21-963d-558e63233ae6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>772ca090-a8a1-4c21-963d-558e63233ae6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>772ca090-a8a1-4c21-963d-558e63233ae6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>772ca090-a8a1-4c21-963d-558e63233ae6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1160,6 +1200,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Regions/CreateRegionCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#af81da19-d703-442f-af37-9719ba74f88d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Regions/CreateRegionCountryDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

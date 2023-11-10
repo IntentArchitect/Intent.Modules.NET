@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.Inheritance;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Inheritance;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Inherita
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ConcreteClassRepository : RepositoryBase<ConcreteClass, ConcreteClass, ApplicationDbContext>, IConcreteClassRepository
     {
-        public ConcreteClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ConcreteClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

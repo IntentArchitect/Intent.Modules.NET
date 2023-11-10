@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behaviours;
+using EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,6 +28,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

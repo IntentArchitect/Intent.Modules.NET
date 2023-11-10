@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Entities;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Repositories;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UserRepository : RepositoryBase<User, User, ApplicationDbContext>, IUserRepository
     {
-        public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public UserRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

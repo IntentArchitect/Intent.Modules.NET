@@ -1,6 +1,7 @@
 using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.Dapr.Application.Common.Behaviours;
+using CleanArchitecture.Dapr.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,6 +29,7 @@ namespace CleanArchitecture.Dapr.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
     }

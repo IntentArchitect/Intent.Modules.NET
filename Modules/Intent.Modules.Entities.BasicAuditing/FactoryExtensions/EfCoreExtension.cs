@@ -156,7 +156,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 method.AddIfStatement("!auditableEntries.Any()", @if => @if.AddStatement("return;"));
 
                 method.AddStatement(
-                    "var userName = _currentUserService.UserId ?? throw new InvalidOperationException(\"UserId is null\");",
+                    "var userId = _currentUserService.UserId ?? throw new InvalidOperationException(\"UserId is null\");",
                     s => s.SeparatedFromPrevious());
                 method.AddStatement(
                     "var timestamp = DateTimeOffset.UtcNow;");
@@ -165,10 +165,10 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 {
                     forStmt.AddSwitchStatement("entry.State", switchStmt => switchStmt
                         .AddCase("EntityState.Added", block => block
-                            .AddStatement("entry.Auditable.SetCreated(userName, timestamp);")
+                            .AddStatement("entry.Auditable.SetCreated(userId, timestamp);")
                             .WithBreak())
                         .AddCase("EntityState.Modified or EntityState.Deleted", block => block
-                            .AddStatement("entry.Auditable.SetUpdated(userName, timestamp);")
+                            .AddStatement("entry.Auditable.SetUpdated(userId, timestamp);")
                             .WithBreak())
                         .AddDefault(block => block
                             .AddStatement("throw new ArgumentOutOfRangeException();")));

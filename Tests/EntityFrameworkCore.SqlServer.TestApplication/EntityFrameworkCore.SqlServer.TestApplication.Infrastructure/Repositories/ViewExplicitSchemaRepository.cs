@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ViewExplicitSchemaRepository : RepositoryBase<ViewExplicitSchema, ViewExplicitSchema, ApplicationDbContext>, IViewExplicitSchemaRepository
     {
-        public ViewExplicitSchemaRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ViewExplicitSchemaRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

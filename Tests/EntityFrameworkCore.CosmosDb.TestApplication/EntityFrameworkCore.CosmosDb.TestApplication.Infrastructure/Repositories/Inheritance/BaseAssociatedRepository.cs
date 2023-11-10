@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inheritance;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class BaseAssociatedRepository : RepositoryBase<BaseAssociated, BaseAssociated, ApplicationDbContext>, IBaseAssociatedRepository
     {
-        public BaseAssociatedRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public BaseAssociatedRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

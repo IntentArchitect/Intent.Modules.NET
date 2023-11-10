@@ -1,5 +1,6 @@
 ### Version 3.8.3
 
+- Improvement: Added "Email Address" option to the "Validation" stereotype.
 - Fixed: A Software Factory crash around `DTO Unique Constraint validation` for DTO's mapping to constructors / operations.
 
 ### Version 3.8.1

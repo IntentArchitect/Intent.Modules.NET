@@ -1,4 +1,12 @@
-﻿### Version 4.4.13
+﻿### Version 4.4.15
+
+- Improvement: It is now possible to [enable split queries globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally) by selecting the _Enable split queries globally_ application setting (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/9) for this).
+
+### Version 4.4.14
+
+- Improvement: Enabled option to enable generation of `IApplicationDbContext` for use in an application's "Application" layer. See the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---generate-dbcontext-interface) for more information.
+
+### Version 4.4.13
 
 - Improvement: Added `Join Table` stereotype support to the module, for specifying *-* joining tables name explicitly.
 

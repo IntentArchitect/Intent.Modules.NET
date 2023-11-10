@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c3e6ba1b-aea2-436a-80a7-4bfab3a78ab6" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Database Settings Extension</name>
+  <display>Database Settings Extension: Database Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="b78091a5-0109-42f6-9662-1d6ad79de3a8">
+    <typeId>ac0a788e-d8b3-4eea-b56d-538608f1ded9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Metadata.RDBMS</typePackageName>
+    <typePackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
+  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ce8b3b8e-fe64-4017-aa16-f56e768fc52d" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Add synchronous methods to repositories</name>
+      <display>Add synchronous methods to repositories</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c3e6ba1b-aea2-436a-80a7-4bfab3a78ab6</parentFolderId>
+      <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+      <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Adds the synchronous equivalents for repository asynchronous repository methods." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="67c5821e-5f5d-4fa1-bbe8-a8498665672d">
+  <sourceEnd id="4fbf5bb3-cc35-40e5-8a59-f19b342ac8fe" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ODataAgg</name>
+    <display>ODataAgg: ODataAgg</display>
+    <order>0</order>
+    <typeReference id="6b0189eb-10ec-4d60-9a00-bb403702dd7e">
+      <typeId>c1068378-6e13-4d98-b8f2-629064fa1b03</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="67c5821e-5f5d-4fa1-bbe8-a8498665672d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ODataChildren</name>
+    <display>ODataChildren: ODataChild[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="8ceb144d-7cc9-40e5-abca-dafe59a254f5">
+      <typeId>80ea0747-c7b6-4da6-8a9b-abfb096561c9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.PrivateSetters.EF.CosmosDb.Domain.Entities;
 using Entities.PrivateSetters.EF.CosmosDb.Domain.Repositories;
 using Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class InvoiceRepository : RepositoryBase<Invoice, Invoice, ApplicationDbContext>, IInvoiceRepository
     {
-        public InvoiceRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public InvoiceRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

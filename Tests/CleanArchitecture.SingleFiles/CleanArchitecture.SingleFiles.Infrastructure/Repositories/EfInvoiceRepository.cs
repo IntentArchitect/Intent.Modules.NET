@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.SingleFiles.Domain.Entities;
 using CleanArchitecture.SingleFiles.Domain.Repositories;
 using CleanArchitecture.SingleFiles.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class EfInvoiceRepository : RepositoryBase<EfInvoice, EfInvoice, ApplicationDbContext>, IEfInvoiceRepository
     {
-        public EfInvoiceRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public EfInvoiceRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

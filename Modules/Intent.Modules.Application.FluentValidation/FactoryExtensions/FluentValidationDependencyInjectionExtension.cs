@@ -5,7 +5,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.FluentValidation.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 

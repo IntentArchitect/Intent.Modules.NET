@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Behaviours;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Eventing;
+using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Validation;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.IntegrationEventHandlers;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.IntegrationEvents;
 
@@ -31,6 +32,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<GenericMessage>, GenericEventHandler>();
             return services;
         }

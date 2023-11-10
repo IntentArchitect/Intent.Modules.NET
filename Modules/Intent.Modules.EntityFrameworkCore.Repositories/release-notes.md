@@ -1,3 +1,7 @@
+### Version 4.2.10
+
+- New Feature: Added a `Database Setting` namely `Add synchronous methods to repositories`, when this is on, the EF Repositories will contain synchronous versions of their operations.
+
 ### Version 4.2.7
 
 - Fixed: In some cases, custom repositories weren't adding a using directive when `IReadOnlyCollection<T>` was used.

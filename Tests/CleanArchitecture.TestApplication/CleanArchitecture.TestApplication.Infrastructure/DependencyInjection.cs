@@ -14,6 +14,7 @@ using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories.Inheritance;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
+using CleanArchitecture.TestApplication.Domain.Repositories.ODataQuery;
 using CleanArchitecture.TestApplication.Domain.Repositories.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Repositories.Operations;
 using CleanArchitecture.TestApplication.Domain.Repositories.Pagination;
@@ -31,6 +32,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Repositories.DefaultDiagr
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Inheritance;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Nullability;
+using CleanArchitecture.TestApplication.Infrastructure.Repositories.ODataQuery;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Pagination;
@@ -75,6 +77,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IConcreteClassRepository, ConcreteClassRepository>();
             services.AddTransient<INullabilityPeerRepository, NullabilityPeerRepository>();
             services.AddTransient<ITestNullablityRepository, TestNullablityRepository>();
+            services.AddTransient<IODataAggRepository, ODataAggRepository>();
             services.AddTransient<IOpAndCtorMapping2Repository, OpAndCtorMapping2Repository>();
             services.AddTransient<IOpAndCtorMapping3Repository, OpAndCtorMapping3Repository>();
             services.AddTransient<IOperationsClassRepository, OperationsClassRepository>();

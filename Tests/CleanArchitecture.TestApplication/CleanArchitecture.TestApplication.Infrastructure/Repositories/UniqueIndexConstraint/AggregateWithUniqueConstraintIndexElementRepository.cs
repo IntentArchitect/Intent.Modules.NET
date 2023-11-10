@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.UniqueIndexConstraint;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.UniqueIn
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AggregateWithUniqueConstraintIndexElementRepository : RepositoryBase<AggregateWithUniqueConstraintIndexElement, AggregateWithUniqueConstraintIndexElement, ApplicationDbContext>, IAggregateWithUniqueConstraintIndexElementRepository
     {
-        public AggregateWithUniqueConstraintIndexElementRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public AggregateWithUniqueConstraintIndexElementRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

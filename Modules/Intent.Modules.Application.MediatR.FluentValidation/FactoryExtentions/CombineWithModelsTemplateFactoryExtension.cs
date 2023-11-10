@@ -8,7 +8,6 @@ using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.FluentValidation.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 

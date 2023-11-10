@@ -4,6 +4,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Behaviours;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
+using MassTransit.AzureServiceBus.Application.Common.Validation;
 using MassTransit.AzureServiceBus.Application.IntegrationEventHandlers;
 using MassTransit.AzureServiceBus.Eventing.Messages;
 using MediatR;
@@ -31,6 +32,7 @@ namespace MassTransit.AzureServiceBus.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
         }

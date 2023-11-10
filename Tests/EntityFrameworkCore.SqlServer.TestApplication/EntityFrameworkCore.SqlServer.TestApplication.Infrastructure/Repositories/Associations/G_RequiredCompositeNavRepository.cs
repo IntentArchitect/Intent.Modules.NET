@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Associations;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class G_RequiredCompositeNavRepository : RepositoryBase<G_RequiredCompositeNav, G_RequiredCompositeNav, ApplicationDbContext>, IG_RequiredCompositeNavRepository
     {
-        public G_RequiredCompositeNavRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public G_RequiredCompositeNavRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Associations;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class P_SourceNameDiffRepository : RepositoryBase<P_SourceNameDiff, P_SourceNameDiff, ApplicationDbContext>, IP_SourceNameDiffRepository
     {
-        public P_SourceNameDiffRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public P_SourceNameDiffRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

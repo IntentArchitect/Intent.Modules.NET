@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.OperationAndConstructorMapping;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Operatio
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OpAndCtorMapping2Repository : RepositoryBase<OpAndCtorMapping2, OpAndCtorMapping2, ApplicationDbContext>, IOpAndCtorMapping2Repository
     {
-        public OpAndCtorMapping2Repository(ApplicationDbContext dbContext) : base(dbContext)
+        public OpAndCtorMapping2Repository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

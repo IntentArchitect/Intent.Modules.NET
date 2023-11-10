@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.Constants.TestApplication.Domain.Entities;
 using Entities.Constants.TestApplication.Domain.Repositories;
 using Entities.Constants.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace Entities.Constants.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestClassRepository : RepositoryBase<TestClass, TestClass, ApplicationDbContext>, ITestClassRepository
     {
-        public TestClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TestClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

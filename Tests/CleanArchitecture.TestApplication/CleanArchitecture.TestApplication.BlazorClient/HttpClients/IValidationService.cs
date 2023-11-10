@@ -10,5 +10,6 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
     public interface IValidationService : IDisposable
     {
         Task<ValidatedResultDto> ResultValidationsAsync(CancellationToken cancellationToken = default);
+        Task ValidatedAsync(ValidatedCommand command, CancellationToken cancellationToken = default);
     }
 }

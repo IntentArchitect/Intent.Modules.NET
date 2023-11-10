@@ -5,6 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
+    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.8.3" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.41" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
     <None Update="Templates\DTOValidator\DTOValidatorTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DTOValidatorTemplate.cs</LastGenOutput>
@@ -35,24 +57,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ValidationServiceTemplate.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
-    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.8.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.41" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
-    <PackageReference Include="Intent.Packager" Version="3.4.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

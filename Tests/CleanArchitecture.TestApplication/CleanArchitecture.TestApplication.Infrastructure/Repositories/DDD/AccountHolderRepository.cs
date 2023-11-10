@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -19,7 +20,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AccountHolderRepository : RepositoryBase<AccountHolder, AccountHolder, ApplicationDbContext>, IAccountHolderRepository
     {
-        public AccountHolderRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public AccountHolderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

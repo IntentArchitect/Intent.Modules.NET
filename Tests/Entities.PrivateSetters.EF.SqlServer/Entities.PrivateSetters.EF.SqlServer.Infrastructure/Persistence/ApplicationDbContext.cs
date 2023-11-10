@@ -87,7 +87,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
                 return;
             }
 
-            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var userId = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)
@@ -95,10 +95,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Auditable.SetCreated(userName, timestamp);
+                        entry.Auditable.SetCreated(userId, timestamp);
                         break;
                     case EntityState.Modified or EntityState.Deleted:
-                        entry.Auditable.SetUpdated(userName, timestamp);
+                        entry.Auditable.SetUpdated(userId, timestamp);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fcfbe54-de0d-4d78-b10d-72e5871b9f85</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/Common/Interfaces/IApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fcfbe54-de0d-4d78-b10d-72e5871b9f85</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
@@ -232,6 +240,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c580cc9-7c9b-4875-bda2-02d5d917365f</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c580cc9-7c9b-4875-bda2-02d5d917365f</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TransactionRepository : RepositoryBase<Transaction, Transaction, ApplicationDbContext>, ITransactionRepository
     {
-        public TransactionRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TransactionRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

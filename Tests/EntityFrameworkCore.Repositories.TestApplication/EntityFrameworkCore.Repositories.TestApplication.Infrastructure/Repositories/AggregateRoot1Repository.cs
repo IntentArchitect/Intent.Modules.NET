@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
@@ -19,7 +20,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
     public class AggregateRoot1Repository : RepositoryBase<AggregateRoot1, AggregateRoot1, ApplicationDbContext>, IAggregateRoot1Repository
     {
         private readonly ApplicationDbContext _dbContext;
-        public AggregateRoot1Repository(ApplicationDbContext dbContext) : base(dbContext)
+        public AggregateRoot1Repository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
             _dbContext = dbContext;
         }

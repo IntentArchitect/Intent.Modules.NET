@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DictionaryWithKvPNormalRepository : RepositoryBase<DictionaryWithKvPNormal, DictionaryWithKvPNormal, ApplicationDbContext>, IDictionaryWithKvPNormalRepository
     {
-        public DictionaryWithKvPNormalRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public DictionaryWithKvPNormalRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

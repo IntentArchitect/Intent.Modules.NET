@@ -14,6 +14,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.Inheritance;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
+using CleanArchitecture.TestApplication.Domain.Entities.ODataQuery;
 using CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Domain.Entities.Operations;
 using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
@@ -28,6 +29,7 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Nullability;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.ODataQuery;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Operations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Pagination;
@@ -75,6 +77,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
         public DbSet<NullabilityPeer> NullabilityPeers { get; set; }
         public DbSet<TestNullablity> TestNullablities { get; set; }
+        public DbSet<ODataAgg> ODataAggs { get; set; }
         public DbSet<OpAndCtorMapping2> OpAndCtorMapping2s { get; set; }
         public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
@@ -126,6 +129,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ConcreteClassConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());
             modelBuilder.ApplyConfiguration(new TestNullablityConfiguration());
+            modelBuilder.ApplyConfiguration(new ODataAggConfiguration());
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping2Configuration());
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());

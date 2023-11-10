@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="280f373f-b217-4d06-a7b1-14bce9ec8f2f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Stereotypes</name>
+  <display>Stereotypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</parentFolderId>
+  <packageId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</packageId>
+  <packageName>Intent.AspNetCore.ODataQuery</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

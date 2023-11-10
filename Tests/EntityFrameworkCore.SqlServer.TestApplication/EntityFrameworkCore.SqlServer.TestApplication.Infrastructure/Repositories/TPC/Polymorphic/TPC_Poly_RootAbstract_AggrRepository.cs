@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPC.Polymorphic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.TPC.Polymorphic;
@@ -18,7 +19,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TPC_Poly_RootAbstract_AggrRepository : RepositoryBase<TPC_Poly_RootAbstract_Aggr, TPC_Poly_RootAbstract_Aggr, ApplicationDbContext>, ITPC_Poly_RootAbstract_AggrRepository
     {
-        public TPC_Poly_RootAbstract_AggrRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TPC_Poly_RootAbstract_AggrRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

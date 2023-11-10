@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>4.4.13</Version>
+    <Version>4.4.15-pre.0</Version>
     <Authors>Intent Architect</Authors>
     <Description>Base classes and helpers for building modules that output C# files for Intent Architect.</Description>
     <Copyright>Copyright 2022</Copyright>
@@ -50,10 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\DbContextInterface\DbContextInterfaceTemplate.tt">
-      <LastGenOutput>DbContextInterfaceTemplate.cs</LastGenOutput>
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-    </None>
     <None Update="Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbMigrationsReadMeTemplate.cs</LastGenOutput>
@@ -73,11 +69,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ConfigurationsTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DbContextInterface\DbContextInterfaceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DbContextInterfaceTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.cs">
       <DesignTime>True</DesignTime>

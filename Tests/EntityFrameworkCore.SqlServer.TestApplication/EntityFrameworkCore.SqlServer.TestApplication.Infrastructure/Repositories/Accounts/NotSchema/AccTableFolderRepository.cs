@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Repositories.Accounts.NotSchema;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AccTableFolderRepository : RepositoryBase<AccTableFolder, AccTableFolder, ApplicationDbContext>, IAccTableFolderRepository
     {
-        public AccTableFolderRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public AccTableFolderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

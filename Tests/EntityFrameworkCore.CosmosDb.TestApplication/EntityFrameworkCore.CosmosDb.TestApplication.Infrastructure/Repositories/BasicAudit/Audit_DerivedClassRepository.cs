@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.BasicAudit;
@@ -17,7 +18,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class Audit_DerivedClassRepository : RepositoryBase<Audit_DerivedClass, Audit_DerivedClass, ApplicationDbContext>, IAudit_DerivedClassRepository
     {
-        public Audit_DerivedClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public Audit_DerivedClassRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

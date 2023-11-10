@@ -1,3 +1,7 @@
+### Version 1.3.3
+
+- Fixed: In one case where a GetAll Query is unmapped, the unit tests threw an Exception around an Assertion class that wasn't found.
+
 ### Version 1.3.2
 
 - Fixed: All tests will now use the exact same logic to detect whether a given Command/Query has a CRUD Handler for it to have a Unit Test.

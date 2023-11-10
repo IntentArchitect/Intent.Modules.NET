@@ -45,6 +45,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using AzureFunctions.TestApplication.Domain.Entities;
 using AzureFunctions.TestApplication.Domain.Repositories;
 using AzureFunctions.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class SampleDomainRepository : RepositoryBase<SampleDomain, SampleDomain, ApplicationDbContext>, ISampleDomainRepository
     {
-        public SampleDomainRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public SampleDomainRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

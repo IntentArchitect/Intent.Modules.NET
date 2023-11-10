@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d03b3262-faad-40cc-9961-40b9b913596b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>SwaggerConfigExtension</name>
+  <display>SwaggerConfigExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</parentFolderId>
+  <packageId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</packageId>
+  <packageName>Intent.AspNetCore.ODataQuery</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

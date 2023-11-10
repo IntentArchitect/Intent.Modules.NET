@@ -27,6 +27,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
 
         public override string TemplateId => CustomRepositoryTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, RepositoryModel model)
         {
             return new CustomRepositoryTemplate(outputTarget, model);

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Domain.Common.Interfaces;
 using MassTransit.AzureServiceBus.Domain.Repositories;
@@ -20,10 +22,12 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Repositories
         where TDomain : class
     {
         private readonly TDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public RepositoryBase(TDbContext dbContext)
+        public RepositoryBase(TDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _mapper = mapper;
         }
 
         public IUnitOfWork UnitOfWork => _dbContext;
@@ -172,6 +176,24 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Repositories
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await dtoProjection.ToListAsync(cancellationToken);
+        }
+
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await dtoProjection.FirstOrDefaultAsync(cancellationToken);
         }
     }
 }

@@ -53,5 +53,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="3303bf85-f023-42bb-9c8a-32762c17f0dc" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Validated</name>
+      <display>Validated(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="33643780-8b85-4f73-83cc-8758dc55bcb2">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7" name="ValidatedCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

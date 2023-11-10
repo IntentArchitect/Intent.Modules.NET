@@ -30,7 +30,7 @@ public class RepositoryTests : SharedDatabaseFixture<ApplicationDbContext, Repos
     [IgnoreOnCiBuildFact]
     public async Task Test_Repository_FindAsyncWithIQueryable()
     {
-        var repo = new AggregateRoot1Repository(DbContext);
+        var repo = new AggregateRoot1Repository(DbContext, null);
         
         repo.Add(new AggregateRoot1(){Tag = "Internet"});
         repo.Add(new AggregateRoot1(){Tag = "Cloud"});

@@ -50,7 +50,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IUnitOfWork
+    public class ApplicationDbContext : DbContext, IApplicationDbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
         private readonly ICurrentUserService _currentUserService;
@@ -426,7 +426,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 return;
             }
 
-            var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var userId = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)
@@ -434,10 +434,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Auditable.SetCreated(userName, timestamp);
+                        entry.Auditable.SetCreated(userId, timestamp);
                         break;
                     case EntityState.Modified or EntityState.Deleted:
-                        entry.Auditable.SetUpdated(userName, timestamp);
+                        entry.Auditable.SetUpdated(userId, timestamp);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

@@ -94,6 +94,11 @@ namespace Intent.Application.FluentValidation.Api
                 return _stereotype.GetProperty<string>("Predicate Message");
             }
 
+            public bool EmailAddress()
+            {
+                return _stereotype.GetProperty<bool>("Email Address");
+            }
+
             public bool HasCustomValidation()
             {
                 return _stereotype.GetProperty<bool>("Has Custom Validation");

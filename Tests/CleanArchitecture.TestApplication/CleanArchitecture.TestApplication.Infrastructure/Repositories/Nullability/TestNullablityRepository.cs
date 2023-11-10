@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.Nullability;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.Nullability;
@@ -17,7 +18,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Nullabil
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestNullablityRepository : RepositoryBase<TestNullablity, TestNullablity, ApplicationDbContext>, ITestNullablityRepository
     {
-        public TestNullablityRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public TestNullablityRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="42915f0d-9deb-446c-bb02-b0dd187c56d6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>626bbad9-4e8f-49b1-a4a8-d59f1109180d</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="0bd0c9b4-9705-49d8-85bc-8a9e675843d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
+      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>42915f0d-9deb-446c-bb02-b0dd187c56d6</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

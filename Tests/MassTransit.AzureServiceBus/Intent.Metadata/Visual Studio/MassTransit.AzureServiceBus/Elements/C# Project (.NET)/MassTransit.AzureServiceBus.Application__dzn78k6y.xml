@@ -221,5 +221,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="9ee3a028-bbe9-4395-9a14-9c814bbfa507" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
+      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fdd1efbb-8345-4377-bdf6-450d77403b45</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

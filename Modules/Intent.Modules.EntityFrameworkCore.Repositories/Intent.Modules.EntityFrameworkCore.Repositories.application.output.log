@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#03e4264c-744e-4b91-a96d-ae175d36008b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityRepositoryInterfaceSyncExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5a0baf83-b93a-428d-8f47-3bf1b6a67f99</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/PagedListFactoryExtension.cs</ApplicationRelativeFilePath>
@@ -97,11 +105,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ProjectId>8a18891c-089f-4776-8fe4-aba44092ea18</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#5869084c-2a08-4e40-a5c9-ff26220470c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -222,7 +230,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

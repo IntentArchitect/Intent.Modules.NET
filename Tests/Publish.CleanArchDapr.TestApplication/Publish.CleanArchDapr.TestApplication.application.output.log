@@ -323,6 +323,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1721e38c-4892-4f57-a00c-5bced21e7aec</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1721e38c-4892-4f57-a00c-5bced21e7aec</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#a84d074b-cae3-4709-9de2-57eed7071fae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

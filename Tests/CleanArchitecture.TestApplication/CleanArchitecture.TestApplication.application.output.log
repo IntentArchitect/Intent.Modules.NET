@@ -140,6 +140,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7bb32bb0-1548-4bdf-bb2f-e30c7e027fed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/ODataAggsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#94822e16-398b-41b6-aa4e-a06d3779fe53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/OperationsClassesController.cs</ApplicationRelativeFilePath>
@@ -296,6 +304,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQueryFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -976,6 +992,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Nullability/TestNullablities/TestNullablityAssertions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/TestNullablities/TestNullablityAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#0772e67b-5604-4e2d-a041-12fae6993819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ODataAggs/CreateODataAggCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/CreateODataAggCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#0772e67b-5604-4e2d-a041-12fae6993819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ODataAggs/CreateODataAggCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/CreateODataAggCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#2484542c-cdce-48f5-9b4a-3f8d5b7ab9a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ODataAggs/GetODataAggByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#c1068378-6e13-4d98-b8f2-629064fa1b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ODataQuery/ODataAggs/ODataAggAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/ODataAggs/ODataAggAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3620,6 +3668,118 @@
     </FileLog>
     <FileLog>
       <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0772e67b-5604-4e2d-a041-12fae6993819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/CreateODataAgg/CreateODataAggCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/CreateODataAgg/CreateODataAggCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0772e67b-5604-4e2d-a041-12fae6993819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/CreateODataAgg/CreateODataAggCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/CreateODataAgg/CreateODataAggCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0772e67b-5604-4e2d-a041-12fae6993819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/CreateODataAgg/CreateODataAggCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/CreateODataAgg/CreateODataAggCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2484542c-cdce-48f5-9b4a-3f8d5b7ab9a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggById/GetODataAggByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggById/GetODataAggByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2484542c-cdce-48f5-9b4a-3f8d5b7ab9a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggById/GetODataAggByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggById/GetODataAggByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2484542c-cdce-48f5-9b4a-3f8d5b7ab9a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggById/GetODataAggByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggById/GetODataAggByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#4df65617-025f-4d08-8733-3389affa793c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggs/GetODataAggsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggs/GetODataAggsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#4df65617-025f-4d08-8733-3389affa793c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggs/GetODataAggsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggs/GetODataAggsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4df65617-025f-4d08-8733-3389affa793c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggs/GetODataAggsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggs/GetODataAggsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5b72a3c6-03ec-4f4c-a5ca-d2ad2e9f5428</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5b72a3c6-03ec-4f4c-a5ca-d2ad2e9f5428</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#5b72a3c6-03ec-4f4c-a5ca-d2ad2e9f5428</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/GetODataAggsWithSelect/GetODataAggsWithSelectQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#fb99e1aa-c267-4cf2-afd5-dfe89049dfc7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/ODataAggDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/ODataAggDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#fb99e1aa-c267-4cf2-afd5-dfe89049dfc7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/ODataAggs/ODataAggDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataAggs/ODataAggDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#6682232e-5dc3-4797-9bb8-882238c0f971</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/OperationsClasses/Sync/Sync.cs</ApplicationRelativeFilePath>
@@ -5340,6 +5500,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/ValidatedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#65328190-ec6d-4a47-a1c3-3c834d04c1a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/Validation/ValidatedResultDto.cs</ApplicationRelativeFilePath>
@@ -5964,6 +6140,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c1068378-6e13-4d98-b8f2-629064fa1b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/ODataQuery/ODataAgg.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/ODataAgg.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#80ea0747-c7b6-4da6-8a9b-abfb096561c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/ODataQuery/ODataChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/ODataChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#201b4869-b344-474e-b507-f1ccd638e16c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/OperationAndConstructorMapping/OpAndCtorMapping1.cs</ApplicationRelativeFilePath>
@@ -6248,6 +6440,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Nullability/ITestNullablityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/ITestNullablityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c1068378-6e13-4d98-b8f2-629064fa1b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/ODataQuery/IODataAggRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/IODataAggRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6676,6 +6876,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c1068378-6e13-4d98-b8f2-629064fa1b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/ODataQuery/ODataAggConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/ODataAggConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cbf005eb-63da-48a4-8b4d-a2a04cabda62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/OperationAndConstructorMapping/OpAndCtorMapping2Configuration.cs</ApplicationRelativeFilePath>
@@ -6880,6 +7088,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Nullability/TestNullablityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Nullability/TestNullablityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c1068378-6e13-4d98-b8f2-629064fa1b03</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/ODataQuery/ODataAggRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQuery/ODataAggRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

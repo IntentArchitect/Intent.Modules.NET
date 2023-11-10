@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using GraphQL.CQRS.TestApplication.Domain.Entities;
 using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using GraphQL.CQRS.TestApplication.Infrastructure.Persistence;
@@ -17,7 +18,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ProductRepository : RepositoryBase<Product, Product, ApplicationDbContext>, IProductRepository
     {
-        public ProductRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ProductRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

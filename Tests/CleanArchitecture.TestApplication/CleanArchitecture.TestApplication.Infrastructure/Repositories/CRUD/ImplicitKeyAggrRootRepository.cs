@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -19,7 +20,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ImplicitKeyAggrRootRepository : RepositoryBase<ImplicitKeyAggrRoot, ImplicitKeyAggrRoot, ApplicationDbContext>, IImplicitKeyAggrRootRepository
     {
-        public ImplicitKeyAggrRootRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ImplicitKeyAggrRootRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

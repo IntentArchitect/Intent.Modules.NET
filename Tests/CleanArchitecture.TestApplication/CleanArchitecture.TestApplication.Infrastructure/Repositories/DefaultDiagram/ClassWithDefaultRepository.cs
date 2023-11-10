@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.DefaultD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ClassWithDefaultRepository : RepositoryBase<ClassWithDefault, ClassWithDefault, ApplicationDbContext>, IClassWithDefaultRepository
     {
-        public ClassWithDefaultRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ClassWithDefaultRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

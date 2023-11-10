@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Repositories.Composit
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class WithCompositeKeyRepository : RepositoryBase<WithCompositeKey, WithCompositeKey, ApplicationDbContext>, IWithCompositeKeyRepository
     {
-        public WithCompositeKeyRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public WithCompositeKeyRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

@@ -9,6 +9,7 @@ using CleanArchitecture.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.OData;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,7 +38,11 @@ namespace CleanArchitecture.TestApplication.Api
                 opt =>
                 {
                     opt.Filters.Add<ExceptionFilter>();
-                });
+                })
+            .AddOData(options =>
+            {
+                options.Filter().OrderBy().Select().SetMaxTop(200);
+            });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureCors(Configuration);

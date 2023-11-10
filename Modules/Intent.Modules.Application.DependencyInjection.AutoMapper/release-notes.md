@@ -1,3 +1,7 @@
+### Version 3.4.6
+
+- Improvement: Updated the `AutoMapper.Extensions.Microsoft.DependencyInjection` nuget package version to 12.0.1.
+
 ### Version 3.4.5
 
 - Improvement: Changed version of `AutoMapper.Extensions.Microsoft.DependencyInjection` NuGet package from `7.0.*` to `7.0.0` as floating versions are not supported by [Central Package Management](https://learn.microsoft.com/nuget/consume-packages/central-package-management).

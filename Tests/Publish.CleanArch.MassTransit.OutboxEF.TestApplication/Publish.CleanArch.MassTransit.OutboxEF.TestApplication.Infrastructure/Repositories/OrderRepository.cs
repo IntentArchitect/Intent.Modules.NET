@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OrderRepository : RepositoryBase<Order, Order, ApplicationDbContext>, IOrderRepository
     {
-        public OrderRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public OrderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 

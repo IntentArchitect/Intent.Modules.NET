@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                 {
                     @class.AddMetadata("handler", true);
                     @class.AddMetadata("model", model);
-                    @class.WithBaseType(GetRequestHandlerInterface(template, model));
+                    @class.ImplementsInterface(GetRequestHandlerInterface(template, model));
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
                     @class.AddConstructor(ctor =>
                     {

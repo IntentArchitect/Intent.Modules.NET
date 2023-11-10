@@ -6,6 +6,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -86,6 +88,46 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .ReadOnly()
                         )
                         ;
+                    if (ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
+                    {
+                        @interface
+                        .AddMethod($"{tDomain}?", "Find", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
+                        .AddMethod($"{tDomain}?", "Find", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                        )
+                        .AddMethod($"List<{tDomain}>", "FindAll")
+                        .AddMethod($"List<{tDomain}>", "FindAll", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
+                        .AddMethod($"List<{tDomain}>", "FindAll", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                        )
+                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                        )
+                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                        )
+                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                        )
+                        .AddMethod("int", "Count", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
+                        .AddMethod("bool", "Any", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        );
+                    }
                 });
         }
 

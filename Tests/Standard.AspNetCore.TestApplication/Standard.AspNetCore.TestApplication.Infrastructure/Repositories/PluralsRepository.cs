@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Standard.AspNetCore.TestApplication.Domain.Entities;
 using Standard.AspNetCore.TestApplication.Domain.Repositories;
@@ -16,7 +17,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PluralsRepository : RepositoryBase<Plurals, Plurals, ApplicationDbContext>, IPluralsRepository
     {
-        public PluralsRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public PluralsRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
