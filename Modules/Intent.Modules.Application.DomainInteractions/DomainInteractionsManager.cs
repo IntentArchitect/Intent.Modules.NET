@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -65,34 +66,44 @@ public class DomainInteractionsManager
                 statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.AsSingleOrTuple()}, cancellationToken);");
             }
         }
-        else if (associationEnd.TypeReference.IsCollection)
+        else 
         {
             var queryFields = queryMapping.MappedEnds
-                .Select(x => $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
-                .ToList();
-            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}, " : "";
-            statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAllAsync({expression}cancellationToken);");
-        }
-        else
-        {
-            var queryFields = queryMapping.MappedEnds
-                .Select(x => $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
+                .Select(x => x.IsOneToOne() 
+                    ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}" 
+                    : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
                 .ToList();
 
-            if (!queryFields.Any())
+
+            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}, " : "";
+
+            if (associationEnd.TypeReference.IsCollection)
             {
-                throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
+                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAllAsync({expression}cancellationToken);");
             }
-            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}, " : "";
-            statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAsync({expression}cancellationToken);");
+            else if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
+            {
+                statements.Add(@$"var {entityVariableName} = await {repositoryFieldName}.FindAllAsync({expression}
+                pageNo: {pageNo},
+                pageSize: {pageSize}, 
+                cancellationToken);");
+            }
+            else
+            {
+                if (!queryFields.Any())
+                {
+                    throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
+                }
+                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAsync({expression}cancellationToken);");
+            }
         }
 
-        if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection)
+        if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
                 .ToList();
-            statements.Add(CreateThrowNotFoundIfNullStatement(
+            statements.Add(CreateIfNullThrowNotFoundStatement(
                 template: _template,
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
@@ -103,7 +114,7 @@ public class DomainInteractionsManager
         return statements;
     }
 
-    public CSharpStatement CreateThrowNotFoundIfNullStatement(
+    public CSharpStatement CreateIfNullThrowNotFoundStatement(
         ICSharpTemplate template,
         string variable,
         string message)
@@ -170,6 +181,12 @@ public class DomainInteractionsManager
             var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
             InjectAutoMapper(out var autoMapperFieldName);
             statements.Add($"return {entityDetails.VariableName}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
+        }
+        else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
+        {
+            var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
+            InjectAutoMapper(out var autoMapperFieldName);
+            statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
         }
         else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
         {
@@ -240,7 +257,9 @@ public class DomainInteractionsManager
 
             if (RepositoryRequiresExplicitUpdate(entity))
             {
-                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName.Singularize()));
+                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update")
+                    .AddArgument(entityDetails.VariableName.Singularize())
+                    .SeparatedFromPrevious());
             }
         }
         else
@@ -252,7 +271,9 @@ public class DomainInteractionsManager
 
             if (RepositoryRequiresExplicitUpdate(entity))
             {
-                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update").AddArgument(entityDetails.VariableName));
+                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update")
+                    .AddArgument(entityDetails.VariableName)
+                    .SeparatedFromPrevious());
             }
         }
 
@@ -273,11 +294,14 @@ public class DomainInteractionsManager
         if (entityDetails.IsCollection)
         {
             statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                .AddStatement(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove").AddArgument(entityDetails.VariableName.Singularize())));
+                .AddStatement(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove")
+                    .AddArgument(entityDetails.VariableName.Singularize()))
+                    .SeparatedFromPrevious());
         }
         else
         {
-            statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove").AddArgument(entityDetails.VariableName));
+            statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove").AddArgument(entityDetails.VariableName)
+                .SeparatedFromPrevious());
         }
         return statements;
     }
@@ -290,6 +314,81 @@ public class DomainInteractionsManager
                    out var repositoryInterfaceTemplate) &&
                repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
                requiresUpdate;
+    }
+
+
+    private bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize)
+    {
+        var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
+        var returnsPagedResult = IsResultPaginated(handler.TypeReference);
+
+        var pageIndexVar = handler.ChildElements.SingleOrDefault(IsPageIndexParam)?.Name;
+        var accessVariable = mappingManager.GetFromReplacement(handler);
+        pageNo = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name ?? $"{pageIndexVar} + 1"}";
+        pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name}";
+
+        return returnsPagedResult;
+    }
+
+    private bool IsResultPaginated(ITypeReference returnType)
+    {
+        return returnType.Element?.Name == "PagedResult";
+    }
+
+    private bool IsPageNumberParam(IElement param)
+    {
+        if (param.TypeReference.Element.Name != "int")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "page":
+            case "pageno":
+            case "pagenum":
+            case "pagenumber":
+                return true;
+            default:
+                break;
+        }
+
+        return false;
+    }
+
+    private bool IsPageIndexParam(IElement param)
+    {
+        if (param.TypeReference.Element.Name != "int")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "pageindex":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private bool IsPageSizeParam(IElement param)
+    {
+        if (param.TypeReference.Element.Name != "int")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "size":
+            case "pagesize":
+                return true;
+            default:
+                break;
+        }
+
+        return false;
     }
 }
 

@@ -53,7 +53,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
                 .AddAssemblyAttribute(CSharpIntentTagModeAttribute.Implicit())
                 .AddClass(Model.Name, (Action<CSharpClass>)(@class =>
                 {
@@ -102,7 +102,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully())
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
-                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
+                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Merge, AccessModifiers = AccessModifiers.Public)");
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
@@ -119,11 +119,21 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                             foreach (var parameter in ctorModel.Parameters)
                             {
-                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param => param.WithDefaultValue(parameter.Value));
+                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                {
+                                    param.WithDefaultValue(parameter.Value).RepresentsModel(parameter);
+                                });
                             }
                             if (ctorModel.InternalElement.Mappings.Any())
                             {
-                                ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single()));
+                                ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single(), ctor), statements =>
+                                {
+                                    foreach (var assignment in statements.OfType<CSharpAssignmentStatement>())
+                                    {
+                                        // Can be removed when the latest Roslyn sets this as the default matching criteria.
+                                        assignment.InsertAbove($@"// [IntentMatch(""{assignment.Lhs} ="")]");
+                                    }
+                                });
                             }
                             else
                             {
@@ -185,13 +195,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         if (method.IsAbstract)
                             continue;
+
                         if (!method.Statements.Any())
                         {
+                            method.AddStatement($"// [IntentFully]");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
-                        }
-                        else
-                        {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                         }
                     }
                 });
@@ -234,7 +242,14 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         Logging.Log.Warning($"Operation {operation.Name} - On {@class.Name} marked as abstract, ignoring mapping implementation.");
                     }
-                    method.AddStatements(GetMappingImplementation(operation.InternalElement.Mappings.Single()));
+                    method.AddStatements(GetMappingImplementation(operation.InternalElement.Mappings.Single(), method), statements =>
+                    {
+                        foreach (var assignment in statements.OfType<CSharpAssignmentStatement>())
+                        {
+                            // Can be removed when the latest Roslyn sets this as the default matching criteria.
+                            assignment.InsertAbove($@"// [IntentMatch(""{assignment.Lhs} ="")]");
+                        }
+                    });
                 }
                 else
                 {
@@ -252,7 +267,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
                         if (!parameter.TypeReference.IsCollection)
                         {
-                            method.AddStatement($"{assignmentTarget} = {CSharpFile.GetReferenceForModel(parameter).Name};");
+                            method.AddStatement($"{assignmentTarget} = {method.GetReferenceForModel(parameter).Name};");
                             continue;
                         }
 
@@ -289,16 +304,18 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             }
         }
 
-        private IEnumerable<CSharpStatement> GetMappingImplementation(IElementToElementMapping mapping)
+        private IEnumerable<CSharpStatement> GetMappingImplementation(IElementToElementMapping mapping, ICSharpCodeContext codeContext)
         {
             var mappingManager = new CSharpClassMappingManager(this);
             mappingManager.SetFromReplacement(mapping.SourceElement, null);
             mappingManager.SetToReplacement(mapping.TargetElement, null);
             mappingManager.AddMappingResolver(new CollectionPropertyResolver(this));
-            return mappingManager.GenerateUpdateStatements(mapping).Select(s =>
+            return mappingManager.GenerateUpdateStatements(mapping, codeContext).Select(s =>
             {
                 if (s is CSharpAssignmentStatement assignment)
+                {
                     assignment.WithSemicolon();
+                }
                 return s;
             }).ToList();
         }

@@ -40,6 +40,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
             foreach (var template in entityStateTemplates)
             {
+                template.AddTypeSource(DomainEventTemplate.TemplateId);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();

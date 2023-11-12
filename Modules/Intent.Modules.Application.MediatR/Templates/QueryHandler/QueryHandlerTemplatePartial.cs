@@ -60,7 +60,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddAttribute("IntentManaged(Mode.Ignore)");
+                        ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
                     @class.AddMethod($"Task<{template.GetTypeName(model.TypeReference)}>", "Handle", method =>
                     {

@@ -71,11 +71,13 @@ namespace Intent.Modules.Constants
                 [Obsolete("Use Distribution.WebApi.Controller")]
                 public const string Controllers = "Intent.AspNetCore.Controllers.Controller";
                 public const string Interface = "Application.Contracts";
+                public const string  Implementation = "Application.Implementation";
             }
             
             public static class Eventing
             {
                 public const string EventBusInterface = "Application.Eventing.EventBusInterface";
+                public const string EventHandler = "Application.Eventing.EventHandler";
             }
 
             public static class Validation

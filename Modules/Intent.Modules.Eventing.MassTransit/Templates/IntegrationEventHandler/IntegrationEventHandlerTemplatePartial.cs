@@ -49,7 +49,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
 
-                    foreach (var subscription in Model.IntegrationEventsSubscriptions())
+                    foreach (var subscription in Model.IntegrationEventSubscriptions())
                     {
                         @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName(subscription)}>");
                         @class.AddMethod("Task", "HandleAsync", method =>
@@ -57,7 +57,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                             method.Async();
                             method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-
+                            method.RepresentsModel(subscription);
 
                             if (subscription.SentCommandDestinations().Any())
                             {
@@ -81,15 +81,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                                     method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
                                 }
                             }
-                            else
-                            {
-                                method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                                method.AddStatement("throw new NotImplementedException();");
-                            }
                         });
                     }
 
-                });
+                })
+                .AfterBuild(file =>
+                {
+                    foreach (var handleMethod in file.Classes.First().Methods.Where(x => x.Name == "Handle"))
+                    {
+                        if (handleMethod.Statements.Count == 0)
+                        {
+                            handleMethod.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
+                        }
+                    }
+                }, 1000);
         }
 
         private string GetMessageName(SubscribeIntegrationEventTargetEndModel subscription)
@@ -114,7 +120,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
 
         public override void BeforeTemplateExecution()
         {
-            foreach (var subscription in Model.IntegrationEventsSubscriptions())
+            foreach (var subscription in Model.IntegrationEventSubscriptions())
             {
                 ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                     .ForInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName(subscription)}>")
