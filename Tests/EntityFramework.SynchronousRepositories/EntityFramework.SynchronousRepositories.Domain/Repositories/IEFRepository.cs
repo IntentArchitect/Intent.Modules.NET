@@ -36,6 +36,8 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         int Count(Expression<Func<TPersistence, bool>> filterExpression);
         bool Any(Expression<Func<TPersistence, bool>> filterExpression);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
+        Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
         List<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression);
+        TProjection? FindProjectTo<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression);
     }
 }

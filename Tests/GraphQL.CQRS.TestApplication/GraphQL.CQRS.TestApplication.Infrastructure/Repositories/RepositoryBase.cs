@@ -189,8 +189,17 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await dtoProjection.ToListAsync(cancellationToken);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
+        }
+
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
         }
     }
 }

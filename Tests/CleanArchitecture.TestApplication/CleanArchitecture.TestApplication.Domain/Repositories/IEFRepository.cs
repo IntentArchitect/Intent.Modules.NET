@@ -27,6 +27,7 @@ namespace CleanArchitecture.TestApplication.Domain.Repositories
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
+        Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, CancellationToken cancellationToken = default);
         Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> transform, CancellationToken cancellationToken = default);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> filterProjection, CancellationToken cancellationToken = default);
     }

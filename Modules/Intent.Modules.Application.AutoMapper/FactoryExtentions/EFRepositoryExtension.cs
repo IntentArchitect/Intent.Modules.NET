@@ -7,6 +7,8 @@ using Intent.RoslynWeaver.Attributes;
 using System.Reflection;
 using System;
 using System.Linq;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using System.Reflection.Metadata;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -44,13 +46,20 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
         {
             template.CSharpFile.OnBuild(file => 
             {
-                template.AddNugetDependency(NugetPackages.AutoMapper);
+                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 var @interface = file.Interfaces.First();
                 @interface.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method => 
                 {
                     method
                         .AddGenericParameter("TProjection")
-                        .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
+                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                });
+                @interface.AddMethod($"Task<TProjection{nullableChar}>", "FindProjectToAsync", method =>
+                {
+                    method
+                        .AddGenericParameter("TProjection")
+                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
@@ -59,7 +68,14 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
+                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                            ;
+                    });
+                    @interface.AddMethod($"TProjection{nullableChar}", "FindProjectTo", method =>
+                    {
+                        method
+                            .AddGenericParameter("TProjection")
+                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
                             ;
                     });
 
@@ -91,10 +107,12 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
 
             template.CSharpFile.OnBuild(file =>
             {
+                template.AddNugetDependency(NugetPackages.AutoMapper);
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
                 if (constructor == null) return;
 
+                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 template.AddUsing("AutoMapper");
                 template.AddUsing("AutoMapper.QueryableExtensions");
 
@@ -108,12 +126,24 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     method
                         .Async()
                         .AddGenericParameter("TProjection")
-                        .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression")
+                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("return await dtoProjection.ToListAsync(cancellationToken);");
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("return await projection.ToListAsync(cancellationToken);");
+                });
+                @class.AddMethod($"Task<TProjection{nullableChar}>", "FindProjectToAsync", method =>
+                {
+                    method
+                        .Async()
+                        .AddGenericParameter("TProjection")
+                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    method
+                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("return await projection.FirstOrDefaultAsync(cancellationToken);");
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
@@ -124,8 +154,18 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                             .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression");
                         method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("return dtoProjection.ToList();");
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("return projection.ToList();");
+                    });
+                    @class.AddMethod($"TProjection{nullableChar}", "FindProjectTo", method =>
+                    {
+                        method
+                            .AddGenericParameter("TProjection")
+                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression");
+                        method
+                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("return projection.FirstOrDefault();");
                     });
                 }
             });

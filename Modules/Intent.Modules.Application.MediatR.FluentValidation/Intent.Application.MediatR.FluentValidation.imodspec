@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.4.2</version>
+  <version>4.4.3-pre.0</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -56,7 +56,7 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.4.2" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.0.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
