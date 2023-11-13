@@ -251,8 +251,8 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await dtoProjection.ToListAsync(cancellationToken);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
         }
 
         public async Task<TProjection?> FindProjectToAsync<TProjection>(
@@ -260,22 +260,22 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await dtoProjection.FirstOrDefaultAsync(cancellationToken);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
         }
 
         public List<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return dtoProjection.ToList();
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return projection.ToList();
         }
 
         public TProjection? FindProjectTo<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return dtoProjection.FirstOrDefault();
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return projection.FirstOrDefault();
         }
     }
 }
