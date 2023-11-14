@@ -183,8 +183,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await dtoProjection.ToListAsync(cancellationToken);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
         }
 
         public async Task<TProjection?> FindProjectToAsync<TProjection>(
@@ -192,8 +192,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Repositor
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
-            var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await dtoProjection.FirstOrDefaultAsync(cancellationToken);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
         }
     }
 }

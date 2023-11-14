@@ -102,8 +102,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("var response = transform(dtoProjection);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("var response = transform(projection);")
                         .AddStatement("return await response.Cast<object>().ToListAsync();");
                 });
                 @class.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method =>
@@ -116,8 +116,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("var response = filterProjection(dtoProjection);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("var response = filterProjection(projection);")
                         .AddStatement("return await response.Cast<TProjection>().ToListAsync();");
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
@@ -130,8 +130,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                             .AddParameter("Func<IQueryable<TProjection>, IQueryable>", "transform");
                         method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("var response = transform(dtoProjection);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("var response = transform(projection);")
                         .AddStatement("return response.Cast<object>().ToList();");
                     });
                     @class.AddMethod("List<TProjection>", "FindAllProjectTo", method =>
@@ -142,8 +142,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                             .AddParameter("Func<IQueryable<TProjection>, IQueryable>", "filterProjection");
                         method
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var dtoProjection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
-                        .AddStatement("var response = filterProjection(dtoProjection);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement("var response = filterProjection(projection);")
                         .AddStatement("return response.Cast<TProjection>().ToList();");
                     });
                 }
