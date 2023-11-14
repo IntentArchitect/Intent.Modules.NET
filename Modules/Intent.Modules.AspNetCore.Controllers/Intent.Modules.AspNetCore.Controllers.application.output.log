@@ -33,6 +33,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#3f12f92a-d670-4abe-b034-0123bfba10da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/JsonOptionsExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonOptionsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
