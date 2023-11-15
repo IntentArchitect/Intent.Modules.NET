@@ -46,7 +46,7 @@ namespace CleanArchitecture.Dapr.Api
                     .ReadFrom.Services(services)
                     .Enrich.FromLogContext()
                     .WriteTo.Console())
-                .ConfigureAppConfiguration((config) =>
+                .ConfigureAppConfiguration(config =>
                 {
                     config.AddDaprConfigurationStoreDeferred();
                     config.AddDaprSecretStoreDeferred();

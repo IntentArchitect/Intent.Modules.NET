@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eb79c769-89f6-400b-9d3c-d406de9521d8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>5 - Tests</name>
+  <display>5 - Tests</display>
+  <externalReference>0a8046ee-4d53-44c1-b658-f131fe2f6017</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7a254ecf-09b1-431f-83b1-ef39009b2028</parentFolderId>
+  <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+  <packageName>MinimalHostingModel</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
