@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#3b7cb49a-005e-4b51-bffa-c7e290a73ae6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ConfigureConventionsExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigureConventionsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/DependencyInjectionExtension.cs</ApplicationRelativeFilePath>

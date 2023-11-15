@@ -124,6 +124,8 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
         public static bool GenerateDbContextInterface(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
 
         public static bool EnableSplitQueriesGlobally(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("ef908c62-0692-405f-849e-ac09c30181dd")?.Value.ToPascalCase(), out var result) && result;
+
+        public static bool StoreEnumsAsStrings(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("df567ad2-98a7-49ce-9952-4a26b6074410")?.Value.ToPascalCase(), out var result) && result;
     }
 
     //public static class ModuleSettingsExtensions
