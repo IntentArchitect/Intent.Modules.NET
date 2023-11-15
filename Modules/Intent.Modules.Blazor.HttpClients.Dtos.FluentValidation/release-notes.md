@@ -1,6 +1,7 @@
 ### Version 1.0.2
 
 - Fixed: Migration improvement using Roslyn instead of Regex to avoid updating incorrect IntentManaged attributes.
+- Fixed: When there were no validators being generated (no DTOs in the designer), the FluentValidation NuGet package would not get installed causing a compilation error.
 
 ### Version 1.0.1
 
