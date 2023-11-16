@@ -4,7 +4,6 @@
   <display>MassTransit.RetryPolicy.Interval</display>
   <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>103dade3-5324-4f0f-9b33-c7590e93d710</parentFolderId>

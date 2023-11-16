@@ -4,7 +4,6 @@
   <display>Configuration</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8919579d-abe6-4c7f-94e7-3bbb57a54dd4</parentFolderId>
