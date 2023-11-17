@@ -58,29 +58,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                             method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.RepresentsModel(subscription);
-
-                            if (subscription.SentCommandDestinations().Any())
-                            {
-                                var ctor = @class.Constructors.First();
-                                if (ctor.Parameters.All(x => x.Type != UseType("MediatR.ISender")))
-                                {
-                                    ctor.AddParameter(UseType("MediatR.ISender"), "mediator", param =>
-                                    {
-                                        param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
-                                    });
-                                }
-                                method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                                var mappingManager = new CSharpClassMappingManager(this);
-                                mappingManager.AddMappingResolver(new CreateCommandMappingResolver(this));
-                                mappingManager.SetFromReplacement(subscription, "message");
-                                mappingManager.SetFromReplacement(subscription.Element, "message");
-                                foreach (var sendCommand in subscription.SentCommandDestinations().Where(x => x.Mappings.Any()))
-                                {
-                                    method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
-                                    method.AddStatement(string.Empty);
-                                    method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
-                                }
-                            }
                         });
                     }
 
@@ -131,28 +108,5 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
             }
         }
 
-    }
-
-    public class CreateCommandMappingResolver : IMappingTypeResolver
-    {
-        private readonly ICSharpFileBuilderTemplate _template;
-
-        public CreateCommandMappingResolver(ICSharpFileBuilderTemplate template)
-        {
-            _template = template;
-        }
-
-        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-        {
-            if (mappingModel.Model.SpecializationType == "Command")
-            {
-                return new ConstructorMapping(mappingModel, _template);
-            }
-            if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
-            {
-                return new ObjectInitializationMapping(mappingModel, _template);
-            }
-            return null;
-        }
     }
 }

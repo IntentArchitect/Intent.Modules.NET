@@ -37,7 +37,6 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // PUBLISH EVENTS FROM COMMAND:
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Eventing.EventHandler);
             foreach (var template in templates)
             {
@@ -46,6 +45,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 foreach (var subscription in model.IntegrationEventSubscriptions())
                 {
                     var method = (CSharpClassMethod)@class.GetReferenceForModel(subscription);
+
+                    // PUBLISH EVENTS FROM COMMAND:
                     if (subscription.SentCommandDestinations().Any())
                     {
                         var ctor = @class.Constructors.First();
