@@ -3,7 +3,6 @@
   <name>modelers</name>
   <display>modelers</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>82458406-7d23-41f5-81a0-2083c0b7668d</parentFolderId>
@@ -26,7 +25,6 @@
       <display>Intent.ModuleBuilder.DesignerConfig</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>70100c30-0b7d-427d-92e8-ada8cb069d99</parentFolderId>
@@ -43,7 +41,6 @@
       <display>Intent.ModuleBuilder.DesignerSettings</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>70100c30-0b7d-427d-92e8-ada8cb069d99</parentFolderId>

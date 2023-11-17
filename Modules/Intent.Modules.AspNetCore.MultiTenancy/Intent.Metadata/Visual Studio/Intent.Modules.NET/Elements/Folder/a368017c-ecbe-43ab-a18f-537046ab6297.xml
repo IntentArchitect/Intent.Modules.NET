@@ -3,7 +3,6 @@
   <name>Templates</name>
   <display>Templates</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4faf05b4-370f-4929-9631-c0dd42a63c8b</parentFolderId>
@@ -26,7 +25,6 @@
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -41,7 +39,6 @@
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -56,7 +53,6 @@
       <display>Intent.ModuleBuilder.ProjectItemTemplate.Partial</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -71,7 +67,6 @@
       <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -86,7 +81,6 @@
       <display>Intent.ModuleBuilder.TemplateRegistration.Custom</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>6</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -101,7 +95,6 @@
       <display>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>7</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -116,7 +109,6 @@
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>8</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -131,7 +123,6 @@
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>9</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -146,7 +137,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>10</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -161,7 +151,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>11</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>
@@ -176,7 +165,6 @@
       <display>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a368017c-ecbe-43ab-a18f-537046ab6297</parentFolderId>

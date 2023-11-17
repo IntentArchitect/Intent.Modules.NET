@@ -3,7 +3,6 @@
   <name>Settings</name>
   <display>Settings</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</parentFolderId>
@@ -26,7 +25,6 @@
       <display>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1e1d6eea-83ce-4717-958f-5c52e7492dcf</parentFolderId>

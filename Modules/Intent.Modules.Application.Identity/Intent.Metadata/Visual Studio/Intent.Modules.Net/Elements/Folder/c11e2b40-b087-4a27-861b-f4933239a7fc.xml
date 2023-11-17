@@ -3,7 +3,6 @@
   <name>Decorators</name>
   <display>Decorators</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</parentFolderId>
@@ -25,7 +24,6 @@
       <name>Intent.ModuleBuilder.DecoratorRegistration.Template</name>
       <display>Intent.ModuleBuilder.DecoratorRegistration.Template</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>
@@ -39,7 +37,6 @@
       <name>Intent.ModuleBuilder.DecoratorTemplate</name>
       <display>Intent.ModuleBuilder.DecoratorTemplate</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>
@@ -54,7 +51,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecorator</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>
@@ -69,7 +65,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>
@@ -83,7 +78,6 @@
       <name>ModuleBuilder.Templates.TemplateDecorator</name>
       <display>ModuleBuilder.Templates.TemplateDecorator</display>
       <isAbstract>false</isAbstract>
-      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>
@@ -97,7 +91,6 @@
       <name>ModuleBuilder.Templates.TemplateDecoratorRegistration</name>
       <display>ModuleBuilder.Templates.TemplateDecoratorRegistration</display>
       <isAbstract>false</isAbstract>
-      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11e2b40-b087-4a27-861b-f4933239a7fc</parentFolderId>

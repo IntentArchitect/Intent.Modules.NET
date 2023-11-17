@@ -3,7 +3,6 @@
   <name>FactoryExtensions</name>
   <display>FactoryExtensions</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>82458406-7d23-41f5-81a0-2083c0b7668d</parentFolderId>
@@ -26,7 +25,6 @@
       <display>Intent.ModuleBuilder.Templates.FactoryExtension</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f770ff6-5697-4c58-949e-039904510c66</parentFolderId>
