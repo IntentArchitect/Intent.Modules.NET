@@ -631,7 +631,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             return column.SourceType.IsAssociationEndModel()
                 ? $"{prefix}{column.Name.ToPascalCase()}Id"
-                : $"{prefix}{column.Name.ToPascalCase()}";
+                : $"{prefix}{column.SourceType.Name.ToPascalCase()}";
         }
 
         public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model)
