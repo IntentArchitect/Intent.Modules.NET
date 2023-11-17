@@ -53,6 +53,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.Contracts.ApplicationServiceInteractionInstaller" externalReference="5d6830aa-cfbb-4127-adfa-dccfb1207fe5" />
     <factoryExtension id="Intent.Eventing.Contracts.InteractionEventBusPublisherInstaller" externalReference="65223bff-9096-4187-b6bb-dbf0aae2fae5" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
