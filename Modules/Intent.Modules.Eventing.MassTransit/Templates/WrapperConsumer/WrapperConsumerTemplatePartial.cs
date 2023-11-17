@@ -138,13 +138,14 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
                 method.AddStatement(flushAll);
                 break;
             case OutboxPatternType.EntityFramework:
-                {
-                    //Flush Domain Events
-                    var saveStatement = method.FindStatement(p => p.TryGetMetadata("transaction", out string transaction) && transaction == "save-changes");
-                    saveStatement.InsertBelow(flushAll);
-                    //Save any Integration Events
-                    flushAll.InsertBelow(saveStatement.ToString());
-                }
+                //There is a factory extension which has already baked this into the DBContext
+                /*                {
+                                    //Flush Domain Events
+                                    var saveStatement = method.FindStatement(p => p.TryGetMetadata("transaction", out string transaction) && transaction == "save-changes");
+                                    saveStatement.InsertBelow(flushAll);
+                                    //Save any Integration Events
+                                    flushAll.InsertBelow(saveStatement.ToString());
+                                }*/
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
