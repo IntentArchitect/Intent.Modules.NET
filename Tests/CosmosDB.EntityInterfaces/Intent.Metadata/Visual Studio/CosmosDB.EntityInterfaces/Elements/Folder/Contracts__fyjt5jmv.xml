@@ -4,7 +4,6 @@
   <display>Contracts</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d25a3e41-986d-42d8-9b0e-34ae05377744</parentFolderId>
