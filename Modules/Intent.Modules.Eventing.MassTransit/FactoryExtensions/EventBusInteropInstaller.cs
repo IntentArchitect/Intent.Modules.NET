@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Plugins.FactoryExtensions;
@@ -114,13 +115,36 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     constructor.AddParameter(eventBusInterface, "eventBus", p => p.IntroduceReadonlyField());
                 }
 
-                var method = @class.FindMethod("SaveChanges");
-                method?.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();")
-                    ?.InsertBelow("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                var method = template.GetSaveChangesMethod();
+                var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
+                if (statement != null)
+                {
+                    statement.InsertBelow("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                    }
+                }
 
+                method = template.GetSaveChangesAsyncMethod();
                 method = @class.FindMethod("SaveChangesAsync");
-                method?.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);")
-                    ?.InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
+                if (statement != null)
+                {
+                    statement.InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
+                    }
+                }
 
             }, 10);
 
