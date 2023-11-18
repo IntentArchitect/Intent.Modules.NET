@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System.Text.Json.Serialization");
-                
+
                 var @class = file.Classes.First();
                 if (@class.FindMethod("ConfigureServices")
                         .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
