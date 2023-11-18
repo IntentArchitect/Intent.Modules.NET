@@ -4,7 +4,6 @@
   <display>1 - Api</display>
   <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</parentFolderId>
@@ -16,7 +15,6 @@
       <display>TableStorage.Tests.Api</display>
       <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9c546c8e-897d-4590-99f3-4fb736c61cfb</parentFolderId>
@@ -62,7 +60,6 @@
           <display>ClientApp</display>
           <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3effcde8-f393-4220-9420-7d63ed5bc58d</parentFolderId>
@@ -83,7 +80,6 @@
               <display>Front End</display>
               <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>6bf81b70-d743-40dd-a7cf-6aa12e7707d8</parentFolderId>
@@ -98,7 +94,6 @@
           <display>Distribution</display>
           <externalReference>cf2c3d03-b17f-40c1-93c5-64129341f35e</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3effcde8-f393-4220-9420-7d63ed5bc58d</parentFolderId>
@@ -111,7 +106,6 @@
           <display>Startup</display>
           <externalReference>904efe78-bfc4-4bfd-903b-725f593b9b22</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3effcde8-f393-4220-9420-7d63ed5bc58d</parentFolderId>

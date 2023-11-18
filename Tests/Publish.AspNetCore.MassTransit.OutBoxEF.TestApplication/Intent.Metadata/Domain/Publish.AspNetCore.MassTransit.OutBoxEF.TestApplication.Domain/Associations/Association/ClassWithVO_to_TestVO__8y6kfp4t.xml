@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="123b6381-5b1e-4560-95d7-f58dfe83921a">
+  <sourceEnd id="cc15cc27-52f8-472c-a56d-b7aa70525bd2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ClassWithVO</name>
+    <display>ClassWithVO: ClassWithVO</display>
+    <order>0</order>
+    <typeReference id="cc828016-4c51-467b-8528-6817c37c4979">
+      <typeId>5a494225-e06b-4ecd-a879-5f2622d91f16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="123b6381-5b1e-4560-95d7-f58dfe83921a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TestVO</name>
+    <display>TestVO: TestVO   [1 --&gt; 1]</display>
+    <order>1</order>
+    <typeReference id="6da78fcb-f7bf-44da-90ee-68aac2354818">
+      <typeId>aec628f1-dcb0-4754-9b01-5bfc451f12ce</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

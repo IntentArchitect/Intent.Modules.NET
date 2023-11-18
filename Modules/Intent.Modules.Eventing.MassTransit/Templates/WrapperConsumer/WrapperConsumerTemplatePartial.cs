@@ -134,11 +134,17 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
         switch (outboxPatternType)
         {
             case OutboxPatternType.None:
+            case OutboxPatternType.InMemory:
                 method.AddStatement(flushAll);
                 break;
             case OutboxPatternType.EntityFramework:
-            case OutboxPatternType.InMemory:
-                method.FindStatement(p => p.TryGetMetadata("transaction", out string transaction) && transaction == "save-changes")?.InsertAbove(flushAll);
+                {
+                    //Flush Domain Events
+                    var saveStatement = method.FindStatement(p => p.TryGetMetadata("transaction", out string transaction) && transaction == "save-changes");
+                    saveStatement.InsertBelow(flushAll);
+                    //Save any Integration Events
+                    flushAll.InsertBelow(saveStatement.ToString());
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

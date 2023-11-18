@@ -4,7 +4,6 @@
   <display>Hubs</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e2f72414-ebf2-49e1-9771-819c769203e8</parentFolderId>

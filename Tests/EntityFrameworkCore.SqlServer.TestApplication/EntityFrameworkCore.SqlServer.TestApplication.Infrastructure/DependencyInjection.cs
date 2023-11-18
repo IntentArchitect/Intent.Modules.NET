@@ -109,6 +109,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure
             services.AddTransient<IComplexDefaultIndexRepository, ComplexDefaultIndexRepository>();
             services.AddTransient<ICustomIndexRepository, CustomIndexRepository>();
             services.AddTransient<IDefaultIndexRepository, DefaultIndexRepository>();
+            services.AddTransient<IDeviationIndexRepository, DeviationIndexRepository>();
             services.AddTransient<IParentIndexRepository, ParentIndexRepository>();
             services.AddTransient<ISortDirectionIndexRepository, SortDirectionIndexRepository>();
             services.AddTransient<ISortDirectionStereotypeRepository, SortDirectionStereotypeRepository>();

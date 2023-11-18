@@ -4,7 +4,6 @@
   <display>Account</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ec9ce1a2-184a-4d5f-97f7-c7b48d1c319f</parentFolderId>

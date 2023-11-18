@@ -4,7 +4,6 @@
   <display>2 - Application</display>
   <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</parentFolderId>
@@ -16,7 +15,6 @@
       <display>TableStorage.Tests.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0ec4bf17-d290-414f-ac5f-5977db2b406a</parentFolderId>
@@ -62,7 +60,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</parentFolderId>

@@ -4,7 +4,6 @@
   <display>IntegrationEvents</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</parentFolderId>

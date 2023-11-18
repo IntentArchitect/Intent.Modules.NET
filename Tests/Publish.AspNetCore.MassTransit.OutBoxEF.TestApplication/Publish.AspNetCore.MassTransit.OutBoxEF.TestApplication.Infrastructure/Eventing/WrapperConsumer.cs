@@ -31,6 +31,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             eventBus.ConsumeContext = context;
             var handler = _serviceProvider.GetService<THandler>()!;
             await handler.HandleAsync(context.Message, context.CancellationToken);
+            await _unitOfWork.SaveChangesAsync(context.CancellationToken);
             await eventBus.FlushAllAsync(context.CancellationToken);
             await _unitOfWork.SaveChangesAsync(context.CancellationToken);
         }

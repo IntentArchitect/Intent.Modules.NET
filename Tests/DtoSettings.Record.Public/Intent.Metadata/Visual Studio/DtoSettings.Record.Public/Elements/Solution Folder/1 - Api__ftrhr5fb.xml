@@ -4,7 +4,6 @@
   <display>1 - Api</display>
   <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4798ea8f-ae0e-4294-8d05-645e74c54de5</parentFolderId>
@@ -16,7 +15,6 @@
       <display>DtoSettings.Record.Public.Api</display>
       <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>301a1fc8-a3a3-4f65-9844-68955324e080</parentFolderId>
@@ -62,7 +60,6 @@
           <display>ClientApp</display>
           <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
@@ -83,7 +80,6 @@
               <display>Front End</display>
               <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>a66ecc83-bcf4-433d-8176-59f1d73f3642</parentFolderId>
@@ -98,7 +94,6 @@
           <display>Distribution</display>
           <externalReference>cf2c3d03-b17f-40c1-93c5-64129341f35e</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
@@ -111,7 +106,6 @@
           <display>Startup</display>
           <externalReference>904efe78-bfc4-4bfd-903b-725f593b9b22</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
