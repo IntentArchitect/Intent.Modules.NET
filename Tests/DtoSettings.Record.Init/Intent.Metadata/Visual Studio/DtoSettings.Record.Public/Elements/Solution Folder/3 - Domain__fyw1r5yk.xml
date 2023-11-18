@@ -4,7 +4,6 @@
   <display>3 - Domain</display>
   <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4798ea8f-ae0e-4294-8d05-645e74c54de5</parentFolderId>
@@ -16,7 +15,6 @@
       <display>DtoSettings.Record.Public.Domain</display>
       <externalReference>2df1abc0-1bf8-4f28-8819-fd522fcfdae2</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>56ba0aca-4ae1-49a7-8781-10c72d484a7f</parentFolderId>
@@ -62,7 +60,6 @@
           <display>Entities</display>
           <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
@@ -83,7 +80,6 @@
               <display>Domain.Entity</display>
               <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</parentFolderId>
@@ -140,7 +136,6 @@
           <display>Domain</display>
           <externalReference>2a1229cd-24cf-4128-b1a7-fcb2ac3020f8</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
@@ -153,7 +148,6 @@
           <display>Repository.Interface</display>
           <externalReference>f06bb1ad-cc5c-4d7e-baf5-db9f4035c3e9</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>

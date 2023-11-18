@@ -4,7 +4,6 @@
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aa94e9e2-894b-4b6f-b8c7-309342c8eec5</parentFolderId>

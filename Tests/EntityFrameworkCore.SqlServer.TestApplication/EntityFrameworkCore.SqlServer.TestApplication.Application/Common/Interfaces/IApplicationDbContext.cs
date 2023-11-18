@@ -80,6 +80,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Inter
         DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; }
         DbSet<CustomIndex> CustomIndices { get; }
         DbSet<DefaultIndex> DefaultIndices { get; }
+        DbSet<DeviationIndex> DeviationIndices { get; }
         DbSet<ParentIndex> ParentIndices { get; }
         DbSet<SortDirectionIndex> SortDirectionIndices { get; }
         DbSet<SortDirectionStereotype> SortDirectionStereotypes { get; }

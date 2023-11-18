@@ -3,7 +3,9 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities.Mapping;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.Persistence.Configurations;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.Persistence.Configurations.Mapping;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -17,6 +19,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ClassWithVO> ClassWithVOs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +31,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             modelBuilder.AddOutboxMessageEntity();
             modelBuilder.AddOutboxStateEntity();
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassWithVOConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

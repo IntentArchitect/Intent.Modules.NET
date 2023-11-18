@@ -4,7 +4,6 @@
   <display>Events</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>800b6cb0-84ff-456b-bf42-54bdfa83d0b7</parentFolderId>

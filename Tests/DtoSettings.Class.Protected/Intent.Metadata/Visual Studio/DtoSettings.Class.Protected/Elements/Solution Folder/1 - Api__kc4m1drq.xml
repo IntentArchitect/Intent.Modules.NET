@@ -4,7 +4,6 @@
   <display>1 - Api</display>
   <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>de24c345-c7b4-458d-8b1a-c3589a320cfe</parentFolderId>
@@ -16,7 +15,6 @@
       <display>DtoSettings.Class.Protected.Api</display>
       <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e3dc2dfb-5ab0-44fc-9bd9-dd88c427c276</parentFolderId>
@@ -62,7 +60,6 @@
           <display>ClientApp</display>
           <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2ca9e80f-82d3-4d6e-adde-849eff81d50b</parentFolderId>
@@ -83,7 +80,6 @@
               <display>Front End</display>
               <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>00c07052-7e20-4858-9e74-7cc144900011</parentFolderId>
@@ -98,7 +94,6 @@
           <display>Distribution</display>
           <externalReference>cf2c3d03-b17f-40c1-93c5-64129341f35e</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2ca9e80f-82d3-4d6e-adde-849eff81d50b</parentFolderId>
@@ -111,7 +106,6 @@
           <display>Startup</display>
           <externalReference>904efe78-bfc4-4bfd-903b-725f593b9b22</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2ca9e80f-82d3-4d6e-adde-849eff81d50b</parentFolderId>

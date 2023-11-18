@@ -4,7 +4,6 @@
   <display>4 - Infrastructure</display>
   <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</parentFolderId>
@@ -16,7 +15,6 @@
       <display>TableStorage.Tests.Infrastructure</display>
       <externalReference>6c18c234-6c17-4288-a6e4-a95e3ba5037d</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6c03d82e-4d00-40e2-b93e-3d3d0ddd2166</parentFolderId>
@@ -62,7 +60,6 @@
           <display>Infrastructure</display>
           <externalReference>85686dd2-fb9f-4b8f-886e-2be24d503492</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
@@ -75,7 +72,6 @@
           <display>Repository.Implementation</display>
           <externalReference>352eeda5-4ba6-45bd-be6b-e4e730503ddc</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
