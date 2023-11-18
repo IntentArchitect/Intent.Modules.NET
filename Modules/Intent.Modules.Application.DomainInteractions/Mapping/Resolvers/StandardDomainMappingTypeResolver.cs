@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 

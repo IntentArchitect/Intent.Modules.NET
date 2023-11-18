@@ -10,8 +10,10 @@ using System.Linq;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Constants;
 using System.Reflection;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -46,10 +48,16 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var method = handler.Method;
                     var model = (SubscribeIntegrationEventTargetEndModel)handler.Model; // need to be careful of assumptions like this?
 
-                    // PUBLISH EVENTS FROM COMMAND:
-                    if (handler.Model.SentCommandDestinations().Any())
+                    // SEND COMMANDS FROM INTEGRATION EVENT HANDLER:
+                    var ctor = @class.Constructors.First();
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                    var mappingManager = new CSharpClassMappingManager(template);
+                    mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
+                    mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
+                    mappingManager.SetFromReplacement(model, "message");
+                    mappingManager.SetFromReplacement(model.Element, "message");
+                    foreach (var sendCommand in model.SentCommandDestinations().Where(x => x.Mappings.Any()))
                     {
-                        var ctor = @class.Constructors.First();
                         if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
                         {
                             ctor.AddParameter(template.UseType("MediatR.ISender"), "mediator", param =>
@@ -57,17 +65,29 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                                 param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
                             });
                         }
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                        var mappingManager = new CSharpClassMappingManager(template);
-                        mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
-                        mappingManager.SetFromReplacement(model, "message");
-                        mappingManager.SetFromReplacement(model.Element, "message");
-                        foreach (var sendCommand in model.SentCommandDestinations().Where(x => x.Mappings.Any()))
+
+                        method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
+                        method.AddStatement(string.Empty);
+                        method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
+                    }
+
+                    foreach (var calledOperation in model.CalledServiceOperations().Where(x => x.Mappings.Any()))
+                    {
+                        var serviceInterfaceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
+                        var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type != serviceInterfaceType)?.Name;
+                        if (serviceFieldName == null)
                         {
-                            method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
-                            method.AddStatement(string.Empty);
-                            method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
+                            ctor.AddParameter(serviceInterfaceType, serviceInterfaceType.AsClassName().ToPrivateMemberName(), param =>
+                            {
+                                param.IntroduceReadonlyField((field, s) =>
+                                {
+                                    s.ThrowArgumentNullException();
+                                    serviceFieldName = field.Name;
+                                });
+                            });
                         }
+
+                        method.AddStatement(new CSharpAccessMemberStatement($"await {serviceFieldName}", mappingManager.GenerateUpdateStatements(calledOperation.Mappings.Single()).First()));
                     }
                 }
             }
@@ -93,6 +113,25 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
             {
                 return new ObjectInitializationMapping(mappingModel, _template);
+            }
+            return null;
+        }
+    }
+
+    public class CallServiceOperationMappingResolver : IMappingTypeResolver
+    {
+        private readonly ICSharpFileBuilderTemplate _template;
+
+        public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
+        {
+            _template = template;
+        }
+
+        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+        {
+            if (mappingModel.Model.SpecializationType == "Operation")
+            {
+                return new MethodInvocationMapping(mappingModel, _template);
             }
             return null;
         }
