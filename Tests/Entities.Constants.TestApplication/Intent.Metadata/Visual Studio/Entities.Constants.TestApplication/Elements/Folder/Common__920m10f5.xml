@@ -4,7 +4,6 @@
   <display>Common</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ce288898-1970-4c99-8235-5bc78bea6c3b</parentFolderId>

@@ -4,7 +4,6 @@
   <display>2 - Application</display>
   <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>de24c345-c7b4-458d-8b1a-c3589a320cfe</parentFolderId>
@@ -16,7 +15,6 @@
       <display>DtoSettings.Class.Protected.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d3a61b4-5c09-49d0-8680-6d9b0820e975</parentFolderId>
@@ -62,7 +60,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b485a01b-41c9-4c91-a217-f59c349bcff5</parentFolderId>

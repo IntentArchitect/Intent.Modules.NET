@@ -4,7 +4,6 @@
   <display>IntegrationServices</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</parentFolderId>

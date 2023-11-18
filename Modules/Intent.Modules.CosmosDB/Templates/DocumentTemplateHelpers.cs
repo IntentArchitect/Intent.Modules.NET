@@ -128,7 +128,7 @@ namespace Intent.Modules.CosmosDB.Templates
                 for (var index = 0; index < attributes.Count; index++)
                 {
                     var attribute = attributes[index];
-                    var assignmentValueExpression = attribute.Name;
+                    var assignmentValueExpression = attribute.Name.ToPascalCase();
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
@@ -208,7 +208,7 @@ namespace Intent.Modules.CosmosDB.Templates
                         };
                     }
 
-                    method.AddStatement($"{attribute.Name} = entity.{attribute.Name}{suffix};");
+                    method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");
                 }
 
                 foreach (var associationEnd in associationEnds)

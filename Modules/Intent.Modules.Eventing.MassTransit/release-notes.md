@@ -1,5 +1,9 @@
 ### Version 5.2.4
 
+- Fixed: Issue around Event Bus Messages not publishing when published in Domain Events, with the context of consuming Integration Events.
+
+### Version 5.2.4
+
 - Improvement: `ConsumerWrapper` will now universally save changes for all of the following modules:
   - `Intent.EntityFrameworkCore`
   - `Intent.CosmosDB`

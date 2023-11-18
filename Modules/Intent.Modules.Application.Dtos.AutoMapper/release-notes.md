@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Fixed: Mappings adding castings for expression based mapping paths, sometimes cause expression to break. Removed the casting in these scenarios.
+
 ### Version 4.0.6
 
 - Fixed: Making a mapping from Entity that inherits from a base class to a DTO causes compiler errors.
