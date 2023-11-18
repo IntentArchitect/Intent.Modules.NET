@@ -1,5 +1,4 @@
 using Intent.Engine;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -37,17 +36,18 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Eventing.EventHandler);
+            var templates = application.FindTemplateInstances<ITemplate>(TemplateFulfillingRoles.Application.Eventing.EventHandler)
+                .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
             {
-                var model = (template as ITemplateWithModel)?.Model as IntegrationEventHandlerModel ?? throw new Exception($"Unable to resolve {nameof(IntegrationEventHandlerModel)} for {TemplateFulfillingRoles.Application.Eventing.EventHandler} template");
                 var @class = template.CSharpFile.Classes.First();
-                foreach (var subscription in model.IntegrationEventSubscriptions())
+                foreach (var handler in template.CSharpFile.GetProcessingHandlers())
                 {
-                    var method = (CSharpClassMethod)@class.GetReferenceForModel(subscription);
+                    var method = handler.Method;
+                    var model = (SubscribeIntegrationEventTargetEndModel)handler.Model; // need to be careful of assumptions like this?
 
                     // PUBLISH EVENTS FROM COMMAND:
-                    if (subscription.SentCommandDestinations().Any())
+                    if (handler.Model.SentCommandDestinations().Any())
                     {
                         var ctor = @class.Constructors.First();
                         if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
@@ -60,9 +60,9 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                         var mappingManager = new CSharpClassMappingManager(template);
                         mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
-                        mappingManager.SetFromReplacement(subscription, "message");
-                        mappingManager.SetFromReplacement(subscription.Element, "message");
-                        foreach (var sendCommand in subscription.SentCommandDestinations().Where(x => x.Mappings.Any()))
+                        mappingManager.SetFromReplacement(model, "message");
+                        mappingManager.SetFromReplacement(model.Element, "message");
+                        foreach (var sendCommand in model.SentCommandDestinations().Where(x => x.Mappings.Any()))
                         {
                             method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
                             method.AddStatement(string.Empty);

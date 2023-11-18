@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
-using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common;
@@ -51,15 +49,16 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Application.Command.Handler");
             foreach (var template in templates)
             {
-                var model = (template as ITemplateWithModel)?.Model as CommandModel ?? throw new Exception($"Unable to resolve {nameof(CommandModel)} for Application.Command.Handler template");
-                if (!model.PublishedIntegrationEvents().Any())
-                {
-                    continue;
-                }
-
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    AddPublishingLogic(template, file.Classes.First().FindMethod("Handle"), "request", model.PublishedIntegrationEvents());
+                    foreach (var processingHandler in template.CSharpFile.GetProcessingHandlers())
+                    {
+                        if (!processingHandler.Model.PublishedIntegrationEvents().Any())
+                        {
+                            continue;
+                        }
+                        AddPublishingLogic(template, processingHandler.Method, "request", processingHandler.Model.PublishedIntegrationEvents());
+                    }
                 });
             }
 
@@ -91,29 +90,27 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.DomainEventHandler.Explicit);
             foreach (var template in templates)
             {
-                var model = (template as ITemplateWithModel)?.Model as DomainEventHandlerModel ?? throw new Exception($"Unable to resolve {nameof(DomainEventHandlerModel)} for {TemplateFulfillingRoles.Application.DomainEventHandler.Explicit} template");
-                if (!model.HandledDomainEvents().Any(x => x.PublishedIntegrationEvents().Any()))
-                {
-                    continue;
-                }
+                //var model = (template as ITemplateWithModel)?.Model as IProcessingHandler ?? throw new Exception($"Unable to resolve {nameof(DomainEventHandlerModel)} for {TemplateFulfillingRoles.Application.DomainEventHandler.Explicit} template");
+                //if (!model.HandledDomainEvents().Any(x => x.PublishedIntegrationEvents().Any()))
+                //{
+                //    continue;
+                //}
 
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    foreach (var handledDomainEvent in model.HandledDomainEvents())
+                    foreach (var processingHandler in template.CSharpFile.GetProcessingHandlers())
                     {
-                        var method = file.Classes.First().TryGetReferenceForModel(handledDomainEvent, out var reference) ? reference as CSharpClassMethod : null;
-                        if (method == null)
+                        if (!processingHandler.Model.PublishedIntegrationEvents().Any())
                         {
-                            Logging.Log.Failure($"Could not find Handle method in {template.ClassName} for {handledDomainEvent.Element.Name}. Ensure it represents the model.");
-                            break;
+                            continue;
                         }
-
+                        var method = processingHandler.Method;
                         method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
                         if (!method.Statements.Any(x => x.ToString().Equals("var domainEvent = notification.DomainEvent;")))
                         {
                             method.AddStatement("var domainEvent = notification.DomainEvent;");
                         }
-                        AddPublishingLogic(template, method, "domainEvent", handledDomainEvent.PublishedIntegrationEvents());
+                        AddPublishingLogic(template, method, "domainEvent", processingHandler.Model.PublishedIntegrationEvents());
                     }
                 });
             }
@@ -124,28 +121,45 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
             {
-                var model = (template as ITemplateWithModel)?.Model as IntegrationEventHandlerModel ?? throw new Exception($"Unable to resolve {nameof(IntegrationEventHandlerModel)} for {TemplateFulfillingRoles.Application.Eventing.EventHandler} template");
-                if (!model.IntegrationEventSubscriptions().Any(x => x.PublishedIntegrationEvents().Any()))
-                {
-                    continue;
-                }
+                //var model = (template as ITemplateWithModel)?.Model as IntegrationEventHandlerModel;
+                //if (model == null || !model.IntegrationEventSubscriptions().Any(x => x.PublishedIntegrationEvents().Any()))
+                //{
+                //    continue;
+                //}
 
                 template.CSharpFile.AfterBuild(file =>
                 {
-                    foreach (var handleEvent in model.IntegrationEventSubscriptions())
+                    foreach (var processingHandler in template.CSharpFile.GetProcessingHandlers())
                     {
-                        var method = file.Classes.First().TryGetReferenceForModel(handleEvent, out var reference) ? reference as CSharpClassMethod : null;
-                        if (method == null)
+                        if (!processingHandler.Model.PublishedIntegrationEvents().Any())
                         {
-                            Logging.Log.Failure($"Could not find Handle method in {template.ClassName} for {handleEvent.Element.Name}. Ensure it represents the model.");
-                            break;
+                            continue;
                         }
-
+                        var method = processingHandler.Method;
                         method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
                         var eventVariableName = method.Parameters.FirstOrDefault()?.Name ?? throw new Exception("Expected at least one parameter on Integration Event Handler method.");
-                        AddPublishingLogic(template, method, eventVariableName, handleEvent.PublishedIntegrationEvents());
+                        
+                        AddPublishingLogic(template, method, eventVariableName, processingHandler.Model.PublishedIntegrationEvents());
                     }
                 });
+
+                //template.CSharpFile.AfterBuild(file =>
+                //{
+
+                //    foreach (var handleEvent in model.IntegrationEventSubscriptions())
+                //    {
+                //        var method = file.Classes.First().TryGetReferenceForModel(handleEvent, out var reference) ? reference as CSharpClassMethod : null;
+                //        if (method == null)
+                //        {
+                //            Logging.Log.Failure($"Could not find Handle method in {template.ClassName} for {handleEvent.Element.Name}. Ensure it represents the model.");
+                //            break;
+                //        }
+
+                //        method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                //        var eventVariableName = method.Parameters.FirstOrDefault()?.Name ?? throw new Exception("Expected at least one parameter on Integration Event Handler method.");
+                //        AddPublishingLogic(template, method, eventVariableName, handleEvent.PublishedIntegrationEvents());
+                //    }
+                //});
             }
         }
 

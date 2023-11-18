@@ -198,6 +198,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                         if (!method.Statements.Any())
                         {
+                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             method.AddStatement($"// [IntentFully]");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         }

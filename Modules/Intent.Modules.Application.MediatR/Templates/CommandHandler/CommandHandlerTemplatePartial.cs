@@ -64,6 +64,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     });
                     @class.AddMethod(GetReturnType(template, model), "Handle", method =>
                     {
+                        method.RegisterAsProcessingHandlerForModel(model);
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());

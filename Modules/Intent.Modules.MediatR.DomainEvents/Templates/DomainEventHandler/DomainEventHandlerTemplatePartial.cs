@@ -52,6 +52,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         @class.AddMethod("Task", "Handle", method =>
                         {
                             method.RepresentsModel(handledDomainEvents);
+                            method.RegisterAsProcessingHandlerForModel(handledDomainEvents);
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");

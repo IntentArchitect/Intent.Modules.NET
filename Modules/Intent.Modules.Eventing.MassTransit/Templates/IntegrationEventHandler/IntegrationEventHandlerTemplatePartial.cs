@@ -58,6 +58,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                             method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.RepresentsModel(subscription);
+                            method.RegisterAsProcessingHandlerForModel(subscription);
                         });
                     }
 
