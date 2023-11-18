@@ -107,7 +107,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                 {
                     return;
                 }
-                
+
                 var @class = file.Classes.First();
                 var method = @class.FindMethod("CreateDbContext");
                 var returnStatement = (CSharpInvocationStatement)method.Statements.LastOrDefault(p => p.HasMetadata("return-statement"));
