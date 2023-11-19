@@ -93,6 +93,11 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             {
                 return "mcr.microsoft.com/dotnet/aspnet:7.0";
             }
+            
+            if (Project.IsNetApp(8))
+            {
+                return "mcr.microsoft.com/dotnet/aspnet:8.0";
+            }
 
             Logging.Log.Warning(@"Project .NET version not supported by this Docker module. You may need to edit your docker file manually.");
             return "mcr.microsoft.com/dotnet/aspnet:6.0";
@@ -119,6 +124,10 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             if (Project.IsNetApp(7))
             {
                 return "mcr.microsoft.com/dotnet/sdk:7.0";
+            }
+            if (Project.IsNetApp(8))
+            {
+                return "mcr.microsoft.com/dotnet/sdk:8.0";
             }
 
             return "mcr.microsoft.com/dotnet/sdk:6.0";
