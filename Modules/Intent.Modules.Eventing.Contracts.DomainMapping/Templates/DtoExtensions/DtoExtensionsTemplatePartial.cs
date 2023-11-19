@@ -46,7 +46,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
                         method.Static();
                         method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
 
-                        var domainEntity = ((IElement)model.GetMapFromDomainMapping().Element).AsClassModel();
+                        var domainEntity = ((IElement)model.GetMapFromDomainMapping().Element).AsClassModel() ?? throw new Exception("Element is not a Class Model");
 
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
