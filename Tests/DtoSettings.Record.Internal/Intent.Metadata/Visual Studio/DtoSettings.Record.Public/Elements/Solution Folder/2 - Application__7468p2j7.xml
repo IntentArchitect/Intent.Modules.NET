@@ -16,7 +16,6 @@
       <display>DtoSettings.Record.Public.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abdc3e67-78a4-4c41-9dd0-b47d356f1545</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>396b134a-8f3f-431c-9894-0513cc01c4d7</parentFolderId>

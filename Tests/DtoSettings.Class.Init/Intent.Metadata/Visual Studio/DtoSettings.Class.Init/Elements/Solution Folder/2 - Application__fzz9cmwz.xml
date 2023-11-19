@@ -16,7 +16,6 @@
       <display>DtoSettings.Class.Init.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>06ba8eca-0a1d-4dc5-8932-416c5a4b5131</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6db6c452-7e2d-4536-9597-540edc452ccd</parentFolderId>

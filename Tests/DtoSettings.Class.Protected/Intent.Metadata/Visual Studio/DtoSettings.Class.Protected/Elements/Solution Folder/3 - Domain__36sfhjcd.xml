@@ -16,7 +16,6 @@
       <display>DtoSettings.Class.Protected.Domain</display>
       <externalReference>2df1abc0-1bf8-4f28-8819-fd522fcfdae2</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3069932e-83e9-46a1-a853-f219c1f0fbbd</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Entities</display>
           <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>03ec77b4-1e90-46c9-87d3-66c3edcca3a2</parentFolderId>
@@ -83,7 +81,6 @@
               <display>Domain.Entity</display>
               <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>cdde7773-7c65-4978-bf4c-94dba6a5481a</parentFolderId>
@@ -140,7 +137,6 @@
           <display>Domain</display>
           <externalReference>2a1229cd-24cf-4128-b1a7-fcb2ac3020f8</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>03ec77b4-1e90-46c9-87d3-66c3edcca3a2</parentFolderId>
@@ -153,7 +149,6 @@
           <display>Repository.Interface</display>
           <externalReference>f06bb1ad-cc5c-4d7e-baf5-db9f4035c3e9</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>03ec77b4-1e90-46c9-87d3-66c3edcca3a2</parentFolderId>

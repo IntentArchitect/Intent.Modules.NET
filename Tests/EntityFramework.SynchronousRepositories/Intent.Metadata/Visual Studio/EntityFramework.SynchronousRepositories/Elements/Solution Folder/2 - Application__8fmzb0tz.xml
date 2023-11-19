@@ -16,7 +16,6 @@
       <display>EntityFramework.SynchronousRepositories.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>56251f7a-4945-49b6-a64e-3dc2985d7d79</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c466b58b-e303-4dd4-aa75-a5af837aaf7a</parentFolderId>

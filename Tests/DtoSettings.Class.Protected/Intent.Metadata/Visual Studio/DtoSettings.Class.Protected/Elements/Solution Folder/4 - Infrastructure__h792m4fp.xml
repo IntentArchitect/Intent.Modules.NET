@@ -16,7 +16,6 @@
       <display>DtoSettings.Class.Protected.Infrastructure</display>
       <externalReference>6c18c234-6c17-4288-a6e4-a95e3ba5037d</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0ff170dc-1ac3-4504-b0aa-34f240e3223f</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Infrastructure</display>
           <externalReference>85686dd2-fb9f-4b8f-886e-2be24d503492</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a8d8a227-e543-4666-bd27-52c05408f1c3</parentFolderId>
@@ -75,7 +73,6 @@
           <display>Repository.Implementation</display>
           <externalReference>352eeda5-4ba6-45bd-be6b-e4e730503ddc</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a8d8a227-e543-4666-bd27-52c05408f1c3</parentFolderId>

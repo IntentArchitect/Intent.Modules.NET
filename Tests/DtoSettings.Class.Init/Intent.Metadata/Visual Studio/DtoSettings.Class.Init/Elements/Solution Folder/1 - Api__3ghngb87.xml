@@ -16,7 +16,6 @@
       <display>DtoSettings.Class.Init.Api</display>
       <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d37b2d32-36ce-4940-90d3-cd20b26e3c97</parentFolderId>
@@ -62,7 +61,6 @@
           <display>ClientApp</display>
           <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bbf9d90b-7f2b-44a3-8993-322e7516d048</parentFolderId>
@@ -83,7 +81,6 @@
               <display>Front End</display>
               <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>0a7fcfc2-b013-478b-9ede-c24ccbf07674</parentFolderId>
@@ -98,7 +95,6 @@
           <display>Distribution</display>
           <externalReference>cf2c3d03-b17f-40c1-93c5-64129341f35e</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bbf9d90b-7f2b-44a3-8993-322e7516d048</parentFolderId>
@@ -111,7 +107,6 @@
           <display>Startup</display>
           <externalReference>904efe78-bfc4-4bfd-903b-725f593b9b22</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bbf9d90b-7f2b-44a3-8993-322e7516d048</parentFolderId>

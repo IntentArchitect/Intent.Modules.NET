@@ -16,7 +16,6 @@
       <display>EntityFramework.SynchronousRepositories.Api</display>
       <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef420d81-3afd-443f-a554-bcaa5ecb00c2</parentFolderId>
@@ -62,7 +61,6 @@
           <display>ClientApp</display>
           <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>285eaee2-0667-405a-b5e7-f7317bf7e4eb</parentFolderId>
@@ -83,7 +81,6 @@
               <display>Front End</display>
               <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>1b5ce773-dc5c-4fd6-9522-06a5917c3a6c</parentFolderId>
@@ -98,7 +95,6 @@
           <display>Distribution</display>
           <externalReference>cf2c3d03-b17f-40c1-93c5-64129341f35e</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>285eaee2-0667-405a-b5e7-f7317bf7e4eb</parentFolderId>
@@ -111,7 +107,6 @@
           <display>Startup</display>
           <externalReference>904efe78-bfc4-4bfd-903b-725f593b9b22</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>285eaee2-0667-405a-b5e7-f7317bf7e4eb</parentFolderId>
