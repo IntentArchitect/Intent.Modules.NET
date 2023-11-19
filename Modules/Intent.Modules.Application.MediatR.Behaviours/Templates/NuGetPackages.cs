@@ -15,6 +15,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates
             {
                 _ when project.IsNetApp(6) => "6.0.0",
                 _ when project.IsNetApp(7) => "7.0.0",
+                _ when project.IsNetApp(8) => "8.0.0",
                 _ => "6.0.0"
             };
         }

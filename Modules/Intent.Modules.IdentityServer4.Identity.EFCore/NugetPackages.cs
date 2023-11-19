@@ -21,6 +21,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore
                 _ when project.IsNetApp(5) => "5.0.17",
                 _ when project.IsNetApp(6) => "6.0.20",
                 _ when project.IsNetApp(7) => "7.0.9",
+                _ when project.IsNetApp(8) => "8.0.0",
                 _ => "5.0.6"
             };
         }
