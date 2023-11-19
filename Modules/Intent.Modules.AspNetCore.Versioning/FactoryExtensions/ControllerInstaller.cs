@@ -51,7 +51,7 @@ public class ControllerInstaller : FactoryExtensionBase
             {
                 continue;
             }
-            
+
             foreach (var version in methodModel.ApplicableVersions)
             {
                 groupedVersions.Add(version);
@@ -83,7 +83,7 @@ public class ControllerInstaller : FactoryExtensionBase
         foreach (var version in groupedVersions)
         {
             file.AddUsing("Asp.Versioning");
-            @class.AddAttribute($@"[ApiVersion(""{version.Version.Replace("v", "", StringComparison.OrdinalIgnoreCase)}""{(version.IsDeprecated?", Deprecated = true" : string.Empty)})]");
+            @class.AddAttribute($@"[ApiVersion(""{version.Version.Replace("v", "", StringComparison.OrdinalIgnoreCase)}""{(version.IsDeprecated ? ", Deprecated = true" : string.Empty)})]");
         }
     }
 }
