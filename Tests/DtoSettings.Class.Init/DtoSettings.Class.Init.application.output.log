@@ -107,22 +107,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>6db6c452-7e2d-4536-9597-540edc452ccd</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
