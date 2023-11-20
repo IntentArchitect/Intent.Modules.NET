@@ -35,6 +35,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
             AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.EnsureSuffixedWith("Dto")}Extensions", @class =>
@@ -46,12 +47,13 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
                         method.Static();
                         method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
 
-                        var domainEntity = ((IElement)model.GetMapFromDomainMapping().Element).AsClassModel() ?? throw new Exception("Element is not a Class Model");
-
+                        var domainMapping = (IElement)model.GetMapFromDomainMapping()?.Element;
+                        var targetElementProperties = domainMapping?.ChildElements ?? Enumerable.Empty<IElement>();
+                        
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
                         codeLines.Add(new CSharpStatementBlock()
-                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", domainEntity.Attributes.Select(x => x.InternalElement), model.Fields.Select(x => x.InternalElement), this))
+                            .AddStatements(MappingExtensionHelper.GetPropertyAssignments("projectFrom", targetElementProperties, model.Fields.Select(x => x.InternalElement), this))
                             .WithSemicolon());
                         method.AddStatements(codeLines.ToList());
                     });

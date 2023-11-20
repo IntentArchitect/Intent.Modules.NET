@@ -61,9 +61,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
                         {
                             foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
                             {
-                                var shouldCast = template.GetTypeInfo(field.TypeReference).IsPrimitive
-                                                 && field.Mapping.Element?.TypeReference != null
-                                                 && template.GetFullyQualifiedTypeName(field.TypeReference) != template.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference);
+                                var shouldCast = field.Mapping.Path.All(p => !string.IsNullOrEmpty(p.Id) && //These are expression like ternaries
+                                                 template.GetTypeInfo(field.TypeReference).IsPrimitive &&
+                                                 field.Mapping.Element?.TypeReference != null &&
+                                                 template.GetFullyQualifiedTypeName(field.TypeReference) != template.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference));
+
                                 var mappingExpression = GetMappingExpression(template, field);
                                 if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
                                 {

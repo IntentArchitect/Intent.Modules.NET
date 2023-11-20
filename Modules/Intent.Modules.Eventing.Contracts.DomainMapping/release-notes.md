@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Fixed: Mapping from Value Objects is now supported.
+
 ### Version 4.1.3
 
 - Improvement : Upgraded CRUD Scripts to be forward compatible with Intent Architect v4.1.

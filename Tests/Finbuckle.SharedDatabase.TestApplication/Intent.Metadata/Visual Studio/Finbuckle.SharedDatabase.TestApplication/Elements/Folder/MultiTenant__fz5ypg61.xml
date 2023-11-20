@@ -4,7 +4,6 @@
   <display>MultiTenant</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bf4c0648-086e-4b03-a1f8-da4c3bd0773a</parentFolderId>

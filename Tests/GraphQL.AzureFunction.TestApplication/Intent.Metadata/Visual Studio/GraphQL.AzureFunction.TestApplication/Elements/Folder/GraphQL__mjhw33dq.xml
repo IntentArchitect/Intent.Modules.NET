@@ -4,7 +4,6 @@
   <display>GraphQL</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>

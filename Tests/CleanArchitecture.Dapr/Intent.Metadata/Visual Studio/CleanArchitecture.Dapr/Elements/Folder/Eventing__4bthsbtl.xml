@@ -4,7 +4,6 @@
   <display>Eventing</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e5e38311-21d4-4c4e-907c-bf6e9f6f68c5</parentFolderId>
