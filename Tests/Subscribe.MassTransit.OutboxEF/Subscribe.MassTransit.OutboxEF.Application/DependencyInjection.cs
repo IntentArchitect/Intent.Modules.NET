@@ -29,7 +29,6 @@ namespace Subscribe.MassTransit.OutboxEF.Application
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
