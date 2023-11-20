@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Subscribe.MassTransit.OutboxEF.Application.Common.Eventing;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Interfaces;
 using Subscribe.MassTransit.OutboxEF.Domain.Common;
 using Subscribe.MassTransit.OutboxEF.Domain.Common.Interfaces;
@@ -16,10 +17,14 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Persistence
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly IEventBus _eventBus;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            IEventBus eventBus) : base(options)
         {
             _domainEventService = domainEventService;
+            _eventBus = eventBus;
         }
 
         public override async Task<int> SaveChangesAsync(
@@ -27,12 +32,14 @@ namespace Subscribe.MassTransit.OutboxEF.Infrastructure.Persistence
             CancellationToken cancellationToken = default)
         {
             await DispatchEventsAsync(cancellationToken);
+            await _eventBus.FlushAllAsync(cancellationToken);
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             DispatchEventsAsync().GetAwaiter().GetResult();
+            _eventBus.FlushAllAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 

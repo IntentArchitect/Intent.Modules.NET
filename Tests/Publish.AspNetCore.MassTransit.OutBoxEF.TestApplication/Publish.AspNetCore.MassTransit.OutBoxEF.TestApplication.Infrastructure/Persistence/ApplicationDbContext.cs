@@ -1,6 +1,9 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Common.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities.Mapping;
@@ -14,12 +17,28 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        private readonly IEventBus _eventBus;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IEventBus eventBus) : base(options)
         {
+            _eventBus = eventBus;
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<ClassWithVO> ClassWithVOs { get; set; }
+
+        public override async Task<int> SaveChangesAsync(
+            bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = default)
+        {
+            await _eventBus.FlushAllAsync(cancellationToken);
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            _eventBus.FlushAllAsync().GetAwaiter().GetResult();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
