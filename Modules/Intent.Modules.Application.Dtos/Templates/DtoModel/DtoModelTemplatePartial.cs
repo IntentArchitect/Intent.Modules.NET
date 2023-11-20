@@ -56,6 +56,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     var ctor = @class.Constructors.First();
                     if (IsNonPublicPropertyAccessors())
                     {
+                        @class.AddConstructor(protectedCtor =>
+                        {
+                            protectedCtor.Protected();
+                            PopulateDefaultCtor(protectedCtor);
+                        });
+                        
                         foreach (var field in Model.Fields)
                         {
                             ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
