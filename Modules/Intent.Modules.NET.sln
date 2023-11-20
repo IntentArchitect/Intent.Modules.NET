@@ -699,6 +699,10 @@ Global
 		{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0225CCE-0742-4D48-86FB-4A39405A280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0225CCE-0742-4D48-86FB-4A39405A280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0225CCE-0742-4D48-86FB-4A39405A280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -862,6 +866,8 @@ Global
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{c0775e42-5f7d-46bc-aeae-af4cc9acce0c}*SharedItemsImports = 13
 		Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems*{c1bdb0b4-e820-4e8a-b486-6cdbd76d3960}*SharedItemsImports = 5
 		Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems*{c1bdb0b4-e820-4e8a-b486-6cdbd76d3960}*SharedItemsImports = 5
+		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{cb1a4b18-443d-4196-8a7e-d3318a2f1fa8}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{cb1a4b18-443d-4196-8a7e-d3318a2f1fa8}*SharedItemsImports = 5
 		Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.projitems*{cedd643a-7070-4d08-b59a-2636afb1fb6b}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c}*SharedItemsImports = 5
