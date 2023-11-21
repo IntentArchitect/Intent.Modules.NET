@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.TestApplication.Domain.Entities.OperationAndConstructorMapping
 {
     public class OpAndCtorMapping1

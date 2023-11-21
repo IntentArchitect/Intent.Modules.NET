@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities
 {
     public class Basket : IHasDomainEvent

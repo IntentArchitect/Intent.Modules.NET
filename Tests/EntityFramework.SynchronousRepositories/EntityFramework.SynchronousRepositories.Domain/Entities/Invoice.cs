@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EntityFramework.SynchronousRepositories.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFramework.SynchronousRepositories.Domain.Entities
 {
     public class Invoice : IHasDomainEvent

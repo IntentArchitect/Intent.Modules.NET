@@ -4,6 +4,8 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.SoftDelete
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

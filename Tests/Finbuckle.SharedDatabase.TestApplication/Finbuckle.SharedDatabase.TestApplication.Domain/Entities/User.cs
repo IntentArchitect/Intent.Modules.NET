@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Finbuckle.SharedDatabase.TestApplication.Domain.Entities
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

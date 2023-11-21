@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
 {
     public class ToManySource

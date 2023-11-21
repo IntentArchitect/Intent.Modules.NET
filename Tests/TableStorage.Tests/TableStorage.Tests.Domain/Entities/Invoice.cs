@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Common;
 
+[assembly: IntentTagModeImplicit]
+
 namespace TableStorage.Tests.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
