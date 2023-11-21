@@ -14,6 +14,12 @@ namespace DtoSettings.Class.Protected.Application.Invoices
             Currency = currency;
         }
 
+        protected InvoiceLineCreateDto()
+        {
+            Description = null!;
+            Currency = null!;
+        }
+
         public string Description { get; protected set; }
         public decimal Amount { get; protected set; }
         public string Currency { get; protected set; }

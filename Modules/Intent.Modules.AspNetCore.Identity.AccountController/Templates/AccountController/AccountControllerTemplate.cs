@@ -235,43 +235,44 @@ namespace ");
                     "= _tokenService.GetPrincipalFromExpiredToken(authenticationToken);\r\n            " +
                     "var username = principal.Identity.Name;\r\n\r\n            var user = await _userMan" +
                     "ager.FindByNameAsync(username);\r\n            if (user == null || user.RefreshTok" +
-                    "en != refreshToken) return BadRequest();\r\n\r\n            var newJwtToken = _token" +
-                    "Service.GenerateAccessToken(username, principal.Claims);\r\n            var newRef" +
-                    "reshToken = _tokenService.GenerateRefreshToken();\r\n\r\n            user.RefreshTok" +
-                    "en = newRefreshToken.Token;\r\n            user.RefreshTokenExpired = newRefreshTo" +
-                    "ken.Expiry;\r\n            await _userManager.UpdateAsync(user);\r\n\r\n            re" +
-                    "turn Ok(new TokenResultDto\r\n            {\r\n                AuthenticationToken =" +
-                    " newJwtToken,\r\n                RefreshToken = newRefreshToken.Token\r\n           " +
-                    " });\r\n        }\r\n\r\n        [HttpPost]\r\n        [AllowAnonymous]\r\n        public " +
-                    "async Task<IActionResult> ConfirmEmail(ConfirmEmailDto input)\r\n        {\r\n      " +
-                    "      if (string.IsNullOrWhiteSpace(input.UserId))\r\n            {\r\n             " +
-                    "   ModelState.AddModelError<ConfirmEmailDto>(x => x.UserId, \"Mandatory\");\r\n     " +
-                    "       }\r\n\r\n            if (string.IsNullOrWhiteSpace(input.Code))\r\n            " +
-                    "{\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, \"Manda" +
-                    "tory\");\r\n            }\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n " +
-                    "               return BadRequest(ModelState);\r\n            }\r\n\r\n            var " +
-                    "userId = input.UserId!;\r\n            var code = input.Code!;\r\n            var us" +
-                    "er = await _userManager.FindByIdAsync(input.UserId!);\r\n            if (user == n" +
-                    "ull)\r\n            {\r\n                return NotFound($\"Unable to load user with " +
-                    "ID \'{userId}\'.\");\r\n            }\r\n\r\n            code = Encoding.UTF8.GetString(W" +
-                    "ebEncoders.Base64UrlDecode(code));\r\n\r\n            var result = await _userManage" +
-                    "r.ConfirmEmailAsync(user, code);\r\n            if (!result.Succeeded)\r\n          " +
-                    "  {\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x, \"Error co" +
-                    "nfirming your email.\");\r\n                return BadRequest(ModelState);\r\n       " +
-                    "     }\r\n\r\n            return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n        [Au" +
-                    "thorize]\r\n        public async Task<IActionResult> Logout()\r\n        {\r\n        " +
-                    "    var username = User.Identity?.Name;\r\n            var user = await _userManag" +
-                    "er.FindByNameAsync(username);\r\n            user.RefreshToken = null;\r\n          " +
-                    "  user.RefreshTokenExpired = null;\r\n            await _userManager.UpdateAsync(u" +
-                    "ser);\r\n            \r\n            _logger.LogInformation($\"User [{username}] logg" +
-                    "ed out the system.\");\r\n            return Ok();\r\n        }\r\n    }\r\n\r\n    public " +
-                    "class TokenResultDto\r\n    {\r\n        public string? AuthenticationToken { get; s" +
-                    "et; }\r\n        public string? RefreshToken { get; set; }\r\n    }\r\n\r\n    public cl" +
-                    "ass RegisterDto\r\n    {\r\n        public string? Email { get; set; }\r\n        publ" +
-                    "ic string? Password { get; set; }\r\n    }\r\n\r\n    public class LoginDto\r\n    {\r\n  " +
-                    "      public string? Email { get; set; }\r\n        public string? Password { get;" +
-                    " set; }\r\n    }\r\n\r\n    public class ConfirmEmailDto\r\n    {\r\n        public string" +
-                    "? UserId { get; set; }\r\n        public string? Code { get; set; }\r\n    }\r\n}\r\n");
+                    "en != refreshToken) return BadRequest();\r\n\r\n            var claims = await _user" +
+                    "Manager.GetClaimsAsync(user);\r\n\r\n            var newJwtToken = _tokenService.Gen" +
+                    "erateAccessToken(username, claims);\r\n            var newRefreshToken = _tokenSer" +
+                    "vice.GenerateRefreshToken();\r\n\r\n            user.RefreshToken = newRefreshToken." +
+                    "Token;\r\n            user.RefreshTokenExpired = newRefreshToken.Expiry;\r\n        " +
+                    "    await _userManager.UpdateAsync(user);\r\n\r\n            return Ok(new TokenResu" +
+                    "ltDto\r\n            {\r\n                AuthenticationToken = newJwtToken,\r\n      " +
+                    "          RefreshToken = newRefreshToken.Token\r\n            });\r\n        }\r\n\r\n  " +
+                    "      [HttpPost]\r\n        [AllowAnonymous]\r\n        public async Task<IActionRes" +
+                    "ult> ConfirmEmail(ConfirmEmailDto input)\r\n        {\r\n            if (string.IsNu" +
+                    "llOrWhiteSpace(input.UserId))\r\n            {\r\n                ModelState.AddMode" +
+                    "lError<ConfirmEmailDto>(x => x.UserId, \"Mandatory\");\r\n            }\r\n\r\n         " +
+                    "   if (string.IsNullOrWhiteSpace(input.Code))\r\n            {\r\n                Mo" +
+                    "delState.AddModelError<ConfirmEmailDto>(x => x.Code, \"Mandatory\");\r\n            " +
+                    "}\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n                return" +
+                    " BadRequest(ModelState);\r\n            }\r\n\r\n            var userId = input.UserId" +
+                    "!;\r\n            var code = input.Code!;\r\n            var user = await _userManag" +
+                    "er.FindByIdAsync(input.UserId!);\r\n            if (user == null)\r\n            {\r\n" +
+                    "                return NotFound($\"Unable to load user with ID \'{userId}\'.\");\r\n  " +
+                    "          }\r\n\r\n            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlD" +
+                    "ecode(code));\r\n\r\n            var result = await _userManager.ConfirmEmailAsync(u" +
+                    "ser, code);\r\n            if (!result.Succeeded)\r\n            {\r\n                " +
+                    "ModelState.AddModelError<ConfirmEmailDto>(x => x, \"Error confirming your email.\"" +
+                    ");\r\n                return BadRequest(ModelState);\r\n            }\r\n\r\n           " +
+                    " return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n        [Authorize]\r\n        pub" +
+                    "lic async Task<IActionResult> Logout()\r\n        {\r\n            var username = Us" +
+                    "er.Identity?.Name;\r\n            var user = await _userManager.FindByNameAsync(us" +
+                    "ername);\r\n            user.RefreshToken = null;\r\n            user.RefreshTokenEx" +
+                    "pired = null;\r\n            await _userManager.UpdateAsync(user);\r\n            \r\n" +
+                    "            _logger.LogInformation($\"User [{username}] logged out the system.\");" +
+                    "\r\n            return Ok();\r\n        }\r\n    }\r\n\r\n    public class TokenResultDto\r" +
+                    "\n    {\r\n        public string? AuthenticationToken { get; set; }\r\n        public" +
+                    " string? RefreshToken { get; set; }\r\n    }\r\n\r\n    public class RegisterDto\r\n    " +
+                    "{\r\n        public string? Email { get; set; }\r\n        public string? Password {" +
+                    " get; set; }\r\n    }\r\n\r\n    public class LoginDto\r\n    {\r\n        public string? " +
+                    "Email { get; set; }\r\n        public string? Password { get; set; }\r\n    }\r\n\r\n   " +
+                    " public class ConfirmEmailDto\r\n    {\r\n        public string? UserId { get; set; " +
+                    "}\r\n        public string? Code { get; set; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -27,7 +27,7 @@ $startTime = Get-Date
 
 # Remove all jobs
 Get-Job | Remove-Job
-$MaxThreads = 4
+$MaxThreads = 6
 $count = 0
 
 Write-Host "Starting test projects:"
