@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.AspNetCore.MultiTenancy.Api;
@@ -31,6 +32,12 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions;
 public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 {
     public override string Id => "Intent.Modules.AspNetCore.MultiTenancy.AspNetCoreIntegrationExtension";
+    private readonly IMetadataManager _metadataManager;
+
+    public AspNetCoreIntegrationExtension(IMetadataManager metadataManager)
+    {
+        _metadataManager = metadataManager;
+    }
 
     [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
@@ -57,7 +64,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         var configurations = new List<(string ConnectionStringName, ApplyConfiguration ApplyConfiguration)>();
         foreach (var tryGetConfiguration in new[] { TryGetEfCoreConfiguration, TryGetMongoDbConfiguration })
         {
-            if (!tryGetConfiguration(application, out var connectionStringName, out var applyConfiguration))
+            if (!tryGetConfiguration(application, _metadataManager, out var connectionStringName, out var applyConfiguration))
             {
                 continue;
             }
@@ -81,7 +88,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         }
     }
 
-    private static bool TryGetEfCoreConfiguration(IApplication application, out string connectionStringName, out ApplyConfiguration applyConfiguration)
+    private static bool TryGetEfCoreConfiguration(IApplication application, IMetadataManager metadataManager, out string connectionStringName, out ApplyConfiguration applyConfiguration)
     {
         var efDbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
         if (efDbContext == null)
@@ -100,7 +107,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase =>
                     hasMultiConnStr => GetSeparateDatabaseDataIsolationConfiguration(hasMultiConnStr, application, connectionStringNameInternal),
                 MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase =>
-                    _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext),
+                    _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext, metadataManager),
                 _ => throw new ArgumentOutOfRangeException()
             };
 
@@ -109,7 +116,8 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
     private static void GetSharedDatabaseDataIsolationConfiguration(
         IApplication application,
-        ICSharpFileBuilderTemplate dbContextTemplate)
+        ICSharpFileBuilderTemplate dbContextTemplate,
+        IMetadataManager metadataManager)
     {
         if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSharedDatabase())
         {
@@ -153,6 +161,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 .InsertAbove("this.EnforceMultiTenant();");
         });
 
+
         var entityTypeConfigTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"));
         foreach (var entityTypeTemplate in entityTypeConfigTemplates)
         {
@@ -172,6 +181,19 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                     configMethod.AddStatement("builder.IsMultiTenant();");
                 }
             });
+        }
+        if (entityTypeConfigTemplates.Any())//We are dealing with EF
+        {
+            var problem = metadataManager.Domain(application).GetClassModels()
+                .Where(x => x.InternalElement.Package.AsDomainPackageModel()?.HasStereotype("Relational Database") == true &&
+                    !x.InternalElement.AsClassModel().IsAggregateRoot() &&
+                    x.HasMultiTenant() &&
+                    !x.HasStereotype("Table") // has Table stereotype
+                    ).FirstOrDefault();
+            if (problem != null)
+            {
+                throw new ElementException(problem.InternalElement, "Composite/Owned entities cannot be have the  `Multi Tenant` stereotype. Either remove the stereotype or apply the `Table` stereotype it.");
+            }
         }
     }
 
@@ -211,7 +233,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         });
     }
 
-    private static bool TryGetMongoDbConfiguration(IApplication application, out string connectionStringName, out ApplyConfiguration applyConfiguration)
+    private static bool TryGetMongoDbConfiguration(IApplication application, IMetadataManager metadataManager, out string connectionStringName, out ApplyConfiguration applyConfiguration)
     {
         var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Configuration.MongoDb.MultiTenancy");
         if (template == null)
