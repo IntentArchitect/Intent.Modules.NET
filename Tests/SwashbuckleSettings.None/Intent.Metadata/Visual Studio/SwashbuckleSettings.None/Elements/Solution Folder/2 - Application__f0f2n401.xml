@@ -16,7 +16,6 @@
       <display>SwashbuckleSettings.None.Application</display>
       <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4dc04bbc-7d0f-4738-975c-123d4c7d419f</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Application</display>
           <externalReference>1be18753-0bf3-4e0b-b5d7-800fc5b49272</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e3f753ba-008e-4005-b083-38a0195815f0</parentFolderId>
