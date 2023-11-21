@@ -25,7 +25,7 @@ namespace Intent.Modules.EntityFrameworkCore
                 _ when project.IsNetApp(5) => "5.0.10",
                 _ when project.IsNetApp(6) => "6.0.8",
                 _ when project.IsNetApp(7) => "7.0.4",
-                _ when project.IsNetApp(8) => "8.0.0-rc.2",
+                _ when project.IsNetApp(8) => "8.0.0",
                 _ => throw new Exception("Not supported version of .NET Core") 
             };
         }
