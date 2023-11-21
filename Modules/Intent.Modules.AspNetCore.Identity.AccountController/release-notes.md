@@ -1,4 +1,8 @@
-﻿### Version 2.1.3
+﻿### Version 2.1.4
+
+- Fixed: When using the refresh token endpoint, the returned access token now has its claims updated with the latest for the user. This is inline with the behaviour of Microsoft's own refresh token endpoint as part of their [identity management API introduced with .NET 8](https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/).
+
+### Version 2.1.3
 
 - Fixed: Login not working with Postgres, issue related to non UTC DateTime.
 

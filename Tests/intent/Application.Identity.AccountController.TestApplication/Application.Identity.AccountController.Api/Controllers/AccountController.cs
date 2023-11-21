@@ -168,7 +168,9 @@ namespace Application.Identity.AccountController.Api.Controllers
             var user = await _userManager.FindByNameAsync(username);
             if (user == null || user.RefreshToken != refreshToken) return BadRequest();
 
-            var newJwtToken = _tokenService.GenerateAccessToken(username, principal.Claims);
+            var claims = await _userManager.GetClaimsAsync(user);
+
+            var newJwtToken = _tokenService.GenerateAccessToken(username, claims);
             var newRefreshToken = _tokenService.GenerateRefreshToken();
 
             user.RefreshToken = newRefreshToken.Token;
