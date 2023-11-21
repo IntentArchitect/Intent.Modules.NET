@@ -4,6 +4,8 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

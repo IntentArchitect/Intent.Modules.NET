@@ -6,6 +6,8 @@ using CosmosDB.EntityInterfaces.Domain.Common.Interfaces;
 using CosmosDB.EntityInterfaces.Domain.Entities.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CosmosDB.EntityInterfaces.Domain.Entities
 {
     public class Invoice : IInvoice, IHasDomainEvent
