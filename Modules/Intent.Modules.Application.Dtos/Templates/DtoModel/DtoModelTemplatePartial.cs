@@ -58,7 +58,14 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     {
                         @class.AddConstructor(protectedCtor =>
                         {
-                            protectedCtor.Protected();
+                            if (ExecutionContext.Settings.GetDTOSettings().Sealed())
+                            {
+                                protectedCtor.Private();
+                            }
+                            else
+                            {
+                                protectedCtor.Protected();   
+                            }
                             PopulateDefaultCtor(protectedCtor);
                         });
                         
