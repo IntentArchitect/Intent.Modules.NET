@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
             {
-                handleMethod.AddStatement($"{entity.RepositoryFieldName}.Add({entity.VariableName});", s => s.SeparatedFromPrevious());
+                handleMethod.AddStatement($"{entity.DataAccessProvider.AddEntity(entity.VariableName)}", s => s.SeparatedFromPrevious());
             }
 
             if (_model.TypeReference.Element != null)

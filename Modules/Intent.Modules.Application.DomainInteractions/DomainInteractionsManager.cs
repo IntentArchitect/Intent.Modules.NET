@@ -47,7 +47,10 @@ public class DomainInteractionsManager
         _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
         _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
 
-        InjectRepositoryForEntity(foundEntity, out var repositoryFieldName);
+        if (!TryInjectRepositoryForEntity(foundEntity, out var dataAccess))
+        {
+            TryInjectDbContext(foundEntity, out dataAccess);
+        }
 
         var statements = new List<CSharpStatement>();
         if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true))
@@ -59,34 +62,31 @@ public class DomainInteractionsManager
 
             if (associationEnd.TypeReference.IsCollection && idFields.Count == 1 && queryMapping.MappedEnds.Single().SourceElement?.TypeReference.IsCollection == true)
             {
-                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindByIdsAsync({idFields.AsSingleOrTuple()}.ToArray(), cancellationToken);");
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields.AsSingleOrTuple())));
             }
             else
             {
-                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindByIdAsync({idFields.AsSingleOrTuple()}, cancellationToken);");
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields.AsSingleOrTuple())));
             }
         }
-        else 
+        else
         {
             var queryFields = queryMapping.MappedEnds
-                .Select(x => x.IsOneToOne() 
-                    ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}" 
+                .Select(x => x.IsOneToOne()
+                    ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
                     : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
                 .ToList();
 
 
-            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}, " : "";
+            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
 
             if (associationEnd.TypeReference.IsCollection)
             {
-                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAllAsync({expression}cancellationToken);");
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
             }
             else if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
             {
-                statements.Add(@$"var {entityVariableName} = await {repositoryFieldName}.FindAllAsync({expression}
-                pageNo: {pageNo},
-                pageSize: {pageSize}, 
-                cancellationToken);");
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression, pageNo, pageSize)));
             }
             else
             {
@@ -94,7 +94,7 @@ public class DomainInteractionsManager
                 {
                     throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
                 }
-                statements.Add($"var {entityVariableName} = await {repositoryFieldName}.FindAsync({expression}cancellationToken);");
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
             }
         }
 
@@ -109,7 +109,7 @@ public class DomainInteractionsManager
                 message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
 
         }
-        TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, repositoryFieldName, false, associationEnd.TypeReference.IsCollection));
+        TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
 
         return statements;
     }
@@ -126,24 +126,56 @@ public class DomainInteractionsManager
         return ifStatement;
     }
 
-    public void InjectRepositoryForEntity(ClassModel foundEntity, out string repositoryFieldName)
+    public bool TryInjectRepositoryForEntity(ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
     {
-        var repositoryInterface = _template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, foundEntity);
+        if (!_template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
+        {
+            dataAccessProvider = null;
+            return false;
+        }
         var repositoryName = repositoryInterface[1..].ToCamelCase();
-        var temp = default(string);
+        var repositoryFieldName = default(string);
 
         var ctor = _template.CSharpFile.Classes.First().Constructors.First();
         if (ctor.Parameters.All(x => x.Type != repositoryInterface))
         {
             ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
-                param => param.IntroduceReadonlyField(field => temp = field.Name));
-            repositoryFieldName = temp;
+                param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
         }
         else
         {
             repositoryFieldName = ctor.Parameters.First(x => x.Type == repositoryInterface).Name.ToPrivateMemberName();
         }
+
+        dataAccessProvider = new RepositoryDataAccessProvider(repositoryFieldName);
+        return true;
     }
+
+    public bool TryInjectDbContext(ClassModel entity, out IDataAccessProvider dataAccessProvider)
+    {
+        if (!_template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out var dbContextInterface))
+        {
+            dataAccessProvider = null;
+            return false;
+        }
+        var dbContext = "dbContext";
+        var dbContextField = default(string);
+
+        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+        if (ctor.Parameters.All(x => x.Type != dbContextInterface))
+        {
+            ctor.AddParameter(dbContextInterface, dbContext.ToParameterName(),
+                param => param.IntroduceReadonlyField(field => dbContextField = field.Name));
+        }
+        else
+        {
+            dbContextField = ctor.Parameters.First(x => x.Type == dbContextInterface).Name.ToPrivateMemberName();
+        }
+
+        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template);
+        return true;
+    }
+
 
     private void InjectAutoMapper(out string fieldName)
     {
@@ -173,7 +205,7 @@ public class DomainInteractionsManager
             .ToList();
         foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.Model.Id).Select(x => x.First()))
         {
-            statements.Add($"await {entity.RepositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
+            statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
         }
 
         if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
@@ -207,9 +239,12 @@ public class DomainInteractionsManager
     {
         var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
 
-        InjectRepositoryForEntity(entity, out var repositoryFieldName);
+        if (!TryInjectRepositoryForEntity(entity, out var dataAccess))
+        {
+            TryInjectDbContext(entity, out dataAccess);
+        }
 
-        TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, repositoryFieldName, true));
+        TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, dataAccess, true));
 
         var entityVariableName = createAction.Name;
         var statements = new List<CSharpStatement>();
@@ -257,8 +292,7 @@ public class DomainInteractionsManager
 
             if (RepositoryRequiresExplicitUpdate(entity))
             {
-                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update")
-                    .AddArgument(entityDetails.VariableName.Singularize())
+                statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
                     .SeparatedFromPrevious());
             }
         }
@@ -271,8 +305,7 @@ public class DomainInteractionsManager
 
             if (RepositoryRequiresExplicitUpdate(entity))
             {
-                statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Update")
-                    .AddArgument(entityDetails.VariableName)
+                statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                     .SeparatedFromPrevious());
             }
         }
@@ -294,13 +327,12 @@ public class DomainInteractionsManager
         if (entityDetails.IsCollection)
         {
             statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                .AddStatement(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove")
-                    .AddArgument(entityDetails.VariableName.Singularize()))
+                .AddStatement(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName.Singularize()))
                     .SeparatedFromPrevious());
         }
         else
         {
-            statements.Add(new CSharpInvocationStatement(entityDetails.RepositoryFieldName, "Remove").AddArgument(entityDetails.VariableName)
+            statements.Add(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName)
                 .SeparatedFromPrevious());
         }
         return statements;
@@ -392,7 +424,9 @@ public class DomainInteractionsManager
     }
 }
 
-public record EntityDetails(ClassModel Model, string VariableName, string RepositoryFieldName, bool IsNew, bool IsCollection = false);
+
+
+public record EntityDetails(ClassModel Model, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
 
 public static class MappingExtensions
 {

@@ -52,8 +52,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var ctor = @class.Constructors.First();
                     method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                     var mappingManager = new CSharpClassMappingManager(template);
-                    mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
                     mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
+                    mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
                     mappingManager.SetFromReplacement(model, "message");
                     mappingManager.SetFromReplacement(model.Element, "message");
                     foreach (var sendCommand in model.SentCommandDestinations().Where(x => x.Mappings.Any()))
@@ -74,7 +74,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     foreach (var calledOperation in model.CalledServiceOperations().Where(x => x.Mappings.Any()))
                     {
                         var serviceInterfaceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
-                        var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type != serviceInterfaceType)?.Name;
+                        var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type == serviceInterfaceType)?.Name;
                         if (serviceFieldName == null)
                         {
                             ctor.AddParameter(serviceInterfaceType, serviceInterfaceType.AsClassName().ToPrivateMemberName(), param =>
@@ -87,7 +87,9 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                             });
                         }
 
-                        method.AddStatement(new CSharpAccessMemberStatement($"await {serviceFieldName}", mappingManager.GenerateUpdateStatements(calledOperation.Mappings.Single()).First()));
+                        var operationInvocation = mappingManager.GenerateUpdateStatements(calledOperation.Mappings.Single()).First();
+                        (operationInvocation as CSharpInvocationStatement)?.AddArgument("cancellationToken");
+                        method.AddStatement(new CSharpAccessMemberStatement($"await {serviceFieldName}", operationInvocation));
                     }
                 }
             }

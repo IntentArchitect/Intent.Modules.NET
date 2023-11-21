@@ -12,7 +12,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -115,8 +114,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
-            if (repositoryInterface == null)
+            if (!_template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, nestedCompOwner != null ? nestedCompOwner : foundEntity, out var repositoryInterface))
             {
                 return NoMatch;
             }

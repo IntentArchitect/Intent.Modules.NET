@@ -67,7 +67,10 @@ internal static class PersistenceUnitOfWork
         if (requiresEf)
         {
             constructor.AddParameter(
-                template.GetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork),
+                template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out  unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateFulfillingRoles.Infrastructure.Data.DbContext, out unitOfWork) ? unitOfWork
+                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support."),
                 efParameterName,
                 c => c.IntroduceReadonlyField());
 

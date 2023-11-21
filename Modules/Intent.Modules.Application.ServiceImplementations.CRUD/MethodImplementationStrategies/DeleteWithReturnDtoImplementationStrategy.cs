@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
@@ -71,7 +70,7 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
         var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
             ? dtoName
             : dtoModel.Name.ToPascalCase();
-        var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+        var repositoryTypeName = _template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel);
         var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
         var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
         var entityVariableName = domainModel.GetExistingVariableName();

@@ -9,6 +9,6 @@ public static class TemplateExtensions
     {
         var exceptionName = template
             .GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
-        return exceptionName;
+        return exceptionName ?? "NotFoundException";
     }
 }
