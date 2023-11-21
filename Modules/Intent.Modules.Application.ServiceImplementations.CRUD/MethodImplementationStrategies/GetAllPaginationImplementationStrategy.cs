@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
@@ -46,7 +47,19 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         }
 
         var dtoModel = operationModel.ReturnType.GenericTypeParameters.First().Element.AsDTOModel();
-        return dtoModel.Mapping?.Element?.AsClassModel() != null;
+        var domainModel = dtoModel.Mapping.Element.AsClassModel();
+
+        if (domainModel == null)
+        {
+            return false;
+        }
+
+        if (!_template.TryGetTemplate<ITemplate>(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel, out _))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public void ApplyStrategy(OperationModel operationModel)

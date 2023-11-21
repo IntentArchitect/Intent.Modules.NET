@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Added support for the Advanced Mapping functionality and explicit modeling of actions available in Intent Archtiect 4.1.x.
+
 ### Version 4.0.9
 
 - Improvement: Description Attributes can be applied to `Enum` literals through the usage of the Description Stereotype.

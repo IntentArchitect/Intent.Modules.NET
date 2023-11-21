@@ -86,7 +86,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
             {
-                method.AddStatement($"{entity.RepositoryFieldName}.Add({entity.VariableName});");
+                method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
             }
 
             if (operationModel.TypeReference.Element != null)

@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
@@ -53,6 +54,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
             if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)) &&
                 dtoModel.Fields.GetEntityIdField(domainModel) == null)
+            {
+                return false;
+            }
+
+            if (!_template.TryGetTemplate<ITemplate>(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel, out _))
             {
                 return false;
             }
