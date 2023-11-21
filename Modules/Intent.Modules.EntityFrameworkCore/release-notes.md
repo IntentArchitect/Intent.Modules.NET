@@ -2,6 +2,7 @@
 
 - Improvement: It is now possible to [enable split queries globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally) by selecting the _Enable split queries globally_ application setting (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/9) for this).
 - Fixed: Index Columns being generated in the Entity Type Configurations will now refer to the actual Attribute Name as opposed to the Column name.
+- Fixed: Adding base class attributes to Indexes was resulting in broken mapping code, this is now resolved.
 
 ### Version 4.4.14
 
