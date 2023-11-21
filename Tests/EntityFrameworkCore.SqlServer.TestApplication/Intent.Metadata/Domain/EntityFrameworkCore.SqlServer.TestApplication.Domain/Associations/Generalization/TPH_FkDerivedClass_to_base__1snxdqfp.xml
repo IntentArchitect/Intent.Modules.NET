@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="10a9a0c1-d3c8-4b1d-91a7-d3f636199359">
-  <sourceEnd id="18ac4270-2b07-4621-87ef-40fa555811c1" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <name>DerivedClassForConcrete</name>
-    <display>DerivedClassForConcrete: TPC_DerivedClassForConcrete</display>
+<association id="c669fc19-a9cf-4b11-b465-c73466cd7480">
+  <sourceEnd id="43417a2d-e8ba-4152-a4ad-a78bcd73c137" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: TPH_FkDerivedClass</display>
     <order>0</order>
-    <typeReference id="44776f65-3bb6-40b4-b4e5-70f49a05974a">
-      <typeId>1b712c85-c882-42ab-aec7-d687d3a74035</typeId>
+    <typeReference id="e718f557-7090-48d5-87ce-dec6fee7d9ec">
+      <typeId>9f52144c-5b09-43d1-ba93-71f89dd9ec4e</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -19,12 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="10a9a0c1-d3c8-4b1d-91a7-d3f636199359" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>ConcreteBaseClass</name>
-    <display>ConcreteBaseClass: TPC_ConcreteBaseClass</display>
+  <targetEnd id="c669fc19-a9cf-4b11-b465-c73466cd7480" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends TPH_FkBaseClass</display>
     <order>1</order>
-    <typeReference id="a04f6f30-843d-460e-aa68-4eb6f73bb9c9">
-      <typeId>39b16986-2975-4614-ae5e-3f342e411232</typeId>
+    <typeReference id="6dbeeaa3-d220-4ae5-be0e-bdad9a7f98e7">
+      <typeId>143cfd28-49d4-4ffd-8f1a-a0e5c25b4df2</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

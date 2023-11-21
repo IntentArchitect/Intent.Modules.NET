@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="abce9836-34ee-4524-ac18-6e24c115e716">
-  <sourceEnd id="6ffdbc18-c11a-480b-aa8a-a6d443a3904f" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <name>Poly_BaseClassNonAbstract</name>
-    <display>Poly_BaseClassNonAbstract: TPC_Poly_BaseClassNonAbstract</display>
+<association id="18ebe022-705a-40b5-954c-3ab54967511b">
+  <sourceEnd id="f4b86b52-3c5f-42d3-9b0b-88c995da2cab" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: TPT_DerivedClassForAbstract</display>
     <order>0</order>
-    <typeReference id="2c9b45f2-3b31-45cd-8390-7d6497a1d8a6">
-      <typeId>97052928-9f5a-4fce-a397-9cc4f0d490f8</typeId>
+    <typeReference id="230eab77-4be8-41c8-bf2d-42dfc72195f3">
+      <typeId>efbcd83b-5289-45ce-afb9-d62fc800df15</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -19,12 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="abce9836-34ee-4524-ac18-6e24c115e716" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>Poly_RootAbstract</name>
-    <display>Poly_RootAbstract: TPC_Poly_RootAbstract</display>
+  <targetEnd id="18ebe022-705a-40b5-954c-3ab54967511b" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends TPT_AbstractBaseClass</display>
     <order>1</order>
-    <typeReference id="395388a1-feff-4631-9f96-aee8a1a33d84">
-      <typeId>fb211777-0bb4-4c63-81a5-6ec73f9cfe35</typeId>
+    <typeReference id="77f7d6e9-644e-41f1-8df9-d2a3656479eb">
+      <typeId>8c6a2254-9f5b-49b0-bf2f-064627808e41</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
