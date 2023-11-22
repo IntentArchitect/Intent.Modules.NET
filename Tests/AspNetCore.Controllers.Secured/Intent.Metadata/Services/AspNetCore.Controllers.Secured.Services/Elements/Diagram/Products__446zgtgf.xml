@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc44d93b-d0b3-4e6d-8162-eadf92689258" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Products</name>
+  <display>Products</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3bceaba7-3cce-4ed5-83f9-d6db313712cb</parentFolderId>
+  <packageId>90a633da-261a-42ee-bf0a-bb2c83797675</packageId>
+  <packageName>AspNetCore.Controllers.Secured.Services</packageName>
+  <diagram>
+    <targetPackageId>3bceaba7-3cce-4ed5-83f9-d6db313712cb</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

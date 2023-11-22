@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="03f5956e-aee4-4a7f-955e-e86f00308814">
+  <sourceEnd id="092a705d-b59e-42bb-84da-c8e15ae6dc4f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Orders</name>
+    <display>Orders: Order[*]</display>
+    <order>0</order>
+    <typeReference id="98d0f969-96b3-45f5-b362-c5192a38a586">
+      <typeId>82e11769-f346-4e4a-92d1-6f01a81e4707</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Domain</typePackageName>
+      <typePackageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="03f5956e-aee4-4a7f-955e-e86f00308814" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Buyer</name>
+    <display>Buyer: Buyer   [* --&gt; 1]</display>
+    <order>3</order>
+    <typeReference id="946e2e3b-8030-4648-b4bd-8fc88d1242ec">
+      <typeId>70e5734e-33ee-465f-bc96-336bf12f7e3e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Domain</typePackageName>
+      <typePackageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

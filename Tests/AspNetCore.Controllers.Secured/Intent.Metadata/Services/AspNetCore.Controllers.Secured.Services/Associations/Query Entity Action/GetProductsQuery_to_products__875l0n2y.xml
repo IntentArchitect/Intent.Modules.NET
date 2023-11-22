@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="41bb1a77-28c0-4946-b4cc-4434b439677f">
+  <sourceEnd id="fe724b91-1135-4a69-b8f2-a803b6cf0f59" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductsQuery</display>
+    <order>0</order>
+    <typeReference id="43e3e068-1537-424d-910c-3782acfb9eca">
+      <typeId>8741299a-9c28-4fed-b5d8-768205a295b3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+      <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="41bb1a77-28c0-4946-b4cc-4434b439677f" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="ed868c57-e77c-4850-a83f-65d693529b49">
+      <typeId>9dcd5a82-3da2-499f-915e-b505da352e83</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Domain</typePackageName>
+      <typePackageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8741299a-9c28-4fed-b5d8-768205a295b3" location="GetProductsQuery" />
+        <target applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9dcd5a82-3da2-499f-915e-b505da352e83" location="Product" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

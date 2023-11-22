@@ -79,5 +79,6 @@
     <application id="40f7b22d-fc98-4c06-8957-ef909a03365a" name="EntityFrameworkCore.SplitQueries.MySql" relativePath="EntityFrameworkCore.SplitQueries.MySql/EntityFrameworkCore.SplitQueries.MySql.application.config" />
     <application id="887384b0-1607-4815-a01f-fabdb108e39f" name="EntityFrameworkCore.SplitQueries.PostgreSQL" relativePath="EntityFrameworkCore.SplitQueries.PostgreSQL/EntityFrameworkCore.SplitQueries.PostgreSQL.application.config" />
     <application id="51d44bee-1a4b-4c0a-897e-41261c2bfb9c" name="MinimalHostingModel" relativePath="MinimalHostingModel/MinimalHostingModel.application.config" />
+    <application id="e4251ba7-1036-4a2b-b23d-22d286ea81d2" name="AspNetCore.Controllers.Secured" relativePath="AspNetCore.Controllers.Secured/AspNetCore.Controllers.Secured.application.config" />
   </applications>
 </solution>

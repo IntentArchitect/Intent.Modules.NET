@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3e823e57-c36a-4578-a58e-4957fabaf281">
+  <sourceEnd id="84bbc570-55ac-41e6-8224-69f13a93e8ca" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductByIdQuery</display>
+    <order>0</order>
+    <typeReference id="597eff7a-f030-4b37-ad09-c323c2e626cd">
+      <typeId>d547a720-3c5c-4dc4-8c45-ac13c770ba2d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+      <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3e823e57-c36a-4578-a58e-4957fabaf281" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <typeReference id="f8255689-d443-48a2-980d-0ed4165d55bd">
+      <typeId>9dcd5a82-3da2-499f-915e-b505da352e83</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Domain</typePackageName>
+      <typePackageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d547a720-3c5c-4dc4-8c45-ac13c770ba2d" location="GetProductByIdQuery" />
+        <target applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9dcd5a82-3da2-499f-915e-b505da352e83" location="Product" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="9dcd5a82-3da2-499f-915e-b505da352e83" name="Product" type="element" specialization="Class" />
+              <target id="7013883e-6e33-4a3f-95be-2adc97ce9b0c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d547a720-3c5c-4dc4-8c45-ac13c770ba2d" name="GetProductByIdQuery" type="element" specialization="Query" />
+                  <target id="e985f107-f0f7-49a6-9e55-9fb35d274bb9" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
