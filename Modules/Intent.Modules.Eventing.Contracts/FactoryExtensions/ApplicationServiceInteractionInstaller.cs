@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ITemplate>(TemplateFulfillingRoles.Application.Eventing.EventHandler)
+            var templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Eventing.EventHandler)
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
             {
@@ -73,7 +73,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 
                     foreach (var calledOperation in model.CalledServiceOperations().Where(x => x.Mappings.Any()))
                     {
-                        var serviceInterfaceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
+                        var serviceInterfaceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
                         var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type == serviceInterfaceType)?.Name;
                         if (serviceFieldName == null)
                         {

@@ -31,10 +31,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             
-            var templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.Custom.Dispatcher));
+            var templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.Custom.Dispatcher));
             if (!templates.Any())
             {
-                templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+                templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.WebApi.Controller));
             }
             foreach (var template in templates)
             {
@@ -53,12 +53,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         private static void InstallValidation(IControllerTemplate<IControllerModel> template)
         {
-            if (!template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
+            if (!template.TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
             {
                 return;
             }
 
-            if (template.Model.Operations.All(o => o.Parameters.All(x => !template.TryGetTypeName(TemplateFulfillingRoles.Application.Validation.Dto, x.TypeReference.Element, out _))))
+            if (template.Model.Operations.All(o => o.Parameters.All(x => !template.TryGetTypeName(TemplateRoles.Application.Validation.Dto, x.TypeReference.Element, out _))))
             {
                 return;
             }
@@ -188,7 +188,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
+                ctor.AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
@@ -228,13 +228,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         private static string GetUnitOfWork(IControllerTemplate<IControllerModel> template)
         {
-            if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||
-                template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWork) ||
-                template.TryGetTypeName(TemplateFulfillingRoles.Infrastructure.Data.DbContext, out unitOfWork))
+            if (template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ||
+                template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ||
+                template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork))
             {
                 return unitOfWork;
             }
-            throw new Exception($"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateFulfillingRoles.Domain.UnitOfWork}] exists.");
+            throw new Exception($"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateRoles.Domain.UnitOfWork}] exists.");
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     {
                         var @interface = template.CSharpFile.Interfaces.First();
                         var model = @interface.GetMetadata<IMetadataModel>("model");
-                        if (template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var entityTemplate))
+                        if (template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, model, out var entityTemplate))
                         {
                             entityTemplate.CSharpFile.AfterBuild(file =>
                             {
@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                                 if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
                                 {
-                                    @interface.AddMethod($"{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
+                                    @interface.AddMethod($"{template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
                                     {
                                         method.AddAttribute("[IntentManaged(Mode.Fully)]");
                                         if (pks.Length == 1)
@@ -66,7 +66,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                                     });
                                     if (pks.Length == 1)
                                     {
-                                        @interface.AddMethod($"List<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model)}>", "FindByIds", method =>
+                                        @interface.AddMethod($"List<{template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model)}>", "FindByIds", method =>
                                         {
                                             method.AddAttribute("[IntentManaged(Mode.Fully)]");
                                             var pk = pks.First();

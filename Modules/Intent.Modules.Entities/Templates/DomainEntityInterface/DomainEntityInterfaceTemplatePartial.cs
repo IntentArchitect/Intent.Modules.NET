@@ -47,7 +47,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             AddTypeSource(TemplateId);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
         }
 
         public override void OnCreated()

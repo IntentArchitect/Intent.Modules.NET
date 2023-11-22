@@ -41,10 +41,10 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+        AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+        AddTypeSource(TemplateRoles.Domain.Enum);
         AddTypeSource(CommandModelsTemplate.TemplateId);
-        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}ValidatorTests")
@@ -218,8 +218,8 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         {
             var dtoModel = property.TypeReference?.Element?.AsDTOModel();
             if (dtoModel is null ||
-                !TryGetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel, out var dtoTemplate) ||
-                !TryGetTypeName(TemplateFulfillingRoles.Application.Validation.Dto, dtoModel, out var dtoValidatorTemplate))
+                !TryGetTypeName(TemplateRoles.Application.Contracts.Dto, dtoModel, out var dtoTemplate) ||
+                !TryGetTypeName(TemplateRoles.Application.Validation.Dto, dtoModel, out var dtoValidatorTemplate))
             {
                 continue;
             }
@@ -391,7 +391,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         if (property.TypeReference.IsCollection)
         {
             return
-                $"new {UseType($"System.Collections.Generic.List<{GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}>")} {{ ({GetTypeName(TemplateFulfillingRoles.Domain.Enum, property.TypeReference.Element)}){invalidOrdinalValueForTest} }}";
+                $"new {UseType($"System.Collections.Generic.List<{GetTypeName(TemplateRoles.Domain.Enum, property.TypeReference.Element)}>")} {{ ({GetTypeName(TemplateRoles.Domain.Enum, property.TypeReference.Element)}){invalidOrdinalValueForTest} }}";
         }
 
         return $"({GetTypeName(property.TypeReference)}){invalidOrdinalValueForTest}";

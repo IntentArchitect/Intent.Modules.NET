@@ -31,7 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
             // This bypasses the cached lookup
-            var templates = applicationManager.FindTemplateInstances(TemplateFulfillingRoles.Repository.PagedList, _ => true).ToArray();
+            var templates = applicationManager.FindTemplateInstances(TemplateRoles.Repository.PagedList, _ => true).ToArray();
             if (templates.All(p => p.Id == TemplateId))
             {
                 registry.RegisterTemplate(TemplateId, project => new PagedListTemplate(project, null));

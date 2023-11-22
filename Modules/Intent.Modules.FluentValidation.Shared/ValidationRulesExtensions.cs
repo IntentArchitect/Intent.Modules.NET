@@ -475,7 +475,7 @@ public static class ValidationRulesExtensions
     {
         if (!statement.Statements.Any(x => x.TryGetMetadata("requires-repository", out bool requiresRepository) && requiresRepository) ||
             !TryGetMappedClass(dtoModel, out var classModel) ||
-            !template.TryGetTemplate<IClassProvider>(TemplateFulfillingRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
+            !template.TryGetTemplate<IClassProvider>(TemplateRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
         {
             repositoryFieldName = null;
             return false;

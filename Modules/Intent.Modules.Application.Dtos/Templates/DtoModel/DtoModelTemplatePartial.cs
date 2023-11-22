@@ -31,11 +31,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
+            FulfillsRole(TemplateRoles.Application.Contracts.Dto);
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(DtoModelTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(ContractEnumModelTemplate.TemplateId);
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
@@ -288,7 +288,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 @class.WithBaseType(GetTypeName(Model.ParentDtoTypeReference));
                 if (isTypeSealed)
                 {
-                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Contracts.Dto, Model.ParentDtoTypeReference.Element, out var template))
+                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Contracts.Dto, Model.ParentDtoTypeReference.Element, out var template))
                     {
                         var parentClass = template.CSharpFile.TypeDeclarations.First();
                         parentClass.Unsealed();

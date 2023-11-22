@@ -37,7 +37,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+            var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));
             foreach (var template in entityStateTemplates)
             {
                 template.AddTypeSource(DomainEventTemplate.TemplateId);
@@ -102,7 +102,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 });
             }
 
-            var entityInterfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
+            var entityInterfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Interface));
             foreach (var template in entityInterfaceTemplates.Where(x => x.CSharpFile.Interfaces.Any()))
             {
                 template.CSharpFile.OnBuild(file =>

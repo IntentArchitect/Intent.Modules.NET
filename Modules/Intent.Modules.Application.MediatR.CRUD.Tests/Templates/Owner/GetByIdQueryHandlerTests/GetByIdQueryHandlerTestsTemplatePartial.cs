@@ -39,9 +39,9 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         AddNugetDependency(NugetPackages.Xunit);
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+        AddTypeSource(TemplateRoles.Domain.Entity.Primary);
         AddTypeSource(QueryModelsTemplate.TemplateId);
-        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")

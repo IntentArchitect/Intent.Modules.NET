@@ -10,15 +10,15 @@ public static class InteropCoordinator
     public static bool ShouldInstallUnitOfWork(IApplication application)
     {
         var hasUnitOfWorkInterface =
-            application.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Domain.UnitOfWork) != null ||
-            application.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Common.DbContextInterface) != null;
+            application.FindTemplateInstance<IClassProvider>(TemplateRoles.Domain.UnitOfWork) != null ||
+            application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Common.DbContextInterface) != null;
         var hasUnitOfWorkConcrete = application.FindTemplateInstance<IClassProvider>("Infrastructure.Data.DbContext") != null;
         return hasUnitOfWorkInterface && hasUnitOfWorkConcrete;
     }
 
     public static bool ShouldInstallMessageBus(IApplication application)
     {
-        return application.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Eventing.EventBusInterface) != null;
+        return application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null;
     }
     
     public static bool ShouldInstallMongoDbUnitOfWork(IApplication application)

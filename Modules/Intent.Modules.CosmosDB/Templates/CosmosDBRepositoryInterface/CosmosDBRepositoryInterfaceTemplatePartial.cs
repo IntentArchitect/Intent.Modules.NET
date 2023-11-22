@@ -93,7 +93,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                     var genericTypeParameters = model.GenericTypes.Any()
                         ? $"<{string.Join(", ", model.GenericTypes)}>"
                         : string.Empty;
-                    var tDomainGenericArgument = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model);
+                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
                     var tDocumentInterfaceGenericArgument = template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId, model);
                     @interface.ImplementsInterfaces($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
 

@@ -48,8 +48,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.SetFromReplacement(_model, "request");
 
 
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
 
             var @class = _template.CSharpFile.Classes.First();
             var handleMethod = @class.FindMethod("Handle");

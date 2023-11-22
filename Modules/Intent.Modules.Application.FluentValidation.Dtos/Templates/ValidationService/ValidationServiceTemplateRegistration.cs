@@ -28,8 +28,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
             if (!application.MetadataManager.Services(application).GetDTOModels()
                     .Any(x => !x.HasMapFromDomainMapping() && ValidationRulesExtensions.HasValidationRules(
                         dtoModel: x,
-                        dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
-                        dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                        dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                        dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                         uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled())))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this

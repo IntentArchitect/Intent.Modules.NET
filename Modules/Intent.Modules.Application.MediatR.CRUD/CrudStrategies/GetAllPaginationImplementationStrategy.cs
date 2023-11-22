@@ -80,7 +80,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
             return NoMatch;
         }
 
-        if (!_template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, mappedDomainEntity, out var repositoryInterface))
+        if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, mappedDomainEntity, out var repositoryInterface))
         {
             return NoMatch;
         }

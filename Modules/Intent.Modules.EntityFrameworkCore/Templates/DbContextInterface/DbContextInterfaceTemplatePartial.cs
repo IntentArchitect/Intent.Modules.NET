@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         }
 
         public bool IsEnabled => ExecutionContext.Settings.GetDatabaseSettings().GenerateDbContextInterface() 
-                                 || !TryGetTemplate<ITemplate>(TemplateFulfillingRoles.Domain.UnitOfWork, out _);
+                                 || !TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

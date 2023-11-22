@@ -8,7 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using static Intent.Modules.Constants.TemplateFulfillingRoles.Domain;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -124,7 +124,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         _dbContextField = dbContextField;
         _template = template;
         _dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, entity.Name.ToPascalCase().Pluralize());
-        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entity);
+        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
     }
 

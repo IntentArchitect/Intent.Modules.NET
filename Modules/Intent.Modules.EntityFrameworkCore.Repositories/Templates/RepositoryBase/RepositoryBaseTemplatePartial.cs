@@ -130,7 +130,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(x => true);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -146,7 +146,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -163,7 +163,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -234,7 +234,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize");
                             method.AddStatement($"var query = QueryInternal(x => true);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -247,7 +247,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                                 .AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize");
                             method.AddStatement($"var query = QueryInternal(filterExpression);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -262,7 +262,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                                 .AddParameter("int", "pageSize")
                                 .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
                             method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")

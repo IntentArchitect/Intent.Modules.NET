@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (!_template.TryGetTemplate<ITemplate>(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel, out _))
+            if (!_template.TryGetTemplate<ITemplate>(TemplateRoles.Repository.Interface.Entity, domainModel, out _))
             {
                 return false;
             }
@@ -69,12 +69,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public void ApplyStrategy(OperationModel operationModel)
         {
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
 
             var (dtoModel, domainModel) = operationModel.GetUpdateModelPair();
-            var repositoryTypeName = _template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel);
+            var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
@@ -125,7 +125,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
         private bool RepositoryRequiresExplicitUpdate(ClassModel domainModel)
         {
             return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       TemplateRoles.Repository.Interface.Entity,
                        domainModel,
                        out var repositoryInterfaceTemplate) &&
                    repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&

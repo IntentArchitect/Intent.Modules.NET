@@ -27,7 +27,7 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.FactoryExt
             // Setting the default AuthenticationScheme scheme in the startup configuration doesn't work for some reason.
             // I suspect that the default AuthenticationScheme is not being respected when you run Identity Server alongside JWT auth.
             // https://stackoverflow.com/questions/40646312/asp-net-core-authorize-attribute-not-working-with-jwt
-            var controllers = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+            var controllers = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.WebApi.Controller));
             foreach (var controller in controllers)
             {
                 controller.CSharpFile.OnBuild(file =>

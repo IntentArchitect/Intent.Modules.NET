@@ -57,8 +57,8 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository
         }
 
         //Because this is a Role its adaptive it will be the Entity.Interface or the Entity.Primary
-        public string EntityTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
-        public string EntityStateTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public string EntityTypeName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
+        public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
 
         public override void AfterTemplateRegistration()
         {

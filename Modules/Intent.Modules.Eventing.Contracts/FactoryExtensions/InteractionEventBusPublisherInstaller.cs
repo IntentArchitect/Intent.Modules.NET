@@ -63,7 +63,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             }
 
             // PUBLISH EVENTS FROM SERVICES:
-            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Services.Implementation);
+            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.Implementation);
             foreach (var template in templates)
             {
                 if (!template.TryGetModel(out ServiceModel serviceModel))
@@ -87,7 +87,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             }
 
             // PUBLISH EVENTS FROM DOMAIN EVENT HANDLERS:
-            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.DomainEventHandler.Explicit);
+            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
             foreach (var template in templates)
             {
                 //var model = (template as ITemplateWithModel)?.Model as IProcessingHandler ?? throw new Exception($"Unable to resolve {nameof(DomainEventHandlerModel)} for {TemplateFulfillingRoles.Application.DomainEventHandler.Explicit} template");
@@ -116,7 +116,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             }
 
             // PUBLISH EVENTS FROM INTEGRATION EVENT HANDLERS:
-            templates = application.FindTemplateInstances<ITemplate>(TemplateFulfillingRoles.Application.Eventing.EventHandler)
+            templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Eventing.EventHandler)
                 // Have to do this at the moment, otherwise SF break because it can't cast.
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)

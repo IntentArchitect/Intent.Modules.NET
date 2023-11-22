@@ -27,7 +27,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IMongoDbUnitOfWork", inter =>
                 {
-                    var originalUnitOfWorkInterfaceName = this.GetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, TemplateDiscoveryOptions.DoNotThrow);
+                    var originalUnitOfWorkInterfaceName = this.GetTypeName(TemplateRoles.Domain.UnitOfWork, TemplateDiscoveryOptions.DoNotThrow);
                     if (!string.IsNullOrEmpty(originalUnitOfWorkInterfaceName))
                     {
                         inter.ExtendsInterface(originalUnitOfWorkInterfaceName);

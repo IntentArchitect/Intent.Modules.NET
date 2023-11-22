@@ -31,11 +31,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationEventHandlerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Application.Command);
-            AddTypeSource(TemplateFulfillingRoles.Application.Query);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

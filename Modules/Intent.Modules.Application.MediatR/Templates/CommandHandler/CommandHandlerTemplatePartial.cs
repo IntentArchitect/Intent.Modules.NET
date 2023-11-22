@@ -42,10 +42,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         internal static void Configure(ICSharpFileBuilderTemplate template, CommandModel model)
         {
             template.AddNugetDependency(NuGetPackages.MediatR);
-            template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
-            template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-            template.AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+            template.AddTypeSource(TemplateRoles.Application.Command);
+            template.AddTypeSource(TemplateRoles.Domain.Enum);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
             template.CSharpFile
                 .AddUsing("System")

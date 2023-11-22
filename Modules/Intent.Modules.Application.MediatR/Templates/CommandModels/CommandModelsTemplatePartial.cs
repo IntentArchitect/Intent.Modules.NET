@@ -29,11 +29,11 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             FulfillsRole("Application.Contract.Command");
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
             CSharpFile = new CSharpFile($"{this.GetCommandNamespace()}", $"{this.GetCommandFolderPath()}")
                 .AddUsing("MediatR")
@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
             {
                 FulfillsRole("Application.Command.Handler");
-                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Command);
+                FulfillsRole(TemplateRoles.Application.Validation.Command);
                 CommandHandlerTemplate.Configure(this, model);
             }
         }

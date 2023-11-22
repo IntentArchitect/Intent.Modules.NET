@@ -132,7 +132,7 @@ public class DomainInteractionsManager
 
     public bool TryInjectRepositoryForEntity(ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
     {
-        if (!_template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
+        if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
         {
             dataAccessProvider = null;
             return false;
@@ -157,7 +157,7 @@ public class DomainInteractionsManager
 
     public bool TryInjectDbContext(ClassModel entity, out IDataAccessProvider dataAccessProvider)
     {
-        if (!_template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out var dbContextInterface))
+        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface))
         {
             dataAccessProvider = null;
             return false;
@@ -345,7 +345,7 @@ public class DomainInteractionsManager
     private bool RepositoryRequiresExplicitUpdate(IMetadataModel forEntity)
     {
         return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                   TemplateFulfillingRoles.Repository.Interface.Entity,
+                   TemplateRoles.Repository.Interface.Entity,
                    forEntity,
                    out var repositoryInterfaceTemplate) &&
                repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&

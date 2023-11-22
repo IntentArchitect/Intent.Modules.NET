@@ -124,7 +124,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             return;
         }
 
-        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
         if (template == null)
         {
             return;
@@ -204,7 +204,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             return;
         }
 
-        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
         if (template == null)
         {
             return;

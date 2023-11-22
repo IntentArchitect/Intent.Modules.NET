@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 .ToArray();
 
             if (dataContractResults.Any() &&
-                TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateFulfillingRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+                TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
             {
                 dbContextTemplate.CSharpFile.OnBuild(file =>
                 {
@@ -47,7 +47,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                     foreach (var dc in dataContractResults)
                     {
-                        var typeName = dbContextTemplate.GetTypeName(TemplateFulfillingRoles.Domain.DataContract, dc);
+                        var typeName = dbContextTemplate.GetTypeName(TemplateRoles.Domain.DataContract, dc);
 
                         @class.AddProperty(
                             type: $"DbSet<{typeName}>",

@@ -94,7 +94,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-            if (!_template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, nestedCompOwner != null ? nestedCompOwner : foundEntity, out var repositoryInterface))
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, nestedCompOwner != null ? nestedCompOwner : foundEntity, out var repositoryInterface))
             {
                 return NoMatch;
             }

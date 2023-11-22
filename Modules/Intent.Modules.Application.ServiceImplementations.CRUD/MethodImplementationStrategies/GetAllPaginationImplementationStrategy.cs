@@ -54,7 +54,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             return false;
         }
 
-        if (!_template.TryGetTemplate<ITemplate>(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel, out _))
+        if (!_template.TryGetTemplate<ITemplate>(TemplateRoles.Repository.Interface.Entity, domainModel, out _))
         {
             return false;
         }
@@ -64,8 +64,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
     public void ApplyStrategy(OperationModel operationModel)
     {
-        _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+        _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+        _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
         _template.AddUsing("System.Linq");
 
         var genericDtoElement = operationModel.TypeReference.GenericTypeParameters.First().Element;
@@ -74,7 +74,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             ? dtoName
             : dtoModel.Name.ToPascalCase();
         var domainModel = dtoModel.Mapping.Element.AsClassModel();
-        var repositoryTypeName = _template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, domainModel);
+        var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
         var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
         var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
 

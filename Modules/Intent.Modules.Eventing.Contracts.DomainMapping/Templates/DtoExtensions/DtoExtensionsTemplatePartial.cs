@@ -33,9 +33,9 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.EnsureSuffixedWith("Dto")}Extensions", @class =>

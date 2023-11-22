@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HubServiceTemplate(IOutputTarget outputTarget, SignalRHubModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name.RemoveSuffix("Hub")}HubService", @class =>

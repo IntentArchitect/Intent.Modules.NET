@@ -84,8 +84,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private ICSharpFileBuilderTemplate GetEntityTemplate(IApplication application, ClassModel model)
         {
-            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.EntityImplementation, model.Id);
-            if (((IntentTemplateBase)entityTemplate).TryGetTemplate(TemplateFulfillingRoles.Domain.Entity.State, model.Id, out ICSharpFileBuilderTemplate stateTempalate))
+            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.EntityImplementation, model.Id);
+            if (((IntentTemplateBase)entityTemplate).TryGetTemplate(TemplateRoles.Domain.Entity.State, model.Id, out ICSharpFileBuilderTemplate stateTempalate))
             {
                 entityTemplate = stateTempalate;
             }
