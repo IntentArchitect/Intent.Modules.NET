@@ -25,6 +25,8 @@ internal static class TriggerStrategyResolver
                 return new ManualTriggerHandler(template, model);
             case TriggerType.CosmosDBTrigger:
                 return new CosmosDBTriggerHandler(template, model);
+            case TriggerType.RabbitMQTrigger:
+                return new RabbitMQTriggerHandler(template, model);
             default:
                 throw new ArgumentOutOfRangeException();
         }

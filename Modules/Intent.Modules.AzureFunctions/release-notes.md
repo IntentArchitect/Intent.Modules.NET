@@ -1,3 +1,7 @@
+### Version 4.0.13
+
+- New Feature: Azure Functions can now receive RabbitMQ triggers.
+
 ### Version 4.0.11
 
 - Fixed: Queue Trigger handler parameter name clashes with inline variable name.

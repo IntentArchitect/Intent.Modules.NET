@@ -235,6 +235,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/RabbitMQ Trigger/CommandForRabbitMQTrigger.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#b8e5f357-00cc-499a-8c6b-dcd88f4e7187</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/RabbitMQ Trigger/RabbitMQTriggerFunction.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/RabbitMQTriggerFunction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e4830dc4-4a5d-4d28-91a3-837ec04c6337</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -860,6 +876,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTrigger.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTrigger.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
@@ -1048,6 +1080,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
