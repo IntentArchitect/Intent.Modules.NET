@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -24,7 +23,6 @@ namespace Application.Identity.AccountController.Api.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly SignInManager<ApplicationIdentityUser> _signInManager;
         private readonly UserManager<ApplicationIdentityUser> _userManager;
         private readonly IUserStore<ApplicationIdentityUser> _userStore;
         private readonly ILogger<AccountController> _logger;
@@ -32,14 +30,12 @@ namespace Application.Identity.AccountController.Api.Controllers
         private readonly ITokenService _tokenService;
 
         public AccountController(
-            SignInManager<ApplicationIdentityUser> signInManager,
             IUserStore<ApplicationIdentityUser> userStore,
             UserManager<ApplicationIdentityUser> userManager,
             ILogger<AccountController> logger,
             IAccountEmailSender accountEmailSender,
             ITokenService tokenService)
         {
-            _signInManager = signInManager;
             _userStore = userStore;
             _userManager = userManager;
             _logger = logger;
@@ -143,10 +139,10 @@ namespace Application.Identity.AccountController.Api.Controllers
             }
 
             var token = _tokenService.GenerateAccessToken(username: email, claims: claims.ToArray());
-            var newRefreshToken = _tokenService.GenerateRefreshToken();
+            var (refreshToken, refreshTokenExpiry) = _tokenService.GenerateRefreshToken();
 
-            user.RefreshToken = newRefreshToken.Token;
-            user.RefreshTokenExpired = newRefreshToken.Expiry;
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpired = refreshTokenExpiry;
             await _userManager.UpdateAsync(user);
 
             _logger.LogInformation("User logged in.");
@@ -154,33 +150,35 @@ namespace Application.Identity.AccountController.Api.Controllers
             return Ok(new TokenResultDto
             {
                 AuthenticationToken = token,
-                RefreshToken = newRefreshToken.Token
+                RefreshToken = refreshToken
             });
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<ActionResult<TokenResultDto>> RefreshToken(string authenticationToken, string refreshToken)
+        [Authorize]
+        public async Task<ActionResult<TokenResultDto>> Refresh(RefreshTokenDto dto)
         {
-            var principal = _tokenService.GetPrincipalFromExpiredToken(authenticationToken);
-            var username = principal.Identity.Name;
+            var username = User.Identity!.Name!;
 
             var user = await _userManager.FindByNameAsync(username);
-            if (user == null || user.RefreshToken != refreshToken) return BadRequest();
+            if (user == null || user.RefreshToken != dto.RefreshToken)
+            {
+                return BadRequest();
+            }
 
             var claims = await _userManager.GetClaimsAsync(user);
 
             var newJwtToken = _tokenService.GenerateAccessToken(username, claims);
-            var newRefreshToken = _tokenService.GenerateRefreshToken();
+            var (token, expiry) = _tokenService.GenerateRefreshToken();
 
-            user.RefreshToken = newRefreshToken.Token;
-            user.RefreshTokenExpired = newRefreshToken.Expiry;
+            user.RefreshToken = token;
+            user.RefreshTokenExpired = expiry;
             await _userManager.UpdateAsync(user);
 
             return Ok(new TokenResultDto
             {
                 AuthenticationToken = newJwtToken,
-                RefreshToken = newRefreshToken.Token
+                RefreshToken = token
             });
         }
 
@@ -227,8 +225,8 @@ namespace Application.Identity.AccountController.Api.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
-            var username = User.Identity?.Name;
-            var user = await _userManager.FindByNameAsync(username);
+            var username = User.Identity!.Name!;
+            var user = (await _userManager.FindByNameAsync(username))!;
             user.RefreshToken = null;
             user.RefreshTokenExpired = null;
             await _userManager.UpdateAsync(user);
@@ -260,5 +258,10 @@ namespace Application.Identity.AccountController.Api.Controllers
     {
         public string? UserId { get; set; }
         public string? Code { get; set; }
+    }
+
+    public class RefreshTokenDto
+    {
+        public string? RefreshToken { get; set; }
     }
 }
