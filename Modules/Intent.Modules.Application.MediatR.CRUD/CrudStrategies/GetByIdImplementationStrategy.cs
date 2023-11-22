@@ -86,9 +86,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
 
             codeLines.Add($@"var {foundEntity.Name.ToCamelCase()} = await {repository.FieldName}.FindByIdAsync({idFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
-            codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
-                variable: foundEntity.Name.ToCamelCase(),
-                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
+
+            if (_template.Model.TypeReference.IsNullable)
+            {
+                codeLines.Add(_template.CreateReturnNullIfNullStatement(variable: foundEntity.Name.ToCamelCase()));
+            }
+            else
+            {
+                codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
+                    variable: foundEntity.Name.ToCamelCase(),
+                    message: $"Could not find {foundEntity.Name.ToPascalCase()} '{idFields.GetEntityIdFromRequestDescription()}'"));
+            }
 
             codeLines.Add(string.Empty);
             codeLines.Add($@"return {foundEntity.Name.ToCamelCase()}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
