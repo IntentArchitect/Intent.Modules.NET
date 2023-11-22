@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="fa4061e2-8d5d-45b2-b311-7f947613e982" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
-  <name>GetTestNullablityByIdQuery</name>
-  <display>GetTestNullablityByIdQuery: TestNullablityDto</display>
+<class id="9cc0138c-7905-4fcd-85d4-db7eb25cf1c4" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetTestNullabilityWithNullReturn</name>
+  <display>GetTestNullabilityWithNullReturn: TestNullablityDto?</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="ce9e92e8-a69d-4132-a6fc-3c0ce6dbbb4b">
+  <typeReference id="0e53c690-17f8-4c5c-9413-206b110c65da">
     <typeId>c1975adc-6672-4b21-a42a-12962cf6dffe</typeId>
     <isNavigable>true</isNavigable>
-    <isNullable>false</isNullable>
+    <isNullable>true</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
     <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
@@ -36,21 +36,19 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
-        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/test-nullablity/{id}" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/test-nullablity-with-null-return/{id}" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
-  <metadata>
-    <entry key="baseName" value="TestNullablity" />
-  </metadata>
+  <metadata />
   <childElements>
-    <childElement id="7678221c-91c1-4502-8b44-b5ef4c16d2b3" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="fda876d5-69a7-4707-80d1-ce77abd38709" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="d5cf6fc7-1572-4f08-a9af-1fd1fe75db87">
+      <typeReference id="34874dc9-9ca4-43a7-9982-e275c8650146">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -69,7 +67,7 @@
           <target id="c099d084-84a1-4591-9e74-238882ac050f" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>fa4061e2-8d5d-45b2-b311-7f947613e982</parentFolderId>
+      <parentFolderId>9cc0138c-7905-4fcd-85d4-db7eb25cf1c4</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
