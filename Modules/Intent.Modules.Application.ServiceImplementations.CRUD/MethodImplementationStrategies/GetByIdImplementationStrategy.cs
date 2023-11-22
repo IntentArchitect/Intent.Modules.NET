@@ -73,8 +73,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddUsing("System.Linq");
 
             var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
-            var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
-                ? dtoName
+            var unqualifiedDtoTypeName = _template.TryGetTemplate<IClassProvider>(DtoModelTemplate.TemplateId, dtoModel, out var dtoTemplate)
+                ? dtoTemplate.ClassName
                 : dtoModel.Name.ToPascalCase();
             var domainModel = dtoModel.Mapping.Element.AsClassModel();
             var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
@@ -85,7 +85,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()}, cancellationToken);");
             codeLines.Add(new CSharpIfStatement($"element is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.First().Name.ToCamelCase()}}}"");"));
-            codeLines.Add($@"return element.MapTo{dtoType}(_mapper);");
+            codeLines.Add($@"return element.MapTo{unqualifiedDtoTypeName}(_mapper);");
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));

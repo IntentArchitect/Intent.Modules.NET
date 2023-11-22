@@ -70,8 +70,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
         var genericDtoElement = operationModel.TypeReference.GenericTypeParameters.First().Element;
         var dtoModel = genericDtoElement.AsDTOModel();
-        var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
-            ? dtoName
+        var unqualifiedDtoTypeName = _template.TryGetTemplate<IClassProvider>(DtoModelTemplate.TemplateId, dtoModel, out var dtoTemplate)
+            ? dtoTemplate.ClassName
             : dtoModel.Name.ToPascalCase();
         var domainModel = dtoModel.Mapping.Element.AsClassModel();
         var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
@@ -87,7 +87,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             .AddArgument($"pageSize: {pageSizeVar.Name.ToParameterName()}")
             .AddStatement("cancellationToken: cancellationToken")
             .WithArgumentsOnNewLines());
-        codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{dtoType}(_mapper));");
+        codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{unqualifiedDtoTypeName}(_mapper));");
 
         var @class = _template.CSharpFile.Classes.First();
         var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));

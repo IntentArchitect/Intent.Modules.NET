@@ -73,8 +73,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddUsing("System.Linq");
 
             var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
-            var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
-                ? dtoName
+            var unqualifiedDtoTypeName = _template.TryGetTemplate<IClassProvider>(DtoModelTemplate.TemplateId, dtoModel, out var dtoTemplate)
+                ? dtoTemplate.ClassName
                 : dtoModel.Name.ToPascalCase();
             var domainModel = dtoModel.Mapping.Element.AsClassModel();
             var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
@@ -84,7 +84,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
                 $@"var elements ={(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName}.FindAll{(operationModel.IsAsync() ? "Async" : "")}(cancellationToken);");
-            codeLines.Add($@"return elements.MapTo{dtoType}List(_mapper);");
+            codeLines.Add($@"return elements.MapTo{unqualifiedDtoTypeName}List(_mapper);");
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
