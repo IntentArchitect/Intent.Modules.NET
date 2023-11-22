@@ -2,7 +2,7 @@
 
 namespace Intent.Modules.Constants
 {
-    public static class TemplateFulfillingRoles
+    public static class TemplateRoles
     {
         public static class Distribution
         {
