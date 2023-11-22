@@ -32,25 +32,29 @@ namespace Intent.Modules.Blazor.HttpClients.AccountController.Templates.AccountS
 
                     @class.AddMethod("Task", "Register", method =>
                     {
-                        method.AddParameter("RegisterDto", "command")
+                        method.AddParameter("RegisterDto", "dto")
                             .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
+
                     @class.AddMethod("Task<TokenResultDto>", "Login", method =>
                     {
-                        method.AddParameter("LoginDto", "command")
+                        method.AddParameter("LoginDto", "dto")
                             .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
-                    @class.AddMethod("Task<TokenResultDto>", "RefreshToken", method =>
+
+                    @class.AddMethod("Task<TokenResultDto>", "Refresh", method =>
                     {
-                        method.AddParameter("string", "authenticationToken")
+                        method
                             .AddParameter("string", "refreshToken")
                             .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
+
                     @class.AddMethod("Task", "ConfirmEmail", method =>
                     {
-                        method.AddParameter("ConfirmEmailDto", "command")
+                        method.AddParameter("ConfirmEmailDto", "dto")
                             .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
+
                     @class.AddMethod("Task", "Logout", method =>
                     {
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
