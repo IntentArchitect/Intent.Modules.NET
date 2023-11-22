@@ -92,7 +92,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
 
                             foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
                             {
-                                method.AddStatement($"{entity.RepositoryFieldName}.Add({entity.VariableName});");
+                                method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
                             }
                         });
                     }

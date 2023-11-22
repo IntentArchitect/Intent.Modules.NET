@@ -24,7 +24,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
         var model = mappingModel.Model;
         if (model.SpecializationType == "Class" || (model.SpecializationType == "Association Target End" && model.TypeReference?.Element?.SpecializationType == "Class"))
         {
-            return new ObjectUpdateMapping(mappingModel.Model, mappingModel.Mapping, mappingModel.Children.Where(x => !x.Model.HasStereotype("Primary Key")).ToList(), _sourceTemplate);
+            return new ObjectUpdateMapping(mappingModel, _sourceTemplate);
         }
 
         return null;

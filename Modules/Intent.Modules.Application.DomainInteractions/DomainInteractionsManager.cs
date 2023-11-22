@@ -53,20 +53,24 @@ public class DomainInteractionsManager
         }
 
         var statements = new List<CSharpStatement>();
-        if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true))
+        if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
+            && foundEntity.Attributes.Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
         {
             var idFields = queryMapping.MappedEnds
                 .OrderBy(x => ((IElement)x.TargetElement).Order)
-                .Select(x => _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x))
+                .Select(x => new PrimaryKeyFilterMapping(
+                    _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
+                    x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
+                    x))
                 .ToList();
 
-            if (associationEnd.TypeReference.IsCollection && idFields.Count == 1 && queryMapping.MappedEnds.Single().SourceElement?.TypeReference.IsCollection == true)
+            if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
             {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields.AsSingleOrTuple())));
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields)));
             }
             else
             {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields.AsSingleOrTuple())));
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields)));
             }
         }
         else
