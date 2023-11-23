@@ -1,7 +1,10 @@
+### Version 5.3.3
+
+- Fixed: When a Query By Id is set to return a nullable object and has a repository that can't find the entity, it will return `default` as opposed to throw a `NotFoundException`.
+
 ### Version 5.3.2
 
-- Improvement: Added CRUD Strategy for ODataQuery.
-- Fixed: When a Query By Id is set to return a nullable object and has a repository that can't find the entity, it will return `default` as opposed to throw a `NotFoundException`.  
+- Improvement: Added CRUD Strategy for ODataQuery. 
 
 ### Version 5.3.1
 
