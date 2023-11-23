@@ -1,6 +1,7 @@
 ### Version 4.0.13
 
 - New Feature: Azure Functions can now receive RabbitMQ triggers.
+- Improvement: Removed `Intent.Application.DTOs` dependency since DTOs can be resolved using Role names. 
 
 ### Version 4.0.11
 

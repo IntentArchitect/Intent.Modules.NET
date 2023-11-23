@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.40" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.8" />
@@ -117,6 +116,10 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
