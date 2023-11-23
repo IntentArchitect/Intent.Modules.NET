@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EFCore.Lazy.Loading.Tests.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EFCore.Lazy.Loading.Tests.Domain.Entities
 {
     public class Customer : IHasDomainEvent

@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="HotChocolate" Version="13.1.0" />
     <PackageReference Include="HotChocolate.AzureFunctions" Version="13.1.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.2" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.5.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />

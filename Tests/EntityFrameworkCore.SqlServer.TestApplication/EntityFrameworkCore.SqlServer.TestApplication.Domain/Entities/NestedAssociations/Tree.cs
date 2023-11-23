@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAssociations
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

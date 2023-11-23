@@ -4,7 +4,6 @@
   <display>MassTransit.RetryPolicy.Immediate</display>
   <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1c76605e-1df2-4ea8-924a-bcc1e0ba9d1f</parentFolderId>

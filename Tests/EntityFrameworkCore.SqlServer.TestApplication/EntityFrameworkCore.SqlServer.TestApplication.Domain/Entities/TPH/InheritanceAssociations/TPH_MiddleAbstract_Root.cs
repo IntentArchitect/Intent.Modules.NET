@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPH.InheritanceAssociations
 {
     public class TPH_MiddleAbstract_Root : IHasDomainEvent

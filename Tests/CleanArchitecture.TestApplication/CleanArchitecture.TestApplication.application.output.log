@@ -252,6 +252,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7c62e125-37d5-4183-bec0-90048bdb7b5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/TestNullablitiesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablitiesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#f1fa010b-13eb-40ee-b935-9915eb7f58b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/UniqueIndexConstraintController.cs</ApplicationRelativeFilePath>
@@ -1056,6 +1064,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#9cc0138c-7905-4fcd-85d4-db7eb25cf1c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/TestNullablities/GetTestNullabilityWithNullReturnHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullabilityWithNullReturnHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4240,6 +4256,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestNullablities/DeleteTestNullablity/DeleteTestNullablityCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9cc0138c-7905-4fcd-85d4-db7eb25cf1c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9cc0138c-7905-4fcd-85d4-db7eb25cf1c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturnHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturnHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9cc0138c-7905-4fcd-85d4-db7eb25cf1c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturnValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestNullablities/GetTestNullabilityWithNullReturn/GetTestNullabilityWithNullReturnValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

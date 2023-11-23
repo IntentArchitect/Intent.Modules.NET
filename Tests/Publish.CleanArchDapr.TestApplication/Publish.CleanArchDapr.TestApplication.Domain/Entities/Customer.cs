@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArchDapr.TestApplication.Domain.Common;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.CleanArchDapr.TestApplication.Domain.Entities
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

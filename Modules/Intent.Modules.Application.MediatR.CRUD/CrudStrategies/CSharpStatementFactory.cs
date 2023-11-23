@@ -16,5 +16,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             return ifStatement;
         }
+
+        public static CSharpStatement CreateReturnNullIfNullStatement(
+            this ICSharpTemplate template,
+            string variable)
+        {
+            var ifStatement = new CSharpIfStatement($"{variable} is null");
+            ifStatement.SeparatedFromPrevious(false);
+            ifStatement.AddStatement($@"return null;");
+
+            return ifStatement;
+        }
     }
 }

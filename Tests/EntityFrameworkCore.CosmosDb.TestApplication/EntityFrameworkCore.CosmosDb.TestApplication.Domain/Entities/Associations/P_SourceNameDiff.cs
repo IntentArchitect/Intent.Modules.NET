@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations
 {
     public class P_SourceNameDiff : IHasDomainEvent

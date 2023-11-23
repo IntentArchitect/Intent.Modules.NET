@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Added support for a customizable service dispatch.
+
 ### Version 5.2.0
 
 - Fixed: Controller methods which return nullable types will no longer return `NotFound()` for `null` results. To force that a `404 Not Found` HTTP response be returned, a `throw new NotFoundException("<message>")` can be performed as appropriate.

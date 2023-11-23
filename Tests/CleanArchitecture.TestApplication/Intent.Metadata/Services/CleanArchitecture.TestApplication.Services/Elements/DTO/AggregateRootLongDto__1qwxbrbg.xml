@@ -148,7 +148,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="5b035f26-2664-4cad-93d7-ddd7aca5d0f7" name="CompositeOfAggrLong" type="association" specialization="Association Target End" />
+          <target id="5b035f26-2664-4cad-93d7-ddd7aca5d0f7" name="CompositeOfAggrLong" type="association" specialization="Association" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>77692819-d0dc-420d-ad69-32e56b21de8d</parentFolderId>

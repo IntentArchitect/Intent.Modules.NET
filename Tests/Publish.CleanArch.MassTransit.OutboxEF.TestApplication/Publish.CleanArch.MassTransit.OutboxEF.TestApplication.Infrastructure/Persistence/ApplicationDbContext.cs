@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Interfaces;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Interfaces;
@@ -18,10 +19,14 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
+        private readonly IEventBus _eventBus;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IDomainEventService domainEventService,
+            IEventBus eventBus) : base(options)
         {
             _domainEventService = domainEventService;
+            _eventBus = eventBus;
         }
 
         public DbSet<Order> Orders { get; set; }
@@ -31,12 +36,14 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
             CancellationToken cancellationToken = default)
         {
             await DispatchEventsAsync(cancellationToken);
+            await _eventBus.FlushAllAsync(cancellationToken);
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             DispatchEventsAsync().GetAwaiter().GetResult();
+            _eventBus.FlushAllAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 

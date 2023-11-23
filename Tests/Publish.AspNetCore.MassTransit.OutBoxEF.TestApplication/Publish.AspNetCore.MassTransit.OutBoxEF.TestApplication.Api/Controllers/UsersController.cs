@@ -57,7 +57,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateUser(dto, cancellationToken);
-                await _eventBus.FlushAllAsync(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -116,7 +115,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateUser(id, dto, cancellationToken);
-                await _eventBus.FlushAllAsync(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -139,7 +137,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.Controller
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteUser(id, cancellationToken);
-                await _eventBus.FlushAllAsync(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

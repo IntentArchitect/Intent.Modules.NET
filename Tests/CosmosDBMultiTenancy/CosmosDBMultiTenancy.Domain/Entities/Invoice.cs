@@ -4,6 +4,8 @@ using CosmosDBMultiTenancy.Domain.Common;
 using CosmosDBMultiTenancy.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CosmosDBMultiTenancy.Domain.Entities
 {
     public class Invoice : IHasDomainEvent, IAuditable

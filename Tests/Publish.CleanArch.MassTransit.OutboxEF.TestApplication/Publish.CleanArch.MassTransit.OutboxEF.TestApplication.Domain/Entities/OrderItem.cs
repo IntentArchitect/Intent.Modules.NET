@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
 {
     public class OrderItem

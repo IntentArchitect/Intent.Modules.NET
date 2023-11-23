@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CleanArchitecture.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint
 {
     public class AggregateWithUniqueConstraintIndexStereotype : IHasDomainEvent
