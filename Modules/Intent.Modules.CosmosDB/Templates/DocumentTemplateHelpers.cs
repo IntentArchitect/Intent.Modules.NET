@@ -133,7 +133,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
                     //Partiionkeys must be strings
-                    if (partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
                         {
@@ -212,7 +212,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
                     //Partiionkeys must be strings
-                    if (partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
                     {
                         suffix = attributeTypeName switch
                         {

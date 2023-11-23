@@ -78,11 +78,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                     foreach (var attribute in attributes)
                     {
                         string typeName = GetTypeName(attribute.TypeReference);
-                        if (attribute.Id == pkAttribute.Id)
+                        if (Model.IsAggregateRoot() && pkAttribute != null && attribute.Id == pkAttribute.Id)
                         {
                             typeName = Helpers.PrimaryKeyType;
                         }
-                        else if (attribute.Id == partitionKeyAttribute.Id)
+                        else if (Model.IsAggregateRoot() && partitionKeyAttribute != null && attribute.Id == partitionKeyAttribute.Id)
                         {
                             typeName = "string";
                         }

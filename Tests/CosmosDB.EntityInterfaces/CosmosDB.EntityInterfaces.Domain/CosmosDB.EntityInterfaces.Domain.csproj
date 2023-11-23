@@ -92,6 +92,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WithoutPartitionKey.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\INonStringPartitionKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NonStringPartitionKey.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
