@@ -1,5 +1,9 @@
 ### Version 4.2.10
 
+- Improvement: Added several repository method overloads for more advanced queryOptions.
+
+### Version 4.2.10
+
 - New Feature: Added a `Database Setting` namely `Add synchronous methods to repositories`, when this is on, the EF Repositories will contain synchronous versions of their operations.
 
 ### Version 4.2.7
