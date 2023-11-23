@@ -2,6 +2,7 @@
 
 - Improvement: Updated `AutoMapper` NuGet package to `12.0.1` 
 - Improvement: Add an EF Core Interop which adds AutoMapper  Projection Functionality to EF repositoreies.
+- Improvement: Allow DTOs to be instantiated using a non-public constructor.
 
 ### Version 4.0.3
 

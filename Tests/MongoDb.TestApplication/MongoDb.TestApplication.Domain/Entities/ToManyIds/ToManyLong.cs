@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
 {
     public class ToManyLong

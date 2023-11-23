@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CosmosDB.PrivateSetters.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CosmosDB.PrivateSetters.Domain.Entities.Folder
 {
     public class FolderContainer : IHasDomainEvent

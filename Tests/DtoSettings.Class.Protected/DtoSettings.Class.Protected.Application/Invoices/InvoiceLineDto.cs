@@ -20,6 +20,12 @@ namespace DtoSettings.Class.Protected.Application.Invoices
             Id = id;
         }
 
+        protected InvoiceLineDto()
+        {
+            Description = null!;
+            Currency = null!;
+        }
+
         public string Description { get; protected set; }
         public decimal Amount { get; protected set; }
         public string Currency { get; protected set; }

@@ -1,6 +1,7 @@
 ### Version 5.2.4
 
 - Fixed: Issue around Event Bus Messages not publishing when published in Domain Events, with the context of consuming Integration Events.
+- Improvement: When using EF Outbox pattern with.  
 
 ### Version 5.2.4
 

@@ -30,7 +30,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+            
+            var templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.Custom.Dispatcher));
+            if (!templates.Any())
+            {
+                templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+            }
             foreach (var template in templates)
             {
                 if (template.Model is not ServiceControllerModel)
@@ -46,7 +51,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }
         }
 
-        private static void InstallValidation(ControllerTemplate template)
+        private static void InstallValidation(IControllerTemplate<IControllerModel> template)
         {
             if (!template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
             {
@@ -79,7 +84,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             });
         }
 
-        private void InstallContractDispatch(ControllerTemplate template)
+        private void InstallContractDispatch(IControllerTemplate<IControllerModel> template)
         {
             template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             template.CSharpFile.OnBuild(file =>
@@ -96,7 +101,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                     if (method.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
                         var awaitModifier = string.Empty;
-                        var arguments = template.GetArguments(operationModel.Parameters);
+                        var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                         {
@@ -118,13 +123,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
 
-                        method.AddStatement(template.GetReturnStatement(operationModel));
+                        var returnStatement = template.GetReturnStatement(operationModel);
+                        if (returnStatement != null) 
+                        {
+                            method.AddStatement(returnStatement);
+                        }
                     }
                 }
             });
         }
 
-        private static void InstallTransactionWithUnitOfWork(ControllerTemplate template, IApplication application)
+        private static void InstallTransactionWithUnitOfWork(IControllerTemplate<IControllerModel> template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallUnitOfWork(application))
             {
@@ -168,7 +177,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }, order: 1);
         }
 
-        private static void InstallMessageBus(ControllerTemplate template, IApplication application)
+        private static void InstallMessageBus(IControllerTemplate<IControllerModel> template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallMessageBus(application))
             {
@@ -190,7 +199,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }, order: -100);
         }
 
-        private static void InstallMongoDbUnitOfWork(ControllerTemplate template, IApplication application)
+        private static void InstallMongoDbUnitOfWork(IControllerTemplate<IControllerModel> template, IApplication application)
         {
             if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
             {
@@ -217,7 +226,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }, -150);
         }
 
-        private static string GetUnitOfWork(ControllerTemplate template)
+        private static string GetUnitOfWork(IControllerTemplate<IControllerModel> template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||
                 template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWork) ||

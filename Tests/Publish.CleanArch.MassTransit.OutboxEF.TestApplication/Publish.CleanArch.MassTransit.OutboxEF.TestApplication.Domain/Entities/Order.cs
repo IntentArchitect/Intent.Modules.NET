@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
 {
     public class Order : IHasDomainEvent

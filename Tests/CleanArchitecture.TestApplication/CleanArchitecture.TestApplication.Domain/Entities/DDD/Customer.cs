@@ -4,6 +4,8 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.DDD;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
 {
     public class Customer : IHasDomainEvent

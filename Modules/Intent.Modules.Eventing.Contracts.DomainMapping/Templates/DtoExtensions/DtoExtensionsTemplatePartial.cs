@@ -47,7 +47,8 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
                         method.Static();
                         method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
 
-                        var targetElementProperties = ((IElement)model.GetMapFromDomainMapping().Element).ChildElements;
+                        var domainMapping = (IElement)model.GetMapFromDomainMapping()?.Element;
+                        var targetElementProperties = domainMapping?.ChildElements ?? Enumerable.Empty<IElement>();
                         
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");

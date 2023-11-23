@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed: Protected Constructor added when parameter constructor is introduced for mapping libraries to instantiate using reflection.
+
 ### Version 4.0.8
 
 - Fixed: Constructor introduced when non-public property accessor setting is configured.

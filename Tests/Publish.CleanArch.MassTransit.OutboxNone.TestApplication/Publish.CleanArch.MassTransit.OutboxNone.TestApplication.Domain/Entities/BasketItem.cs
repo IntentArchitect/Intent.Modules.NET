@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entities
 {
     public class BasketItem

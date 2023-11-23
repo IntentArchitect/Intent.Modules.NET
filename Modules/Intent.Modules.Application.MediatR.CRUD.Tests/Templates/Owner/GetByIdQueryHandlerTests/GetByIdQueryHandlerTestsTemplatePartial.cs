@@ -93,28 +93,56 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements(facade.Get_Aggregate_AssertionComparingHandlerResultsWithExpectedResults("existingEntity"));
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
-                {
-                    method.Async();
-                    method.AddAttribute("Fact");
-
-                    method.AddStatements("// Arrange");
-                    method.AddStatements(facade.GetNewQueryAutoFixtureInlineStatements("query"));
-                    method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(facade.GetDomainAggregateRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
-                    method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
-
-                    method.AddStatement(string.Empty);
-                    method.AddStatements("// Act");
-                    method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("query"));
-
-                    method.AddStatement(string.Empty);
-                    method.AddStatement("// Assert");
-                    method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
-                });
+                AddTestForWhenRepoReturnsDefault(priClass, facade);
 
                 AddAssertionMethods();
             });
+    }
+
+    private void AddTestForWhenRepoReturnsDefault(CSharpClass priClass, QueryHandlerFacade facade)
+    {
+        if (Model.TypeReference.IsNullable)
+        {
+            priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ExpectsDefaultReturned", method =>
+            {
+                method.Async();
+                method.AddAttribute("Fact");
+
+                method.AddStatements("// Arrange");
+                method.AddStatements(facade.GetNewQueryAutoFixtureInlineStatements("query"));
+                method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+                method.AddStatements(facade.GetDomainAggregateRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
+                method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
+
+                method.AddStatement(string.Empty);
+                method.AddStatements("// Act");
+                method.AddStatements(facade.GetSutHandleInvocationStatement("query"));
+
+                method.AddStatement(string.Empty);
+                method.AddStatement("// Assert");
+                method.AddStatements($@"Assert.Equal(default, results);");
+            });
+            return;
+        }
+        priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
+        {
+            method.Async();
+            method.AddAttribute("Fact");
+
+            method.AddStatements("// Arrange");
+            method.AddStatements(facade.GetNewQueryAutoFixtureInlineStatements("query"));
+            method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+            method.AddStatements(facade.GetDomainAggregateRepositoryFindByIdMockingStatements("query", "", QueryHandlerFacade.MockRepositoryResponse.ReturnDefault));
+            method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
+
+            method.AddStatement(string.Empty);
+            method.AddStatements("// Act");
+            method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("query"));
+
+            method.AddStatement(string.Empty);
+            method.AddStatement("// Assert");
+            method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
+        });
     }
 
     private bool? _canRunTemplate;

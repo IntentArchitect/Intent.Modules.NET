@@ -6,7 +6,9 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Modules.Eventing.MassTransit.Settings;
+using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,6 +31,10 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             InstallMessageBusForMediatRDispatch(application);
         }
 
+        protected override void OnAfterTemplateRegistrations(IApplication application)
+        {
+            InstallMessageBusForDBContext(application);
+        }
         private void InstallMessageBusForMediatRDispatch(IApplication application)
         {
             if (!IsTransactionalOutboxPatternSelected(application))
@@ -58,8 +64,6 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     return;
                 }
                 statementToMove.Remove();
-                var unitOfWork = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("UnitOfWorkBehaviour"));
-                unitOfWork.InsertBelow(statementToMove);
             }, 1000);
         }
 
@@ -84,11 +88,66 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                             continue;
                         }
                         statementToMove.Remove();
-                        method.FindStatement(p => p.HasMetadata("service-contract-dispatch"))
-                            ?.InsertBelow(statementToMove);
                     }
                 }, 1000);
             }
+        }
+
+        private void InstallMessageBusForDBContext(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.DbContext"); // Replace with Role later.
+            if (template == null)
+            {
+                return;
+            }
+            
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var eventBusInterface = template.GetTypeName("Intent.Eventing.Contracts.EventBusInterface");
+                var constructor = @class.Constructors.First();
+                if (!constructor.Parameters.Any(p => p.Type == eventBusInterface))
+                {
+                    constructor.AddParameter(eventBusInterface, "eventBus", p => p.IntroduceReadonlyField());
+                }
+
+                var method = template.GetSaveChangesMethod();
+                var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
+                if (statement != null)
+                {
+                    statement.InsertBelow("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                    }
+                }
+
+                method = template.GetSaveChangesAsyncMethod();
+                method = @class.FindMethod("SaveChangesAsync");
+                statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
+                if (statement != null)
+                {
+                    statement.InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                }
+                else
+                {
+                    statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
+                    if (statement != null)
+                    {
+                        statement.InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
+                    }
+                }
+
+            }, 10);
+
         }
 
         private bool IsTransactionalOutboxPatternSelected(IApplication application)

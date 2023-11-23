@@ -32,8 +32,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         /// </summary>
         public override string TransformText()
         {
-            this.Write(@"using System;
-using System.Linq;
+            this.Write(@"using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading;
@@ -49,7 +48,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -57,105 +56,90 @@ namespace ");
             this.Write("\r\n{\r\n    [Route(\"api/[controller]/[action]\")]\r\n    [ApiController]\r\n    public cl" +
                     "ass ");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write(" : ControllerBase\r\n    {\r\n        private readonly SignInManager<");
+            this.Write(" : ControllerBase\r\n    {\r\n        private readonly UserManager<");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
-            
-            #line default
-            #line hidden
-            this.Write("> _signInManager;\r\n        private readonly UserManager<");
-            
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
             
             #line default
             #line hidden
             this.Write("> _userManager;\r\n        private readonly IUserStore<");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
             
             #line default
             #line hidden
             this.Write("> _userStore;\r\n        private readonly ILogger<");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> _logger;\r\n        private readonly ");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
             #line hidden
             this.Write(" _accountEmailSender;\r\n        private readonly ");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetTokenServiceInterfaceName()));
             
             #line default
             #line hidden
             this.Write(" _tokenService;\r\n\r\n        public ");
             
-            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("(\r\n            SignInManager<");
+            this.Write("(\r\n            IUserStore<");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
-            
-            #line default
-            #line hidden
-            this.Write("> signInManager,\r\n            IUserStore<");
-            
-            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
             
             #line default
             #line hidden
             this.Write("> userStore,\r\n            UserManager<");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
             
             #line default
             #line hidden
             this.Write("> userManager,\r\n            ILogger<");
             
-            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> logger,\r\n            ");
             
-            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
             #line hidden
             this.Write(" accountEmailSender,\r\n            ");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetTokenServiceInterfaceName()));
             
             #line default
             #line hidden
             this.Write(@" tokenService)
         {
-            _signInManager = signInManager;
             _userStore = userStore;
             _userManager = userManager;
             _logger = logger;
@@ -184,7 +168,7 @@ namespace ");
 
             var user = new ");
             
-            #line 73 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 69 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityUserClass()));
             
             #line default
@@ -223,55 +207,56 @@ namespace ");
                     "nc(user);\r\n            foreach (var role in roles)\r\n            {\r\n             " +
                     "   claims.Add(new Claim(\"role\", role));\r\n            }\r\n\r\n            var token " +
                     "= _tokenService.GenerateAccessToken(username: email, claims: claims.ToArray());\r" +
-                    "\n            var newRefreshToken = _tokenService.GenerateRefreshToken();\r\n\r\n    " +
-                    "        user.RefreshToken = newRefreshToken.Token;\r\n            user.RefreshToke" +
-                    "nExpired = newRefreshToken.Expiry;\r\n            await _userManager.UpdateAsync(u" +
-                    "ser);\r\n            \r\n            _logger.LogInformation(\"User logged in.\");\r\n   " +
-                    "         \r\n            return Ok(new TokenResultDto\r\n            {\r\n            " +
-                    "    AuthenticationToken = token,\r\n                RefreshToken = newRefreshToken" +
-                    ".Token\r\n            });\r\n        }\r\n\r\n        [HttpPost]\r\n        [AllowAnonymou" +
-                    "s]\r\n        public async Task<ActionResult<TokenResultDto>> RefreshToken(string " +
-                    "authenticationToken, string refreshToken)\r\n        {\r\n            var principal " +
-                    "= _tokenService.GetPrincipalFromExpiredToken(authenticationToken);\r\n            " +
-                    "var username = principal.Identity.Name;\r\n\r\n            var user = await _userMan" +
-                    "ager.FindByNameAsync(username);\r\n            if (user == null || user.RefreshTok" +
-                    "en != refreshToken) return BadRequest();\r\n\r\n            var newJwtToken = _token" +
-                    "Service.GenerateAccessToken(username, principal.Claims);\r\n            var newRef" +
-                    "reshToken = _tokenService.GenerateRefreshToken();\r\n\r\n            user.RefreshTok" +
-                    "en = newRefreshToken.Token;\r\n            user.RefreshTokenExpired = newRefreshTo" +
-                    "ken.Expiry;\r\n            await _userManager.UpdateAsync(user);\r\n\r\n            re" +
-                    "turn Ok(new TokenResultDto\r\n            {\r\n                AuthenticationToken =" +
-                    " newJwtToken,\r\n                RefreshToken = newRefreshToken.Token\r\n           " +
-                    " });\r\n        }\r\n\r\n        [HttpPost]\r\n        [AllowAnonymous]\r\n        public " +
-                    "async Task<IActionResult> ConfirmEmail(ConfirmEmailDto input)\r\n        {\r\n      " +
-                    "      if (string.IsNullOrWhiteSpace(input.UserId))\r\n            {\r\n             " +
-                    "   ModelState.AddModelError<ConfirmEmailDto>(x => x.UserId, \"Mandatory\");\r\n     " +
-                    "       }\r\n\r\n            if (string.IsNullOrWhiteSpace(input.Code))\r\n            " +
-                    "{\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, \"Manda" +
-                    "tory\");\r\n            }\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n " +
-                    "               return BadRequest(ModelState);\r\n            }\r\n\r\n            var " +
-                    "userId = input.UserId!;\r\n            var code = input.Code!;\r\n            var us" +
-                    "er = await _userManager.FindByIdAsync(input.UserId!);\r\n            if (user == n" +
-                    "ull)\r\n            {\r\n                return NotFound($\"Unable to load user with " +
-                    "ID \'{userId}\'.\");\r\n            }\r\n\r\n            code = Encoding.UTF8.GetString(W" +
-                    "ebEncoders.Base64UrlDecode(code));\r\n\r\n            var result = await _userManage" +
-                    "r.ConfirmEmailAsync(user, code);\r\n            if (!result.Succeeded)\r\n          " +
-                    "  {\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x, \"Error co" +
-                    "nfirming your email.\");\r\n                return BadRequest(ModelState);\r\n       " +
-                    "     }\r\n\r\n            return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n        [Au" +
-                    "thorize]\r\n        public async Task<IActionResult> Logout()\r\n        {\r\n        " +
-                    "    var username = User.Identity?.Name;\r\n            var user = await _userManag" +
-                    "er.FindByNameAsync(username);\r\n            user.RefreshToken = null;\r\n          " +
-                    "  user.RefreshTokenExpired = null;\r\n            await _userManager.UpdateAsync(u" +
-                    "ser);\r\n            \r\n            _logger.LogInformation($\"User [{username}] logg" +
-                    "ed out the system.\");\r\n            return Ok();\r\n        }\r\n    }\r\n\r\n    public " +
-                    "class TokenResultDto\r\n    {\r\n        public string? AuthenticationToken { get; s" +
-                    "et; }\r\n        public string? RefreshToken { get; set; }\r\n    }\r\n\r\n    public cl" +
-                    "ass RegisterDto\r\n    {\r\n        public string? Email { get; set; }\r\n        publ" +
-                    "ic string? Password { get; set; }\r\n    }\r\n\r\n    public class LoginDto\r\n    {\r\n  " +
-                    "      public string? Email { get; set; }\r\n        public string? Password { get;" +
-                    " set; }\r\n    }\r\n\r\n    public class ConfirmEmailDto\r\n    {\r\n        public string" +
-                    "? UserId { get; set; }\r\n        public string? Code { get; set; }\r\n    }\r\n}\r\n");
+                    "\n            var (refreshToken, refreshTokenExpiry) = _tokenService.GenerateRefr" +
+                    "eshToken();\r\n\r\n            user.RefreshToken = refreshToken;\r\n            user.R" +
+                    "efreshTokenExpired = refreshTokenExpiry;\r\n            await _userManager.UpdateA" +
+                    "sync(user);\r\n            \r\n            _logger.LogInformation(\"User logged in.\")" +
+                    ";\r\n            \r\n            return Ok(new TokenResultDto\r\n            {\r\n      " +
+                    "          AuthenticationToken = token,\r\n                RefreshToken = refreshTo" +
+                    "ken\r\n            });\r\n        }\r\n\r\n        [HttpPost]\r\n        [Authorize]\r\n    " +
+                    "    public async Task<ActionResult<TokenResultDto>> Refresh(RefreshTokenDto dto)" +
+                    "\r\n        {\r\n            var username = User.Identity!.Name!;\r\n\r\n            var" +
+                    " user = await _userManager.FindByNameAsync(username);\r\n            if (user == n" +
+                    "ull || user.RefreshToken != dto.RefreshToken)\r\n            {\r\n                re" +
+                    "turn BadRequest();\r\n            }\r\n\r\n            var claims = await _userManager" +
+                    ".GetClaimsAsync(user);\r\n\r\n            var newJwtToken = _tokenService.GenerateAc" +
+                    "cessToken(username, claims);\r\n            var (token, expiry) = _tokenService.Ge" +
+                    "nerateRefreshToken();\r\n\r\n            user.RefreshToken = token;\r\n            use" +
+                    "r.RefreshTokenExpired = expiry;\r\n            await _userManager.UpdateAsync(user" +
+                    ");\r\n\r\n            return Ok(new TokenResultDto\r\n            {\r\n                A" +
+                    "uthenticationToken = newJwtToken,\r\n                RefreshToken = token\r\n       " +
+                    "     });\r\n        }\r\n\r\n        [HttpPost]\r\n        [AllowAnonymous]\r\n        pub" +
+                    "lic async Task<IActionResult> ConfirmEmail(ConfirmEmailDto input)\r\n        {\r\n  " +
+                    "          if (string.IsNullOrWhiteSpace(input.UserId))\r\n            {\r\n         " +
+                    "       ModelState.AddModelError<ConfirmEmailDto>(x => x.UserId, \"Mandatory\");\r\n " +
+                    "           }\r\n\r\n            if (string.IsNullOrWhiteSpace(input.Code))\r\n        " +
+                    "    {\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, \"M" +
+                    "andatory\");\r\n            }\r\n\r\n            if (!ModelState.IsValid)\r\n            " +
+                    "{\r\n                return BadRequest(ModelState);\r\n            }\r\n\r\n            " +
+                    "var userId = input.UserId!;\r\n            var code = input.Code!;\r\n            va" +
+                    "r user = await _userManager.FindByIdAsync(input.UserId!);\r\n            if (user " +
+                    "== null)\r\n            {\r\n                return NotFound($\"Unable to load user w" +
+                    "ith ID \'{userId}\'.\");\r\n            }\r\n\r\n            code = Encoding.UTF8.GetStri" +
+                    "ng(WebEncoders.Base64UrlDecode(code));\r\n\r\n            var result = await _userMa" +
+                    "nager.ConfirmEmailAsync(user, code);\r\n            if (!result.Succeeded)\r\n      " +
+                    "      {\r\n                ModelState.AddModelError<ConfirmEmailDto>(x => x, \"Erro" +
+                    "r confirming your email.\");\r\n                return BadRequest(ModelState);\r\n   " +
+                    "         }\r\n\r\n            return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n       " +
+                    " [Authorize]\r\n        public async Task<IActionResult> Logout()\r\n        {\r\n    " +
+                    "        var username = User.Identity!.Name!;\r\n            var user = (await _use" +
+                    "rManager.FindByNameAsync(username))!;\r\n            user.RefreshToken = null;\r\n  " +
+                    "          user.RefreshTokenExpired = null;\r\n            await _userManager.Updat" +
+                    "eAsync(user);\r\n            \r\n            _logger.LogInformation($\"User [{usernam" +
+                    "e}] logged out the system.\");\r\n            return Ok();\r\n        }\r\n    }\r\n\r\n   " +
+                    " public class TokenResultDto\r\n    {\r\n        public string? AuthenticationToken " +
+                    "{ get; set; }\r\n        public string? RefreshToken { get; set; }\r\n    }\r\n\r\n    p" +
+                    "ublic class RegisterDto\r\n    {\r\n        public string? Email { get; set; }\r\n    " +
+                    "    public string? Password { get; set; }\r\n    }\r\n\r\n    public class LoginDto\r\n " +
+                    "   {\r\n        public string? Email { get; set; }\r\n        public string? Passwor" +
+                    "d { get; set; }\r\n    }\r\n\r\n    public class ConfirmEmailDto\r\n    {\r\n        publi" +
+                    "c string? UserId { get; set; }\r\n        public string? Code { get; set; }\r\n    }" +
+                    "\r\n\r\n    public class RefreshTokenDto\r\n    {\r\n        public string? RefreshToken" +
+                    " { get; set; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

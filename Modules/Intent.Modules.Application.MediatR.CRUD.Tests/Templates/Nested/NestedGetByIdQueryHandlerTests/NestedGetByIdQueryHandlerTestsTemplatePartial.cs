@@ -88,29 +88,60 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                     method.AddStatements(facade.Get_AggregateOwner_AssertionComparingHandlerResultsWithExpectedResults($"existingEntity"));
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
-                {
-                    method.Async();
-                    method.AddAttribute("Fact");
-
-                    method.AddStatements("// Arrange");
-                    method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
-                    method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
-                    method.AddStatements(facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity", QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
-                    method.AddStatement(string.Empty);
-                    method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
-
-                    method.AddStatement(string.Empty);
-                    method.AddStatements("// Act");
-                    method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
-
-                    method.AddStatement(string.Empty);
-                    method.AddStatement("// Assert");
-                    method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
-                });
+                AddTestForWhenRepoReturnsDefault(priClass, facade);
 
                 AddAssertionMethods();
             });
+    }
+
+    private void AddTestForWhenRepoReturnsDefault(CSharpClass priClass, QueryHandlerFacade facade)
+    {
+        if (Model.TypeReference.IsNullable)
+        {
+            priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ExpectsDefaultReturned", method =>
+            {
+                method.Async();
+                method.AddAttribute("Fact");
+
+                method.AddStatements("// Arrange");
+                method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
+                method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+                method.AddStatements(facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity",
+                    QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+                method.AddStatement(string.Empty);
+                method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
+
+                method.AddStatement(string.Empty);
+                method.AddStatements("// Act");
+                method.AddStatements(facade.GetSutHandleInvocationStatement("testQuery"));
+
+                method.AddStatement(string.Empty);
+                method.AddStatement("// Assert");
+                method.AddStatements($@"Assert.Equal(default, results);");
+            });
+            return;
+        }
+        priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ThrowsNotFoundException", method =>
+        {
+            method.Async();
+            method.AddAttribute("Fact");
+
+            method.AddStatements("// Arrange");
+            method.AddStatements(facade.GetNewAggregateOwnerWithoutCompositesStatements());
+            method.AddStatements(facade.GetQueryHandlerConstructorParameterMockStatements());
+            method.AddStatements(facade.GetDomainAggregateOwnerRepositoryFindByIdMockingStatements("testQuery", "existingOwnerEntity",
+                QueryHandlerFacade.MockRepositoryResponse.ReturnDomainVariable));
+            method.AddStatement(string.Empty);
+            method.AddStatements(facade.GetQueryHandlerConstructorSutStatement());
+
+            method.AddStatement(string.Empty);
+            method.AddStatements("// Act");
+            method.AddStatements(facade.GetSutHandleInvocationActLambdaStatement("testQuery"));
+
+            method.AddStatement(string.Empty);
+            method.AddStatement("// Assert");
+            method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
+        });
     }
 
     private bool? _canRunTemplate;

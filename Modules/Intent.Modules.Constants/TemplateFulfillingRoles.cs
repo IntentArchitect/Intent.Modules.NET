@@ -6,6 +6,12 @@ namespace Intent.Modules.Constants
     {
         public static class Distribution
         {
+
+            public static class Custom
+            {
+                public const string Dispatcher = "Distribution.Custom.Dispatcher";
+            }
+
             public static class WebApi
             {
                 public const string Controller = "Distribution.WebApi.Controller";

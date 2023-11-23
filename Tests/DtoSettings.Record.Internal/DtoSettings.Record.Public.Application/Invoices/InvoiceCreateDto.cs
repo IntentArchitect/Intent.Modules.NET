@@ -14,6 +14,12 @@ namespace DtoSettings.Record.Public.Application.Invoices
             InvoiceLines = invoiceLines;
         }
 
+        protected InvoiceCreateDto()
+        {
+            Number = null!;
+            InvoiceLines = null!;
+        }
+
         public string Number { get; internal set; }
         public List<InvoiceLineCreateDto> InvoiceLines { get; internal set; }
     }
