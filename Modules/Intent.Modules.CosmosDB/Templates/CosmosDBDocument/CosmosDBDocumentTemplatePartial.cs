@@ -174,7 +174,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     {
                         property.ExplicitlyImplements(this.GetCosmosDBDocumentOfTInterfaceName());
                         property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}");
-                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)} = value!");
+                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()} = {partitionKeyAttribute.SetToType(this)}");
                     });
                 }
                 else if (partitionKeyAttribute == null)
@@ -197,9 +197,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 var typeName = GetTypeName(typeReference);
 
                 // PK must always be a string
-                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, "string", StringComparison.OrdinalIgnoreCase))
+                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 {
-                    typeName = "string";
+                    typeName = Helpers.PrimaryKeyType;
                 }
 
                 @class.AddProperty(typeName, entityProperty.Name, property =>
