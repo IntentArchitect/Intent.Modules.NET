@@ -1,6 +1,6 @@
-### Version 4.2.10
+### Version 4.3.0
 
-- Improvement: Added several repository method overloads for more advanced queryOptions.
+- Improvement: Added several repository method overloads to bettere support more advanced queryOptions though LINQ.
 
 ### Version 4.2.10
 
