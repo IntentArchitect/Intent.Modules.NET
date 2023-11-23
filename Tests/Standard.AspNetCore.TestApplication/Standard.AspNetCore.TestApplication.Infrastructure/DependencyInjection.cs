@@ -26,6 +26,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<IPluralsRepository, PluralsRepository>();
             services.AddHttpClients(configuration);
