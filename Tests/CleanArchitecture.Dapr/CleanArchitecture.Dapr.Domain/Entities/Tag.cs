@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CleanArchitecture.Dapr.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.Dapr.Domain.Entities
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

@@ -25,7 +25,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
 
             foreach (var type in types)
             {
-                var instance = Activator.CreateInstance(type);
+                var instance = Activator.CreateInstance(type, true);
 
                 var methodInfo = type.GetMethod("Mapping")
                     ?? type.GetInterface("IMapFrom`1")?.GetMethod("Mapping");

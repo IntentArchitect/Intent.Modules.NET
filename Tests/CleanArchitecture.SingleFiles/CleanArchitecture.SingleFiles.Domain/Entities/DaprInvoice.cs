@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CleanArchitecture.SingleFiles.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.SingleFiles.Domain.Entities
 {
     public class DaprInvoice : IHasDomainEvent

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CleanArchitecture.Dapr.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.Dapr.Domain.Entities
 {
     public abstract class BaseOfT<T> : IHasDomainEvent

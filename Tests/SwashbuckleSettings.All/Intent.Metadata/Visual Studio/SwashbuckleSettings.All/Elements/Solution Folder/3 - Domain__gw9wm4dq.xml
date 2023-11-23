@@ -16,7 +16,6 @@
       <display>SwashbuckleSettings.All.Domain</display>
       <externalReference>2df1abc0-1bf8-4f28-8819-fd522fcfdae2</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0cb151d7-4f61-4892-b372-51462a3c1719</parentFolderId>
@@ -62,7 +61,6 @@
           <display>Entities</display>
           <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4e0ab309-5ad5-41ee-9b31-e2fad3b28c16</parentFolderId>
@@ -83,7 +81,6 @@
               <display>Domain.Entity</display>
               <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
               <isAbstract>false</isAbstract>
-              <order>1</order>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>e82c4863-5bf5-44f3-b386-114332caf250</parentFolderId>
@@ -98,7 +95,6 @@
           <display>Domain</display>
           <externalReference>2a1229cd-24cf-4128-b1a7-fcb2ac3020f8</externalReference>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4e0ab309-5ad5-41ee-9b31-e2fad3b28c16</parentFolderId>
@@ -111,7 +107,6 @@
           <display>Repository.Interface</display>
           <externalReference>f06bb1ad-cc5c-4d7e-baf5-db9f4035c3e9</externalReference>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4e0ab309-5ad5-41ee-9b31-e2fad3b28c16</parentFolderId>

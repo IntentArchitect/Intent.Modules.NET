@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace DtoSettings.Class.Protected.Domain.Entities
 {
     public class InvoiceLine

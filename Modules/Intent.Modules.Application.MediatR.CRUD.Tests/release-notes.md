@@ -1,5 +1,6 @@
 ### Version 1.3.3
 
+- Improvement: Updated test for Query By Id cases where a nullable object is returned, it shouldn't check for a `NotFoundException` to be thrown but rather to assert that the result is `default`.
 - Fixed: In one case where a GetAll Query is unmapped, the unit tests threw an Exception around an Assertion class that wasn't found.
 
 ### Version 1.3.2

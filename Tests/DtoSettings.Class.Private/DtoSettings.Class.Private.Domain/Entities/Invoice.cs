@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace DtoSettings.Class.Private.Domain.Entities
 {
     public class Invoice

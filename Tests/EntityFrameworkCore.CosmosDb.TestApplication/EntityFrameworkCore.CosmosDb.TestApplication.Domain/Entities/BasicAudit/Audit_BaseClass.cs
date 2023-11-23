@@ -4,6 +4,8 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudit
 {
     public abstract class Audit_BaseClass : IHasDomainEvent, IAuditable

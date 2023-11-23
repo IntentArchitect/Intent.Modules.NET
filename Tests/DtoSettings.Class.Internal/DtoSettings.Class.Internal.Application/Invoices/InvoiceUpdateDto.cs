@@ -16,6 +16,12 @@ namespace DtoSettings.Class.Internal.Application.Invoices
             InvoiceLines = invoiceLines;
         }
 
+        protected InvoiceUpdateDto()
+        {
+            Number = null!;
+            InvoiceLines = null!;
+        }
+
         public Guid Id { get; internal set; }
         public string Number { get; internal set; }
         public List<InvoiceLineDto> InvoiceLines { get; internal set; }

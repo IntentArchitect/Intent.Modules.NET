@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using MultipleDocumentStores.Domain.Common;
 
+[assembly: IntentTagModeImplicit]
+
 namespace MultipleDocumentStores.Domain.Entities
 {
     public class CustomerDapr : IHasDomainEvent

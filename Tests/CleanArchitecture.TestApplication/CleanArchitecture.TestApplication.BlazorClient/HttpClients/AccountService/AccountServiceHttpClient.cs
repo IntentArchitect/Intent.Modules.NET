@@ -25,13 +25,13 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
             };
         }
 
-        public async Task Register(RegisterDto command, CancellationToken cancellationToken = default)
+        public async Task Register(RegisterDto dto, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/Account/Register";
+            const string relativeUri = "api/Account/Register";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            var content = JsonSerializer.Serialize(dto, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -43,13 +43,13 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
             }
         }
 
-        public async Task<TokenResultDto> Login(LoginDto command, CancellationToken cancellationToken = default)
+        public async Task<TokenResultDto> Login(LoginDto dto, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/Account/Login";
+            const string relativeUri = "api/Account/Login";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            var content = JsonSerializer.Serialize(dto, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -58,30 +58,28 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
-                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                await using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<TokenResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<TokenResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task<TokenResultDto> RefreshToken(
-            string authenticationToken,
-            string refreshToken,
-            CancellationToken cancellationToken = default)
+        public async Task<TokenResultDto> Refresh(string refreshToken, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/Account/RefreshToken";
-            var queryParams = new Dictionary<string, string>();
-            queryParams.Add("authenticationToken", authenticationToken);
-            queryParams.Add("refreshToken", refreshToken);
-            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            const string relativeUri = "api/Account/Refresh";
+
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var dto = new RefreshTokenDto
+            {
+                RefreshToken = refreshToken
+            };
+
+            var content = JsonSerializer.Serialize(dto, _serializerOptions);
+            request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -89,25 +87,21 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, request, response, cancellationToken).ConfigureAwait(false);
                 }
-                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
-                {
-                    return default;
-                }
 
-                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                await using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return await JsonSerializer.DeserializeAsync<TokenResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<TokenResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
 
-        public async Task ConfirmEmail(ConfirmEmailDto command, CancellationToken cancellationToken = default)
+        public async Task ConfirmEmail(ConfirmEmailDto dto, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/Account/ConfirmEmail";
+            const string relativeUri = "api/Account/ConfirmEmail";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            var content = JsonSerializer.Serialize(dto, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -121,7 +115,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
 
         public async Task Logout(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/Account/Logout";
+            const string relativeUri = "api/Account/Logout";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -161,5 +155,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountServ
     {
         public string? UserId { get; set; }
         public string? Code { get; set; }
+    }
+
+    public class RefreshTokenDto
+    {
+        public string? RefreshToken { get; set; }
     }
 }

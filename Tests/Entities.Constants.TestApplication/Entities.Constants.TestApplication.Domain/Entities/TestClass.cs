@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Entities.Constants.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.Constants.TestApplication.Domain.Entities
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

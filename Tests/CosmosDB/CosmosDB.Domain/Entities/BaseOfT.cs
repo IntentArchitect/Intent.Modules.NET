@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CosmosDB.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CosmosDB.Domain.Entities
 {
     public abstract class BaseOfT<T> : IHasDomainEvent
