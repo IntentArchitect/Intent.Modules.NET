@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using AzureFunctions.TestApplication.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.WebJobs;
@@ -29,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
             [RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
             CancellationToken cancellationToken)
         {
-            var command = JsonSerializer.Deserialize<CommandForRabbitMQTrigger>(args.Body.ToArray());
+            var command = JsonSerializer.Deserialize<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>(args.Body.ToArray());
         }
     }
 }
