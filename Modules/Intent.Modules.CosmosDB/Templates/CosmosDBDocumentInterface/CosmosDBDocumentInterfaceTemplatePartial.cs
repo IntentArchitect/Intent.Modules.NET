@@ -69,6 +69,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         .ToList();
 
                     var pkAttribute = Model.GetPrimaryKeyAttribute();
+                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
+
+                    var partitionKeyAttribute = partitionKey == null
+                        ? pkAttribute
+                        : Model.GetAttributeOrDerivedWithName(partitionKey);
 
                     foreach (var attribute in attributes)
                     {
@@ -76,6 +81,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         if (attribute.Id == pkAttribute.Id)
                         {
                             typeName = Helpers.PrimaryKeyType;
+                        }
+                        else if (attribute.Id == partitionKeyAttribute.Id)
+                        {
+                            typeName = "string";
                         }
                         @interface.AddProperty(typeName, attribute.Name.ToPascalCase(), p => p.WithoutSetter());
                     }
