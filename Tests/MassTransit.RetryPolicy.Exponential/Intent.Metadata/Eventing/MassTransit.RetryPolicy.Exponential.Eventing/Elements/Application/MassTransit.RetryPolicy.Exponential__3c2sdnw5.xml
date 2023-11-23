@@ -4,7 +4,6 @@
   <display>MassTransit.RetryPolicy.Exponential</display>
   <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>293d2cb3-8ea3-4c60-9161-55644d4d8b1a</parentFolderId>

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 

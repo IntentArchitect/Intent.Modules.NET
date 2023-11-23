@@ -8,10 +8,10 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
 {
     public interface IAccountService
     {
-        Task Register(RegisterDto command, CancellationToken cancellationToken = default);
-        Task<TokenResultDto> Login(LoginDto command, CancellationToken cancellationToken = default);
-        Task<TokenResultDto> RefreshToken(string authenticationToken, string refreshToken, CancellationToken cancellationToken = default);
-        Task ConfirmEmail(ConfirmEmailDto command, CancellationToken cancellationToken = default);
+        Task Register(RegisterDto dto, CancellationToken cancellationToken = default);
+        Task<TokenResultDto> Login(LoginDto dto, CancellationToken cancellationToken = default);
+        Task<TokenResultDto> Refresh(string refreshToken, CancellationToken cancellationToken = default);
+        Task ConfirmEmail(ConfirmEmailDto dto, CancellationToken cancellationToken = default);
         Task Logout(CancellationToken cancellationToken = default);
     }
 }

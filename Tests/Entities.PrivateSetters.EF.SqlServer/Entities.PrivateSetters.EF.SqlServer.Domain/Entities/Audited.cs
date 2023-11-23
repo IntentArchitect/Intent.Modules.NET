@@ -2,6 +2,8 @@ using System;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     public class Audited : IAuditable

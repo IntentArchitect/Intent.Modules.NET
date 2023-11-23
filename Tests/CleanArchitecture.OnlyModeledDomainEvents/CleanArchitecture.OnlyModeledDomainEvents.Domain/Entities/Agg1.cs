@@ -4,6 +4,8 @@ using CleanArchitecture.OnlyModeledDomainEvents.Domain.Common;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities
 {
     public class Agg1 : IHasDomainEvent

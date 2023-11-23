@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     public class Person

@@ -20,7 +20,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel, ControllerDecorator>, ICSharpFileBuilderTemplate
+    public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel, ControllerDecorator>, ICSharpFileBuilderTemplate, IControllerTemplate<IControllerModel>
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
@@ -181,6 +181,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             return lines;
         }
+
+        public CSharpStatement GetReturnStatement(IControllerOperationModel operationModel)
+        {
+            return Utils.GetReturnStatement(this, operationModel);
+        }
+
 
         private IEnumerable<CSharpAttribute> GetOperationAttributes(IControllerOperationModel operation)
         {

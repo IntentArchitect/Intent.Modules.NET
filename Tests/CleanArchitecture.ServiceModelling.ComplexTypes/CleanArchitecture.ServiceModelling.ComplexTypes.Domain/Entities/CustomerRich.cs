@@ -4,6 +4,8 @@ using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Common;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
 {
     public class CustomerRich : IHasDomainEvent

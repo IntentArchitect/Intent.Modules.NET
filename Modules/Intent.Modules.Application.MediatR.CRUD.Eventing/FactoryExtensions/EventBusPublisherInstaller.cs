@@ -86,10 +86,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                     Template = s.Template,
                     Command = s.Command,
                     Entity = s.Entity,
-                    Message = messageLookup[s.Entity.Id].SingleOrDefault(p => GetConventionName(s.Command.Name) == GetConventionName(p.Name)),
+                    Message = messageLookup[s.Entity.Id].FirstOrDefault(p =>
+                    {
+                        var commandNameConvention = GetConventionName(s.Command.Name);
+                        return commandNameConvention == GetConventionName(p.Name) && commandNameConvention is not null;
+                    }),
                     Convention = GetConventionName(s.Command.Name)
                 })
-                .Where(p => p.Message != null)
+                .Where(p => p.Message is not null)
                 .ToArray();
             foreach (var commandHandler in commandHandlers)
             {

@@ -4,6 +4,8 @@ using System.Linq;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]

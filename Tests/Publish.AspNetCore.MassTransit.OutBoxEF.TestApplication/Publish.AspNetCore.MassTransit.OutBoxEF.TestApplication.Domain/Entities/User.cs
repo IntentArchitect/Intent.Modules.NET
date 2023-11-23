@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities
 {
     public class User
