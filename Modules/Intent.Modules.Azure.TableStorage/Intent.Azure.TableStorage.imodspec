@@ -85,7 +85,7 @@
   <interoperability>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6-pre.1" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6" />
       </install>
     </detect>
   </interoperability>

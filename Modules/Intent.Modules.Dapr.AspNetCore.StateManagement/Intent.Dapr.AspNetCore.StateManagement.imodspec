@@ -82,12 +82,12 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.1.7-pre.2" />
+        <package id="Intent.Application.MediatR" version="4.1.7" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6-pre.1" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection.AutoMapper</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Registers AutoMapper services for Dependency Injection</summary>
@@ -23,7 +23,7 @@
   <decorators>
     <decorator id="Intent.Application.DependencyInjection.AutoMapper.AutoMapperDependencyInjectionDecorator" externalReference="b02246a4-53da-41e2-be7a-afe40ccb87ba" />
   </decorators>
-  <metadata />  
+  <metadata />
   <moduleSettings />
   <moduleSettingsExtensions />
 </package>
