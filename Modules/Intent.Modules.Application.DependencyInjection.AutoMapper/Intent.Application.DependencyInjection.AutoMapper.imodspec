@@ -19,7 +19,7 @@
   <interoperability>
     <detect id="Intent.Application.AutoMapper">
       <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="5.0.0-pre.0" />
+        <package id="Intent.Application.AutoMapper" version="5.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>  
