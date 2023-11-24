@@ -65,7 +65,6 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3" />
     <dependency id="Intent.Modelers.Services" version="3.4.9" />
-    <dependency id="Intent.Modelers.Services" version="3.4.9" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
