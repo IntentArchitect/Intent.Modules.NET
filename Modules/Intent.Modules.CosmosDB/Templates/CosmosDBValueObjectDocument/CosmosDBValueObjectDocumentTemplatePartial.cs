@@ -54,6 +54,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         @class: @class,
                         attributes: attributes,
                         associationEnds: Array.Empty<AssociationEndModel>(),
+                        partitionKeyAttribute: null,
                         entityInterfaceTypeName: valueObjectTypeName,
                         entityImplementationTypeName: valueObjectTypeName,
                         entityRequiresReflectionConstruction: true,

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection.Metadata;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Templates;
@@ -17,6 +18,17 @@ namespace Intent.Modules.CosmosDB.Templates
                 _ => ".ToString()"
             };
         }
+
+        public static string SetToType<T>(this AttributeModel attribute, CSharpTemplateBase<T> template)
+        {
+            string csharpType = template.GetTypeName(attribute.TypeReference);
+            return attribute.TypeReference.Element?.Name.ToLowerInvariant() switch
+            {
+                "string" => "value!",
+                _ => $"({csharpType})Convert.ChangeType(value, typeof({csharpType}))!"
+            };
+        }
+
 
         public static AttributeModel GetPrimaryKeyAttribute(this ClassModel model)
         {

@@ -68,9 +68,25 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         .Where(x => entityPropertyIds.Contains(x.Id) && x.IsNavigable)
                         .ToList();
 
+                    var pkAttribute = Model.GetPrimaryKeyAttribute();
+                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
+
+                    var partitionKeyAttribute = partitionKey == null
+                        ? pkAttribute
+                        : Model.GetAttributeOrDerivedWithName(partitionKey);
+
                     foreach (var attribute in attributes)
                     {
-                        @interface.AddProperty(GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), p => p.WithoutSetter());
+                        string typeName = GetTypeName(attribute.TypeReference);
+                        if (Model.IsAggregateRoot() && pkAttribute != null && attribute.Id == pkAttribute.Id)
+                        {
+                            typeName = Helpers.PrimaryKeyType;
+                        }
+                        else if (Model.IsAggregateRoot() && partitionKeyAttribute != null && attribute.Id == partitionKeyAttribute.Id)
+                        {
+                            typeName = "string";
+                        }
+                        @interface.AddProperty(typeName, attribute.Name.ToPascalCase(), p => p.WithoutSetter());
                     }
 
                     foreach (var associationEnd in associationEnds)
