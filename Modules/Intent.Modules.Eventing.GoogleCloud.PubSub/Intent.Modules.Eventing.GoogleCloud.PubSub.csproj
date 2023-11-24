@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>1.0.5-pre.0</Version>
+    <Version>1.0.5-pre.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2023</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>

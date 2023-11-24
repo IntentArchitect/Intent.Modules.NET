@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit.EntityFrameworkCore</id>
-  <version>5.0.2-pre.0</version>
+  <version>5.0.2-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Integrates MassTransit with Entity Framework Core to bring you transaction scope handling in your consumers.</summary>
   <description>Integrates MassTransit with Entity Framework Core to bring you transaction scope handling in your consumers.</description>
@@ -22,7 +22,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Eventing.MassTransit">
       <install>
-        <package id="Intent.Eventing.MassTransit" version="5.2.5-pre.3" />
+        <package id="Intent.Eventing.MassTransit" version="5.2.5-pre.4" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

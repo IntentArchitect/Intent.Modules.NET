@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.1.7-pre.1</version>
+  <version>4.1.7-pre.2</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
@@ -73,18 +73,18 @@
     <detect id="Intent.AzureFunctions">
       <install>
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.9" />
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.1" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.1" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.DependencyInjection.MediatR">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.8-pre.1" />
       </install>
     </detect>
     <detect id="Intent.VisualStudio.Projects">
@@ -99,12 +99,12 @@
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6-pre.0" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.6-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD" version="5.3.3-pre.2" />
+        <package id="Intent.Application.MediatR.CRUD" version="5.3.3-pre.4" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
@@ -119,7 +119,7 @@
     </detect>
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
-        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-beta.5" />
+        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.1.0-beta.6" />
       </install>
     </detect>
     <detect id="Intent.OutputManager.RoslynWeaver">
