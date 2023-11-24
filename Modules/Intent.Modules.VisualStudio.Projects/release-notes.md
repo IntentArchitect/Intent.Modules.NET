@@ -3,6 +3,10 @@
 - New Feature: It is now possible to specify `Use minimal hosting model` and `Use top-level statements` on `.NET Project`s with their `SDK` set to `Microsoft.NET.Sdk.Web`.
 - New Feature: Added support for working with program and startup files with combination of "use minimal host model" and "use top-level-statements".
 
+### Version 3.4.2
+
+- Fixed: Target Framework for `.NET 8` will output correct version number in `csproj` file. 
+
 ### Version 3.4.1
 
 - Improvement: Removed `Could not determine framework element for project "<project path>". If you're using a "Directory.Build.props" file, change the project's Target Framework to "(unspecified)"` warning.

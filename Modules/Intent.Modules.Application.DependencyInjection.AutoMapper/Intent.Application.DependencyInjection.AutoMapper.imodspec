@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection.AutoMapper</id>
-  <version>3.4.6-pre.0</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Registers AutoMapper services for Dependency Injection</summary>
@@ -16,6 +16,13 @@
     <dependency id="Intent.Common.CSharp" version="3.3.33" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Application.AutoMapper">
+      <install>
+        <package id="Intent.Application.DependencyInjection.AutoMapper" version="5.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>  
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
@@ -23,7 +30,7 @@
   <decorators>
     <decorator id="Intent.Application.DependencyInjection.AutoMapper.AutoMapperDependencyInjectionDecorator" externalReference="b02246a4-53da-41e2-be7a-afe40ccb87ba" />
   </decorators>
-  <metadata />
+  <metadata />  
   <moduleSettings />
   <moduleSettingsExtensions />
 </package>
