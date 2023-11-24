@@ -51,7 +51,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/README.md</projectUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/README.md</projectUrl>
   <moduleSettingsExtensions />
   <metadata />
 </package>
