@@ -83,7 +83,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             return CSharpFile.GetConfig();
         }
-        
+
         public override RoslynMergeConfig ConfigureRoslynMerger()
         {
             return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new NewtonSoftRemovalMigration());

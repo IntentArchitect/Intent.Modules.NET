@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <PackageVersion>4.0.13-pre.0</PackageVersion>
+    <PackageVersion>4.0.13-pre.3</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
@@ -30,10 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\Startup\StartupTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>StartupTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Return Types\ResourceLocationPayload\ResourceLocationPayloadTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResourceLocationPayloadTemplate.cs</LastGenOutput>
@@ -65,11 +61,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\Startup\StartupTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StartupTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\Return Types\ResourceLocationPayload\ResourceLocationPayloadTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

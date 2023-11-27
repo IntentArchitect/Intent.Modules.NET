@@ -134,7 +134,7 @@
       <childElements>
         <childElement id="061d3950-5ddd-4183-af70-722c25c847c9" type="Element Mapping" typeId="4a16943b-702c-4fb0-bfcc-2afd98b8814c">
           <name>NewElementMapping</name>
-          <display>[mapping]: undefined -&gt; [None] (Traverse)</display>
+          <display>[mapping]: Service -&gt; Azure Function (Traverse)</display>
           <isAbstract>false</isAbstract>
           <sort-children>by-type-then-by-name</sort-children>
           <genericTypes />
@@ -177,7 +177,7 @@
           <childElements>
             <childElement id="505a5cab-0871-4291-a95c-fd25a8d08d40" type="Element Mapping" typeId="4a16943b-702c-4fb0-bfcc-2afd98b8814c">
               <name>NewElementMapping</name>
-              <display>[mapping]: undefined -&gt; [None] (Map to Type)</display>
+              <display>[mapping]: Operation -&gt; Azure Function (Map to Type)</display>
               <isAbstract>false</isAbstract>
               <sort-children>by-type-then-by-name</sort-children>
               <genericTypes />
@@ -220,7 +220,7 @@
               <childElements>
                 <childElement id="337342b1-ed7e-4f28-b5bb-bfc79180340f" type="Element Mapping" typeId="4a16943b-702c-4fb0-bfcc-2afd98b8814c">
                   <name>NewElementMapping</name>
-                  <display>[mapping]: undefined -&gt; [None] (Map to Type)</display>
+                  <display>[mapping]: Parameter -&gt; Azure Function Parameter (Map to Type)</display>
                   <isAbstract>false</isAbstract>
                   <genericTypes />
                   <isMapped>false</isMapped>
