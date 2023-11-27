@@ -27,5 +27,6 @@ namespace Standard.AspNetCore.TestApplication.Application.IntegrationServices
         Task<int> GetPrimitiveIntAsync(CancellationToken cancellationToken = default);
         Task<List<string>> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default);
         Task<CustomDTO> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default);
+        Task<List<CustomDTO>> GetItemsAsync(List<string> ids, CancellationToken cancellationToken = default);
     }
 }

@@ -105,6 +105,14 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
                                         method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(field)});");
                                     }
                                 }
+                                else if (queryParameter.TypeReference.IsCollection)
+                                {
+                                    method.AddStatement("var index = 0;");
+                                    method.AddForEachStatement("element", queryParameter.Name.ToCamelCase(), block =>
+                                    {
+                                        block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}[{{index++}}]"", element);");
+                                    });
+                                }
                                 else
                                 {
                                     method.AddStatement($"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");

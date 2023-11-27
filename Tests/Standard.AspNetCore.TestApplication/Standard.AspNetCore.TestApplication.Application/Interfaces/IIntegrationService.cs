@@ -27,5 +27,6 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
         Task<List<string>> GetPrimitiveStringList(CancellationToken cancellationToken = default);
         Task NonHttpSettingsOperation(CancellationToken cancellationToken = default);
         Task<CustomDTO> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default);
+        Task<List<CustomDTO>> GetItems(List<string> ids, CancellationToken cancellationToken = default);
     }
 }

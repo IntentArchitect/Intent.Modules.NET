@@ -14,7 +14,7 @@
   <childElements>
     <childElement id="874a4aed-e4d9-49b3-b356-b9b110ea8d7c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>CreateClient</name>
-      <display>CreateClient(dto: ClientCreateDto): guid</display>
+      <display>CreateClient(dto: ClientCreate): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -225,7 +225,7 @@
     </childElement>
     <childElement id="ac40dbe8-92e7-4dc4-a680-544d2e752bf1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>UpdateClient</name>
-      <display>UpdateClient(id: guid, dto: ClientUpdateDto): void</display>
+      <display>UpdateClient(id: guid, dto: ClientUpdate): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
