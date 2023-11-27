@@ -100,19 +100,15 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     method
                         .Async()
                         .AddParameter($"IEnumerable<TDomain>", "entities")
-                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method.AddInvocationStatement("await _dbContext.BulkInsertAsync", invocation =>
                     {
                         invocation.AddArgument("entities");
-                        invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                        invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                         {
                             var options = (CSharpLambdaBlock)a;
-                            options.AddIfStatement("customOptions != null", stmt => 
-                            {
-                                stmt.AddStatement("customOptions(defaultOptions);");
-                            });
-
+                            options.AddStatement("configure?.Invoke(options);");
                         });
                         invocation.AddArgument("cancellationToken");
                     });
@@ -130,18 +126,15 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     method
                         .Async()
                         .AddParameter($"IEnumerable<TDomain>", "entities")
-                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method.AddInvocationStatement("await _dbContext.BulkUpdateAsync", invocation =>
                     {
                         invocation.AddArgument("entities");
-                        invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                        invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                         {
                             var options = (CSharpLambdaBlock)a;
-                            options.AddIfStatement("customOptions != null", stmt =>
-                            {
-                                stmt.AddStatement("customOptions(defaultOptions);");
-                            });
+                            options.AddStatement("configure?.Invoke(options);");
                         });
                         invocation.AddArgument("cancellationToken");
                     });
@@ -159,18 +152,15 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     method
                         .Async()
                         .AddParameter($"IEnumerable<TDomain>", "entities")
-                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method.AddInvocationStatement("await _dbContext.BulkUpdateAsync", invocation =>
                     {
                         invocation.AddArgument("entities");
-                        invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                        invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                         {
                             var options = (CSharpLambdaBlock)a;
-                            options.AddIfStatement("customOptions != null", stmt =>
-                            {
-                                stmt.AddStatement("customOptions(defaultOptions);");
-                            });
+                            options.AddStatement("configure?.Invoke(options);");
                         });
                         invocation.AddArgument("cancellationToken");
                     });
@@ -191,17 +181,14 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     {
                         method
                             .AddParameter($"IEnumerable<TDomain>", "entities")
-                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"));
+                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"));
                         method.AddInvocationStatement("_dbContext.BulkInsert", invocation =>
                         {
                             invocation.AddArgument("entities");
-                            invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                            invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                             {
                                 var options = (CSharpLambdaBlock)a;
-                                options.AddIfStatement("customOptions != null", stmt =>
-                                {
-                                    stmt.AddStatement("customOptions(defaultOptions);");
-                                });
+                                options.AddStatement("configure?.Invoke(options);");
 
                             });
                         });
@@ -216,17 +203,14 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     {
                         method
                             .AddParameter($"IEnumerable<TDomain>", "entities")
-                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"));
+                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"));
                         method.AddInvocationStatement("_dbContext.BulkUpdate", invocation =>
                         {
                             invocation.AddArgument("entities");
-                            invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                            invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                             {
                                 var options = (CSharpLambdaBlock)a;
-                                options.AddIfStatement("customOptions != null", stmt =>
-                                {
-                                    stmt.AddStatement("customOptions(defaultOptions);");
-                                });
+                                options.AddStatement("configure?.Invoke(options);");
                             });
                         });
                     });
@@ -240,17 +224,14 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations.FactoryExtensions
                     {
                         method
                             .AddParameter($"IEnumerable<TDomain>", "entities")
-                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "customOptions", p => p.WithDefaultValue("default"));
+                            .AddParameter($"Action<BulkOperation<TDomain>>{nullableChar}", "configure", p => p.WithDefaultValue("default"));
                         method.AddInvocationStatement("_dbContext.BulkUpdate", invocation =>
                         {
                             invocation.AddArgument("entities");
-                            invocation.AddArgument(new CSharpLambdaBlock("defaultOptions"), a =>
+                            invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
                             {
                                 var options = (CSharpLambdaBlock)a;
-                                options.AddIfStatement("customOptions != null", stmt =>
-                                {
-                                    stmt.AddStatement("customOptions(defaultOptions);");
-                                });
+                                options.AddStatement("configure?.Invoke(options);");
                             });
                         });
                     });
