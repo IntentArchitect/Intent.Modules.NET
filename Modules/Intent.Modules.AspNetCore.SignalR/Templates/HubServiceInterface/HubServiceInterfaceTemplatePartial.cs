@@ -55,6 +55,9 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
                             break;
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Client:
+                            method.AddParameter("string", "connectionId");
+                            break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }

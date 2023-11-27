@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="65a266b6-fa9f-4fbd-bf46-7d8fff731f00" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-  <name>MessageToAllDto</name>
-  <display>MessageToAllDto</display>
+<class id="f9dabcc0-d7e7-459e-938e-43878d4f40e7" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>MassageToClientDto</name>
+  <display>MassageToClientDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,12 +12,12 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="eff2c55f-abbb-4342-a0e9-f850c6ec0706" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="90fc8206-29f0-48f7-9b41-bf9827e0a705" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Message</name>
       <display>Message: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="c0b94ddf-1915-4cfd-a70b-eb2256504f8d">
+      <typeReference id="4bfed139-c05f-40e3-b173-16dd264b70d9">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +29,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>65a266b6-fa9f-4fbd-bf46-7d8fff731f00</parentFolderId>
+      <parentFolderId>f9dabcc0-d7e7-459e-938e-43878d4f40e7</parentFolderId>
       <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
       <packageName>SignalR.Services</packageName>
       <stereotypes>

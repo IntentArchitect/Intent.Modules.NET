@@ -69,6 +69,10 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
                             clientTarget = "Groups(groupIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
                             break;
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Client:
+                            clientTarget = "Client(connectionId)";
+                            method.AddParameter("string", "connectionId");
+                            break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
