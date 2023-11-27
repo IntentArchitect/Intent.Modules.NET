@@ -3,8 +3,8 @@
   <ApplicationId>51d44bee-1a4b-4c0a-897e-41261c2bfb9c</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>23156ea2-5268-45cf-a247-a74d47935f62</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#23156ea2-5268-45cf-a247-a74d47935f62</CorrelationId>
+      <ProjectId>06ff362e-48c0-4db7-8d1a-f7502dcab5b5</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#06ff362e-48c0-4db7-8d1a-f7502dcab5b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -91,15 +91,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23156ea2-5268-45cf-a247-a74d47935f62</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#23156ea2-5268-45cf-a247-a74d47935f62</CorrelationId>
+      <ProjectId>06ff362e-48c0-4db7-8d1a-f7502dcab5b5</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#06ff362e-48c0-4db7-8d1a-f7502dcab5b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/MinimalHostingModel.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MinimalHostingModel.Api.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23156ea2-5268-45cf-a247-a74d47935f62</ProjectId>
+      <ProjectId>06ff362e-48c0-4db7-8d1a-f7502dcab5b5</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Program.cs</ApplicationRelativeFilePath>
@@ -107,8 +107,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23156ea2-5268-45cf-a247-a74d47935f62</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#23156ea2-5268-45cf-a247-a74d47935f62</CorrelationId>
+      <ProjectId>06ff362e-48c0-4db7-8d1a-f7502dcab5b5</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#06ff362e-48c0-4db7-8d1a-f7502dcab5b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
@@ -315,7 +315,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
+      <ProjectId>9cd91bc2-ef57-44fd-a6da-a9f974177ddf</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -323,8 +323,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#77b8ddd2-30da-4a3e-8bbe-efadf0a2f5f1</CorrelationId>
+      <ProjectId>9cd91bc2-ef57-44fd-a6da-a9f974177ddf</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#9cd91bc2-ef57-44fd-a6da-a9f974177ddf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/MinimalHostingModel.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MinimalHostingModel.Application.csproj</ProjectRelativeFilePath>
@@ -667,8 +667,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#d2ff75b0-39f3-4cad-b440-26c5b416e00a</CorrelationId>
+      <ProjectId>f9a42418-3753-4ff8-a160-0166c705c0e6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f9a42418-3753-4ff8-a160-0166c705c0e6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/MinimalHostingModel.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MinimalHostingModel.Domain.csproj</ProjectRelativeFilePath>
@@ -699,7 +699,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
+      <ProjectId>f9a42418-3753-4ff8-a160-0166c705c0e6</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/ValueObject.cs</ApplicationRelativeFilePath>
@@ -723,7 +723,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>faabc763-8338-418e-a75c-a453905d6339</ProjectId>
+      <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -747,8 +747,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>faabc763-8338-418e-a75c-a453905d6339</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#faabc763-8338-418e-a75c-a453905d6339</CorrelationId>
+      <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ab446e12-3ba4-46b6-9a71-b649eefab17e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/MinimalHostingModel.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MinimalHostingModel.Infrastructure.csproj</ProjectRelativeFilePath>

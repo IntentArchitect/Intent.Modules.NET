@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>cba0848f-5aff-47d9-bb33-e81b336d22f3</parentFolderId>
+  <parentFolderId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</parentFolderId>
   <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
   <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
   <stereotypes>

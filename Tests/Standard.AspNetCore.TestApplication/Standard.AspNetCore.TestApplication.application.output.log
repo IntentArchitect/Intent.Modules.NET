@@ -3,8 +3,8 @@
   <ApplicationId>a3039e69-7ab0-4ab4-8784-54706aa3fcd8</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#418c6192-1fbf-4d24-81f7-f1a060223c2c</CorrelationId>
+      <ProjectId>4be3b157-cb12-4da1-9b19-7554493b017a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#4be3b157-cb12-4da1-9b19-7554493b017a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -131,7 +131,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
+      <ProjectId>4be3b157-cb12-4da1-9b19-7554493b017a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
@@ -139,8 +139,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#418c6192-1fbf-4d24-81f7-f1a060223c2c</CorrelationId>
+      <ProjectId>4be3b157-cb12-4da1-9b19-7554493b017a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#4be3b157-cb12-4da1-9b19-7554493b017a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
@@ -155,15 +155,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.CSProject#418c6192-1fbf-4d24-81f7-f1a060223c2c</CorrelationId>
+      <ProjectId>4be3b157-cb12-4da1-9b19-7554493b017a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4be3b157-cb12-4da1-9b19-7554493b017a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Standard.AspNetCore.TestApplication.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.TestApplication.Api.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>418c6192-1fbf-4d24-81f7-f1a060223c2c</ProjectId>
+      <ProjectId>4be3b157-cb12-4da1-9b19-7554493b017a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
@@ -171,7 +171,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ff936fb0-1766-4a86-b2a0-ccfebbb10503</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Clients/Client.cs</ApplicationRelativeFilePath>
@@ -179,7 +179,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#afde208a-2dab-4e4c-8c3f-7515cb521cbc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Clients/ClientCreate.cs</ApplicationRelativeFilePath>
@@ -187,7 +187,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ff936fb0-1766-4a86-b2a0-ccfebbb10503</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Clients/ClientMappingExtensions.cs</ApplicationRelativeFilePath>
@@ -195,7 +195,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#7dc8c271-c214-438a-84fa-885eaf94c889</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Clients/ClientUpdate.cs</ApplicationRelativeFilePath>
@@ -291,7 +291,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -363,7 +363,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Integration/CustomDTO.cs</ApplicationRelativeFilePath>
@@ -371,7 +371,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Integration/CustomDTOValidator.cs</ApplicationRelativeFilePath>
@@ -515,7 +515,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ebb59190-d2f8-420d-a929-7a8a736c7f47</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceCreateDto.cs</ApplicationRelativeFilePath>
@@ -523,7 +523,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ebb59190-d2f8-420d-a929-7a8a736c7f47</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceCreateDtoValidator.cs</ApplicationRelativeFilePath>
@@ -531,7 +531,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceDto.cs</ApplicationRelativeFilePath>
@@ -539,7 +539,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
@@ -547,7 +547,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceDtoValidator.cs</ApplicationRelativeFilePath>
@@ -555,7 +555,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
@@ -563,7 +563,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceUpdateDtoValidator.cs</ApplicationRelativeFilePath>
@@ -571,7 +571,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
@@ -579,7 +579,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#10156545-1e6c-4797-ac87-62fdd6eaefc5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsCreateDto.cs</ApplicationRelativeFilePath>
@@ -587,7 +587,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#64db448e-2f3d-44ec-b0af-86b6684c491a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsDto.cs</ApplicationRelativeFilePath>
@@ -595,7 +595,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#64db448e-2f3d-44ec-b0af-86b6684c491a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsDtoMappingExtensions.cs</ApplicationRelativeFilePath>
@@ -603,7 +603,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#6e5f3436-7cd2-4a98-a38e-ccec7ce923c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Plurals/PluralsUpdateDto.cs</ApplicationRelativeFilePath>
@@ -611,15 +611,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#19ecc7da-5642-4311-86d7-fffa2e71c5a7</CorrelationId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d7671391-0a4a-47ec-af21-137364618e92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Standard.AspNetCore.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.TestApplication.Application.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDto.cs</ApplicationRelativeFilePath>
@@ -627,7 +627,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDtoValidator.cs</ApplicationRelativeFilePath>
@@ -635,7 +635,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>19ecc7da-5642-4311-86d7-fffa2e71c5a7</ProjectId>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
@@ -755,8 +755,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>974da2fc-c76a-4845-9905-cb4df85673cb</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#974da2fc-c76a-4845-9905-cb4df85673cb</CorrelationId>
+      <ProjectId>982515f5-2c13-4943-800b-79ba701233e1</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#982515f5-2c13-4943-800b-79ba701233e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Domain/Standard.AspNetCore.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.TestApplication.Domain.csproj</ProjectRelativeFilePath>
@@ -771,7 +771,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2660d263-1e60-4aaf-ae9b-6d9c2d60cacc</ProjectId>
+      <ProjectId>931f0fb9-48da-478e-a955-fcfcbe6afc93</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -907,8 +907,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2660d263-1e60-4aaf-ae9b-6d9c2d60cacc</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#2660d263-1e60-4aaf-ae9b-6d9c2d60cacc</CorrelationId>
+      <ProjectId>931f0fb9-48da-478e-a955-fcfcbe6afc93</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#931f0fb9-48da-478e-a955-fcfcbe6afc93</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>

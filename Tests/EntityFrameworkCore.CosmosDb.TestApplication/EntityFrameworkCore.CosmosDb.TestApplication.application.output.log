@@ -3,8 +3,8 @@
   <ApplicationId>794893b1-0854-4d56-ab58-82e53b116290</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>4bfd3425-074c-4b52-8a74-0463b0a24b90</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#4bfd3425-074c-4b52-8a74-0463b0a24b90</CorrelationId>
+      <ProjectId>940b683d-7cf7-439a-bbdf-29f03de195c8</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#940b683d-7cf7-439a-bbdf-29f03de195c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -35,8 +35,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4bfd3425-074c-4b52-8a74-0463b0a24b90</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.CSProject#4bfd3425-074c-4b52-8a74-0463b0a24b90</CorrelationId>
+      <ProjectId>940b683d-7cf7-439a-bbdf-29f03de195c8</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#940b683d-7cf7-439a-bbdf-29f03de195c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api/EntityFrameworkCore.CosmosDb.TestApplication.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api.csproj</ProjectRelativeFilePath>
@@ -59,7 +59,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4bfd3425-074c-4b52-8a74-0463b0a24b90</ProjectId>
+      <ProjectId>940b683d-7cf7-439a-bbdf-29f03de195c8</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
@@ -67,8 +67,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4bfd3425-074c-4b52-8a74-0463b0a24b90</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#4bfd3425-074c-4b52-8a74-0463b0a24b90</CorrelationId>
+      <ProjectId>940b683d-7cf7-439a-bbdf-29f03de195c8</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#940b683d-7cf7-439a-bbdf-29f03de195c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
@@ -83,7 +83,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4bfd3425-074c-4b52-8a74-0463b0a24b90</ProjectId>
+      <ProjectId>940b683d-7cf7-439a-bbdf-29f03de195c8</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
@@ -259,7 +259,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>bea39efa-3215-439b-8dea-fc33f85e3f4a</ProjectId>
+      <ProjectId>e9a182e3-c40c-42d4-af92-61ff1c949593</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -267,8 +267,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>bea39efa-3215-439b-8dea-fc33f85e3f4a</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#bea39efa-3215-439b-8dea-fc33f85e3f4a</CorrelationId>
+      <ProjectId>e9a182e3-c40c-42d4-af92-61ff1c949593</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e9a182e3-c40c-42d4-af92-61ff1c949593</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Application/EntityFrameworkCore.CosmosDb.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Application.csproj</ProjectRelativeFilePath>
@@ -923,8 +923,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#72463d11-29f9-4d30-bb1c-89a20309dabb</CorrelationId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4a8d6468-68e6-44df-8b90-01cf05099af9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/EntityFrameworkCore.CosmosDb.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain.csproj</ProjectRelativeFilePath>
@@ -1371,7 +1371,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObject.cs</ApplicationRelativeFilePath>
@@ -1379,7 +1379,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#a820112d-3d2c-44ae-b4cf-0be770ede396</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/AddressNormal.cs</ApplicationRelativeFilePath>
@@ -1387,7 +1387,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#06fca2dd-5941-4667-a0eb-4bd95124ffe8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/AddressSerialized.cs</ApplicationRelativeFilePath>
@@ -1395,7 +1395,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#7f444f44-1f1b-4bb5-aa75-f102a68ef091</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairNormal.cs</ApplicationRelativeFilePath>
@@ -1403,7 +1403,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72463d11-29f9-4d30-bb1c-89a20309dabb</ProjectId>
+      <ProjectId>4a8d6468-68e6-44df-8b90-01cf05099af9</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#eefbeaa9-44b3-4c5d-9743-f30218ec941d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairSerialized.cs</ApplicationRelativeFilePath>
@@ -1411,7 +1411,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>7ab10a9a-fa45-4944-a3d8-e1ca83cbd38c</ProjectId>
+      <ProjectId>6392f072-8f5f-4330-b46a-00c9b02f5185</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -1419,8 +1419,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>7ab10a9a-fa45-4944-a3d8-e1ca83cbd38c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#7ab10a9a-fa45-4944-a3d8-e1ca83cbd38c</CorrelationId>
+      <ProjectId>6392f072-8f5f-4330-b46a-00c9b02f5185</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#6392f072-8f5f-4330-b46a-00c9b02f5185</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
