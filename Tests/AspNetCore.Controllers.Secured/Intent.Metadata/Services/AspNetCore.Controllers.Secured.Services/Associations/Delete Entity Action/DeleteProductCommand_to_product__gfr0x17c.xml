@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2583fbd0-530a-4238-bd3b-879aa91e7152">
+  <sourceEnd id="ae27ae7a-5954-4c3e-b17d-92c171842d9f" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Products.DeleteProductCommand</display>
+    <order>0</order>
+    <typeReference id="10f59d18-15b8-4adc-8acc-2ac0a7e602f5">
+      <typeId>4833ed2d-0f07-4066-9deb-e7dfc8b2aa85</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+      <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2583fbd0-530a-4238-bd3b-879aa91e7152" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>product</name>
+    <display>[delete] product: Product</display>
+    <order>1</order>
+    <typeReference id="759f2afb-5bd7-42ef-a90e-0cea40948af1">
+      <typeId>9dcd5a82-3da2-499f-915e-b505da352e83</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.Controllers.Secured.Domain</typePackageName>
+      <typePackageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4833ed2d-0f07-4066-9deb-e7dfc8b2aa85" location="DeleteProductCommand" />
+        <target applicationId="e4251ba7-1036-4a2b-b23d-22d286ea81d2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9dcd5a82-3da2-499f-915e-b505da352e83" location="Product" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="9dcd5a82-3da2-499f-915e-b505da352e83" name="Product" type="element" specialization="Class" />
+              <target id="7013883e-6e33-4a3f-95be-2adc97ce9b0c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4833ed2d-0f07-4066-9deb-e7dfc8b2aa85" name="DeleteProductCommand" type="element" specialization="Command" />
+                  <target id="7ebe941d-1a73-4d10-8212-d46fd6e3cd0b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

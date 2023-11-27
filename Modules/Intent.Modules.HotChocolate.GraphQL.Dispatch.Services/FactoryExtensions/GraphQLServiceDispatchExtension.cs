@@ -47,7 +47,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                             {
                                 method.AddAttribute($"[{template.UseType("UseMutationConvention")}]");
                             }
-                            var serviceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, model.MappedElement.ParentElement);
+                            var serviceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, model.MappedElement.ParentElement);
                             method.AddParameter(serviceType, "service", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                             method.AddStatement($"{(method.ReturnType == "Task" ? "" : "return")} await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => GetServiceParameterExpression(x)))});");
                         }
@@ -55,7 +55,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                 }, 200);
             }
 
-            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
+            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
             foreach (var template in dtoTemplates)
             {
                 template.CSharpFile.OnBuild(file =>
@@ -66,7 +66,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.Services.FactoryExtension
                         if (method.TryGetMetadata<IGraphQLResolverModel>("model", out var model) &&
                             model.MappedElement?.IsOperationModel() == true)
                         {
-                            var serviceType = template.GetTypeName(TemplateFulfillingRoles.Application.Services.Interface, ((IElement)model.MappedElement).ParentElement);
+                            var serviceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, ((IElement)model.MappedElement).ParentElement);
                             method.AddParameter(serviceType, "service", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
                             method.AddStatement($"return await service.{model.MappedElement.Name.ToPascalCase()}({string.Join(", ", model.Parameters.Select(x => GetPropertyAssignmentValue(template, model, x)))});");
                         }

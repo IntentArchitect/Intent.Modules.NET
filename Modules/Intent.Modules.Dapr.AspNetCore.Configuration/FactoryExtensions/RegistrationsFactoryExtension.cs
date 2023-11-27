@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -23,36 +24,32 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            AddProgramRegistrations(application);
             AddStartupRegistrations(application);
+            AddProgramRegistrations(application);
         }
 
-        private void AddProgramRegistrations(IApplication application)
+        private static void AddStartupRegistrations(IApplication application)
         {
-            var startupTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
+            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
             if (startupTemplate == null)
             {
                 return;
             }
 
             startupTemplate.AddNugetDependency(NuGetPackages.DaprExtensionsConfiguration);
-
-            startupTemplate.CSharpFile.AfterBuild(file =>
+            startupTemplate.CSharpFile.AfterBuild(_ =>
             {
-                var @class = file.Classes.First();
-                var configureMethod = @class.FindMethod("Configure");
-                if (configureMethod == null)
+                startupTemplate.StartupFile.ConfigureApp((hasCSharpStatements, ctx) =>
                 {
-                    return;
-                }
-                startupTemplate.GetDaprConfigurationConfigurationName();
-                configureMethod.InsertStatement(0, "app.LoadDaprConfigurationStoreDeferred(Configuration);");
+                    startupTemplate.GetDaprConfigurationConfigurationName();
+                    hasCSharpStatements.InsertStatement(0, $"{ctx.App}.LoadDaprConfigurationStoreDeferred({ctx.Configuration});");
+                });
             }, 15);
         }
 
-        private void AddStartupRegistrations(IApplication application)
+        private static void AddProgramRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
+            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null)
             {
                 return;
@@ -67,24 +64,11 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
                 file.AddUsing("System.Collections.Generic");
 
                 programTemplate.GetDaprConfigurationConfigurationName();
-                var @class = file.Classes.First();
-                var hostBuilder = @class.FindMethod("CreateHostBuilder");
-                var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
-                var appConfigurationBlock = (CSharpInvocationStatement)hostBuilderChain.FindStatement(stmt => stmt.GetText("").StartsWith("ConfigureAppConfiguration"));
-                if (appConfigurationBlock == null)
+                programTemplate.ProgramFile.ConfigureAppConfiguration(false, (statements, parameters) =>
                 {
-                    appConfigurationBlock = new CSharpInvocationStatement("ConfigureAppConfiguration")
-                        .WithoutSemicolon()
-                        .AddArgument(new CSharpLambdaBlock("(config)")
-                        .AddStatement("config.AddDaprConfigurationStoreDeferred();"));
-                    hostBuilderChain.Statements.Last()
-                        .InsertAbove(appConfigurationBlock);
-                }
-                else
-                {
-                    ((CSharpLambdaBlock)appConfigurationBlock.Statements[0]).Statements.Add("config.AddDaprConfigurationStoreDeferred();");
-                }
-            }, 10);
+                    statements.AddStatement($"{parameters[^1]}.AddDaprConfigurationStoreDeferred();");
+                });
+            }, 12);
         }
     }
 }

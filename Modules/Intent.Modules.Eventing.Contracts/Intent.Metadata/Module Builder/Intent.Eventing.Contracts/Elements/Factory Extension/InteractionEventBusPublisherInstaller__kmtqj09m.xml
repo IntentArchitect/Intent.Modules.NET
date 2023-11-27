@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65223bff-9096-4187-b6bb-dbf0aae2fae5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>InteractionEventBusPublisherInstaller</name>
+  <display>InteractionEventBusPublisherInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</parentFolderId>
+  <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
+  <packageName>Intent.Eventing.Contracts</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -76,6 +76,16 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new SDKOptions(_stereotype.GetProperty<string>("SDK"));
             }
 
+            public bool UseTopLevelStatements()
+            {
+                return _stereotype.GetProperty<bool>("Use top-level statements");
+            }
+
+            public bool UseMinimalHostingModel()
+            {
+                return _stereotype.GetProperty<bool>("Use minimal hosting model");
+            }
+
             public OutputTypeOptions OutputType()
             {
                 return new OutputTypeOptions(_stereotype.GetProperty<string>("Output Type"));

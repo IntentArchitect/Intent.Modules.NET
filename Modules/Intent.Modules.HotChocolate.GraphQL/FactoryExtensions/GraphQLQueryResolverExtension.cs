@@ -44,7 +44,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                             model.MappedElement?.IsClassModel() == true)
                         {
                             if (model.MappedElement?.IsClassModel() == true &&
-                                template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, model.MappedElement.Id, out var repositoryInterface))
+                                template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, model.MappedElement.Id, out var repositoryInterface))
                             {
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                                 method.AddParameter(repositoryInterface, "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
@@ -86,7 +86,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
         private static bool ReturnsMappedDto(IGraphQLResolverModel resolver, ICSharpFileBuilderTemplate template)
         {
             return resolver.TypeReference.Element.IsDTOModel() &&
-                   template.TryGetTemplate<IIntentTemplate>(TemplateFulfillingRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _) &&
+                   template.TryGetTemplate<IIntentTemplate>(TemplateRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _) &&
                    resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element == resolver.MappedElement;
         }
     }

@@ -7,6 +7,9 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
+
+using Intent.Modules.DomainEvents.Templates;
+
 namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
 {
     using System.Collections.Generic;

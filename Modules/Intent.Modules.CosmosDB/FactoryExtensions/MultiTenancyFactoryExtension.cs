@@ -32,7 +32,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!application.TemplateExists(TemplateFulfillingRoles.Distribution.WebApi.MultiTenancyConfiguration))
+            if (!application.TemplateExists(TemplateRoles.Distribution.WebApi.MultiTenancyConfiguration))
             {
                 return;
             }

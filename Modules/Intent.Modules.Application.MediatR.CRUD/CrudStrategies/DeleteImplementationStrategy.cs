@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 
@@ -78,7 +77,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
                 codeLines.Add(string.Empty);
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
@@ -86,7 +85,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: $"{entityVariableName}",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}'"));
                 codeLines.Add(string.Empty);
 
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove({entityVariableName});");
@@ -95,7 +94,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 {
                     codeLines.Add(new CSharpStatement($"{repository.FieldName}.Update(aggregateRoot);").SeparatedFromPrevious());
                 }
-                
+
                 return codeLines.ToList();
             }
 
@@ -118,7 +117,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private bool RepositoryRequiresExplicitUpdate()
         {
             return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       TemplateRoles.Repository.Interface.Entity,
                        _matchingElementDetails.Value.RepositoryInterfaceModel,
                        out var repositoryInterfaceTemplate) &&
                    repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
@@ -153,8 +152,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
-            if (repositoryInterface == null)
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, repositoryInterfaceModel, out var repositoryInterface))
             {
                 return NoMatch;
             }

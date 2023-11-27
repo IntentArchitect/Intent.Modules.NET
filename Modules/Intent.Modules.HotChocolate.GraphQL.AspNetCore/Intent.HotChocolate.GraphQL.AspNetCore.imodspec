@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.AspNetCore</id>
-  <version>4.0.1</version>
-  <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
+  <version>5.0.0-beta.1</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL bootstrapping for ASP.NET Core.</summary>
   <description>GraphQL bootstrapping for ASP.NET Core.</description>
   <authors>Intent Architect</authors>
@@ -19,15 +19,24 @@
       <location>Configuration</location>
     </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.HotChocolate.GraphQL.AspNetCore.GraphQLStartupDecorator" externalReference="c9a61707-9dfc-4d7f-a571-b32b8cef4087" />
-  </decorators>
-  <factoryExtensions></factoryExtensions>
+  <decorators />
+  <factoryExtensions>
+    <factoryExtension id="Intent.HotChocolate.GraphQL.AspNetCore.GraphQLStartupConfigurationExtension" externalReference="c7c3be66-3eb1-47d5-9aa1-e7c7cf067485" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <!-- Minimum Compatible Versions -->
+    <detect id="Intent.AspNetCore">
+      <install>
+        <package id="Intent.AspNetCore" version="6.0.0-beta.0" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
+  </interoperability>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="4.0.2" />
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.AspNetCore" version="6.0.0-beta.0" />
+    <dependency id="Intent.Common" version="3.5.0-beta.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.4" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.HotChocolate.GraphQL" version="4.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

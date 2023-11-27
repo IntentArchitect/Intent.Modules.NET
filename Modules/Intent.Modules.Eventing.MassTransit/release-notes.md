@@ -1,3 +1,7 @@
+### Version 6.0.0
+
+- Feature: Added support for explicitly modeled Integration Event Handler and the Advance Mapping systems available in Intent Architect 4.1.x
+
 ### Version 5.2.4
 
 - Fixed: Issue around Event Bus Messages not publishing when published in Domain Events, with the context of consuming Integration Events.

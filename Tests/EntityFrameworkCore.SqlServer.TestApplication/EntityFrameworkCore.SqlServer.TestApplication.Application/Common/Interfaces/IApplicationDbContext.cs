@@ -85,6 +85,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Inter
         DbSet<SortDirectionIndex> SortDirectionIndices { get; }
         DbSet<SortDirectionStereotype> SortDirectionStereotypes { get; }
         DbSet<StereotypeIndex> StereotypeIndices { get; }
+        DbSet<WithBaseIndex> WithBaseIndices { get; }
+        DbSet<WithBaseIndexBase> WithBaseIndexBases { get; }
         DbSet<Branch> Branches { get; }
         DbSet<Inhabitant> Inhabitants { get; }
         DbSet<Leaf> Leaves { get; }

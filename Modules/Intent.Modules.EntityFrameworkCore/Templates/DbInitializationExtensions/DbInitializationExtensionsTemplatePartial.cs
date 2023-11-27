@@ -46,7 +46,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
         public override bool CanRunTemplate()
         {
             return ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() &&
-                   TryGetTemplate(TemplateFulfillingRoles.Distribution.WebApi.Startup, out _startupTemplate);
+                   TryGetTemplate(TemplateRoles.Distribution.WebApi.Startup, out _startupTemplate);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

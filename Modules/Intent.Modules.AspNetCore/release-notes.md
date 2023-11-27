@@ -1,3 +1,12 @@
+﻿### Version 6.0.0
+
+> ⚠️ **NOTE**
+>
+> Module authors: This major version upgrade removes the `StartupDecorator`. All Intent authored modules have been updated accordingly, but if you're running custom modules which are using this decorator they will need to be updated or they will cause an exception to occur during software factory execution. As always, we're available through our various support channels, including [GitHub](https://github.com/IntentArchitect/Support/), should you have any queries.
+
+- New feature: [Top-level statements](https://learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements) support in Program.cs, to enable, check the [property](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#use-top-level-statements) on the project's stereotype in the Visual Studio designer.
+- New feature: [Minimal hosting model startup](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) support, to enable, check the [property](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#use-minimal-hosting-model) on the project's stereotype in the Visual Studio designer.
+
 ### Version 5.1.2
 
 - Fixed: In some cases there are "traceId" data already specified when the Generic Exception handler executes, this will ensure that the code won't break when that is the case.

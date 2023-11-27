@@ -79,8 +79,8 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
 
         private string GetUnitOfWorkName(ICSharpFileBuilderTemplate template)
         {
-            if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) ||
-                template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWorkTypeName))
+            if (template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) ||
+                template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWorkTypeName))
             {
                 return unitOfWorkTypeName;
             }

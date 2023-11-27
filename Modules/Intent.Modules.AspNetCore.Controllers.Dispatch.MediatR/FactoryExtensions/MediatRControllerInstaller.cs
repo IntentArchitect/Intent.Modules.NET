@@ -31,7 +31,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        var controllerTemplates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Distribution.WebApi.Controller));
+        var controllerTemplates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.WebApi.Controller));
         foreach (var controllerTemplate in controllerTemplates)
         {
             if (controllerTemplate.Model is not CqrsControllerModel)

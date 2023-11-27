@@ -14,7 +14,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
@@ -42,9 +41,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
             _template.AddUsing("System.Linq");
 
@@ -93,7 +92,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({aggregateRootIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
                 codeLines.Add(string.Empty);
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
@@ -101,7 +100,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var {entityVariableName} = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault({idFields.GetPropertyToRequestMatchClause()});");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: entityVariableName,
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{idFields.GetEntityIdFromRequestDescription()}' could not be found associated with {{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{aggregateRootIdFields.GetEntityIdFromRequestDescription()}'"));
                 codeLines.Add(string.Empty);
             }
             else
@@ -221,7 +220,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private bool RepositoryRequiresExplicitUpdate()
         {
             return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       TemplateRoles.Repository.Interface.Entity,
                        _matchingElementDetails.Value.RepositoryInterfaceModel,
                        out var repositoryInterfaceTemplate) &&
                    repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
@@ -251,10 +250,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
-            if (repositoryInterface == null)
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, repositoryInterfaceModel, out var repositoryInterface))
             {
-                return NoMatch;
+                    return NoMatch;
             }
 
             var repository = new RequiredService(type: repositoryInterface,

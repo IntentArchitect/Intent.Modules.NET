@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         {
             AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
             AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
-            FulfillsRole(TemplateFulfillingRoles.Distribution.WebApi.MultiTenancyConfiguration);
+            FulfillsRole(TemplateRoles.Distribution.WebApi.MultiTenancyConfiguration);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

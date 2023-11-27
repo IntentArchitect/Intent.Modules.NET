@@ -4,7 +4,6 @@
   <display>Index Field</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fcd2985d-6794-4c0f-a01f-7d278e566b6d</parentFolderId>

@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkCore.SplitQueries.PostgreSQL.Domain\EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,7 @@
+### Version 4.2.6
+
+- Improvement: Decoupled hard requirement on `IUnitOfWork` being available in an EF context. Will fall back on `IApplicationDbContext` if it's not available.
+
 ### Version 4.2.3
 
 - Fixed: The `Intent.CosmosDB` "peer" dependency would prevent installation of any other modules if the `Intent.CosmosDB` module was already installed.

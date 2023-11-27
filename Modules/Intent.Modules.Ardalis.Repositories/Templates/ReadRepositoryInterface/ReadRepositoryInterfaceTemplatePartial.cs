@@ -42,12 +42,12 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
 
         private string GetDomainEntityTypeName()
         {
-            return GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+            return GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
         }
 
         private bool HasSinglePrimaryKey()
         {
-            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))
+            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
             {
                 return false;
             }
@@ -57,7 +57,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
 
         private string GetSurrogateKey()
         {
-            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))
+            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
             {
                 return string.Empty;
             }

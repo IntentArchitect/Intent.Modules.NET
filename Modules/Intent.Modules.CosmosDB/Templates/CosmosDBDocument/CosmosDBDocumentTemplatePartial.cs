@@ -36,9 +36,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
             AddTypeSource(CosmosDBValueObjectDocumentTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
@@ -260,10 +260,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             }
         }
 
-        public string EntityStateTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
-        public string EntityTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+        public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
+        public string EntityTypeName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
 
-        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

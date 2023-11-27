@@ -40,9 +40,9 @@ internal static class AssertionMethodHelper
 
             var paginatedDtoModel = queryModel.TypeReference.GenericTypeParameters.First().Element.AsDTOModel();
             var concretePaginatedResult = template.GetTypeName("Application.Contract.Dto.Pagination.Result");
-            var paginatedResultInterface = template.GetTypeName(TemplateFulfillingRoles.Repository.Interface.PagedResult);
-            var domainEntityTypeName = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
-            var queryReturnDtoTypeName = template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, paginatedDtoModel);
+            var paginatedResultInterface = template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult);
+            var domainEntityTypeName = template.GetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel);
+            var queryReturnDtoTypeName = template.GetTypeName(TemplateRoles.Application.Contracts.Dto, paginatedDtoModel);
             
             method.AddParameter($"{concretePaginatedResult}<{queryReturnDtoTypeName}>", "actualDtos");
             method.AddParameter($"{paginatedResultInterface}<{domainEntityTypeName}>", "expectedEntities");
@@ -74,7 +74,7 @@ internal static class AssertionMethodHelper
         {
             method.Static();
             method.AddParameter(template.GetTypeName(CommandModelsTemplate.TemplateId, commandModel), "expectedDto");
-            method.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel), "actualEntity");
+            method.AddParameter(template.GetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel), "actualEntity");
             method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel.InternalElement, commandModel.Properties.Where(FilterForAnaemicMapping).ToList(), skipIdFields, false));
         });
 
@@ -88,8 +88,8 @@ internal static class AssertionMethodHelper
 
     public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel, bool hasCollection)
     {
-        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Application.Contracts.Dto, dtoModel);
-        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel)}>" : template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel);
+        var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateRoles.Application.Contracts.Dto, dtoModel)}>" : template.GetTypeName(TemplateRoles.Application.Contracts.Dto, dtoModel);
+        var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel)}>" : template.GetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel);
         if (builderClass.FindMethod(stmt => stmt.Parameters.First().Type == dtoModelTypeName && stmt.Parameters.Last().Type == domainModelTypeName) != null)
         {
             return;

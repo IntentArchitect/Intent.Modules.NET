@@ -27,6 +27,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
 
         public override string TemplateId => AggregateManagerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new AggregateManagerTemplate(outputTarget, model);

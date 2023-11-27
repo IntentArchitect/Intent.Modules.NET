@@ -1,15 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\AccountController\AccountControllerTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AccountControllerTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\AccountEmailSender\AccountEmailSenderTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -23,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\AccountController\AccountControllerTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AccountControllerTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\AccountEmailSender\AccountEmailSenderTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AccountEmailSenderTemplate.cs</LastGenOutput>
@@ -44,7 +35,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.2" />
   </ItemGroup>
 

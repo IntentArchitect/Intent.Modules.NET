@@ -28,8 +28,8 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntityInt
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
             AddTypeSource(TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name}TableEntity")
@@ -55,7 +55,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntityInt
                 }, 1000);
         }
 
-        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

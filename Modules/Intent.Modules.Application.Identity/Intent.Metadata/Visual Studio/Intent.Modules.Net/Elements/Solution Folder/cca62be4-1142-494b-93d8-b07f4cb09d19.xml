@@ -3,7 +3,6 @@
   <name>NET Standard</name>
   <display>NET Standard</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>36c56252-afae-4a84-8cfc-ef61056209d0</parentFolderId>

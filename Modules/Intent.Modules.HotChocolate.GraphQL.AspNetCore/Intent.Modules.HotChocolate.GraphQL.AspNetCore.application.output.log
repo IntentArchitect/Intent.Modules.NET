@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>432e20dd-9371-4b25-acb7-07a377b23414</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#c9a61707-9dfc-4d7f-a571-b32b8cef4087</CorrelationId>
+      <ProjectId>bec1221d-87c9-4ebe-9f5d-9462923393e9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c7c3be66-3eb1-47d5-9aa1-e7c7cf067485</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/GraphQLStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GraphQLStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>432e20dd-9371-4b25-acb7-07a377b23414</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#c9a61707-9dfc-4d7f-a571-b32b8cef4087</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/GraphQLStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GraphQLStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/GraphQLStartupConfigurationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GraphQLStartupConfigurationExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

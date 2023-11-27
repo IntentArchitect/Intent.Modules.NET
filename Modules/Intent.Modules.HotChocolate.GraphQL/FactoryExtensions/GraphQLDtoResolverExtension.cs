@@ -33,7 +33,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
+            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
             foreach (var template in dtoTemplates)
             {
                 var dtoModel = template is ITemplateWithModel templateWithModel
@@ -69,7 +69,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                                 }
 
                                 if (resolver.MappedElement?.IsClassModel() == true &&
-                                    template.TryGetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, resolver.MappedElement.Id, out var repositoryInterface))
+                                    template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, resolver.MappedElement.Id, out var repositoryInterface))
                                 {
                                     method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
                                     method.AddParameter(repositoryInterface, "repository", param => param.AddAttribute($"[{template.UseType("HotChocolate.Service")}]"));
@@ -113,7 +113,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
         private static bool ReturnsMappedDto(IGraphQLResolverModel resolver, ICSharpFileBuilderTemplate template)
         {
             return resolver.TypeReference.Element.IsDTOModel() &&
-                   template.TryGetTemplate<IIntentTemplate>(TemplateFulfillingRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _) &&
+                   template.TryGetTemplate<IIntentTemplate>(TemplateRoles.Application.Mappings, resolver.TypeReference.Element.Id, out var _) &&
                    resolver.TypeReference.Element.AsDTOModel()?.Mapping.Element == resolver.MappedElement;
         }
     }

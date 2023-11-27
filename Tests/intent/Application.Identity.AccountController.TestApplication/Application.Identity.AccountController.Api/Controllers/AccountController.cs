@@ -29,8 +29,7 @@ namespace Application.Identity.AccountController.Api.Controllers
         private readonly IAccountEmailSender _accountEmailSender;
         private readonly ITokenService _tokenService;
 
-        public AccountController(
-            IUserStore<ApplicationIdentityUser> userStore,
+        public AccountController(IUserStore<ApplicationIdentityUser> userStore,
             UserManager<ApplicationIdentityUser> userManager,
             ILogger<AccountController> logger,
             IAccountEmailSender accountEmailSender,

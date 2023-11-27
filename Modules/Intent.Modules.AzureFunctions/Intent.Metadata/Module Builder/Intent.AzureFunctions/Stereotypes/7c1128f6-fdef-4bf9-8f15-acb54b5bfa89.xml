@@ -39,6 +39,7 @@
         <option>EventHub Trigger</option>
         <option>Manual Trigger</option>
         <option>Cosmos DB Trigger</option>
+        <option>RabbitMQ Trigger</option>
       </valueOptions>
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
@@ -71,7 +72,7 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger";</isActiveFunction>
+      <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="8267af60-0b1f-4394-8148-89b2ef9c16bf">
@@ -106,7 +107,7 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "EventHub Trigger";</isActiveFunction>
+      <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "EventHub Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
       <isRequiredFunction />
     </property>
     <property id="a83b939c-86c5-498e-8e64-006a9e4cdc83">
@@ -163,7 +164,7 @@
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return Trigger === "Queue Trigger";</isActiveFunction>
+      <isActiveFunction>return Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

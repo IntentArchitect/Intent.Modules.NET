@@ -3,7 +3,6 @@
   <name>wwwroot</name>
   <display>wwwroot</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d707ee61-4652-4a0a-8f80-f273363b33cf</parentFolderId>

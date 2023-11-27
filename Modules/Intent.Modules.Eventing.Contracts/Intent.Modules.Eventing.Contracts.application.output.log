@@ -9,6 +9,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>293e2001-0f7b-4514-9a83-40140a2b45a2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d6830aa-cfbb-4127-adfa-dccfb1207fe5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ApplicationServiceInteractionInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationServiceInteractionInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>293e2001-0f7b-4514-9a83-40140a2b45a2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#65223bff-9096-4187-b6bb-dbf0aae2fae5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/InteractionEventBusPublisherInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InteractionEventBusPublisherInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9814251b-ad1b-4598-8ed6-d825633d77d9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

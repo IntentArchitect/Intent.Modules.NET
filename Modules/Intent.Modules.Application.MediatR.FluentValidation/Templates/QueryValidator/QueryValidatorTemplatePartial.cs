@@ -30,8 +30,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 outputTarget: outputTarget,
                 model: new DTOModel(model.InternalElement),
                 toValidateTemplateId: QueryModelsTemplate.TemplateId,
-                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
-                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                 modelParameterName: "command",
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                     ? Array.Empty<string>()
                     : new[] { model.GetConceptName() })
         {
-            FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
+            FulfillsRole(TemplateRoles.Application.Validation.Query);
         }
 
         public static void Configure(CSharpTemplateBase<QueryModel> template)
@@ -49,8 +49,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 dtoModel: new DTOModel(template.Model.InternalElement),
                 toValidateTemplateId: QueryModelsTemplate.TemplateId,
                 modelParameterName: "command",
-                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
-                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: template.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true);

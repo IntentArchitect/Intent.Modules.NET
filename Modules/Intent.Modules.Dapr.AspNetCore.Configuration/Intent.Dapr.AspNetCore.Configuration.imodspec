@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Configuration</id>
-  <version>1.0.0-beta.0</version>
-  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.2</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Realizes patterns for the Dapr Configuration Component.</summary>
   <description>Realizes patterns for the Dapr Configuration Component.</description>
   <authors>Intent Architect</authors>
@@ -29,9 +29,18 @@
     <factoryExtension id="Intent.Dapr.AspNetCore.Configuration.RegistrationsFactoryExtension" externalReference="c279ea27-3318-415c-a0c9-353713cb5977" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <!-- Minimum Compatible Versions -->
+    <detect id="Intent.AspNetCore">
+      <install>
+        <package id="Intent.AspNetCore" version="6.0.0-beta.0" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
+  </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.25" />
+    <dependency id="Intent.Common" version="3.5.0-beta.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.4" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

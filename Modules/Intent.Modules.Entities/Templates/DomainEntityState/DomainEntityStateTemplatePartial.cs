@@ -18,7 +18,7 @@ using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Modules.Constants.TemplateFulfillingRoles.Repository;
+using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -35,16 +35,16 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEntityStateTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Primary);
+            FulfillsRole(TemplateRoles.Domain.Entity.Primary);
             if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
             {
-                FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Interface);
+                FulfillsRole(TemplateRoles.Domain.Entity.Interface);
             }
 
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+            AddTypeSource(TemplateRoles.Domain.DomainServices.Interface);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

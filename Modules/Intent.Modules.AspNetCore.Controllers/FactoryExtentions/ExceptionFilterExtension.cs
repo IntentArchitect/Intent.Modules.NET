@@ -1,11 +1,9 @@
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,30 +27,29 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
         private static void InstallStartupControllerFilter(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.AspNetCore.Startup"));
+            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            template?.CSharpFile.AfterBuild(file =>
+            template?.CSharpFile.OnBuild(_ =>
             {
-                var priClass = file.Classes.First();
-                if (priClass.FindMethod("ConfigureServices")
-                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement controllersStatement)
-                {
-                    return;
-                }
+                var startup = template.StartupFile;
 
-                CSharpLambdaBlock lambda;
-                if (!controllersStatement.Statements.Any())
-                {
-                    lambda = new CSharpLambdaBlock("opt");
-                    controllersStatement.AddArgument(lambda);
-                }
-                else
-                {
-                    lambda = controllersStatement.Statements.First() as CSharpLambdaBlock;
-                }
+                startup.AddServiceConfigurationLambda(
+                    methodName: "AddControllers",
+                    parameters: new[] { "opt" },
+                    configure: (statement, lambda, context) =>
+                    {
+                        statement
+                            .WithArgumentsOnNewLines() // To maintain formatting of existing files
+                            .AddMetadata("configure-services-controllers-generic", true);
 
-                lambda.AddStatement($"opt.Filters.Add<{template.GetExceptionFilterName()}>();");
-            }, 10);
+                        lambda.AddStatement($"{context.Parameters[0]}.Filters.Add<{template.GetExceptionFilterName()}>();");
+                    },
+                    priority: -10_000_000);
+
+                startup.AddUseEndpointsStatement(
+                    create: context => $"{context.Endpoints}.MapControllers();",
+                    configure: (s, _) => s.AddMetadata("configure-endpoints-controllers-generic", true));
+            });
         }
     }
 }

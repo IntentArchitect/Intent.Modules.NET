@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5d6830aa-cfbb-4127-adfa-dccfb1207fe5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ApplicationServiceInteractionInstaller</name>
+  <display>ApplicationServiceInteractionInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</parentFolderId>
+  <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
+  <packageName>Intent.Eventing.Contracts</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

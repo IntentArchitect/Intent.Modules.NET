@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -15,6 +16,8 @@ internal static class StrategyFactory
     {
         var strategies = new ICrudImplementationStrategy[]
         {
+            new CommandMappingImplementationStrategy(template),
+
             new CreateImplementationStrategy(template),
             new UpdateImplementationStrategy(template),
             new DeleteImplementationStrategy(template),
@@ -41,6 +44,8 @@ internal static class StrategyFactory
         var strategies = new ICrudImplementationStrategy[]
         {
             new ODataGetAllImplementationStrategy(template, application),
+            new QueryMappingImplementationStrategy(template),
+
             new GetAllImplementationStrategy(template, application),
             new GetByIdImplementationStrategy(template, application),
             new GetAllPaginationImplementationStrategy(template)
