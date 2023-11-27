@@ -1,45 +1,27 @@
 ﻿using Intent.Engine;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Intent.Modules.Blazor.WebAssembly
+namespace Intent.Modules.Blazor.WebAssembly;
+
+public static class NuGetPackages
 {
-    public static class NuGetPackages
-    {
-        public static INugetPackageInfo MicrosoftAspNetCoreComponentsWebAssembly(IOutputTarget outputTarget)
+    public static NugetPackageInfo MicrosoftAspNetCoreComponentsWebAssembly(IOutputTarget outputTarget) => new(
+        name: "Microsoft.AspNetCore.Components.WebAssembly",
+        version: outputTarget.GetMaxNetAppVersion() switch
         {
-            var project = outputTarget.GetProject();
-            var version = project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.0",
-                _ when project.IsNetApp(6) => "6.0.20",
-                _ when project.IsNetApp(7) => "7.0.3",
-                _ when project.IsNetApp(8) => "8.0.0",
-                _ => "6.0.20"
-            };
+            (5, 0) => "5.0.17",
+            (6, 0) => "6.0.25",
+            (7, 0) => "7.0.14",
+            _ => "8.0.0"
+        });
 
-            return new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly", version);
-        }
-
-        public static INugetPackageInfo MicrosoftAspNetCoreComponentsWebAssemblyDevServer(IOutputTarget outputTarget)
+    public static NugetPackageInfo MicrosoftAspNetCoreComponentsWebAssemblyDevServer(IOutputTarget outputTarget) => new(
+        name: "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+        version: outputTarget.GetMaxNetAppVersion() switch
         {
-            var project = outputTarget.GetProject();
-            var version = project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.0",
-                _ when project.IsNetApp(6) => "6.0.20",
-                _ when project.IsNetApp(7) => "7.0.3",
-                _ when project.IsNetApp(8) => "8.0.0",
-                _ => "6.0.20"
-            };
-
-            return new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.DevServer", version)
-            .SpecifyAssetsBehaviour(new[] { "all" }, new string[0]);
-        }
-    }
+            (5, 0) => "5.0.17",
+            (6, 0) => "6.0.25",
+            (7, 0) => "7.0.14",
+            _ => "8.0.0"
+        });
 }

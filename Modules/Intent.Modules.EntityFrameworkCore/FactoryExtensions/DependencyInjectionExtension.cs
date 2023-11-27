@@ -93,7 +93,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
         {
-            return project.IsNetApp(7) || project.IsNetApp(8) ? ";Encrypt=False" : string.Empty;
+            return project.TryGetMaxNetAppVersion(out var version) && version.Major >= 7
+                ? ";Encrypt=False"
+                : string.Empty;
         }
 
         private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection)

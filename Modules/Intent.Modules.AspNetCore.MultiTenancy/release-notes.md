@@ -1,6 +1,7 @@
 ### Version 5.1.0
 
 - Improvement: Raises errors when EF model contain `Multi Tenant` stereotypes on composite/owned entities with advice on how to correct the model. 
+- Improvement: Updated to be compatible with .NET 8.
 
 ### Version 5.0.0
 

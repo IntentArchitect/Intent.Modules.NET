@@ -1,4 +1,8 @@
-﻿### Version 3.0.0
+﻿### Version 3.0.1
+
+- Improvement: Updated to be compatible with .NET 8.
+
+### Version 3.0.0
 
 - Improvement: The `RefreshToken` token endpoint has had its name changed to `Refresh` and it now uses a `POST` verb in line with industry best practice of not including sensitive data in request URLs.
 - Improvement: Inline with [Microsoft's identity management API introduced with .NET 8](https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/), the access token is is not supplied in the body or query string, and the endpoint is instead decorated with `[Authorized]` meaning that as usual for secured endpoints, the access token will now need to supplied in the header.

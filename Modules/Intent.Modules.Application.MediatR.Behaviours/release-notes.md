@@ -1,3 +1,7 @@
+### Version 4.2.7
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.2.6
 
 - Improvement: Decoupled hard requirement on `IUnitOfWork` being available in an EF context. Will fall back on `IApplicationDbContext` if it's not available.

@@ -1,4 +1,8 @@
-﻿### Version 4.4.15
+﻿### Version 4.4.16
+
+- Improvement: Updated to be compatible with .NET 8.
+
+### Version 4.4.15
 
 - Improvement: It is now possible to [enable split queries globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally) by selecting the _Enable split queries globally_ application setting (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/9) for this).
 - Fixed: Index Columns being generated in the Entity Type Configurations will now refer to the actual Attribute Name as opposed to the Column name.

@@ -243,16 +243,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool HasSerializationSupport()
         {
-            var proj = OutputTarget.GetProject();
-            return proj switch
-            {
-                _ when proj.IsNetCore2App() => false,
-                _ when proj.IsNetCore3App() => false,
-                _ when proj.IsNetApp(4) => false,
-                _ when proj.IsNetApp(5) => false,
-                _ when proj.IsNetApp(6) => false,
-                _ => true // Only .NET 7+ supports this (safe to assume EF Core 7 for .NET 7)
-            };
+            // Only .NET 7+ supports this (safe to assume EF Core 7 for .NET 7)
+            return OutputTarget.GetProject().TryGetMaxNetAppVersion(out var version) &&
+                   version.Major >= 7;
         }
 
         private static bool HasSerializationType(ICSharpFileBuilderTemplate valueObjectTemplate, out string serializationType)

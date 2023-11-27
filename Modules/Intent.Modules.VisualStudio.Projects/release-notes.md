@@ -2,6 +2,7 @@
 
 - New Feature: It is now possible to specify `Use minimal hosting model` and `Use top-level statements` on `.NET Project`s with their `SDK` set to `Microsoft.NET.Sdk.Web`.
 - New Feature: Added support for working with program and startup files with combination of "use minimal host model" and "use top-level-statements".
+- Improvement: Final .NET 8 support.
 
 ### Version 3.4.2
 

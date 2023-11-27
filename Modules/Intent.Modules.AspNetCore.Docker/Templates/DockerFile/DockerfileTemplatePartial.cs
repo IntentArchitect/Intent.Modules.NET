@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Templates;
 using Intent.Utils;
+using System;
 
 namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
 {
@@ -17,19 +18,27 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
         public const string Identifier = "Intent.AspNetCore.Dockerfile";
 
         private string _defaultLaunchUrlPath;
-
+        private readonly string _sdkVersion;
 
         public DockerfileTemplate(IProject project)
             : base(Identifier, project, null)
         {
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(Handle);
+
+            _sdkVersion = Project.TryGetMaxNetAppVersion(out var netVersion) switch
+            {
+                false when Project.IsNetCore2App() => "2.1",
+                false when Project.IsNetCore3App() => "3.1",
+                true => netVersion.ToString(),
+                _ => throw new InvalidOperationException(
+                    "Project .NET version not supported by this Docker module, only .NET Core and .NET 5+ are supported.")
+            };
         }
 
         private void Handle(DefaultLaunchUrlPathRequest request)
         {
             _defaultLaunchUrlPath = request.UrlPath;
         }
-
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
@@ -72,65 +81,12 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
 
         private string GetRuntime()
         {
-            if (Project.IsNetCore2App())
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:2.1";
-            }
-            if (Project.IsNetCore3App())
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:3.1";
-            }
-            if (Project.IsNetApp(5))
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:5.0";
-            }
-            if (Project.IsNetApp(6))
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:6.0";
-            }
-
-            if (Project.IsNetApp(7))
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:7.0";
-            }
-            
-            if (Project.IsNetApp(8))
-            {
-                return "mcr.microsoft.com/dotnet/aspnet:8.0";
-            }
-
-            Logging.Log.Warning(@"Project .NET version not supported by this Docker module. You may need to edit your docker file manually.");
-            return "mcr.microsoft.com/dotnet/aspnet:6.0";
+            return $"mcr.microsoft.com/dotnet/aspnet:{_sdkVersion}";
         }
 
         private string GetSdk()
         {
-            if (Project.IsNetCore2App())
-            {
-                return "mcr.microsoft.com/dotnet/sdk:2.1";
-            }
-            if (Project.IsNetCore3App())
-            {
-                return "mcr.microsoft.com/dotnet/sdk:3.1";
-            }
-            if (Project.IsNetApp(5))
-            {
-                return "mcr.microsoft.com/dotnet/sdk:5.0";
-            }
-            if (Project.IsNetApp(6))
-            {
-                return "mcr.microsoft.com/dotnet/sdk:6.0";
-            }
-            if (Project.IsNetApp(7))
-            {
-                return "mcr.microsoft.com/dotnet/sdk:7.0";
-            }
-            if (Project.IsNetApp(8))
-            {
-                return "mcr.microsoft.com/dotnet/sdk:8.0";
-            }
-
-            return "mcr.microsoft.com/dotnet/sdk:6.0";
+            return $"mcr.microsoft.com/dotnet/sdk:{_sdkVersion}";
         }
     }
 }
