@@ -335,7 +335,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             var index = 0;
             foreach (var element in ids)
             {
-                queryParams.Add($"ids[{index++}]", element);
+                queryParams.Add($"ids[{index++}]", element.ToString());
             }
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
