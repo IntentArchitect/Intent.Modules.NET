@@ -9,6 +9,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

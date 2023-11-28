@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>51de1101-fbbe-495b-b316-4384bd8e6179</parentFolderId>
+  <parentFolderId>8b92f3fd-8e9a-4ee0-94dc-50dea162a4d9</parentFolderId>
   <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
   <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
   <stereotypes>
@@ -40,6 +40,22 @@
     <childElement id="b72f996c-234e-42f5-ae75-6745f79f0013" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</name>
       <display>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4bd4066e-4f08-4f6f-a0f0-30dffea62e3b</parentFolderId>
+      <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c6b53be4-2422-4be4-a06e-8c5e414cabbd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.DomainEventHandler</name>
+      <display>Intent.MediatR.DomainEvents.DomainEventHandler</display>
       <externalReference>Intent.MediatR.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HubServiceTemplate(IOutputTarget outputTarget, SignalRHubModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name.RemoveSuffix("Hub")}HubService", @class =>
@@ -68,6 +68,10 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
                             clientTarget = "Groups(groupIds)";
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
+                            break;
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Client:
+                            clientTarget = "Client(connectionId)";
+                            method.AddParameter("string", "connectionId");
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

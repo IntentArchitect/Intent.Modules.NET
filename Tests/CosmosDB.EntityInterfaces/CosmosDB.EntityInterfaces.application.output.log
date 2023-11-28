@@ -1636,6 +1636,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/INonStringPartitionKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INonStringPartitionKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/Invoice.cs</ApplicationRelativeFilePath>
@@ -1680,6 +1688,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/LineItem.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LineItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/NonStringPartitionKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NonStringPartitionKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1828,6 +1844,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/Documents/INonStringPartitionKeyDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INonStringPartitionKeyDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#e172eac4-3e29-4e36-bcb2-4dc4f0a542dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/Documents/IPackageContainerDocument.cs</ApplicationRelativeFilePath>
@@ -1936,6 +1960,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/IInvoiceRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IInvoiceRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/INonStringPartitionKeyRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INonStringPartitionKeyRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2132,6 +2164,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Persistence/Documents/NonStringPartitionKeyDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NonStringPartitionKeyDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#e172eac4-3e29-4e36-bcb2-4dc4f0a542dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Persistence/Documents/PackageContainerDocument.cs</ApplicationRelativeFilePath>
@@ -2264,6 +2304,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Repositories/InvoiceCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#fe7b232c-2bbe-4939-9970-6494d2e59c52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Repositories/NonStringPartitionKeyCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NonStringPartitionKeyCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

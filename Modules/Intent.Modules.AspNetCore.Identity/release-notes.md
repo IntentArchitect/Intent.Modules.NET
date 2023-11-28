@@ -1,3 +1,7 @@
+### Version 4.0.8
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.0.7
 
 - Various improvements when using the `Identity User` stereotype:

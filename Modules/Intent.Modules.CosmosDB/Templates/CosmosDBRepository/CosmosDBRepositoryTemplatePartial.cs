@@ -94,8 +94,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             ? $"<{string.Join(", ", Model.GenericTypes)}>"
             : string.Empty;
 
-        public string EntityTypeName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{GenericTypeParameters}";
-        public string EntityStateTypeName => $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model)}{GenericTypeParameters}";
+        public string EntityTypeName => $"{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{GenericTypeParameters}";
+        public string EntityStateTypeName => $"{GetTypeName(TemplateRoles.Domain.Entity.Primary, Model)}{GenericTypeParameters}";
 
         public override void AfterTemplateRegistration()
         {

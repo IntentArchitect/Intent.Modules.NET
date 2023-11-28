@@ -130,6 +130,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f91a3b67-c1e4-4d0a-a64d-134a96b9a09a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f91a3b67-c1e4-4d0a-a64d-134a96b9a09a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#8ca87db6-869c-4f8a-8990-f797d96c4aca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplate.cs</ApplicationRelativeFilePath>

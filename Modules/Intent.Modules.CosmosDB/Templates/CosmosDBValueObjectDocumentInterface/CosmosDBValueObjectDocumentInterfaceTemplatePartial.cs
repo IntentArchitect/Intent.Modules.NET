@@ -27,7 +27,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface
         public CosmosDBValueObjectDocumentInterfaceTemplate(IOutputTarget outputTarget, IElement model = null) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

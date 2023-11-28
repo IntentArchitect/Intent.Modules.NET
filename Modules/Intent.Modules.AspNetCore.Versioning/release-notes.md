@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 1.0.3
 
 - Update: Small update in Configuration class.

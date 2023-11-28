@@ -32,9 +32,9 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
             AddTypeSource(TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}TableEntity", @class =>
@@ -159,7 +159,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                 //Only Compositions
                 foreach (var associationEnd in associationEnds.Where(a => IsCompositional(a)))
                 {
-                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, associationEnd.Class)}>({associationEnd.Name.ToPascalCase()});");
+                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetTypeName(TemplateRoles.Domain.Entity.Primary, associationEnd.Class)}>({associationEnd.Name.ToPascalCase()});");
                 }
 
 
@@ -197,11 +197,11 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
         }
 
 
-        public string EntityInterfaceName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+        public string EntityInterfaceName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
 
-        public string EntityStateName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public string EntityStateName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
 
-        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
 
         [IntentManaged(Mode.Fully)]

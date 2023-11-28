@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82e11769-f346-4e4a-92d1-6f01a81e4707" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Order</name>
+  <display>Order</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</parentFolderId>
+  <packageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</packageId>
+  <packageName>AspNetCore.Controllers.Secured.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="40330113-84e9-4b95-9918-c2d24801b411" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="015da27a-6d35-4c58-81c0-bc1cd5951784">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e11769-f346-4e4a-92d1-6f01a81e4707</parentFolderId>
+      <packageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</packageId>
+      <packageName>AspNetCore.Controllers.Secured.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ea3a837e-aed4-419c-b545-2b86ca8e4439" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>BuyerId</name>
+      <display>BuyerId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a59f2914-5984-4b8b-b1e4-66d5b241151a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e11769-f346-4e4a-92d1-6f01a81e4707</parentFolderId>
+      <packageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</packageId>
+      <packageName>AspNetCore.Controllers.Secured.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="03f5956e-aee4-4a7f-955e-e86f00308814" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="BuyerId" />
+        <entry key="association" value="03f5956e-aee4-4a7f-955e-e86f00308814" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="043260d4-62ee-4343-b670-14691c941838" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OrderDate</name>
+      <display>OrderDate: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="825ec5b6-88a3-4924-841a-687176394cad">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e11769-f346-4e4a-92d1-6f01a81e4707</parentFolderId>
+      <packageId>f3a76dc6-84c9-4113-a6cc-09f63fc86e35</packageId>
+      <packageName>AspNetCore.Controllers.Secured.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

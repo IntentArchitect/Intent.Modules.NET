@@ -3,8 +3,8 @@
   <ApplicationId>91f282fa-515e-4580-b0ea-4c849d546cdc</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</CorrelationId>
+      <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#f66ac67a-f416-440b-987c-fd11b8a385b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -35,8 +35,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.CSProject#cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</CorrelationId>
+      <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f66ac67a-f416-440b-987c-fd11b8a385b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/EntityFrameworkCore.Repositories.TestApplication.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api.csproj</ProjectRelativeFilePath>
@@ -59,7 +59,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
+      <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
@@ -67,8 +67,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</CorrelationId>
+      <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#f66ac67a-f416-440b-987c-fd11b8a385b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
@@ -83,7 +83,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cb1ef6f1-6ffb-4b3f-b840-a0bf3b6974d3</ProjectId>
+      <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
@@ -235,7 +235,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b631d0fd-abb0-43cb-a28f-743927e17a23</ProjectId>
+      <ProjectId>40ac8682-f156-4f7d-b008-33c2c9850dcb</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
@@ -243,7 +243,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b631d0fd-abb0-43cb-a28f-743927e17a23</ProjectId>
+      <ProjectId>40ac8682-f156-4f7d-b008-33c2c9850dcb</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
@@ -251,7 +251,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cba0848f-5aff-47d9-bb33-e81b336d22f3</ProjectId>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -259,8 +259,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cba0848f-5aff-47d9-bb33-e81b336d22f3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#cba0848f-5aff-47d9-bb33-e81b336d22f3</CorrelationId>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/EntityFrameworkCore.Repositories.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application.csproj</ProjectRelativeFilePath>
@@ -459,8 +459,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>fb6e7a83-e6cc-4d58-9ba5-274ba68b7d0a</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#fb6e7a83-e6cc-4d58-9ba5-274ba68b7d0a</CorrelationId>
+      <ProjectId>e63f3703-401a-44aa-9493-f1bb346af54e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e63f3703-401a-44aa-9493-f1bb346af54e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/EntityFrameworkCore.Repositories.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain.csproj</ProjectRelativeFilePath>
@@ -611,7 +611,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>555ed9ec-137b-4a0c-a10d-c2fc0df7571f</ProjectId>
+      <ProjectId>af02fb6f-c1dc-4529-9231-d8a99dbb4322</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -619,8 +619,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>555ed9ec-137b-4a0c-a10d-c2fc0df7571f</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#555ed9ec-137b-4a0c-a10d-c2fc0df7571f</CorrelationId>
+      <ProjectId>af02fb6f-c1dc-4529-9231-d8a99dbb4322</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#af02fb6f-c1dc-4529-9231-d8a99dbb4322</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>

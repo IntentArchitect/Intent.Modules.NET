@@ -52,14 +52,23 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                 {
                     method
                         .AddGenericParameter("TProjection")
-                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                });
+                @interface.AddMethod("Task<IPagedResult<TProjection>>", "FindAllProjectToAsync", method =>
+                {
+                    method
+                        .AddGenericParameter("TProjection")
+                        .AddParameter("int", "pageNo")
+                        .AddParameter("int", "pageSize")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                 });
                 @interface.AddMethod($"Task<TProjection{nullableChar}>", "FindProjectToAsync", method =>
                 {
                     method
                         .AddGenericParameter("TProjection")
-                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
@@ -68,14 +77,23 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                            ;
+                    });
+                    @interface.AddMethod("IPagedResult<TProjection>", "FindAllProjectTo", method =>
+                    {
+                        method
+                            .AddGenericParameter("TProjection")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
                             ;
                     });
                     @interface.AddMethod($"TProjection{nullableChar}", "FindProjectTo", method =>
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
                             ;
                     });
 
@@ -126,22 +144,40 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     method
                         .Async()
                         .AddGenericParameter("TProjection")
-                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
-                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("return await projection.ToListAsync(cancellationToken);");
+                });
+                @class.AddMethod("Task<IPagedResult<TProjection>>", "FindAllProjectToAsync", method =>
+                {
+                    method
+                        .Async()
+                        .AddGenericParameter("TProjection")
+                        .AddParameter("int", "pageNo")
+                        .AddParameter("int", "pageSize")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    method
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement(@"return await PagedList<TProjection>.CreateAsync(
+                projection,
+                pageNo,
+                pageSize,
+                cancellationToken);");
                 });
                 @class.AddMethod($"Task<TProjection{nullableChar}>", "FindProjectToAsync", method =>
                 {
                     method
                         .Async()
                         .AddGenericParameter("TProjection")
-                        .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression")
+                        .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method
-                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("return await projection.FirstOrDefaultAsync(cancellationToken);");
                 });
@@ -151,19 +187,35 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter("Expression<Func<TPersistence, bool>>?", "filterExpression");
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
                         method
-                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("return projection.ToList();");
                     });
+                    @class.AddMethod("IPagedResult<TProjection>", "FindAllProjectTo", method =>
+                    {
+                        method
+                            .AddGenericParameter("TProjection")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
+                        method
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
+                        .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
+                        .AddStatement(@"return PagedList<TProjection>.Create(
+                projection,
+                pageNo,
+                pageSize);");
+                    });
+
                     @class.AddMethod($"TProjection{nullableChar}", "FindProjectTo", method =>
                     {
                         method
                             .AddGenericParameter("TProjection")
-                            .AddParameter($"Expression<Func<TPersistence, bool>>{nullableChar}", "filterExpression");
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
                         method
-                        .AddStatement("var queryable = QueryInternal(filterExpression);")
+                        .AddStatement("var queryable = QueryInternal(queryOptions);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("return projection.FirstOrDefault();");
                     });

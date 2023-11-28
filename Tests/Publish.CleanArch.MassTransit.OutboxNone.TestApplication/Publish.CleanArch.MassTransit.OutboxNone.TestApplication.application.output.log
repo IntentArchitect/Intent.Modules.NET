@@ -555,7 +555,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e03382a3-195a-4524-bc33-419d002008f8</ProjectId>
+      <ProjectId>08681987-7de4-43e4-bc54-b8f0b5d47502</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
@@ -563,7 +563,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e03382a3-195a-4524-bc33-419d002008f8</ProjectId>
+      <ProjectId>08681987-7de4-43e4-bc54-b8f0b5d47502</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>

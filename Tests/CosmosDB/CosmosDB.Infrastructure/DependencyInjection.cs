@@ -61,6 +61,9 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<InvoiceDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<NonStringPartitionKeyDocument>(c => c
+                        .WithContainer("NonStringPartitionKey")
+                        .WithPartitionKey("/partInt"))
                     .Configure<PackageContainerDocument>(c => c
                         .WithContainer("PackageContainer")
                         .WithPartitionKey("/packagePartitionKey"))
@@ -78,6 +81,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped(typeof(IEntityOfTRepository<>), typeof(EntityOfTCosmosDBRepository<>));
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
+            services.AddScoped<INonStringPartitionKeyRepository, NonStringPartitionKeyCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();

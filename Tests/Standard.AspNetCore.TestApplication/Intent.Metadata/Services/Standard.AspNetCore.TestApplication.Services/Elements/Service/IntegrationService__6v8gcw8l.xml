@@ -780,5 +780,77 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="f4ab4f92-5e3a-4cd0-9a45-3a8e3aea88a3" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItems</name>
+      <display>GetItems(ids: string[*]): CustomDTO[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="fea5c057-83fa-4f2b-9e0a-ba0be02fe84f">
+        <typeId>2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+        <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="[action]" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ccd45fb3-69b1-4b2a-8d0e-29998f94cfd8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>ids</name>
+          <display>in : ids: string[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="51bc0b90-8767-4329-980e-de0aa4a6ff63">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f4ab4f92-5e3a-4cd0-9a45-3a8e3aea88a3</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

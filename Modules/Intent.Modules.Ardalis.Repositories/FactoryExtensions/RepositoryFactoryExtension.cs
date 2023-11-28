@@ -266,7 +266,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
         private bool HasSinglePrimaryKey(CSharpTemplateBase<ClassModel> template)
         {
-            if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, template.Model, out var entityTemplate))
+            if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, template.Model, out var entityTemplate))
             {
                 return false;
             }
@@ -276,7 +276,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
         private string GetSurrogateKey(CSharpTemplateBase<ClassModel> template)
         {
-            if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, template.Model, out var entityTemplate))
+            if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, template.Model, out var entityTemplate))
             {
                 return string.Empty;
             }

@@ -1,20 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -39,8 +42,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
 
             var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
@@ -81,7 +84,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
                 codeLines.Add(string.Empty);
             }
 
@@ -95,6 +98,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatements(assignmentStatements)
                     .WithSemicolon());
             }
+
 
             if (nestedCompOwner != null)
             {
@@ -110,7 +114,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
             }
-            
+
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
@@ -133,7 +137,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private bool RepositoryRequiresExplicitUpdate()
         {
             return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       TemplateRoles.Repository.Interface.Entity,
                        _matchingElementDetails.Value.RepositoryInterfaceModel,
                        out var repositoryInterfaceTemplate) &&
                    repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
@@ -286,8 +290,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
-            if (repositoryInterface == null)
+            
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, repositoryInterfaceModel, out var repositoryInterface))
             {
                 return NoMatch;
             }

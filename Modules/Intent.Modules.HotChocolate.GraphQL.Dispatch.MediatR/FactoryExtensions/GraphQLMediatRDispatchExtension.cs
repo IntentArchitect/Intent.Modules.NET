@@ -43,8 +43,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             var mutationTypeTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(MutationTypeTemplate.TemplateId));
             foreach (var template in queryTypeTemplates.Concat(mutationTypeTemplates))
             {
-                template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
-                template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
+                template.AddTypeSource(TemplateRoles.Application.Query);
+                template.AddTypeSource(TemplateRoles.Application.Command);
                 template.AddNugetDependency(NuGetPackages.HotChocolate);
                 template.CSharpFile.OnBuild(file =>
                 {
@@ -62,11 +62,11 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
                 }, 200);
             }
 
-            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
+            var dtoTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
             foreach (var template in dtoTemplates)
             {
-                template.AddTypeSource(TemplateFulfillingRoles.Application.Query);
-                template.AddTypeSource(TemplateFulfillingRoles.Application.Command);
+                template.AddTypeSource(TemplateRoles.Application.Query);
+                template.AddTypeSource(TemplateRoles.Application.Command);
                 template.AddNugetDependency(NuGetPackages.HotChocolate);
                 template.CSharpFile.OnBuild(file =>
                 {

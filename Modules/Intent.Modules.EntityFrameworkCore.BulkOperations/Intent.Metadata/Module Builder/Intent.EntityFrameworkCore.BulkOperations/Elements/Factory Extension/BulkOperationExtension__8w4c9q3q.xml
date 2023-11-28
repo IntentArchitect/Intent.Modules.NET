@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23c96b80-9a7a-4de1-ac83-b823c2504d7f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BulkOperationExtension</name>
+  <display>BulkOperationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</parentFolderId>
+  <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
+  <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -95,7 +95,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
             })
             .AfterBuild(file =>
             {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+                if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
                 {
                     return;
                 }

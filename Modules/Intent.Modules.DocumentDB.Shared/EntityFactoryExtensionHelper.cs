@@ -23,7 +23,7 @@ namespace Intent.Modules.DocumentDB.Shared
         {
             // Implementation
             {
-                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));
                 foreach (var template in templates)
                 {
                     var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
@@ -98,7 +98,7 @@ namespace Intent.Modules.DocumentDB.Shared
 
             // Interface
             {
-                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
+                var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Interface));
                 foreach (var template in templates)
                 {
                     var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;

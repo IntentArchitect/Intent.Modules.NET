@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d036ad94-23e4-4a79-bcad-b887c4c0ecd4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26402a83-69d1-4db0-9f4d-99e6c5bcf9ec</parentFolderId>
+  <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+  <packageName>Entities.Constants.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="728e34dd-704d-41a9-8be5-ce56163f06f0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d036ad94-23e4-4a79-bcad-b887c4c0ecd4</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2d2d5eac-395f-4012-977a-7b0b05f798d6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d036ad94-23e4-4a79-bcad-b887c4c0ecd4</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c38ee858-b2ca-436c-862b-0fd0b12f63ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d036ad94-23e4-4a79-bcad-b887c4c0ecd4</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0f7d329c-4168-4c2e-a073-fb8ada70a8ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d036ad94-23e4-4a79-bcad-b887c4c0ecd4</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

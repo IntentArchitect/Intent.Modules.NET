@@ -1,3 +1,7 @@
+### Version 4.1.7
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.1.6
 
 - Improvement: Added `SignUpSignInPolicyId` configuration option for specifying the PolicyId / User Flow for B2C.

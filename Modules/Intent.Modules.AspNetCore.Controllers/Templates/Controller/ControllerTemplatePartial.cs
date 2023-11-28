@@ -197,7 +197,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.RequiresAuthorization || operation.AllowAnonymous)
             {
-                if (!IsControllerSecured() && IsOperationSecured(operation))
+                if ((!IsControllerSecured() && IsOperationSecured(operation)) 
+                    || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.RolesExpression)
+                    || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.Policy))
                 {
                     attributes.Add(GetAuthorizationAttribute(operation.AuthorizationModel));
                 }
@@ -268,18 +270,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.RolesExpression))
             {
-                attribute.Statements.Add($"Roles = {authorizationModel.RolesExpression}");
+                attribute.AddArgument($"Roles = {authorizationModel.RolesExpression}");
             }
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
             {
-                attribute.Statements.Add($"Policy = {authorizationModel.Policy}");
+                attribute.AddArgument($"Policy = {authorizationModel.Policy}");
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete
             if (!string.IsNullOrWhiteSpace(authorizationModel?.AuthenticationSchemesExpression))
             {
-                attribute.Statements.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
+                attribute.AddArgument($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
             }
 #pragma warning restore CS0618 // Type or member is obsolete
 

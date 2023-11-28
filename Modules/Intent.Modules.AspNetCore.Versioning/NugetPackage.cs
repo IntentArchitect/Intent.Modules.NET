@@ -7,16 +7,19 @@ namespace Intent.Modules.AspNetCore.Versioning;
 
 public static class NugetPackage
 {
-    public static NugetPackageInfo AspVersioningMvc(IOutputTarget outputTarget) => new NugetPackageInfo("Asp.Versioning.Mvc", GetVersion(outputTarget.GetProject()));
-    public static NugetPackageInfo AspVersioningMvcApiExplorer(IOutputTarget outputTarget) => new NugetPackageInfo("Asp.Versioning.Mvc.ApiExplorer", GetVersion(outputTarget.GetProject()));
-
-    private static string GetVersion(ICSharpProject project)
-    {
-        return project switch
+    public static NugetPackageInfo AspVersioningMvc(IOutputTarget outputTarget) => new(
+        name: "Asp.Versioning.Mvc",
+        version: outputTarget.GetMaxNetAppVersion() switch
         {
-            _ when project.IsNetApp(6) => "6.0.0",
-            _ when project.IsNetApp(7) => "7.0.0",
-            _ => throw new Exception("Not supported version of .NET Core") 
-        };
-    }
+            (5, 0) or (6, 0) => "6.0.0",
+            _ => "7.0.0"
+        });
+
+    public static NugetPackageInfo AspVersioningMvcApiExplorer(IOutputTarget outputTarget) => new(
+        name: "Asp.Versioning.Mvc.ApiExplorer",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) or (6, 0) => "6.0.0",
+            _ => "7.0.0"
+        });
 }

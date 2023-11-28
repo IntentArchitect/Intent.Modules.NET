@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
@@ -33,29 +34,31 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IEFRepository", @interface =>
                 {
+                    string nullableChar = this.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .ExtendsInterface($"{this.GetRepositoryInterfaceName()}<{tDomain}>")
-                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
-                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                        )
-                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
@@ -73,7 +76,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod("Task<int>", "CountAsync", method => method
@@ -84,6 +87,29 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
+                        .AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod("Task<int>", "CountAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod("Task<bool>", "AnyAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+
                         .AddProperty(this.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop => prop
                             .ReadOnly()
                         )
@@ -91,12 +117,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                     if (ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                     {
                         @interface
-                        .AddMethod($"{tDomain}?", "Find", method => method
+                        .AddMethod($"{tDomain}{nullableChar}", "Find", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                         )
-                        .AddMethod($"{tDomain}?", "Find", method => method
+                        .AddMethod($"{tDomain}{nullableChar}", "Find", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
                         .AddMethod($"List<{tDomain}>", "FindAll")
                         .AddMethod($"List<{tDomain}>", "FindAll", method => method
@@ -104,7 +130,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                         )
                         .AddMethod($"List<{tDomain}>", "FindAll", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
                         .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
                             .AddParameter("int", "pageNo")
@@ -119,13 +145,30 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
                         .AddMethod("int", "Count", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                         )
                         .AddMethod("bool", "Any", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                        )
+                        .AddMethod($"{tDomain}{nullableChar}", "Find", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                        )
+                        .AddMethod($"List<{tDomain}>", "FindAll", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                        )
+                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                        )
+                        .AddMethod("int", "Count", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                        )
+                        .AddMethod("bool", "Any", method => method
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
                         );
                     }
                 });

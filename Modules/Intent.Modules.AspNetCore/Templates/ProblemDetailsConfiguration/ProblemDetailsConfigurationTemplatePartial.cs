@@ -144,7 +144,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureProblemDetails")
                 .HasDependency(this));
-            
+
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
                 .ToRegister("UseExceptionHandler")
                 .WithPriority(-40));

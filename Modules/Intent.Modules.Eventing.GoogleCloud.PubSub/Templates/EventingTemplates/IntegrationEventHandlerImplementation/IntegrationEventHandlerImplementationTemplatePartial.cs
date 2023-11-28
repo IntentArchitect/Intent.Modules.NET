@@ -26,6 +26,8 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationEventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsLoggingAbstractions(outputTarget));
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")

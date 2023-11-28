@@ -21,9 +21,9 @@ internal static class StoredProcedureHelpers
         IReadOnlyCollection<StoredProcedureModel> storedProcedures)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+        template.AddTypeSource(TemplateRoles.Domain.Enum);
+        template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+        template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
         template.CSharpFile
             .AddUsing("System.Threading")
@@ -60,9 +60,9 @@ internal static class StoredProcedureHelpers
         IReadOnlyCollection<StoredProcedureModel> storedProcedures)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
-        template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+        template.AddTypeSource(TemplateRoles.Domain.Enum);
+        template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+        template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
         _ = template.CSharpFile
             .AddUsing("System.Threading")
@@ -70,7 +70,7 @@ internal static class StoredProcedureHelpers
             .AfterBuild(file =>
             {
                 var @class = file.Classes.First();
-                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext);
+                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
                 var dbSetPropertiesByModelId = dbContextTemplate.CSharpFile.Classes.Single().Properties
                     .Where(x => x.HasMetadata("model"))
                     .ToDictionary(x => x.GetMetadata("model") switch

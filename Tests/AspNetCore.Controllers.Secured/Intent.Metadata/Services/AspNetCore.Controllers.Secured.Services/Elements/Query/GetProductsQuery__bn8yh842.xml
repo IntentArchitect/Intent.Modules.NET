@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8741299a-9c28-4fed-b5d8-768205a295b3" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetProductsQuery</name>
+  <display>GetProductsQuery: ProductDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="d67ff5fa-fd8e-4c70-bb08-a28afd12d30d">
+    <typeId>5c8ad975-7f07-489c-82e4-6fdf43393244</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+    <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>3bceaba7-3cce-4ed5-83f9-d6db313712cb</parentFolderId>
+  <packageId>90a633da-261a-42ee-bf0a-bb2c83797675</packageId>
+  <packageName>AspNetCore.Controllers.Secured.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/product" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="8b65c29e-1448-43ac-a92a-0e0f86efd6c6" name="Unsecured">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Products" />
+  </metadata>
+  <childElements />
+</class>

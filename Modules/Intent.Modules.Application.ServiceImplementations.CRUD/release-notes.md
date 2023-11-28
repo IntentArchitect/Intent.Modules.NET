@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Fixed: When DTOs had the same names as its domain entity, generation of mapping extension method calls would result in uncompilable code.
+
 ### Version 4.3.4
 
 - Normalized variable names used in generated methods for alignment with other modules.

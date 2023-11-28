@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Repository.PagedList)).ToArray();
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Repository.PagedList)).ToArray();
             if (!templates.Any())
             {
                 return;

@@ -39,6 +39,30 @@
       <isActiveFunction />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
+    <property id="252d4572-8255-4e87-9bd9-ede6220f44c1">
+      <hint>Use [top-level statements](https://learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements) instead of a `Main` method.</hint>
+      <name>Use top-level statements</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return properties["SDK"].value === "Microsoft.NET.Sdk.Web";</isActiveFunction>
+    </property>
+    <property id="8f218e6c-9115-42d1-ad23-9b0403bfbcb4">
+      <hint>Available for [ASP.NET Core 6.0+](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) applications.</hint>
+      <name>Use minimal hosting model</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return properties["SDK"].value === "Microsoft.NET.Sdk.Web";</isActiveFunction>
+    </property>
     <property id="6a7d81d7-351e-4cdf-a596-142a74507455">
       <name>Output Type</name>
       <type>string</type>
@@ -83,7 +107,7 @@
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
       <placeholder>(required)</placeholder>
-      <defaultValue>16d99e3e-7b91-42f8-ae3b-2686edde94b7</defaultValue>
+      <defaultValue>f8b1618d-1e64-4c2c-9787-e0725c3633a1</defaultValue>
       <valueOptions />
       <lookupTypes>
         <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7c3be66-3eb1-47d5-9aa1-e7c7cf067485" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>GraphQLStartupConfigurationExtension</name>
+  <display>GraphQLStartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</parentFolderId>
+  <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

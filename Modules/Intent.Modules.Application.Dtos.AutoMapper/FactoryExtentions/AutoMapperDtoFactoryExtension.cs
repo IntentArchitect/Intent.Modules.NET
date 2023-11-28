@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
             foreach (DtoModelTemplate template in templates)
             {
                 template.CSharpFile.AfterBuild(file =>
@@ -159,11 +159,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtentions
 
         private ICSharpFileBuilderTemplate GetEntityTemplate(ICSharpFileBuilderTemplate template, DTOModel templateModel)
         {
-            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId, out ICSharpFileBuilderTemplate entityTemplate))
+            if (template.TryGetTemplate(TemplateRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId, out ICSharpFileBuilderTemplate entityTemplate))
                 return entityTemplate;
-            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.ValueObject, templateModel.Mapping.ElementId, out entityTemplate))
+            if (template.TryGetTemplate(TemplateRoles.Domain.ValueObject, templateModel.Mapping.ElementId, out entityTemplate))
                 return entityTemplate;
-            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.DataContract, templateModel.Mapping.ElementId, out entityTemplate))
+            if (template.TryGetTemplate(TemplateRoles.Domain.DataContract, templateModel.Mapping.ElementId, out entityTemplate))
                 return entityTemplate;
             return entityTemplate;
         }

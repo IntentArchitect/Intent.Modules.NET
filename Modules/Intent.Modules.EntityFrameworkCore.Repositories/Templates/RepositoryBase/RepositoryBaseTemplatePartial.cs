@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
@@ -39,6 +40,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                 .AddClass($"RepositoryBase")
                 .OnBuild(file =>
                 {
+                    string nullableChar = this.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+
                     var @class = file.Classes.First();
                     @class.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
@@ -79,7 +82,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddStatement($"GetSet().Update(({tPersistence})entity);");
                     });
 
-                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
@@ -87,14 +90,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return await QueryInternal(filterExpression).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
-                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
+                        method.AddStatement($"return await QueryInternal(filterExpression, queryOptions).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
@@ -117,9 +120,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression, linq).ToListAsync<{tDomain}>(cancellationToken);");
+                        method.AddStatement($"return await QueryInternal(filterExpression, queryOptions).ToListAsync<{tDomain}>(cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -130,7 +133,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(x => true);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -146,7 +149,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -160,10 +163,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                        method.AddStatement($"var query = QueryInternal(filterExpression, queryOptions);")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -193,20 +196,71 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.AddStatement($"return await QueryInternal(filterExpression).AnyAsync(cancellationToken);");
                     });
 
+                    @class.AddMethod($"Task<{tDomain}{nullableChar}>", "FindAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(queryOptions).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
+                    });
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(queryOptions).ToListAsync<{tDomain}>(cancellationToken);");
+                    });
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var query = QueryInternal(queryOptions);")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                                .AddArgument("query")
+                                .AddArgument("pageNo")
+                                .AddArgument("pageSize")
+                                .AddArgument("cancellationToken")
+                                .WithArgumentsOnNewLines());
+                    });
+                    @class.AddMethod("Task<int>", "CountAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(queryOptions).CountAsync(cancellationToken);");
+                    });
+                    @class.AddMethod("Task<bool>", "AnyAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return await QueryInternal(queryOptions).AnyAsync(cancellationToken);");
+                    });
+
+
                     if (ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                     {
-                        @class.AddMethod($"{tDomain}?", "Find", method =>
+                        @class.AddMethod($"{tDomain}{nullableChar}", "Find", method =>
                         {
                             method.Virtual();
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
                             method.AddStatement($"return QueryInternal(filterExpression).SingleOrDefault<{tDomain}>();");
                         });
-                        @class.AddMethod($"{tDomain}?", "Find", method =>
+                        @class.AddMethod($"{tDomain}{nullableChar}", "Find", method =>
                         {
                             method.Virtual();
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
-                            method.AddStatement($"return QueryInternal(filterExpression, linq).SingleOrDefault<{tDomain}>();");
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(filterExpression, queryOptions).SingleOrDefault<{tDomain}>();");
                         });
 
                         @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
@@ -224,8 +278,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         {
                             method.Virtual();
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
-                            method.AddStatement($"return QueryInternal(filterExpression, linq).ToList<{tDomain}>();");
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(filterExpression, queryOptions).ToList<{tDomain}>();");
                         });
 
                         @class.AddMethod($"{this.GetPagedResultInterfaceName()}<{tDomain}>", "FindAll", method =>
@@ -234,7 +288,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize");
                             method.AddStatement($"var query = QueryInternal(x => true);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -247,7 +301,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                                 .AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize");
                             method.AddStatement($"var query = QueryInternal(filterExpression);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -260,9 +314,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                                 .AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize")
-                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq");
-                            method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions");
+                            method.AddStatement($"var query = QueryInternal(filterExpression, queryOptions);")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
                                     .AddArgument("query")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -275,13 +329,54 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression");
                             method.AddStatement($"return QueryInternal(filterExpression).Count();");
                         });
+
+                        @class.AddMethod($"{tDomain}{nullableChar}", "Find", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(queryOptions).SingleOrDefault<{tDomain}>();");
+                        });
+                        @class.AddMethod($"List<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
+                            method.AddStatement($"return QueryInternal(queryOptions).ToList<{tDomain}>();");
+                        });
+                        @class.AddMethod($"{this.GetPagedResultInterfaceName()}<{tDomain}>", "FindAll", method =>
+                        {
+                            method.Virtual();
+                            method
+                                .AddParameter("int", "pageNo")
+                                .AddParameter("int", "pageSize")
+                                .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                                ;
+                            method.AddStatement($"var query = QueryInternal(queryOptions);")
+                                .AddStatement(new CSharpInvocationStatement($"return {this.GetTypeName(TemplateRoles.Repository.PagedList)}<{tDomain}>.Create")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .WithArgumentsOnNewLines());
+                        });
+                        @class.AddMethod("int", "Count", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
+                            method.AddStatement($"return QueryInternal(queryOptions).Count();");
+                        });
+                        @class.AddMethod("bool", "Any", method =>
+                        {
+                            method.Virtual();
+                            method.AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
+                            method.AddStatement($"return QueryInternal(queryOptions).Any();");
+                        });
+
                     }
 
                     @class.AddMethod($"IQueryable<{tPersistence}>", "QueryInternal", method =>
                     {
                         method.Protected();
                         method.Virtual();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>?", "filterExpression");
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>{nullableChar}", "filterExpression");
                         method.AddStatement("var queryable = CreateQuery();")
                             .AddStatement("if (filterExpression != null)")
                             .AddStatement(new CSharpStatementBlock()
@@ -295,11 +390,24 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         method.Virtual();
                         method.AddGenericParameter("TResult", out var tResult);
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tResult}>>", "linq");
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tResult}>>", "queryOptions");
                         method.AddStatement("var queryable = CreateQuery();")
                             .AddStatement("queryable = queryable.Where(filterExpression);")
-                            .AddStatement("var result = linq(queryable);")
+                            .AddStatement("var result = queryOptions(queryable);")
                             .AddStatement("return result;")
+                            ;
+                    });
+
+                    @class.AddMethod($"IQueryable<{tPersistence}>", "QueryInternal", method =>
+                    {
+                        method.Protected();
+                        method.Virtual();
+                        method.AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>{nullableChar}", "queryOptions");
+                        method.AddStatement("var queryable = CreateQuery();")
+                            .AddStatement("if (queryOptions != null)")
+                            .AddStatement(new CSharpStatementBlock()
+                                .AddStatement("queryable = queryOptions(queryable);"))
+                            .AddStatement("return queryable;")
                             ;
                     });
 

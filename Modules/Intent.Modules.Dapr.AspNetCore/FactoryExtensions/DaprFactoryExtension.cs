@@ -1,13 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -35,44 +33,37 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                 }
             }));
 
-            var startupTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
+            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
             if (startupTemplate == null)
             {
                 return;
             }
 
+            var startup = startupTemplate.StartupFile;
+
             startupTemplate.AddNugetDependency(NuGetPackages.ManDaprSidekickAspNetCore);
-            startupTemplate.CSharpFile.AfterBuild(file =>
+            startupTemplate.CSharpFile.AfterBuild(_ =>
             {
-                var priClass = file.Classes.First();
-                var configureMethod = priClass.FindMethod("Configure");
-                if (configureMethod == null)
+                startup.ConfigureServices((statements, context) =>
                 {
-                    return;
-                }
+                    if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement controllersStatement)
+                    {
+                        return;
+                    }
 
-                configureMethod
-                    .FindStatement(x => x.ToString().Contains("app.UseHttpsRedirection()"))?
-                    .Remove();
+                    controllersStatement.WithoutSemicolon();
+                    controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddDapr"));
+                    statements.FindStatement(p => p.GetText(string.Empty).Contains("AddDapr"))
+                        ?.InsertBelow(new CSharpInvocationStatement($"{context.Services}.AddDaprSidekick")
+                            .AddArgument(context.Configuration));
+                });
 
-                var configureServicesMethod = file.Classes.First().FindMethod("ConfigureServices");
-                if (configureServicesMethod == null)
+                startup.ConfigureApp((statements, _) =>
                 {
-                    return;
-                }
-
-                if (priClass.FindMethod("ConfigureServices")
-                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
-                    CSharpInvocationStatement controllersStatement)
-                {
-                    return;
-                }
-
-                controllersStatement.WithoutSemicolon();
-                controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddDapr"));
-                configureServicesMethod.FindStatement(p => p.GetText(string.Empty).Contains("AddDapr"))
-                    ?.InsertBelow(new CSharpInvocationStatement("services.AddDaprSidekick")
-                        .AddArgument("Configuration"));
+                    statements
+                        .FindStatement(x => x.ToString()!.Contains(".UseHttpsRedirection()"))?
+                        .Remove();
+                });
             }, 11);
         }
     }

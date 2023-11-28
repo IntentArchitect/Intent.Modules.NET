@@ -329,5 +329,28 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             result = await _appService.GetInvoiceOpWithReturnTypeWrapped(cancellationToken);
             return Ok(result);
         }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomDTO&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">No List&lt;CustomDTO&gt; could be found with the provided parameters.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(List<CustomDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomDTO>>> GetItems(
+            [FromQuery] List<string> ids,
+            CancellationToken cancellationToken = default)
+        {
+            var result = default(List<CustomDTO>);
+            result = await _appService.GetItems(ids, cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
     }
 }

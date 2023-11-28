@@ -1,3 +1,7 @@
+### 5.0.0
+
+- Support for explicit modeling of Domain Event Handlers and the Advanced Mapping capabilities available in Intent Architect 4.1.0
+
 ### 4.2.1
 
 - `Publish` method on the domain event service now accepts a `CancellationToken`.

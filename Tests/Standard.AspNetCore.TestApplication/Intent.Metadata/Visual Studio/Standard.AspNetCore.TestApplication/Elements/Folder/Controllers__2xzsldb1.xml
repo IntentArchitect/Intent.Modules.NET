@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>418c6192-1fbf-4d24-81f7-f1a060223c2c</parentFolderId>
+  <parentFolderId>4be3b157-cb12-4da1-9b19-7554493b017a</parentFolderId>
   <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
   <packageName>Standard.AspNetCore.TestApplication</packageName>
   <stereotypes>

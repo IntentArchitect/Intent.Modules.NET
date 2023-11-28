@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -17,56 +16,69 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.Templates.Startup
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class StartupTemplate : CSharpTemplateBase<object>
+    public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AzureFunctions.Startup";
 
         private readonly IList<ServiceConfigurationRequest> _serviceConfigurations =
             new List<ServiceConfigurationRequest>();
 
+        
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
             AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return new CSharpFileConfig(
-                className: $"Startup",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-            foreach (var request in GetRelevantServiceConfigurationRequests())
-            {
-                foreach (var templateDependency in request.TemplateDependencies)
+            
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Azure.Functions.Extensions.DependencyInjection")
+                .AddClass($"Startup", @class =>
                 {
-                    var template = GetTemplate<IClassProvider>(templateDependency);
-                    if (template != null)
+                    @class.WithBaseType("FunctionsStartup");
+                    @class.AddMethod("void", "Configure", method =>
                     {
-                        AddUsing(template.Namespace);
-                    }
-
-                    AddTemplateDependency(templateDependency);
-                }
-
-                foreach (var @namespace in request.RequiredNamespaces)
+                        method.Override();
+                        method.AddParameter("IFunctionsHostBuilder", "builder");
+                        method.AddStatement("var configuration = builder.GetContext().Configuration;");
+                    });
+                })
+                .OnBuild(file =>
                 {
-                    AddUsing(@namespace);
-                }
-            }
+                    var @class = file.Classes.First();
+                    file.AddAssemblyAttribute($"FunctionsStartup(typeof({this.GetNamespace()}.{@class.Name}))");
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("Configure");
+                    method.AddStatements(GetServiceConfigurationStatementList());
+                    
+                    foreach (var request in GetRelevantServiceConfigurationRequests())
+                    {
+                        foreach (var templateDependency in request.TemplateDependencies)
+                        {
+                            var template = GetTemplate<IClassProvider>(templateDependency);
+                            if (template != null)
+                            {
+                                AddUsing(template.Namespace);
+                            }
+
+                            AddTemplateDependency(templateDependency);
+                        }
+
+                        foreach (var @namespace in request.RequiredNamespaces)
+                        {
+                            AddUsing(@namespace);
+                        }
+                    }
+                });
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
         {
             _serviceConfigurations.Add(request);
         }
-
+        
         private IEnumerable<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
         {
             return _serviceConfigurations
@@ -74,10 +86,10 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                 .OrderBy(o => o.Priority)
                 .ToArray();
         }
-
-        private string GetServiceConfigurationStatementList()
+        
+        private List<CSharpStatement> GetServiceConfigurationStatementList()
         {
-            var statementList = new List<string>();
+            var statementList = new List<CSharpStatement>();
 
             statementList.AddRange(GetRelevantServiceConfigurationRequests()
                 .Select(s =>
@@ -89,14 +101,12 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                         AddTemplateDependency(dependency);
                         AddUsing(classProvider.Namespace);
                     }
-                    return $"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});";
+                    return new CSharpStatement($"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});");
                 }));
 
-            const string newLine = @"
-            ";
-            return string.Join(newLine, statementList);
+            return statementList;
         }
-
+        
         private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
         {
             if (request.ExtensionMethodParameterList?.Any() != true)
@@ -122,6 +132,21 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
             }
 
             return string.Join(", ", paramList);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
     }
 }

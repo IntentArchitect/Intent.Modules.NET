@@ -53,6 +53,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                         {
                             method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
+                            method.RepresentsModel(operation);
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
 
                             foreach (var parameter in operation.Parameters)

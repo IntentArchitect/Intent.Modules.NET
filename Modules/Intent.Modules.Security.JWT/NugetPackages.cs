@@ -1,27 +1,19 @@
-﻿using Intent.Modules.Common.VisualStudio;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Intent.Engine;
-using Intent.Modules.Common.CSharp.VisualStudio;
+﻿using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Security.JWT
+namespace Intent.Modules.Security.JWT;
+
+public static class NugetPackages
 {
-    public static class NugetPackages
-    {
-        public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationJwtBearer(IOutputTarget outputTarget) => new ("Microsoft.AspNetCore.Authentication.JwtBearer", GetJwtVersion(outputTarget.GetProject()));
-        public static readonly NugetPackageInfo IdentityModel = new NugetPackageInfo("IdentityModel", "6.0.0");
-        
-        private static string GetJwtVersion(ICSharpProject project)
+    public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationJwtBearer(IOutputTarget outputTarget) => new(
+        name: "Microsoft.AspNetCore.Authentication.JwtBearer",
+        version: outputTarget.GetMaxNetAppVersion() switch
         {
-            return project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.17",
-                _ when project.IsNetApp(6) => "6.0.20",
-                _ when project.IsNetApp(7) => "7.0.9",
-                _ when project.IsNetApp(8) => "8.0.0-preview.6.23329.11",
-                _ => throw new Exception("Not supported version of .NET") 
-            };
-        }
-    }
+            (5, 0) => "5.0.17",
+            (6, 0) => "6.0.25",
+            (7, 0) => "7.0.14",
+            _ => "8.0.0"
+        });
+
+    public static readonly NugetPackageInfo IdentityModel = new("IdentityModel", "6.0.0");
 }

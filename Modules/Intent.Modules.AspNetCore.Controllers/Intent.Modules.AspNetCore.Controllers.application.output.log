@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ControllerConfigurationStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ControllerConfigurationStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ControllerConfigurationStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ControllerConfigurationStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecorator.cs</ApplicationRelativeFilePath>

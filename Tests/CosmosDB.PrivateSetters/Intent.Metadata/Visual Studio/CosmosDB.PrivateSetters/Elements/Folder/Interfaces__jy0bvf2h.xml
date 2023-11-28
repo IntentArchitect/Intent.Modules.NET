@@ -21,6 +21,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="8b571d84-2425-490f-8158-4208ed2ae3a0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</name>
+      <display>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fe170cf5-5032-47be-9edf-65add3361587</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="7cbf824a-c154-4b31-b676-655a744d4649" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.BasicAuditing.AuditableInterface</name>
       <display>Intent.Entities.BasicAuditing.AuditableInterface</display>
@@ -47,20 +63,6 @@
       <parentFolderId>fe170cf5-5032-47be-9edf-65add3361587</parentFolderId>
       <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
       <packageName>CosmosDB.PrivateSetters</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="8b571d84-2425-490f-8158-4208ed2ae3a0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</name>
-      <display>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</display>
-      <externalReference>Intent.CosmosDB</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fe170cf5-5032-47be-9edf-65add3361587</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

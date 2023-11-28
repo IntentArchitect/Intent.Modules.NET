@@ -3,7 +3,6 @@
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e484d3da-e357-43a3-b37b-a43c33a639d1</parentFolderId>
@@ -26,7 +25,6 @@
       <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ac2c842d-511b-4e57-9887-72d6c54f7799</parentFolderId>
@@ -41,7 +39,6 @@
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ac2c842d-511b-4e57-9887-72d6c54f7799</parentFolderId>
@@ -56,7 +53,6 @@
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ac2c842d-511b-4e57-9887-72d6c54f7799</parentFolderId>
@@ -71,7 +67,6 @@
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementModelPartial</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ac2c842d-511b-4e57-9887-72d6c54f7799</parentFolderId>
@@ -86,7 +81,6 @@
       <display>Intent.ModuleBuilder.Templates.Api.ApiPackageModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ac2c842d-511b-4e57-9887-72d6c54f7799</parentFolderId>
