@@ -98,7 +98,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             var auditableInterfaceName = entityTemplate.GetAuditableInterfaceName();
             @interface.ImplementsInterfaces(auditableInterfaceName);
         }
-        
+
         private static void UpdateEntityClass(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, bool includeAuditInterface)
         {
             var model = @class.GetMetadata<ClassModel>("model");

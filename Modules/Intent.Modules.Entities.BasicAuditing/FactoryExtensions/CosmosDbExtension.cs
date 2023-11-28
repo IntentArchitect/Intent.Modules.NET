@@ -1,14 +1,14 @@
-using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Plugins;
-using Intent.Plugins.FactoryExtensions;
-using Intent.RoslynWeaver.Attributes;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modules.Application.Identity.Templates;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Plugins;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.Entities.BasicAuditing.Templates;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
