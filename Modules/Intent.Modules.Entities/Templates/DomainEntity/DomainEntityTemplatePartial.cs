@@ -126,14 +126,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             }
                             if (ctorModel.InternalElement.Mappings.Any())
                             {
-                                ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single(), ctor), statements =>
-                                {
-                                    foreach (var assignment in statements.OfType<CSharpAssignmentStatement>())
-                                    {
-                                        // Can be removed when the latest Roslyn sets this as the default matching criteria.
-                                        assignment.InsertAbove($@"// [IntentMatch(""{assignment.Lhs} ="")]");
-                                    }
-                                });
+                                ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single(), ctor));
                             }
                             else
                             {
@@ -243,14 +236,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         Logging.Log.Warning($"Operation {operation.Name} - On {@class.Name} marked as abstract, ignoring mapping implementation.");
                     }
-                    method.AddStatements(GetMappingImplementation(operation.InternalElement.Mappings.Single(), method), statements =>
-                    {
-                        foreach (var assignment in statements.OfType<CSharpAssignmentStatement>())
-                        {
-                            // Can be removed when the latest Roslyn sets this as the default matching criteria.
-                            assignment.InsertAbove($@"// [IntentMatch(""{assignment.Lhs} ="")]");
-                        }
-                    });
+                    method.AddStatements(GetMappingImplementation(operation.InternalElement.Mappings.Single(), method));
                 }
                 else
                 {

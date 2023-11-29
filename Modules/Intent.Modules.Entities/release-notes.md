@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.
+
 ### Version 4.4.2
 
 - Improvement: Primary domain entity interface qualified properties now also have a `model` metadata populated for identification in other modules.
