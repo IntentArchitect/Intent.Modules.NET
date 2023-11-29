@@ -41,6 +41,7 @@ namespace MinimalHostingModel.Infrastructure.Eventing
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await handler.HandleAsync(context.Message, context.CancellationToken);
+
                 // By calling SaveChanges at the last point in the transaction ensures that write-
                 // locks in the database are created and then released as quickly as possible. This
                 // helps optimize the application to handle a higher degree of concurrency.
