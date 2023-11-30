@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,5 +13,9 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
         string Description { get; set; }
 
         int Quantity { get; set; }
+
+        string ProductId { get; set; }
+
+        ICollection<string> Tags { get; set; }
     }
 }

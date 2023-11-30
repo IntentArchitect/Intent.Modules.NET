@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,5 +11,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories.Documents
         string Id { get; }
         string Description { get; }
         int Quantity { get; }
+        string ProductId { get; }
+        IReadOnlyList<string> Tags { get; }
     }
 }

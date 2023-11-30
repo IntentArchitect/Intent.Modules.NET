@@ -97,6 +97,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>NonStringPartitionKey.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ICategory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IProduct.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
