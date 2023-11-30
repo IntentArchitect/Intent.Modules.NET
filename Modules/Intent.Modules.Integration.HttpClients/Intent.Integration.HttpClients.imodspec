@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>5.0.8-pre.1</version>
+  <version>5.0.8-pre.2</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -26,6 +26,14 @@
       <role>Infrastructure.DependencyInjection.HttpClient</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate" externalReference="2de50976-c2bf-4bdd-9c10-a222a6b59ebf">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.HttpClient.HttpClientHeaderHandler</role>
+      <location>HttpClients</location>
+    </template>
     <template id="Intent.Integration.HttpClients.HttpClientRequestException" externalReference="cc5d11e5-be38-40cb-b020-2b748e031a14">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -44,11 +52,13 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension" externalReference="64e99652-0ac6-4285-8209-b4dbd505e91f" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="5.0.4" />
-    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common" version="3.4.3" />
     <dependency id="Intent.Common.CSharp" version="3.3.42" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.3.2" />

@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,8 +13,12 @@ using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Templates;
 using ServiceProxyHelpers = Intent.Modules.Application.Contracts.Clients.ServiceProxyHelpers;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
+using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
+using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -21,62 +26,42 @@ using ServiceProxyHelpers = Intent.Modules.Application.Contracts.Clients.Service
 namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class HttpClientConfigurationTemplate : CSharpTemplateBase<IList<ServiceProxyModel>>
+    public partial class HttpClientConfigurationTemplate : HttpClientConfigurationBase
     {
         public const string TemplateId = "Intent.Integration.HttpClients.HttpClientConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model) : base(TemplateId, outputTarget, model)
+        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model) 
+            : base(TemplateId, 
+                  outputTarget, 
+                  model,
+                  ServiceContractTemplate.TemplateId,
+                  HttpClientTemplate.TemplateId,
+                  (options, proxy) => 
+                  {
+                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
+                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey(proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
+                  }                  
+                  )
         {
-            AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return new CSharpFileConfig(
-                className: $"HttpClientConfiguration",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
 
         public override void BeforeTemplateExecution()
         {
+            base.BeforeTemplateExecution();
             foreach (var proxy in Model.Distinct(new ServiceModelComparer()))
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost:{app_port}/"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Timeout"), "00:01:00"));
             }
-
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddHttpClients", ServiceConfigurationRequest.ParameterType.Configuration)
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
-
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
         }
 
-        private string GetConfigKey(ServiceProxyModel proxy, string key)
+        private static string GetConfigKey(ServiceProxyModel proxy, string key)
         {
             return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
-        }
-
-        private string GetMessageHandlers(ServiceProxyModel proxy)
-        {
-            var parentSecured = default(bool?);
-            if (ServiceProxyHelpers.GetMappedEndpoints(proxy)
-                .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true))
-            {
-                return string.Empty;
-            }
-
-            return $".AddClientAccessTokenHandler(configuration.GetValue<string>(\"{GetConfigKey(proxy, "IdentityClientKey")}\") ?? \"default\")";
         }
 
         class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>

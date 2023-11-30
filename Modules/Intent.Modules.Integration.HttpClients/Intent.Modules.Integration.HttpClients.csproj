@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -30,11 +30,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RequestHttpExceptionTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HttpClientConfigurationTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -58,14 +53,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RequestHttpExceptionTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>HttpClientConfigurationTemplate.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.4.3" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.42" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="5.0.0" />

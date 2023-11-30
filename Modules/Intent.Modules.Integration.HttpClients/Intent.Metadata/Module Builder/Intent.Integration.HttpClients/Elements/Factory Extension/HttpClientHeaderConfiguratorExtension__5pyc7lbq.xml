@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="64e99652-0ac6-4285-8209-b4dbd505e91f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HttpClientHeaderConfiguratorExtension</name>
+  <display>HttpClientHeaderConfiguratorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>078cefb0-8647-40bf-9099-a7c96c4d8e85</parentFolderId>
+  <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+  <packageName>Intent.Integration.HttpClients</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

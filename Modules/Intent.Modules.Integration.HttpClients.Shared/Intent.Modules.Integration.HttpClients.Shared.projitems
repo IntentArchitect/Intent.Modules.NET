@@ -10,6 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientConfiguration\HttpClientConfigurationBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientHeaderHandler\HttpClientHeaderHandlerTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientRequestException\HttpClientRequestExceptionTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
