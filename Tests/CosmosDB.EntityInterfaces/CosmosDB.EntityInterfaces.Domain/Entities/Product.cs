@@ -5,6 +5,8 @@ using CosmosDB.EntityInterfaces.Domain.Common;
 using CosmosDB.EntityInterfaces.Domain.Entities.Common;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace CosmosDB.EntityInterfaces.Domain.Entities
 {
     public class Product : IProduct, IHasDomainEvent
