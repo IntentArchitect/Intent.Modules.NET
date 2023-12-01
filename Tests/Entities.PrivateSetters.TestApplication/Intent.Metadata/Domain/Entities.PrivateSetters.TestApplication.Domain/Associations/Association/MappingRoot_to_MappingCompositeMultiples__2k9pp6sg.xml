@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="92de0425-945c-4b0e-807d-5884265a0c99">
+  <sourceEnd id="e6f3b194-00ca-40f1-94bd-1d3266d7ae93" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MappingRoot</name>
+    <display>MappingRoot: MappingRoot</display>
+    <order>0</order>
+    <typeReference id="ae32ef4f-d13c-40d5-b970-dd79aa830378">
+      <typeId>feb8c002-8088-487c-9613-7a8b1b96cdf9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="92de0425-945c-4b0e-807d-5884265a0c99" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MappingCompositeMultiples</name>
+    <display>MappingCompositeMultiples: MappingCompositeMultiple[*]   [1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="366bcf5d-51ef-42cc-b9e1-eb27df9984fc">
+      <typeId>c086c389-b35d-41dc-839a-2b855207ec11</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+      <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

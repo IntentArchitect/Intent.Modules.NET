@@ -422,5 +422,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 .AddStatement(new CSharpInvocationStatement(GetTargetStatement(), "Add").AddArgument("item"))
                 .SeparatedFromPrevious();
         }
+
+        public override CSharpStatement GetTargetStatement()
+        {
+            if (Template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                return GetTargetPathText().ToPrivateMemberName();
+            }
+
+            return base.GetTargetStatement();
+        }
     }
 }
