@@ -9,10 +9,12 @@ using Entities.PrivateSetters.TestApplication.Domain.Common.Interfaces;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregational;
 using Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositional;
+using Entities.PrivateSetters.TestApplication.Domain.Repositories.Mapping;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Persistence;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Repositories;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Aggregational;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Compositional;
+using Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Mapping;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -61,6 +63,7 @@ namespace Entities.PrivateSetters.TestApplication.Api
             services.AddTransient<IOneToManySourceRepository, OneToManySourceRepository>();
             services.AddTransient<IOneToOneSourceRepository, OneToOneSourceRepository>();
             services.AddTransient<IOneToOptionalSourceRepository, OneToOptionalSourceRepository>();
+            services.AddTransient<IMappingRootRepository, MappingRootRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -194,6 +194,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         public DbSet<TPT_Poly_TopLevel> TPT_Poly_TopLevels { get; set; }
         public DbSet<TPC_Poly_TopLevel> TPC_Poly_TopLevels { get; set; }
         public DbSet<StereotypeIndex> StereotypeIndices { get; set; }
+        public DbSet<WithBaseIndex> WithBaseIndices { get; set; }
+        public DbSet<WithBaseIndexBase> WithBaseIndexBases { get; set; }
         public DbSet<Sun> Suns { get; set; }
         public DbSet<Texture> Textures { get; set; }
         public DbSet<Tree> Trees { get; set; }
@@ -283,6 +285,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             modelBuilder.ApplyConfiguration(new SortDirectionIndexConfiguration());
             modelBuilder.ApplyConfiguration(new SortDirectionStereotypeConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new WithBaseIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new WithBaseIndexBaseConfiguration());
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new InhabitantConfiguration());
             modelBuilder.ApplyConfiguration(new LeafConfiguration());
@@ -419,6 +423,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 .Select(entry => new
                 {
                     entry.State,
+                    Property = new Func<string, PropertyEntry>(entry.Property),
                     Auditable = (IAuditable)entry.Entity
                 })
                 .ToArray();
@@ -440,6 +445,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                         break;
                     case EntityState.Modified or EntityState.Deleted:
                         entry.Auditable.SetUpdated(userId, timestamp);
+                        entry.Property("CreatedBy").IsModified = false;
+                        entry.Property("CreatedDate").IsModified = false;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

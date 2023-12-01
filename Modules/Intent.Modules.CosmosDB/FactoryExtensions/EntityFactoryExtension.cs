@@ -42,7 +42,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         private static void RegisterServices(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
             if (template is null)
             {
                 return;

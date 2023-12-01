@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HubServiceInterfaceTemplate(IOutputTarget outputTarget, SignalRHubModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name.RemoveSuffix("Hub")}Hub", inter =>
                 {
@@ -54,6 +54,9 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
                             break;
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
+                            break;
+                        case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Client:
+                            method.AddParameter("string", "connectionId");
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

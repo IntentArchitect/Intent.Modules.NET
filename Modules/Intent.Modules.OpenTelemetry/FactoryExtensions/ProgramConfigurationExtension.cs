@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -25,7 +26,7 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("App.Program"));
+            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null)
             {
                 return;
@@ -48,17 +49,28 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
                 file.AddUsing("Microsoft.Extensions.Configuration");
                 file.AddUsing("Microsoft.Extensions.Logging");
 
-                var @class = file.Classes.First();
-                var hostBuilder = @class.FindMethod("CreateHostBuilder");
-                var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
-                (hostBuilderChain.FindStatement(p => p.ToString().Contains("UseSerilog")) as CSharpInvocationStatement)
-                    ?.AddArgument("writeToProviders: true");
-                hostBuilderChain.Statements.Last().InsertAbove(new CSharpInvocationStatement("ConfigureLogging")
-                    .WithoutSemicolon()
-                    .AddArgument(new CSharpLambdaBlock("(ctx, logBuilder)")
-                        .AddStatements($@"
-                        logBuilder.ClearProviders();
-                        logBuilder.AddTelemetryConfiguration(ctx);")));
+                programTemplate.ProgramFile.ConfigureMainStatementsBlock(statements =>
+                {
+                    if (!programTemplate.ProgramFile.UsesMinimalHostingModel)
+                    {
+                        var @class = file.Classes.First();
+                        var hostBuilder = @class.FindMethod("CreateHostBuilder");
+                        var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
+                        (hostBuilderChain.FindStatement(p => p.ToString()!.Contains("UseSerilog")) as CSharpInvocationStatement)?
+                            .AddArgument("writeToProviders: true");
+                    }
+                    else
+                    {
+                        (statements.FindStatement(p => p.ToString()!.Contains("UseSerilog")) as CSharpInvocationStatement)?
+                            .AddArgument("writeToProviders: true");
+                    }
+
+                    programTemplate.ProgramFile.ConfigureAppLogging(true, (block, parameters) =>
+                    {
+                        block.AddStatement($"{parameters[1]}.ClearProviders();");
+                        block.AddStatement($"{parameters[1]}.AddTelemetryConfiguration({parameters[0]});");
+                    });
+                });
             }, 30);
         }
     }

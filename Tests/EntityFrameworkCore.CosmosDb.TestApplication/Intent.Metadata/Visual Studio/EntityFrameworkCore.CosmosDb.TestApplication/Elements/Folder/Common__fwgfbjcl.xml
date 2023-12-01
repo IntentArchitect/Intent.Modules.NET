@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>bea39efa-3215-439b-8dea-fc33f85e3f4a</parentFolderId>
+  <parentFolderId>e9a182e3-c40c-42d4-af92-61ff1c949593</parentFolderId>
   <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
   <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
   <stereotypes>

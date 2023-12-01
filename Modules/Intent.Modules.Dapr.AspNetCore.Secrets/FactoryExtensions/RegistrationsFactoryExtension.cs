@@ -4,7 +4,9 @@ using System.Text;
 using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Dapr.AspNetCore.Secrets.Templates;
@@ -27,36 +29,32 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            AddProgramRegistrations(application);
             AddStartupRegistrations(application);
+            AddProgramRegistrations(application);
         }
 
-        private void AddProgramRegistrations(IApplication application)
+        private static void AddStartupRegistrations(IApplication application)
         {
-            var startupTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
+            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
             if (startupTemplate == null)
             {
                 return;
             }
 
             startupTemplate.AddNugetDependency(NuGetPackages.DaprExtensionsConfiguration);
-
-            startupTemplate.CSharpFile.AfterBuild(file =>
+            startupTemplate.CSharpFile.AfterBuild(_ =>
             {
-                var @class = file.Classes.First();
-                var configureMethod = @class.FindMethod("Configure");
-                if (configureMethod == null)
+                startupTemplate.StartupFile.ConfigureApp((statements, context) =>
                 {
-                    return;
-                }
-                startupTemplate.GetDaprSecretsConfigurationName();
-                configureMethod.InsertStatement(0, "app.LoadDaprSecretStoreDeferred(Configuration);");
+                    startupTemplate.GetDaprSecretsConfigurationName();
+                    statements.InsertStatement(0, $"{context.App}.LoadDaprSecretStoreDeferred({context.Configuration});");
+                });
             }, 10);
         }
 
-        private void AddStartupRegistrations(IApplication application)
+        private static void AddProgramRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
+            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null)
             {
                 return;
@@ -71,23 +69,10 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 file.AddUsing("System.Collections.Generic");
 
                 programTemplate.GetDaprSecretsConfigurationName();
-                var @class = file.Classes.First();
-                var hostBuilder = @class.FindMethod("CreateHostBuilder");
-                var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
-                var appConfigurationBlock = (CSharpInvocationStatement)hostBuilderChain.FindStatement(stmt => stmt.GetText("").StartsWith("ConfigureAppConfiguration"));
-                if (appConfigurationBlock == null)
+                programTemplate.ProgramFile.ConfigureAppConfiguration(false, (statements, parameters) =>
                 {
-                    appConfigurationBlock = new CSharpInvocationStatement("ConfigureAppConfiguration")
-                        .WithoutSemicolon()
-                        .AddArgument(new CSharpLambdaBlock("(config)")
-                        .AddStatement("config.AddDaprSecretStoreDeferred();"));
-                    hostBuilderChain.Statements.Last()
-                        .InsertAbove(appConfigurationBlock);
-                }
-                else
-                {
-                    ((CSharpLambdaBlock)appConfigurationBlock.Statements[0]).Statements.Add("config.AddDaprSecretStoreDeferred();");
-                }
+                    statements.AddStatement($"{parameters[^1]}.AddDaprSecretStoreDeferred();");
+                });
             }, 15);
         }
     }

@@ -1,3 +1,7 @@
+### Version 3.8.6
+
+- Fixed: Would cause slow designer load times when it contained very many DTOs.
+
 ### Version 3.8.3
 
 - Improvement: Added "Email Address" option to the "Validation" stereotype.

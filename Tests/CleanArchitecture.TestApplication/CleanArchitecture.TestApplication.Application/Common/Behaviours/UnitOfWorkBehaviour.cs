@@ -51,6 +51,7 @@ namespace CleanArchitecture.TestApplication.Application.Common.Behaviours
                 // Commit transaction if everything succeeds, transaction will auto-rollback when
                 // disposed if anything failed.
                 transaction.Complete();
+
                 return response;
             }
         }

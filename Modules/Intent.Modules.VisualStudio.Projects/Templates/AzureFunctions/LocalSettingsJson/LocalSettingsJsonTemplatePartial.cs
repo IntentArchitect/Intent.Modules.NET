@@ -64,7 +64,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 return;
             }
 
-            if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value))
+            if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value) && !Equals(value.Request.Value, @event.Value))
             {
                 Logging.Log.Warning($"A request already existed for {@event.Key}{Environment.NewLine}" +
                                     $"{Environment.NewLine}" +
@@ -76,7 +76,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 return;
             }
 
-            _registrationRequestsByKey.Add(@event.Key, (@event, Environment.StackTrace));
+            _registrationRequestsByKey.TryAdd(@event.Key, (@event, Environment.StackTrace));
         }
 
         private void Handle(ConnectionStringRegistrationRequest @event)
@@ -87,7 +87,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             }
 
             var key = $"ConnectionStrings:{@event.Name}";
-            if (_connectionStringRequestByName.TryGetValue(key, out var value))
+            if (_connectionStringRequestByName.TryGetValue(key, out var value) && !Equals(value.Request.ConnectionString, @event.ConnectionString))
             {
                 Logging.Log.Warning($"A request already existed for {key}{Environment.NewLine}" +
                                     $"{Environment.NewLine}" +
@@ -99,7 +99,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 return;
             }
 
-            _connectionStringRequestByName.Add(key, (@event, Environment.StackTrace));
+            _connectionStringRequestByName.TryAdd(key, (@event, Environment.StackTrace));
         }
 
         public override string RunTemplate()

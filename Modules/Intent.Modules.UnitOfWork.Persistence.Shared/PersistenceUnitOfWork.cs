@@ -16,7 +16,7 @@ internal static class PersistenceUnitOfWork
         return
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
-            template.GetTemplate<ICSharpTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
+            template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
     }
@@ -63,11 +63,14 @@ internal static class PersistenceUnitOfWork
             useOutsideTransactionScope = true;
         }
 
-        var requiresEf = template.GetTemplate<ICSharpTemplate>(TemplateFulfillingRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null;
+        var requiresEf = template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null;
         if (requiresEf)
         {
             constructor.AddParameter(
-                template.GetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork),
+                template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out  unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork) ? unitOfWork
+                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support."),
                 efParameterName,
                 c => c.IntroduceReadonlyField());
 

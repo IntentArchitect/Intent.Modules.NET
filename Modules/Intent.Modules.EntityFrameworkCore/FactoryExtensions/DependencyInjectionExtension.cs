@@ -32,7 +32,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+            var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
             if (dependencyInjection == null)
             {
                 return;
@@ -93,7 +93,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
         {
-            return project.IsNetApp(7) ? ";Encrypt=False" : string.Empty;
+            return project.TryGetMaxNetAppVersion(out var version) && version.Major >= 7
+                ? ";Encrypt=False"
+                : string.Empty;
         }
 
         private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection)

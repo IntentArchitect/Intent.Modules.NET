@@ -4,27 +4,30 @@
   <name>Service Designer Extensions</name>
   <designerReferences />
   <packageSettings />
-  <packageExtensions />
-  <elementSettings />
-  <elementExtensions>
-    <elementExtension type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <mappingSettings />
+  <packageExtensions>
+    <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
+      <requiredPackages />
       <macros>
         <macro trigger="on-loaded">
-          <script>const stereotype = element.getStereotype("Validations");
-if (stereotype == null ||
-    !stereotype.getProperty("Has Custom Validation").getValue()) {
-    return;
-}
+          <script>lookupTypesOf("DTO-Field").forEach(element =&gt; {
+    const stereotype = element.getStereotype("Validations");
+    if (stereotype == null ||
+        !stereotype.getProperty("Has Custom Validation").getValue()) {
+        return;
+    }
 
-stereotype.getProperty("Has Custom Validation").setValue(false);
-stereotype.getProperty("Must").setValue(true);
+    stereotype.getProperty("Has Custom Validation").setValue(false);
+    stereotype.getProperty("Must").setValue(true);
+});
 </script>
         </macro>
       </macros>
-    </elementExtension>
-  </elementExtensions>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings />
+  <elementExtensions />
   <associationSettings />
   <associationExtensions />
   <mappingSettings />
+  <mappableElementPackages />
 </settings>

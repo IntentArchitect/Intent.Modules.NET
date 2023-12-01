@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Intent.CosmosDB.Api;
 using Intent.Engine;
@@ -35,9 +36,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
             AddTypeSource(CosmosDBValueObjectDocumentTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
@@ -100,17 +101,25 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId);
                     }
 
+                    var pkAttribute = Model.GetPrimaryKeyAttribute();
+                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
+                    var partitionKeyAttribute = partitionKey == null
+                        ? pkAttribute
+                        : Model.GetAttributeOrDerivedWithName(partitionKey);
+
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
                         associationEnds: associationEnds,
+                        partitionKeyAttribute: partitionKeyAttribute,
                         entityInterfaceTypeName: EntityTypeName,
                         entityImplementationTypeName: EntityStateTypeName,
                         entityRequiresReflectionConstruction: Model.Constructors.Any() &&
                                                               Model.Constructors.All(x => x.Parameters.Count != 0),
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
                         isAggregate: Model.IsAggregateRoot(),
-                        hasBaseType: Model.ParentClass != null);
+                        hasBaseType: Model.ParentClass != null
+                        );
                 }, 1000);
         }
 
@@ -162,19 +171,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 });
             }
 
+            Model.TryGetContainerSettings(out var containerName, out var partitionKey);
+            var partitionKeyAttribute = partitionKey == null
+                ? pkAttribute
+                : Model.GetAttributeOrDerivedWithName(partitionKey);
+
             // ICosmosDBDocument.PartitionKey implementation:
             {
-                Model.TryGetContainerSettings(out var containerName, out var partitionKey);
-                var partitionKeyAttribute = partitionKey == null
-                    ? pkAttribute
-                    : Model.GetAttributeOrDerivedWithName(partitionKey);
                 if (partitionKeyAttribute != null && partitionKeyAttribute.Id != pkAttribute.Id)
                 {
                     @class.AddProperty("string?", "PartitionKey", property =>
                     {
                         property.ExplicitlyImplements(this.GetCosmosDBDocumentOfTInterfaceName());
-                        property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)}");
-                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}{partitionKeyAttribute.GetToString(this)} = value!");
+                        property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}");
+                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()} = value!");
                     });
                 }
                 else if (partitionKeyAttribute == null)
@@ -197,7 +207,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 var typeName = GetTypeName(typeReference);
 
                 // PK must always be a string
-                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, "string", StringComparison.OrdinalIgnoreCase))
+                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                {
+                    typeName = Helpers.PrimaryKeyType;
+                }
+                //Partition key must be a string
+                if (metadataModel.Id == partitionKeyAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 {
                     typeName = "string";
                 }
@@ -230,25 +245,36 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
                 });
 
-                if (metadataModel is not AssociationTargetEndModel targetEndModel)
+                if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
-                    continue;
+                    @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
+                        property =>
+                        {
+                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
                 }
 
-                @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
-                    property =>
-                    {
-                        property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
-                        property.Getter.WithExpressionImplementation(entityProperty.Name);
-                        property.WithoutSetter();
-                    });
+                if (metadataModel is AttributeModel attributeModel && attributeModel.TypeReference.IsCollection)
+                {
+                    @class.AddProperty(
+                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>",
+                        name: entityProperty.Name,
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
+                }
             }
         }
 
-        public string EntityStateTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
-        public string EntityTypeName => GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model);
+        public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
+        public string EntityTypeName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
 
-        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model);
+        public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

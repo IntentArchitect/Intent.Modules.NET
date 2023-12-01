@@ -24,9 +24,9 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType
         public SubscriptionTypeTemplate(IOutputTarget outputTarget, GraphQLSubscriptionTypeModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.HotChocolate);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")

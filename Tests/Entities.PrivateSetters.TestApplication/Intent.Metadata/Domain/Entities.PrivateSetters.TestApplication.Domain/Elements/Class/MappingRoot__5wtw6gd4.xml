@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="feb8c002-8088-487c-9613-7a8b1b96cdf9" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>MappingRoot</name>
+  <display>MappingRoot</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f230fa78-79f1-4a78-ac28-a2bea6800e7f</parentFolderId>
+  <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+  <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2356e1bd-9c52-4c8a-b4a5-f2e9a3c75908" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ea6e32c6-d0a9-48d6-a755-9b4a014bc39e">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>feb8c002-8088-487c-9613-7a8b1b96cdf9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f4945b40-0694-4651-a690-bd6817eb7b9d" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>MappingRoot(MappingCompositeMultiples: MappingCompositeMultiple[*], MappingCompositeSingle: MappingCompositeSingle)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>feb8c002-8088-487c-9613-7a8b1b96cdf9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f4945b40-0694-4651-a690-bd6817eb7b9d" location="[Entities.PrivateSetters.TestApplication].[Domain].[Constructor]" />
+          <target applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="feb8c002-8088-487c-9613-7a8b1b96cdf9" location="[Entities.PrivateSetters.TestApplication].[Domain].[MappingRoot]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{MappingCompositeMultiples}</expression>
+              <path>
+                <target id="feb8c002-8088-487c-9613-7a8b1b96cdf9" name="MappingRoot" type="element" specialization="Class" />
+                <target id="92de0425-945c-4b0e-807d-5884265a0c99" name="MappingCompositeMultiples" type="association" specialization="Association Target End" />
+              </path>
+              <sources>
+                <source identifier="MappingCompositeMultiples" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="f4945b40-0694-4651-a690-bd6817eb7b9d" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="6ec0ec2f-46f2-4517-a4c2-0de0854bd666" name="MappingCompositeMultiples" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+            <mappedEnd>
+              <expression>{MappingCompositeSingle}</expression>
+              <path>
+                <target id="feb8c002-8088-487c-9613-7a8b1b96cdf9" name="MappingRoot" type="element" specialization="Class" />
+                <target id="f40c718b-9f68-46d0-b3cb-e30513c56dc4" name="MappingCompositeSingle" type="association" specialization="Association Target End" />
+              </path>
+              <sources>
+                <source identifier="MappingCompositeSingle" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="f4945b40-0694-4651-a690-bd6817eb7b9d" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="bfe0b3c9-98e8-4cdb-81c1-a083e90ebe50" name="MappingCompositeSingle" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="6ec0ec2f-46f2-4517-a4c2-0de0854bd666" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>MappingCompositeMultiples</name>
+          <display>in : MappingCompositeMultiples: MappingCompositeMultiple[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d2d83c0f-917b-4c85-8218-a94a8e86c902">
+            <typeId>c086c389-b35d-41dc-839a-2b855207ec11</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+            <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f4945b40-0694-4651-a690-bd6817eb7b9d</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bfe0b3c9-98e8-4cdb-81c1-a083e90ebe50" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>MappingCompositeSingle</name>
+          <display>in : MappingCompositeSingle: MappingCompositeSingle</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ed601da8-ec25-4ac5-ac8f-97656ae547d7">
+            <typeId>4069f996-2a63-4a7d-b8ca-378c997753a0</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+            <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f4945b40-0694-4651-a690-bd6817eb7b9d</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e844bcc9-cbb4-4a07-99b0-e69def4e749d" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetSingle</name>
+      <display>SetSingle(MappingCompositeSingle: MappingCompositeSingle): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e450d78e-a961-4150-bd7d-78a142e6cacb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>feb8c002-8088-487c-9613-7a8b1b96cdf9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e844bcc9-cbb4-4a07-99b0-e69def4e749d" location="[Entities.PrivateSetters.TestApplication].[Domain].[SetSingle]" />
+          <target applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="feb8c002-8088-487c-9613-7a8b1b96cdf9" location="[Entities.PrivateSetters.TestApplication].[Domain].[MappingRoot]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{MappingCompositeSingle}</expression>
+              <path>
+                <target id="feb8c002-8088-487c-9613-7a8b1b96cdf9" name="MappingRoot" type="element" specialization="Class" />
+                <target id="f40c718b-9f68-46d0-b3cb-e30513c56dc4" name="MappingCompositeSingle" type="association" specialization="Association Target End" />
+              </path>
+              <sources>
+                <source identifier="MappingCompositeSingle" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="e844bcc9-cbb4-4a07-99b0-e69def4e749d" name="SetSingle" type="element" specialization="Operation" />
+                    <target id="8ec8e913-9445-45cf-b793-9e4c60c6f353" name="MappingCompositeSingle" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="8ec8e913-9445-45cf-b793-9e4c60c6f353" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>MappingCompositeSingle</name>
+          <display>in : MappingCompositeSingle: MappingCompositeSingle</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d6bc4f1f-fde2-4d0d-bb75-31f47a03a39c">
+            <typeId>4069f996-2a63-4a7d-b8ca-378c997753a0</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+            <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>e844bcc9-cbb4-4a07-99b0-e69def4e749d</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ef90fe4a-206d-4a0b-ac60-fc5f69303287" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetMultiple</name>
+      <display>SetMultiple(MappingCompositeMultiples: MappingCompositeMultiple[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c204ede0-1e4f-4d84-a4c3-30d84b4ca2c8">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>feb8c002-8088-487c-9613-7a8b1b96cdf9</parentFolderId>
+      <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+      <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ef90fe4a-206d-4a0b-ac60-fc5f69303287" location="[Entities.PrivateSetters.TestApplication].[Domain].[SetMultiple]" />
+          <target applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="feb8c002-8088-487c-9613-7a8b1b96cdf9" location="[Entities.PrivateSetters.TestApplication].[Domain].[MappingRoot]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{MappingCompositeMultiples}</expression>
+              <path>
+                <target id="feb8c002-8088-487c-9613-7a8b1b96cdf9" name="MappingRoot" type="element" specialization="Class" />
+                <target id="92de0425-945c-4b0e-807d-5884265a0c99" name="MappingCompositeMultiples" type="association" specialization="Association Target End" />
+              </path>
+              <sources>
+                <source identifier="MappingCompositeMultiples" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="ef90fe4a-206d-4a0b-ac60-fc5f69303287" name="SetMultiple" type="element" specialization="Operation" />
+                    <target id="b33105a6-7ffc-4278-8f66-209860956b75" name="MappingCompositeMultiples" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="b33105a6-7ffc-4278-8f66-209860956b75" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>MappingCompositeMultiples</name>
+          <display>in : MappingCompositeMultiples: MappingCompositeMultiple[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b317933f-97ab-43c6-b4fb-46e4aa828538">
+            <typeId>c086c389-b35d-41dc-839a-2b855207ec11</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Entities.PrivateSetters.TestApplication.Domain</typePackageName>
+            <typePackageId>20826114-0356-4301-ba1b-490e5035df43</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ef90fe4a-206d-4a0b-ac60-fc5f69303287</parentFolderId>
+          <packageId>20826114-0356-4301-ba1b-490e5035df43</packageId>
+          <packageName>Entities.PrivateSetters.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

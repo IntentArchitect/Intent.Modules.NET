@@ -47,5 +47,10 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
         {
             return GetTypeName(Roles.Repository.InterfacePagedResult);
         }
+
+        public override bool CanRunTemplate()
+        {
+            return TryGetTemplate<ITemplate>(Roles.Repository.InterfacePagedResult, out _);
+        }
     }
 }

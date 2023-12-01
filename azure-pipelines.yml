@@ -138,7 +138,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'Update Project URLs in imodspecs'
-  condition: and(succeeded(), in(true, variables.isDevelopment))
+  condition: and(succeeded(), in(true, variables.isMaster))
   inputs:
     targetType: 'inline'
     pwsh: true

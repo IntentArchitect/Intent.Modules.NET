@@ -31,7 +31,8 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.FactoryExtensions
         {
             foreach (var messageModel in application.MetadataManager.Eventing(application).GetMessageModels().Where(x => x.HasMapFromDomainMapping() && x.GetMapFromDomainMapping().Element.IsDomainEventModel()))
             {
-                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.DomainEventHandler, messageModel.GetMapFromDomainMapping().ElementId);
+                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.OldDefault, messageModel.GetMapFromDomainMapping().ElementId)
+                    ?? application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Default, messageModel.GetMapFromDomainMapping().ElementId);
                 if (template != null)
                 {
                     template.CSharpFile.OnBuild(file =>

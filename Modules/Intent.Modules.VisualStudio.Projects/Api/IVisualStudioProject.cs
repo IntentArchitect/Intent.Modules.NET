@@ -11,6 +11,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         string Type { get; }
         string ProjectTypeId { get; }
         string RelativeLocation { get; }
+        public IElement InternalElement { get; }
 
         IOutputTargetConfig ToOutputTargetConfig();
         IEnumerable<string> TargetFrameworkVersion();

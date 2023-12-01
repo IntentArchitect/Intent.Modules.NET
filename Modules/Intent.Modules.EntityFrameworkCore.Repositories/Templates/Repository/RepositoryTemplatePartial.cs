@@ -69,7 +69,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         @interface.ExtendsInterface($"{this.GetEFRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
                     });
 
-                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))
+                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
@@ -91,7 +91,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         private void AddMethods(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, CSharpClass rootEntity, bool makeAsync, bool makefully = false)
         {
             var pks = rootEntity.GetPropertiesWithPrimaryKey();
-            string returnType = $"{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}";
+            string returnType = $"{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}";
             string methodName = makeAsync ? "FindByIdAsync" : "FindById";
             @class.AddMethod(makeAsync ? $"Task<{returnType}>" : returnType, methodName, method =>
             {
@@ -128,7 +128,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
             if (pks.Length == 1)
             {
-                returnType = $"List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>";
+                returnType = $"List<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}>";
                 methodName = makeAsync ? "FindByIdsAsync" : "FindByIds";
                 @class.AddMethod(makeAsync ? $"Task<{returnType}>" : returnType, methodName, method =>
                 {

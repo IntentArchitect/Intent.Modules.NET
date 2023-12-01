@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.FluentValidation.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.DependencyInjection);
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DependencyInjection);
             if (template == null)
             {
                 return;

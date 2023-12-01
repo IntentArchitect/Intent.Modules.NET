@@ -1,3 +1,7 @@
+### Version 5.4.0
+
+- Improvement: Better CRUD support for composite keys.
+
 ### Version 5.3.3
 
 - Fixed: When a Query By Id is set to return a nullable object and has a repository that can't find the entity, it will return `default` as opposed to throw a `NotFoundException`.

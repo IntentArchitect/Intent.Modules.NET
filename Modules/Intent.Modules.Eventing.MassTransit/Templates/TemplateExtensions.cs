@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
@@ -30,12 +33,22 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         {
             return template.GetTypeName(FinbucklePublishingFilterTemplate.TemplateId);
         }
-        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
+
+        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
+        }
+        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : MessageSubscribeAssocationTargetEndModel
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
+        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
         }

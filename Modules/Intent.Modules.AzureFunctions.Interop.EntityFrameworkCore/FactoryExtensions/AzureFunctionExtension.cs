@@ -79,15 +79,15 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.FactoryExten
 
         private static string GetUnitOfWork(AzureFunctionClassTemplate template)
         {
-            if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||
-                template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWork) ||
-                template.TryGetTypeName(TemplateFulfillingRoles.Infrastructure.Data.DbContext, out unitOfWork))
+            if (template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ||
+                template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ||
+                template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork))
             {
                 return unitOfWork;
             }
 
             throw new Exception(
-                $"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateFulfillingRoles.Domain.UnitOfWork}] exists.");
+                $"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateRoles.Domain.UnitOfWork}] exists.");
         }
     }
 }

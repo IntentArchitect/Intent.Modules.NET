@@ -28,6 +28,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Co
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
@@ -245,6 +246,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                 .Select(entry => new
                 {
                     entry.State,
+                    Property = new Func<string, PropertyEntry>(entry.Property),
                     Auditable = (IAuditable)entry.Entity
                 })
                 .ToArray();
@@ -266,6 +268,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                         break;
                     case EntityState.Modified or EntityState.Deleted:
                         entry.Auditable.SetUpdated(userId, timestamp);
+                        entry.Property("CreatedBy").IsModified = false;
+                        entry.Property("CreatedDate").IsModified = false;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

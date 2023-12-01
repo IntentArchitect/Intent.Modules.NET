@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.CosmosDB.Api;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
@@ -10,7 +9,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
-using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -38,6 +36,19 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
                     }
                 });
+
+                if (attribute.TypeReference.IsCollection)
+                {
+                    @class.AddProperty(
+                        type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                        name: attribute.Name.ToPascalCase(),
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                            property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
+                            property.WithoutSetter();
+                        });
+                }
             }
 
             foreach (var associationEnd in associationEnds)
@@ -88,6 +99,7 @@ namespace Intent.Modules.CosmosDB.Templates
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
             IReadOnlyList<AssociationEndModel> associationEnds,
+            AttributeModel partitionKeyAttribute,
             string entityInterfaceTypeName,
             string entityImplementationTypeName,
             bool entityRequiresReflectionConstruction,
@@ -130,9 +142,22 @@ namespace Intent.Modules.CosmosDB.Templates
                     var attribute = attributes[index];
                     var assignmentValueExpression = attribute.Name.ToPascalCase();
 
-                    // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    // Partition keys must be strings
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    {
+                        assignmentValueExpression = attributeTypeName switch
+                        {
+                            "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                            "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
+                            _ => throw new Exception(
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                        };
+
+                    }
+                    // If this is the PK which is not a string, we need to convert it:
+                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
                         {
@@ -196,7 +221,19 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    // Partition keys must be strings
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    {
+                        suffix = attributeTypeName switch
+                        {
+                            "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                            "guid" => ".ToString()",
+                            _ => throw new Exception(
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                        };
+                    }
+                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         suffix = attributeTypeName switch
                         {
@@ -206,6 +243,12 @@ namespace Intent.Modules.CosmosDB.Templates
                                 $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
+                    }
+
+                    if (attribute.TypeReference.IsCollection)
+                    {
+                        template.AddUsing("System.Linq");
+                        suffix = $"{suffix}.ToList()";
                     }
 
                     method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");

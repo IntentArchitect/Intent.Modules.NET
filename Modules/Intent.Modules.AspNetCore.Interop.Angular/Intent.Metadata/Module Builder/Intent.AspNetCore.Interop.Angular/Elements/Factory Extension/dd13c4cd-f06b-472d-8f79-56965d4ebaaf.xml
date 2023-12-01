@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd13c4cd-f06b-472d-8f79-56965d4ebaaf" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AngularStartupConfigurationExtension</name>
+  <display>AngularStartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fe51d54e-34d6-470f-8e16-9047419a6a8b</parentFolderId>
+  <packageId>fe51d54e-34d6-470f-8e16-9047419a6a8b</packageId>
+  <packageName>Intent.AspNetCore.Interop.Angular</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

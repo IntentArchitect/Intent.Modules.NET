@@ -66,7 +66,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                     var @interface = file.Interfaces.Single();
 
                     @interface.Interfaces.Clear();
-                    var tDomainGenericArgument = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, model);
+                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
                     var tDocumentInterfaceGenericArgument = template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, model);
                     @interface.ImplementsInterfaces($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomainGenericArgument}, {tDocumentInterfaceGenericArgument}>");
 

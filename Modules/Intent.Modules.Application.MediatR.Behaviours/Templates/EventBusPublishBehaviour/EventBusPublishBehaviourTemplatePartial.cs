@@ -34,12 +34,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
 
         public override bool CanRunTemplate()
         {
-            return ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Eventing.EventBusInterface) != null;
+            return ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null;
         }
 
         private string GetEventBusInterfaceName()
         {
-            return GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface);
+            return GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface);
         }
 
         public override void BeforeTemplateExecution()

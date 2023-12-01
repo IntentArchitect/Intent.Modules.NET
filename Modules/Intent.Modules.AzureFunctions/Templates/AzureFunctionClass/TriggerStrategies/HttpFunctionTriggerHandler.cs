@@ -1,18 +1,12 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
-using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;

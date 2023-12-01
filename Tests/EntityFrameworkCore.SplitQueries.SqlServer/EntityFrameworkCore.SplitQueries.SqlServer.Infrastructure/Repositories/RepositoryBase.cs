@@ -52,10 +52,10 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories
 
         public virtual async Task<TDomain?> FindAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression, queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
@@ -72,10 +72,10 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories
 
         public virtual async Task<List<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression, queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
         public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
@@ -109,10 +109,10 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            var query = QueryInternal(filterExpression, linq);
+            var query = QueryInternal(filterExpression, queryOptions);
             return await PagedList<TDomain>.CreateAsync(
                 query,
                 pageNo,
@@ -139,6 +139,48 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
+        public virtual async Task<TDomain?> FindAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<List<TDomain>> FindAllAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).ToListAsync<TDomain>(cancellationToken);
+        }
+
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var query = QueryInternal(queryOptions);
+            return await PagedList<TDomain>.CreateAsync(
+                query,
+                pageNo,
+                pageSize,
+                cancellationToken);
+        }
+
+        public virtual async Task<int> CountAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).CountAsync(cancellationToken);
+        }
+
+        public virtual async Task<bool> AnyAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).AnyAsync(cancellationToken);
+        }
+
         protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
         {
             var queryable = CreateQuery();
@@ -151,12 +193,22 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories
 
         protected virtual IQueryable<TResult> QueryInternal<TResult>(
             Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TResult>> linq)
+            Func<IQueryable<TPersistence>, IQueryable<TResult>> queryOptions)
         {
             var queryable = CreateQuery();
             queryable = queryable.Where(filterExpression);
-            var result = linq(queryable);
+            var result = queryOptions(queryable);
             return result;
+        }
+
+        protected virtual IQueryable<TPersistence> QueryInternal(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions)
+        {
+            var queryable = CreateQuery();
+            if (queryOptions != null)
+            {
+                queryable = queryOptions(queryable);
+            }
+            return queryable;
         }
 
         protected virtual IQueryable<TPersistence> CreateQuery()

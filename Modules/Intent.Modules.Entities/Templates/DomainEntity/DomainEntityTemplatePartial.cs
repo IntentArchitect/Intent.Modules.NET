@@ -20,7 +20,9 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Modules.Common.Types.Api;
 using System;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Utils;
+using System.Threading;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -38,20 +40,20 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
             {
-                FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Primary);
+                FulfillsRole(TemplateRoles.Domain.Entity.Primary);
                 if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                 {
-                    FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Interface);
+                    FulfillsRole(TemplateRoles.Domain.Entity.Interface);
                 }
             }
 
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+            AddTypeSource(TemplateRoles.Domain.DomainServices.Interface);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
                 .AddAssemblyAttribute(CSharpIntentTagModeAttribute.Implicit())
                 .AddClass(Model.Name, (Action<CSharpClass>)(@class =>
                 {
@@ -100,7 +102,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully())
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
-                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
+                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Merge, AccessModifiers = AccessModifiers.Public)");
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
@@ -112,34 +114,46 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         @class.AddConstructor(ctor =>
                         {
                             ctor.AddMetadata("model", ctorModel);
+                            ctor.RepresentsModel(ctorModel);
                             ctor.TryAddXmlDocComments(ctorModel.InternalElement);
+
                             foreach (var parameter in ctorModel.Parameters)
                             {
-                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), parm => parm.WithDefaultValue(parameter.Value));
-                                if (!parameter.InternalElement.IsMapped)
+                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
-                                    continue;
-                                }
-
-                                var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
-                                if (!parameter.TypeReference.IsCollection)
-                                {
-                                    ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
-                                    continue;
-                                }
-
-                                if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                                {
-                                    assignmentTarget = assignmentTarget.ToPrivateMemberName();
-                                }
-
-                                var mappedTypeAsList = GetTypeName(
-                                        typeReference: parameter.InternalElement.MappedElement.Element.TypeReference,
-                                        collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
-                                    .Replace("?", string.Empty);
-
-                                ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+                                    param.WithDefaultValue(parameter.Value).RepresentsModel(parameter);
+                                });
                             }
+                            if (ctorModel.InternalElement.Mappings.Any())
+                            {
+                                ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single(), ctor));
+                            }
+                            else
+                            {
+                                // LEGACY MAPPING:
+                                foreach (var parameter in ctorModel.Parameters.Where(x => x.InternalElement.IsMapped))
+                                {
+                                    var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
+                                    if (!parameter.TypeReference.IsCollection)
+                                    {
+                                        ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
+                                        continue;
+                                    }
+
+                                    if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                                    {
+                                        assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                                    }
+
+                                    var mappedTypeAsList = GetTypeName(
+                                            typeReference: parameter.InternalElement.MappedElement.Element.TypeReference,
+                                            collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
+                                        .Replace("?", string.Empty);
+
+                                    ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+                                }
+                            }
+
 
                             if (ctor.Statements.Any())
                             {
@@ -153,7 +167,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
                     if (!Model.IsAbstract && Model.ParentClass != null)
                     {
-                        GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.OnBuild(file => 
+                        GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.OnBuild(file =>
                         {
                             var baseType = file.Classes.First();
                             var abstractMethods = baseType.Methods.Where(m => m.IsAbstract);
@@ -174,13 +188,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         if (method.IsAbstract)
                             continue;
+
                         if (!method.Statements.Any())
                         {
+                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            method.AddStatement($"// [IntentFully]");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
-                        }
-                        else
-                        {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                         }
                     }
                 });
@@ -192,7 +205,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
         private void AddOperation(CSharpClass @class, OperationModel operation, bool isOverride)
         {
-            @class.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
+            @class.AddMethod(GetOperationReturnType(operation), operation, method =>
             {
                 method.AddMetadata("model", operation);
                 method.TryAddXmlDocComments(operation.InternalElement);
@@ -202,53 +215,64 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     method.Override();
                 }
                 else if (operation.IsAbstract)
-                {                    
+                {
                     method.Abstract();
                     if (!@class.IsAbstract) { @class.Abstract(); }
                 }
-
-                var hasImplementation = false;
+                else if (operation.IsStatic)
+                {
+                    method.Static();
+                }
 
                 foreach (var parameter in operation.Parameters)
                 {
-                    var parameterName = parameter.Name.ToCamelCase();
-                    method.AddParameter(GetOperationTypeName(parameter), parameterName,
-                        parm => parm.WithDefaultValue(parameter.Value));
-                    if (!parameter.InternalElement.IsMapped)
-                    {
-                        continue;
-                    }
+                    method.AddParameter(GetOperationTypeName(parameter), parameter,
+                        param => param.WithDefaultValue(parameter.Value));
+                }
 
+                if (operation.InternalElement.Mappings.Any())
+                {
                     if (method.IsAbstract)
                     {
                         Logging.Log.Warning($"Operation {operation.Name} - On {@class.Name} marked as abstract, ignoring mapping implementation.");
-                        continue;
                     }
-
-                    var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
-                    if (!parameter.TypeReference.IsCollection)
+                    method.AddStatements(GetMappingImplementation(operation.InternalElement.Mappings.Single(), method));
+                }
+                else
+                {
+                    // LEGACY MAPPING:
+                    foreach (var parameter in operation.Parameters.Where(x => x.InternalElement.IsMapped))
                     {
-                        method.AddStatement($"{assignmentTarget} = {parameterName};");
-                        hasImplementation = true;
-                        continue;
-                    }
+                        var parameterName = parameter.Name.ToParameterName();
 
-                    if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                    {
-                        assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                        if (method.IsAbstract)
+                        {
+                            Logging.Log.Warning($"Operation {operation.Name} - On {@class.Name} marked as abstract, ignoring mapping implementation.");
+                            continue;
+                        }
+
+                        var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
+                        if (!parameter.TypeReference.IsCollection)
+                        {
+                            method.AddStatement($"{assignmentTarget} = {method.GetReferenceForModel(parameter).Name};");
+                            continue;
+                        }
+
+                        if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                        {
+                            assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                            method.AddStatement($"{assignmentTarget}.Clear();");
+                            method.AddStatement($"{assignmentTarget}.AddRange({parameterName});");
+                            continue;
+                        }
+
                         method.AddStatement($"{assignmentTarget}.Clear();");
-                        method.AddStatement($"{assignmentTarget}.AddRange({parameterName});");
-                        hasImplementation = true;
-                        continue;
+
+                        method.AddStatementBlock($"foreach (var item in {parameterName})", sb => sb
+                            .AddStatement($"{assignmentTarget}.Add(item);")
+                            .SeparatedFromPrevious());
+
                     }
-
-                    method.AddStatement($"{assignmentTarget}.Clear();");
-
-                    method.AddStatementBlock($"foreach (var item in {parameterName})", sb => sb
-                        .AddStatement($"{assignmentTarget}.Add(item);")
-                        .SeparatedFromPrevious());
-
-                    hasImplementation = true;
                 }
 
                 if (operation.IsAsync())
@@ -265,6 +289,22 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             {
                 AddInterfaceQualifiedMethod(@class, operation);
             }
+        }
+
+        private IEnumerable<CSharpStatement> GetMappingImplementation(IElementToElementMapping mapping, ICSharpCodeContext codeContext)
+        {
+            var mappingManager = new CSharpClassMappingManager(this);
+            mappingManager.SetFromReplacement(mapping.SourceElement, null);
+            mappingManager.SetToReplacement(mapping.TargetElement, null);
+            mappingManager.AddMappingResolver(new CollectionPropertyResolver(this));
+            return mappingManager.GenerateUpdateStatements(mapping, codeContext).Select(s =>
+            {
+                if (s is CSharpAssignmentStatement assignment)
+                {
+                    assignment.WithSemicolon();
+                }
+                return s;
+            }).ToList();
         }
 
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
@@ -341,6 +381,56 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             }
 
             return string.Empty;
+        }
+    }
+
+    internal class CollectionPropertyResolver : IMappingTypeResolver
+    {
+        private readonly ICSharpFileBuilderTemplate _template;
+
+        public CollectionPropertyResolver(ICSharpFileBuilderTemplate template)
+        {
+            _template = template;
+        }
+
+        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+        {
+            if (mappingModel.Model.IsAssociationEndModel() && mappingModel.Model.TypeReference.IsCollection)
+            {
+                return new CollectionPropertyMapper(mappingModel, _template);
+            }
+            return null;
+        }
+    }
+
+    internal class CollectionPropertyMapper : CSharpMappingBase
+    {
+        public CollectionPropertyMapper(MappingModel mappingModel, ICSharpFileBuilderTemplate template) : base(mappingModel, template) { }
+
+        public override IEnumerable<CSharpStatement> GetMappingStatements()
+        {
+
+            if (Template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                yield return new CSharpInvocationStatement(GetTargetStatement(), "Clear");
+                yield return new CSharpInvocationStatement(GetTargetStatement(), "AddRange").AddArgument(GetSourceStatement());
+                yield break;
+            }
+
+            yield return new CSharpInvocationStatement(GetTargetStatement(), "Clear");
+            yield return new CSharpForEachStatement("item", GetSourceStatement().ToString())
+                .AddStatement(new CSharpInvocationStatement(GetTargetStatement(), "Add").AddArgument("item"))
+                .SeparatedFromPrevious();
+        }
+
+        public override CSharpStatement GetTargetStatement()
+        {
+            if (Template.ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                return GetTargetPathText().ToPrivateMemberName();
+            }
+
+            return base.GetTargetStatement();
         }
     }
 }

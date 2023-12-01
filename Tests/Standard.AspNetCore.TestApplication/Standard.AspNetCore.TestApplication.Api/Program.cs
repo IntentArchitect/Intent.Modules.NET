@@ -45,10 +45,10 @@ namespace Standard.AspNetCore.TestApplication.Api
                     .ReadFrom.Services(services)
                     .Enrich.FromLogContext()
                     .WriteTo.Console(), writeToProviders: true)
-                .ConfigureLogging((ctx, logBuilder) =>
+                .ConfigureLogging((context, logBuilder) =>
                 {
                     logBuilder.ClearProviders();
-                    logBuilder.AddTelemetryConfiguration(ctx);
+                    logBuilder.AddTelemetryConfiguration(context);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

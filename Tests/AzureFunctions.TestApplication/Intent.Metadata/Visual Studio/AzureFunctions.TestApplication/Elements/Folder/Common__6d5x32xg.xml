@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>56477774-e375-40da-b00c-4fd3944ce41c</parentFolderId>
+  <parentFolderId>1e5d3200-9e61-478e-ab3c-cfac8b793bbe</parentFolderId>
   <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
   <packageName>AzureFunctions.TestApplication</packageName>
   <stereotypes>

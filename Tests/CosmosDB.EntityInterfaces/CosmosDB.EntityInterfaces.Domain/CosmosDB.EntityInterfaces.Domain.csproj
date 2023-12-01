@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -92,10 +92,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WithoutPartitionKey.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\INonStringPartitionKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NonStringPartitionKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICategory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IProduct.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.2" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.3" />
   </ItemGroup>
 
 </Project>

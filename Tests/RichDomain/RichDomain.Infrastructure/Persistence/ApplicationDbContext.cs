@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using RichDomain.Application.Common.Interfaces;
 using RichDomain.Domain.Common;
 using RichDomain.Domain.Common.Interfaces;
@@ -104,6 +105,7 @@ namespace RichDomain.Infrastructure.Persistence
                 .Select(entry => new
                 {
                     entry.State,
+                    Property = new Func<string, PropertyEntry>(entry.Property),
                     Auditable = (IAuditable)entry.Entity
                 })
                 .ToArray();
@@ -125,6 +127,8 @@ namespace RichDomain.Infrastructure.Persistence
                         break;
                     case EntityState.Modified or EntityState.Deleted:
                         entry.Auditable.SetUpdated(userId, timestamp);
+                        entry.Property("CreatedBy").IsModified = false;
+                        entry.Property("CreatedDate").IsModified = false;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

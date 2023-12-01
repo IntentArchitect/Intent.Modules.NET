@@ -1,4 +1,8 @@
-﻿### Version 5.0.7
+﻿### Version 5.0.8
+
+- Fixed: Bug in HttpClient where the query string was not correctly handling a collection type.
+
+### Version 5.0.7
 
 - Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
 

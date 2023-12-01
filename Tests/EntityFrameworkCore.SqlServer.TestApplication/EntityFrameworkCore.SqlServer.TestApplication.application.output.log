@@ -3,8 +3,8 @@
   <ApplicationId>506d60a4-4600-442c-aedb-ce930d9a064d</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>6857b938-1b09-4838-bde0-3b3444ede988</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#6857b938-1b09-4838-bde0-3b3444ede988</CorrelationId>
+      <ProjectId>c8991f84-823f-4a3e-8210-db73b9e08551</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#c8991f84-823f-4a3e-8210-db73b9e08551</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -35,8 +35,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6857b938-1b09-4838-bde0-3b3444ede988</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.CSProject#6857b938-1b09-4838-bde0-3b3444ede988</CorrelationId>
+      <ProjectId>c8991f84-823f-4a3e-8210-db73b9e08551</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c8991f84-823f-4a3e-8210-db73b9e08551</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/EntityFrameworkCore.SqlServer.TestApplication.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api.csproj</ProjectRelativeFilePath>
@@ -59,7 +59,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6857b938-1b09-4838-bde0-3b3444ede988</ProjectId>
+      <ProjectId>c8991f84-823f-4a3e-8210-db73b9e08551</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
@@ -67,8 +67,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6857b938-1b09-4838-bde0-3b3444ede988</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#6857b938-1b09-4838-bde0-3b3444ede988</CorrelationId>
+      <ProjectId>c8991f84-823f-4a3e-8210-db73b9e08551</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#c8991f84-823f-4a3e-8210-db73b9e08551</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
@@ -83,7 +83,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6857b938-1b09-4838-bde0-3b3444ede988</ProjectId>
+      <ProjectId>c8991f84-823f-4a3e-8210-db73b9e08551</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
@@ -259,7 +259,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>51de1101-fbbe-495b-b316-4384bd8e6179</ProjectId>
+      <ProjectId>8b92f3fd-8e9a-4ee0-94dc-50dea162a4d9</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -267,8 +267,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>51de1101-fbbe-495b-b316-4384bd8e6179</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#51de1101-fbbe-495b-b316-4384bd8e6179</CorrelationId>
+      <ProjectId>8b92f3fd-8e9a-4ee0-94dc-50dea162a4d9</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8b92f3fd-8e9a-4ee0-94dc-50dea162a4d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application/EntityFrameworkCore.SqlServer.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Application.csproj</ProjectRelativeFilePath>
@@ -832,6 +832,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/StereotypeIndex.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/StereotypeIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d1e75052-5edf-4814-bf0c-da9e29f752a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/WithBaseIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b898896a-c538-4dac-84d8-bd5bb10844f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Indexes/WithBaseIndexBase.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndexBase.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1523,8 +1539,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#9dba1d00-445f-4be6-8410-bdc44592fefb</CorrelationId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f91980a0-77fe-40cd-a065-f0120c726510</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj</ProjectRelativeFilePath>
@@ -1912,6 +1928,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/IStereotypeIndexRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/IStereotypeIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b898896a-c538-4dac-84d8-bd5bb10844f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/IWithBaseIndexBaseRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/IWithBaseIndexBaseRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d1e75052-5edf-4814-bf0c-da9e29f752a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Indexes/IWithBaseIndexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/IWithBaseIndexRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2539,7 +2571,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/ValueObject.cs</ApplicationRelativeFilePath>
@@ -2547,7 +2579,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#f0e16920-fecc-438e-8578-c8a66f65a682</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/ValueObjects/AddressNormal.cs</ApplicationRelativeFilePath>
@@ -2555,7 +2587,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#0836d537-9009-42cd-90c9-e643f12222d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/ValueObjects/AddressSerialized.cs</ApplicationRelativeFilePath>
@@ -2563,7 +2595,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#56955495-b6dc-41b6-8dea-ac63724ab697</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/ValueObjects/KeyValuePairNormal.cs</ApplicationRelativeFilePath>
@@ -2571,7 +2603,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9dba1d00-445f-4be6-8410-bdc44592fefb</ProjectId>
+      <ProjectId>f91980a0-77fe-40cd-a065-f0120c726510</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#1c0461dc-98d9-43ef-8f73-4e73938dedea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/ValueObjects/KeyValuePairSerialized.cs</ApplicationRelativeFilePath>
@@ -2579,7 +2611,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>84e80518-0246-4212-8077-1c35a397190a</ProjectId>
+      <ProjectId>a9f8348f-ab7b-45fd-a78b-8e525846271f</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -2587,8 +2619,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>84e80518-0246-4212-8077-1c35a397190a</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#84e80518-0246-4212-8077-1c35a397190a</CorrelationId>
+      <ProjectId>a9f8348f-ab7b-45fd-a78b-8e525846271f</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a9f8348f-ab7b-45fd-a78b-8e525846271f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
@@ -3000,6 +3032,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/StereotypeIndexConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b898896a-c538-4dac-84d8-bd5bb10844f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/WithBaseIndexBaseConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndexBaseConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d1e75052-5edf-4814-bf0c-da9e29f752a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Indexes/WithBaseIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndexConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4016,6 +4064,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/StereotypeIndexRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/StereotypeIndexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b898896a-c538-4dac-84d8-bd5bb10844f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/WithBaseIndexBaseRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndexBaseRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d1e75052-5edf-4814-bf0c-da9e29f752a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Indexes/WithBaseIndexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/WithBaseIndexRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

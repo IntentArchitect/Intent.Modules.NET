@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.0.6
 
 - Improvement: Now listens for `DbMigrationsReadMeCreatedEvent` and mutates the MIGRATION_README file instead of generating its own DESIGN_TIME_MIGRATION_README.

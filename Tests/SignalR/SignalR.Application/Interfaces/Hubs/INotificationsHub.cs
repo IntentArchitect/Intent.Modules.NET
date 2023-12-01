@@ -14,5 +14,6 @@ namespace SignalR.Application.Interfaces.Hubs
         Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupIds);
         Task SendAsync(MessageToUserDto model, string userId);
         Task SendAsync(MessageToUsersDto model, IReadOnlyList<string> userIds);
+        Task SendAsync(MassageToClientDto model, string connectionId);
     }
 }

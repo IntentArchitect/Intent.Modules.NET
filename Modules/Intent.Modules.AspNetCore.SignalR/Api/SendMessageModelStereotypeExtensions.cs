@@ -75,6 +75,8 @@ namespace Intent.AspNetCore.SignalR.Api
                             return TargetClientsOptionsEnum.Group;
                         case "Groups":
                             return TargetClientsOptionsEnum.Groups;
+                        case "Client":
+                            return TargetClientsOptionsEnum.Client;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -100,6 +102,10 @@ namespace Intent.AspNetCore.SignalR.Api
                 {
                     return Value == "Groups";
                 }
+                public bool IsClient()
+                {
+                    return Value == "Client";
+                }
             }
 
             public enum TargetClientsOptionsEnum
@@ -108,7 +114,8 @@ namespace Intent.AspNetCore.SignalR.Api
                 User,
                 Users,
                 Group,
-                Groups
+                Groups,
+                Client
             }
         }
 

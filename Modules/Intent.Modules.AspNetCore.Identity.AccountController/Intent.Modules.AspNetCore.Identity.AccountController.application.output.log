@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#1408390e-ee98-4b4c-94ad-18ceddcc17d0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AccountController/AccountControllerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AccountController/AccountControllerTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#1408390e-ee98-4b4c-94ad-18ceddcc17d0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AccountController/AccountControllerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AccountController/AccountControllerTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1408390e-ee98-4b4c-94ad-18ceddcc17d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AccountController/AccountControllerTemplatePartial.cs</ApplicationRelativeFilePath>

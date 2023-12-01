@@ -59,7 +59,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                             continue;
                         }
 
-                        @class.AddProperty($"MongoDbSet<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>", aggregate.Name.Pluralize().ToPascalCase());
+                        @class.AddProperty($"MongoDbSet<{GetTypeName(TemplateRoles.Domain.Entity.Primary, aggregate)}>", aggregate.Name.Pluralize().ToPascalCase());
                     }
 
                     @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
@@ -107,7 +107,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         private CSharpStatement GetEntityRegistrationStatements(ClassModel aggregate)
         {
 
-            var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>()");
+            var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateRoles.Domain.Entity.Primary, aggregate)}>()");
 
             var pk = aggregate.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
             if (pk != null)

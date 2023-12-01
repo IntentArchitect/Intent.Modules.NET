@@ -58,8 +58,6 @@ public static class ValidationRulesExtensions
 
                 @class.AddConstructor(ctor =>
                 {
-                    ctor.AddStatement(new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
-                        .AddMetadata("configure-validation-rules", true));
                     ctor.AddStatement(new CSharpStatement("ConfigureValidationRules();")
                         .AddMetadata("configure-validation-rules", true));
                     ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
@@ -459,9 +457,6 @@ public static class ValidationRulesExtensions
         ctor.InsertStatement(0, new CSharpStatement("ConfigureValidationRules(provider);")
             .AddMetadata("configure-validation-rules", true));
 
-        ctor.InsertStatement(0, new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
-            .AddMetadata("configure-validation-rules", true));
-
         validatorClass.FindMethod(p => p.Name == "ConfigureValidationRules")
             ?.AddParameter(validatorProviderInter, "provider");
     }
@@ -475,7 +470,7 @@ public static class ValidationRulesExtensions
     {
         if (!statement.Statements.Any(x => x.TryGetMetadata("requires-repository", out bool requiresRepository) && requiresRepository) ||
             !TryGetMappedClass(dtoModel, out var classModel) ||
-            !template.TryGetTemplate<IClassProvider>(TemplateFulfillingRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
+            !template.TryGetTemplate<IClassProvider>(TemplateRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
         {
             repositoryFieldName = null;
             return false;

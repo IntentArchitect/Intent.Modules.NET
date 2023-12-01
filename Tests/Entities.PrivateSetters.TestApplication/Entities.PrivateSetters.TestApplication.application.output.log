@@ -2188,6 +2188,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9a331cf-5ea3-4a57-82ce-5a48ea01b94a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c086c389-b35d-41dc-839a-2b855207ec11</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeMultiple.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/MappingCompositeMultiple.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9a331cf-5ea3-4a57-82ce-5a48ea01b94a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#4069f996-2a63-4a7d-b8ca-378c997753a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeSingle.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/MappingCompositeSingle.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9a331cf-5ea3-4a57-82ce-5a48ea01b94a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#feb8c002-8088-487c-9613-7a8b1b96cdf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingRoot.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/MappingRoot.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9a331cf-5ea3-4a57-82ce-5a48ea01b94a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#0d8ace6d-5a5b-4161-a6e9-4815337fed84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Domain/Entities/Tag.cs</ApplicationRelativeFilePath>
@@ -2323,6 +2347,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6e5272f9-5532-4c38-ac44-160ab9130aa2</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#feb8c002-8088-487c-9613-7a8b1b96cdf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Domain/Repositories/Mapping/IMappingRootRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/IMappingRootRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>6da9c9ad-6b12-4316-8dfd-49e8c055312f</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#6da9c9ad-6b12-4316-8dfd-49e8c055312f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2436,6 +2468,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7dad2721-bd20-47c7-98f5-caab4d623755</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#feb8c002-8088-487c-9613-7a8b1b96cdf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Mapping/MappingRootConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/MappingRootConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dad2721-bd20-47c7-98f5-caab4d623755</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0d8ace6d-5a5b-4161-a6e9-4815337fed84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/TagConfiguration.cs</ApplicationRelativeFilePath>
@@ -2544,6 +2584,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/InvoiceRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee9aa6b3-b427-416c-8ec3-be1d59a8cdda</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#feb8c002-8088-487c-9613-7a8b1b96cdf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Mapping/MappingRootRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mapping/MappingRootRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

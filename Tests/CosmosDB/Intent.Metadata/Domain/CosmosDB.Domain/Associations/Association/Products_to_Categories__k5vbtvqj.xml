@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="67b7b4f8-e510-4cc9-8e62-aa278f4b2936">
+  <sourceEnd id="14ba9ea4-90bd-45cb-a936-608bd34e5ef1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="f10a1a6f-66de-48d8-a3fe-634ae1931ac7">
+      <typeId>fba562a1-58b1-45de-af9b-f3c37586b695</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="67b7b4f8-e510-4cc9-8e62-aa278f4b2936" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Categories</name>
+    <display>Categories: Category[*]   [* --&gt; *]</display>
+    <order>3</order>
+    <typeReference id="971d9eac-0bb6-43f7-9024-6d67d45d6682">
+      <typeId>0bb76501-0455-49be-a419-5eb250e023cb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

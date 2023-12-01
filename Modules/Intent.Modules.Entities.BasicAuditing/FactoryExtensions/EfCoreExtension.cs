@@ -35,7 +35,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
         private static void InstallDbContext(IApplication application)
         {
-            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Infrastructure.Data.DbContext));
+            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
             dbContext?.CSharpFile.OnBuild(file =>
             {
                 var priClass = file.Classes.First();
@@ -66,7 +66,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
         private static void UpdateEntities(IApplication application)
         {
-            var entityStateClasses = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
+            var entityStateClasses = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Interface));
             foreach (var entityTemplate in entityStateClasses)
             {
                 // This needs to be an AfterBuild because DomainEntityTemplate automatically adds [IntentManaged(Mode.Fully, Body = Mode.Merge)] to
@@ -77,7 +77,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                     {
                         UpdateEntityInterface(file.Interfaces.First(), entityTemplate);
                         var model = file.Interfaces.First().GetMetadata<ClassModel>("model");
-                        if (entityTemplate.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var relatedTemplate))
+                        if (entityTemplate.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, model, out var relatedTemplate))
                         {
                             UpdateEntityClass(relatedTemplate.CSharpFile.Classes.First(), relatedTemplate, false);
                         }
@@ -98,7 +98,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             var auditableInterfaceName = entityTemplate.GetAuditableInterfaceName();
             @interface.ImplementsInterfaces(auditableInterfaceName);
         }
-        
+
         private static void UpdateEntityClass(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, bool includeAuditInterface)
         {
             var model = @class.GetMetadata<ClassModel>("model");
@@ -146,6 +146,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                         .WithExpressionBody(@$"new
                 {{
                     entry.State,
+                    Property = new Func<string, {template.UseType("Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry")}>(entry.Property),
                     Auditable = ({auditableTypeName})entry.Entity
                 }}"))
                         .WithoutSemicolon());
@@ -169,6 +170,8 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                             .WithBreak())
                         .AddCase("EntityState.Modified or EntityState.Deleted", block => block
                             .AddStatement("entry.Auditable.SetUpdated(userId, timestamp);")
+                            .AddStatement("entry.Property(\"CreatedBy\").IsModified = false;")
+                            .AddStatement("entry.Property(\"CreatedDate\").IsModified = false;")
                             .WithBreak())
                         .AddDefault(block => block
                             .AddStatement("throw new ArgumentOutOfRangeException();")));

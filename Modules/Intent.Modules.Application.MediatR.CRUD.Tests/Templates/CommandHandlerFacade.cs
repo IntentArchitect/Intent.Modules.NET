@@ -90,15 +90,15 @@ internal class CommandHandlerFacade
     public IReadOnlyList<DTOFieldModel> CommandIdFields { get; }
     public IReadOnlyList<ImplementationStrategyTemplatesExtensions.EntityIdAttribute> TargetDomainIdAttributes { get; }
 
-    public string DomainAggregateRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, TargetDomainModel);
-    public string DomainAggregateOwnerRepositoryTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Repository.Interface.Entity, AggregateOwnerDomain);
+    public string DomainAggregateRepositoryTypeName => _activeTemplate.GetTypeName(TemplateRoles.Repository.Interface.Entity, TargetDomainModel);
+    public string DomainAggregateOwnerRepositoryTypeName => _activeTemplate.GetTypeName(TemplateRoles.Repository.Interface.Entity, AggregateOwnerDomain);
     public string DomainAggregateRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainAggregateRepositoryTypeName).Name;
     public string DomainAggregateOwnerRepositoryVarName => GetHandlerConstructorParameters().First(p => p.Type == DomainAggregateOwnerRepositoryTypeName).Name;
     public string DomainEventBaseName => _activeTemplate.TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName) ? domainEventBaseName : null;
     public string CommandTypeName => _activeTemplate.GetTypeName(CommandModelsTemplate.TemplateId, _model);
-    public string TargetDomainTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, TargetDomainModel);
+    public string TargetDomainTypeName => _activeTemplate.GetTypeName(TemplateRoles.Domain.Entity.Primary, TargetDomainModel);
     public ClassModel AggregateOwnerDomain => TargetDomainModel.GetNestedCompositionalOwner();
-    public string AggregateOwnerDomainTypeName => _activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, AggregateOwnerDomain);
+    public string AggregateOwnerDomainTypeName => _activeTemplate.GetTypeName(TemplateRoles.Domain.Entity.Primary, AggregateOwnerDomain);
     public string SingularAggregateOwnerDomainName => AggregateOwnerDomain.Name.ToPascalCase();
     public IReadOnlyList<DTOFieldModel> CommandFieldsForOwnerId => _model.Properties.GetNestedCompositionalOwnerIdFields(AggregateOwnerDomain).ToList();
 
@@ -485,7 +485,7 @@ internal class CommandHandlerFacade
             }
         }
 
-        statements.Add($@"{_activeTemplate.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, TargetDomainModel)} added{SingularTargetDomainName} = null;");
+        statements.Add($@"{_activeTemplate.GetTypeName(TemplateRoles.Domain.Entity.Primary, TargetDomainModel)} added{SingularTargetDomainName} = null;");
 
         if (initializationStatements is not null)
         {
@@ -749,7 +749,7 @@ internal class CommandHandlerFacade
     private string GetFromResultExpression(string returnExpression, string domainTypeName, ClassModel domainModel, bool preferImplicitGenerics, bool isList)
     {
         var entityTypeName = domainTypeName;
-        if (_activeTemplate.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, domainModel, out var interfaceTypeName))
+        if (_activeTemplate.TryGetTypeName(TemplateRoles.Domain.Entity.Interface, domainModel, out var interfaceTypeName))
         {
             entityTypeName = interfaceTypeName;
         }

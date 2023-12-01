@@ -38,7 +38,7 @@ FROM ");
             
             #line default
             #line hidden
-            this.Write(" AS base\r\nWORKDIR /app\r\nEXPOSE 80\r\nEXPOSE 443\r\n\r\nFROM ");
+            this.Write(" AS base\r\nWORKDIR /app\r\nEXPOSE 8080\r\nEXPOSE 443\r\n\r\nFROM ");
             
             #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetSdk()));

@@ -2,53 +2,36 @@
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Application.DependencyInjection
+namespace Intent.Modules.Application.DependencyInjection;
+
+public static class NugetPackages
 {
-    public static class NugetPackages
-    {
-        public static INugetPackageInfo MicrosoftExtensionsConfigurationAbstractions(IOutputTarget outputTarget)
+    public static NugetPackageInfo MicrosoftExtensionsConfigurationAbstractions(IOutputTarget outputTarget) => new(
+        name: "Microsoft.Extensions.Configuration.Abstractions",
+        version: outputTarget.GetProject().GetMaxNetAppVersion() switch
         {
-            var project = outputTarget.GetProject();
-            var version = project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.0",
-                _ when project.IsNetApp(6) => "6.0.0",
-                _ when project.IsNetApp(7) => "7.0.0",
-                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
-                _ => "6.0.0"
-            };
+            (5, 0) => "5.0.0",
+            (6, 0) => "6.0.0",
+            (7, 0) => "7.0.0",
+            _ => "8.0.0"
+        });
 
-            return new NugetPackageInfo("Microsoft.Extensions.Configuration.Abstractions", version);
-        }
-
-        public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget)
+    public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget) => new(
+        name: "Microsoft.Extensions.DependencyInjection",
+        version: outputTarget.GetProject().GetMaxNetAppVersion() switch
         {
-            var project = outputTarget.GetProject();
-            var version = project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.2",
-                _ when project.IsNetApp(6) => "6.0.1",
-                _ when project.IsNetApp(7) => "7.0.0",
-                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
-                _ => "6.0.1"
-            };
-
-            return new NugetPackageInfo("Microsoft.Extensions.DependencyInjection", version);
-        }
-        
-        public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget)
+            (5, 0) => "5.0.2",
+            (6, 0) => "6.0.1",
+            (7, 0) => "7.0.0",
+            _ => "8.0.0"
+        });
+    public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget) => new(
+        name: "Microsoft.Extensions.Configuration.Binder",
+        version: outputTarget.GetProject().GetMaxNetAppVersion() switch
         {
-            var project = outputTarget.GetProject();
-            var version = project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.0",
-                _ when project.IsNetApp(6) => "6.0.0",
-                _ when project.IsNetApp(7) => "7.0.0",
-                _ when project.IsNetApp(8) => "8.0.0-preview.7.23375.6",
-                _ => "6.0.0"
-            };
-
-            return new NugetPackageInfo("Microsoft.Extensions.Configuration.Binder", version);
-        }
-    }
+            (5, 0) => "5.0.0",
+            (6, 0) => "6.0.0",
+            (7, 0) => "7.0.0",
+            _ => "8.0.0"
+        });
 }

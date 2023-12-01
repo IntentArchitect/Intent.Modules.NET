@@ -1,4 +1,8 @@
-﻿### Version 3.0.2
+﻿### Version 3.0.3
+
+- Fixed: Bug in HttpClient where the query string was not correctly handling a collection type.
+
+### Version 3.0.2
 
 - Improvement: Will now respect query string parameter names as introduced in [`Intent.Metadata.WebApi` version `4.3.2`](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/release-notes.md#version-432).
 - Fixed: Removed unnecessary dependency on the `Intent.Application.FluentValidation` module.

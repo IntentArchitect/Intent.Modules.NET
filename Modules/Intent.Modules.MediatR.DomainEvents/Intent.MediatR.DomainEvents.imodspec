@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MediatR.DomainEvents</id>
-  <version>4.3.1</version>
-  <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
+  <version>5.0.0-beta.2</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>
   <authors>Intent Architect</authors>
@@ -15,7 +15,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.DomainEventHandler.AggregateManager</role>
+      <role>Application.DomainEventHandlers.AggregateManager</role>
       <location>EventHandlers</location>
     </template>
     <template id="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" externalReference="34c20673-1032-4d98-baf2-a9d925038db3">
@@ -23,7 +23,15 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.DomainEventHandler</role>
+      <role>Application.DomainEventHandler.Default</role>
+      <location>EventHandlers</location>
+    </template>
+    <template id="Intent.MediatR.DomainEvents.DomainEventHandler" externalReference="aa7baa8c-29eb-4986-8a70-c002a6ef5c69">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.DomainEventHandler.Explicit</role>
       <location>EventHandlers</location>
     </template>
     <template id="Intent.MediatR.DomainEvents.DomainEventNotification" externalReference="facf0926-17f5-4e56-b647-5718e15fcbb4">
@@ -49,12 +57,13 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.5.0" />
-    <dependency id="Intent.Common" version="3.4.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.34" />
+    <dependency id="Intent.Common" version="3.5.0-beta.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.DomainEvents" version="4.1.1" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
-    <dependency id="Intent.Modelers.Domain.Events" version="3.5.0" />
+    <dependency id="Intent.Modelers.Domain.Events" version="4.0.0-beta.0" />
+    <dependency id="Intent.Modelers.Services" version="3.5.0-beta.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

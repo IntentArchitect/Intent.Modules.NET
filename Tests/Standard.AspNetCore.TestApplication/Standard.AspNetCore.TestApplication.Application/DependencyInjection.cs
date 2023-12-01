@@ -21,6 +21,7 @@ namespace Standard.AspNetCore.TestApplication.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IClientsService, ClientsService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
             services.AddTransient<IInvoicesService, InvoicesService>();
             services.AddTransient<IMultiVersionService, MultiVersionService>();

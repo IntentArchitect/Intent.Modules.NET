@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b8e5f357-00cc-499a-8c6b-dcd88f4e7187" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
+  <name>RabbitMQTriggerFunction</name>
+  <display>RabbitMQTriggerFunction(command: CommandForRabbitMQTrigger): void</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="9c502037-9501-4d67-a2cc-f8899ff6af0f">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>401a1aec-f2b1-41d3-88d0-5da22018ece6</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+      <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+      <properties>
+        <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="RabbitMQ Trigger" isActive="true" />
+        <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="false" />
+        <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" value="rabbit-queue" isActive="true" />
+        <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+        <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+        <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="true" />
+        <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+        <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+        <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+        <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="26c05ba8-19b2-455b-b464-807222ea36a0" type="Azure Function Parameter" typeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16">
+      <name>command</name>
+      <display>command: CommandForRabbitMQTrigger</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ddeb6a7d-e9eb-4d95-b37e-744ff87dc28f">
+        <typeId>417ba6bb-af98-4125-99f9-1d052fc6e674</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b8e5f357-00cc-499a-8c6b-dcd88f4e7187</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

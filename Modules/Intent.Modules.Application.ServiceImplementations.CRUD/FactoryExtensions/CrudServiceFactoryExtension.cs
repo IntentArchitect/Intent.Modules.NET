@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.CrudMappingStrategies;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common;
@@ -30,6 +31,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
             {
                 var strategies = new List<IImplementationStrategy>
                 {
+                    new OperationMappingImplementationStrategy(template),
                     new GetAllImplementationStrategy(template, application),
                     new GetAllPaginationImplementationStrategy(template, application),
                     new GetByIdImplementationStrategy(template, application),

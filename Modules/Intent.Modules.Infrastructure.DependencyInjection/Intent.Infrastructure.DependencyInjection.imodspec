@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Infrastructure.DependencyInjection</id>
-  <version>4.0.7</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.0.8-beta.0</version>
+  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Infrastructure-level Service registration configuration</summary>
   <description>Generates Infrastructure-level Service registration configuration</description>
   <authors>Intent Architect</authors>
@@ -21,8 +21,8 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common" version="3.5.0-beta.3" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.9" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

@@ -114,6 +114,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure
             services.AddTransient<ISortDirectionIndexRepository, SortDirectionIndexRepository>();
             services.AddTransient<ISortDirectionStereotypeRepository, SortDirectionStereotypeRepository>();
             services.AddTransient<IStereotypeIndexRepository, StereotypeIndexRepository>();
+            services.AddTransient<IWithBaseIndexRepository, WithBaseIndexRepository>();
+            services.AddTransient<IWithBaseIndexBaseRepository, WithBaseIndexBaseRepository>();
             services.AddTransient<IInhabitantRepository, InhabitantRepository>();
             services.AddTransient<ISunRepository, SunRepository>();
             services.AddTransient<ITextureRepository, TextureRepository>();

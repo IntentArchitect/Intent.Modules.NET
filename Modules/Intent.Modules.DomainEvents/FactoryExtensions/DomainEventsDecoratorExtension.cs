@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -36,9 +37,10 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+            var entityStateTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));
             foreach (var template in entityStateTemplates)
             {
+                template.AddTypeSource(DomainEventTemplate.TemplateId);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();
@@ -60,10 +62,18 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             var ctor = @class.Constructors.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, ctorModel));
                             if (ctor != null)
                             {
-                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
                                 {
                                     ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    ctor.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
+                                    if (mapping != null)
+                                    {
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
+                                    }
+                                    else
+                                    {
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                                    }
                                 }
                             }
                         }
@@ -73,10 +83,18 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             var method = @class.Methods.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, operationModel));
                             if (method != null)
                             {
-                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents().Select(x => x.Element.AsDomainEventModel()))
+                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents())
                                 {
                                     method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    method.AddStatement($"DomainEvents.Add({ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent)});");
+                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
+                                    if (mapping != null)
+                                    {
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
+                                    }
+                                    else
+                                    {
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                                    }
                                 }
                             }
                         }
@@ -84,7 +102,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 });
             }
 
-            var entityInterfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Interface));
+            var entityInterfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Interface));
             foreach (var template in entityInterfaceTemplates.Where(x => x.CSharpFile.Interfaces.Any()))
             {
                 template.CSharpFile.OnBuild(file =>
@@ -110,8 +128,52 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             return true;
         }
 
-        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
-            IList<string> availableParameters,
+        private CSharpStatement ConstructDomainEvent(ICSharpFileBuilderTemplate template,
+            DomainEventOriginAssociationTargetEndModel model)
+        {
+            var mapping = model.Mappings.Single();
+            var manager = new CSharpClassMappingManager(template);
+            manager.AddMappingResolver(new DomainEventMappingTypeResolver(template));
+            manager.SetFromReplacement((IMetadataModel)((ITemplateWithModel)template).Model, "this");
+            manager.SetFromReplacement(model.OtherEnd().Element, null); // the constructor element
+
+            return manager.GenerateCreationStatement(mapping);
+        }
+
+        private static string GetPath(IList<IElementMappingPathTarget> path, params IMetadataModel[] rootModels)
+        {
+            if (path.Count == 1 && rootModels.Any(x => x.Id == path[0].Id))
+            {
+                return "this";
+            }
+
+            var mappedPath = new List<string>();
+            foreach (var pathItem in path)
+            {
+                if (rootModels.Any(x => x.Id == pathItem.Id))
+                {
+                    continue;
+                }
+                
+                switch (pathItem.Specialization)
+                {
+                    case OperationModel.SpecializationType:
+                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}()");
+                        continue;
+                    case ParameterModel.SpecializationType:
+                        mappedPath.Add($"{pathItem.Element.Name.ToParameterName()}");
+                        continue;
+                    default:
+                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}");
+                        continue;
+                }
+            }
+
+            return string.Join(".", mappedPath);
+        }
+
+        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
+            IList<string> availableParameters, 
             DomainEventModel model)
         {
             var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;
@@ -120,6 +182,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             {
                 throw new Exception("Constructing a domain event cannot be done from a template that doesn't have a ClassModel");
             }
+
             foreach (var property in model.Properties)
             {
                 if (property.TypeReference.Element.Id == classModel.Id)

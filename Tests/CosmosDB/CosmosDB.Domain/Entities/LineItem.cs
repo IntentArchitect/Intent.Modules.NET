@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTagModeImplicit]
@@ -18,5 +19,9 @@ namespace CosmosDB.Domain.Entities
         public string Description { get; set; }
 
         public int Quantity { get; set; }
+
+        public string ProductId { get; set; }
+
+        public ICollection<string> Tags { get; set; } = new List<string>();
     }
 }
