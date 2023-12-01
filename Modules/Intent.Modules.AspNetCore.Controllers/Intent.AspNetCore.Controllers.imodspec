@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>6.0.0-beta.3</version>
+  <version>6.0.0-beta.4</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -40,6 +40,7 @@
   </decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Controllers.ExceptionFilterExtension" externalReference="6879086c-8477-4b0a-ae01-8b6dc49d1003" />
+    <factoryExtension id="Intent.AspNetCore.Controllers.JsonOptionsExtension" externalReference="3f12f92a-d670-4abe-b034-0123bfba10da" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.Application.Contracts">
@@ -92,6 +93,16 @@
           <isRequired>false</isRequired>
           <hint>API Route Prefix for newly created Services.</hint>
           <defaultValue>api/</defaultValue>
+        </setting>
+        <setting id="97f3a1e3-2455-41e8-b28e-709f2db04230" title="Enums as Strings" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Configures whether to serialize/deserialze enum's as strings instead of ints</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="905d0eaa-b32c-4b3d-a6a5-05de63cb5f71" title="Ignore JSON reference cycles" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Controls whether to ignore JSON reference cycles.</hint>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>

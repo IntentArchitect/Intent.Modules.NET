@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -32,7 +33,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
         private static void SetupEnumsAsStrings(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.AspNetCore.Startup"));
+            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
             if (template is null)
             {
@@ -48,44 +49,46 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
             template.CSharpFile.AfterBuild(file =>
             {
-                file.AddUsing("System.Text.Json.Serialization");
-
-                var @class = file.Classes.First();
-                if (@class.FindMethod("ConfigureServices")
-                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
-                    CSharpInvocationStatement controllersStatement)
+                var startup = template.StartupFile;
+                startup.ConfigureServices((statements, context) =>
                 {
-                    return;
-                }
-
-                controllersStatement.WithoutSemicolon();
-                controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddJsonOptions"), stmt =>
-                {
-                    var invocation = (CSharpInvocationStatement)stmt;
-                    CSharpLambdaBlock lambda;
-                    if (!invocation.Statements.Any())
+                    if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
+                        CSharpInvocationStatement controllersStatement)
                     {
-                        lambda = new CSharpLambdaBlock("options");
-                        invocation.AddArgument(lambda);
-                    }
-                    else
-                    {
-                        lambda = invocation.Statements.First() as CSharpLambdaBlock;
+                        return;
                     }
 
-                    if (enumsAsStrings)
-                    {
-                        lambda.AddStatement(
-                            "options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());");
-                    }
+                    file.AddUsing("System.Text.Json.Serialization");
 
-                    if (ignoreCycles)
+                    controllersStatement.WithoutSemicolon();
+                    controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddJsonOptions"), stmt =>
                     {
-                        lambda.AddStatement(
-                            "options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;");
-                    }
+                        var invocation = (CSharpInvocationStatement)stmt;
+                        CSharpLambdaBlock lambda;
+                        if (!invocation.Statements.Any())
+                        {
+                            lambda = new CSharpLambdaBlock("options");
+                            invocation.AddArgument(lambda);
+                        }
+                        else
+                        {
+                            lambda = invocation.Statements.First() as CSharpLambdaBlock;
+                        }
+
+                        if (enumsAsStrings)
+                        {
+                            lambda.AddStatement(
+                                "options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());");
+                        }
+
+                        if (ignoreCycles)
+                        {
+                            lambda.AddStatement(
+                                "options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;");
+                        }
+                    });
+
                 });
-
             }, 11);
         }
     }
