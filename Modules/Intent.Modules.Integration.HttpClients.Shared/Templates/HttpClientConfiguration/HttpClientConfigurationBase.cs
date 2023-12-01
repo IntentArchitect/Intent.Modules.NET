@@ -22,7 +22,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             IList<ServiceProxyModel> model,
             string serviceContractTemplateId,
             string httpClientTemplateId,
-            Action<CSharpLambdaBlock, ServiceProxyModel> configureHttpClient
+            Action<CSharpLambdaBlock, ServiceProxyModel, ICSharpFileBuilderTemplate > configureHttpClient
             ) : base(templateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
@@ -43,20 +43,23 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
 
                         foreach (var proxy in model)
                         {
-                            method.AddInvocationStatement($"services.AddHttpClient<{GetTypeName(serviceContractTemplateId, proxy)}, {GetTypeName(httpClientTemplateId, proxy)}>", invocation =>
+                            method.AddMethodChainStatement("services", statement =>
                             {
-                                invocation.SeparatedFromPrevious();
-                                invocation.AddMetadata("model", proxy);
-                                invocation.AddArgument(new CSharpLambdaBlock("http"), a =>
-                                {
-                                    var options = (CSharpLambdaBlock)a;
-                                    configureHttpClient(options, proxy);
-                                });
-                            });
+                                statement
+                                    .SeparatedFromPrevious()
+                                    .AddMetadata("model", proxy);
+
+                                statement
+                                    .AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{GetTypeName(serviceContractTemplateId, proxy)}, {GetTypeName(httpClientTemplateId, proxy)}>")
+                                        .AddArgument(new CSharpLambdaBlock("http"), a =>
+                                        {
+                                            var options = (CSharpLambdaBlock)a;
+                                            configureHttpClient(options, proxy, this);
+                                        }).WithoutSemicolon());
+                            });                                        
                         }
                     });
-                });
-
+                });        
         }
 
         public override void BeforeTemplateExecution()
@@ -66,12 +69,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
 
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
         }
-
 
         public CSharpFile CSharpFile { get; }
 

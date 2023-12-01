@@ -9,6 +9,7 @@
     <Import_RootNamespace>Intent.Modules.Integration.HttpClients.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)HttpClientHeaderConfiguratorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientConfiguration\HttpClientConfigurationBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientHeaderHandler\HttpClientHeaderHandlerTemplateBase.cs" />

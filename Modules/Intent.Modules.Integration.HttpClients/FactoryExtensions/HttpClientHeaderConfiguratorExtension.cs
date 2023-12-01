@@ -15,6 +15,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Common.Templates;
+using System;
+using Intent.Modules.Integration.HttpClients.Shared;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -32,11 +34,13 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            
-            UpdateProxyHeaderPopulation(application);
+
+            HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
+            UpdateProxyTokenRefreshPopulation(application);
         }
 
-        private void UpdateProxyHeaderPopulation(IApplication application)
+
+        private void UpdateProxyTokenRefreshPopulation(IApplication application)
         {
             var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplate.TemplateId);
 
@@ -48,15 +52,14 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
                 var method = @class.FindMethod("AddHttpClients");
                 if (method == null) return;
-                method.InsertStatement(0, "services.AddHttpContextAccessor();");
 
-                method.InsertStatement(1, @"services.AddAccessTokenManagement(options =>
+                method.InsertStatement(0, @"services.AddAccessTokenManagement(options =>
             {
                 configuration.GetSection(""IdentityClients"").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
 ");
 
-                var proxyConfigurations = method.Statements.Where(s => s is CSharpInvocationStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _)).Cast<CSharpInvocationStatement>().ToArray();
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _)).Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
@@ -64,24 +67,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
                     if (RequiresMessageHandler(proxyModel))
                     {
-                        proxyConfiguration.InsertBelow($".AddClientAccessTokenHandler(configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"){(RequireSemiColon(proxyConfiguration) ? ";" : "")}");
-                    }
-
-                    if (proxyModel.HasMappedEndpoints() && proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization))
-                    {
-                        proxyConfiguration.WithoutSemicolon();
-                        var stmt = new CSharpInvocationStatement(".AddHeaders");
-                        stmt.AddArgument(new CSharpLambdaBlock("config"), a =>
-                        {
-                            var options = (CSharpLambdaBlock)a;
-                            options.AddStatement("config.AddFromHeader(\"Authorization\");");
-                        });
-
-                        if (!RequireSemiColon(proxyConfiguration))
-                        {
-                            stmt.WithoutSemicolon();
-                        }
-                        proxyConfiguration.InsertBelow(stmt);
+                        proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler").AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
                     }
                 }
             });
@@ -99,17 +85,6 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
             var parentSecured = default(bool?);
             return !ServiceProxyHelpers.GetMappedEndpoints(proxy)
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
-        }
-
-
-        private bool RequireSemiColon(CSharpStatement stmt)
-        {
-            int index = stmt.Parent.Statements.IndexOf(stmt);
-            if (stmt.Parent.Statements.Count == index + 1)
-            {
-                return true;
-            }
-            return !stmt.Parent.Statements[index + 1].ToString().StartsWith(".");
         }
     }
 }

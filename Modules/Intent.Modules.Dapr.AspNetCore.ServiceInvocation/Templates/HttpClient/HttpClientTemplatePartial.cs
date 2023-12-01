@@ -42,17 +42,5 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
                 pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
         }
-
-        public override void AfterTemplateRegistration()
-        {
-            base.AfterTemplateRegistration();
-
-            var applicationName = ExecutionContext.GetDaprApplicationName(Model.InternalElement.MappedElement.ApplicationId);
-
-            ExecutionContext.EventDispatcher.Publish(new DaprServiceRegistration(
-                serviceTypeResolver: template => template.GetServiceContractName(Model),
-                implementationTypeResolver: template => template.GetHttpClientName(Model),
-                implementationFactoryResolver: template => $"_ => new {ClassName}({template.UseType("Dapr.Client.DaprClient")}.CreateInvokeHttpClient(\"{applicationName}\"))"));
-        }
     }
 }

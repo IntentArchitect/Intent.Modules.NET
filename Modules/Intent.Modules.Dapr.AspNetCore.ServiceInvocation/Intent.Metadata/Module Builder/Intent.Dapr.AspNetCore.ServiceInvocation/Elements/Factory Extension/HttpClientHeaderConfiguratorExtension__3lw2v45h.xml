@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e7e3734-7d48-4c04-b731-10390e126643" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HttpClientHeaderConfiguratorExtension</name>
+  <display>HttpClientHeaderConfiguratorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</parentFolderId>
+  <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
+  <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
+using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration;
+using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientDaprHandler;
+using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientHeaderHandler;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientRequestException;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
@@ -21,6 +24,21 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates
         public static string GetHttpClientName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, model);
+        }
+
+        public static string GetHttpClientConfigurationTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HttpClientConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetHttpClientDaprHandlerTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HttpClientDaprHandlerTemplate.TemplateId);
+        }
+
+        public static string GetHttpClientHeaderHandlerTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HttpClientHeaderHandlerTemplate.TemplateId);
         }
 
         public static string GetHttpClientRequestExceptionName(this IIntentTemplate template)

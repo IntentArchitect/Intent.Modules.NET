@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7a6e4be5-460d-4e77-896f-0e67913d7f38</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9e7e3734-7d48-4c04-b731-10390e126643</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/HttpClientHeaderConfiguratorExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderConfiguratorExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>84b0552e-7c31-4f40-9023-c2afb16304e2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -46,6 +54,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClient/HttpClientTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b6798909-da9f-4fa1-a22a-cfbcdcd93267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#b6798909-da9f-4fa1-a22a-cfbcdcd93267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0fb7f3b6-76e9-436a-944a-dca583450289</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientDaprHandler/HttpClientDaprHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientDaprHandler/HttpClientDaprHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0fb7f3b6-76e9-436a-944a-dca583450289</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientDaprHandler/HttpClientDaprHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientDaprHandler/HttpClientDaprHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7f99de2-5edf-4356-a7c0-11235f1a50bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afc8c48b-a037-405f-9c61-d8c48d82e92f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f7f99de2-5edf-4356-a7c0-11235f1a50bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderHandler/HttpClientHeaderHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
