@@ -1,5 +1,9 @@
 ### Version 4.1.3
 
+- Improvement: Upgrades IUnitOfWork Interface template to CSharpFileBuilder paradigm.
+
+### Version 4.1.3
+
 - Improvement: Added support for entities with generic type parameters.
 
 ### Version 4.1.2

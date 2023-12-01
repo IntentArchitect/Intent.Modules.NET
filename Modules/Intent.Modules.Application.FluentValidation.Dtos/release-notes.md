@@ -1,3 +1,7 @@
+### Version 3.7.3
+
+- Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.
+
 ### Version 3.7.2
 
 - Fixed: Migration improvement using Roslyn instead of Regex to avoid updating incorrect IntentManaged attributes. 

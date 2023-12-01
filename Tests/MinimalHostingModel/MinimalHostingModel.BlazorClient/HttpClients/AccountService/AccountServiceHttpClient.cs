@@ -28,6 +28,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.AccountService
         public async Task Register(RegisterDto dto, CancellationToken cancellationToken = default)
         {
             const string relativeUri = "api/Account/Register";
+
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -46,6 +47,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.AccountService
         public async Task<TokenResultDto> Login(LoginDto dto, CancellationToken cancellationToken = default)
         {
             const string relativeUri = "api/Account/Login";
+
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -98,6 +100,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.AccountService
         public async Task ConfirmEmail(ConfirmEmailDto dto, CancellationToken cancellationToken = default)
         {
             const string relativeUri = "api/Account/ConfirmEmail";
+
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -116,6 +119,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.AccountService
         public async Task Logout(CancellationToken cancellationToken = default)
         {
             const string relativeUri = "api/Account/Logout";
+
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

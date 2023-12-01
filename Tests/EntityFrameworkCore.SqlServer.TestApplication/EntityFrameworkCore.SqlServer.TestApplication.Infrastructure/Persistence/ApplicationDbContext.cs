@@ -423,6 +423,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                 .Select(entry => new
                 {
                     entry.State,
+                    Property = new Func<string, PropertyEntry>(entry.Property),
                     Auditable = (IAuditable)entry.Entity
                 })
                 .ToArray();
@@ -444,6 +445,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
                         break;
                     case EntityState.Modified or EntityState.Deleted:
                         entry.Auditable.SetUpdated(userId, timestamp);
+                        entry.Property("CreatedBy").IsModified = false;
+                        entry.Property("CreatedDate").IsModified = false;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

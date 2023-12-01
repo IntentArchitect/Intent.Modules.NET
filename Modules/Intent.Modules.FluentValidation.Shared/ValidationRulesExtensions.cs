@@ -58,8 +58,6 @@ public static class ValidationRulesExtensions
 
                 @class.AddConstructor(ctor =>
                 {
-                    ctor.AddStatement(new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
-                        .AddMetadata("configure-validation-rules", true));
                     ctor.AddStatement(new CSharpStatement("ConfigureValidationRules();")
                         .AddMetadata("configure-validation-rules", true));
                     ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
@@ -457,9 +455,6 @@ public static class ValidationRulesExtensions
             ?.ToList().ForEach(x => x.Remove());
 
         ctor.InsertStatement(0, new CSharpStatement("ConfigureValidationRules(provider);")
-            .AddMetadata("configure-validation-rules", true));
-
-        ctor.InsertStatement(0, new CSharpStatement("//IntentMatch(\"ConfigureValidationRules\")")
             .AddMetadata("configure-validation-rules", true));
 
         validatorClass.FindMethod(p => p.Name == "ConfigureValidationRules")
