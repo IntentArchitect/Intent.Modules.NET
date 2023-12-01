@@ -245,18 +245,29 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
                 });
 
-                if (metadataModel is not AssociationTargetEndModel targetEndModel)
+                if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
-                    continue;
+                    @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
+                        property =>
+                        {
+                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
                 }
 
-                @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
-                    property =>
-                    {
-                        property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
-                        property.Getter.WithExpressionImplementation(entityProperty.Name);
-                        property.WithoutSetter();
-                    });
+                if (metadataModel is AttributeModel attributeModel && attributeModel.TypeReference.IsCollection)
+                {
+                    @class.AddProperty(
+                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>",
+                        name: entityProperty.Name,
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
+                }
             }
         }
 

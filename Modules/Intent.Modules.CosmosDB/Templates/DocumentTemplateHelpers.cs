@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.CosmosDB.Api;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
@@ -10,7 +9,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
-using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -38,6 +36,19 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
                     }
                 });
+
+                if (attribute.TypeReference.IsCollection)
+                {
+                    @class.AddProperty(
+                        type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                        name: attribute.Name.ToPascalCase(),
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                            property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
+                            property.WithoutSetter();
+                        });
+                }
             }
 
             foreach (var associationEnd in associationEnds)
@@ -132,7 +143,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     var assignmentValueExpression = attribute.Name.ToPascalCase();
 
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    //Partiionkeys must be strings
+                    // Partition keys must be strings
                     if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
@@ -145,9 +156,8 @@ namespace Intent.Modules.CosmosDB.Templates
                         };
 
                     }
-                    else
                     // If this is the PK which is not a string, we need to convert it:
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
                         {
@@ -211,7 +221,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    //Partiionkeys must be strings
+                    // Partition keys must be strings
                     if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
                     {
                         suffix = attributeTypeName switch
@@ -233,6 +243,12 @@ namespace Intent.Modules.CosmosDB.Templates
                                 $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
+                    }
+
+                    if (attribute.TypeReference.IsCollection)
+                    {
+                        template.AddUsing("System.Linq");
+                        suffix = $"{suffix}.ToList()";
                     }
 
                     method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");

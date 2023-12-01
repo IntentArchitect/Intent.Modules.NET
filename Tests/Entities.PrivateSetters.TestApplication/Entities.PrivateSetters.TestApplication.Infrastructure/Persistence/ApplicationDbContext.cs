@@ -2,9 +2,11 @@ using Entities.PrivateSetters.TestApplication.Domain.Common.Interfaces;
 using Entities.PrivateSetters.TestApplication.Domain.Entities;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional;
+using Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Configurations;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Configurations.Aggregational;
 using Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Configurations.Compositional;
+using Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Configurations.Mapping;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +34,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence
         public DbSet<OneToManySource> OneToManySources { get; set; }
         public DbSet<OneToOneSource> OneToOneSources { get; set; }
         public DbSet<OneToOptionalSource> OneToOptionalSources { get; set; }
+        public DbSet<MappingRoot> MappingRoots { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,6 +54,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OneToManySourceConfiguration());
             modelBuilder.ApplyConfiguration(new OneToOneSourceConfiguration());
             modelBuilder.ApplyConfiguration(new OneToOptionalSourceConfiguration());
+            modelBuilder.ApplyConfiguration(new MappingRootConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

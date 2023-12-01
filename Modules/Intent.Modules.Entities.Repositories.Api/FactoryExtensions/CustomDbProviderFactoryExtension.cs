@@ -1,17 +1,17 @@
+using System.Linq;
+using System.Reflection;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Metadata.Models;
-using System.Linq;
-using System.Reflection;
-using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -36,11 +36,11 @@ namespace Intent.Modules.Entities.Repositories.Api.FactoryExtensions
                 {
                     continue;
                 }
-                template.CSharpFile.OnBuild( file => 
+                template.CSharpFile.OnBuild(file =>
                 {
                     var @interface = file.Interfaces.First();
                     //Strip the first generic parameter off the IRepository<IDomainInterface, IDomain> to IRepository<IDomain> as this is more in-line with what a generic repo looks like
-                    @interface.Interfaces[0] = $"{template.GetTypeName(RepositoryInterfaceTemplate.TemplateId)}<{template.GetTypeName("Domain.Entity", ((CSharpTemplateBase<ClassModel> )template).Model)}>";
+                    @interface.Interfaces[0] = $"{template.GetTypeName(RepositoryInterfaceTemplate.TemplateId)}<{template.GetTypeName("Domain.Entity", ((CSharpTemplateBase<ClassModel>)template).Model)}>";
                 });
             }
         }

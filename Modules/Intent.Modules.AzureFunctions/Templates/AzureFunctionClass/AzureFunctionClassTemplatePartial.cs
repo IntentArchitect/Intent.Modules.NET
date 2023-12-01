@@ -120,8 +120,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             }
 
 
-            return Model.TypeReference.Element != null
-                ? $"Task<{GetTypeName(Model.TypeReference)}>"
+            return Model.ReturnType?.Element != null
+                ? $"Task<{GetTypeName(Model.ReturnType)}>"
                 : "Task";
         }
     }

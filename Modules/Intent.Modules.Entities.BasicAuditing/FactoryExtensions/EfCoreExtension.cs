@@ -98,7 +98,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             var auditableInterfaceName = entityTemplate.GetAuditableInterfaceName();
             @interface.ImplementsInterfaces(auditableInterfaceName);
         }
-        
+
         private static void UpdateEntityClass(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, bool includeAuditInterface)
         {
             var model = @class.GetMetadata<ClassModel>("model");
@@ -146,6 +146,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                         .WithExpressionBody(@$"new
                 {{
                     entry.State,
+                    Property = new Func<string, {template.UseType("Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry")}>(entry.Property),
                     Auditable = ({auditableTypeName})entry.Entity
                 }}"))
                         .WithoutSemicolon());
@@ -169,6 +170,8 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                             .WithBreak())
                         .AddCase("EntityState.Modified or EntityState.Deleted", block => block
                             .AddStatement("entry.Auditable.SetUpdated(userId, timestamp);")
+                            .AddStatement("entry.Property(\"CreatedBy\").IsModified = false;")
+                            .AddStatement("entry.Property(\"CreatedDate\").IsModified = false;")
                             .WithBreak())
                         .AddDefault(block => block
                             .AddStatement("throw new ArgumentOutOfRangeException();")));
