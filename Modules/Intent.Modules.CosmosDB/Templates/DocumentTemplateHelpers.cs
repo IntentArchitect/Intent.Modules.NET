@@ -88,6 +88,7 @@ namespace Intent.Modules.CosmosDB.Templates
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
             IReadOnlyList<AssociationEndModel> associationEnds,
+            AttributeModel partitionKeyAttribute,
             string entityInterfaceTypeName,
             string entityImplementationTypeName,
             bool entityRequiresReflectionConstruction,
@@ -130,8 +131,22 @@ namespace Intent.Modules.CosmosDB.Templates
                     var attribute = attributes[index];
                     var assignmentValueExpression = attribute.Name.ToPascalCase();
 
-                    // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
+                    //Partiionkeys must be strings
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    {
+                        assignmentValueExpression = attributeTypeName switch
+                        {
+                            "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                            "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
+                            _ => throw new Exception(
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                        };
+
+                    }
+                    else
+                    // If this is the PK which is not a string, we need to convert it:
                     if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
@@ -196,7 +211,19 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    //Partiionkeys must be strings
+                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
+                    {
+                        suffix = attributeTypeName switch
+                        {
+                            "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                            "guid" => ".ToString()",
+                            _ => throw new Exception(
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                        };
+                    }
+                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         suffix = attributeTypeName switch
                         {

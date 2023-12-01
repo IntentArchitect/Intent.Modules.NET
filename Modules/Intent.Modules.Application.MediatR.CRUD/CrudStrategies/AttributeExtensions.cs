@@ -11,7 +11,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
     /// <summary>
     /// The purpose of these extensions is to abstract how we determine whether an attribute is a Primary Key, Foreign Key, etc.
-    /// This was created to decouple this module from Intent.Modules.Metdata.
+    /// This was created to decouple this module from Intent.Modules.Metdata.Rdbms
     /// </summary>
     internal static class AttributeModelExtensions
     {

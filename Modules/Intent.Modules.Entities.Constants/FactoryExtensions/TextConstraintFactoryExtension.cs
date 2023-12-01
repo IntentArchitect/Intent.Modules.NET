@@ -30,7 +30,7 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var entityTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
+            var entityTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));
             foreach (var template in entityTemplates)
             {
                 template.CSharpFile.OnBuild(file =>
@@ -92,9 +92,9 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                         }
 
                         var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
-                        var entityTypeName = template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
+                        var entityTypeName = template.GetTypeName(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
 
-                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, attributeModel.Class);
+                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
                         var entityOutput = entityTemplate.CSharpFile.Classes.First();
 
                         var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -46,7 +47,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             AddTypeSource(TemplateId);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
         }
 
         public override void OnCreated()
@@ -65,6 +66,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                     }
 
                     @interface.AddMetadata("model", Model);
+                    @interface.RepresentsModel(Model);
                     @interface.WithMembersSeparated();
 
                     if (Model.ParentClass != null)
@@ -83,6 +85,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                         @interface.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
                         {
                             property.AddMetadata("model", attribute);
+                            property.RepresentsModel(attribute);
                             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
                             {
                                 property.ReadOnly();
@@ -95,6 +98,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                         @interface.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
                         {
                             property.AddMetadata("model", associationEnd);
+                            property.RepresentsModel(associationEnd);
                             //property.Virtual();
                             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
                             {

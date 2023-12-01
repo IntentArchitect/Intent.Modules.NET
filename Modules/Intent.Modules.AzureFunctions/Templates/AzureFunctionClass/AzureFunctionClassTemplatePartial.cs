@@ -5,13 +5,12 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Dtos.Templates;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -41,9 +40,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 AddNugetDependency(dependency);
             }
 
-            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto, "List<{0}>");
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), GetRelativeLocation())
+            CSharpFile = new CSharpFile(GetNamespace(), GetRelativeLocation())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.IO")
@@ -64,6 +65,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 });
         }
 
+        private string GetNamespace()
+        {
+            return ((CSharpTemplateBase<IAzureFunctionModel>)this).GetNamespace();
+        }
+
         private string GetRelativeLocation()
         {
             return ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath();
@@ -72,13 +78,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: CSharpFile.Namespace,
-                relativeLocation: CSharpFile.RelativeLocation);
+            return CSharpFile.GetConfig();
         }
 
         public override RoslynMergeConfig ConfigureRoslynMerger()

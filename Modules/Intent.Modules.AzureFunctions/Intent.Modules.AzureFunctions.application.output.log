@@ -266,22 +266,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Startup/StartupTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Startup/StartupTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Startup/StartupTemplatePartial.cs</ApplicationRelativeFilePath>

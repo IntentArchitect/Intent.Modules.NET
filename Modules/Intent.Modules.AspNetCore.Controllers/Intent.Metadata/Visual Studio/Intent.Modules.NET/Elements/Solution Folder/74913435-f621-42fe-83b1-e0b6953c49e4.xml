@@ -3,7 +3,6 @@
   <name>NET Core</name>
   <display>NET Core</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30096efa-e031-4bd2-9b64-671d36ba6297</parentFolderId>

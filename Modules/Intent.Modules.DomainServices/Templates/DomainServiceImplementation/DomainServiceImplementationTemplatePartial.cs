@@ -24,11 +24,11 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainServiceImplementationTemplate(IOutputTarget outputTarget, DomainServiceModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Interface);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DomainServices.Interface);
+            AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.DomainServices.Interface);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="72f07274-0b0b-400c-a11d-c7676c61a430" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed86382a-ac07-4f40-97c7-4331931761e5</parentFolderId>
+  <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+  <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="313961d5-4866-4d1d-a53c-68acbe07ab99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72f07274-0b0b-400c-a11d-c7676c61a430</parentFolderId>
+      <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cd586063-f3ae-4859-bea1-7f50ba069891" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72f07274-0b0b-400c-a11d-c7676c61a430</parentFolderId>
+      <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a1e3269d-5484-4146-ab48-d080b4e57f17" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72f07274-0b0b-400c-a11d-c7676c61a430</parentFolderId>
+      <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="88730219-cc21-4065-aeae-bf28c9174cd1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72f07274-0b0b-400c-a11d-c7676c61a430</parentFolderId>
+      <packageId>4d8c426a-95b5-485f-b207-d8c636c8729e</packageId>
+      <packageName>Publish.CleanArch.GooglePubSub.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

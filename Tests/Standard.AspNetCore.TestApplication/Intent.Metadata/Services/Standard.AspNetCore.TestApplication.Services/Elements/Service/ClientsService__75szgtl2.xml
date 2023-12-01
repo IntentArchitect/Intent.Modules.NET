@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6570fe67-44fd-4887-8afe-8a6bf3ca86f8" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ClientsService</name>
+  <display>ClientsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</parentFolderId>
+  <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+  <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="874a4aed-e4d9-49b3-b356-b9b110ea8d7c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateClient</name>
+      <display>CreateClient(dto: ClientCreate): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="dd260000-f6ad-4a71-8e57-ae8ebd2700e0">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="211161b9-200a-479f-bce4-025983b73e27" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientCreate</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="365404f3-9939-4701-be97-322d10ed3098">
+            <typeId>afde208a-2dab-4e4c-8c3f-7515cb521cbc</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+            <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>874a4aed-e4d9-49b3-b356-b9b110ea8d7c</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="39142c45-d2d6-493d-89e5-468dfc39ef06" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClientById</name>
+      <display>FindClientById(id: guid): Client</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f37c117e-3d78-435c-a187-19c30daf03a2">
+        <typeId>ff936fb0-1766-4a86-b2a0-ccfebbb10503</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+        <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="86eafac9-69e9-4930-b1af-9aecc5072e4c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d3e3a83a-e147-4f4d-8e4f-628ce6dc43d8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>39142c45-d2d6-493d-89e5-468dfc39ef06</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cadae0d3-349b-424d-8b9d-5df5815ff30b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClients</name>
+      <display>FindClients(): Client[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="adc3fb60-0dd5-482e-84ab-90dc0b756588">
+        <typeId>ff936fb0-1766-4a86-b2a0-ccfebbb10503</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+        <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="471b8c85-d5db-49a4-be59-eddbbd5d6ba8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClientsPaged</name>
+      <display>FindClientsPaged(pageNo: int, pageSize: int): PagedResult&lt;Client&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="46977834-6689-4eb3-8a36-51142cb89fc0">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services</typePackageName>
+        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="197d6e88-008a-4ebe-88e2-0c22f247e3f1">
+            <typeId>ff936fb0-1766-4a86-b2a0-ccfebbb10503</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+            <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="11f83fab-442e-49d2-bd20-34148ac6d3dd" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageNo</name>
+          <display>in : pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fd937e3f-1ca1-4575-908a-da47be06ea0d">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>471b8c85-d5db-49a4-be59-eddbbd5d6ba8</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="341c73d4-9878-41ea-aa07-1c06b73f73ea" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageSize</name>
+          <display>in : pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="843a261b-62b4-4b7e-8061-a7670fefcd4c">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>471b8c85-d5db-49a4-be59-eddbbd5d6ba8</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ac40dbe8-92e7-4dc4-a680-544d2e752bf1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateClient</name>
+      <display>UpdateClient(id: guid, dto: ClientUpdate): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d4c73079-4e11-4ea9-a6a7-148f0e22aed0">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="61c5a68b-0dc6-44d9-a3fc-b8b5222dee30" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7d2a4d8d-5714-41b5-94ed-40a926281075">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ac40dbe8-92e7-4dc4-a680-544d2e752bf1</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="08b9aa63-11b0-4cce-8641-653c77908059" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientUpdate</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e26abf7f-8af8-493e-b1e2-157b8d1d49e8">
+            <typeId>7dc8c271-c214-438a-84fa-885eaf94c889</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+            <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ac40dbe8-92e7-4dc4-a680-544d2e752bf1</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5b07402a-6726-4534-973d-6381732fce89" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteClient</name>
+      <display>DeleteClient(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="60966daf-079a-401d-aff8-74025bf52ebb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9987cbd0-7f99-4b17-93f3-be0a18f69984" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="50d7c0ec-7fc6-40cb-9542-0c7ebe47a9c9">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5b07402a-6726-4534-973d-6381732fce89</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

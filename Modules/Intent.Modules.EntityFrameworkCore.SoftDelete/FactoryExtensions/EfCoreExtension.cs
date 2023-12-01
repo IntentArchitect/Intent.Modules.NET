@@ -53,7 +53,7 @@ public class EfCoreExtension : FactoryExtensionBase
     private void InstallSoftDeleteOnDbContext(IApplication application)
     {
         var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-            TemplateDependency.OnTemplate(TemplateFulfillingRoles.Infrastructure.Data.DbContext));
+            TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
 
         dbContext?.CSharpFile.AfterBuild(file =>
         {
@@ -106,7 +106,7 @@ public class EfCoreExtension : FactoryExtensionBase
     {
         var entities = application
             .FindTemplateInstances<IIntentTemplate<ClassModel>>(
-                TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary))
+                TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary))
             .Where(p => p.Model.HasSoftDeleteEntity())
             .Cast<ICSharpFileBuilderTemplate>()
             .ToArray();

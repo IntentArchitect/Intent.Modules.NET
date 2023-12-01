@@ -27,7 +27,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DataContractExtensionMethodsTemplate(IOutputTarget outputTarget, DataContractModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
@@ -41,7 +41,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
 
                         var methodParameterName = Model.Name.Pluralize().ToLocalVariableName();
                         method.AddParameter(
-                            type: $"IEnumerable<{GetTypeName(TemplateFulfillingRoles.Domain.DataContract, Model)}>",
+                            type: $"IEnumerable<{GetTypeName(TemplateRoles.Domain.DataContract, Model)}>",
                             name: methodParameterName,
                             configure: parameter => parameter.WithThisModifier());
 

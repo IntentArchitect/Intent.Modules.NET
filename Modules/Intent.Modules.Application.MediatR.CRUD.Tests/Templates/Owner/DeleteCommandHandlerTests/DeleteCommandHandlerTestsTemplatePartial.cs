@@ -38,7 +38,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
         AddTypeSource(CommandModelsTemplate.TemplateId);
-        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")

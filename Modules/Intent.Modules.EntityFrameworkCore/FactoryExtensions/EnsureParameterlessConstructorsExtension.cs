@@ -35,11 +35,11 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
             foreach (var model in classModels)
             {
-                var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.EntityImplementation, model.Id);
+                var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.EntityImplementation, model.Id);
 
                 entityTemplate?.CSharpFile.OnBuild(file =>
                 {
-                    var stateTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.State, model.Id);
+                    var stateTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.State, model.Id);
 
                     var entityImplCtors = file.Classes.First().Constructors;
                     var stateCtors = stateTemplate?.CSharpFile.Classes.First().Constructors ?? ArraySegment<CSharpConstructor>.Empty;

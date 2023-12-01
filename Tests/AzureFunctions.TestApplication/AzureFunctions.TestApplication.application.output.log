@@ -235,6 +235,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/RabbitMQ Trigger/CommandForRabbitMQTrigger.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#b8e5f357-00cc-499a-8c6b-dcd88f4e7187</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/RabbitMQ Trigger/RabbitMQTriggerFunction.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/RabbitMQTriggerFunction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e4830dc4-4a5d-4d28-91a3-837ec04c6337</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -315,8 +331,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3bde8d64-055b-42c7-9c41-1b46258d6df6</CorrelationId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#eabb855e-a43c-4f98-af32-04abafc961bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/AzureFunctions.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.TestApplication.Application.csproj</ProjectRelativeFilePath>
@@ -483,7 +499,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommand.cs</ApplicationRelativeFilePath>
@@ -491,7 +507,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#e168346d-6833-42a4-9d84-3df850071058</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChange/CosmosChangeCommandHandler.cs</ApplicationRelativeFilePath>
@@ -499,7 +515,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#478fb450-2a2d-462b-98c5-92ec09dd418e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/CosmosDB/CosmosChangeDto.cs</ApplicationRelativeFilePath>
@@ -507,7 +523,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/CreateCustomer/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -515,7 +531,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
@@ -523,7 +539,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#729da320-1a7e-4314-98df-01c7562afe9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
@@ -531,7 +547,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#729da320-1a7e-4314-98df-01c7562afe9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/CustomerDtoMappingExtensions.cs</ApplicationRelativeFilePath>
@@ -539,7 +555,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#30029fad-9d4e-4b94-854a-b6b426a28b18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -547,7 +563,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#30029fad-9d4e-4b94-854a-b6b426a28b18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ApplicationRelativeFilePath>
@@ -555,7 +571,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#3d847d50-cd55-4778-930f-2d231412be09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
@@ -563,7 +579,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#3d847d50-cd55-4778-930f-2d231412be09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</ApplicationRelativeFilePath>
@@ -571,7 +587,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#b6345a10-400f-423c-97e9-e30ea079b2ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomers/GetCustomersQuery.cs</ApplicationRelativeFilePath>
@@ -579,7 +595,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#b6345a10-400f-423c-97e9-e30ea079b2ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</ApplicationRelativeFilePath>
@@ -587,7 +603,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ApplicationRelativeFilePath>
@@ -595,7 +611,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#53463505-a292-44cf-9eb1-d6729db30602</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ApplicationRelativeFilePath>
@@ -603,7 +619,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParameters.cs</ApplicationRelativeFilePath>
@@ -611,7 +627,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#c46b5b51-bc6f-4f45-bf94-7e6610874726</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParametersHandler.cs</ApplicationRelativeFilePath>
@@ -619,7 +635,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -627,7 +643,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
@@ -635,7 +651,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -739,7 +755,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
@@ -747,7 +763,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullable.cs</ApplicationRelativeFilePath>
@@ -755,7 +771,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#28022ad8-0333-42eb-954a-36cf1dbdaf7d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/NullableResult/GetCustomerNullable/GetCustomerNullableHandler.cs</ApplicationRelativeFilePath>
@@ -763,7 +779,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/FromBodyTest/FromBodyTestCommand.cs</ApplicationRelativeFilePath>
@@ -771,7 +787,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#cfb6e9cd-7769-43eb-9de9-ce70565392fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/FromBodyTest/FromBodyTestCommandHandler.cs</ApplicationRelativeFilePath>
@@ -779,7 +795,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsHeadersTest/GetByIdsHeadersTest.cs</ApplicationRelativeFilePath>
@@ -787,7 +803,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#3a1d3670-3945-4d47-9b9b-47515bd1e8e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsHeadersTest/GetByIdsHeadersTestHandler.cs</ApplicationRelativeFilePath>
@@ -795,7 +811,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsQueryTest/GetByIdsQueryTest.cs</ApplicationRelativeFilePath>
@@ -803,7 +819,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#579ab00b-0802-4e15-a4a5-b1fc196282ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Params/GetByIdsQueryTest/GetByIdsQueryTestHandler.cs</ApplicationRelativeFilePath>
@@ -811,7 +827,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/Bindings/Bind/BindCommand.cs</ApplicationRelativeFilePath>
@@ -819,7 +835,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#f44cf256-0f08-4c3b-924b-4fb554233080</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/Bindings/Bind/BindCommandHandler.cs</ApplicationRelativeFilePath>
@@ -827,7 +843,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerMessage/CreateCustomerMessage.cs</ApplicationRelativeFilePath>
@@ -835,7 +851,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#c218d795-3171-4cd1-8e35-2ea13b1087bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerMessage/CreateCustomerMessageHandler.cs</ApplicationRelativeFilePath>
@@ -843,7 +859,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessage.cs</ApplicationRelativeFilePath>
@@ -851,7 +867,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#fd843a55-e102-424d-8e1d-da22a98ae87d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Queues/CreateCustomerWrappedMessage/CreateCustomerWrappedMessageHandler.cs</ApplicationRelativeFilePath>
@@ -859,7 +875,23 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTrigger.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTrigger.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
@@ -867,7 +899,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainCreateDto.cs</ApplicationRelativeFilePath>
@@ -875,7 +907,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDto.cs</ApplicationRelativeFilePath>
@@ -883,7 +915,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainDtoMappingExtensions.cs</ApplicationRelativeFilePath>
@@ -891,7 +923,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f784648e-ac13-4e81-a272-4e7c783a498e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleDomainUpdateDto.cs</ApplicationRelativeFilePath>
@@ -899,7 +931,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ee7d194f-7f63-4bff-9412-f080d620a5b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/SampleDomains/SampleMappedRequest.cs</ApplicationRelativeFilePath>
@@ -907,7 +939,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3bde8d64-055b-42c7-9c41-1b46258d6df6</ProjectId>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
@@ -1052,6 +1084,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#417ba6bb-af98-4125-99f9-1d052fc6e674</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RabbitMQ Trigger/CommandForRabbitMQTrigger/CommandForRabbitMQTriggerValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainCreateDtoValidator.cs</ApplicationRelativeFilePath>
@@ -1083,8 +1123,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>56477774-e375-40da-b00c-4fd3944ce41c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#56477774-e375-40da-b00c-4fd3944ce41c</CorrelationId>
+      <ProjectId>1e5d3200-9e61-478e-ab3c-cfac8b793bbe</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1e5d3200-9e61-478e-ab3c-cfac8b793bbe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/AzureFunctions.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.TestApplication.Domain.csproj</ProjectRelativeFilePath>
@@ -1179,7 +1219,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af96acde-b300-436c-a446-7e38fce728f3</ProjectId>
+      <ProjectId>53ac4ed2-2438-49bf-b131-1ec31bcbe287</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/appsettings.json</ApplicationRelativeFilePath>
@@ -1187,8 +1227,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af96acde-b300-436c-a446-7e38fce728f3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#af96acde-b300-436c-a446-7e38fce728f3</CorrelationId>
+      <ProjectId>53ac4ed2-2438-49bf-b131-1ec31bcbe287</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#53ac4ed2-2438-49bf-b131-1ec31bcbe287</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/AzureFunctions.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
@@ -1203,7 +1243,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af96acde-b300-436c-a446-7e38fce728f3</ProjectId>
+      <ProjectId>53ac4ed2-2438-49bf-b131-1ec31bcbe287</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>

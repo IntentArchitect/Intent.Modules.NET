@@ -34,9 +34,9 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Events);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.Events);
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>

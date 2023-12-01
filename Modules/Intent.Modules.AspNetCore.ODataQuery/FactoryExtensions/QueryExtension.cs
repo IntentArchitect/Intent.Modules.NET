@@ -18,7 +18,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using static Intent.Modules.Constants.TemplateFulfillingRoles.Repository;
+using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -40,7 +40,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
 
             foreach (var queryModel in queryModels)
             {
-                var queryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Application.Query, queryModel.Id);
+                var queryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Query, queryModel.Id);
                 if (!queryTemplate.ExecutionContext.Settings.GetODataQuerySettings().AllowSelectOption() && queryModel.GetODataQuery().EnableSelect())
                 {
                     Logging.Log.Warning($"`Select enabled` for OData Query : {queryModel.Name} but `Select` is disabled at an API level.");

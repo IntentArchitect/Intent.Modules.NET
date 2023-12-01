@@ -7,7 +7,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9dba1d00-445f-4be6-8410-bdc44592fefb</parentFolderId>
+  <parentFolderId>f91980a0-77fe-40cd-a065-f0120c726510</parentFolderId>
   <packageId>71be862b-da80-4536-8846-ccf29fdabbd9</packageId>
   <packageName>EntityFrameworkCore.SqlServer.TestApplication</packageName>
   <stereotypes>

@@ -12,8 +12,7 @@ using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
@@ -56,7 +55,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         var pageSizeVar = _template.Model.Properties.Single(IsPageSizeParam);
         yield return
             $@"var results = await {_matchingElementDetails.Value.Repository.FieldName}.FindAllAsync(
-                pageNo: request.{(pageNumberVar?.Name.ToPascalCase() ?? $"{ pageIndexVar!.Name.ToPascalCase()}+1")},
+                pageNo: request.{(pageNumberVar?.Name.ToPascalCase() ?? $"{pageIndexVar!.Name.ToPascalCase()}+1")},
                 pageSize: request.{pageSizeVar.Name.ToPascalCase()},
                 cancellationToken: cancellationToken);
             return results.MapToPagedResult(x => x.MapTo{_template.GetDtoName(_matchingElementDetails.Value.DtoModel)}(_mapper));";
@@ -81,8 +80,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
             return NoMatch;
         }
 
-        var repositoryInterface = _template.GetEntityRepositoryInterfaceName(mappedDomainEntity);
-        if (repositoryInterface == null)
+        if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, mappedDomainEntity, out var repositoryInterface))
         {
             return NoMatch;
         }

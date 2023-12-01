@@ -15,6 +15,8 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Client> Clients { get; set; }
+
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Plurals> Plurals { get; set; }
 
@@ -23,6 +25,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
             modelBuilder.ApplyConfiguration(new PluralsConfiguration());
         }

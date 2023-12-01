@@ -125,6 +125,8 @@ namespace Intent.AzureFunctions.Api
                             return TriggerOptionsEnum.ManualTrigger;
                         case "Cosmos DB Trigger":
                             return TriggerOptionsEnum.CosmosDBTrigger;
+                        case "RabbitMQ Trigger":
+                            return TriggerOptionsEnum.RabbitMQTrigger;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -158,6 +160,10 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "Cosmos DB Trigger";
                 }
+                public bool IsRabbitMQTrigger()
+                {
+                    return Value == "RabbitMQ Trigger";
+                }
             }
 
             public enum TriggerOptionsEnum
@@ -168,7 +174,8 @@ namespace Intent.AzureFunctions.Api
                 TimerTrigger,
                 EventHubTrigger,
                 ManualTrigger,
-                CosmosDBTrigger
+                CosmosDBTrigger,
+                RabbitMQTrigger
             }
             public class AuthorizationLevelOptions
             {

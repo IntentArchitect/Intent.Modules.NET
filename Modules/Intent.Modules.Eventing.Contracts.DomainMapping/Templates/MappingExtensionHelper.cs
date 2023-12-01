@@ -117,7 +117,7 @@ internal static class MappingExtensionHelper
         }
 
         var destPropTypeFullName = template.GetFullyQualifiedTypeName(destProperty.TypeReference);
-        var mappedAttrTypeFullName = template.GetFullyQualifiedTypeName(TemplateFulfillingRoles.Domain.Enum, mappedAttrElement.TypeReference.Element);
+        var mappedAttrTypeFullName = template.GetFullyQualifiedTypeName(TemplateRoles.Domain.Enum, mappedAttrElement.TypeReference.Element);
         if (destPropTypeFullName == mappedAttrTypeFullName)
         {
             return string.Empty;

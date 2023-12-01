@@ -28,9 +28,9 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
             AddTypeSource("Domain.Entity");
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+            AddTypeSource(TemplateRoles.Domain.DataContract);
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             csharpFile.AddClass($"{Model.Name}");

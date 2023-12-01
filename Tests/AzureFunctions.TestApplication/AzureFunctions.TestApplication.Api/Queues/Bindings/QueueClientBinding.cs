@@ -26,7 +26,7 @@ namespace AzureFunctions.TestApplication.Api
 
         [FunctionName("QueueClientBinding")]
         public async Task Run(
-            [QueueTrigger("queue1")] CreateCustomerMessage message,
+            [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
             [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {

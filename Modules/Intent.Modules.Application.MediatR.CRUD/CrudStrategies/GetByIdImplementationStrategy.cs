@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -70,7 +69,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
                 codeLines.Add(string.Empty);
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
@@ -134,8 +133,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
-            if (repositoryInterface == null)
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, nestedCompOwner != null ? nestedCompOwner : foundEntity, out var repositoryInterface))
             {
                 return NoMatch;
             }

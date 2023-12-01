@@ -28,7 +28,7 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
     {
         public static void Execute(IApplication application)
         {
-            var templates = application.FindTemplateInstances<DtoModelTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Contracts.Dto));
+            var templates = application.FindTemplateInstances<DtoModelTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
             foreach (var template in templates)
             {
                 var templateModel = ((CSharpTemplateBase<DTOModel>)template).Model;
@@ -226,7 +226,7 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
             {
                 foreach (var pathPart in field.Mapping.Path)
                 {
-                    var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId);
+                    var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, templateModel.Mapping.ElementId);
                     if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
                     {
                         if (entityTemplate?.CSharpFile.Classes.First().Properties.All(x => !x.Name.Equals(ae.Name, StringComparison.InvariantCultureIgnoreCase)) == true)
@@ -271,9 +271,9 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
 
         private static ICSharpFileBuilderTemplate GetEntityTemplate(ICSharpFileBuilderTemplate template, string modelId)
         {
-            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.Entity.Primary, modelId, out ICSharpFileBuilderTemplate entityTemplate))
+            if (template.TryGetTemplate(TemplateRoles.Domain.Entity.Primary, modelId, out ICSharpFileBuilderTemplate entityTemplate))
                 return entityTemplate;
-            if (template.TryGetTemplate(TemplateFulfillingRoles.Domain.ValueObject, modelId, out entityTemplate))
+            if (template.TryGetTemplate(TemplateRoles.Domain.ValueObject, modelId, out entityTemplate))
                 return entityTemplate;
             return entityTemplate;
         }

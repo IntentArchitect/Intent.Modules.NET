@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
@@ -10,7 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
@@ -26,6 +27,14 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
 
     public bool IsMatch(OperationModel operationModel)
     {
+        if (operationModel.CreateEntityActions().Any()
+            || operationModel.UpdateEntityActions().Any()
+            || operationModel.DeleteEntityActions().Any()
+            || operationModel.QueryEntityActions().Any())
+        {
+            return false;
+        }
+
         if (operationModel.Parameters.Count != 1)
         {
             return false;
@@ -48,21 +57,26 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
             return false;
         }
 
+        if (!_template.TryGetTemplate<ITemplate>(TemplateRoles.Repository.Interface.Entity, domainModel, out _))
+        {
+            return false;
+        }
+
         var lowerOperationName = operationModel.Name.ToLower();
         return new[] { "delete" }.Any(x => lowerOperationName.Contains(x));
     }
 
     public void ApplyStrategy(OperationModel operationModel)
     {
-        _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+        _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+        _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
         _template.AddUsing("System.Linq");
 
         var (dtoModel, domainModel) = operationModel.GetDeleteModelPair();
         var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
             ? dtoName
             : dtoModel.Name.ToPascalCase();
-        var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+        var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
         var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
         var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
         var entityVariableName = domainModel.GetExistingVariableName();

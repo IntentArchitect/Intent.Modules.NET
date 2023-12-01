@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.AspNetCore.SignalR.Api;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
@@ -71,13 +72,10 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.SignalRConfiguration
                 .ToRegister("ConfigureSignalR")
                 .HasDependency(this));
 
-            var startup = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("App.Startup"));
-            startup?.CSharpFile.AfterBuild(file =>
+            var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            startup?.CSharpFile.AfterBuild(_ =>
             {
-                var priClass = file.Classes.First();
-                ((IHasCSharpStatements)priClass.FindMethod("Configure")
-                    ?.FindStatement(s => s.GetText("").Contains("UseEndpoints")))
-                    ?.AddStatement($"endpoints.MapHubs();");
+                startup.StartupFile.AddUseEndpointsStatement(ctx => $"{ctx.Endpoints}.MapHubs();");
             });
         }
 

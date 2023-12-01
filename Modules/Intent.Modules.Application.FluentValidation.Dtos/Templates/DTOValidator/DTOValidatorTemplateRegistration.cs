@@ -51,8 +51,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 .Where(x => referencedElementIds.Contains(x.Id) &&
                             ValidationRulesExtensions.HasValidationRules(
                                 dtoModel: x,
-                                dtoTemplateId: TemplateFulfillingRoles.Application.Contracts.Dto,
-                                dtoValidatorTemplateId: TemplateFulfillingRoles.Application.Validation.Dto,
+                                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                                 uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled()))
                 .ToArray();
         }

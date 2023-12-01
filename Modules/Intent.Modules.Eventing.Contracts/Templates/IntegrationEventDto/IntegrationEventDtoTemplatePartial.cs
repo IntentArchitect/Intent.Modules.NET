@@ -28,7 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
 
             CSharpFile = new CSharpFile(
                     @namespace: Model.InternalElement.Package.Name.ToPascalCase(),

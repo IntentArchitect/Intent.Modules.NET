@@ -8,5 +8,20 @@
   <parentFolderId>83c19f79-5259-4525-821e-ebd637807e02</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="366379ac-b621-4fe4-af63-ead4ee5f02da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventHandler</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d073757f-d7b7-468f-99da-1578673cbd30</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

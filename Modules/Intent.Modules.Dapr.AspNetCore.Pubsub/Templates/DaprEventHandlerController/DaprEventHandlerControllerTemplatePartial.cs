@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Dapr.AspNetCore.Pubsub.Api;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -71,29 +72,21 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
         {
             base.AfterTemplateRegistration();
 
-            var startupTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
-            if (startupTemplate == null)
+            var startupTemplate = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            startupTemplate?.CSharpFile.AfterBuild(_ =>
             {
-                return;
-            }
-
-            startupTemplate.CSharpFile.AfterBuild(file =>
-            {
-                var configureMethod = file.Classes.First().FindMethod("Configure");
-                if (configureMethod == null)
+                startupTemplate.StartupFile.ConfigureApp((statements, context) =>
                 {
-                    return;
-                }
+                    statements.Statements[1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
+                    statements.Statements[1].InsertAbove($"{context.App}.UseCloudEvents();", s => s.SeparatedFromPrevious());
+                });
 
-                configureMethod.Statements[1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
-                configureMethod.Statements[1].InsertAbove("app.UseCloudEvents();", s => s.SeparatedFromPrevious());
-
-                var block = (IHasCSharpStatements)configureMethod
-                    .FindStatement(x => x.ToString().Contains("app.UseEndpoints"));
-
-                block?
-                    .FindStatement(x => x.ToString().Contains("endpoints.MapControllers()"))
-                    .InsertAbove("endpoints.MapSubscribeHandler();");
+                startupTemplate.StartupFile.ConfigureEndpoints((statements, context) =>
+                {
+                    statements
+                        .FindStatement(x => x.ToString()!.Contains(".MapControllers("))
+                        .InsertAbove($"{context.Endpoints}.MapSubscribeHandler();");
+                });
             });
         }
 

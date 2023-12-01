@@ -31,11 +31,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             FulfillsRole("Application.Contract.Query");
-            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
             CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}")
                 .AddUsing("MediatR")
@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     AddAuthorization(@class);
                     @class.ImplementsInterface($"IRequest<{GetTypeName(Model.TypeReference)}>");
                     @class.ImplementsInterface(this.GetQueryInterfaceName());
-                    
+
                     @class.AddConstructor();
                     var ctor = @class.Constructors.First();
                     foreach (var property in Model.Properties)
@@ -53,7 +53,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                         ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
                             param.AddMetadata("model", property);
-                            param.IntroduceProperty();
+                            param.IntroduceProperty(prop => prop.RepresentsModel(property));
                         });
                     }
                 });
@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             if (ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile())
             {
                 FulfillsRole("Application.Query.Handler");
-                FulfillsRole(TemplateFulfillingRoles.Application.Validation.Query);
+                FulfillsRole(TemplateRoles.Application.Validation.Query);
                 QueryHandlerTemplate.Configure(this, model);
             }
         }

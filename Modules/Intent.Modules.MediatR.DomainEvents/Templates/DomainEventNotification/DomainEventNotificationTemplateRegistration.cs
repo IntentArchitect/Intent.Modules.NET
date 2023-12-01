@@ -18,6 +18,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification
     {
         public override string TemplateId => DomainEventNotificationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DomainEventNotificationTemplate(outputTarget);

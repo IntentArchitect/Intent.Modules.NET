@@ -74,7 +74,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public static bool IsValueObject(this ICanBeReferencedType type, ISoftwareFactoryExecutionContext executionContext)
         {
-            return executionContext.FindTemplateInstance(TemplateFulfillingRoles.Domain.ValueObject, type.Id) != null;
+            return executionContext.FindTemplateInstance(TemplateRoles.Domain.ValueObject, type.Id) != null;
         }
 
         internal static bool IsValueObject(this ICanBeReferencedType type,
@@ -82,7 +82,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             builderTemplate =
                 executionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                    TemplateFulfillingRoles.Domain.ValueObject, type.Id);
+                    TemplateRoles.Domain.ValueObject, type.Id);
             return builderTemplate != null;
         }
     }

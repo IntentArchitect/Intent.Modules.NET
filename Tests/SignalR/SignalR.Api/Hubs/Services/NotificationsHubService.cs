@@ -44,5 +44,10 @@ namespace SignalR.Api.Hubs.Services
         {
             await _hub.Clients.Users(userIds).SendAsync("MessageToUsersDto", model);
         }
+
+        public async Task SendAsync(MassageToClientDto model, string connectionId)
+        {
+            await _hub.Clients.Client(connectionId).SendAsync("MassageToClientDto", model);
+        }
     }
 }

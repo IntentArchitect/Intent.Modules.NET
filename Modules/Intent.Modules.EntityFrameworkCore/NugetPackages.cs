@@ -1,59 +1,61 @@
-﻿using System;
-using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
+﻿using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.EntityFrameworkCore
+namespace Intent.Modules.EntityFrameworkCore;
+
+public static class NugetPackages
 {
-    public static class NugetPackages
+    public static NugetPackageInfo EntityFrameworkCore(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo EntityFrameworkCoreDesign(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.Design",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo EntityFrameworkCoreTools(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.Tools",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo EntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.SqlServer",
+        version: GetMicrosoftEfVersion(outputTarget));
+    public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.Cosmos",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.InMemory",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.Proxies",
+        version: GetMicrosoftEfVersion(outputTarget));
+
+    public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new(
+        name: "Npgsql.EntityFrameworkCore.PostgreSQL",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.10",
+            (6, 0) => "6.0.22",
+            (7, 0) => "7.0.11",
+            _ => "8.0.0"
+        });
+
+    public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new(
+        name: "Pomelo.EntityFrameworkCore.MySql",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.4",
+            (6, 0) => "6.0.2",
+            _ => "7.0.0"
+        });
+
+    private static string GetMicrosoftEfVersion(IOutputTarget outputTarget) => outputTarget.GetMaxNetAppVersion() switch
     {
-        public static NugetPackageInfo EntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreDesign(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Design", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreTools(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Tools", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.SqlServer", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new NugetPackageInfo("Npgsql.EntityFrameworkCore.PostgreSQL", GetPostgreSqlVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Cosmos", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("Pomelo.EntityFrameworkCore.MySql", GetMySqlVersion(outputTarget.GetProject()));
-
-        private static string GetPostgreSqlVersion(ICSharpProject project)
-        {
-            return project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.10",
-                _ when project.IsNetApp(6) => "6.0.8",
-                _ when project.IsNetApp(7) => "7.0.4",
-                _ when project.IsNetApp(8) => "8.0.0-preview.4",
-                _ => throw new Exception("Not supported version of .NET Core") 
-            };
-        }
-
-        private static string GetMySqlVersion(ICSharpProject project)
-        {
-            return project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.4",
-                _ when project.IsNetApp(6) => "6.0.2",
-                _ when project.IsNetApp(7) => "7.0.0",
-                _ when project.IsNetApp(8) => "7.0.0",
-                _ => throw new Exception("Not supported version of .NET Core") 
-            };
-        }
-
-        private static string GetVersion(ICSharpProject project)
-        {
-            return project switch
-            {
-                _ when project.IsNetCore2App() => throw new Exception(".NET Core 2.x is no longer supported."),
-                _ when project.IsNetCore3App() => "3.1.24",
-                _ when project.IsNetApp(5) => "5.0.17",
-                _ when project.IsNetApp(6) => "6.0.20",
-                _ when project.IsNetApp(7) => "7.0.9",
-                _ when project.IsNetApp(8) => "8.0.0-preview.6.23329.4",
-                _ => "6.0.20"
-            };
-        }
-    }
+        (5, 0) => "5.0.17",
+        (6, 0) => "6.0.25",
+        (7, 0) => "7.0.14",
+        _ => "8.0.0"
+    };
 }

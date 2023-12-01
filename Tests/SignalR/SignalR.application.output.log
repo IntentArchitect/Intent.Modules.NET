@@ -324,6 +324,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f9dabcc0-d7e7-459e-938e-43878d4f40e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Application/MassageToClientDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassageToClientDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#65a266b6-fa9f-4fbd-bf46-7d8fff731f00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Application/MessageToAllDto.cs</ApplicationRelativeFilePath>

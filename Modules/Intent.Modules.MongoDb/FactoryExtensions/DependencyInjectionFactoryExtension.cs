@@ -34,7 +34,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 return;
             }
 
-            var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+            var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
             if (dependencyInjection == null)
             {
                 return;

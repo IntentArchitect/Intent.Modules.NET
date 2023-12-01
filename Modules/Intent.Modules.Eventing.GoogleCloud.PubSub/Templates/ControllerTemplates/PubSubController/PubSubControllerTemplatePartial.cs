@@ -127,7 +127,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                 {
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
-                    ctor.AddParameter(GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
+                    ctor.AddParameter(GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
                         p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     var requestHandlerMethod = @class.FindMethod("RequestHandler");

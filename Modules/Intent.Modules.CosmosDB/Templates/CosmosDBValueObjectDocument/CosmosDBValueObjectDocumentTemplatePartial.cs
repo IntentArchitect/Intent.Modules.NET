@@ -27,7 +27,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
         public CosmosDBValueObjectDocumentTemplate(IOutputTarget outputTarget, IElement model = null) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource(TemplateFulfillingRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
@@ -48,12 +48,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         attributes: attributes,
                         associationEnds: Array.Empty<AssociationEndModel>());
 
-                    var valueObjectTypeName = GetTypeName(TemplateFulfillingRoles.Domain.ValueObject, Model);
+                    var valueObjectTypeName = GetTypeName(TemplateRoles.Domain.ValueObject, Model);
 
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
                         associationEnds: Array.Empty<AssociationEndModel>(),
+                        partitionKeyAttribute: null,
                         entityInterfaceTypeName: valueObjectTypeName,
                         entityImplementationTypeName: valueObjectTypeName,
                         entityRequiresReflectionConstruction: true,

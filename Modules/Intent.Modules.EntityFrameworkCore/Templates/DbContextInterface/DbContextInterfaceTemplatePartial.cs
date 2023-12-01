@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -30,6 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
                 AddNugetDependency(NugetPackages.EntityFrameworkCore(OutputTarget));
             }
 
+            // NOTE: This interface will get its DbSet fields injected into it from the DbContextTemplate
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
@@ -48,7 +50,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             return base.CanRunTemplate() && IsEnabled;
         }
 
-        public bool IsEnabled => ExecutionContext.Settings.GetDatabaseSettings().GenerateDbContextInterface();
+        public bool IsEnabled => ExecutionContext.Settings.GetDatabaseSettings().GenerateDbContextInterface() 
+                                 || !TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

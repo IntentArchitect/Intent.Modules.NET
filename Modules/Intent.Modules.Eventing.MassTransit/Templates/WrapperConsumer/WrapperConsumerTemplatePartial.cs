@@ -107,8 +107,8 @@ public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Consum
 
     private bool EfIsPresent()
     {
-        return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _) ||
-               TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _);
+        return TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out _) ||
+               TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out _);
     }
 
     private void ApplyUnitOfWorkSaves(CSharpClass @class, CSharpClassMethod method)

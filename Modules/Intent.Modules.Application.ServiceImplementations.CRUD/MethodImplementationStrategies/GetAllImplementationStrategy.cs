@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
@@ -10,7 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
@@ -26,6 +27,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
+            if (operationModel.CreateEntityActions().Any()
+                || operationModel.UpdateEntityActions().Any()
+                || operationModel.DeleteEntityActions().Any()
+                || operationModel.QueryEntityActions().Any())
+            {
+                return false;
+            }
+
             if (operationModel.Parameters.Any())
             {
                 return false;
@@ -48,29 +57,34 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
+            if (!_template.TryGetTemplate<ITemplate>(TemplateRoles.Repository.Interface.Entity, domainModel, out _))
+            {
+                return false;
+            }
+
             var lowerOperationName = operationModel.Name.ToLower();
             return new[] { "get", "find" }.Any(x => lowerOperationName.Contains(x));
         }
 
         public void ApplyStrategy(OperationModel operationModel)
         {
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
 
             var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
-            var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
-                ? dtoName
+            var unqualifiedDtoTypeName = _template.TryGetTemplate<IClassProvider>(DtoModelTemplate.TemplateId, dtoModel, out var dtoTemplate)
+                ? dtoTemplate.ClassName
                 : dtoModel.Name.ToPascalCase();
             var domainModel = dtoModel.Mapping.Element.AsClassModel();
-            var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+            var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
 
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
                 $@"var elements ={(operationModel.IsAsync() ? " await" : string.Empty)} {repositoryFieldName}.FindAll{(operationModel.IsAsync() ? "Async" : "")}(cancellationToken);");
-            codeLines.Add($@"return elements.MapTo{dtoType}List(_mapper);");
+            codeLines.Add($@"return elements.MapTo{unqualifiedDtoTypeName}List(_mapper);");
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));

@@ -186,5 +186,38 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="d6c78a26-5481-4668-a2b7-58dfd2bcf77a" type="Send Message" typeId="eff4de68-2ecb-4f61-a240-638c500693e2">
+      <name>Send</name>
+      <display>Send: MassageToClientDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ce7fdef5-54c1-42f5-8a62-631aa3f0f97f">
+        <typeId>f9dabcc0-d7e7-459e-938e-43878d4f40e7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SignalR.Services</typePackageName>
+        <typePackageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</parentFolderId>
+      <packageId>bf3107eb-d0f7-4ccd-8685-0177afb8c7c3</packageId>
+      <packageName>SignalR.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a711f094-48c5-4011-ae90-666e83bd959f" name="Hub Send Message Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.SignalR</definitionPackageName>
+          <definitionPackageId>6378d2f9-b84e-4b0f-a097-226cec1b8553</definitionPackageId>
+          <properties>
+            <property name="58131a09-d682-4586-a94a-d2b9b5a8d555" display="Target Clients" value="Client" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

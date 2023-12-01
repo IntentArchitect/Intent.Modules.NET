@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -116,6 +117,14 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         public async Task<CustomDTO> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default)
         {
             return CustomDTO.Create(ReferenceNumber);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<List<CustomDTO>> GetItems(List<string> ids, CancellationToken cancellationToken = default)
+        {
+            var items = Enumerable.Range(1, 10).Select(s => new CustomDTO { ReferenceNumber = s.ToString() }).ToArray();
+            var intersect = items.Where(p => ids.Contains(p.ReferenceNumber)).ToList();
+            return intersect;
         }
 
         public void Dispose()

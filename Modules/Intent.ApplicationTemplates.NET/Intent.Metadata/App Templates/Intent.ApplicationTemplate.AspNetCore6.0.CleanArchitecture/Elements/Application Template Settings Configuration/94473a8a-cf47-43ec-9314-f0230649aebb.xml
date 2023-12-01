@@ -39,6 +39,20 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="c917e871-118c-468c-b4fa-a923d78479be" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 8.0</name>
+          <display>.NET 8.0 = f8b1618d-1e64-4c2c-9787-e0725c3633a1</display>
+          <isAbstract>false</isAbstract>
+          <value>f8b1618d-1e64-4c2c-9787-e0725c3633a1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6162946d-3299-4552-8564-431ef4efb5b4</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="4a8b330c-2b60-432b-8ae3-db3659ba37b2" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 7.0</name>
           <display>.NET 7.0 = 0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</display>

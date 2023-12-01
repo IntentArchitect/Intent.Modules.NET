@@ -161,6 +161,23 @@ public class IntegrationServiceHttpClientTests
         Assert.Equal(IntegrationService.ReferenceNumber, result.ReferenceNumber);
     }
     
+    [Fact]
+    public async Task TestGetItems()
+    {
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper, IdPortNumber);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, GetDiServices(), typeof(IntegrationController).Assembly, ApiPortNumber, IdPortNumber);
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var integrationService = sp.GetService<IIntegrationServiceProxy>()!;
+        var result = await integrationService.GetItemsAsync(new List<string> { "1", "2", "5" });
+        Assert.Equivalent(new[]
+        {
+            new CustomDTO { ReferenceNumber = "1" },
+            new CustomDTO { ReferenceNumber = "2" },
+            new CustomDTO { ReferenceNumber = "5" }
+        }, result);
+    }
+    
     private static Action<IServiceCollection> GetDiServices()
     {
         var serviceMock = new IntegrationService();

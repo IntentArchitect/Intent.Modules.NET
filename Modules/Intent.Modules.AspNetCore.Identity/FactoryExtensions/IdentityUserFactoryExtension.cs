@@ -106,7 +106,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
 
 
             var entityTemplate = application
-                .FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel(TemplateFulfillingRoles.Domain.Entity.Primary, identityModel));
+                .FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel(TemplateRoles.Domain.Entity.Primary, identityModel));
             if (entityTemplate == null)
             {
                 return;

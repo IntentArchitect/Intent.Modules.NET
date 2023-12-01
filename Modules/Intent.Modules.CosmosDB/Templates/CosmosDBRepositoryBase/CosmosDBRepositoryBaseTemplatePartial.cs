@@ -31,6 +31,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
+            AddNugetDependency(NugetDependencies.NewtonsoftJson);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

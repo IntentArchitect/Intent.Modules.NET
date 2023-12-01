@@ -1,3 +1,8 @@
+### Version 6.0.0
+
+- Improvement: Updated to support use of top-level statements and minimal hosting model improvements introduced in [`Intent.AspNetCore` version 6.0.0](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore/release-notes.md#version-600).
+- Fixed: Roles and policies not being applied to individual endpoints when the `API Settings` have the `Default API Security` set to `Secured by default`
+
 ### Version 5.4.4
 
 - Improvement: Added an `IControllerTemplate` interface for custom dispatch support.

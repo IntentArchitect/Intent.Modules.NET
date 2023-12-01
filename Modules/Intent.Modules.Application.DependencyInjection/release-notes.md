@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.0.6
 
 - Improvement: `AddApplication` extension method will now receive `IConfiguration` as a parameter.

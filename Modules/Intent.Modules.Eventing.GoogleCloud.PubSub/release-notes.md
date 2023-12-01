@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 1.0.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

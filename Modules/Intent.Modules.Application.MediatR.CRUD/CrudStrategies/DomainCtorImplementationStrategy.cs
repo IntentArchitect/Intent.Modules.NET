@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -12,7 +13,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Repositories.Api.Templates;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
@@ -38,9 +38,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public void ApplyStrategy()
         {
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
-            _template.AddTypeSource(TemplateFulfillingRoles.Domain.DataContract);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.DataContract);
             _template.AddUsing("System.Linq");
 
             var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
@@ -83,7 +83,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync({nestedCompOwnerIdFields.GetEntityIdFromRequest(_template.Model.InternalElement)}, cancellationToken);");
                 codeLines.Add(_template.CreateThrowNotFoundIfNullStatement(
                     variable: "aggregateRoot",
-                    message: $"{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
+                    message: $"{{nameof({_template.GetTypeName(TemplateRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{nestedCompOwnerIdFields.GetEntityIdFromRequestDescription()}' could not be found"));
                 codeLines.Add(string.Empty);
             }
 
@@ -122,6 +122,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             CSharpStatement GetConstructorStatement(string entityVarName, string dtoVarName, bool hasInitStatements)
             {
+
                 var ctor = _template.Model.Mapping.Element.AsClassConstructorModel();
                 var ctorParams = ctor?.Parameters;
 
@@ -136,20 +137,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     invocationStatement.WithoutSemicolon();
                 }
 
-                foreach (var param in ctorParams)
+                try
                 {
-                    var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
-                    if (invocationArgument == null)
+                    foreach (var param in ctorParams)
                     {
-                        codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
-                        invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
-                        continue;
+                        var invocationArgument = GetInvocationArgument(param, _template.Model.Properties, dtoVarName);
+                        if (invocationArgument == null)
+                        {
+                            codeLines.Add($"#warning No supported convention for populating \"{param.Name.ToParameterName()}\" parameter");
+                            invocationStatement.AddArgument($"{param.Name.ToParameterName()}: default");
+                            continue;
+                        }
+
+                        invocationStatement.AddArgument(invocationArgument);
                     }
 
-                    invocationStatement.AddArgument(invocationArgument);
+                    return invocationStatement;
                 }
-
-                return invocationStatement;
+                catch (Exception ex)
+                {
+                    throw new ElementException(_template.Model.InternalElement, $"Constructor mapping to [{ctor.ParentClass.Name}] could not be performed. See inner exception for more details.", ex);
+                }
             }
         }
 
@@ -162,7 +170,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 var mappingMethodName = $"Create{parameter.TypeReference.Element.Name.ToPascalCase()}";
 
-                var mappedField = fields.First(field => field.Mapping?.Element?.Id == parameter.Id);
+                var mappedField = fields.FirstOrDefault(field => field.Mapping?.Element?.Id == parameter.Id);
+                if (mappedField == null)
+                {
+                    throw new Exception($"A mapping doesn't exist for parameter '{parameter.Name}'");
+                }
                 var constructMethod = parameter.TypeReference.IsCollection
                     ? $"{dtoVarName}.{mappedField.Name.ToPascalCase()}.Select({mappingMethodName})"
                     : $"{mappingMethodName}({dtoVarName}.{mappedField.Name.ToPascalCase()})";
@@ -231,7 +243,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private bool RepositoryRequiresExplicitUpdate()
         {
             return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateFulfillingRoles.Repository.Interface.Entity,
+                       TemplateRoles.Repository.Interface.Entity,
                        _matchingElementDetails.Value.RepositoryInterfaceModel,
                        out var repositoryInterfaceTemplate) &&
                    repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
@@ -255,8 +267,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
             var repositoryInterfaceModel = nestedCompOwner != null ? nestedCompOwner : foundEntity;
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(repositoryInterfaceModel);
-            if (repositoryInterface == null)
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, repositoryInterfaceModel, out var repositoryInterface))
             {
                 return NoMatch;
             }

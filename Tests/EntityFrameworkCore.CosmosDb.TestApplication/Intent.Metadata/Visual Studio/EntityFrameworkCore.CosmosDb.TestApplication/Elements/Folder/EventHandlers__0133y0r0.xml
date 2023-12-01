@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>bea39efa-3215-439b-8dea-fc33f85e3f4a</parentFolderId>
+  <parentFolderId>e9a182e3-c40c-42d4-af92-61ff1c949593</parentFolderId>
   <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
   <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
   <stereotypes>
@@ -40,6 +40,22 @@
     <childElement id="2b946586-e940-48f4-b541-b4f4bc636ebb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</name>
       <display>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>318a8300-41cd-4b33-9737-cb14eaa85485</parentFolderId>
+      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="655dd3d4-810f-414a-a72d-74de9d3ba7e1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.DomainEventHandler</name>
+      <display>Intent.MediatR.DomainEvents.DomainEventHandler</display>
       <externalReference>Intent.MediatR.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

@@ -2,13 +2,16 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -24,7 +27,7 @@ public class ProgramAppConfigInstaller : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        var programTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("App.Program"));
+        var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("App.Program"));
         if (programTemplate == null)
         {
             return;
@@ -40,16 +43,26 @@ public class ProgramAppConfigInstaller : FactoryExtensionBase
         {
             file.AddUsing(configTemplate.Namespace);
             file.AddUsing("Microsoft.Extensions.Configuration");
-        
-            var @class = file.Classes.First();
-            var hostBuilder = @class.FindMethod("CreateHostBuilder");
-            var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
-            hostBuilderChain.Statements.Last().InsertAbove(new CSharpInvocationStatement("ConfigureAppConfiguration")
-                .WithoutSemicolon()
-                .AddArgument(new CSharpLambdaBlock("(context, config)")
-                    .AddStatement("var configuration = config.Build();")
-                    .AddIfStatement(@"configuration.GetValue<bool?>(""KeyVault:Enabled"") == true", block => block
-                        .AddStatement(@"config.ConfigureAzureKeyVault(configuration);")))); 
+
+            if (programTemplate.ProgramFile.UsesMinimalHostingModel)
+            {
+                programTemplate.ProgramFile.AddHostBuilderConfigurationStatement(new CSharpIfStatement("builder.Configuration.GetValue<bool?>(\"KeyVault:Enabled\") == true"), @if =>
+                {
+                    @if.AddStatement("builder.Configuration.ConfigureAzureKeyVault(builder.Configuration);");
+                });
+            }
+            else
+            {
+                programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+                {
+                    statements
+                        .AddStatement($"var configuration = {parameters[^1]}.Build();")
+                        .AddIfStatement(@"configuration.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
+                        {
+                            @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(configuration);");
+                        });
+                });
+            }
         }, 30);
     }
 }

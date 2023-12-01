@@ -3,7 +3,6 @@
   <name>Program</name>
   <display>Program: Single File</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="8f759f6c-d977-4dfd-b984-f3d8df5205a0">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

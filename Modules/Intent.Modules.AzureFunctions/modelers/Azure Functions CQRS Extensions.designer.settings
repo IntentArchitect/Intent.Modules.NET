@@ -177,4 +177,5 @@ function getUnconventionalRoute() {
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
 </settings>

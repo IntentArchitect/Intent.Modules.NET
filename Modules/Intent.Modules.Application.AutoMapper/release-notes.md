@@ -1,7 +1,13 @@
-### Version 4.0.6
+﻿### Version 5.0.0
+
+- Improvement: Updated the `AutoMapper.Extensions.Microsoft.DependencyInjection` NuGet package version to 12.0.1.
+
+> ⚠️ **NOTE**
+>
+> This module update may cause a compilation break around legacy NuGet package references to `AutoMapper.Extensions.Microsoft.DependencyInjection v7.0.*`, these references can simply be removed or upgraded to `12.0.1` if they are required.
 
 - Improvement: Updated `AutoMapper` NuGet package to `12.0.1` 
-- Improvement: Add an EF Core Interop which adds AutoMapper  Projection Functionality to EF repositoreies.
+- Improvement: Add an EF Core InterOp which adds AutoMapper  Projection Functionality to EF repositories.
 - Improvement: Allow DTOs to be instantiated using a non-public constructor.
 
 ### Version 4.0.3

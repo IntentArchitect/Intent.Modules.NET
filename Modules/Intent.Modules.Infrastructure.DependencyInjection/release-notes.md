@@ -1,3 +1,7 @@
+### Version 4.0.8
+
+- Improvement: Updated to be compatible with .NET 8.
+
 ### Version 4.0.7
 
 - Improvement: Updated nuget packages for .NET 8 framework readiness.

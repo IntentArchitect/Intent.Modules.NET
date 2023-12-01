@@ -33,6 +33,7 @@
         <option>Users</option>
         <option>Group</option>
         <option>Groups</option>
+        <option>Client</option>
       </valueOptions>
       <lookupTypes />
     </property>
