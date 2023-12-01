@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private void AddConfigureConventions(IApplication application)
         {
-            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Infrastructure.Data.DbContext));
+            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
             if (dbContext is null)
             {
                 return;
