@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
 {
     public class MappingRoot
@@ -9,7 +11,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
         private List<MappingCompositeMultiple> _mappingCompositeMultiples = new List<MappingCompositeMultiple>();
 
         public MappingRoot(IEnumerable<MappingCompositeMultiple> mappingCompositeMultiples,
-    MappingCompositeSingle mappingCompositeSingle)
+            MappingCompositeSingle mappingCompositeSingle)
         {
             _mappingCompositeMultiples.Clear();
             _mappingCompositeMultiples.AddRange(mappingCompositeMultiples);

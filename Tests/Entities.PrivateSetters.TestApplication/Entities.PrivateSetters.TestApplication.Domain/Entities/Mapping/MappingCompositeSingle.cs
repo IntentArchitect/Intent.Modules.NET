@@ -1,6 +1,8 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTagModeImplicit]
+
 namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
 {
     public class MappingCompositeSingle

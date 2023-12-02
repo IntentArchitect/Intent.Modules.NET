@@ -36,10 +36,10 @@ namespace CleanArchitecture.TestApplication.Application.Customers.UpdateCustomer
             customer.Surname = request.Surname;
             customer.Email = request.Email;
             customer.Address = new Address(
-                request.Address.Line1,
-                request.Address.Line2,
-                request.Address.City,
-                request.Address.Postal);
+                line1: request.Address.Line1,
+                line2: request.Address.Line2,
+                city: request.Address.City,
+                postal: request.Address.Postal);
         }
     }
 }

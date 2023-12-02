@@ -32,10 +32,10 @@ namespace CleanArchitecture.TestApplication.Application.Customers.CreateCustomer
                 Surname = request.Surname,
                 Email = request.Email,
                 Address = new Address(
-                    request.Address.Line1,
-                    request.Address.Line2,
-                    request.Address.City,
-                    request.Address.Postal)
+                    line1: request.Address.Line1,
+                    line2: request.Address.Line2,
+                    city: request.Address.City,
+                    postal: request.Address.Postal)
             };
 
             _customerRepository.Add(customer);
