@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f90ff72d-ceee-4127-a291-2eef30e54bc5" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>SecuredService</name>
+  <display>SecuredService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>d4e2dacd-90bd-4d8e-829b-bed69f1b8631</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="54dc2464-246c-461d-9fbd-d03956c25688" name="CleanArchitecture.Dapr.Services" type="association" specialization="Package Reference" />
+      <target id="48b44633-68b5-44f6-9954-cefa85850fb0" name="SecuredProxy" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>1c435b4c-650a-4071-996b-efe5d945bbaf</parentFolderId>
+  <packageId>1c435b4c-650a-4071-996b-efe5d945bbaf</packageId>
+  <packageName>ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="082ce9bf-9252-42f9-98af-072bd1eaf15c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetSecuredValue</name>
+      <display>GetSecuredValue(): int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="54fec154-f45f-4bdf-9745-e0fbb949590a">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fd8bf7e5-55e1-4dd2-b6e6-571ab907ef81" name="GetSecuredValueQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>f90ff72d-ceee-4127-a291-2eef30e54bc5</parentFolderId>
+      <packageId>1c435b4c-650a-4071-996b-efe5d945bbaf</packageId>
+      <packageName>ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

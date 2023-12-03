@@ -28,14 +28,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.DaprConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cac491ff-9a2a-4ef1-ae6d-db6349de140a</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.Configuration.DaprConfigurationConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Configuration/DaprConfigurationConfiguration.cs</ApplicationRelativeFilePath>
@@ -120,6 +112,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/ScheduledController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ScheduledController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#48b44633-68b5-44f6-9954-cefa85850fb0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/SecuredProxyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredProxyController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -827,6 +827,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3de165a8-0596-4f97-9e34-01dad7cc991e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#f90ff72d-ceee-4127-a291-2eef30e54bc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/IntegrationServices/ISecuredService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecuredService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#6666456b-c288-4d56-91f0-47702f744ebe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1184,6 +1192,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Scheduled/Hourly/HourlyCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Scheduled/Hourly/HourlyCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fd8bf7e5-55e1-4dd2-b6e6-571ab907ef81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/SecuredProxy/GetSecuredValue/GetSecuredValueQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredProxy/GetSecuredValue/GetSecuredValueQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fd8bf7e5-55e1-4dd2-b6e6-571ab907ef81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/SecuredProxy/GetSecuredValue/GetSecuredValueQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredProxy/GetSecuredValue/GetSecuredValueQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fd8bf7e5-55e1-4dd2-b6e6-571ab907ef81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/SecuredProxy/GetSecuredValue/GetSecuredValueQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredProxy/GetSecuredValue/GetSecuredValueQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1571,6 +1603,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>17ff7ce7-7ac5-47b4-9541-90eb245d144b</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e5e38311-21d4-4c4e-907c-bf6e9f6f68c5</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1588,10 +1628,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>86524229-7b28-431b-a77f-8b447f226613</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/HttpClients/HttpClientDaprExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientDaprExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>86524229-7b28-431b-a77f-8b447f226613</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>86524229-7b28-431b-a77f-8b447f226613</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient#818638bc-6f9c-466a-b4a6-86617b751e6c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/HttpClients/NamedQueryStringsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamedQueryStringsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>86524229-7b28-431b-a77f-8b447f226613</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient#f90ff72d-ceee-4127-a291-2eef30e54bc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/HttpClients/SecuredServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

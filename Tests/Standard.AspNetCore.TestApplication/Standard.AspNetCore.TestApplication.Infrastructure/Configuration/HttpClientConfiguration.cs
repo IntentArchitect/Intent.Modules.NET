@@ -19,32 +19,43 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
+            services.AddHttpContextAccessor();
 
-            services.AddHttpClient<IIntegrationServiceProxy, IntegrationServiceProxyHttpClient>(http =>
-            {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:IntegrationServiceProxy:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:IntegrationServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
-            }).AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ?? "default");
-            services.AddHttpClient<IInvoiceServiceProxy, InvoiceServiceProxyHttpClient>(http =>
-            {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:InvoiceServiceProxy:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:InvoiceServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
-            });
-            services.AddHttpClient<IMultiVersionServiceProxy, MultiVersionServiceProxyHttpClient>(http =>
-            {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MultiVersionServiceProxy:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:MultiVersionServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
-            });
-            services.AddHttpClient<IQueryStringNamesService, QueryStringNamesServiceHttpClient>(http =>
-            {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryStringNamesService:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:QueryStringNamesService:Timeout") ?? TimeSpan.FromSeconds(100);
-            });
-            services.AddHttpClient<IVersionOneServiceProxy, VersionOneServiceProxyHttpClient>(http =>
-            {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:VersionOneServiceProxy:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:VersionOneServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
-            });
+            services
+                .AddHttpClient<IIntegrationServiceProxy, IntegrationServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:IntegrationServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:IntegrationServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                })
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ?? "default");
+
+            services
+                .AddHttpClient<IInvoiceServiceProxy, InvoiceServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:InvoiceServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:InvoiceServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
+                .AddHttpClient<IMultiVersionServiceProxy, MultiVersionServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MultiVersionServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:MultiVersionServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
+                .AddHttpClient<IQueryStringNamesService, QueryStringNamesServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryStringNamesService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:QueryStringNamesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
+                .AddHttpClient<IVersionOneServiceProxy, VersionOneServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:VersionOneServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:VersionOneServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
         }
     }
 }

@@ -5,6 +5,7 @@ using CleanArchitecture.Dapr.Application.Common.Eventing;
 using CleanArchitecture.Dapr.Application.Common.Interfaces;
 using CleanArchitecture.Dapr.Domain.Common.Interfaces;
 using CleanArchitecture.Dapr.Domain.Repositories;
+using CleanArchitecture.Dapr.Infrastructure.Configuration;
 using CleanArchitecture.Dapr.Infrastructure.Eventing;
 using CleanArchitecture.Dapr.Infrastructure.Persistence;
 using CleanArchitecture.Dapr.Infrastructure.Repositories;
@@ -40,6 +41,7 @@ namespace CleanArchitecture.Dapr.Infrastructure
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }

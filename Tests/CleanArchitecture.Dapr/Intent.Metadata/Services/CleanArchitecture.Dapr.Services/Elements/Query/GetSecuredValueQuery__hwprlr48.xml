@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fd8bf7e5-55e1-4dd2-b6e6-571ab907ef81" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetSecuredValueQuery</name>
+  <display>GetSecuredValueQuery: int</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="e7b56755-0d2a-4416-9616-b64a2dec9449">
+    <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>48b44633-68b5-44f6-9954-cefa85850fb0</parentFolderId>
+  <packageId>54dc2464-246c-461d-9fbd-d03956c25688</packageId>
+  <packageName>CleanArchitecture.Dapr.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b06358cd-aed3-4c39-96cf-abb131e4ecde" name="Authorize">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Application.MediatR</definitionPackageName>
+      <definitionPackageId>e92495db-1b26-4389-bf06-cc1b375520b1</definitionPackageId>
+      <properties>
+        <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="true" />
+        <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/secured-proxy" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

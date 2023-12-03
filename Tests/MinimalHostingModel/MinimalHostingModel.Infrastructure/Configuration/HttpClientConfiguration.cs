@@ -17,6 +17,7 @@ namespace MinimalHostingModel.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
+            services.AddHttpContextAccessor();
 
         }
     }

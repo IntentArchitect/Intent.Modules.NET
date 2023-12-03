@@ -44,14 +44,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>af2712f5-bf0d-4c76-bcab-365e220a015b</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.DaprConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Configuration/DaprConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>af2712f5-bf0d-4c76-bcab-365e220a015b</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
@@ -483,6 +475,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1548fdee-e410-4d1f-8674-057546f3205b</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9a02c2c1-32c1-4dfa-ad06-519222669804</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -496,6 +496,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Eventing/EventBusImplementation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusImplementation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54734a52-c6e1-455b-999d-adfcf47a3b51</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientDaprExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientDaprExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54734a52-c6e1-455b-999d-adfcf47a3b51</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

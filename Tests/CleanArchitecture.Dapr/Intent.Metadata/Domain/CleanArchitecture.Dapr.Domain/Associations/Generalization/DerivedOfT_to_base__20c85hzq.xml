@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1f9e1b1d-d36e-48d3-919f-58069ce3448d">
   <sourceEnd id="45175229-e6c3-481a-b30b-32d839e4768e" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <name>DerivedOfT</name>
-    <display>DerivedOfT: DerivedOfT</display>
+    <display>: DerivedOfT</display>
     <order>0</order>
     <typeReference id="e9cf35ed-236a-4da7-bb32-16095696ab3e">
       <typeId>32d8c096-18f3-40c9-945d-00f565c9cb47</typeId>
@@ -20,8 +19,8 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="1f9e1b1d-d36e-48d3-919f-58069ce3448d" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>BaseOfT</name>
-    <display>BaseOfT: BaseOfT&lt;int&gt;</display>
+    <name>base</name>
+    <display>extends BaseOfT&lt;int&gt;</display>
     <order>1</order>
     <typeReference id="f2361862-131f-4f3b-b6af-41587ec28599">
       <typeId>df6f56e4-28b8-48e0-ae73-6d908c10d820</typeId>

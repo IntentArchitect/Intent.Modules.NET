@@ -53,5 +53,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="39f0ecc3-6844-4254-ad78-25ca80b09b43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</display>
+      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>54734a52-c6e1-455b-999d-adfcf47a3b51</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d8f5a98d-bb16-4f5c-9def-cb5af0fec81f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</display>
+      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>54734a52-c6e1-455b-999d-adfcf47a3b51</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

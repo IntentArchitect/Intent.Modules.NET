@@ -1,7 +1,7 @@
 ﻿### Version 5.0.8
 
 - Fixed: Bug in HttpClient where the query string was not correctly handling a collection type.
-- Improvement: Added support for configuring headers in HttpClient request either through request header propagation or from the Session.
+- Improvement: Added support for configuring headers in HttpClient requests either through request header propagation or from the Session.
 
 ### Version 5.0.7
 

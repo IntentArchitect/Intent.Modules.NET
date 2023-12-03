@@ -1,4 +1,9 @@
-﻿### Version 2.0.8
+﻿### Version 2.1.0
+
+- Improvement: Added support for configuring headers in HttpClient requests either through request header propagation.
+- Improvement: Dapr HttpClient construction is now done using the HttpClientBuilder paradigm, to better support extension.
+
+### Version 2.0.8
 
 - Fixed: Bug in HttpClient where the query string was not correctly handling a collection type.
 

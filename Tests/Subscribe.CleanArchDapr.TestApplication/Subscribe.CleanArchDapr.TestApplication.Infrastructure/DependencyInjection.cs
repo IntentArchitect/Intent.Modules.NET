@@ -9,6 +9,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.Common.Eventing;
 using Subscribe.CleanArchDapr.TestApplication.Application.Common.Interfaces;
 using Subscribe.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
 using Subscribe.CleanArchDapr.TestApplication.Domain.Repositories;
+using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Configuration;
 using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Eventing;
 using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Persistence;
 using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Repositories;
@@ -34,6 +35,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }

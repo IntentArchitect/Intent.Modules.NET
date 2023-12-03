@@ -6868,6 +6868,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClient#d6d46aba-0653-489a-a910-a75684dbae29</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/HttpClients/NamedQueryStringsServiceHttpClient.cs</ApplicationRelativeFilePath>

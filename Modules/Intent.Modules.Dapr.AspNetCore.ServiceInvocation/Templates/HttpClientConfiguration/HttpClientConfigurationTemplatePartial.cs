@@ -35,8 +35,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"string appId = \"{template.ExecutionContext.GetDaprApplicationName(model.First().InternalElement.MappedElement.ApplicationId)}\";");
-                      options.AddStatement($"http.BaseAddress = new Uri($\"http://{{appId}}\");");
+                      options.AddStatement($"http.BaseAddress = new Uri($\"http://{template.ExecutionContext.GetDaprApplicationName(model.First().InternalElement.MappedElement.ApplicationId)}\");");
                   }
                   )
         { 
