@@ -55,6 +55,8 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                     method.AddMethodChainStatement("IConfigurationRoot configuration = new ConfigurationBuilder()", chain => chain
                         .AddChainStatement("SetBasePath(Directory.GetCurrentDirectory())")
                         .AddChainStatement(@"AddJsonFile(""appsettings.json"")")
+                        .AddChainStatement("AddEnvironmentVariables()")
+                        .AddChainStatement("AddUserSecrets(typeof(DesignTimeDbContextFactory).Assembly)")
                         .AddChainStatement("Build()"));
                     method.AddStatement("var connStringName = args.FirstOrDefault();");
                     method.AddIfStatement("string.IsNullOrEmpty(connStringName)", stmt => stmt
@@ -105,7 +107,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                 {
                     return;
                 }
-                
+
                 var @class = file.Classes.First();
                 var method = @class.FindMethod("CreateDbContext");
                 var returnStatement = (CSharpInvocationStatement)method.Statements.LastOrDefault(p => p.HasMetadata("return-statement"));
