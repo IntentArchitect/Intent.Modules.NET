@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>4.4.16-beta.0</version>
+  <version>4.4.16-beta.1</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -117,10 +117,16 @@
           <hint>Sets the `UseQuerySplittingBehavior` option on the DbContext to `SplitQuery`.</hint>
           <defaultValue>false</defaultValue>
         </setting>
+        <setting id="df567ad2-98a7-49ce-9952-4a26b6074410" title="Store enums as strings" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Enables a convention to convert enums to/from strings.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
       </settings>
     </groupExtension>
   </moduleSettingsExtensions>
   <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.ConfigureConventionsExtension" externalReference="3b7cb49a-005e-4b51-bffa-c7e290a73ae6" />
     <factoryExtension id="Intent.EntityFrameworkCore.DependencyInjectionExtension" externalReference="9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9" />
     <factoryExtension id="Intent.EntityFrameworkCore.EnsureParameterlessConstructorsExtension" externalReference="9a4ddf6c-e4b0-4992-9139-3262fd4a84b1" />
     <factoryExtension id="Intent.EntityFrameworkCore.LazyLoadingProxyFactoryExtension" externalReference="5e6a2761-b883-495c-a3b9-1309933b6f43" />

@@ -641,5 +641,4 @@ function getNamingConvention() {
       </targetEndExtension>
     </associationExtension>
   </associationExtensions>
-  <mappingSettings />
 </settings>
