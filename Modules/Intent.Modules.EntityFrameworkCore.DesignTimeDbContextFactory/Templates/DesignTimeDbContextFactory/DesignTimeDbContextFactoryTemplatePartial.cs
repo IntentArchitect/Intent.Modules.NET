@@ -27,6 +27,8 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
     {
         AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationJson(OutputTarget));
         AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationFileExtensions(OutputTarget));
+        AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationUserSecrets(OutputTarget));
+        AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationEnvironmentVariables(OutputTarget));
         CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
             .AddUsing("System.IO")
             .AddUsing("System.Linq")
