@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration;
 using CleanArchitecture.OnlyModeledDomainEvents.Api.Filters;
@@ -37,7 +38,12 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Api
                 opt =>
                 {
                     opt.Filters.Add<ExceptionFilter>();
-                });
+                })
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureHealthChecks(Configuration);

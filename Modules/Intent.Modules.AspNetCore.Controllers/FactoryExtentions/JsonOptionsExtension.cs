@@ -47,7 +47,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 return;
             }
 
-            template.CSharpFile.OnBuild(file =>
+            template.CSharpFile.AfterBuild(file =>
             {
                 var startup = template.StartupFile;
                 startup.ConfigureServices((statements, context) =>
