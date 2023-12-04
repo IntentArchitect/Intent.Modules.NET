@@ -29,6 +29,8 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Persistence
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables()
+                .AddUserSecrets(typeof(DesignTimeDbContextFactory).Assembly)
                 .Build();
             var connStringName = args.FirstOrDefault();
             if (string.IsNullOrEmpty(connStringName))

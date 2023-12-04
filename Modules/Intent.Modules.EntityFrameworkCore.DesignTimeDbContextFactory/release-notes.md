@@ -1,6 +1,8 @@
 ### Version 4.0.7
 
 - Improvement: Updated to be compatible with .NET 8.
+- Improvement: Extended ConfigurationBuilder to additionally load settings from environment variables, or user secrets. (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/13) for this).
+
 
 ### Version 4.0.6
 
