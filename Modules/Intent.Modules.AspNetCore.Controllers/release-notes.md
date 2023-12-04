@@ -1,7 +1,9 @@
 ### Version 6.0.0
 
 - Improvement: Updated to support use of top-level statements and minimal hosting model improvements introduced in [`Intent.AspNetCore` version 6.0.0](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore/release-notes.md#version-600).
+- Improvement: Added setting for configuring controller JSON serialization options. (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/11) for this).
 - Fixed: Roles and policies not being applied to individual endpoints when the `API Settings` have the `Default API Security` set to `Secured by default`
+ 
 
 ### Version 5.4.4
 

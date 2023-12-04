@@ -1,6 +1,7 @@
 ﻿### Version 4.4.16
 
 - Improvement: Updated to be compatible with .NET 8.
+- Improvement: Added a setting for making `Enum`s persist as strings. (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/12) for this).
 
 ### Version 4.4.15
 

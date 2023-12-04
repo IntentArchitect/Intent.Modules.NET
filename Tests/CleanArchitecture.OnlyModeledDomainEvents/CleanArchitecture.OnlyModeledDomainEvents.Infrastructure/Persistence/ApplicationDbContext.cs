@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -81,6 +82,12 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Persistence
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties(typeof(Enum)).HaveConversion<string>();
         }
     }
 }

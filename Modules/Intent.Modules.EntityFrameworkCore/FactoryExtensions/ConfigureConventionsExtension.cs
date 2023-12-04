@@ -50,7 +50,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 return;
             }
 
-            dbContext.CSharpFile.AfterBuild(file =>
+            dbContext.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
                 @class.AddMethod("void", "ConfigureConventions", method =>
@@ -59,7 +59,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     method.Override();
                     method.AddParameter("ModelConfigurationBuilder", "configurationBuilder");
                     method.AddStatement("base.ConfigureConventions(configurationBuilder);");
-                    method.AddStatement("configurationBuilder.Properties(typeof(Enum)).HaveConversion<string>();");
+                    method.AddStatement($"configurationBuilder.Properties(typeof({ dbContext.UseType("System.Enum")})).HaveConversion<string>();");
                 });
 
             });
