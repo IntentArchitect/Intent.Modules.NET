@@ -27,10 +27,10 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
-            UpdateDaprProxyConfigurartion(application);
+            UpdateDaprProxyConfiguration(application);
         }
 
-        private void UpdateDaprProxyConfigurartion(IApplication application)
+        private void UpdateDaprProxyConfiguration(IApplication application)
         {
             var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplate.TemplateId);
 
@@ -50,7 +50,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.FactoryExtensions
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddDapr").WithoutSemicolon());
+                    proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"ConfigureForDapr").WithoutSemicolon());
                 }
             });
         }

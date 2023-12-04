@@ -12,7 +12,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
 {
     public static class HttpClientDaprExtensions
     {
-        public static IHttpClientBuilder AddDapr(this IHttpClientBuilder builder)
+        public static IHttpClientBuilder ConfigureForDapr(this IHttpClientBuilder builder)
         {
             builder.ConfigureHttpClient(http => http.DefaultRequestHeaders.UserAgent.Add(UserAgent()));
             builder.AddHttpMessageHandler(services =>

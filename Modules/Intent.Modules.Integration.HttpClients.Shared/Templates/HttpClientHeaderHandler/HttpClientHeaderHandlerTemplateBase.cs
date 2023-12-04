@@ -40,10 +40,6 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHead
                         .AddParameter("HttpRequestMessage", "request")
                         .AddParameter("CancellationToken", "cancellationToken")
                         .AddStatements(@"
-            if (_httpContextAccessor.HttpContext == null)
-            {
-                throw new Exception(""HttpContext expected"");
-            }
             _request = request;
             _configureHeaders(this);
 
@@ -52,6 +48,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHead
                     .AddMethod($"void", "AddFromHeader", m => m
                         .AddParameter("string", "headerName")
                         .AddStatements(@"
+            if (_httpContextAccessor.HttpContext == null)
+            {
+                return;
+            }
             if (_httpContextAccessor.HttpContext!.Request.Headers.TryGetValue(headerName, out var value))
             {
                 SetHeader(_request!, headerName, value);
@@ -59,7 +59,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHead
                     .AddMethod($"void", "AddFromSession", m => m
                         .AddParameter("string", "sessionKey")
                         .AddParameter("string", "headerName")
-                        .AddStatement("SetHeader(_request!, headerName, _httpContextAccessor.HttpContext!.Session.GetString(sessionKey));")
+                        .AddStatements(@"
+            if (_httpContextAccessor.HttpContext == null)
+            {
+                return;
+            }
+            SetHeader(_request!, headerName, _httpContextAccessor.HttpContext!.Session.GetString(sessionKey));".ConvertToStatements())
                     )
                     .AddMethod($"void", "SetHeader", m => m
                         .Private()

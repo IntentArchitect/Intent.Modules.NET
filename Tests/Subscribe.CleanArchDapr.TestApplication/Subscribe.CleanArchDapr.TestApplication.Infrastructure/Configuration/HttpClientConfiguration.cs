@@ -21,7 +21,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.Configuration
                 {
                     http.BaseAddress = new Uri($"http://publish-clean-arch-dapr-test-application");
                 })
-                .AddDapr();
+                .ConfigureForDapr();
         }
     }
 }

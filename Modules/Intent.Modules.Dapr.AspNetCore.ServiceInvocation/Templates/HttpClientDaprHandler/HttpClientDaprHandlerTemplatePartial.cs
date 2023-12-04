@@ -30,7 +30,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
                 .AddClass($"HttpClientDaprExtensions", @class =>
                 {
                     @class.Static();
-                    @class.AddMethod("IHttpClientBuilder", "AddDapr", method =>
+                    @class.AddMethod("IHttpClientBuilder", "ConfigureForDapr", method =>
                     {
                         method
                             .Static()

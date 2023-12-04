@@ -35,10 +35,6 @@ namespace MinimalHostingModel.Infrastructure.HttpClients
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            if (_httpContextAccessor.HttpContext == null)
-            {
-                throw new Exception("HttpContext expected");
-            }
             _request = request;
             _configureHeaders(this);
 
@@ -48,6 +44,10 @@ namespace MinimalHostingModel.Infrastructure.HttpClients
 
         public void AddFromHeader(string headerName)
         {
+            if (_httpContextAccessor.HttpContext == null)
+            {
+                return;
+            }
             if (_httpContextAccessor.HttpContext!.Request.Headers.TryGetValue(headerName, out var value))
             {
                 SetHeader(_request!, headerName, value);
@@ -56,6 +56,10 @@ namespace MinimalHostingModel.Infrastructure.HttpClients
 
         public void AddFromSession(string sessionKey, string headerName)
         {
+            if (_httpContextAccessor.HttpContext == null)
+            {
+                return;
+            }
             SetHeader(_request!, headerName, _httpContextAccessor.HttpContext!.Session.GetString(sessionKey));
         }
 

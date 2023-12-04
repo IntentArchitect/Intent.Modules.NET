@@ -21,7 +21,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.Configuration
                 {
                     http.BaseAddress = new Uri($"http://clean-architecture-dapr");
                 })
-                .AddDapr();
+                .ConfigureForDapr();
 
             services
                 .AddHttpClient<ISecuredService, SecuredServiceHttpClient>(http =>
@@ -32,7 +32,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.Configuration
                 {
                     config.AddFromHeader("Authorization");
                 })
-                .AddDapr();
+                .ConfigureForDapr();
         }
     }
 }
