@@ -40,14 +40,14 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 return;
             }
 
-            var enumsAsStrings = template.ExecutionContext.Settings.GetAPISettings().EnumsAsStrings();
-            var ignoreCycles = template.ExecutionContext.Settings.GetAPISettings().IgnoreJSONReferenceCycles();
+            var enumsAsStrings = template.ExecutionContext.Settings.GetAPISettings().SerializeEnumsAsStrings();
+            var ignoreCycles = template.ExecutionContext.Settings.GetAPISettings().OnSerializationIgnoreJSONReferenceCycles();
             if (!enumsAsStrings && !ignoreCycles)
             {
                 return;
             }
 
-            template.CSharpFile.AfterBuild(file =>
+            template.CSharpFile.OnBuild(file =>
             {
                 var startup = template.StartupFile;
                 startup.ConfigureServices((statements, context) =>

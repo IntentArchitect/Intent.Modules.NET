@@ -94,12 +94,12 @@
           <hint>API Route Prefix for newly created Services.</hint>
           <defaultValue>api/</defaultValue>
         </setting>
-        <setting id="97f3a1e3-2455-41e8-b28e-709f2db04230" title="Enums as Strings" type="switch">
+        <setting id="97f3a1e3-2455-41e8-b28e-709f2db04230" title="Serialize Enums as Strings" type="switch">
           <isRequired>false</isRequired>
           <hint>Configures whether to serialize/deserialze enum's as strings instead of ints</hint>
           <defaultValue>false</defaultValue>
         </setting>
-        <setting id="905d0eaa-b32c-4b3d-a6a5-05de63cb5f71" title="Ignore JSON reference cycles" type="switch">
+        <setting id="905d0eaa-b32c-4b3d-a6a5-05de63cb5f71" title="On Serialization ignore JSON reference cycles" type="switch">
           <isRequired>false</isRequired>
           <hint>Controls whether to ignore JSON reference cycles.</hint>
           <defaultValue>false</defaultValue>

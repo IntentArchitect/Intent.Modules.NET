@@ -79,8 +79,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
 
         public string DefaultAPIRoutePrefix() => _groupSettings.GetSetting("07c796c5-ff1c-4fb4-b9a4-bc9000439fec")?.Value;
 
-        public bool EnumsAsStrings() => bool.TryParse(_groupSettings.GetSetting("97f3a1e3-2455-41e8-b28e-709f2db04230")?.Value.ToPascalCase(), out var result) && result;
+        public bool SerializeEnumsAsStrings() => bool.TryParse(_groupSettings.GetSetting("97f3a1e3-2455-41e8-b28e-709f2db04230")?.Value.ToPascalCase(), out var result) && result;
 
-        public bool IgnoreJSONReferenceCycles() => bool.TryParse(_groupSettings.GetSetting("905d0eaa-b32c-4b3d-a6a5-05de63cb5f71")?.Value.ToPascalCase(), out var result) && result;
+        public bool OnSerializationIgnoreJSONReferenceCycles() => bool.TryParse(_groupSettings.GetSetting("905d0eaa-b32c-4b3d-a6a5-05de63cb5f71")?.Value.ToPascalCase(), out var result) && result;
     }
 }

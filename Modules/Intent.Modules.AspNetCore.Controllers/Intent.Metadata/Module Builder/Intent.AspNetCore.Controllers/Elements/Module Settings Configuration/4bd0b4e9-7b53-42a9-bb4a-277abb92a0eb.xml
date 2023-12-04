@@ -93,8 +93,8 @@
       <childElements />
     </childElement>
     <childElement id="97f3a1e3-2455-41e8-b28e-709f2db04230" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Enums as Strings</name>
-      <display>Enums as Strings</display>
+      <name>Serialize Enums as Strings</name>
+      <display>Serialize Enums as Strings</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -118,8 +118,8 @@
       <childElements />
     </childElement>
     <childElement id="905d0eaa-b32c-4b3d-a6a5-05de63cb5f71" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Ignore JSON reference cycles</name>
-      <display>Ignore JSON reference cycles</display>
+      <name>On Serialization ignore JSON reference cycles</name>
+      <display>On Serialization ignore JSON reference cycles</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
