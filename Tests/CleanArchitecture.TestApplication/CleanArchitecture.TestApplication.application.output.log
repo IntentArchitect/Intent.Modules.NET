@@ -4356,6 +4356,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#eac09ffe-22cd-4977-9b83-506ea6341f5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRoles.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRoles.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#eac09ffe-22cd-4977-9b83-506ea6341f5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#eac09ffe-22cd-4977-9b83-506ea6341f5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#ddc3abc7-c2ad-4cc1-a51f-f8dd0ea00ff7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/SecureServices/Secure/SecureCommand.cs</ApplicationRelativeFilePath>
