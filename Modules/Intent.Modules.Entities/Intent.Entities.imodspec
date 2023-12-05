@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>5.0.0-beta.4</version>
+  <version>5.0.0-beta.5</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>A simple and extensible Entities pattern in C#.</summary>
   <description>A simple and extensible Entities pattern in C#.</description>
@@ -86,7 +86,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0-beta.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.3" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.13" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.5.0-beta.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
@@ -115,6 +115,11 @@
         <setting id="0456dafe-a46e-466b-bf23-1fb35c094899" title="Create Entity Interfaces" type="switch">
           <isRequired>false</isRequired>
           <hint>Recommended only when very strict control to the domain is necessary.</hint>
+        </setting>
+        <setting id="9bb8d5fb-414d-4679-8bb3-5c91e1502720" title="Use Implicit Tag Mode for Entities" type="switch">
+          <isRequired>false</isRequired>
+          <hint>When enabled removes any Intent attributes which are the same in the template output.</hint>
+          <defaultValue>true</defaultValue>
         </setting>
       </settings>
     </groupExtension>

@@ -4,25 +4,17 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
-using Intent.Modules.Entities.Templates.DomainEntityInterface;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Common.Types.Api;
-using System;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Utils;
-using System.Threading;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -47,6 +39,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 }
             }
 
+            if (Model.Operations.Any(x => x.IsAsync()))
+            {
+                AddUsing("System.Threading.Tasks");
+            }
+
             AddTypeSource(TemplateRoles.Domain.ValueObject);
             AddTypeSource(TemplateRoles.Domain.Entity.Interface);
             AddTypeSource(TemplateRoles.Domain.DomainServices.Interface);
@@ -54,8 +51,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             AddTypeSource(DomainEnumTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
-                .AddAssemblyAttribute(CSharpIntentTagModeAttribute.Implicit())
-                .AddClass(Model.Name, (Action<CSharpClass>)(@class =>
+                .AddClass(Model.Name, @class =>
                 {
                     foreach (var genericType in Model.GenericTypes)
                     {
@@ -170,7 +166,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.OnBuild(file =>
                         {
                             var baseType = file.Classes.First();
-                            var abstractMethods = baseType.Methods.Where(m => m.IsAbstract);
+                            var abstractMethods = baseType.Methods.Where(m => m.IsAbstract).ToArray();
                             if (abstractMethods.Any())
                             {
                                 foreach (var abstractMethod in abstractMethods)
@@ -181,7 +177,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             }
                         }, 100);
                     }
-                }))
+                })
                 .AfterBuild(file =>
                 {
                     foreach (var method in file.Classes.First().Methods)
@@ -192,14 +188,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                         if (!method.Statements.Any())
                         {
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                            method.AddStatement($"// [IntentFully]");
+                            method.AddStatement("// [IntentFully]");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         }
                     }
                 });
-            if (Model.Operations.Any(x => x.IsAsync()))
+
+            if (ExecutionContext.Settings.GetDomainSettings().UseImplicitTagModeForEntities())
             {
-                AddUsing("System.Threading.Tasks");
+                CSharpFile.IntentTagModeImplicit();
             }
         }
 
@@ -284,8 +281,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour() &&
-                (!InterfaceTemplate.GetOperationTypeName(operation).Equals(this.GetOperationTypeName(operation)) ||
-                 !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(this.GetOperationTypeName))))
+                (!InterfaceTemplate.GetOperationTypeName(operation).Equals(GetOperationTypeName(operation)) ||
+                 !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(GetOperationTypeName))))
             {
                 AddInterfaceQualifiedMethod(@class, operation);
             }
@@ -297,32 +294,23 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             mappingManager.SetFromReplacement(mapping.SourceElement, null);
             mappingManager.SetToReplacement(mapping.TargetElement, null);
             mappingManager.AddMappingResolver(new CollectionPropertyResolver(this));
-            return mappingManager.GenerateUpdateStatements(mapping, codeContext).Select(s =>
-            {
-                if (s is CSharpAssignmentStatement assignment)
-                {
-                    assignment.WithSemicolon();
-                }
-                return s;
-            }).ToList();
-        }
 
-        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
-        {
-            return !(typeInfo.IsPrimitive
-                || typeInfo.IsNullable
-                || typeInfo.IsCollection
-                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
-                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.SpecializationType == "Generic Type"));
+            return mappingManager.GenerateUpdateStatements(mapping, codeContext)
+                .Select(s =>
+                {
+                    if (s is CSharpAssignmentStatement assignment)
+                    {
+                        assignment.WithSemicolon();
+                    }
+                    return s;
+                })
+                .ToList();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+            return CSharpFile.GetConfig();
         }
 
         [IntentManaged(Mode.Ignore, Body = Mode.Ignore)]
@@ -343,44 +331,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 return o.IsAsync() ? "async Task" : "void";
             }
             return o.IsAsync() ? $"async Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.ReturnType);
-        }
-
-        public string GetOperationReturnType(OperationModel o)
-        {
-            if (o.TypeReference.Element == null)
-            {
-                return o.IsAsync() ? "Task" : "void";
-            }
-            return o.IsAsync() ? $"Task<{GetTypeName(o.TypeReference, "IEnumerable<{0}>")}>" : GetTypeName(o.TypeReference, "IEnumerable<{0}>");
-        }
-
-        private string GetOperationTypeName(IHasTypeReference hasTypeReference)
-        {
-            return GetOperationTypeName(hasTypeReference.TypeReference);
-        }
-
-        private string GetOperationTypeName(ITypeReference type)
-        {
-            return GetTypeName(type, "IEnumerable<{0}>"); // fall back on normal type resolution.
-        }
-
-        private DomainEntityInterfaceTemplate _interfaceTemplate;
-        private DomainEntityInterfaceTemplate InterfaceTemplate => _interfaceTemplate ?? GetTemplate<DomainEntityInterfaceTemplate>(DomainEntityInterfaceTemplate.TemplateId, Model);
-
-
-        private string CastArgumentIfNecessary(ITypeReference typeReference, string argument)
-        {
-            var interfaceType = InterfaceTemplate.GetTypeInfo(typeReference);
-            if (!interfaceType.Equals(GetTypeInfo(typeReference)))
-            {
-                if (interfaceType.IsCollection)
-                {
-                    return $"{argument}.{UseType("System.Linq.Cast")}<{GetTypeName((IElement)typeReference.Element)}>().ToList()";
-                }
-                return $"({GetTypeName((IElement)typeReference.Element)}) {argument}";
-            }
-
-            return string.Empty;
         }
     }
 
