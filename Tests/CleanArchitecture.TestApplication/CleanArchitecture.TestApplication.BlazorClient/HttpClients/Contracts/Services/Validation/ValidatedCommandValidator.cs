@@ -25,8 +25,8 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
                 .EmailAddress();
 
             RuleFor(v => v.CascaseTest)
-                .NotNull()
                 .Cascade(CascadeMode.Stop)
+                .NotNull()
                 .MinimumLength(1)
                 .CustomAsync(ValidateCascaseTestAsync);
         }

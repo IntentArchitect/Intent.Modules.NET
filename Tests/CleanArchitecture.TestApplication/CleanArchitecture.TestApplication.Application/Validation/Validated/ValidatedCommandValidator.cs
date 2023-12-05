@@ -30,8 +30,8 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
                 .EmailAddress();
 
             RuleFor(v => v.CascaseTest)
-                .NotNull()
                 .Cascade(CascadeMode.Stop)
+                .NotNull()
                 .MinimumLength(1)
                 .CustomAsync(ValidateCascaseTestAsync);
         }

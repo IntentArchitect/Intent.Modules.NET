@@ -250,6 +250,15 @@ public static class ValidationRulesExtensions
             var validationRuleChain = new CSharpMethodChainStatement($"RuleFor(v => v.{field.Name.ToPascalCase()})");
             validationRuleChain.AddMetadata("model", field);
 
+            if (field.HasValidations())
+            {
+                var validations = field.GetValidations();
+                if (validations.CascadeMode().Value != null)
+                {
+                    validationRuleChain.AddChainStatement($"Cascade(CascadeMode.{validations.CascadeMode().Value})");
+                }
+            }
+
             if (!resolvedTypeInfo.Get(field.TypeReference).IsPrimitive &&
                 !field.TypeReference.IsNullable)
             {
@@ -286,10 +295,6 @@ public static class ValidationRulesExtensions
     {
         var validations = field.GetValidations();
 
-        if (validations.CascadeMode().Value != null)
-        {
-            validationRuleChain.AddChainStatement($"Cascade(CascadeMode.{validations.CascadeMode().Value})");
-        }
         if (validations.NotEmpty())
         {
             validationRuleChain.AddChainStatement("NotEmpty()");
