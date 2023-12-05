@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Entities.PrivateSetters.TestApplication.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace Entities.PrivateSetters.TestApplication.Domain.Entities
 {

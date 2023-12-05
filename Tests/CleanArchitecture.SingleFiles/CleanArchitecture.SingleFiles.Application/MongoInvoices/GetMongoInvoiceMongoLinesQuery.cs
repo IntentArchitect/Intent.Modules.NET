@@ -57,7 +57,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         [IntentManaged(Mode.Merge)]
         public GetMongoInvoiceMongoLinesQueryValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

@@ -4,7 +4,7 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Enums;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Domain.Entities.CRUD
 {

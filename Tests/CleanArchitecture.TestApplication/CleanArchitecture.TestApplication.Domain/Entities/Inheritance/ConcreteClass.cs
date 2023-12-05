@@ -1,6 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CleanArchitecture.TestApplication.Domain.Entities.Inheritance
 {

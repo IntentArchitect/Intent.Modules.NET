@@ -4,7 +4,7 @@ using System.Linq;
 using Entities.PrivateSetters.MongoDb.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace Entities.PrivateSetters.MongoDb.Domain.Entities
 {

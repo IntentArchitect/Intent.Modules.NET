@@ -62,7 +62,7 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
         [IntentManaged(Mode.Merge)]
         public UpdateCosmosInvoiceCommandValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

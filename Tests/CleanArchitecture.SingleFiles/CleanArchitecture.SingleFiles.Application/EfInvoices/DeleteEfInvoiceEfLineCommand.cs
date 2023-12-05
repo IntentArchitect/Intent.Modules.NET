@@ -62,7 +62,7 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
         [IntentManaged(Mode.Merge)]
         public DeleteEfInvoiceEfLineCommandValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

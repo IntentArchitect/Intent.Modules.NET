@@ -67,7 +67,7 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
         [IntentManaged(Mode.Merge)]
         public UpdateDaprInvoiceDaprLineCommandValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

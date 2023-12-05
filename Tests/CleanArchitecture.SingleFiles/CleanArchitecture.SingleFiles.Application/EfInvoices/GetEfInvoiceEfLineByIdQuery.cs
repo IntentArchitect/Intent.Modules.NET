@@ -67,7 +67,7 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
         [IntentManaged(Mode.Merge)]
         public GetEfInvoiceEfLineByIdQueryValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

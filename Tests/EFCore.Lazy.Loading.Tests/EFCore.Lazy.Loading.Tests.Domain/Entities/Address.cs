@@ -1,7 +1,7 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace EFCore.Lazy.Loading.Tests.Domain.Entities
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using MultipleDocumentStores.Domain.Common;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace MultipleDocumentStores.Domain.Entities
 {

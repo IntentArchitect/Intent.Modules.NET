@@ -64,7 +64,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         [IntentManaged(Mode.Merge)]
         public DeleteMongoInvoiceMongoLineCommandValidator()
         {
-            //IntentMatch("ConfigureValidationRules")
+            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CosmosDB.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CosmosDB.Domain.Entities
 {

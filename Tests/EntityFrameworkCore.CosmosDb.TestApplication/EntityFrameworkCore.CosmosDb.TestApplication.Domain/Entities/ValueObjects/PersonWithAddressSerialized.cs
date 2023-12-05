@@ -4,7 +4,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Common;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObjects
 {

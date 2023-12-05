@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -331,6 +332,38 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 return o.IsAsync() ? "async Task" : "void";
             }
             return o.IsAsync() ? $"async Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.ReturnType);
+        }
+
+        public override RoslynMergeConfig ConfigureRoslynMerger()
+        {
+            return new RoslynMergeConfig(
+                new TemplateMetadata(Id, "2.0"),
+                new V00ToV02Migration(),
+                new V01ToV02Migration());
+        }
+
+        private class V00ToV02Migration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText
+                    .ReplaceLineEndings()
+                    .Replace($"[assembly: IntentTagModeImplicit]{Environment.NewLine}", string.Empty);
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.UnversionedUpgrade(2);
+        }
+
+        private class V01ToV02Migration : ITemplateMigration
+        {
+            public string Execute(string currentText)
+            {
+                return currentText
+                    .ReplaceLineEndings()
+                    .Replace($"[assembly: IntentTagModeImplicit]{Environment.NewLine}", string.Empty);
+            }
+
+            public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
         }
     }
 

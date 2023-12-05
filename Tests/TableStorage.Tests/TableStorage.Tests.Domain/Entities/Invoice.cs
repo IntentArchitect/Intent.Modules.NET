@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Common;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace TableStorage.Tests.Domain.Entities
 {

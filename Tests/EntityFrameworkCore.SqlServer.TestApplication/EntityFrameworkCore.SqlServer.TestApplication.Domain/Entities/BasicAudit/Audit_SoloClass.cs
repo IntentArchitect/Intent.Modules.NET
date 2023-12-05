@@ -4,7 +4,7 @@ using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common;
 using EntityFrameworkCore.SqlServer.TestApplication.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.BasicAudit
 {

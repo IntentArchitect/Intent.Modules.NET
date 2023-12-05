@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
 {

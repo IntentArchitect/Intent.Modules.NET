@@ -6,7 +6,7 @@ using CosmosDB.EntityInterfaces.Domain.Common.Interfaces;
 using CosmosDB.EntityInterfaces.Domain.Entities.Common;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CosmosDB.EntityInterfaces.Domain.Entities
 {

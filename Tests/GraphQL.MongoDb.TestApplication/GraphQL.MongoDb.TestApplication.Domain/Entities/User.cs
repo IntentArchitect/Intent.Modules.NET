@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GraphQL.MongoDb.TestApplication.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace GraphQL.MongoDb.TestApplication.Domain.Entities
 {

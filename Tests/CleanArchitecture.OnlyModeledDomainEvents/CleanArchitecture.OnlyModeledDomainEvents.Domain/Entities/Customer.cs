@@ -4,7 +4,7 @@ using CleanArchitecture.OnlyModeledDomainEvents.Domain.Common;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities
 {

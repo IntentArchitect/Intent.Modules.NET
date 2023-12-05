@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EntityFramework.SynchronousRepositories.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTagModeImplicit]
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace EntityFramework.SynchronousRepositories.Domain.Entities
 {
