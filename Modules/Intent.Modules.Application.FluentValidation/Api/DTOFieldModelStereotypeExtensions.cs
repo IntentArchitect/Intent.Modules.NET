@@ -114,6 +114,49 @@ namespace Intent.Application.FluentValidation.Api
                 return _stereotype.GetProperty<bool>("Must");
             }
 
+            public CascadeModeOptions CascadeMode()
+            {
+                return new CascadeModeOptions(_stereotype.GetProperty<string>("CascadeMode"));
+            }
+
+            public class CascadeModeOptions
+            {
+                public readonly string Value;
+
+                public CascadeModeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public CascadeModeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Continue":
+                            return CascadeModeOptionsEnum.Continue;
+                        case "Stop":
+                            return CascadeModeOptionsEnum.Stop;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsContinue()
+                {
+                    return Value == "Continue";
+                }
+                public bool IsStop()
+                {
+                    return Value == "Stop";
+                }
+            }
+
+            public enum CascadeModeOptionsEnum
+            {
+                Continue,
+                Stop
+            }
+
         }
 
     }

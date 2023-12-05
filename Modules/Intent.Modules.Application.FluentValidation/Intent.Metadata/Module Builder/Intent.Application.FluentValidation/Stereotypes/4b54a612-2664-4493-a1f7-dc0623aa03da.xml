@@ -176,5 +176,18 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="9ce77ae5-9ad5-4436-8ae0-c6c296de8492">
+      <name>CascadeMode</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>Continue</option>
+        <option>Stop</option>
+      </valueOptions>
+      <lookupTypes />
+      <isRequiredFunction>return false;</isRequiredFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

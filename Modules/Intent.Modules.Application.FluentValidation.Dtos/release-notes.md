@@ -1,7 +1,8 @@
 ### Version 3.7.3
 
 - Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.
-
+- Improvement: Added CascadeMode option on Fluent Validations to specify this behaviour.
+- 
 ### Version 3.7.2
 
 - Fixed: Migration improvement using Roslyn instead of Regex to avoid updating incorrect IntentManaged attributes. 

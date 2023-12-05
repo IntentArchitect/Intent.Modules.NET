@@ -285,6 +285,11 @@ public static class ValidationRulesExtensions
         CSharpMethodChainStatement validationRuleChain)
     {
         var validations = field.GetValidations();
+
+        if (validations.CascadeMode().Value != null)
+        {
+            validationRuleChain.AddChainStatement($"Cascade(CascadeMode.{validations.CascadeMode().Value})");
+        }
         if (validations.NotEmpty())
         {
             validationRuleChain.AddChainStatement("NotEmpty()");

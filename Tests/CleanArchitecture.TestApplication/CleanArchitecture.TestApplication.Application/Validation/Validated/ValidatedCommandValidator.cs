@@ -28,6 +28,12 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
             RuleFor(v => v.Email)
                 .NotNull()
                 .EmailAddress();
+
+            RuleFor(v => v.CascaseTest)
+                .NotNull()
+                .Cascade(CascadeMode.Stop)
+                .MinimumLength(1)
+                .CustomAsync(ValidateCascaseTestAsync);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
@@ -38,6 +44,15 @@ namespace CleanArchitecture.TestApplication.Application.Validation.Validated
         {
             throw new NotImplementedException("Your custom validation rules here...");
             validationContext.AddFailure("Custom failure message");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private async Task ValidateCascaseTestAsync(
+            string value,
+            ValidationContext<ValidatedCommand> validationContext,
+            CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException("Your custom validation rules here...");
         }
     }
 }

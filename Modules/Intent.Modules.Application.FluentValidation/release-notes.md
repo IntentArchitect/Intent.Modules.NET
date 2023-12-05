@@ -1,3 +1,7 @@
+### Version 3.8.7
+
+- Improvement: Added CascadeMode option on Fluent Validations to specify this behaviour.
+
 ### Version 3.8.6
 
 - Fixed: Would cause slow designer load times when it contained very many DTOs.

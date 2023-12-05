@@ -52,7 +52,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6b49bbd8-a958-4f26-b0ec-05421548a725" name="BaseClass" type="association" specialization="Generalization" />
+          <target id="6b49bbd8-a958-4f26-b0ec-05421548a725" name="base" type="association" specialization="Generalization Target End" />
           <target id="31da585a-bf4a-494d-a6ba-ca51884c6462" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -78,6 +78,7 @@
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

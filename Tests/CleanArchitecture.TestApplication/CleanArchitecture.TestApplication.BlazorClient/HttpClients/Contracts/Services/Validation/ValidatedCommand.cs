@@ -13,6 +13,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         {
             Field = null!;
             Email = null!;
+            CascaseTest = null!;
         }
 
         [Required(ErrorMessage = "Field is required.")]
@@ -20,13 +21,17 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Email must be a valid email address.")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Cascase test is required.")]
+        [MinLength(1, ErrorMessage = "Cascase test must be 1 or more characters.")]
+        public string CascaseTest { get; set; }
 
-        public static ValidatedCommand Create(string field, string email)
+        public static ValidatedCommand Create(string field, string email, string cascaseTest)
         {
             return new ValidatedCommand
             {
                 Field = field,
-                Email = email
+                Email = email,
+                CascaseTest = cascaseTest
             };
         }
     }
