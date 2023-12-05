@@ -1,4 +1,8 @@
-﻿### Version 4.1.7
+﻿### Version 4.2.0
+
+- Improvement: Added Support for `+` in roles, to describe `and` relationships between roles e.g. `Admin,Manager` (or) vs `Admin+Manager` (and)
+
+### Version 4.1.7
 
 - Fixed: `QueryHander` and `CommandHandler` where incorrectly using `WithBaseType` instead of `InmplementsInterface` for `IRequestHandler`.
 

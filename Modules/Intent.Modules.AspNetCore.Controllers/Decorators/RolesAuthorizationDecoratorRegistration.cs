@@ -1,3 +1,4 @@
+/*
 using System.ComponentModel;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
@@ -19,4 +20,4 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
 
         public override string DecoratorId => RolesAuthorizationDecorator.DecoratorId;
     }
-}
+}*/

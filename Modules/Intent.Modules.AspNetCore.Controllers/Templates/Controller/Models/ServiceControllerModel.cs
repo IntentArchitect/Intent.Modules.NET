@@ -42,9 +42,9 @@ public class ServiceControllerModel : IControllerModel
         return new AuthorizationModel
         {
             RolesExpression = !string.IsNullOrWhiteSpace(roles)
-                ? @$"""{string.Join(",", roles
-                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(s => s.Trim()))}"""
+                ? @$"{string.Join("+", roles.Split('+', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(s => s.Trim()))))}"
                 : null
         };
     }

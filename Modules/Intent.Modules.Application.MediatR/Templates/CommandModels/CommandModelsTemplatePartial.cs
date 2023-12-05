@@ -83,22 +83,36 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         {
             if (Model.HasAuthorize())
             {
-                var rolesPolicies = new List<string>();
-                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()))
+                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()) && Model.GetAuthorize().Roles().Contains('+'))
                 {
-                    rolesPolicies.Add($"Roles = \"{Model.GetAuthorize().Roles()}\"");
-                }
-                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
-                {
-                    rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
-                }
-                @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
-                {
-                    foreach (var arg in rolesPolicies)
+                    var roleGroups = Model.GetAuthorize().Roles().Split('+');
+                    foreach (var group in roleGroups)
                     {
-                        att.AddArgument(arg);
+                        @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
+                        {
+                                att.AddArgument($"Roles = \"{group}\"");
+                        });
                     }
-                });
+                }
+                else
+                {
+                    var rolesPolicies = new List<string>();
+                    if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()))
+                    {
+                        rolesPolicies.Add($"Roles = \"{Model.GetAuthorize().Roles()}\"");
+                    }
+                    if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
+                    {
+                        rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
+                    }
+                    @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
+                    {
+                        foreach (var arg in rolesPolicies)
+                        {
+                            att.AddArgument(arg);
+                        }
+                    });
+                }
             }
         }
     }

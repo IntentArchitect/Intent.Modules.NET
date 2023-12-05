@@ -108,7 +108,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (IsControllerSecured())
             {
-                attributes.Add(GetAuthorizationAttribute(Model.AuthorizationModel));
+                attributes.AddRange(GetAuthorizationAttributes(Model.AuthorizationModel));
             }
             else if (Model.AllowAnonymous)
             {
@@ -201,7 +201,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.RolesExpression)
                     || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.Policy))
                 {
-                    attributes.Add(GetAuthorizationAttribute(operation.AuthorizationModel));
+                    attributes.AddRange(GetAuthorizationAttributes(operation.AuthorizationModel));
                 }
                 else if (IsControllerSecured() &&
                          !IsOperationSecured(operation) &&
@@ -264,13 +264,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return attributes;
         }
 
-        private static CSharpAttribute GetAuthorizationAttribute(IAuthorizationModel authorizationModel)
+        private static IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IAuthorizationModel authorizationModel)
         {
+            var result = new List<CSharpAttribute>();
             var attribute = new CSharpAttribute("Authorize");
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.RolesExpression))
             {
-                attribute.AddArgument($"Roles = {authorizationModel.RolesExpression}");
+                if (authorizationModel.RolesExpression.Contains("+"))
+                {
+                    var roles = authorizationModel.RolesExpression.Split('+');
+
+                    foreach (var roleGroup in roles)
+                    {
+                        attribute = new CSharpAttribute("Authorize");
+                        attribute.AddArgument($"Roles = \"{roleGroup}\"");
+                        result.Add(attribute);
+                    }
+                    return result;
+                }
+                attribute.AddArgument($"Roles = \"{authorizationModel.RolesExpression}\"");
             }
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
@@ -285,7 +298,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 #pragma warning restore CS0618 // Type or member is obsolete
 
-            return attribute;
+            result.Add(attribute);
+            return result;
         }
 
         private bool IsControllerSecured()
