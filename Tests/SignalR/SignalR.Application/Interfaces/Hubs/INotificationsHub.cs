@@ -10,10 +10,12 @@ namespace SignalR.Application.Interfaces.Hubs
     public interface INotificationsHub
     {
         Task SendAsync(MessageToAllDto model);
-        Task SendAsync(MessageToGroupDto model, string groupId);
-        Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupIds);
+        Task SendAsync(MessageToGroupDto model, string groupName);
+        Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupNames);
         Task SendAsync(MessageToUserDto model, string userId);
         Task SendAsync(MessageToUsersDto model, IReadOnlyList<string> userIds);
         Task SendAsync(MassageToClientDto model, string connectionId);
+        Task AddToGroupAsync(string connectionId, string groupName);
+        Task RemoveFromGroupAsync(string connectionId, string groupName);
     }
 }

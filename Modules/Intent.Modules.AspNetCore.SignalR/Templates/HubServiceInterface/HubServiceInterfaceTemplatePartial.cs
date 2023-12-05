@@ -50,10 +50,10 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
                             method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "userIds");
                             break;
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Group:
-                            method.AddParameter("string", "groupId");
+                            method.AddParameter("string", "groupName");
                             break;
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Groups:
-                            method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupIds");
+                            method.AddParameter(UseType("System.Collections.Generic.IReadOnlyList<string>"), "groupNames");
                             break;
                         case SendMessageModelStereotypeExtensions.HubSendMessageSettings.TargetClientsOptionsEnum.Client:
                             method.AddParameter("string", "connectionId");
@@ -63,6 +63,17 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
                     }
                 });
             }
+
+            inter.AddMethod(UseType("System.Threading.Tasks.Task"), "AddToGroupAsync", method =>
+            {
+                method.AddParameter("string", "connectionId");
+                method.AddParameter("string", "groupName");
+            });
+            inter.AddMethod(UseType("System.Threading.Tasks.Task"), "RemoveFromGroupAsync", method =>
+            {
+                method.AddParameter("string", "connectionId");
+                method.AddParameter("string", "groupName");
+            });
         }
 
         [IntentManaged(Mode.Fully)]
