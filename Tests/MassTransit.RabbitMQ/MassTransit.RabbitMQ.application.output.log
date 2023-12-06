@@ -300,6 +300,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#90003f19-f74f-4c25-b667-46a9fd762fbb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/AnotherTestMessageEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnotherTestMessageEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#5e2c82e2-52f3-4f0a-9f18-b5e0f6608eee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/TestMessageEvent.cs</ApplicationRelativeFilePath>

@@ -6,6 +6,7 @@ using MassTransit.RabbitMQ.Application.Common.Behaviours;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Application.Common.Validation;
 using MassTransit.RabbitMQ.Application.IntegrationEventHandlers;
+using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,7 @@ namespace MassTransit.RabbitMQ.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageHandler>();
             services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
         }

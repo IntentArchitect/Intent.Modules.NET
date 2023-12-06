@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="e8a03011-719b-4553-a06e-48d7a7a174ca">
   <sourceEnd id="fce0acc8-edcc-4b65-bafc-95e2fe777762" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
-    <name>MassTransit.RabbitMQ</name>
     <display>subscriber: MassTransit.RabbitMQ</display>
     <order>0</order>
     <typeReference id="369c9f6b-aea4-46b5-b6aa-5424311901ba">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="e8a03011-719b-4553-a06e-48d7a7a174ca" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
-    <name>TestMessage</name>
     <display>subscribe: TestMessage</display>
     <order>1</order>
     <typeReference id="3744023a-a3ab-4b84-9a80-74b0f2763a10">

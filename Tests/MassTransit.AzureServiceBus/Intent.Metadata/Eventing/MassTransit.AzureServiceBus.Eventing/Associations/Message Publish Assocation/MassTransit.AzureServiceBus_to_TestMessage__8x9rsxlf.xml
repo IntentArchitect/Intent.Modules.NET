@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1519f880-906c-4af4-b69b-37ad0b3af3c5">
   <sourceEnd id="e44e5b82-57b7-4c4f-9c79-3d9753a795b8" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
-    <name>MassTransit.AzureServiceBus</name>
     <display>publisher: MassTransit.AzureServiceBus</display>
     <order>0</order>
     <typeReference id="6fe0d938-2f51-456f-88db-dd53f9c30797">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="1519f880-906c-4af4-b69b-37ad0b3af3c5" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
-    <name>TestMessage</name>
     <display>publish: TestMessage</display>
     <order>0</order>
     <typeReference id="15ba3b06-395f-4778-a905-9582e257f8f0">

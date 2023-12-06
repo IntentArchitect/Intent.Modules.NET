@@ -42,6 +42,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
         }
 
         private static void ConfigureNonDefaultEndpoints(
@@ -49,6 +50,20 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             IBusRegistrationContext context)
         {
             cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+                context,
+                "MassTransit-AzureServiceBus",
+                endpoint =>
+                {
+                    endpoint.PrefetchCount = 15;
+                    endpoint.RequiresSession = false;
+                    endpoint.DefaultMessageTimeToLive = TimeSpan.Parse("00:15:00");
+                    endpoint.RequiresDuplicateDetection = true;
+                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("00:10:00");
+                    endpoint.EnableBatchedOperations = true;
+                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                    endpoint.MaxSizeInMegabytes = 2048;
+                });
+            cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
                 context,
                 "MassTransit-AzureServiceBus",
                 endpoint =>

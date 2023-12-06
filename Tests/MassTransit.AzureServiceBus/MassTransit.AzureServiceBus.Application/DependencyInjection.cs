@@ -6,6 +6,7 @@ using MassTransit.AzureServiceBus.Application.Common.Behaviours;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Application.Common.Validation;
 using MassTransit.AzureServiceBus.Application.IntegrationEventHandlers;
+using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers;
 using MassTransit.AzureServiceBus.Eventing.Messages;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,7 @@ namespace MassTransit.AzureServiceBus.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<AnotherTestMessageEvent>, TestMessageHandler>();
             services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
         }

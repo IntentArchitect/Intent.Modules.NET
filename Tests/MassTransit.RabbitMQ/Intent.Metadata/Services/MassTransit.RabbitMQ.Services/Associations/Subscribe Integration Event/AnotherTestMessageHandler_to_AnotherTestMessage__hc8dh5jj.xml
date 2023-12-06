@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="61434cde-c1de-4596-9789-f346cefa9ca4">
+  <sourceEnd id="3c4f768d-66ae-4790-b355-0db647b8fdaa" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: MassTransit.RabbitMQ.Services.AnotherTestMessageHandler</display>
+    <order>0</order>
+    <typeReference id="f01d6453-d66f-45dd-a19b-9c1f0dd8b635">
+      <typeId>deac8939-84b1-4219-a8a7-4763c2aa7c01</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="61434cde-c1de-4596-9789-f346cefa9ca4" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: AnotherTestMessage</display>
+    <order>0</order>
+    <typeReference id="71ae923f-1206-4924-96a2-0a12fe7a1e15">
+      <typeId>90003f19-f74f-4c25-b667-46a9fd762fbb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>124b2d89-bac8-4a0b-ad23-5e664053d2fc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="43ff81bf-7e41-40c9-a1cd-041b4195cade" name="Rabbit MQ Consumer Settings">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" value="15" isActive="true" />
+          <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="true" isActive="true" />
+          <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
+          <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
+          <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="43ff81bf-7e41-40c9-a1cd-041b4195cade" name="Rabbit MQ Consumer Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" value="15" isActive="true" />
+        <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="true" isActive="true" />
+        <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
+        <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
+        <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

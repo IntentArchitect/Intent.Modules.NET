@@ -104,7 +104,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             {
                 return;
             }
-            
+
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();

@@ -61,7 +61,8 @@ namespace Intent.Eventing.MassTransit.Api
             return true;
         }
 
-        public class AzureServiceBusConsumerSettings
+        [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
+        public class AzureServiceBusConsumerSettings : IAzureServiceBusConsumerSettings
         {
             private IStereotype _stereotype;
 
@@ -124,7 +125,8 @@ namespace Intent.Eventing.MassTransit.Api
 
         }
 
-        public class RabbitMQConsumerSettings
+        [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
+        public class RabbitMQConsumerSettings : IRabbitMQConsumerSettings
         {
             private IStereotype _stereotype;
 

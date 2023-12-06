@@ -46,6 +46,7 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
 
         }
 
@@ -54,6 +55,17 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
             IBusRegistrationContext context)
         {
             cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+                context,
+                "MassTransit-RabbitMQ",
+                endpoint =>
+                {
+                    endpoint.PrefetchCount = 15;
+                    endpoint.Lazy = true;
+                    endpoint.Durable = true;
+                    endpoint.PurgeOnStartup = true;
+                    endpoint.Exclusive = true;
+                });
+            cfg.AddCustomConsumerEndpoint<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
                 context,
                 "MassTransit-RabbitMQ",
                 endpoint =>
