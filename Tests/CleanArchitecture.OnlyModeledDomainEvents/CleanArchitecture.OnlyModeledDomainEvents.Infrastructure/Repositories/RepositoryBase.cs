@@ -10,6 +10,7 @@ using CleanArchitecture.OnlyModeledDomainEvents.Domain.Common.Interfaces;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Z.BulkOperations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase", Version = "1.0")]
@@ -261,6 +262,54 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Repositories
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task BulkInsertAsync(
+            IEnumerable<TDomain> entities,
+            Action<BulkOperation<TDomain>>? configure = default,
+            CancellationToken cancellationToken = default)
+        {
+            await _dbContext.BulkInsertAsync(entities, options =>
+            {
+                configure?.Invoke(options);
+            }, cancellationToken);
+        }
+
+        public async Task BulkInsertAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default)
+        {
+            await BulkInsertAsync(entities, null, cancellationToken);
+        }
+
+        public async Task BulkUpdateAsync(
+            IEnumerable<TDomain> entities,
+            Action<BulkOperation<TDomain>>? configure = default,
+            CancellationToken cancellationToken = default)
+        {
+            await _dbContext.BulkUpdateAsync(entities, options =>
+            {
+                configure?.Invoke(options);
+            }, cancellationToken);
+        }
+
+        public async Task BulkUpdateAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default)
+        {
+            await BulkUpdateAsync(entities, null, cancellationToken);
+        }
+
+        public async Task BulkMergeAsync(
+            IEnumerable<TDomain> entities,
+            Action<BulkOperation<TDomain>>? configure = default,
+            CancellationToken cancellationToken = default)
+        {
+            await _dbContext.BulkUpdateAsync(entities, options =>
+            {
+                configure?.Invoke(options);
+            }, cancellationToken);
+        }
+
+        public async Task BulkMergeAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default)
+        {
+            await BulkMergeAsync(entities, null, cancellationToken);
         }
     }
 }
