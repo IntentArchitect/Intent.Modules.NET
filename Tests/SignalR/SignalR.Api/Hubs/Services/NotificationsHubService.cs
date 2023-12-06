@@ -25,6 +25,11 @@ namespace SignalR.Api.Hubs.Services
             await _hub.Clients.All.SendAsync("MessageToAllDto", model);
         }
 
+        public async Task SendAsync(MessageToClientDto model, string connectionId)
+        {
+            await _hub.Clients.Client(connectionId).SendAsync("MessageToClientDto", model);
+        }
+
         public async Task SendAsync(MessageToGroupDto model, string groupName)
         {
             await _hub.Clients.Group(groupName).SendAsync("MessageToGroupDto", model);
@@ -43,11 +48,6 @@ namespace SignalR.Api.Hubs.Services
         public async Task SendAsync(MessageToUsersDto model, IReadOnlyList<string> userIds)
         {
             await _hub.Clients.Users(userIds).SendAsync("MessageToUsersDto", model);
-        }
-
-        public async Task SendAsync(MassageToClientDto model, string connectionId)
-        {
-            await _hub.Clients.Client(connectionId).SendAsync("MassageToClientDto", model);
         }
 
         public async Task AddToGroupAsync(string connectionId, string groupName)

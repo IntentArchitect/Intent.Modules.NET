@@ -101,7 +101,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const publishMessageStereotypeId = &quot;a711f094-48c5-4011-ae90-666e83bd959f&quot;;&#xD;&#xA;element.addStereotype(publishMessageStereotypeId);" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const publishMessageStereotypeId = &quot;a711f094-48c5-4011-ae90-666e83bd959f&quot;;&#xD;&#xA;if (!element.hasStereotype(publishMessageStereotypeId)) {&#xD;&#xA;    element.addStereotype(publishMessageStereotypeId);&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

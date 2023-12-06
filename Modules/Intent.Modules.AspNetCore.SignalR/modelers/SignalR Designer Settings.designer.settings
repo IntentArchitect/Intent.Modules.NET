@@ -57,11 +57,10 @@
         <macro trigger="on-created">
           <script>const hubSettingsStereotypeId = "ba101028-d276-496d-bab2-5e7b707449a4";
 element.setName("NotificationsHub");
-element.addStereotype(hubSettingsStereotypeId);
-element.getStereotype(hubSettingsStereotypeId)
-    .getProperty("Route")
-    .setValue("/hub/notifications");
-</script>
+if (!element.hasStereotype(hubSettingsStereotypeId)){
+    let stereotype = element.addStereotype(hubSettingsStereotypeId);
+    stereotype.getProperty("Route").setValue("/hub/notifications");
+}</script>
         </macro>
         <macro trigger="on-name-changed">
           <script>const hubSettingsStereotypeId = "ba101028-d276-496d-bab2-5e7b707449a4";
@@ -105,7 +104,9 @@ element.getStereotype(hubSettingsStereotypeId)
           <macros>
             <macro trigger="on-created">
               <script>const publishMessageStereotypeId = "a711f094-48c5-4011-ae90-666e83bd959f";
-element.addStereotype(publishMessageStereotypeId);</script>
+if (!element.hasStereotype(publishMessageStereotypeId)) {
+    element.addStereotype(publishMessageStereotypeId);
+}</script>
             </macro>
           </macros>
           <childElementSettings />

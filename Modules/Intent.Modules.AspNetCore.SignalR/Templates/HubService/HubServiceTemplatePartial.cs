@@ -80,7 +80,6 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubService
                     method.AddStatement($@"await _hub.Clients.{clientTarget}.SendAsync(""{messageType}"", model);");
                 });
             }
-            
             @class.AddMethod(UseType("System.Threading.Tasks.Task"), "AddToGroupAsync", method =>
             {
                 method.Async();
