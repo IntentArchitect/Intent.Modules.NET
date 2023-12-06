@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c3bf66b-e429-4443-9393-3969538ff22b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.SignalR.Hub#df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.SignalR.Hub#fd8d6552-ed96-4b01-a270-e6a6d43ce5f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Api/Hubs/NotificationsHub.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotificationsHub.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eeb6ebe4-e27b-4433-b7ed-8e0df0189c84</ProjectId>
-      <CorrelationId>Intent.AspNetCore.SignalR.HubService#df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.SignalR.HubService#fd8d6552-ed96-4b01-a270-e6a6d43ce5f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Api/Hubs/Services/NotificationsHubService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotificationsHubService.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>91a5323d-2038-434f-b9b6-cf4953e5f9dd</ProjectId>
-      <CorrelationId>Intent.AspNetCore.SignalR.HubServiceInterface#df3e29f0-89a5-4e6c-b48e-2cda1fcfb07e</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.SignalR.HubServiceInterface#fd8d6552-ed96-4b01-a270-e6a6d43ce5f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Application/Interfaces/Hubs/INotificationsHub.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>INotificationsHub.cs</ProjectRelativeFilePath>
@@ -328,6 +328,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Application/MessageToAllDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MessageToAllDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b308bbb-dd11-4af2-a692-e3a183e3bdd8</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#31a7edb3-be97-4c9b-aed2-234d47caccbe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Application/MessageToClientDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageToClientDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

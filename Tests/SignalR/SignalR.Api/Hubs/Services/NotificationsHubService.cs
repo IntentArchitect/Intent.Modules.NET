@@ -25,14 +25,19 @@ namespace SignalR.Api.Hubs.Services
             await _hub.Clients.All.SendAsync("MessageToAllDto", model);
         }
 
-        public async Task SendAsync(MessageToGroupDto model, string groupId)
+        public async Task SendAsync(MessageToClientDto model, string connectionId)
         {
-            await _hub.Clients.Group(groupId).SendAsync("MessageToGroupDto", model);
+            await _hub.Clients.Client(connectionId).SendAsync("MessageToClientDto", model);
         }
 
-        public async Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupIds)
+        public async Task SendAsync(MessageToGroupDto model, string groupName)
         {
-            await _hub.Clients.Groups(groupIds).SendAsync("MessageToGroupsDto", model);
+            await _hub.Clients.Group(groupName).SendAsync("MessageToGroupDto", model);
+        }
+
+        public async Task SendAsync(MessageToGroupsDto model, IReadOnlyList<string> groupNames)
+        {
+            await _hub.Clients.Groups(groupNames).SendAsync("MessageToGroupsDto", model);
         }
 
         public async Task SendAsync(MessageToUserDto model, string userId)
@@ -43,6 +48,16 @@ namespace SignalR.Api.Hubs.Services
         public async Task SendAsync(MessageToUsersDto model, IReadOnlyList<string> userIds)
         {
             await _hub.Clients.Users(userIds).SendAsync("MessageToUsersDto", model);
+        }
+
+        public async Task AddToGroupAsync(string connectionId, string groupName)
+        {
+            await _hub.Groups.AddToGroupAsync(connectionId, groupName);
+        }
+
+        public async Task RemoveFromGroupAsync(string connectionId, string groupName)
+        {
+            await _hub.Groups.RemoveFromGroupAsync(connectionId, groupName);
         }
     }
 }

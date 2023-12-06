@@ -141,7 +141,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const hubSettingsStereotypeId = &quot;ba101028-d276-496d-bab2-5e7b707449a4&quot;;&#xD;&#xA;element.setName(&quot;NotificationsHub&quot;);&#xD;&#xA;element.addStereotype(hubSettingsStereotypeId);&#xD;&#xA;element.getStereotype(hubSettingsStereotypeId)&#xD;&#xA;    .getProperty(&quot;Route&quot;)&#xD;&#xA;    .setValue(&quot;/hub/notifications&quot;);&#xD;&#xA;" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const hubSettingsStereotypeId = &quot;ba101028-d276-496d-bab2-5e7b707449a4&quot;;&#xD;&#xA;element.setName(&quot;NotificationsHub&quot;);&#xD;&#xA;if (!element.hasStereotype(hubSettingsStereotypeId)){&#xD;&#xA;    let stereotype = element.addStereotype(hubSettingsStereotypeId);&#xD;&#xA;    stereotype.getProperty(&quot;Route&quot;).setValue(&quot;/hub/notifications&quot;);&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
