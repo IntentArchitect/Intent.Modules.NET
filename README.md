@@ -16,3 +16,7 @@ A module is a packaged collection patterns, software factory extensions, modeler
 ## Where can I get support?
 
 Please visit this [Github Repository](https://github.com/IntentSoftware/Support/issues) to ask questions, log bugs or request new features.
+
+## How to contribute?
+
+We appreciate your contributions! If you have improvements or new features you'd like to suggest for our modules, feel free to submit pull requests. To get started, please refer to our [Pull Request Process Guide](docs/external-prs.md) for detailed instructions on how to contribute effectively. We look forward to your valuable input!
