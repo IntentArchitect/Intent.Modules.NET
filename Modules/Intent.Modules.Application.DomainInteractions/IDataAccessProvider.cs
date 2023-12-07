@@ -178,7 +178,16 @@ public class CompositeDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(string expression)
     {
-        return new CSharpStatement($"{_accessor}"); 
+        if (!string.IsNullOrWhiteSpace(expression))
+        {
+            var invocation = new CSharpInvocationStatement($"{_accessor}", $"Where");
+            if (!string.IsNullOrWhiteSpace(expression))
+            {
+                invocation.AddArgument(expression);
+            }
+            return invocation;
+        }
+        return new CSharpStatement($"{_accessor};"); 
     }
 
     public CSharpStatement FindAllAsync(string expression, string pageNo, string pageSize)

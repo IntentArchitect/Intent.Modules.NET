@@ -205,11 +205,11 @@ public class DomainInteractionsManager
             var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
             if (associationEnd.TypeReference.IsCollection)
             {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)).SeparatedFromPrevious());
             }
             else
             {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)).SeparatedFromPrevious());
             }
         }
         else
