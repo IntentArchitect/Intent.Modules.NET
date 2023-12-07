@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
+using System.Linq.Expressions;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -111,6 +112,114 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 }
+
+public class CompositeDataAccessProvider : IDataAccessProvider
+{
+    private readonly string _accessor;
+    private readonly string _saveChangesAccessor;
+
+    public CompositeDataAccessProvider(string saveChangesAccessor, string accessor)
+    {
+        _saveChangesAccessor = saveChangesAccessor;
+        _accessor = accessor;
+    }
+
+    public CSharpStatement SaveChangesAsync()
+    {
+        return $"{_saveChangesAccessor}.SaveChangesAsync(cancellationToken);";
+    }
+
+    public CSharpStatement AddEntity(string entityName)
+    {
+        return new CSharpInvocationStatement(_accessor, "Add")
+            .AddArgument(entityName);
+    }
+
+    public CSharpStatement Update(string entityName)
+    {
+        return new CSharpStatement("");
+    }
+
+    public CSharpStatement Remove(string entityName)
+    {
+        return new CSharpInvocationStatement(_accessor, "Remove")
+            .AddArgument(entityName);
+    }
+
+    public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
+    {
+        var invocation = new CSharpInvocationStatement($"{_accessor}", $"SingleOrDefaultAsync");
+        if (pkMaps.Count == 1)
+        {
+            invocation.AddArgument($"x => x.{pkMaps[0].Property} == {pkMaps[0].Value}");
+        }
+        else
+        {
+            invocation.AddArgument($"x => {string.Join(" && ", pkMaps.Select(pkMap => $"x.{pkMap.Property} == {pkMap.Value}"))}");
+        }
+        return invocation;
+    }
+
+    public CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps)
+    {
+        return new CSharpStatement("");
+        //throw new Exception("Not Implemented");
+    }
+
+    public CSharpStatement FindAsync(string expression)
+    {
+        var invocation = new CSharpInvocationStatement($"{_accessor}", $"FirstOrDefault");
+        if (!string.IsNullOrWhiteSpace(expression))
+        {
+            invocation.AddArgument(expression);
+        }
+        return invocation;
+    }
+
+    public CSharpStatement FindAllAsync(string expression)
+    {
+        return new CSharpStatement($"{_accessor}"); 
+    }
+
+    public CSharpStatement FindAllAsync(string expression, string pageNo, string pageSize)
+    {
+        return new CSharpStatement("");
+        //throw new Exception("Not Implemented");
+    }
+}
+
+internal record ElementToElementMappedEndStub : IElementToElementMappedEnd
+{
+    private readonly ICanBeReferencedType _sourceElement;
+    private readonly ICanBeReferencedType _targetElement;
+    public ElementToElementMappedEndStub(ICanBeReferencedType sourceElement, ICanBeReferencedType targetElement)
+    {
+        _sourceElement = sourceElement;
+        _targetElement = targetElement;
+    }
+
+    public string MappingType => throw new NotImplementedException();
+
+    public string MappingTypeId => throw new NotImplementedException();
+
+    public string MappingExpression => throw new NotImplementedException();
+
+    public IList<IElementMappingPathTarget> TargetPath => throw new NotImplementedException();
+
+    public ICanBeReferencedType TargetElement => _targetElement;
+
+    public IEnumerable<IElementToElementMappedEndSource> Sources => throw new NotImplementedException();
+
+    public IList<IElementMappingPathTarget> SourcePath => throw new NotImplementedException();
+
+    public ICanBeReferencedType SourceElement => _sourceElement;
+
+    public IElementToElementMappedEndSource GetSource(string identifier)
+    {
+        throw new NotImplementedException();
+    }
+}
+
 
 public class DbContextDataAccessProvider : IDataAccessProvider
 {

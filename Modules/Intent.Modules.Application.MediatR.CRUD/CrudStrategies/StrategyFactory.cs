@@ -26,16 +26,15 @@ internal static class StrategyFactory
         };
 
         var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
-        if (matchedStrategies.Length == 1)
-        {
-            return matchedStrategies[0];
-        }
-        else if (matchedStrategies.Length > 1)
-        {
-            Logging.Log.Warning($@"Multiple CRUD implementation strategies were found that can implement this Command [{template.Model.Name}]");
-            Logging.Log.Debug($@"Strategies: {string.Join(", ", matchedStrategies.Select(s => s.GetType().Name))}");
-        }
 
+        if (matchedStrategies.Any())
+        {
+            if (matchedStrategies.Length > 1)
+            {
+                Logging.Log.Info($@"Multiple CRUD implementation Strategies Found, using {matchedStrategies.First().GetType().Name} ({string.Join(", ", matchedStrategies.Skip(1).Select(s => s.GetType().Name))})");
+            }
+            return matchedStrategies.First();
+        }
         return null;
     }
 
