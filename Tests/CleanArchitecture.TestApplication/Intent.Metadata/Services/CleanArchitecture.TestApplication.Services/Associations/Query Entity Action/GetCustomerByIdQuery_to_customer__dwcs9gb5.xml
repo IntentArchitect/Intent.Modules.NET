@@ -36,14 +36,15 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source elementId="c2225989-71ae-4272-a478-70103f5cd07a" location="GetCustomerByIdQuery" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="Customer" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c2225989-71ae-4272-a478-70103f5cd07a" location="[CleanArchitecture.TestApplication].[Services].[GetCustomerByIdQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Domain].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
               <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
-              <target id="69fca551-4e5d-4a23-b069-858ad83f10c1" name="Id" type="element" specialization="Attribute" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
+              <target id="38e61981-b663-4efb-b566-32a5fce8a2de" name="Id" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">

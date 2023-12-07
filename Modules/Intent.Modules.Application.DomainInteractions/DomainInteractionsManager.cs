@@ -54,7 +54,7 @@ public class DomainInteractionsManager
 
         var statements = new List<CSharpStatement>();
         if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
-            && foundEntity.Attributes.Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
+            && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
         {
             var idFields = queryMapping.MappedEnds
                 .OrderBy(x => ((IElement)x.TargetElement).Order)

@@ -83,6 +83,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD
 
             fixture = new Fixture();
             fixture.Customize<CreateCustomerCommand>(comp => comp
+                .With(x => x.Address, () => default)
+                .With(x => x.Name, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}")
+                .With(x => x.Surname, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}")
+                .With(x => x.Email, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}"));
+            testCommand = fixture.Create<CreateCustomerCommand>();
+            yield return new object[] { testCommand, "Address", "not be empty" };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateCustomerCommand>(comp => comp
                 .With(x => x.Email, () => default)
                 .With(x => x.Name, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}")
                 .With(x => x.Surname, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}"));
@@ -96,15 +105,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD
                 .With(x => x.Surname, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}"));
             testCommand = fixture.Create<CreateCustomerCommand>();
             yield return new object[] { testCommand, "Email", "must be 100 characters or fewer" };
-
-            fixture = new Fixture();
-            fixture.Customize<CreateCustomerCommand>(comp => comp
-                .With(x => x.Address, () => default)
-                .With(x => x.Name, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}")
-                .With(x => x.Surname, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}")
-                .With(x => x.Email, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(99))}"));
-            testCommand = fixture.Create<CreateCustomerCommand>();
-            yield return new object[] { testCommand, "Address", "not be empty" };
         }
 
         [Theory]

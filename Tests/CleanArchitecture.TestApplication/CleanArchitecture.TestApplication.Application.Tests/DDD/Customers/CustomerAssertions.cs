@@ -25,8 +25,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.DDD.Customers
             actualEntity.Should().NotBeNull();
             actualEntity.Name.Should().Be(expectedDto.Name);
             actualEntity.Surname.Should().Be(expectedDto.Surname);
-            actualEntity.Email.Should().Be(expectedDto.Email);
             AssertEquivalent(expectedDto.Address, actualEntity.Address);
+            actualEntity.Email.Should().Be(expectedDto.Email);
         }
 
         public static void AssertEquivalent(CreateCustomerAddressDto expectedDto, Address actualEntity)

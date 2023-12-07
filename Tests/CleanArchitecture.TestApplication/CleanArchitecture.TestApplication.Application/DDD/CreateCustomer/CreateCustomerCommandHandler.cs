@@ -31,8 +31,8 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
             {
                 Name = request.Name,
                 Surname = request.Surname,
-                Email = request.Email,
                 Address = CreateAddress(request.Address),
+                Email = request.Email,
             };
 
             _customerRepository.Add(newCustomer);

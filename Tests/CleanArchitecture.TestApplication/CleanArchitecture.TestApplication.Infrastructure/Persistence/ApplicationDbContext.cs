@@ -53,6 +53,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Person> People { get; set; }
+
         public DbSet<Camera> Cameras { get; set; }
 
         public DbSet<WithCompositeKey> WithCompositeKeys { get; set; }
@@ -108,6 +110,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());

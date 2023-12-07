@@ -1,4 +1,5 @@
 using CleanArchitecture.TestApplication.Domain.DDD;
+using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -13,15 +14,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.Name)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(x => x.Surname)
-                .IsRequired()
-                .HasMaxLength(100);
+            builder.HasBaseType<Person>();
 
             builder.Property(x => x.Email)
                 .IsRequired()
@@ -29,8 +22,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
 
             builder.OwnsOne(x => x.Address, ConfigureAddress)
                 .Navigation(x => x.Address).IsRequired();
-
-            builder.Ignore(e => e.DomainEvents);
         }
 
         public void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)

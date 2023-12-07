@@ -60,6 +60,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
             services.AddTransient<IWithCompositeKeyRepository, WithCompositeKeyRepository>();
             services.AddTransient<IIntegrationTriggeringRepository, IntegrationTriggeringRepository>();

@@ -32,14 +32,14 @@ namespace CleanArchitecture.TestApplication.Application.Customers.UpdateCustomer
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
 
-            customer.Name = request.Name;
-            customer.Surname = request.Surname;
             customer.Email = request.Email;
             customer.Address = new Address(
                 line1: request.Address.Line1,
                 line2: request.Address.Line2,
                 city: request.Address.City,
                 postal: request.Address.Postal);
+            customer.Name = request.Name;
+            customer.Surname = request.Surname;
         }
     }
 }

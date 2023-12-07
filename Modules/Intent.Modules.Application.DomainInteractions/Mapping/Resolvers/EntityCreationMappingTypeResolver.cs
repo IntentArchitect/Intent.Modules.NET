@@ -1,4 +1,6 @@
-﻿using Intent.Modules.Common.CSharp.Mapping;
+﻿using System.Linq;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modelers.Services.DomainInteractions.Api;
 
@@ -19,6 +21,12 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         if (mappingModel.MappingTypeId != "5f172141-fdba-426b-980e-163e782ff53e") // Command to Class Creation Mapping
         {
             return null;
+        }
+
+        if (model.IsGeneralizationTargetEndModel())
+        {
+            var mapping = new InheritedChildrenMapping(mappingModel, _sourceTemplate);
+            return mapping;
         }
 
         if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")

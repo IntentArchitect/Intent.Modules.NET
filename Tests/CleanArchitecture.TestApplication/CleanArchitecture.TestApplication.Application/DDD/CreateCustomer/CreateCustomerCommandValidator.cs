@@ -29,13 +29,13 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
                 .NotNull()
                 .MaximumLength(100);
 
-            RuleFor(v => v.Email)
-                .NotNull()
-                .MaximumLength(100);
-
             RuleFor(v => v.Address)
                 .NotNull()
                 .SetValidator(provider.GetValidator<CreateCustomerAddressDto>()!);
+
+            RuleFor(v => v.Email)
+                .NotNull()
+                .MaximumLength(100);
         }
     }
 }

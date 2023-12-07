@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
@@ -21,12 +24,37 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
         {
             return null;
         }
+
         var model = mappingModel.Model;
+
+        if (model.IsGeneralizationTargetEndModel())
+        {
+            return new InheritedChildrenMapping(mappingModel, _sourceTemplate);
+        }
+
+
         if (model.SpecializationType == "Class" || (model.SpecializationType == "Association Target End" && model.TypeReference?.Element?.SpecializationType == "Class"))
         {
             return new ObjectUpdateMapping(mappingModel, _sourceTemplate);
         }
 
         return null;
+    }
+}
+
+public class InheritedChildrenMapping : CSharpMappingBase
+{
+    public InheritedChildrenMapping(ICanBeReferencedType model, IElementToElementMappedEnd mapping, IList<MappingModel> children, ICSharpFileBuilderTemplate template) : base(model, mapping, children, template)
+    {
+    }
+
+    public InheritedChildrenMapping(MappingModel model, ICSharpFileBuilderTemplate template) : base(model, template)
+    {
+    }
+
+    public override IEnumerable<CSharpStatement> GetMappingStatements()
+    {
+        SetTargetReplacement(Model, GetTargetReplacement(Model.AsGeneralizationTargetEndModel().OtherEnd().Element));
+        return Children.SelectMany(x => x.GetMappingStatements()).ToList();
     }
 }

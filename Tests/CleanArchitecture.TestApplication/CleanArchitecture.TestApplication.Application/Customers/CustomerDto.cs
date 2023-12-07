@@ -13,9 +13,9 @@ namespace CleanArchitecture.TestApplication.Application.Customers
     {
         public CustomerDto()
         {
+            Email = null!;
             Name = null!;
             Surname = null!;
-            Email = null!;
         }
 
         public Guid Id { get; set; }
@@ -23,14 +23,14 @@ namespace CleanArchitecture.TestApplication.Application.Customers
         public string Surname { get; set; }
         public string Email { get; set; }
 
-        public static CustomerDto Create(Guid id, string name, string surname, string email)
+        public static CustomerDto Create(Guid id, string email, string name, string surname)
         {
             return new CustomerDto
             {
                 Id = id,
+                Email = email,
                 Name = name,
-                Surname = surname,
-                Email = email
+                Surname = surname
             };
         }
 

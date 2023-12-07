@@ -10,12 +10,12 @@ namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
 {
     public class CreateCustomerCommand : IRequest<Guid>, ICommand
     {
-        public CreateCustomerCommand(string name, string surname, string email, CreateCustomerAddressDto address)
+        public CreateCustomerCommand(string name, string surname, CreateCustomerAddressDto address, string email)
         {
             Name = name;
             Surname = surname;
-            Email = email;
             Address = address;
+            Email = email;
         }
 
         public string Name { get; set; }

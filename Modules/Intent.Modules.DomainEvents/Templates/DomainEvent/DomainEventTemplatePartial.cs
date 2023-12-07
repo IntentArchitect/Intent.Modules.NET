@@ -52,6 +52,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
                                 {
                                     property.TryAddXmlDocComments(propertyModel.InternalElement);
                                     property.ReadOnly();
+                                    property.RepresentsModel(propertyModel);
                                 });
                             });
                         }
