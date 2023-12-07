@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Xml.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -48,7 +49,7 @@ public class DomainInteractionsManager
         {
             return dataAccess;
         }
-        return null;
+        throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
     }
 
     public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
@@ -60,6 +61,7 @@ public class DomainInteractionsManager
 
     private List<PrimaryKeyFilterMapping> GetAggregatePKFindCriteria(IElementToElementMapping? queryMapping, IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
     {
+        /*
         if (queryMapping is not null && queryMapping.MappedEnds.Any() && 
             queryMapping.MappedEnds.Count(x => x.TargetElement.AsAttributeModel()?.IsForeignKey() == true && x.TargetElement.AsAttributeModel().GetForeignKeyAssociation().OtherEnd().Class.Id == aggregateEntity.Id) 
                 == aggregateEntity.Attributes.Count(x => x.IsPrimaryKey()))
@@ -72,7 +74,7 @@ public class DomainInteractionsManager
                     x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
                     x))
                 .ToList();
-        }
+        }*/
         //There is no mapping to the aggregate's PK, try to match is heuristically
 
         var aggPks = aggregateEntity.Attributes.Where(a => a.IsPrimaryKey()).ToList();
@@ -187,7 +189,6 @@ public class DomainInteractionsManager
         _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
 
         var dataAccess = GetDataAccessProvider(foundEntity);
-
         var statements = new List<CSharpStatement>();
 
         if (AccessEntityThroughAggregate(dataAccess))
@@ -314,12 +315,14 @@ public class DomainInteractionsManager
                     
                     return true;
                 }
-                else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface))
+                else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
+                    SettingGenerateDbContextInterface())
                 {
                     var dbContextField = AddDBContextInfrastructure(dbContextInterface);
                     dataAccessProvider = new CompositeDataAccessProvider(
                         dbContextField,
                         $"{aggregateEntity.Name.ToCamelCase()}.{aggregateAssociations.First().OtherEnd().Name}");
+                    return true;
                 }
             }
         }
@@ -329,6 +332,7 @@ public class DomainInteractionsManager
 
     public bool TryInjectRepositoryForEntity(ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
     {
+
         if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
         {
             dataAccessProvider = null;
@@ -357,9 +361,16 @@ public class DomainInteractionsManager
         return repositoryFieldName;
     }
 
+    public bool SettingGenerateDbContextInterface()
+    {
+        //GetDatabaseSettings().GenerateDbContextInterface()
+        return bool.TryParse(_template.ExecutionContext.Settings.GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9").GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
+    }
+
     public bool TryInjectDbContext(ClassModel entity, out IDataAccessProvider dataAccessProvider)
     {
-        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface))
+        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
+            !SettingGenerateDbContextInterface())
         {
             dataAccessProvider = null;
             return false;
@@ -454,8 +465,8 @@ public class DomainInteractionsManager
 
         TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, dataAccess, true));
 
-        var statements = new List<CSharpStatement>();
         var mapping = createAction.Mappings.SingleOrDefault();
+        var statements = new List<CSharpStatement>();
 
         if (AccessEntityThroughAggregate(dataAccess))
         {
