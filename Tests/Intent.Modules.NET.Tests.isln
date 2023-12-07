@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.24" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.46" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -80,5 +80,6 @@
     <application id="887384b0-1607-4815-a01f-fabdb108e39f" name="EntityFrameworkCore.SplitQueries.PostgreSQL" relativePath="EntityFrameworkCore.SplitQueries.PostgreSQL/EntityFrameworkCore.SplitQueries.PostgreSQL.application.config" />
     <application id="51d44bee-1a4b-4c0a-897e-41261c2bfb9c" name="MinimalHostingModel" relativePath="MinimalHostingModel/MinimalHostingModel.application.config" />
     <application id="e4251ba7-1036-4a2b-b23d-22d286ea81d2" name="AspNetCore.Controllers.Secured" relativePath="AspNetCore.Controllers.Secured/AspNetCore.Controllers.Secured.application.config" />
+    <application id="a57a3e28-16df-40fb-b5a3-b8306f1c88ec" name="Module.Mock.EnvironmentVars" relativePath="Module.Mock.EnvironmentVars/Module.Mock.EnvironmentVars.application.config" />
   </applications>
 </solution>

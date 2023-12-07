@@ -12,6 +12,12 @@ $repoConfigContent =
       <isBuiltIn>false</isBuiltIn>
       <order>3</order>
     </entry>
+	<entry>
+      <name>CI Compiled Testing Modules</name>
+      <address>$($modulesFolderPath)</address>
+      <isBuiltIn>false</isBuiltIn>
+      <order>4</order>
+    </entry>
   </entries>
 </assetRepositories>"
 

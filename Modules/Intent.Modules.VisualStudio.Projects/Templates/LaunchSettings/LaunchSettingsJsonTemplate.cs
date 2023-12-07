@@ -21,7 +21,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private string _defaultLaunchUrlPath = string.Empty;
         private bool _launchProfileHttpPortRequired;
 
-        private readonly ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables = new List<EnvironmentVariableRegistrationRequest>();
+        private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
 
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
@@ -189,25 +189,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                         ["IIS Express"] = Profiles.ContainsKey("IIS Express") ?
                             ReplacePorts(Profiles["IIS Express"])
                             : new()
-                        {
-                            CommandName = CommandName.IisExpress,
-                            LaunchBrowser = true,
-                            LaunchUrl = _defaultLaunchUrlPath == null
-                                ? null
-                                : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
-                        }
+                            {
+                                CommandName = CommandName.IisExpress,
+                                LaunchBrowser = true,
+                                LaunchUrl = _defaultLaunchUrlPath == null
+                                    ? null
+                                    : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"
+                            }
                     }
                 };
 
             foreach (var (key, profile) in Profiles)
             {
                 launchSettings.Profiles ??= new Dictionary<string, Profile>();
-                if (launchSettings.Profiles.ContainsKey(key))
-                {
-                    continue;
-                }
-
-                launchSettings.Profiles[key] = profile;
+                launchSettings.Profiles.TryAdd(key, profile);
             }
 
             if (_launchProfileHttpPortRequired)
@@ -226,7 +221,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             }
 
             // In case has not been set through an event, sets this be default.
-            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest(
+            _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
                 "ASPNETCORE_ENVIRONMENT", "Development",
                 new[]
                 {

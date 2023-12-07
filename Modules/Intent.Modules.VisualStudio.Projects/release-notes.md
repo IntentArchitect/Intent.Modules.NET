@@ -4,6 +4,7 @@
 - New Feature: Added support for working with program and startup files with combination of "use minimal host model" and "use top-level-statements".
 - Improvement: Final .NET 8 support.
 - Improvement: Sending multiple `AppSettingRegistrationRequest` and `ConnectionStringRegistrationRequest` requests will only log a warning if the key and values are **not** the same.
+- Fixed: Environment Variables, originating from other modules, targeting specific Launch Setting Profiles will now populate correctly in the launchsettings.json
 
 ### Version 3.4.2
 
