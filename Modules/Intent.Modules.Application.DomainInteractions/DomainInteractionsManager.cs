@@ -61,20 +61,6 @@ public class DomainInteractionsManager
 
     private List<PrimaryKeyFilterMapping> GetAggregatePKFindCriteria(IElementToElementMapping? queryMapping, IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
     {
-        /*
-        if (queryMapping is not null && queryMapping.MappedEnds.Any() && 
-            queryMapping.MappedEnds.Count(x => x.TargetElement.AsAttributeModel()?.IsForeignKey() == true && x.TargetElement.AsAttributeModel().GetForeignKeyAssociation().OtherEnd().Class.Id == aggregateEntity.Id) 
-                == aggregateEntity.Attributes.Count(x => x.IsPrimaryKey()))
-        {
-            return queryMapping.MappedEnds
-                .Where(x => x.TargetElement.AsAttributeModel()?.IsForeignKey() == true && x.TargetElement.AsAttributeModel().GetForeignKeyAssociation().OtherEnd().Class.Id == aggregateEntity.Id)
-                .OrderBy(x => ((IElement)x.TargetElement).Order)
-                .Select(x => new PrimaryKeyFilterMapping(
-                    _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
-                    x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
-                    x))
-                .ToList();
-        }*/
         //There is no mapping to the aggregate's PK, try to match is heuristically
 
         var aggPks = aggregateEntity.Attributes.Where(a => a.IsPrimaryKey()).ToList();
