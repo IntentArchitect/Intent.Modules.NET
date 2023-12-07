@@ -62,8 +62,7 @@ public class DomainInteractionsManager
     private List<PrimaryKeyFilterMapping> GetAggregatePKFindCriteria(IElementToElementMapping? queryMapping, IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
     {
         //There is no mapping to the aggregate's PK, try to match is heuristically
-
-        var aggPks = aggregateEntity.Attributes.Where(a => a.IsPrimaryKey()).ToList();
+        var aggPks = aggregateEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Where(x => x.IsPrimaryKey()).ToList();
         var keyMappings = new List<AggregateKeyMapping>();
         var aggregatePrefix = aggregateEntity.Name.ToPascalCase();
         for (int i = 0; i < aggPks.Count; i++)
