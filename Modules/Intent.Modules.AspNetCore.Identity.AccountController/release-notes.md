@@ -1,6 +1,7 @@
 ﻿### Version 3.0.1
 
 - Improvement: Updated to be compatible with .NET 8.
+- Fixed: Adding an Identity User will now receive the Refresh Token support in code.
 
 ### Version 3.0.0
 

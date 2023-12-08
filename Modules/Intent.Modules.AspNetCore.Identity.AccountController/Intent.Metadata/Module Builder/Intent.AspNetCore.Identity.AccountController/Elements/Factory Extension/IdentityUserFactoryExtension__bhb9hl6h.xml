@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="320bd997-2f28-4eea-9309-84645719a33a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IdentityUserFactoryExtension</name>
+  <display>IdentityUserFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</parentFolderId>
+  <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

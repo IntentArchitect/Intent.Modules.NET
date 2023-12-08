@@ -40,7 +40,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             dbContext.CSharpFile.OnBuild(file =>
             {
                 var priClass = file.Classes.First();
-            
+
                 priClass.AddProperty($"{dbContext.UseType("Microsoft.EntityFrameworkCore.DbSet")}<{dbContext.GetTypeName("Domain.IdentityUser")}>", "ApplicationIdentityUsers");
 
                 priClass.FindMethod("OnModelCreating")

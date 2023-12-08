@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity.AccountController</id>
-  <version>3.0.1-pre.1</version>
+  <version>3.0.1-pre.2</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</summary>
   <description>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</description>
@@ -71,6 +71,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Identity.AccountController.ApplicationSecurityConfigurationFactoryExtension" externalReference="b369949a-03ff-4cb6-a99b-b7c3ba692613" />
     <factoryExtension id="Intent.AspNetCore.Identity.AccountController.DbContextApplicationIdentityUserFactoryExtension" externalReference="13865168-61e7-42fb-a40f-8996295a6a4b" />
+    <factoryExtension id="Intent.AspNetCore.Identity.AccountController.IdentityUserFactoryExtension" externalReference="320bd997-2f28-4eea-9309-84645719a33a" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

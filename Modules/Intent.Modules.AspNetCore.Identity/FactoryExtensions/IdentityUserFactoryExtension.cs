@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var identityModel = application.MetadataManager.GetIdentityUserClass(application.GetApplicationConfig().Id);
 
@@ -112,6 +112,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
                 return;
             }
 
+            entityTemplate.FulfillsRole("Domain.IdentityUser");
             entityTemplate.AddNugetDependency(NugetPackages.MicrosoftExtensionsIdentityStores(entityTemplate.OutputTarget.GetProject()));
             entityTemplate.CSharpFile.AfterBuild(file =>
             {
