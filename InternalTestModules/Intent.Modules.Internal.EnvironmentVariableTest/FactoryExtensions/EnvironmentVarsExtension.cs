@@ -8,12 +8,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Module.Mock.EnvironmentVars.FactoryExtensions
+namespace Intent.Modules.Internal.EnvironmentVariableTest.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class EnvironmentVarsExtension : FactoryExtensionBase
     {
-        public override string Id => "Module.Mock.EnvironmentVars.EnvironmentVarsExtension";
+        public override string Id => "Intent.Modules.Internal.EnvironmentVariableTest.EnvironmentVarsExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

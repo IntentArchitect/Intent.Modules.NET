@@ -14,7 +14,7 @@ $repoConfigContent =
     </entry>
 	<entry>
       <name>CI Compiled Testing Modules</name>
-      <address>$($modulesFolderPath)</address>
+      <address>../InternalTestModules/$($modulesFolderPath)</address>
       <isBuiltIn>false</isBuiltIn>
       <order>4</order>
     </entry>

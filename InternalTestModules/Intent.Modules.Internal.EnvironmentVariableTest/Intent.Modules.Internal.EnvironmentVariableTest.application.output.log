@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>81449ffd-d5e2-424b-a685-1beb2bbbf0cb</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#f02e4fb8-e5ac-4bc9-b201-ea95d175639c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.InternalTestModules.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab9de53f-38d7-43b3-86c9-cd5a3f88914b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#0cff7a04-6246-4aaa-82cc-e48f0f11a8a4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EnvironmentVarsExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnvironmentVarsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1dd2e9cb-292f-43ea-ae8a-8a57d25b51a0</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#1dd2e9cb-292f-43ea-ae8a-8a57d25b51a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Internal.EnvironmentVariableTest.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Internal.EnvironmentVariableTest.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1dd2e9cb-292f-43ea-ae8a-8a57d25b51a0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Internal.EnvironmentVariableTest.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Internal.EnvironmentVariableTest.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

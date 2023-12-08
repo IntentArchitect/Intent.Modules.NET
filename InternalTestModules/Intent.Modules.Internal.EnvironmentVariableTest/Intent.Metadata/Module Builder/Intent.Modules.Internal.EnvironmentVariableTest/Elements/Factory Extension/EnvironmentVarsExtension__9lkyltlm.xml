@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0cff7a04-6246-4aaa-82cc-e48f0f11a8a4" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EnvironmentVarsExtension</name>
+  <display>EnvironmentVarsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>454c6209-85ad-432d-892c-8388c128aac6</parentFolderId>
+  <packageId>454c6209-85ad-432d-892c-8388c128aac6</packageId>
+  <packageName>Intent.Modules.Internal.EnvironmentVariableTest</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

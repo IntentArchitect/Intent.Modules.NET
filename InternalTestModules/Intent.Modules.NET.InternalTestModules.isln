@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="9cde682f-ade0-4c8b-a474-5356f8c3cedf">
+  <name>Intent.Modules.NET.InternalTestModules</name>
+  <description>Test Applications for the .NET Intent Architect Modules</description>
+  <version>3.3.0</version>
+  <icon>boxes</icon>
+  <iconType>FontAwesome</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.46" />
+  <applications>
+    <application id="81449ffd-d5e2-424b-a685-1beb2bbbf0cb" name="Intent.Modules.Internal.EnvironmentVariableTest" relativePath="Intent.Modules.Internal.EnvironmentVariableTest/Intent.Modules.Internal.EnvironmentVariableTest.application.config" />
+  </applications>
+</solution>

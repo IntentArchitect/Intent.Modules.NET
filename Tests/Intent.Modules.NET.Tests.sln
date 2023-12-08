@@ -55,10 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.HttpClient.CleanArchitecture", "Intent.IntegrationTest.HttpClient.CleanArchitecture\Intent.IntegrationTest.HttpClient.CleanArchitecture.csproj", "{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Module.Mock.EnvironmentVars", "Module.Mock.EnvironmentVars\Module.Mock.EnvironmentVars.csproj", "{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mock Modules", "Mock Modules", "{6764E0D3-0807-4081-B8ED-8F419A77643B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,10 +149,6 @@ Global
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +176,5 @@ Global
 		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
-		{8C49E57A-A1A0-4326-BB74-7A6BA7F17EE1} = {6764E0D3-0807-4081-B8ED-8F419A77643B}
 	EndGlobalSection
 EndGlobal
