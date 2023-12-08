@@ -2,6 +2,8 @@ using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Identity;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace Application.Identity.AccountController.UserIdentity.Domain.Entities
 {
     public class BespokeUser : IdentityUser
