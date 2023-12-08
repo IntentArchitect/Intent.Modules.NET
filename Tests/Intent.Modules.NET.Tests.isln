@@ -27,7 +27,7 @@
     <application id="be4b0466-617b-4d2d-beb1-5ef601d11ec9" name="MongoDb.TestApplication" relativePath="MongoDb.TestApplication/MongoDb.TestApplication.application.config" />
     <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
     <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
-    <application id="997b0d31-c393-4b42-9652-3bf4a12e9633" name="Application.Identity.AccountController.TestApplication" relativePath="intent/Application.Identity.AccountController.TestApplication/Application.Identity.AccountController.TestApplication.application.config" />
+    <application id="997b0d31-c393-4b42-9652-3bf4a12e9633" name="Application.Identity.AccountController" relativePath="Application.Identity.AccountController/Application.Identity.AccountController.application.config" />
     <application id="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" name="Publish.CleanArchDapr.TestApplication" relativePath="Publish.CleanArchDapr.TestApplication/Publish.CleanArchDapr.TestApplication.application.config" />
     <application id="a905a5c6-22ed-4c81-aba6-e2d01e40c02a" name="Subscribe.CleanArchDapr.TestApplication" relativePath="Subscribe.CleanArchDapr.TestApplication/Subscribe.CleanArchDapr.TestApplication.application.config" />
     <application id="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" name="Entities.PrivateSetters.TestApplication" relativePath="Entities.PrivateSetters.TestApplication/Entities.PrivateSetters.TestApplication.application.config" />
@@ -82,5 +82,6 @@
     <application id="e4251ba7-1036-4a2b-b23d-22d286ea81d2" name="AspNetCore.Controllers.Secured" relativePath="AspNetCore.Controllers.Secured/AspNetCore.Controllers.Secured.application.config" />
     <application id="090169cc-05b9-4267-81d7-81ad5bb954a2" name="AdvancedMappingCrud.Repositories.Tests" relativePath="AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.application.config" />
     <application id="a0f944aa-6954-42a5-9b76-df879ecdc886" name="AdvancedMappingCrud.Cosmos.Tests" relativePath="AdvancedMappingCrud.Cosmos.Tests/AdvancedMappingCrud.Cosmos.Tests.application.config" />
+    <application id="b2a57b08-b2ce-420a-b5c8-f4c4abbd720a" name="Application.Identity.AccountController.UserIdentity" relativePath="Application.Identity.AccountController.UserIdentity/Application.Identity.AccountController.UserIdentity.application.config" />
   </applications>
 </solution>
