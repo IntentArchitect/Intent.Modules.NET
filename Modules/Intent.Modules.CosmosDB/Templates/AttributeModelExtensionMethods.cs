@@ -29,39 +29,21 @@ namespace Intent.Modules.CosmosDB.Templates
                 _ => $"({csharpType})Convert.ChangeType(value, typeof({csharpType}))!"
             };
         }
-
-        public record PrimaryKeyData(AttributeModel Id, AttributeModel PartitionKey);
-
-        public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model, string partitionKey)
+        public static AttributeModel GetPrimaryKeyAttribute(this ClassModel model)
         {
-            AttributeModel? idAttribute = null;
-            AttributeModel? partitionKeyAttribute = null;
             var @class = model;
             while (@class != null)
             {
-                var primaryKeyAttributes = @class.Attributes.Where(x => x.HasPrimaryKey()).ToList();
-                if (primaryKeyAttributes.Any())
+                var primaryKeyAttribute = @class.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
+                if (primaryKeyAttribute != null)
                 {
-                    foreach (var pk in primaryKeyAttributes)
-                    {
-                        if (partitionKey != null && pk.Name == partitionKey)
-                        {
-                            partitionKeyAttribute = pk;
-                        }
-                        else
-                        {
-                            idAttribute = pk;
-                        }
-                    }
+                    return primaryKeyAttribute;
                 }
 
                 @class = @class.ParentClass;
             }
-            if (idAttribute is null)
-            {
-                return null;
-            }
-            return new PrimaryKeyData(idAttribute, partitionKeyAttribute ?? idAttribute);
+
+            return null;
         }
 
         public static AttributeModel GetAttributeOrDerivedWithName(this ClassModel model, string name)
