@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e9f8d4d1-4c3a-4325-be7d-1ad701d77ac8" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>488aa1b9-6c0e-4b95-8618-784468d93831</parentFolderId>
+  <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>488aa1b9-6c0e-4b95-8618-784468d93831</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

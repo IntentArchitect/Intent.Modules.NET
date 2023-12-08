@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5dc2dfc5-ea83-4c85-9ee4-82d5ed50fee4">
+  <sourceEnd id="5b591f61-03f3-4ab3-bafa-1393f95bb51c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderOrderItemByIdQuery</display>
+    <order>0</order>
+    <typeReference id="8e026bf8-b64d-4e4f-9bd5-a56aef85fea2">
+      <typeId>92d5396a-7c58-4fe9-9bdb-5aa19469c580</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+      <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5dc2dfc5-ea83-4c85-9ee4-82d5ed50fee4" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orderItem</name>
+    <display>[query] orderItem: OrderItem</display>
+    <order>2</order>
+    <typeReference id="8cecd533-1341-4df1-98d6-82b6acd93a8c">
+      <typeId>cad1c1ca-6438-4a50-9271-c11f3f73bb20</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Domain</typePackageName>
+      <typePackageId>e9a90d1a-2d6c-4860-967f-32435319b518</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="92d5396a-7c58-4fe9-9bdb-5aa19469c580" location="GetOrderOrderItemByIdQuery" />
+        <target applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cad1c1ca-6438-4a50-9271-c11f3f73bb20" location="OrderItem" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="cad1c1ca-6438-4a50-9271-c11f3f73bb20" name="OrderItem" type="element" specialization="Class" />
+              <target id="8e309907-7b48-474a-b976-40aa49830843" name="OrderId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="92d5396a-7c58-4fe9-9bdb-5aa19469c580" name="GetOrderOrderItemByIdQuery" type="element" specialization="Query" />
+                  <target id="43d10d63-d777-4ddf-8e05-0689c4887056" name="OrderId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cad1c1ca-6438-4a50-9271-c11f3f73bb20" name="OrderItem" type="element" specialization="Class" />
+              <target id="e2fdbbb3-3c0b-4656-9b5f-d3ec1df9ddb8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="92d5396a-7c58-4fe9-9bdb-5aa19469c580" name="GetOrderOrderItemByIdQuery" type="element" specialization="Query" />
+                  <target id="c373f66d-7d13-42a0-95ba-8898d0538cf4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

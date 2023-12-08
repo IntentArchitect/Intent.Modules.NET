@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="29067751-360c-4e90-97f5-4525288778a1" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOrdersQuery</name>
+  <display>GetOrdersQuery: OrderDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="36aae262-a439-4c70-80e7-0414dcad3587">
+    <typeId>b35be41a-8faa-44e5-8277-cb9346f5a876</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+    <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>488aa1b9-6c0e-4b95-8618-784468d93831</parentFolderId>
+  <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Orders" />
+  </metadata>
+  <childElements />
+</class>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f7318d12-c88d-4d78-bfbb-ee62926e483d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>391bdd9e-55c1-4ccb-881c-981b364d8124</parentFolderId>
+  <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>391bdd9e-55c1-4ccb-881c-981b364d8124</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

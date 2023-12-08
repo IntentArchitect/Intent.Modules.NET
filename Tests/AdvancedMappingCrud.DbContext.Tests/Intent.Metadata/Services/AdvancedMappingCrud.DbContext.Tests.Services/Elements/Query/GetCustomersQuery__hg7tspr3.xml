@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5686b0df-cc1a-45ca-bdd2-af6e592daf4b" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomersQuery</name>
+  <display>GetCustomersQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c264edf5-61c7-4ca6-b448-18e57293fc8d">
+    <typeId>41cadb21-7365-4c6f-86d5-a70e0f0ced70</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+    <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>391bdd9e-55c1-4ccb-881c-981b364d8124</parentFolderId>
+  <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Customers" />
+  </metadata>
+  <childElements />
+</class>

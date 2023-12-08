@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6d94e8c4-3840-49e4-8713-331e7ea2c377">
+  <sourceEnd id="30deb95e-0ee2-4da6-b714-432ca8d8934c" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Orders.DeleteOrderOrderItemCommand</display>
+    <order>0</order>
+    <typeReference id="6397bfd1-93ba-48a9-b316-78bd4c23107f">
+      <typeId>c9969d29-2ea6-4e0e-acf5-90fe0095f02a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+      <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6d94e8c4-3840-49e4-8713-331e7ea2c377" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>orderItem</name>
+    <display>[delete] orderItem: OrderItem</display>
+    <order>2</order>
+    <typeReference id="37edd86a-61e1-4697-8b8b-5586360ae9db">
+      <typeId>cad1c1ca-6438-4a50-9271-c11f3f73bb20</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Domain</typePackageName>
+      <typePackageId>e9a90d1a-2d6c-4860-967f-32435319b518</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c9969d29-2ea6-4e0e-acf5-90fe0095f02a" location="DeleteOrderOrderItemCommand" />
+        <target applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cad1c1ca-6438-4a50-9271-c11f3f73bb20" location="OrderItem" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cad1c1ca-6438-4a50-9271-c11f3f73bb20" name="OrderItem" type="element" specialization="Class" />
+              <target id="e2fdbbb3-3c0b-4656-9b5f-d3ec1df9ddb8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c9969d29-2ea6-4e0e-acf5-90fe0095f02a" name="DeleteOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="87a51953-f8a4-4748-aa12-6ce76d0de2d9" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="cad1c1ca-6438-4a50-9271-c11f3f73bb20" name="OrderItem" type="element" specialization="Class" />
+              <target id="8e309907-7b48-474a-b976-40aa49830843" name="OrderId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c9969d29-2ea6-4e0e-acf5-90fe0095f02a" name="DeleteOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="adfc723a-e10c-4f5c-a7e4-c6df5820272a" name="OrderId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>
