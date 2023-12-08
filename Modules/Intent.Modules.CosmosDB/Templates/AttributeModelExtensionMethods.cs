@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Metadata.DocumentDB.Api;
@@ -29,22 +30,38 @@ namespace Intent.Modules.CosmosDB.Templates
             };
         }
 
+        public record PrimaryKeyData(AttributeModel Id, AttributeModel PartitionKey);
 
-        public static AttributeModel GetPrimaryKeyAttribute(this ClassModel model)
+        public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model, string partitionKey)
         {
+            AttributeModel? idAttribute = null;
+            AttributeModel? partitionKeyAttribute = null;
             var @class = model;
             while (@class != null)
             {
-                var primaryKeyAttribute = @class.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
-                if (primaryKeyAttribute != null)
+                var primaryKeyAttributes = @class.Attributes.Where(x => x.HasPrimaryKey()).ToList();
+                if (primaryKeyAttributes.Any())
                 {
-                    return primaryKeyAttribute;
+                    foreach (var pk in primaryKeyAttributes)
+                    {
+                        if (partitionKey != null && pk.Name == partitionKey)
+                        {
+                            partitionKeyAttribute = pk;
+                        }
+                        else
+                        {
+                            idAttribute = pk;
+                        }
+                    }
                 }
 
                 @class = @class.ParentClass;
             }
-
-            return null;
+            if (idAttribute is null)
+            {
+                return null;
+            }
+            return new PrimaryKeyData(idAttribute, partitionKeyAttribute ?? idAttribute);
         }
 
         public static AttributeModel GetAttributeOrDerivedWithName(this ClassModel model, string name)
