@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7516aaa6-dc7e-421f-8ced-ff106d834ef9">
+  <sourceEnd id="2adf9e1a-6d3c-4d30-a7b1-b565ebe8e36f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderOrderItemsQuery</display>
+    <order>0</order>
+    <typeReference id="9d0dd349-fa07-4170-9bd9-4d6cae7a0bf3">
+      <typeId>70d13c12-21db-4885-ae66-524ee6899d6a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7516aaa6-dc7e-421f-8ced-ff106d834ef9" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orderItems</name>
+    <display>[query] orderItems: OrderItem[*]</display>
+    <order>1</order>
+    <typeReference id="3e29ceb4-957a-4383-8de2-b6ae2e7a541b">
+      <typeId>770b57a5-197b-48bb-96b4-629807f06401</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="70d13c12-21db-4885-ae66-524ee6899d6a" location="GetOrderOrderItemsQuery" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="770b57a5-197b-48bb-96b4-629807f06401" location="OrderItem" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" />
+              <target id="216eb804-a9e2-44b4-a2b8-eccb1f13d07d" name="OrderId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="70d13c12-21db-4885-ae66-524ee6899d6a" name="GetOrderOrderItemsQuery" type="element" specialization="Query" />
+                  <target id="acea5077-d920-4c78-891d-3d7f82535329" name="OrderId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

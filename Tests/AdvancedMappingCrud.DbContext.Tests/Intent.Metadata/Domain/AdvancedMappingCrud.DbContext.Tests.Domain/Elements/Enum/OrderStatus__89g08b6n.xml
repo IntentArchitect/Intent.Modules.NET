@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="34302a78-e6c1-4834-b38a-d6b1598cd0d6" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e9a90d1a-2d6c-4860-967f-32435319b518</parentFolderId>
+  <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="930f8ac8-699f-44a5-b3f3-22c9353acc0b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Paid</name>
+      <display>Paid = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>34302a78-e6c1-4834-b38a-d6b1598cd0d6</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9bbc0c05-37e5-437a-b760-366c83f3c92c" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Shipped</name>
+      <display>Shipped = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>34302a78-e6c1-4834-b38a-d6b1598cd0d6</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

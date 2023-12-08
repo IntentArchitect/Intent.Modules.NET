@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="41670a88-eb0e-4f0c-aec2-88e7f24eb4b7">
+  <sourceEnd id="4fc974db-e02b-4f39-a7e5-2ddd6309dd9f" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Orders.CreateOrderOrderItemCommand</display>
+    <order>0</order>
+    <typeReference id="bb604648-6690-4bfe-8ecb-61bf452a04e4">
+      <typeId>3cd02d1b-5fe8-44ed-99ad-b6432a63e822</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="41670a88-eb0e-4f0c-aec2-88e7f24eb4b7" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>orderItem</name>
+    <display>[create] orderItem: OrderItem</display>
+    <order>4</order>
+    <typeReference id="0868d144-6d70-48a5-8971-d8bc3b010de6">
+      <typeId>df8b665b-ecc0-47de-b754-60d3b35fdc4b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3cd02d1b-5fe8-44ed-99ad-b6432a63e822" location="CreateOrderOrderItemCommand" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="df8b665b-ecc0-47de-b754-60d3b35fdc4b" location="OrderItem" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrderOrderItemCommand}</expression>
+            <path>
+              <target id="df8b665b-ecc0-47de-b754-60d3b35fdc4b" name="OrderItem" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderOrderItemCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="3cd02d1b-5fe8-44ed-99ad-b6432a63e822" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quantity}</expression>
+            <path>
+              <target id="df8b665b-ecc0-47de-b754-60d3b35fdc4b" name="OrderItem" type="element" specialization="Class" />
+              <target id="bd0477ab-f843-4f10-aa29-488e423424c1" name="Quantity" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Quantity" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="3cd02d1b-5fe8-44ed-99ad-b6432a63e822" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="ac275865-d9d8-4b5b-8e0c-e8f5a7e7dae5" name="Quantity" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="df8b665b-ecc0-47de-b754-60d3b35fdc4b" name="OrderItem" type="element" specialization="Class" />
+              <target id="2390fa11-fb55-4380-8896-67d7e49d661e" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="3cd02d1b-5fe8-44ed-99ad-b6432a63e822" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="3ca09f92-2f88-41db-9284-6dc1e0c62d79" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ProductId}</expression>
+            <path>
+              <target id="df8b665b-ecc0-47de-b754-60d3b35fdc4b" name="OrderItem" type="element" specialization="Class" />
+              <target id="477b1c5e-c51e-48e8-abfe-4513e79580f2" name="ProductId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ProductId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="3cd02d1b-5fe8-44ed-99ad-b6432a63e822" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="10567d17-c28b-4443-a1d8-8bbc8454953c" name="ProductId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

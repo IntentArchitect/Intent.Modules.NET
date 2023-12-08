@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6a0ec666-9a29-44a3-8f07-642a17960018">
+  <sourceEnd id="4875da7c-1545-449f-8463-b87742fdfbb3" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Orders.UpdateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="b0c35b9e-713c-4487-8b8f-241400228a8e">
+      <typeId>4c2ce237-6ad2-44f0-a115-5881ba8c1d4c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6a0ec666-9a29-44a3-8f07-642a17960018" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>order</name>
+    <display>[update] order: Order</display>
+    <order>5</order>
+    <typeReference id="2c8ec578-01e9-4c6a-865c-788db9b6dde6">
+      <typeId>40a608b5-7171-4e71-99b3-6bce641aa33b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" location="UpdateOrderCommand" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="40a608b5-7171-4e71-99b3-6bce641aa33b" location="Order" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="40a608b5-7171-4e71-99b3-6bce641aa33b" name="Order" type="element" specialization="Class" />
+              <target id="186af17a-c48b-4a3b-818c-6a82393d15b3" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" name="UpdateOrderCommand" type="element" specialization="Command" />
+                  <target id="1df9890d-0617-4ac0-9dbe-c00185c67fa6" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" location="UpdateOrderCommand" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="40a608b5-7171-4e71-99b3-6bce641aa33b" location="Order" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CustomerId}</expression>
+            <path>
+              <target id="40a608b5-7171-4e71-99b3-6bce641aa33b" name="Order" type="element" specialization="Class" />
+              <target id="f11a7a46-9751-4761-8eac-a6c5e8833f1b" name="CustomerId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="CustomerId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" name="UpdateOrderCommand" type="element" specialization="Command" />
+                  <target id="08b44719-e8a6-43c8-9746-da3000f04c56" name="CustomerId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{RefNo}</expression>
+            <path>
+              <target id="40a608b5-7171-4e71-99b3-6bce641aa33b" name="Order" type="element" specialization="Class" />
+              <target id="a208dd1c-6fb0-47a8-8636-9a1a8442d4da" name="RefNo" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="RefNo" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" name="UpdateOrderCommand" type="element" specialization="Command" />
+                  <target id="4091ae70-505a-4a78-9e90-9f7b52491fe0" name="RefNo" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderDate}</expression>
+            <path>
+              <target id="40a608b5-7171-4e71-99b3-6bce641aa33b" name="Order" type="element" specialization="Class" />
+              <target id="b6dcc296-0da6-42ad-9753-8912687ef089" name="OrderDate" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="OrderDate" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" name="UpdateOrderCommand" type="element" specialization="Command" />
+                  <target id="a5a18460-d904-492d-9ecb-5ef37e44f566" name="OrderDate" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderStatus}</expression>
+            <path>
+              <target id="40a608b5-7171-4e71-99b3-6bce641aa33b" name="Order" type="element" specialization="Class" />
+              <target id="998ae5f3-9c00-4b5e-8901-458c6d282859" name="OrderStatus" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="OrderStatus" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4c2ce237-6ad2-44f0-a115-5881ba8c1d4c" name="UpdateOrderCommand" type="element" specialization="Command" />
+                  <target id="6209980c-09c5-41af-9366-bef18c8cbf6c" name="OrderStatus" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

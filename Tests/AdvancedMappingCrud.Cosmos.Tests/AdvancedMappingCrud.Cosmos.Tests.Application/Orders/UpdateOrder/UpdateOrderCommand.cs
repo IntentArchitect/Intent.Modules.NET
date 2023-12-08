@@ -1,0 +1,29 @@
+using System;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Interfaces;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
+using Intent.RoslynWeaver.Attributes;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+
+namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
+{
+    public class UpdateOrderCommand : IRequest, ICommand
+    {
+        public UpdateOrderCommand(string id, string customerId, string refNo, DateTime orderDate, OrderStatus orderStatus)
+        {
+            Id = id;
+            CustomerId = customerId;
+            RefNo = refNo;
+            OrderDate = orderDate;
+            OrderStatus = orderStatus;
+        }
+
+        public string Id { get; set; }
+        public string CustomerId { get; set; }
+        public string RefNo { get; set; }
+        public DateTime OrderDate { get; set; }
+        public OrderStatus OrderStatus { get; set; }
+    }
+}

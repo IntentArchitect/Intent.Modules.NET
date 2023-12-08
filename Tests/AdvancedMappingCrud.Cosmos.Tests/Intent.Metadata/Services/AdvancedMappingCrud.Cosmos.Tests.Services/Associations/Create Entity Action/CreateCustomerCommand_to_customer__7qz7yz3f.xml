@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="400c0270-c185-4e74-a87e-9489be149174">
+  <sourceEnd id="49737ea6-9ca4-45d7-be2e-53f96518a52c" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Customers.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="e288e01d-9a80-45a0-88be-842388d0183f">
+      <typeId>8d1b2d5e-92bb-4a86-b610-d7fbf94a937d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="400c0270-c185-4e74-a87e-9489be149174" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>customer</name>
+    <display>[create] customer: Customer</display>
+    <order>3</order>
+    <typeReference id="02b2b11a-7dbd-4505-b810-0ab924911c46">
+      <typeId>41461520-9a59-4626-b0e9-2926ac9540a4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" location="CreateCustomerCommand" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="Customer" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCustomerCommand}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="6f9f6c2a-30ac-487d-87e3-876434784b93" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="47b41284-d1bd-4c5a-8ffd-90dce20e2a28" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="ce889c33-1f31-48d9-bbe5-49b928b6bca7" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="24a4dfdf-b454-49f5-b9c8-19459d0f20d7" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="95b3a8d9-de80-4e54-8c2e-d2e0204660e3" name="IsActive" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="d9aa1e5a-95e9-4a45-81f7-dd719eaa9e2b" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>
