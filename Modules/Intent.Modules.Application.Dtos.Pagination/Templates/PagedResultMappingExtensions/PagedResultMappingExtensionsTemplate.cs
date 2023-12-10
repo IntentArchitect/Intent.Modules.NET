@@ -77,8 +77,8 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             
             #line default
             #line hidden
-            this.Write("<TDomain> pagedResult, Func<TDomain, TDto> mapFunc)\r\n        {\r\n            var d" +
-                    "ata = pagedResult.Select(mapFunc).ToList();\r\n\r\n            return ");
+            this.Write("<TDomain> pagedResult, Func<TDomain, TDto> mapFunc)\r\n        { \r\n            var " +
+                    "data = pagedResult.Select(mapFunc).ToList();\r\n\r\n            return ");
             
             #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
