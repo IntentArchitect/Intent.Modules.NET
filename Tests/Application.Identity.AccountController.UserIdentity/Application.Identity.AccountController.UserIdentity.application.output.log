@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7373731c-aede-4fcc-af1f-e21a8850e477</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
