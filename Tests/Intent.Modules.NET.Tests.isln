@@ -83,5 +83,6 @@
     <application id="090169cc-05b9-4267-81d7-81ad5bb954a2" name="AdvancedMappingCrud.Repositories.Tests" relativePath="AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.application.config" />
     <application id="a0f944aa-6954-42a5-9b76-df879ecdc886" name="AdvancedMappingCrud.Cosmos.Tests" relativePath="AdvancedMappingCrud.Cosmos.Tests/AdvancedMappingCrud.Cosmos.Tests.application.config" />
     <application id="b2a57b08-b2ce-420a-b5c8-f4c4abbd720a" name="Application.Identity.AccountController.UserIdentity" relativePath="Application.Identity.AccountController.UserIdentity/Application.Identity.AccountController.UserIdentity.application.config" />
+    <application id="0e3734cb-dd6e-4824-94b4-0596d33525be" name="AdvancedMappingCrud.DbContext.Tests" relativePath="AdvancedMappingCrud.DbContext.Tests/AdvancedMappingCrud.DbContext.Tests.application.config" />
   </applications>
 </solution>

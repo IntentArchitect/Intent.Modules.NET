@@ -26,6 +26,7 @@ namespace Intent.Modules.Entities.Templates.DataContract
 
         public override string TemplateId => DataContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DataContractModel model)
         {
             return new DataContractTemplate(outputTarget, model);

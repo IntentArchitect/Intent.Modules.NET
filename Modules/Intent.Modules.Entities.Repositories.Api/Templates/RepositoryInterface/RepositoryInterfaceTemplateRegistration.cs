@@ -24,6 +24,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
         }
 
         public override string TemplateId => RepositoryInterfaceTemplate.TemplateId;
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new RepositoryInterfaceTemplate(outputTarget);

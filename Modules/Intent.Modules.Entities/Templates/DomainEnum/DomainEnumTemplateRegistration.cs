@@ -27,6 +27,7 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
 
         public override string TemplateId => DomainEnumTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EnumModel model)
         {
             return new DomainEnumTemplate(outputTarget, model);

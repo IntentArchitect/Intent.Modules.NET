@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f">
+  <sourceEnd id="ecd4e817-710f-489a-bdd7-1b570bc6a716" type="Call Domain Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.DeactivateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="8faa2e68-f48d-46ad-a181-f504130eeef5">
+      <typeId>2282a452-06d4-4fab-bacb-ec2861bb33e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f" type="Call Domain Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : DeactivateCustomer</display>
+    <order>1</order>
+    <typeReference id="af40f894-51da-402c-b738-8320afbe26e5">
+      <typeId>d0ca58b1-01d0-42f5-bf08-6454eda591e9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Domain Service Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2282a452-06d4-4fab-bacb-ec2861bb33e1" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeactivateCustomerCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d0ca58b1-01d0-42f5-bf08-6454eda591e9" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[DeactivateCustomer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{DeactivateCustomerCommand}</expression>
+            <path>
+              <target id="d0ca58b1-01d0-42f5-bf08-6454eda591e9" name="DeactivateCustomer" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="DeactivateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="2282a452-06d4-4fab-bacb-ec2861bb33e1" name="DeactivateCustomerCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{customerId}</expression>
+            <path>
+              <target id="d0ca58b1-01d0-42f5-bf08-6454eda591e9" name="DeactivateCustomer" type="element" specialization="Operation" />
+              <target id="e301ac9f-892a-4fc4-9657-4c980a361aa7" name="customerId" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="customerId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="2282a452-06d4-4fab-bacb-ec2861bb33e1" name="DeactivateCustomerCommand" type="element" specialization="Command" />
+                  <target id="18ab5ef8-6a35-408c-a4cd-d6aeb7550948" name="CustomerId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Domain Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

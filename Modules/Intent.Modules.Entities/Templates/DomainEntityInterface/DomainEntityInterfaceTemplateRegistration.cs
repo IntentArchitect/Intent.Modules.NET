@@ -31,6 +31,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 
         public override string TemplateId => DomainEntityInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new DomainEntityInterfaceTemplate(outputTarget, model);

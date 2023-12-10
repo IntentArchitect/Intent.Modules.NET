@@ -41,14 +41,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>157d9add-3412-477c-a4f1-7c6312a3683f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#dcc00891-d339-4864-a22c-24b3ae9fbc67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -206,6 +198,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f10db7b9-dbed-4b23-8ba0-fab06ddb8115</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/NotFoundException/NotFoundExceptionTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException/NotFoundExceptionTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f10db7b9-dbed-4b23-8ba0-fab06ddb8115</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/NotFoundException/NotFoundExceptionTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException/NotFoundExceptionTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

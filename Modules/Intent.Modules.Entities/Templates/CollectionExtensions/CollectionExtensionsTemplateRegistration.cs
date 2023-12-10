@@ -18,6 +18,7 @@ namespace Intent.Modules.Entities.Templates.CollectionExtensions
     {
         public override string TemplateId => CollectionExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CollectionExtensionsTemplate(outputTarget);

@@ -33,7 +33,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null);
+            return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null)
+                || _model.CallDomainServiceOperationActions().Any(x => x.Mappings.Any());
         }
 
         public void ApplyStrategy()
@@ -68,7 +69,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
                 }
             }
 
-            if (_model.TypeReference.Element != null && domainInteractionManager.TrackedEntities.Any())
+            foreach (var callAction in _model.CallDomainServiceOperationActions())
+            {
+                handleMethod.AddStatements(domainInteractionManager.CallDomainService(callAction));
+            }
+
+            if (_model.TypeReference.Element != null)
             {
                 handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(_model.TypeReference));
             }

@@ -18,6 +18,7 @@ namespace Intent.Modules.Entities.Templates.CollectionWrapper
     {
         public override string TemplateId => CollectionWrapperTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CollectionWrapperTemplate(outputTarget);

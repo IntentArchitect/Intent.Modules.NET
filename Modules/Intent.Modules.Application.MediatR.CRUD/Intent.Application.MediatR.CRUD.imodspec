@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
-  <version>6.0.0-beta.7</version>
+  <version>6.0.0-beta.8</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>CRUD conventions for Commands and Queries.</summary>
   <description>CRUD conventions for Commands and Queries.</description>
@@ -24,9 +24,9 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.3.3" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.4.8" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="4.1.0-beta.0" />
-    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.0-beta.7" />
+    <dependency id="Intent.Modelers.Services" version="3.5.0-beta.2" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="4.1.0-beta.2" />
+    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.0-beta.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <interoperability>

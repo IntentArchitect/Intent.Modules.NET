@@ -29,6 +29,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 
         public override string TemplateId => DomainEntityStateTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new DomainEntityStateTemplate(outputTarget, model);

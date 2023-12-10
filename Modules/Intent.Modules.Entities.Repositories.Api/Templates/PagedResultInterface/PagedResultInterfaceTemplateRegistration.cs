@@ -24,6 +24,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
         }
 
         public override string TemplateId => PagedResultInterfaceTemplate.TemplateId;
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new PagedResultInterfaceTemplate(outputTarget);

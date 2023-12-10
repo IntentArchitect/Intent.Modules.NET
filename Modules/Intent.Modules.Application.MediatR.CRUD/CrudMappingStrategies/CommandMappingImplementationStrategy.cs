@@ -27,7 +27,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _model.CreateEntityActions().Any() || _model.UpdateEntityActions().Any() || _model.DeleteEntityActions().Any();
+            return _model.CreateEntityActions().Any() 
+                   || _model.UpdateEntityActions().Any() 
+                   || _model.DeleteEntityActions().Any()
+                   || _model.CallDomainServiceOperationActions().Any();
         }
 
         public void ApplyStrategy()
@@ -63,6 +66,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
                 handleMethod.AddStatement(string.Empty);
                 handleMethod.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
+            }
+
+
+            foreach (var callAction in _model.CallDomainServiceOperationActions())
+            {
+                handleMethod.AddStatements(domainInteractionManager.CallDomainService(callAction));
             }
 
             foreach (var deleteAction in _model.DeleteEntityActions())

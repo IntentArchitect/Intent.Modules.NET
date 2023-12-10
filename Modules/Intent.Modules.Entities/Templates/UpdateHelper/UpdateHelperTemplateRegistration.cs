@@ -18,6 +18,7 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
     {
         public override string TemplateId => UpdateHelperTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new UpdateHelperTemplate(outputTarget);

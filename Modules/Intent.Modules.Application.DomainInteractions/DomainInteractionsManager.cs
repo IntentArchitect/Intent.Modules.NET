@@ -21,6 +21,7 @@ using Intent.Modules.Constants;
 using Intent.Templates;
 using Intent.Utils;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
+using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -173,9 +174,10 @@ public class DomainInteractionsManager
             if (aggregateAssociations.Count == 1) 
             {
                 var aggregateEntity = aggregateAssociations.Single().Class;
+
                 if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateAssociations.Single().Class, out var repositoryInterface))
                 {
-                    var repositoryName = AddRepositoryInfrastructure(repositoryInterface);
+                    var repositoryName = InjectService(repositoryInterface);
                     dataAccessProvider = new CompositeDataAccessProvider(
                         $"{repositoryName}.UnitOfWork",
                         $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}");
@@ -185,7 +187,7 @@ public class DomainInteractionsManager
                 else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
                     SettingGenerateDbContextInterface())
                 {
-                    var dbContextField = AddDBContextInfrastructure(dbContextInterface);
+                    var dbContextField = InjectService(dbContextInterface, "dbContext");
                     dataAccessProvider = new CompositeDataAccessProvider(
                         dbContextField,
                         $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}");
@@ -205,82 +207,35 @@ public class DomainInteractionsManager
             dataAccessProvider = null;
             return false;
         }
-        dataAccessProvider = new RepositoryDataAccessProvider(AddRepositoryInfrastructure(repositoryInterface));
+        dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface));
         return true;
     }
 
-    private string AddRepositoryInfrastructure(string repositoryInterface)
-    {
-        var repositoryName = repositoryInterface[1..].ToCamelCase();
-        var repositoryFieldName = default(string);
+    //private string InjectRepositoryService(string repositoryInterface)
+    //{
+    //    var repositoryName = repositoryInterface[1..].ToCamelCase();
+    //    var repositoryFieldName = default(string);
 
-        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-        if (ctor.Parameters.All(x => x.Type != repositoryInterface))
-        {
-            ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
-                param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
-        }
-        else
-        {
-            repositoryFieldName = ctor.Parameters.First(x => x.Type == repositoryInterface).Name.ToPrivateMemberName();
-        }
+    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+    //    if (ctor.Parameters.All(x => x.Type != repositoryInterface))
+    //    {
+    //        ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
+    //            param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
+    //    }
+    //    else
+    //    {
+    //        repositoryFieldName = ctor.Parameters.First(x => x.Type == repositoryInterface).Name.ToPrivateMemberName();
+    //    }
 
-        return repositoryFieldName;
-    }
+    //    return repositoryFieldName;
+    //}
 
     // This is likely to cause bugs since it doesn't align exactly with the logic that "enabled/disables" the IApplicationDbContext template
     public bool SettingGenerateDbContextInterface()
     {
+        return true;
         //GetDatabaseSettings().GenerateDbContextInterface()
         return bool.TryParse(_template.ExecutionContext.Settings.GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9").GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
-    }
-
-    public bool TryInjectDbContext(ClassModel entity, out IDataAccessProvider dataAccessProvider)
-    {
-        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
-            !SettingGenerateDbContextInterface())
-        {
-            dataAccessProvider = null;
-            return false;
-        }
-        var dbContextField = AddDBContextInfrastructure(dbContextInterface);
-        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template);
-        return true;
-    }
-
-    public string AddDBContextInfrastructure(string dbContextInterface)
-    {
-        var dbContext = "dbContext";
-        var dbContextField = default(string);
-
-        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-        if (ctor.Parameters.All(x => x.Type != dbContextInterface))
-        {
-            ctor.AddParameter(dbContextInterface, dbContext.ToParameterName(),
-                param => param.IntroduceReadonlyField(field => dbContextField = field.Name));
-        }
-        else
-        {
-            dbContextField = ctor.Parameters.First(x => x.Type == dbContextInterface).Name.ToPrivateMemberName();
-        }
-        return dbContextField;
-    }
-
-
-    private void InjectAutoMapper(out string fieldName)
-    {
-        var temp = default(string);
-        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-        if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
-        {
-            ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
-                param => param.IntroduceReadonlyField(field => temp = field.Name));
-            fieldName = temp;
-        }
-        else
-        {
-            fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
-        }
     }
 
     public IEnumerable<CSharpStatement> GetReturnStatements(ITypeReference returnType)
@@ -301,13 +256,13 @@ public class DomainInteractionsManager
         if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
         {
             var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
-            InjectAutoMapper(out var autoMapperFieldName);
+            var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
             statements.Add($"return {entityDetails.VariableName}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
         }
         else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
         {
             var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
-            InjectAutoMapper(out var autoMapperFieldName);
+            var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
             statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
         }
         else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
@@ -366,7 +321,7 @@ public class DomainInteractionsManager
         }
         return statements;
     }
-
+    
     public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
     {
         var entityDetails = TrackedEntities[updateAction.Id];
@@ -432,6 +387,35 @@ public class DomainInteractionsManager
         return statements;
     }
 
+    public IEnumerable<CSharpStatement> CallDomainService(CallDomainServiceOperationTargetEndModel callDomainServiceOperation)
+    {
+        var domainServiceModel = ((IElement)callDomainServiceOperation.Element).ParentElement;
+        if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, domainServiceModel, out var domainServiceInterfaceName) 
+            || callDomainServiceOperation.Mappings.Any() is false)
+        {
+            yield break;
+        }
+
+        var domainServiceField = InjectService(domainServiceInterfaceName);
+        var operationModel = new OperationModel((IElement)callDomainServiceOperation.Element);
+
+        var invoke = new CSharpAccessMemberStatement(domainServiceField, _csharpMapping.GenerateCreationStatement(callDomainServiceOperation.Mappings.First()));
+        if (operationModel.TypeReference.Element != null)
+        {
+            string variableName = callDomainServiceOperation.Name.ToLocalVariableName();
+            yield return new CSharpAssignmentStatement($"var {variableName}", invoke);
+
+            if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
+            {
+                TrackedEntities.Add(callDomainServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
+            }
+        }
+        else
+        {
+            yield return invoke;
+        }
+    }
+
     private IDataAccessProvider InjectDataAccessProvider(ClassModel foundEntity)
     {
         if (TryInjectRepositoryForEntity(foundEntity, out var dataAccess))
@@ -448,6 +432,53 @@ public class DomainInteractionsManager
         }
         throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
     }
+
+    private bool TryInjectDbContext(ClassModel entity, out IDataAccessProvider dataAccessProvider)
+    {
+        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
+            !SettingGenerateDbContextInterface())
+        {
+            dataAccessProvider = null;
+            return false;
+        }
+        var dbContextField = InjectService(dbContextInterface, "dbContext");
+        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template);
+        return true;
+    }
+
+
+    private string InjectService(string interfaceName, string parameterName = null)
+    {
+        var fieldName = default(string);
+
+        var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+        if (ctor.Parameters.All(x => x.Type != interfaceName))
+        {
+            ctor.AddParameter(interfaceName, (parameterName ?? interfaceName.RemovePrefix("I")).ToParameterName(),
+                param => param.IntroduceReadonlyField(field => fieldName = field.Name));
+        }
+        else
+        {
+            fieldName = ctor.Parameters.First(x => x.Type == interfaceName).Name.ToPrivateMemberName();
+        }
+        return fieldName;
+    }
+
+    //private void InjectAutoMapper(out string fieldName)
+    //{
+    //    var temp = default(string);
+    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+    //    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
+    //    {
+    //        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
+    //            param => param.IntroduceReadonlyField(field => temp = field.Name));
+    //        fieldName = temp;
+    //    }
+    //    else
+    //    {
+    //        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
+    //    }
+    //}
 
     private bool MustAccessEntityThroughAggregate(IDataAccessProvider dataAccess)
     {

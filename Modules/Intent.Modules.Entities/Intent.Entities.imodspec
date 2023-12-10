@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>5.0.0-beta.5</version>
-  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>5.0.0-beta.6</version>
+  <supportedClientVersions>[4.1.0-beta.21, 5.0.0-a)</supportedClientVersions>
   <summary>A simple and extensible Entities pattern in C#.</summary>
   <description>A simple and extensible Entities pattern in C#.</description>
   <authors>Intent Architect</authors>
@@ -64,6 +64,14 @@
       <config>
         <add key="Namespace" description="Namespace" />
       </config>
+    </template>
+    <template id="Intent.Entities.NotFoundException" externalReference="f10db7b9-dbed-4b23-8ba0-fab06ddb8115">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.NotFoundException</role>
+      <location>Common/Exceptions</location>
     </template>
     <template id="Intent.Entities.UpdateHelper" externalReference="707c1468-6dcd-4a09-809c-c607a4636ebc">
       <config>

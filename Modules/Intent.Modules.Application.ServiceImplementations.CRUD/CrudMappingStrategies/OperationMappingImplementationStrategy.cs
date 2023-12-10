@@ -10,6 +10,7 @@ using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImpleme
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Constants;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -31,7 +32,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             return operationModel.CreateEntityActions().Any() 
                    || operationModel.UpdateEntityActions().Any() 
                    || operationModel.DeleteEntityActions().Any() 
-                   || operationModel.QueryEntityActions().Any();
+                   || operationModel.QueryEntityActions().Any()
+                   || operationModel.CallDomainServiceOperationActions().Any();
         }
 
         public void ApplyStrategy(OperationModel operationModel)
@@ -75,6 +77,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
                 method.AddStatement(string.Empty);
                 method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
+            }
+
+            foreach (var callAction in operationModel.CallDomainServiceOperationActions())
+            {
+                method.AddStatements(domainInteractionManager.CallDomainService(callAction));
             }
 
             foreach (var deleteAction in operationModel.DeleteEntityActions())
