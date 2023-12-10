@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ab486e92-5e75-47d1-8709-eb86f06cfe6a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="40e91425-6f96-407b-8195-2ea7bfe5dff9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4e383430-9c6d-49a4-b59a-9a8be6dcfea4</parentFolderId>
-      <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
-      <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="76762674-a048-4018-8dab-1a482cc590f7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="a071c4c5-1d6f-4a66-8a52-db3974dbf674" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8ab523fa-4a96-4d8b-b66f-9c73616a83c3</parentFolderId>
-      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
-      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

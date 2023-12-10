@@ -9,10 +9,10 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="8c6e7406-a0a4-4b74-abfb-62defebac09d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="d8caa607-6e1d-406e-a3e2-9a0abc0a3ed1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

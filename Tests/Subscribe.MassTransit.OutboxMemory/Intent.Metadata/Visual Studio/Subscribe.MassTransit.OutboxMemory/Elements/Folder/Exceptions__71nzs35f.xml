@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a02d9c89-6514-4a5c-a917-c9419f0e85b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="e9a2763e-0291-4208-b51b-dbead2af731a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2b1c1166-56be-408f-8fe5-eae9d63e5143</parentFolderId>
-      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
-      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="3091ced6-ce19-416f-ab55-9fc62c289669" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="176ba973-1c40-4f85-81b1-fe7fae47fff8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0fa22529-3a38-4b5d-83b0-8a0b2cf06f7d</parentFolderId>
-      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
-      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

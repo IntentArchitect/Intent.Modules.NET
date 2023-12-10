@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="41493c4b-fc44-442f-a125-0506423eae5b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="c25ca74c-72ba-4f86-be78-16a739d08354" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>986ca75d-6e64-470a-bd8a-2354b3e02f05</parentFolderId>
-      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
-      <packageName>MultipleDocumentStores</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

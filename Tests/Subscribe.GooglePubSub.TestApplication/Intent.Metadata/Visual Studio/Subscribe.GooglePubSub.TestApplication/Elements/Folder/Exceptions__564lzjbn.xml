@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="370d195d-b0ac-4101-80a6-08b47ca9cd6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="0d628743-e168-4846-9e36-a9ef801e52dd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>da34374b-d6e6-45a5-9afc-d97bc9f713e9</parentFolderId>
-      <packageId>489b1e83-2218-49d8-9ace-52b8f2903134</packageId>
-      <packageName>Subscribe.GooglePubSub.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

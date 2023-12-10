@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5c41bd83-d144-4edd-8401-73964c90dea3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="ffa92823-ee0e-4963-904b-3e979e90318f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1ee52593-3b51-4617-99bc-bf13454119ed</parentFolderId>
-      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
-      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="91afa268-3d1c-4f78-a228-eeb6de3b5903" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="74d531a0-a595-4b7a-81da-5fe47e58a9a7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>88a24626-9212-42ac-97f8-1adde3f41ed2</parentFolderId>
-      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
-      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

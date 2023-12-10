@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="e8b082d2-f07b-4d01-b4d7-230e0945d52a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="72782efe-fecd-41bf-b0c1-409076543311" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cb02d1ec-0ee3-450a-bf0d-a31e4024f72c</parentFolderId>
-      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
-      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

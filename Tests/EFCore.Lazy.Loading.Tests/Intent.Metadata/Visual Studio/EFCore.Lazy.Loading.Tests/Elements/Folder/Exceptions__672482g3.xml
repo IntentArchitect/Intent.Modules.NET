@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="d2b40007-83fb-4dd2-9ccf-b933acb2d0e2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="ae7e5dd2-f4c8-475e-a09c-b9ab366a3ff4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4e411d5a-bc80-400f-9f62-2a04ecfb75c5</parentFolderId>
-      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
-      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

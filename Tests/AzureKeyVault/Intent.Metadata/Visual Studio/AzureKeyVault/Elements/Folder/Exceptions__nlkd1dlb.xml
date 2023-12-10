@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f3c3bbc4-c756-41fb-bc7d-30c99db10eb2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="83378d25-2dbc-4e4d-997e-2b66bacb3a94" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c7489d09-7faa-4804-9df2-5c73abc8e134</parentFolderId>
-      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
-      <packageName>AzureKeyVault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

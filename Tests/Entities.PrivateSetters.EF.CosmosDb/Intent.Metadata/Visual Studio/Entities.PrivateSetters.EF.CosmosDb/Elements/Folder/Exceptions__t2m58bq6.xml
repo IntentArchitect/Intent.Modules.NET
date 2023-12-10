@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2b21eb85-cbd0-43ba-954d-6197f234bb25" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="09cf12fc-6d6f-463e-8983-9e32568a4595" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4a45b50b-20e4-4136-a586-fb9f41ab20d0</parentFolderId>
-      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
-      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

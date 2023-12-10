@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="0bd0c9b4-9705-49d8-85bc-8a9e675843d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="fe74f562-9b25-4f1f-b31e-564d2bdd8b82" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>42915f0d-9deb-446c-bb02-b0dd187c56d6</parentFolderId>
-      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
-      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

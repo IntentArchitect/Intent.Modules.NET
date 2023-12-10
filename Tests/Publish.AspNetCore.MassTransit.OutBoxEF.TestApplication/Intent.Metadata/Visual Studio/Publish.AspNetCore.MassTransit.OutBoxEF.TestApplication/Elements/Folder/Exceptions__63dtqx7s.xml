@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="83e1bd8a-e8d6-4716-a1df-ccf7c8419037" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="abaa227a-3d2e-471f-9836-4a5a717e6750" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>77856858-ebfd-47c2-b534-950c50e6c717</parentFolderId>
-      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="5ea3bd02-dbb6-4899-ba3c-1d68eaf32e5b" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="fc7ada34-faa4-4e94-b868-634dfeae6c0a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Exceptions</name>
   <display>Exceptions</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>50845368-a33e-491b-8786-a2cba944d582</parentFolderId>
+  <parentFolderId>7700b694-57c2-475d-bd75-65928953b688</parentFolderId>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="7f286a7a-3622-4300-b940-ae68c94fd789" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="357eaec1-15ac-46ba-b786-59c3b821eaf3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.NotFoundException</name>
       <display>Intent.Entities.NotFoundException</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>5ea3bd02-dbb6-4899-ba3c-1d68eaf32e5b</parentFolderId>
+      <parentFolderId>fc7ada34-faa4-4e94-b868-634dfeae6c0a</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

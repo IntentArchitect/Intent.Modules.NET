@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a7145922-0016-49c4-8e7f-f976ab2c3bcd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.NotFoundException</name>
-      <display>Intent.Entities.Repositories.Api.NotFoundException</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+    <childElement id="0e152713-9444-42c8-b432-f8f34f270e37" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a54ced3e-a4db-4d85-a2f0-90226e4471be</parentFolderId>
-      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
-      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
