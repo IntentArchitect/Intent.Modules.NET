@@ -1,7 +1,8 @@
-### Version 4.4.4
+### Version 4.5.0
 
 - Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.
 - Improvement: Added CascadeMode option on Fluent Validations to specify this behaviour.
+- Fixed: Text constraint and Index unique constraints will work again with advanced mapping scenarios.
 
 ### Version 4.4.3
 

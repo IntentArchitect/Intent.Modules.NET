@@ -130,7 +130,7 @@ public static class ValidationRulesExtensions
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
                     {
-                        if (!TryGetMappedAttribute(field, out var mappedAttribute))
+                        if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(dtoModel, field, out mappedAttribute))
                         { 
                             continue; 
                         }
@@ -215,7 +215,8 @@ public static class ValidationRulesExtensions
 
         foreach (var field in dtoModel.Fields)
         {
-            if (!TryGetMappedAttribute(field, out var mappedAttribute) || constraintFields.All(p => p.FieldName != mappedAttribute.Name))
+            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(dtoModel, field, out mappedAttribute)) || 
+                constraintFields.All(p => p.FieldName != mappedAttribute.Name))
             {
                 continue;
             }
@@ -270,7 +271,7 @@ public static class ValidationRulesExtensions
                 AddValidatorsFromFluentValidationStereotype(field, validationRuleChain);
             }
 
-            AddValidatorsFromMappedDomain(validationRuleChain, field, indexFields);
+            AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields);
 
             AddValidatorsBasedOnTypeReference(template, dtoTemplateId, dtoValidatorTemplateId, field, validationRuleChain);
 
@@ -363,10 +364,11 @@ public static class ValidationRulesExtensions
 
     private static void AddValidatorsFromMappedDomain(
         CSharpMethodChainStatement validationRuleChain,
+        DTOModel dtoModel,
         DTOFieldModel field,
         IReadOnlyCollection<ConstraintField> indexFields)
     {
-        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute);
+        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(dtoModel, field, out mappedAttribute);
         if (!validationRuleChain.Statements.Any(x => x.HasMetadata("max-length")) && hasMappedAttribute)
         {
             try
@@ -479,7 +481,7 @@ public static class ValidationRulesExtensions
         out string repositoryFieldName)
     {
         if (!statement.Statements.Any(x => x.TryGetMetadata("requires-repository", out bool requiresRepository) && requiresRepository) ||
-            !TryGetMappedClass(dtoModel, out var classModel) ||
+            (!TryGetMappedClass(dtoModel, out var classModel) && !TryGetAdvancedMappedClass(dtoModel, out classModel)) ||
             !template.TryGetTemplate<IClassProvider>(TemplateRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
         {
             repositoryFieldName = null;
@@ -527,7 +529,7 @@ public static class ValidationRulesExtensions
             return ArraySegment<ConstraintField>.Empty;
         }
 
-        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass);
+        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass) || TryGetAdvancedMappedClass(dtoModel, out mappedClass);
         if (!hasMappedClass)
         {
             return ArraySegment<ConstraintField>.Empty;
@@ -585,6 +587,9 @@ public static class ValidationRulesExtensions
     private static bool TryGetMappedClass(DTOModel dtoModel, out ClassModel classModel)
     {
         var mappedElement = dtoModel.InternalElement.MappedElement?.Element as IElement;
+        // The loop is not needed on the service side where a Command/Query/DTO is mapped
+        // to an Entity but it is needed when mapping from a Service Proxy to a Command/Query/Service Operation
+        // and then to an Entity.
         while (mappedElement is not null)
         {
             if (mappedElement.IsClassModel())
@@ -603,6 +608,8 @@ public static class ValidationRulesExtensions
     private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute)
     {
         var mappedElement = field.InternalElement.MappedElement?.Element as IElement;
+        // The loop is not needed on the service side where a Command/Query/DTO is mapped
+        // to an Attribute but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
         while (mappedElement is not null)
         {
             if (mappedElement.IsAttributeModel())
@@ -615,6 +622,54 @@ public static class ValidationRulesExtensions
         }
 
         attribute = default;
+        return false;
+    }
+
+    private static bool TryGetAdvancedMappedClass(DTOModel dtoModel, out ClassModel classModel)
+    {
+        foreach (var associationEnd in dtoModel.InternalElement.AssociatedElements)
+        {
+            foreach (var mapping in associationEnd.Mappings)
+            {
+                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p => p.MappingType == "Data Mapping");
+                if (mappedEnd is null)
+                {
+                    continue;
+                }
+
+                classModel = (mappedEnd.TargetElement as IElement)?.ParentElement?.AsClassModel();
+                if (classModel is not null)
+                {
+                    return true;
+                }
+            }
+        }
+
+        classModel = null;
+        return false;
+    }
+    
+    private static bool TryGetAdvancedMappedAttribute(DTOModel dtoModel, DTOFieldModel field, out AttributeModel attribute)
+    {
+        foreach (var associationEnd in dtoModel.InternalElement.AssociatedElements)
+        {
+            foreach (var mapping in associationEnd.Mappings)
+            {
+                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p => p.MappingType == "Data Mapping" && p.SourceElement.Id == field.Id);
+                if (mappedEnd is null)
+                {
+                    continue;
+                }
+
+                attribute = mappedEnd.TargetElement?.AsAttributeModel();
+                if (attribute is not null)
+                {
+                    return true;
+                }
+            }
+        }
+
+        attribute = null;
         return false;
     }
 }
