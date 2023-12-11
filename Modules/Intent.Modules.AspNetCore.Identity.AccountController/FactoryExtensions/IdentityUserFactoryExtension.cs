@@ -45,8 +45,8 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var configMethod = @class.FindMethod("Configure");
-                configMethod.AddStatement($"builder.Property<{entityTypeConfigTemplate.UseType("string?")}>(x => x.RefreshToken);");
-                configMethod.AddStatement($"builder.Property<{entityTypeConfigTemplate.UseType("System.DateTime?")}>(x => x.RefreshTokenExpired);");
+                configMethod.AddStatement($"builder.Property(x => x.RefreshToken);");
+                configMethod.AddStatement($"builder.Property(x => x.RefreshTokenExpired);");
             });
         }
         

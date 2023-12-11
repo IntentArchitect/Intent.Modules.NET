@@ -27,8 +27,8 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Applica
                     @class.AddMethod("void", "Configure", method =>
                     {
                         method.AddParameter($"{UseType("Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder")}<{this.GetApplicationIdentityUserName()}>", "builder");
-                        method.AddStatement($"builder.Property<{UseType("string?")}>(x => x.RefreshToken);");
-                        method.AddStatement($"builder.Property<{UseType("System.DateTime?")}>(x => x.RefreshTokenExpired);");
+                        method.AddStatement($"builder.Property(x => x.RefreshToken);");
+                        method.AddStatement($"builder.Property(x => x.RefreshTokenExpired);");
                     });
                 });
         }

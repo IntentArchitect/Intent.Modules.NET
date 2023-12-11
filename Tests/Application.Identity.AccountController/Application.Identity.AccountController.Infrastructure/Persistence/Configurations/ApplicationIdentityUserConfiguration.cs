@@ -13,8 +13,8 @@ namespace Application.Identity.AccountController.Infrastructure.Persistence.Conf
     {
         public void Configure(EntityTypeBuilder<ApplicationIdentityUser> builder)
         {
-            builder.Property<string?>(x => x.RefreshToken);
-            builder.Property<DateTime?>(x => x.RefreshTokenExpired);
+            builder.Property(x => x.RefreshToken);
+            builder.Property(x => x.RefreshTokenExpired);
         }
     }
 }

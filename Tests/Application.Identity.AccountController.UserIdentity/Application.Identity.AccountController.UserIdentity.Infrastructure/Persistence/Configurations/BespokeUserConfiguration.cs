@@ -21,9 +21,9 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Per
             builder.Property(x => x.LastName)
                 .IsRequired();
 
-            builder.Property<string?>(x => x.RefreshToken);
+            builder.Property(x => x.RefreshToken);
 
-            builder.Property<DateTime?>(x => x.RefreshTokenExpired);
+            builder.Property(x => x.RefreshTokenExpired);
         }
     }
 }
