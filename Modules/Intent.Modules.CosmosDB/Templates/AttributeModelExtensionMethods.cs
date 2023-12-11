@@ -29,21 +29,43 @@ namespace Intent.Modules.CosmosDB.Templates
                 _ => $"({csharpType})Convert.ChangeType(value, typeof({csharpType}))!"
             };
         }
-        public static AttributeModel GetPrimaryKeyAttribute(this ClassModel model)
+
+        public record PrimaryKeyData(AttributeModel IdAttribute, AttributeModel PartitionKeyAttribute)
+        { 
+            public bool IsPartitioned() => IdAttribute.Id != PartitionKeyAttribute.Id;
+        };
+
+        public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model)
         {
+            model.TryGetPartitionKeySettings(out var partitionKey);
+            AttributeModel? idAttribute = null;
+            AttributeModel? partitionKeyAttribute = null;
             var @class = model;
             while (@class != null)
             {
-                var primaryKeyAttribute = @class.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
-                if (primaryKeyAttribute != null)
+                var primaryKeyAttributes = @class.Attributes.Where(x => x.HasPrimaryKey()).ToList();
+                if (primaryKeyAttributes.Any())
                 {
-                    return primaryKeyAttribute;
+                    foreach (var pk in primaryKeyAttributes)
+                    {
+                        if (partitionKey != null && pk.Name.Equals(partitionKey, StringComparison.OrdinalIgnoreCase))
+                        {
+                            partitionKeyAttribute = pk;
+                        }
+                        else
+                        {
+                            idAttribute = pk;
+                        }
+                    }
                 }
 
                 @class = @class.ParentClass;
             }
-
-            return null;
+            if (idAttribute is null && partitionKey is null)
+            {
+                return null;
+            }
+            return new PrimaryKeyData(IdAttribute: idAttribute ?? partitionKeyAttribute, PartitionKeyAttribute: partitionKeyAttribute ?? idAttribute);
         }
 
         public static AttributeModel GetAttributeOrDerivedWithName(this ClassModel model, string name)

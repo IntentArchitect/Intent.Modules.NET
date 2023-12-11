@@ -155,8 +155,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"Task<{tDomain}?>", "FindByIdAsync", m => m
+                    @class.AddMethod($"Task<{tDomain}?>", "FindByIdInternalAsync", m => m
                         .Async()
+                        .Protected()
                         .AddParameter("string", "id")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddTryBlock(tryBlock =>
@@ -164,6 +165,29 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             tryBlock
                                 .AddStatement(
                                     "var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);",
+                                    c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
+                                .AddStatement("var entity = document.ToEntity();")
+                                .AddStatement("Track(entity);")
+                                .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                        })
+                        .AddCatchBlock(UseType("Microsoft.Azure.Cosmos.CosmosException"), "ex", c =>
+                        {
+                            c.WithWhenExpression($"ex.StatusCode == {UseType("System.Net.HttpStatusCode")}.NotFound");
+                            c.AddStatement("return null;");
+                        })
+                    );
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindByIdAsync", m => m
+                        .Async()
+                        .Protected()
+                        .AddParameter("string", "id")
+                        .AddParameter("string", "partitionKey", p => p.WithDefaultValue("default"))
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                        .AddTryBlock(tryBlock =>
+                        {
+                            tryBlock
+                                .AddStatement(
+                                    "var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);",
                                     c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
                                 .AddStatement("var entity = document.ToEntity();")
                                 .AddStatement("Track(entity);")

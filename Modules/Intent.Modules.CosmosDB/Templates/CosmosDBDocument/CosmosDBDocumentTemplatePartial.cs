@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Intent.CosmosDB.Api;
@@ -101,17 +102,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId);
                     }
 
-                    var pkAttribute = Model.GetPrimaryKeyAttribute();
-                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
-                    var partitionKeyAttribute = partitionKey == null
-                        ? pkAttribute
-                        : Model.GetAttributeOrDerivedWithName(partitionKey);
+                    var pk = Model.GetPrimaryKeyAttribute();
 
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
                         associationEnds: associationEnds,
-                        partitionKeyAttribute: partitionKeyAttribute,
+                        partitionKeyAttribute: pk?.PartitionKeyAttribute,
                         entityInterfaceTypeName: EntityTypeName,
                         entityImplementationTypeName: EntityStateTypeName,
                         entityRequiresReflectionConstruction: Model.Constructors.Any() &&
@@ -136,17 +133,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             @class.ImplementsInterface(
                 $"{this.GetCosmosDBDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}>");
 
-            var pkAttribute = Model.GetPrimaryKeyAttribute();
+            var pk = Model.GetPrimaryKeyAttribute();
             var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
                 .Properties.Where(x => x.ExplicitlyImplementing == null &&
                                        x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
                 .ToArray();
 
             // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for IItem.Id:
-            if (!string.Equals(pkAttribute.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
-                entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pkAttribute.Id))
+            if (!string.Equals(pk.IdAttribute.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
+                entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pk.IdAttribute.Id))
             {
-                var pkPropertyName = pkAttribute.Name.ToPascalCase();
+                var pkPropertyName = pk.IdAttribute.Name.ToPascalCase();
                 @class.AddProperty("string", "Id", property =>
                 {
                     property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
@@ -171,24 +168,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 });
             }
 
-            Model.TryGetContainerSettings(out var containerName, out var partitionKey);
-            var partitionKeyAttribute = partitionKey == null
-                ? pkAttribute
-                : Model.GetAttributeOrDerivedWithName(partitionKey);
-
             // ICosmosDBDocument.PartitionKey implementation:
             {
-                if (partitionKeyAttribute != null && partitionKeyAttribute.Id != pkAttribute.Id)
+                if (pk?.PartitionKeyAttribute != null && pk.PartitionKeyAttribute.Id != pk.IdAttribute.Id)
                 {
                     @class.AddProperty("string?", "PartitionKey", property =>
                     {
                         property.ExplicitlyImplements(this.GetCosmosDBDocumentOfTInterfaceName());
-                        property.Getter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()}");
-                        property.Setter.WithExpressionImplementation($"{partitionKeyAttribute.Name.ToPascalCase()} = value!");
+                        property.Getter.WithExpressionImplementation($"{pk.PartitionKeyAttribute.Name.ToPascalCase()}");
+                        property.Setter.WithExpressionImplementation($"{pk.PartitionKeyAttribute.Name.ToPascalCase()} = value!");
                     });
                 }
-                else if (partitionKeyAttribute == null)
+                else if (pk.PartitionKeyAttribute == null)
                 {
+                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
                     Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have an attribute with name matching " + $"partition key " +
                                         $"\"{partitionKey}\" for \"{containerName}\" container.");
                 }
@@ -207,12 +200,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 var typeName = GetTypeName(typeReference);
 
                 // PK must always be a string
-                if (metadataModel.Id == pkAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                if (metadataModel.Id == pk.IdAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 {
                     typeName = Helpers.PrimaryKeyType;
                 }
                 //Partition key must be a string
-                if (metadataModel.Id == partitionKeyAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                if (metadataModel.Id == pk.PartitionKeyAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 {
                     typeName = "string";
                 }
@@ -233,7 +226,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
                     }
                     // Add "Id" property with JsonProperty attribute if not the PK
-                    else if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pkAttribute.Id)
+                    else if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pk.IdAttribute.Id)
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
                     }

@@ -49,11 +49,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
                         )
+                        /*
                         .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
                             .AddParameter("string", "id")
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
-                        )
+                        )*/
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
@@ -97,10 +98,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                     var tDocumentInterfaceGenericArgument = template.GetTypeName(CosmosDBDocumentInterfaceTemplate.TemplateId, model);
                     @interface.ImplementsInterfaces($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
 
-                    if (model.GetPrimaryKeyAttribute()?.TypeReference?.Element.Name == "string")
+                    if (model.GetPrimaryKeyAttribute()?.IdAttribute.TypeReference?.Element.Name == "string")
                     {
                         var toRemove = @interface.Methods
-                            .Where(x => x.Name is "FindByIdAsync" or "FindByIdsAsync")
+                            .Where(x => x.Name == "FindByIdsAsync")
                             .ToArray();
 
                         foreach (var method in toRemove)

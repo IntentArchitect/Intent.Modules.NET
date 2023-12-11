@@ -8,6 +8,36 @@ namespace Intent.Modules.CosmosDB.Templates;
 
 internal static class ClassModelExtensionMethods
 {
+    public static bool TryGetPartitionKeySettings(this ClassModel classModel, out string partitionKey)
+    {
+        IHasStereotypes hasStereotypes = classModel.InternalElement;
+
+        while (hasStereotypes != null)
+        {
+            if (hasStereotypes.HasStereotype("Container"))
+            {
+                partitionKey = hasStereotypes.GetStereotypeProperty<string>("Container", "Partition Key")?.Trim();
+
+                if (string.IsNullOrWhiteSpace(partitionKey))
+                {
+                    partitionKey = default;
+                }
+
+                return true;
+            }
+
+            if (hasStereotypes is not IElement element)
+            {
+                break;
+            }
+
+            hasStereotypes = element.ParentElement ?? (IHasStereotypes)element.Package;
+        }
+
+        partitionKey = default;
+        return false;
+    }
+
     public static bool TryGetContainerSettings(this ClassModel classModel, out string name, out string partitionKey)
     {
         IHasStereotypes hasStereotypes = classModel.InternalElement;

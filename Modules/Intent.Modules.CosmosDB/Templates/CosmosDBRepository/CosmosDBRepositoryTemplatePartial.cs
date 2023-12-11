@@ -16,6 +16,10 @@ using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterfa
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common.Templates; 
+using static Intent.Modules.CosmosDB.Templates.AttributeModelExtensionMethods;
+using System.Security.Cryptography;
+using Intent.Modules.Common.CSharp.VisualStudio;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -31,12 +35,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
         public CosmosDBRepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+            string nullableChar = OutputTarget.GetProject().NullableEnabled ? "?" : "";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
                     var pkAttribute = Model.GetPrimaryKeyAttribute();
-                    var pkFieldName = pkAttribute.Name.ToCamelCase();
+                    var pkFieldName = pkAttribute.IdAttribute.Name.ToCamelCase();
                     var genericTypeParameters = Model.GenericTypes.Any()
                         ? $"<{string.Join(", ", Model.GenericTypes)}>"
                         : string.Empty;
@@ -66,29 +71,52 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                         );
                     });
 
-                    if (pkAttribute.TypeReference?.Element.Name != "string")
+                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityStateTypeName}{nullableChar}>", "FindByIdAsync", method =>
                     {
-                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityStateTypeName}>", "FindByIdAsync", method =>
-                        {
-                            method
-                                .Async()
-                                .AddParameter(GetTypeName(pkAttribute), "id")
-                                .AddOptionalCancellationTokenParameter(this)
-                                .WithExpressionBody($"await FindByIdAsync(id{pkAttribute.GetToString(this)}, cancellationToken)");
-                        });
+                        method
+                            .Async()
+                            .AddParameter(GetPKType(pkAttribute), "id")
+                            .AddOptionalCancellationTokenParameter(this)
+                            .WithExpressionBody($"await FindByIdAsync({GetPKUsage(pkAttribute)}, cancellationToken)");
+                    });
 
-                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
-                        {
-                            AddUsing("System.Linq");
-                            method
-                                .Async()
-                                .AddParameter($"{GetTypeName(pkAttribute)}[]", "ids")
-                                .AddOptionalCancellationTokenParameter(this)
-                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.GetToString(this)}).ToArray(), cancellationToken)");
-                        });
-                    }
+                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
+                    {
+                        AddUsing("System.Linq");
+                        method
+                            .Async()
+                            .AddParameter($"{GetTypeName(pkAttribute.IdAttribute)}[]", "ids")
+                            .AddOptionalCancellationTokenParameter(this)
+                            .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
+                    });
                 });
         }
+
+        private string GetPKType(PrimaryKeyData pkAttribute)
+        {
+            if (pkAttribute.IsPartitioned())
+            {
+                return $"({GetTypeName(pkAttribute.IdAttribute)} {pkAttribute.IdAttribute.Name.ToPascalCase()},{GetTypeName(pkAttribute.PartitionKeyAttribute)} {pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()})";
+            }
+            else
+            {
+                return GetTypeName(pkAttribute.IdAttribute);
+            }
+        }
+
+        private string GetPKUsage(PrimaryKeyData pkAttribute)
+        {
+            if (pkAttribute.IsPartitioned())
+            {
+                string rowId = $"id.{pkAttribute.IdAttribute.Name.ToPascalCase()}{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
+                return $"{rowId}, id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}";
+            }
+            else
+            {
+                return $"id{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
+            }
+        }
+
 
         public string GenericTypeParameters => Model.GenericTypes.Any()
             ? $"<{string.Join(", ", Model.GenericTypes)}>"
