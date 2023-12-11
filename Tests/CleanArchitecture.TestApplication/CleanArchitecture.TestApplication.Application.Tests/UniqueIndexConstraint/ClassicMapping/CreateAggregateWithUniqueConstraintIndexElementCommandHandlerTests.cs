@@ -7,7 +7,6 @@ using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Tests.Extensions;
 using CleanArchitecture.TestApplication.Application.Tests.UniqueIndexConstraint.AggregateWithUniqueConstraintIndexElements;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.ClassicMapping.CreateAggregateWithUniqueConstraintIndexElement;
-using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.CreateAggregateWithUniqueConstraintIndexElement;
 using CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Domain.Repositories.UniqueIndexConstraint;
 using FluentAssertions;

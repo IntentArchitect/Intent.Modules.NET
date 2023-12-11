@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.ClassicMapping.UpdateAggregateWithUniqueConstraintIndexElement;
-using CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.UpdateAggregateWithUniqueConstraintIndexElement;
 using CleanArchitecture.TestApplication.Domain.Repositories.UniqueIndexConstraint;
 using FluentAssertions;
 using FluentValidation;
