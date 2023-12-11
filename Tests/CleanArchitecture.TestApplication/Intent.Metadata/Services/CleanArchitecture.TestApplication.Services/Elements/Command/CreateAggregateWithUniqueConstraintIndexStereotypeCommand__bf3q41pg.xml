@@ -26,7 +26,7 @@
       <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>f1fa010b-13eb-40ee-b935-9915eb7f58b1</parentFolderId>
+  <parentFolderId>5c55a81a-a6e7-4c77-9306-3e3d5d9d990a</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
   <stereotypes>

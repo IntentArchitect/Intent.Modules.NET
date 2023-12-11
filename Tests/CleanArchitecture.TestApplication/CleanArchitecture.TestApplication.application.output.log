@@ -260,10 +260,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#f1fa010b-13eb-40ee-b935-9915eb7f58b1</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#8b4eeab1-45fa-41b7-95dd-62d32bb8d005</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/UniqueIndexConstraintController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraintController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/UniqueIndexConstraint/UniqueIndexConstraintAdvancedMappingController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/UniqueIndexConstraintAdvancedMappingController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#5c55a81a-a6e7-4c77-9306-3e3d5d9d990a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/UniqueIndexConstraint/UniqueIndexConstraintClassicMappingController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/UniqueIndexConstraintClassicMappingController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1126,112 +1134,112 @@
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#e5283055-7005-406d-8855-f15199b473c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#0c1b8a7b-da6d-4c29-861e-9ccaefdc8142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#6c419e97-8e0b-4858-83e0-49fdba2f2eab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#cdd8812d-2745-4235-99e2-79dff68518e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementsQueryHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementsQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#ccf16d4a-8840-44b7-bda0-ecac859e9c24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#be0703dc-25d8-4f01-8e0f-3056e10dc014</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4588,6 +4596,102 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e4f9c402-f8b2-46bf-a08b-b8cd297a3e46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e4f9c402-f8b2-46bf-a08b-b8cd297a3e46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e4f9c402-f8b2-46bf-a08b-b8cd297a3e46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElement/CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a7cfad80-3fb1-473d-894f-c8a90f68bc3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a7cfad80-3fb1-473d-894f-c8a90f68bc3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a7cfad80-3fb1-473d-894f-c8a90f68bc3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#77ba9b80-7d36-410b-9e84-0439bdf9cf36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#77ba9b80-7d36-410b-9e84-0439bdf9cf36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#77ba9b80-7d36-410b-9e84-0439bdf9cf36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElement/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5f8bc792-8daa-4b46-a5b8-9e1cc25b9084</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5f8bc792-8daa-4b46-a5b8-9e1cc25b9084</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5f8bc792-8daa-4b46-a5b8-9e1cc25b9084</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e25984c7-380f-4acb-9d04-c0ee50938301</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementDto.cs</ApplicationRelativeFilePath>
@@ -4622,264 +4726,264 @@
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2a869638-3f86-4c05-bdf2-f78e7871adae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/CreateViaContructor/CreateViaContructorCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/CreateViaContructor/CreateViaContructorCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#e5283055-7005-406d-8855-f15199b473c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#e5283055-7005-406d-8855-f15199b473c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e5283055-7005-406d-8855-f15199b473c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#0c1b8a7b-da6d-4c29-861e-9ccaefdc8142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#0c1b8a7b-da6d-4c29-861e-9ccaefdc8142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0c1b8a7b-da6d-4c29-861e-9ccaefdc8142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#6c419e97-8e0b-4858-83e0-49fdba2f2eab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#6c419e97-8e0b-4858-83e0-49fdba2f2eab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#6c419e97-8e0b-4858-83e0-49fdba2f2eab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#cdd8812d-2745-4235-99e2-79dff68518e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#cdd8812d-2745-4235-99e2-79dff68518e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#cdd8812d-2745-4235-99e2-79dff68518e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#ccf16d4a-8840-44b7-bda0-ecac859e9c24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#ccf16d4a-8840-44b7-bda0-ecac859e9c24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ccf16d4a-8840-44b7-bda0-ecac859e9c24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#be0703dc-25d8-4f01-8e0f-3056e10dc014</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#be0703dc-25d8-4f01-8e0f-3056e10dc014</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#be0703dc-25d8-4f01-8e0f-3056e10dc014</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandHandler#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5702,64 +5806,64 @@
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#69d61e32-bf2d-46cf-a935-077fefc3f915</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#9ba8d096-3b46-417a-a5b7-7f95ff633b91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#dd47e7a2-128e-40ec-ba33-a766abf7d997</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#fbb88488-dde6-4690-ae31-708ca29e0409</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/UniqueIndexConstraint/ClassicMapping/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6348,6 +6452,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DDD/Person.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#8998a129-b219-4f74-b2ff-582a48074c5d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DDD/Transaction.cs</ApplicationRelativeFilePath>
@@ -6472,14 +6584,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Pagination/LogEntry.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntry.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6652,6 +6756,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DDD/IPersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/IPersonRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#8998a129-b219-4f74-b2ff-582a48074c5d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DDD/ITransactionRepository.cs</ApplicationRelativeFilePath>
@@ -6712,14 +6824,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IPersonRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7132,6 +7236,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DDD/PersonConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/PersonConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8998a129-b219-4f74-b2ff-582a48074c5d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DDD/TransactionConfiguration.cs</ApplicationRelativeFilePath>
@@ -7232,14 +7344,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Pagination/LogEntryConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PersonConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7364,6 +7468,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DDD/PersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/PersonRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8998a129-b219-4f74-b2ff-582a48074c5d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DDD/TransactionRepository.cs</ApplicationRelativeFilePath>
@@ -7472,14 +7584,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Pagination/LogEntryRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/PersonRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

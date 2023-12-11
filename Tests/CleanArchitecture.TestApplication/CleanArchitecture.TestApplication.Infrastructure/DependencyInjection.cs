@@ -60,7 +60,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
             services.AddTransient<IWithCompositeKeyRepository, WithCompositeKeyRepository>();
             services.AddTransient<IIntegrationTriggeringRepository, IntegrationTriggeringRepository>();
@@ -73,6 +72,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<ICameraRepository, CameraRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IDataContractClassRepository, DataContractClassRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddTransient<IClassWithDefaultRepository, ClassWithDefaultRepository>();
             services.AddTransient<IClassWithEnumsRepository, ClassWithEnumsRepository>();

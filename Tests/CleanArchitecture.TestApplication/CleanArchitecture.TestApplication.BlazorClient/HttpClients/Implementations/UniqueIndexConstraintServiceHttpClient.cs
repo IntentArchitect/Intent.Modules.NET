@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.UniqueIndexConstraint;
+using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.UniqueIndexConstraint.ClassicMapping;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

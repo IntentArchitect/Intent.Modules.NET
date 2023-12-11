@@ -18,13 +18,16 @@ namespace CleanArchitecture.TestApplication.Application.Customers.UpdateCustomer
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(100);
 
             RuleFor(v => v.Surname)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(100);
 
             RuleFor(v => v.Email)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(100);
 
             RuleFor(v => v.Address)
                 .NotNull()
