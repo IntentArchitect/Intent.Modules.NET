@@ -5,6 +5,7 @@
 - Improvement: Final .NET 8 support.
 - Improvement: Sending multiple `AppSettingRegistrationRequest` and `ConnectionStringRegistrationRequest` requests will only log a warning if the key and values are **not** the same.
 - Fixed: Environment Variables, originating from other modules, targeting specific Launch Setting Profiles will now populate correctly in the launchsettings.json
+- Fixed: Validation checks added to ensure no duplicate Template Outputs and no duplicate Folder names exist within the same folder. Error message takes you straight to the Visual Studio designer where the violation occurs.
 
 ### Version 3.4.2
 
