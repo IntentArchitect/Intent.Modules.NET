@@ -24,6 +24,8 @@ namespace CosmosDB.Domain.Entities
             set => _partInt = value;
         }
 
+        public string Name { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

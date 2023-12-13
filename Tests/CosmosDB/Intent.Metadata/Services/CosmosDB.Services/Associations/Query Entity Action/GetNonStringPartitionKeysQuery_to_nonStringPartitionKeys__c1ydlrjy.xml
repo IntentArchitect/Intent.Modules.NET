@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dbf111a0-99e2-416e-bf00-abfa1b716dcd">
+  <sourceEnd id="8a2d04ed-31b7-4457-b484-2b994f96cad6" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetNonStringPartitionKeysQuery</display>
+    <order>0</order>
+    <typeReference id="5a4a8c39-fadf-40e3-9932-fe3909ad5cc4">
+      <typeId>97430efd-5bc3-4396-b9fc-5ee64d453985</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Services</typePackageName>
+      <typePackageId>e326ac1c-237a-4369-afc9-e661453c5460</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dbf111a0-99e2-416e-bf00-abfa1b716dcd" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>nonStringPartitionKeys</name>
+    <display>[query] nonStringPartitionKeys: NonStringPartitionKey[*]</display>
+    <order>1</order>
+    <typeReference id="62be028b-0822-40fe-959f-cfae786b3022">
+      <typeId>fe7b232c-2bbe-4939-9970-6494d2e59c52</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ComosDB.ContainerPackage</typePackageName>
+      <typePackageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb8a85e0-59cb-434e-9c7d-56a07d44261f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="97430efd-5bc3-4396-b9fc-5ee64d453985" location="[CosmosDB.EntityInterfaces].[Services].[GetNonStringPartitionKeysQuery]" />
+        <target applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fe7b232c-2bbe-4939-9970-6494d2e59c52" location="[CosmosDB].[Domain].[NonStringPartitionKey]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PartInt}</expression>
+            <path>
+              <target id="fe7b232c-2bbe-4939-9970-6494d2e59c52" name="NonStringPartitionKey" type="element" specialization="Class" />
+              <target id="c98de796-c800-4c3a-9104-5d1dd2de52d1" name="PartInt" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="PartInt" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="97430efd-5bc3-4396-b9fc-5ee64d453985" name="GetNonStringPartitionKeysQuery" type="element" specialization="Query" />
+                  <target id="4e2aaf8d-6fc3-4e6b-9637-67b59f9f75c1" name="PartInt" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

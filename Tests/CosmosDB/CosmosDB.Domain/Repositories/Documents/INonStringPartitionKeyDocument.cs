@@ -9,5 +9,6 @@ namespace CosmosDB.Domain.Repositories.Documents
     {
         string Id { get; }
         string PartInt { get; }
+        string Name { get; }
     }
 }

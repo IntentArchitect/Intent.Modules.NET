@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using CosmosDBMultiTenancy.Application.Common.Exceptions;
 using CosmosDBMultiTenancy.Domain.Common.Exceptions;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -17,6 +18,15 @@ namespace CosmosDBMultiTenancy.Api.Filters
         {
             switch (context.Exception)
             {
+                case ValidationException exception:
+                    foreach (var error in exception.Errors)
+                    {
+                        context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                    }
+                    context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
+                    .AddContextInformation(context);
+                    context.ExceptionHandled = true;
+                    break;
                 case ForbiddenAccessException:
                     context.Result = new ForbidResult();
                     context.ExceptionHandled = true;

@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Application.Common.Interfaces;
@@ -24,6 +25,6 @@ namespace CosmosDB.Infrastructure.Repositories
 
         public async Task<NonStringPartitionKey?> FindByIdAsync(
             (string Id, int PartInt) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt, cancellationToken: cancellationToken);
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
     }
 }

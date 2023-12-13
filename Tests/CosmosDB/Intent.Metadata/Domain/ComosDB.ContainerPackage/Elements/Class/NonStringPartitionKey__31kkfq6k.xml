@@ -92,5 +92,29 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="0f3d77d4-bae9-46ab-b073-15851a89280e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ef14b38d-afa1-43de-9ca6-eed887d55be5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fe7b232c-2bbe-4939-9970-6494d2e59c52</parentFolderId>
+      <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
+      <packageName>ComosDB.ContainerPackage</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

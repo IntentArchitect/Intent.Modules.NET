@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="121686ae-871e-4923-ad1d-88207f684671" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOrdersQuery</name>
+  <display>GetOrdersQuery: OrderDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="34da1b8c-0155-43e4-89b2-c3f75d80f83c">
+    <typeId>27289267-c838-4606-8b49-7dea2a0fa7fc</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CosmosDB.Services</typePackageName>
+    <typePackageId>e326ac1c-237a-4369-afc9-e661453c5460</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>5898029e-43a8-4d28-a9ed-aa971a4c68c8</parentFolderId>
+  <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
+  <packageName>CosmosDB.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Orders" />
+  </metadata>
+  <childElements />
+</class>

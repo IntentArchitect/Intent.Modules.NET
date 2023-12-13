@@ -20,6 +20,9 @@ namespace CosmosDB.Application.ClassContainers.DeleteClassContainer
         {
             RuleFor(v => v.Id)
                 .NotNull();
+
+            RuleFor(v => v.ClassPartitionKey)
+                .NotNull();
         }
     }
 }
