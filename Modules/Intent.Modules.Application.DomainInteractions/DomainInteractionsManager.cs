@@ -20,10 +20,22 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Templates;
 using Intent.Utils;
-using static Intent.Modules.Constants.TemplateRoles.Domain;
-using OperationModel = Intent.Modelers.Services.Api.OperationModel;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions;
+
+public static class DomainInteractionExtensions
+{
+
+    public static bool HasDomainInteractions(this IProcessingHandlerModel model)
+    {
+        return model.CreateEntityActions().Any()
+               || model.QueryEntityActions().Any()
+               || model.UpdateEntityActions().Any()
+               || model.DeleteEntityActions().Any()
+               || model.CallServiceOperationActions().Any();
+    }
+}
 
 public class DomainInteractionsManager
 {
@@ -37,7 +49,70 @@ public class DomainInteractionsManager
     }
 
     public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
-    
+
+    public IEnumerable<CSharpStatement> CreateInteractionStatements(IProcessingHandlerModel model)
+    {
+        var domainInteractionManager = this;
+        var statements = new List<CSharpStatement>();
+        foreach (var queryAction in model.QueryEntityActions())
+        {
+            var foundEntity = queryAction.Element.AsClassModel();
+            if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
+            {
+                statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
+            }
+        }
+
+        foreach (var createAction in model.CreateEntityActions())
+        {
+            statements.AddRange(domainInteractionManager.CreateEntity(createAction));
+        }
+
+        foreach (var updateAction in model.UpdateEntityActions())
+        {
+            var entity = updateAction.Element.AsClassModel() ?? OperationModelExtensions.AsOperationModel(updateAction.Element).ParentClass;
+
+            statements.AddRange(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
+
+            statements.Add(string.Empty);
+            statements.AddRange(domainInteractionManager.UpdateEntity(updateAction));
+        }
+
+        foreach (var callAction in model.CallServiceOperationActions())
+        {
+            statements.AddRange(domainInteractionManager.CallServiceOperation(callAction));
+        }
+
+        foreach (var deleteAction in model.DeleteEntityActions())
+        {
+            var foundEntity = deleteAction.Element.AsClassModel();
+            statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
+            statements.AddRange(domainInteractionManager.DeleteEntity(deleteAction));
+        }
+
+        foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
+        {
+            var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+                .Select(x =>
+                {
+                    if (x is CSharpAssignmentStatement)
+                    {
+                        x.WithSemicolon();
+                    }
+                    return x;
+                }).ToList();
+            processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
+            statements.AddRange(processingStatements);
+        }
+
+        foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+        {
+            statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
+        }
+
+        return statements;
+    }
+
     public List<CSharpStatement> QueryEntity(ClassModel foundEntity, IAssociationEnd associationEnd)
     {
         var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
@@ -315,13 +390,6 @@ public class DomainInteractionsManager
         _csharpMapping.SetFromReplacement(entity, entityVariableName);
         _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
         _csharpMapping.SetToReplacement(entity, entityVariableName);
-
-        foreach (var actions in createAction.ProcessingActions)
-        {
-            statements.Add(string.Empty);
-            statements.AddRange(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
-            statements.Add(string.Empty);
-        }
         return statements;
     }
 
@@ -362,13 +430,6 @@ public class DomainInteractionsManager
             }
         }
 
-        foreach (var actions in updateAction.ProcessingActions)
-        {
-            statements.Add(string.Empty);
-            statements.AddRange(_csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single()));
-            statements.Add(string.Empty);
-        }
-
         if (RequiresAggegateExplicitUpdate(entityDetails))
         {
             statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
@@ -396,27 +457,30 @@ public class DomainInteractionsManager
         return statements;
     }
 
-    public IEnumerable<CSharpStatement> CallDomainService(CallDomainServiceOperationTargetEndModel callDomainServiceOperation)
+    public IEnumerable<CSharpStatement> CallServiceOperation(CallServiceOperationTargetEndModel callServiceOperation)
     {
-        var domainServiceModel = ((IElement)callDomainServiceOperation.Element).ParentElement;
-        if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, domainServiceModel, out var domainServiceInterfaceName) 
-            || callDomainServiceOperation.Mappings.Any() is false)
+        var domainServiceModel = ((IElement)callServiceOperation.Element).ParentElement;
+        if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, domainServiceModel, out var serviceInterface) 
+            && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, domainServiceModel, out serviceInterface))
+            || callServiceOperation.Mappings.Any() is false)
         {
             yield break;
         }
 
-        var domainServiceField = InjectService(domainServiceInterfaceName);
-        var operationModel = new OperationModel((IElement)callDomainServiceOperation.Element);
+        var serviceField = InjectService(serviceInterface);
+        var operationModel = (IElement)callServiceOperation.Element;
 
-        var invoke = new CSharpAccessMemberStatement(domainServiceField, _csharpMapping.GenerateCreationStatement(callDomainServiceOperation.Mappings.First()));
+        var invoke = new CSharpAccessMemberStatement(serviceField, _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First()));
         if (operationModel.TypeReference.Element != null)
         {
-            string variableName = callDomainServiceOperation.Name.ToLocalVariableName();
+            string variableName = callServiceOperation.Name.ToLocalVariableName();
+            _csharpMapping.SetFromReplacement(callServiceOperation, variableName);
+            _csharpMapping.SetToReplacement(callServiceOperation, variableName);
             yield return new CSharpAssignmentStatement($"var {variableName}", invoke);
 
             if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
             {
-                TrackedEntities.Add(callDomainServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
+                TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
             }
         }
         else

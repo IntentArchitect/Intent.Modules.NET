@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -6,6 +7,7 @@ using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -27,10 +29,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _model.CreateEntityActions().Any() 
-                   || _model.UpdateEntityActions().Any() 
-                   || _model.DeleteEntityActions().Any()
-                   || _model.CallDomainServiceOperationActions().Any();
+            return _model.HasDomainInteractions();
         }
 
         public void ApplyStrategy()
@@ -52,39 +51,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             csharpMapping.SetFromReplacement(_model, "request");
             handleMethod.AddMetadata("mapping-manager", csharpMapping);
-            
-            foreach (var createAction in _model.CreateEntityActions())
-            {
-                handleMethod.AddStatements(domainInteractionManager.CreateEntity(createAction));
-            }
 
-            foreach (var updateAction in _model.UpdateEntityActions())
-            {
-                var entity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel().ParentClass;
-
-                handleMethod.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
-
-                handleMethod.AddStatement(string.Empty);
-                handleMethod.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
-            }
-
-
-            foreach (var callAction in _model.CallDomainServiceOperationActions())
-            {
-                handleMethod.AddStatements(domainInteractionManager.CallDomainService(callAction));
-            }
-
-            foreach (var deleteAction in _model.DeleteEntityActions())
-            {
-                var foundEntity = deleteAction.Element.AsClassModel();
-                handleMethod.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
-                handleMethod.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
-            }
-
-            foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
-            {
-                handleMethod.AddStatement($"{entity.DataAccessProvider.AddEntity(entity.VariableName)}", s => s.SeparatedFromPrevious());
-            }
+            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(_model));
 
             if (_model.TypeReference.Element != null)
             {

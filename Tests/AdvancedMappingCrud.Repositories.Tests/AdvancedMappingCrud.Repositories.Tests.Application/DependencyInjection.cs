@@ -2,7 +2,9 @@ using System.Reflection;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Implementation;
+using AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
+using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services;
 using AutoMapper;
 using FluentValidation;
@@ -36,6 +38,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<ICustomerManager, CustomerManager>();
             services.AddTransient<IPricingService, PricingService>();
             services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IPersonService, PersonService>();
             return services;
         }
     }

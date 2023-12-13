@@ -39,6 +39,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             {
                 Name = dto.Name
             };
+
             _productRepository.Add(product);
             await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return product.Id;

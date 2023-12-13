@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b31f5ea2-8153-43d7-a695-1e28d75d14c8">
+  <sourceEnd id="c3bb1d3a-af88-45c6-aa45-2acc78c06482" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Quote</name>
+    <display>Quote: Quote</display>
+    <order>0</order>
+    <typeReference id="da78f023-bb78-4841-b07d-43db73455894">
+      <typeId>52aa9e0f-ec4a-4593-8f17-01ab01d64d45</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>QuoteLines</name>
+    <display>QuoteLines: QuoteLine[*]   [1 --&gt; *]</display>
+    <order>4</order>
+    <typeReference id="e8e6d5bd-95c0-4a08-8454-f1230714d787">
+      <typeId>1ef04c46-7955-472d-9c4f-af43c9e2921d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

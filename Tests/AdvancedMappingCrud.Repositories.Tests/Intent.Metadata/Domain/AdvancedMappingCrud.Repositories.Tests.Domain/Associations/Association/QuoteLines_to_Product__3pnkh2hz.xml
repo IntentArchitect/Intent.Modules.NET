@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b5cb8435-74d5-40b2-b455-fe12ce3e2b7a">
+  <sourceEnd id="fa60ae5d-afba-4911-90c1-f58225354e23" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>QuoteLines</name>
+    <display>QuoteLines: QuoteLine[*]</display>
+    <order>0</order>
+    <typeReference id="119e73a3-e8e9-4d69-aa36-1b1ea539995f">
+      <typeId>1ef04c46-7955-472d-9c4f-af43c9e2921d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b5cb8435-74d5-40b2-b455-fe12ce3e2b7a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Product</name>
+    <display>Product: Product   [* --&gt; 1]</display>
+    <order>3</order>
+    <typeReference id="f04977b9-7226-4775-9d13-cd642dbec5d5">
+      <typeId>97321be8-d956-4dbf-aee7-2e177c8612d0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

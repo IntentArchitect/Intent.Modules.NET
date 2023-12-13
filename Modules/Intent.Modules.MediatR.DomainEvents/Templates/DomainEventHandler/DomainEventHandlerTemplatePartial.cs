@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
@@ -68,32 +69,48 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                             csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
                             method.AddMetadata("mapping-manager", csharpMapping);
 
-                            foreach (var createAction in handledDomainEvents.CreateEntityActions())
-                            {
-                                method.AddStatements(domainInteractionManager.CreateEntity(createAction));
-                            }
+                            method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
 
-                            foreach (var updateAction in handledDomainEvents.UpdateEntityActions())
-                            {
-                                var entity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel().ParentClass;
+                            //foreach (var queryAction in handledDomainEvents.QueryEntityActions())
+                            //{
+                            //    var foundEntity = queryAction.Element.AsClassModel();
+                            //    if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
+                            //    {
+                            //        method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
+                            //    }
+                            //}
 
-                                method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
+                            //foreach (var createAction in handledDomainEvents.CreateEntityActions())
+                            //{
+                            //    method.AddStatements(domainInteractionManager.CreateEntity(createAction));
+                            //}
 
-                                method.AddStatement(string.Empty);
-                                method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
-                            }
+                            //foreach (var updateAction in handledDomainEvents.UpdateEntityActions())
+                            //{
+                            //    var entity = updateAction.Element.AsClassModel() ?? updateAction.Element.AsOperationModel().ParentClass;
 
-                            foreach (var deleteAction in handledDomainEvents.DeleteEntityActions())
-                            {
-                                var foundEntity = deleteAction.Element.AsClassModel();
-                                method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
-                                method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
-                            }
+                            //    method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
 
-                            foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
-                            {
-                                method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
-                            }
+                            //    method.AddStatement(string.Empty);
+                            //    method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
+                            //}
+
+                            //foreach (var callAction in handledDomainEvents.CallServiceOperationActions())
+                            //{
+                            //    method.AddStatements(domainInteractionManager.CallServiceOperation(callAction));
+                            //}
+
+                            //foreach (var deleteAction in handledDomainEvents.DeleteEntityActions())
+                            //{
+                            //    var foundEntity = deleteAction.Element.AsClassModel();
+                            //    method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
+                            //    method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
+                            //}
+
+                            //foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+                            //{
+                            //    method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
+                            //}
                         });
                     }
                 }).AfterBuild(file =>

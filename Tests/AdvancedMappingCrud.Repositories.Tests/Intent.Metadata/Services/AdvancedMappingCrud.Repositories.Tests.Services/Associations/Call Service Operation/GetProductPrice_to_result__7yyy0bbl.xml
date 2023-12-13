@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="4a384573-1f77-48e3-8d3e-a52b72f26224">
-  <sourceEnd id="d397a800-f555-4b54-85b8-bd7a7406516e" type="Call Domain Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="d397a800-f555-4b54-85b8-bd7a7406516e" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ProductsService.GetProductPrice</display>
     <order>0</order>
     <typeReference id="688e1ad2-3556-48e6-86b7-4a9d77223477">
@@ -18,9 +18,9 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Call Domain Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetProductPrice</display>
+    <display>[call] result: GetProductPrice(productId: guid): decimal</display>
     <order>1</order>
     <typeReference id="c9cdc522-d012-445a-8fe2-7a8412ec4cef">
       <typeId>f7b5def8-837c-48a3-8e6c-9999846d6cc8</typeId>
@@ -73,7 +73,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Domain Service Operation</associationType>
+  <associationType>Call Service Operation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

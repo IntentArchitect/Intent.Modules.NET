@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2f7738f-4f46-484b-bb57-c411fb63a28d">
+  <sourceEnd id="715ce18c-cc95-41d0-9f2e-5d029d89ed6d" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.ApproveQuoteCommand</display>
+    <order>0</order>
+    <typeReference id="02f26f3f-3de2-460a-95f2-4ddb7516b877">
+      <typeId>1d883b18-40f6-4097-9989-8a8c0f5c99f2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2f7738f-4f46-484b-bb57-c411fb63a28d" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetPersonById(personId: guid): PersonDto</display>
+    <order>2</order>
+    <typeReference id="530c863c-1dc1-4e46-a718-bbd5c0c6d3cc">
+      <typeId>75164753-0cac-446b-b867-a56b434306f1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1d883b18-40f6-4097-9989-8a8c0f5c99f2" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ApproveQuoteCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="75164753-0cac-446b-b867-a56b434306f1" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetPersonById]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ApproveQuoteCommand}</expression>
+            <path>
+              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ApproveQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{entity.PersonId}</expression>
+            <path>
+              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" />
+              <target id="34226f14-a6ac-49c4-ae19-d167779d9ba9" name="personId" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="entity.PersonId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
+                  <target id="f34e74fc-4a33-4674-8d6b-677367c21644" name="entity" type="association" specialization="Query Entity Action Target End" />
+                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

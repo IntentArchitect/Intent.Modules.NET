@@ -33,7 +33,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCus
 
             customer.Name = request.Name;
             customer.Surname = request.Surname;
-            customer.IsActive = request.IsActive;
         }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="102694d0-a3e3-432b-b09f-63ceccb250c0">
-  <sourceEnd id="86787a97-de57-4e88-9160-aa26588e7ffe" type="Call Domain Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="86787a97-de57-4e88-9160-aa26588e7ffe" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : Customers.GetCusomterStatisticsQuery</display>
     <order>0</order>
     <typeReference id="2b01e4ab-6342-4b6d-bcc0-9cd3e3c08579">
@@ -18,9 +18,9 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="102694d0-a3e3-432b-b09f-63ceccb250c0" type="Call Domain Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="102694d0-a3e3-432b-b09f-63ceccb250c0" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetCustomerStatistics</display>
+    <display>[call] result: GetCustomerStatistics(customerId: guid): CustomerStatistics</display>
     <order>1</order>
     <typeReference id="2f83fb3e-da16-4570-bffe-67d0196a06be">
       <typeId>98f8def3-c0e2-49fd-8e8b-247d10e0680c</typeId>
@@ -73,7 +73,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Domain Service Operation</associationType>
+  <associationType>Call Service Operation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

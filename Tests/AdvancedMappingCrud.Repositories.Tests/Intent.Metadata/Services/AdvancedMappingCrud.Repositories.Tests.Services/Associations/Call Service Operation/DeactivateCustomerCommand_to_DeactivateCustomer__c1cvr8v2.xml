@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f">
-  <sourceEnd id="ecd4e817-710f-489a-bdd7-1b570bc6a716" type="Call Domain Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="ecd4e817-710f-489a-bdd7-1b570bc6a716" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : Customers.DeactivateCustomerCommand</display>
     <order>0</order>
     <typeReference id="8faa2e68-f48d-46ad-a181-f504130eeef5">
@@ -18,8 +18,8 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f" type="Call Domain Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : DeactivateCustomer</display>
+  <targetEnd id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : DeactivateCustomer(customerId: guid): void</display>
     <order>1</order>
     <typeReference id="af40f894-51da-402c-b738-8320afbe26e5">
       <typeId>d0ca58b1-01d0-42f5-bf08-6454eda591e9</typeId>
@@ -72,7 +72,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Domain Service Operation</associationType>
+  <associationType>Call Service Operation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

@@ -57,8 +57,8 @@
         </mappedEnds>
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
-        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6186e3fa-f45f-4cb4-9157-350c8e30743b" location="UpdateCustomerCommand" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" location="Customer" />
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6186e3fa-f45f-4cb4-9157-350c8e30743b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Name}</expression>
@@ -86,21 +86,6 @@
                 <path>
                   <target id="6186e3fa-f45f-4cb4-9157-350c8e30743b" name="UpdateCustomerCommand" type="element" specialization="Command" />
                   <target id="b7c70e4f-907a-46f9-906a-44ba94ab9a43" name="Surname" type="element" specialization="DTO-Field" />
-                </path>
-              </source>
-            </sources>
-          </mappedEnd>
-          <mappedEnd>
-            <expression>{IsActive}</expression>
-            <path>
-              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
-              <target id="fb1ce02c-19f5-41c0-a670-5069ca4335c6" name="IsActive" type="element" specialization="Attribute" />
-            </path>
-            <sources>
-              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
-                <path>
-                  <target id="6186e3fa-f45f-4cb4-9157-350c8e30743b" name="UpdateCustomerCommand" type="element" specialization="Command" />
-                  <target id="22fa015a-0bc9-45ca-9d9e-65871be24c93" name="IsActive" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

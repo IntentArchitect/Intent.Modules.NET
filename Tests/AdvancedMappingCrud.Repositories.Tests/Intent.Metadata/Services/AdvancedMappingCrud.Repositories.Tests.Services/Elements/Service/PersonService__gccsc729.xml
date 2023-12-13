@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9a33e1cf-bc8a-474f-b331-40a1a6fcc4f8" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>PersonService</name>
+  <display>PersonService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0fe46e70-fb75-41d7-afa5-10cb420de4ee</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="75164753-0cac-446b-b867-a56b434306f1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetPersonById</name>
+      <display>GetPersonById(personId: guid): PersonDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="189ec18a-fff4-4fb7-b51a-d6603c07ac69">
+        <typeId>9874338b-c127-47bb-bda9-290ef5021e2e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+        <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>9a33e1cf-bc8a-474f-b331-40a1a6fcc4f8</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="34226f14-a6ac-49c4-ae19-d167779d9ba9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>personId</name>
+          <display>in : personId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6c1a81a8-f8b1-49a5-a737-e55ca3134acd">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>75164753-0cac-446b-b867-a56b434306f1</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

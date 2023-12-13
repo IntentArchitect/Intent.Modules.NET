@@ -29,11 +29,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
         public bool IsMatch(OperationModel operationModel)
         {
-            return operationModel.CreateEntityActions().Any() 
-                   || operationModel.UpdateEntityActions().Any() 
-                   || operationModel.DeleteEntityActions().Any() 
-                   || operationModel.QueryEntityActions().Any()
-                   || operationModel.CallDomainServiceOperationActions().Any();
+            return operationModel.HasDomainInteractions();
         }
 
         public void ApplyStrategy(OperationModel operationModel)
@@ -56,45 +52,47 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
             method.AddMetadata("mapping-manager", csharpMapping);
 
-            foreach (var queryAction in operationModel.QueryEntityActions())
-            {
-                var entity = queryAction.Element.AsClassModel();
-                method.AddStatements(domainInteractionManager.QueryEntity(entity, queryAction.InternalAssociationEnd));
-            }
+            method.AddStatements(domainInteractionManager.CreateInteractionStatements(operationModel));
 
-            foreach (var createAction in operationModel.CreateEntityActions())
-            {
-                method.AddStatements(domainInteractionManager.CreateEntity(createAction));
-            }
+            //foreach (var queryAction in operationModel.QueryEntityActions())
+            //{
+            //    var entity = queryAction.Element.AsClassModel();
+            //    method.AddStatements(domainInteractionManager.QueryEntity(entity, queryAction.InternalAssociationEnd));
+            //}
 
-            foreach (var updateAction in operationModel.UpdateEntityActions())
-            {
-                var entity = updateAction.Element.AsClassModel() 
-                             ?? updateAction.Element.AsOperationModel()?.ParentClass
-                             ?? throw new ElementException(updateAction.InternalAssociationEnd, "Target could not be cast to a Domain Class or Operation");
+            //foreach (var createAction in operationModel.CreateEntityActions())
+            //{
+            //    method.AddStatements(domainInteractionManager.CreateEntity(createAction));
+            //}
 
-                method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
+            //foreach (var updateAction in operationModel.UpdateEntityActions())
+            //{
+            //    var entity = updateAction.Element.AsClassModel() 
+            //                 ?? updateAction.Element.AsOperationModel()?.ParentClass
+            //                 ?? throw new ElementException(updateAction.InternalAssociationEnd, "Target could not be cast to a Domain Class or Operation");
 
-                method.AddStatement(string.Empty);
-                method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
-            }
+            //    method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
 
-            foreach (var callAction in operationModel.CallDomainServiceOperationActions())
-            {
-                method.AddStatements(domainInteractionManager.CallDomainService(callAction));
-            }
+            //    method.AddStatement(string.Empty);
+            //    method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
+            //}
 
-            foreach (var deleteAction in operationModel.DeleteEntityActions())
-            {
-                var foundEntity = deleteAction.Element.AsClassModel();
-                method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
-                method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
-            }
+            //foreach (var callAction in operationModel.CallServiceOperationActions())
+            //{
+            //    method.AddStatements(domainInteractionManager.CallServiceOperation(callAction));
+            //}
 
-            foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
-            {
-                method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
-            }
+            //foreach (var deleteAction in operationModel.DeleteEntityActions())
+            //{
+            //    var foundEntity = deleteAction.Element.AsClassModel();
+            //    method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
+            //    method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
+            //}
+
+            //foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+            //{
+            //    method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
+            //}
 
             if (operationModel.TypeReference.Element != null)
             {

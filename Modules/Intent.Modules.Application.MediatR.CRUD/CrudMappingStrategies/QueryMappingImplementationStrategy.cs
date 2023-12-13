@@ -33,8 +33,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null)
-                || _model.CallDomainServiceOperationActions().Any(x => x.Mappings.Any());
+            return _model.HasDomainInteractions();
+
+            //return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null)
+            //    || _model.CallServiceOperationActions().Any(x => x.Mappings.Any());
         }
 
         public void ApplyStrategy()
@@ -59,20 +61,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
+            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(_model));
 
-            foreach (var queryAction in _model.QueryEntityActions())
-            {
-                var foundEntity = queryAction.Element.AsClassModel();
-                if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
-                {
-                    handleMethod.AddStatements(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
-                }
-            }
+            //foreach (var queryAction in _model.QueryEntityActions())
+            //{
+            //    var foundEntity = queryAction.Element.AsClassModel();
+            //    if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
+            //    {
+            //        handleMethod.AddStatements(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
+            //    }
+            //}
 
-            foreach (var callAction in _model.CallDomainServiceOperationActions())
-            {
-                handleMethod.AddStatements(domainInteractionManager.CallDomainService(callAction));
-            }
+            //foreach (var callAction in _model.CallServiceOperationActions())
+            //{
+            //    handleMethod.AddStatements(domainInteractionManager.CallServiceOperation(callAction));
+            //}
 
             if (_model.TypeReference.Element != null)
             {
