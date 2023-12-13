@@ -30,10 +30,7 @@ namespace Intent.Modules.CosmosDB.Templates
             };
         }
 
-        public record PrimaryKeyData(AttributeModel IdAttribute, AttributeModel PartitionKeyAttribute)
-        { 
-            public bool IsPartitioned() => IdAttribute.Id != PartitionKeyAttribute.Id;
-        };
+        public record PrimaryKeyData(AttributeModel IdAttribute, AttributeModel PartitionKeyAttribute);
 
         public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model)
         {

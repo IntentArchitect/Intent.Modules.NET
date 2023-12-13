@@ -134,6 +134,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 $"{this.GetCosmosDBDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}>");
 
             var pk = Model.GetPrimaryKeyAttribute();
+            Model.TryGetPartitionAttribute(out var partitionAttribute);
             var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
                 .Properties.Where(x => x.ExplicitlyImplementing == null &&
                                        x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
@@ -170,20 +171,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 
             // ICosmosDBDocument.PartitionKey implementation:
             {
-                if (pk?.PartitionKeyAttribute != null && pk.PartitionKeyAttribute.Id != pk.IdAttribute.Id)
+                if (partitionAttribute != null)
                 {
                     @class.AddProperty("string?", "PartitionKey", property =>
                     {
                         property.ExplicitlyImplements(this.GetCosmosDBDocumentOfTInterfaceName());
-                        property.Getter.WithExpressionImplementation($"{pk.PartitionKeyAttribute.Name.ToPascalCase()}");
-                        property.Setter.WithExpressionImplementation($"{pk.PartitionKeyAttribute.Name.ToPascalCase()} = value!");
+                        property.Getter.WithExpressionImplementation($"{partitionAttribute.Name.ToPascalCase()}");
+                        property.Setter.WithExpressionImplementation($"{partitionAttribute.Name.ToPascalCase()} = value!");
                     });
-                }
-                else if (pk.PartitionKeyAttribute == null)
-                {
-                    Model.TryGetContainerSettings(out var containerName, out var partitionKey);
-                    Logging.Log.Warning($"Class \"{Model.Name}\" [{Model.Id}] does not have an attribute with name matching " + $"partition key " +
-                                        $"\"{partitionKey}\" for \"{containerName}\" container.");
                 }
             }
 

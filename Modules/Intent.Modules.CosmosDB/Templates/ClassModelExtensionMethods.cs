@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Xml.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -35,6 +37,25 @@ internal static class ClassModelExtensionMethods
         }
 
         partitionKey = default;
+        return false;
+    }
+
+    public static bool TryGetPartitionAttribute(this ClassModel model, out AttributeModel partitionAttribute)
+    {
+        partitionAttribute = null;
+        model.TryGetPartitionKeySettings(out var partitionKey);
+        if (string.IsNullOrEmpty(partitionKey)) return false;
+
+        var @class = model;
+        while (@class != null)
+        {
+            partitionAttribute = @class.Attributes.FirstOrDefault(x => x.Name.Equals(partitionKey, StringComparison.OrdinalIgnoreCase));
+            if (partitionAttribute != null)
+            {
+                return true;
+            }
+            @class = @class.ParentClass;
+        }
         return false;
     }
 

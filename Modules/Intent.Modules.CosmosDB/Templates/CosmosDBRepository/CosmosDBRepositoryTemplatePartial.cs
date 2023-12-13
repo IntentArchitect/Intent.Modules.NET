@@ -77,24 +77,27 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                             .Async()
                             .AddParameter(GetPKType(pkAttribute), "id")
                             .AddOptionalCancellationTokenParameter(this)
-                            .WithExpressionBody($"await FindByIdAsync({GetPKUsage(pkAttribute)}, cancellationToken)");
+                            .WithExpressionBody($"await base.FindByIdAsync({GetPKUsage(pkAttribute)}, cancellationToken: cancellationToken)");
                     });
 
-                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
+                    if (pkAttribute.IdAttribute.TypeReference?.Element.Name != "string")
                     {
-                        AddUsing("System.Linq");
-                        method
-                            .Async()
-                            .AddParameter($"{GetTypeName(pkAttribute.IdAttribute)}[]", "ids")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
-                    });
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
+                        {
+                            AddUsing("System.Linq");
+                            method
+                                .Async()
+                                .AddParameter($"{GetTypeName(pkAttribute.IdAttribute)}[]", "ids")
+                                .AddOptionalCancellationTokenParameter(this)
+                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
+                        });
+                    }
                 });
         }
 
         private string GetPKType(PrimaryKeyData pkAttribute)
         {
-            if (pkAttribute.IsPartitioned())
+            if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
             {
                 return $"({GetTypeName(pkAttribute.IdAttribute)} {pkAttribute.IdAttribute.Name.ToPascalCase()},{GetTypeName(pkAttribute.PartitionKeyAttribute)} {pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()})";
             }
@@ -106,14 +109,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
 
         private string GetPKUsage(PrimaryKeyData pkAttribute)
         {
-            if (pkAttribute.IsPartitioned())
+            if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
             {
                 string rowId = $"id.{pkAttribute.IdAttribute.Name.ToPascalCase()}{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
-                return $"{rowId}, id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}";
+                return $"id: {rowId}, partitionKey: id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}";
             }
             else
             {
-                return $"id{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
+                return $"id: id{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
             }
         }
 

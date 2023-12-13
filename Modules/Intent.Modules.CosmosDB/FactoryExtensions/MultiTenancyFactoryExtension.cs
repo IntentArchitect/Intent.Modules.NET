@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -76,8 +77,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 var constructor = @class.Constructors.First();
 
                 var pk = template.Model.GetPrimaryKeyAttribute();
+                template.Model.TryGetPartitionAttribute(out var partitionAttribute);
 
-                constructor.ConstructorCall.AddArgument($"{(pk?.IsPartitioned() == true ? $"\"{pk.PartitionKeyAttribute.Name.ToCamelCase()}\"" : "default")}");
+                constructor.ConstructorCall.AddArgument($"{(partitionAttribute != null ? $"\"{partitionAttribute.Name.ToCamelCase()}\"" : "default")}");
                 if (RequiresMultiTenancy(template.Model))
                 {
                     constructor.AddParameter(template.UseType("Finbuckle.MultiTenant.IMultiTenantContextAccessor<TenantInfo>"), "multiTenantContextAccessor");
@@ -90,7 +92,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                 if (RequiresMultiTenancy(template.Model))
                 {
-                    if (!pk.IsPartitioned())
+                    if (partitionAttribute == null)
                     {
                         Logging.Log.Warning($"No Partition Key configured for {template.Model.Name} which is marked for Multi-tenancy");
                     }
@@ -102,8 +104,6 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                             method.AddParameter($"string{nullableChar}", "partitionKey");
                             method.AddStatement($"return document => document.{pk.PartitionKeyAttribute.Name.ToPascalCase()} == partitionKey;");
                         });
-
-#warning Change FindByid to not be composite.
                 }
             });
         }
@@ -186,9 +186,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                 // FindByIdAsync
                 {
-                    var method = @class.FindMethod(m => m.Name =="FindByIdInternalAsync" );
+                    var method = @class.FindMethod(m => m.Name =="FindByIdAsync" );
                     var documentDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
-                    documentDeclarationStatement.FindAndReplace("id, ", "id, _tenantId, ");
+                    documentDeclarationStatement.FindAndReplace("id, partitionKey, ", "id, _tenantId, ");
                 }
 
                 // FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
