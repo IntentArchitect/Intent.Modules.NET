@@ -294,6 +294,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             var mappingManager = new CSharpClassMappingManager(this);
             mappingManager.SetFromReplacement(mapping.SourceElement, null);
             mappingManager.SetToReplacement(mapping.TargetElement, null);
+            var generalization = mapping.TargetElement.AsClassModel()?.Generalizations().SingleOrDefault();
+            if (generalization != null)
+            {
+                mappingManager.SetFromReplacement(generalization, null);
+                mappingManager.SetToReplacement(generalization, null);
+            }
             mappingManager.AddMappingResolver(new CollectionPropertyResolver(this));
 
             return mappingManager.GenerateUpdateStatements(mapping, codeContext)
