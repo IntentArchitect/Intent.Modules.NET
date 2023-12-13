@@ -117,9 +117,11 @@ public class CompositeDataAccessProvider : IDataAccessProvider
 {
     private readonly string _accessor;
     private readonly string _saveChangesAccessor;
+    private readonly string? _explicitUpdateStatement;
 
-    public CompositeDataAccessProvider(string saveChangesAccessor, string accessor)
+    public CompositeDataAccessProvider(string saveChangesAccessor, string accessor, string? explicitUpdateStatement = null)
     {
+        _explicitUpdateStatement = explicitUpdateStatement;
         _saveChangesAccessor = saveChangesAccessor;
         _accessor = accessor;
     }
@@ -131,17 +133,27 @@ public class CompositeDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement AddEntity(string entityName)
     {
+        if (_explicitUpdateStatement != null)
+        {
+            return new CSharpStatement($@"{_accessor}.Add({entityName});
+        {_explicitUpdateStatement}");
+        }
         return new CSharpInvocationStatement(_accessor, "Add")
             .AddArgument(entityName);
     }
 
     public CSharpStatement Update(string entityName)
     {
-        return new CSharpStatement("");
+        return new CSharpStatement(_explicitUpdateStatement ?? "");
     }
 
     public CSharpStatement Remove(string entityName)
     {
+        if (_explicitUpdateStatement != null)
+        {
+            return new CSharpStatement($@"{_accessor}.Remove({entityName});
+        {_explicitUpdateStatement}");
+        }
         return new CSharpInvocationStatement(_accessor, "Remove")
             .AddArgument(entityName);
     }

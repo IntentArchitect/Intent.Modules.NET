@@ -175,12 +175,15 @@ public class DomainInteractionsManager
             {
                 var aggregateEntity = aggregateAssociations.Single().Class;
 
-                if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateAssociations.Single().Class, out var repositoryInterface))
+                if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
                 {
+                    bool requiresExplicitUpate = RepositoryRequiresExplicitUpdate(aggregateEntity);
                     var repositoryName = InjectService(repositoryInterface);
                     dataAccessProvider = new CompositeDataAccessProvider(
                         $"{repositoryName}.UnitOfWork",
-                        $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}");
+                        $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}",
+                        requiresExplicitUpate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null
+                        );
                     
                     return true;
                 }
@@ -321,7 +324,7 @@ public class DomainInteractionsManager
         }
         return statements;
     }
-    
+
     public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
     {
         var entityDetails = TrackedEntities[updateAction.Id];
