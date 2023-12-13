@@ -121,6 +121,13 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
         }
 
         SortAlphabetically(packageReferenceItemGroup);
+
+        if (!packageReferenceItemGroup.Descendants().Any())
+        {
+            packageReferenceItemGroup.Remove();
+            packageReferenceItemGroup = null;
+        }
+        
         return Format(document);
     }
 
