@@ -10,6 +10,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     public class NonStringPartitionKey : IHasDomainEvent
     {
         private string? _id;
+        private int? _partInt;
 
         public string Id
         {
@@ -17,7 +18,11 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
             private set => _id = value;
         }
 
-        public int PartInt { get; private set; }
+        public int PartInt
+        {
+            get => _partInt ?? throw new NullReferenceException("_partInt has not been set");
+            private set => _partInt = value;
+        }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

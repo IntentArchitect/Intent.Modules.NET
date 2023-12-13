@@ -47,7 +47,7 @@ namespace CosmosDB.EntityInterfaces.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetClassContainerById), new { id = result }, new JsonResponse<string>(result));
+            return Created(string.Empty, new JsonResponse<string>(result));
         }
 
         /// <summary>
@@ -62,9 +62,10 @@ namespace CosmosDB.EntityInterfaces.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClassContainer(
             [FromRoute] string id,
+            [FromQuery] string classPartitionKey,
             CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteClassContainerCommand(id: id), cancellationToken);
+            await _mediator.Send(new DeleteClassContainerCommand(id: id, classPartitionKey: classPartitionKey), cancellationToken);
             return Ok();
         }
 
@@ -109,9 +110,10 @@ namespace CosmosDB.EntityInterfaces.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClassContainerDto>> GetClassContainerById(
             [FromRoute] string id,
+            [FromQuery] string classPartitionKey,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetClassContainerByIdQuery(id: id), cancellationToken);
+            var result = await _mediator.Send(new GetClassContainerByIdQuery(id: id, classPartitionKey: classPartitionKey), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 

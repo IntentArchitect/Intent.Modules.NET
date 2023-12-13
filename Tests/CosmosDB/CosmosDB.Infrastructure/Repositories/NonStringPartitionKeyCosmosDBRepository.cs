@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
@@ -19,5 +21,9 @@ namespace CosmosDB.Infrastructure.Repositories
             ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
+
+        public async Task<NonStringPartitionKey?> FindByIdAsync(
+            (string Id, int PartInt) id,
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt, cancellationToken: cancellationToken);
     }
 }

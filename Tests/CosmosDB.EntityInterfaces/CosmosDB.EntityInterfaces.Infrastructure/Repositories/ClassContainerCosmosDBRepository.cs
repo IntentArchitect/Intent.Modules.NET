@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using CosmosDB.EntityInterfaces.Application.Common.Interfaces;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories;
@@ -19,5 +21,9 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
             ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
+
+        public async Task<IClassContainer?> FindByIdAsync(
+            (string Id, string ClassPartitionKey) id,
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.ClassPartitionKey, cancellationToken: cancellationToken);
     }
 }

@@ -14,5 +14,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ICategoryRepository : ICosmosDBRepository<ICategory, ICategoryDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<ICategory?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

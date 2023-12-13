@@ -102,7 +102,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         {
                             method.Protected().Override();
                             method.AddParameter($"string{nullableChar}", "partitionKey");
-                            method.AddStatement($"return document => document.{pk.PartitionKeyAttribute.Name.ToPascalCase()} == partitionKey;");
+                            method.AddStatement($"return document => document.{partitionAttribute.Name.ToPascalCase()} == partitionKey;");
                         });
                 }
             });

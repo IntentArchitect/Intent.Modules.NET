@@ -14,5 +14,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IBaseTypeRepository : ICosmosDBRepository<BaseType, IBaseTypeDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<BaseType?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

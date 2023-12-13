@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 using MultipleDocumentStores.Domain.Entities;
@@ -17,5 +19,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             Microsoft.Azure.CosmosRepository.IRepository<CustomerCosmosDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
         {
         }
+
+        public async Task<CustomerCosmos?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
     }
 }

@@ -39,6 +39,8 @@ namespace CosmosDB.Infrastructure
                 options.ContainerBuilder
                     .Configure<BaseTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<CategoryDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<ClassContainerDocument>(c => c
                         .WithContainer("Class")
                         .WithPartitionKey("/classPartitionKey"))
@@ -67,12 +69,15 @@ namespace CosmosDB.Infrastructure
                     .Configure<PackageContainerDocument>(c => c
                         .WithContainer("PackageContainer")
                         .WithPartitionKey("/packagePartitionKey"))
+                    .Configure<ProductDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<RegionDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
             services.AddScoped<IBaseTypeRepository, BaseTypeCosmosDBRepository>();
+            services.AddScoped<ICategoryRepository, CategoryCosmosDBRepository>();
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
@@ -83,6 +88,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<INonStringPartitionKeyRepository, NonStringPartitionKeyCosmosDBRepository>();
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
+            services.AddScoped<IProductRepository, ProductCosmosDBRepository>();
             services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();

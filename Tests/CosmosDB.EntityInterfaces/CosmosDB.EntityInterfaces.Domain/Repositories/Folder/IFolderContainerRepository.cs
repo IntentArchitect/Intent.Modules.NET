@@ -14,5 +14,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories.Folder
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IFolderContainerRepository : ICosmosDBRepository<IFolderContainer, IFolderContainerDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<IFolderContainer?> FindByIdAsync((string Id, string FolderPartitionKey) id, CancellationToken cancellationToken = default);
     }
 }

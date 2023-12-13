@@ -14,5 +14,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IDerivedOfTRepository : ICosmosDBRepository<DerivedOfT, IDerivedOfTDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<DerivedOfT?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

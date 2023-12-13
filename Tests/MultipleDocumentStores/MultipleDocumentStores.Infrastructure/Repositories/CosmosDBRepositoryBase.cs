@@ -74,11 +74,14 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             return results;
         }
 
-        public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        protected async Task<TDomain?> FindByIdAsync(
+            string id,
+            string? partitionKey = default,
+            CancellationToken cancellationToken = default)
         {
             try
             {
-                var document = await _cosmosRepository.GetAsync(id, cancellationToken: cancellationToken);
+                var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);
                 var entity = document.ToEntity();
                 Track(entity);
 

@@ -18,6 +18,9 @@ namespace CosmosDB.EntityInterfaces.Application.ClassContainers.GetClassContaine
         {
             RuleFor(v => v.Id)
                 .NotNull();
+
+            RuleFor(v => v.ClassPartitionKey)
+                .NotNull();
         }
     }
 }

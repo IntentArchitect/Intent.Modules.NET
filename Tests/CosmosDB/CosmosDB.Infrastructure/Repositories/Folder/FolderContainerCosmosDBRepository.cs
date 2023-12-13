@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using CosmosDB.Application.Common.Interfaces;
 using CosmosDB.Domain.Entities.Folder;
 using CosmosDB.Domain.Repositories.Documents.Folder;
@@ -19,5 +21,9 @@ namespace CosmosDB.Infrastructure.Repositories.Folder
             ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
+
+        public async Task<FolderContainer?> FindByIdAsync(
+            (string Id, string FolderPartitionKey) id,
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.FolderPartitionKey, cancellationToken: cancellationToken);
     }
 }

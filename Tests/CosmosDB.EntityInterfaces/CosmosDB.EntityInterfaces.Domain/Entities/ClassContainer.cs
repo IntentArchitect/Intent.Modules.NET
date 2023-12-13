@@ -10,6 +10,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class ClassContainer : IClassContainer, IHasDomainEvent
     {
         private string? _id;
+        private string? _classPartitionKey;
 
         public string Id
         {
@@ -17,7 +18,11 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
             set => _id = value;
         }
 
-        public string ClassPartitionKey { get; set; }
+        public string ClassPartitionKey
+        {
+            get => _classPartitionKey ??= Guid.NewGuid().ToString();
+            set => _classPartitionKey = value;
+        }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

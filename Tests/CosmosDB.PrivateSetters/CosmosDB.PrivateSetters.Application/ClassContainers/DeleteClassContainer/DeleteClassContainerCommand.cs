@@ -9,11 +9,13 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.DeleteClassContain
 {
     public class DeleteClassContainerCommand : IRequest, ICommand
     {
-        public DeleteClassContainerCommand(string id)
+        public DeleteClassContainerCommand(string id, string classPartitionKey)
         {
             Id = id;
+            ClassPartitionKey = classPartitionKey;
         }
 
         public string Id { get; set; }
+        public string ClassPartitionKey { get; set; }
     }
 }

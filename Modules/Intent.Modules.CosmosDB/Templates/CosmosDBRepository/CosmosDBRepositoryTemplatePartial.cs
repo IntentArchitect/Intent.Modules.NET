@@ -20,6 +20,7 @@ using Intent.Modules.Common.Templates;
 using static Intent.Modules.CosmosDB.Templates.AttributeModelExtensionMethods;
 using System.Security.Cryptography;
 using Intent.Modules.Common.CSharp.VisualStudio;
+using System.Runtime.CompilerServices;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -71,7 +72,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                         );
                     });
 
-                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityStateTypeName}{nullableChar}>", "FindByIdAsync", method =>
+                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityTypeName}{nullableChar}>", "FindByIdAsync", method =>
                     {
                         method
                             .Async()
@@ -95,7 +96,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                 });
         }
 
-        private string GetPKType(PrimaryKeyData pkAttribute)
+        internal string GetPKType(PrimaryKeyData pkAttribute)
         {
             if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
             {
@@ -112,7 +113,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
             {
                 string rowId = $"id.{pkAttribute.IdAttribute.Name.ToPascalCase()}{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
-                return $"id: {rowId}, partitionKey: id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}";
+                string partitionKeyId = $"id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}{(pkAttribute.PartitionKeyAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.PartitionKeyAttribute.GetToString(this) : "")}";
+                return $"id: {rowId}, partitionKey: {partitionKeyId} ";
             }
             else
             {

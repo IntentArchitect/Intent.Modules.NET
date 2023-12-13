@@ -49,12 +49,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
                         )
-                        /*
-                        .AddMethod($"Task<{tDomain}?>", "FindByIdAsync", method => method
-                            .AddParameter("string", "id")
-                            .AddParameter("CancellationToken", "cancellationToken",
-                                parameter => parameter.WithDefaultValue("default"))
-                        )*/
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))

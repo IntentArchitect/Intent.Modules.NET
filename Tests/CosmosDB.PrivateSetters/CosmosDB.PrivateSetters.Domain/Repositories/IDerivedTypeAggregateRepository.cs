@@ -14,5 +14,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IDerivedTypeAggregateRepository : ICosmosDBRepository<DerivedTypeAggregate, IDerivedTypeAggregateDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<DerivedTypeAggregate?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

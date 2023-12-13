@@ -14,5 +14,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IIdTestingRepository : ICosmosDBRepository<IIdTesting, IIdTestingDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<IIdTesting?> FindByIdAsync(string identifier, CancellationToken cancellationToken = default);
     }
 }

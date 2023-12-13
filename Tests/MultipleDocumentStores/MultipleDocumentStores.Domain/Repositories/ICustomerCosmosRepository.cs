@@ -15,5 +15,7 @@ namespace MultipleDocumentStores.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ICustomerCosmosRepository : ICosmosDBRepository<CustomerCosmos, ICustomerCosmosDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<CustomerCosmos?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

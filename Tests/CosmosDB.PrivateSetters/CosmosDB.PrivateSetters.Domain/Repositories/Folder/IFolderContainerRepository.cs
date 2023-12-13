@@ -14,5 +14,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories.Folder
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IFolderContainerRepository : ICosmosDBRepository<FolderContainer, IFolderContainerDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<FolderContainer?> FindByIdAsync((string Id, string FolderPartitionKey) id, CancellationToken cancellationToken = default);
     }
 }

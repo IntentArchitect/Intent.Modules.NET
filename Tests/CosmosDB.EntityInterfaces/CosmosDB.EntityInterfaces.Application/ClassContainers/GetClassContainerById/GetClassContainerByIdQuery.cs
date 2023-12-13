@@ -9,11 +9,13 @@ namespace CosmosDB.EntityInterfaces.Application.ClassContainers.GetClassContaine
 {
     public class GetClassContainerByIdQuery : IRequest<ClassContainerDto>, IQuery
     {
-        public GetClassContainerByIdQuery(string id)
+        public GetClassContainerByIdQuery(string id, string classPartitionKey)
         {
             Id = id;
+            ClassPartitionKey = classPartitionKey;
         }
 
         public string Id { get; set; }
+        public string ClassPartitionKey { get; set; }
     }
 }

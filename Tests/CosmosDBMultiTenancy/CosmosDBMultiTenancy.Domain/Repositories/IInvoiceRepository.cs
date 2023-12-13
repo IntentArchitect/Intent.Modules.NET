@@ -14,5 +14,7 @@ namespace CosmosDBMultiTenancy.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IInvoiceRepository : ICosmosDBRepository<Invoice, IInvoiceDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<Invoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

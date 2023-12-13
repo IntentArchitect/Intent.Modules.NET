@@ -30,10 +30,10 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.GetClassContainerB
             GetClassContainerByIdQuery request,
             CancellationToken cancellationToken)
         {
-            var classContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
+            var classContainer = await _classContainerRepository.FindByIdAsync((request.Id, request.ClassPartitionKey), cancellationToken);
             if (classContainer is null)
             {
-                throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");
+                throw new NotFoundException($"Could not find ClassContainer '({request.Id}, {request.ClassPartitionKey})'");
             }
 
             return classContainer.MapToClassContainerDto(_mapper);

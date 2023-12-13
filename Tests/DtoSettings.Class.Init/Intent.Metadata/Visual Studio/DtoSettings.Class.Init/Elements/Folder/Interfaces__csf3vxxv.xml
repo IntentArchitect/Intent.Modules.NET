@@ -3,10 +3,22 @@
   <name>Interfaces</name>
   <display>Interfaces</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6db6c452-7e2d-4536-9597-540edc452ccd</parentFolderId>
-  <stereotypes />
+  <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+  <packageName>DtoSettings.Class.Init</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="c41b754f-c8aa-4ed7-9bf1-0cf3618d9f90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4b648faa-f7b7-4f64-ac57-a6995767b9cf</parentFolderId>
+      <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+      <packageName>DtoSettings.Class.Init</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

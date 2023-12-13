@@ -28,15 +28,15 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
         private readonly string? _tenantId;
-        private readonly string _partitionKeyFieldName;
+        private readonly string? _partitionKeyFieldName;
         private readonly Lazy<(string UserName, DateTimeOffset TimeStamp)> _auditDetails;
         private readonly ICurrentUserService _currentUserService;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
             string idFieldName,
-            string partitionKeyFieldName,
-            IMultiTenantContextAccessor<TenantInfo> multiTenantContextAccessor,
+            string? partitionKeyFieldName,
+            IMultiTenantContextAccessor<TenantInfo>? multiTenantContextAccessor,
             ICurrentUserService currentUserService)
         {
             _unitOfWork = unitOfWork;
@@ -102,11 +102,14 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             return results;
         }
 
-        public async Task<TDomain?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        protected async Task<TDomain?> FindByIdAsync(
+            string id,
+            string? partitionKey = default,
+            CancellationToken cancellationToken = default)
         {
             try
             {
-                var document = await _cosmosRepository.GetAsync(id, _tenantId, cancellationToken: cancellationToken);
+                var document = await _cosmosRepository.GetAsync(id, partitionKey ?? _tenantId, cancellationToken: cancellationToken);
                 var entity = document.ToEntity();
                 Track(entity);
 
@@ -159,7 +162,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
         {
-            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE (@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId) AND ARRAY_CONTAINS(@ids, c.{_idFieldName})")
+            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE {(!string.IsNullOrEmpty(_partitionKeyFieldName) ? "(@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId)  AND " : "")}ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                     .WithParameter("@tenantId", _tenantId)
                     .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);

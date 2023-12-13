@@ -14,5 +14,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IWithoutPartitionKeyRepository : ICosmosDBRepository<WithoutPartitionKey, IWithoutPartitionKeyDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<WithoutPartitionKey?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

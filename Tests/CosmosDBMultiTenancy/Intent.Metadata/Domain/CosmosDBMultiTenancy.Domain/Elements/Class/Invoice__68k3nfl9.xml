@@ -23,7 +23,9 @@
       <properties />
     </stereotype>
   </stereotypes>
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="TenantId" />
+  </metadata>
   <childElements>
     <childElement id="defe6b73-b039-4f83-ae31-8964897847ce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
@@ -50,7 +52,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata />
@@ -101,7 +105,10 @@
       <packageId>7fab008c-72d6-4bfc-9abe-96c0e0002cf9</packageId>
       <packageName>CosmosDBMultiTenancy.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="partition-key" value="true" />
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="69a45d88-45fb-4c97-9542-0ec1310e01f8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

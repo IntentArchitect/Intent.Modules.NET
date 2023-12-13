@@ -26,10 +26,10 @@ namespace CosmosDB.EntityInterfaces.Application.ClassContainers.UpdateClassConta
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateClassContainerCommand request, CancellationToken cancellationToken)
         {
-            var existingClassContainer = await _classContainerRepository.FindByIdAsync(request.Id, cancellationToken);
+            var existingClassContainer = await _classContainerRepository.FindByIdAsync((request.Id, request.ClassPartitionKey), cancellationToken);
             if (existingClassContainer is null)
             {
-                throw new NotFoundException($"Could not find ClassContainer '{request.Id}'");
+                throw new NotFoundException($"Could not find ClassContainer '({request.Id}, {request.ClassPartitionKey})'");
             }
 
             existingClassContainer.ClassPartitionKey = request.ClassPartitionKey;

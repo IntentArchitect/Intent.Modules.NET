@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
 using CosmosDB.PrivateSetters.Application.Common.Interfaces;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories;
@@ -19,5 +22,9 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
+
+        public async Task<NonStringPartitionKey?> FindByIdAsync(
+            (string Id, int PartInt) id,
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
     }
 }

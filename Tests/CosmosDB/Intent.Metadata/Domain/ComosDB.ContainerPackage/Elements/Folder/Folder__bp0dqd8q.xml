@@ -28,6 +28,8 @@
       </properties>
     </stereotype>
   </stereotypes>
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="FolderPartitionKey" />
+  </metadata>
   <childElements />
 </class>

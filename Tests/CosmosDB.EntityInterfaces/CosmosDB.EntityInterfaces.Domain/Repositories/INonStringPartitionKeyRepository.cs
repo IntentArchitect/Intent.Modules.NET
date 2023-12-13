@@ -14,5 +14,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface INonStringPartitionKeyRepository : ICosmosDBRepository<INonStringPartitionKey, INonStringPartitionKeyDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<INonStringPartitionKey?> FindByIdAsync((string Id, int PartInt) id, CancellationToken cancellationToken = default);
     }
 }

@@ -20,7 +20,9 @@
       </properties>
     </stereotype>
   </stereotypes>
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="ClassPartitionKey" />
+  </metadata>
   <childElements>
     <childElement id="bdd4f900-5049-48db-b94c-7144f308dedf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
@@ -47,7 +49,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata>
@@ -75,8 +79,19 @@
       <parentFolderId>8ae28b8f-c25c-4253-82ae-5132f2f126de</parentFolderId>
       <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
       <packageName>ComosDB.ContainerPackage</packageName>
-      <stereotypes />
-      <metadata />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="partition-key" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>
