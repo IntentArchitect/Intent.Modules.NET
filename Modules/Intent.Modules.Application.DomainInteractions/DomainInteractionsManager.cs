@@ -369,6 +369,12 @@ public class DomainInteractionsManager
             statements.Add(string.Empty);
         }
 
+        if (RequiresAggegateExplicitUpdate(entityDetails))
+        {
+            statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
+                .SeparatedFromPrevious());
+        }
+
         return statements;
     }
 
@@ -482,6 +488,16 @@ public class DomainInteractionsManager
     //        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
     //    }
     //}
+
+    private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
+    {
+        if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
+        {
+            return cda.RequiresExplicitUpdate();
+        }
+        return false;
+    }
+
 
     private bool MustAccessEntityThroughAggregate(IDataAccessProvider dataAccess)
     {

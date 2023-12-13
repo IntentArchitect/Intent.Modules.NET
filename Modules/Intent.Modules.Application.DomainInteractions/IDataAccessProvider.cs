@@ -126,6 +126,11 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         _accessor = accessor;
     }
 
+    public bool RequiresExplicitUpdate()
+    {
+        return _explicitUpdateStatement != null;
+    }
+
     public CSharpStatement SaveChangesAsync()
     {
         return $"{_saveChangesAccessor}.SaveChangesAsync(cancellationToken);";
