@@ -33,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string ParentId => null;
         public IEnumerable<string> SupportedFrameworks => Array.Empty<string>();
         public IEnumerable<IOutputTargetRole> Roles => _model.Roles;
-        public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs.DetectDuplicate();
+        public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
     }
 }

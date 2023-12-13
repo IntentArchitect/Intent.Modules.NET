@@ -84,7 +84,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         [IntentManaged(Mode.Ignore)]
-        internal static IEnumerable<TemplateOutputModel> DetectDuplicate(this IEnumerable<TemplateOutputModel> sequence)
+        internal static IEnumerable<TemplateOutputModel> DetectDuplicates(this IEnumerable<TemplateOutputModel> sequence)
         {
             var templateNamesSet = new HashSet<string>();
 
