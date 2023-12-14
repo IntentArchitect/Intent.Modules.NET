@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.2.0-beta.5</version>
-  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.2.0-pre.1</version>
+  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
   <authors>Intent Architect</authors>
@@ -73,18 +73,18 @@
     <detect id="Intent.AzureFunctions">
       <install>
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.9" />
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.1" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.1" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.DependencyInjection.MediatR">
       <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.0" />
+        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.9-pre.1" />
       </install>
     </detect>
     <detect id="Intent.VisualStudio.Projects">
@@ -99,7 +99,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.7-pre.2" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.7-pre.3" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
@@ -119,7 +119,7 @@
     </detect>
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
-        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.2.0-pre.1" />
+        <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.2.0-pre.2" />
       </install>
     </detect>
     <detect id="Intent.OutputManager.RoslynWeaver">
