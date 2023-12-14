@@ -459,18 +459,23 @@ public class DomainInteractionsManager
 
     public IEnumerable<CSharpStatement> CallServiceOperation(CallServiceOperationTargetEndModel callServiceOperation)
     {
-        var domainServiceModel = ((IElement)callServiceOperation.Element).ParentElement;
-        if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, domainServiceModel, out var serviceInterface) 
-            && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, domainServiceModel, out serviceInterface))
+        var operationModel = (IElement)callServiceOperation.Element;
+        var serviceModel = operationModel.ParentElement;
+        if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var serviceInterface) 
+            && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterface))
             || callServiceOperation.Mappings.Any() is false)
         {
             yield break;
         }
 
         var serviceField = InjectService(serviceInterface);
-        var operationModel = (IElement)callServiceOperation.Element;
-
-        var invoke = new CSharpAccessMemberStatement(serviceField, _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First()));
+        var isAsync = serviceModel.IsServiceModel() || operationModel.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase);
+        var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
+        if (isAsync && methodInvocation is CSharpInvocationStatement s)
+        {
+            s.AddArgument("cancellationToken");
+        }
+        var invoke = new CSharpAccessMemberStatement($"{(isAsync ? "await " : "")}{serviceField}", methodInvocation);
         if (operationModel.TypeReference.Element != null)
         {
             string variableName = callServiceOperation.Name.ToLocalVariableName();

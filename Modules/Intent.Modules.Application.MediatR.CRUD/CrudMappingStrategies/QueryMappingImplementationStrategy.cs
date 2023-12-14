@@ -63,20 +63,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(_model));
 
-            //foreach (var queryAction in _model.QueryEntityActions())
-            //{
-            //    var foundEntity = queryAction.Element.AsClassModel();
-            //    if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
-            //    {
-            //        handleMethod.AddStatements(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
-            //    }
-            //}
-
-            //foreach (var callAction in _model.CallServiceOperationActions())
-            //{
-            //    handleMethod.AddStatements(domainInteractionManager.CallServiceOperation(callAction));
-            //}
-
             if (_model.TypeReference.Element != null)
             {
                 handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(_model.TypeReference));

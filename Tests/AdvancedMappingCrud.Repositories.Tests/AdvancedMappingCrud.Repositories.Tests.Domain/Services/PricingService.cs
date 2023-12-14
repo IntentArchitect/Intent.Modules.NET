@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -15,7 +17,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public decimal GetProductPrice(Guid productId)
+        public async Task<decimal> GetProductPriceAsync(Guid productId, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException("Implement your domain service logic here...");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public decimal SumPrices(decimal prices)
         {
             throw new NotImplementedException("Implement your domain service logic here...");
         }

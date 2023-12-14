@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,6 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
 {
     public interface IPricingService
     {
-        decimal GetProductPrice(Guid productId);
+        Task<decimal> GetProductPriceAsync(Guid productId, CancellationToken cancellationToken = default);
+        decimal SumPrices(decimal prices);
     }
 }

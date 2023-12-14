@@ -33,8 +33,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.ApproveQu
             {
                 throw new NotFoundException($"Could not find Quote '{request.QuoteId}'");
             }
-            //IntentIgnore
-            var result = await _personService.GetPersonById(entity.PersonId);
+            var result = await _personService.GetPersonById(entity.PersonId, cancellationToken);
 
             entity.PersonEmail = result.Email;
         }

@@ -88,9 +88,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<decimal> GetProductPrice(Guid productId, CancellationToken cancellationToken = default)
+        public async Task<decimal> GetProductPrice(
+            Guid productId,
+            decimal prices,
+            CancellationToken cancellationToken = default)
         {
-            var result = _pricingService.GetProductPrice(productId);
+            var result = await _pricingService.GetProductPriceAsync(productId, cancellationToken);
+            var sumPrice = _pricingService.SumPrices(prices);
 
             throw new NotImplementedException("Implement return type mapping...");
         }

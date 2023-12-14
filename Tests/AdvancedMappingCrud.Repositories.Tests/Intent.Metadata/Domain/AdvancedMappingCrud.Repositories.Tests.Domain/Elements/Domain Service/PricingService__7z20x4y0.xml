@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="f7b5def8-837c-48a3-8e6c-9999846d6cc8" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
-      <name>GetProductPrice</name>
-      <display>GetProductPrice(productId: guid): decimal</display>
+      <name>GetProductPriceAsync</name>
+      <display>GetProductPriceAsync(productId: guid): decimal</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -54,6 +54,56 @@
           </typeReference>
           <isMapped>false</isMapped>
           <parentFolderId>f7b5def8-837c-48a3-8e6c-9999846d6cc8</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0397acdf-03c2-4c55-9c2b-9d735c98d755" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SumPrices</name>
+      <display>SumPrices(prices: decimal): decimal</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cfdd4fc3-0d70-4329-a63b-8b2933cf6cb8">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b8245173-1e14-4b6f-914f-1bf0df55d30d</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ce4025e0-fd6d-4809-9823-20dfcf291405" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>prices</name>
+          <display>in : prices: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="96e0dceb-2c56-44ea-aeb3-9080cf3935db">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0397acdf-03c2-4c55-9c2b-9d735c98d755</parentFolderId>
           <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
           <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
           <stereotypes />

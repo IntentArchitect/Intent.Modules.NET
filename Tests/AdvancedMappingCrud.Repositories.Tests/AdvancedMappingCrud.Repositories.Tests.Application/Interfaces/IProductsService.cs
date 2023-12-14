@@ -17,6 +17,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
         Task<List<ProductDto>> FindProducts(CancellationToken cancellationToken = default);
         Task UpdateProduct(Guid id, ProductUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteProduct(Guid id, CancellationToken cancellationToken = default);
-        Task<decimal> GetProductPrice(Guid productId, CancellationToken cancellationToken = default);
+        Task<decimal> GetProductPrice(Guid productId, decimal prices, CancellationToken cancellationToken = default);
     }
 }
