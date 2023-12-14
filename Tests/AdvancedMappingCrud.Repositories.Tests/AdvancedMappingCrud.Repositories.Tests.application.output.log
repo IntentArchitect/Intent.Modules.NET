@@ -372,6 +372,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f4cc4cb5-949f-4634-9425-71e99a8e33bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateQuote/CreateQuoteCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateQuote/CreateQuoteCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f4cc4cb5-949f-4634-9425-71e99a8e33bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateQuote/CreateQuoteCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateQuote/CreateQuoteCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f4cc4cb5-949f-4634-9425-71e99a8e33bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateQuote/CreateQuoteCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateQuote/CreateQuoteCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#32843436-8834-4567-a73a-8efc74602386</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
@@ -568,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>521e0420-cfad-464f-a8c0-04c5339c8c3f</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#51da9af6-ef50-4720-9eda-59ecb3cc858c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EventHandlers/NewQuoteCreatedHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewQuoteCreatedHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1056,6 +1088,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65796914-f66d-4e55-a987-7db2ca6986a9</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#51da9af6-ef50-4720-9eda-59ecb3cc858c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Events/NewQuoteCreated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewQuoteCreated.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -142,5 +142,26 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="7722a815-ad85-4b20-8a4f-7fbadb0054ae" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>NotifyQuoteCreated</name>
+      <display>NotifyQuoteCreated(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="de1ec873-d06f-4651-815d-4b94cbd80cbb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>52aa9e0f-ec4a-4593-8f17-01ab01d64d45</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

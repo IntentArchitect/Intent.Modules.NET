@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4cc4cb5-949f-4634-9425-71e99a8e33bc" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateQuoteCommand</name>
+  <display>CreateQuoteCommand: void</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="8972a2f6-a98d-45f8-9a2e-edc07bb1d958">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>0fe46e70-fb75-41d7-afa5-10cb420de4ee</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="07a19935-718f-41da-bfed-780fe97805f5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>RefNo</name>
+      <display>RefNo: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b0336b66-c663-4bf6-8f4a-95b1a26d8ede">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4cc4cb5-949f-4634-9425-71e99a8e33bc</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bfd12a69-051e-440d-b247-b2bca34cc0ee" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PersonId</name>
+      <display>PersonId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f4b8c7d2-0dcf-4b4a-9f70-b4018ea0b962">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4cc4cb5-949f-4634-9425-71e99a8e33bc</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ec65bd31-bb4a-4e23-b9c0-ca088cabba8f" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PersonEmail</name>
+      <display>PersonEmail: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ef794bb5-16c2-4f2a-9f04-718792d3e557">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4cc4cb5-949f-4634-9425-71e99a8e33bc</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="86f7de48-fe89-4263-b7bd-56704150c977" type="Processing Action" typeId="405a2857-b911-431f-8142-719a0e9f15f3">
+      <name>Action</name>
+      <display>Action</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4cc4cb5-949f-4634-9425-71e99a8e33bc</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Process Action Mapping" typeId="01bc7593-a6a2-45aa-8497-b4b6a269ab68">
+          <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f4cc4cb5-949f-4634-9425-71e99a8e33bc" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateQuoteCommand]" />
+          <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f4cc4cb5-949f-4634-9425-71e99a8e33bc" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateQuoteCommand]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{CreateQuoteCommand}</expression>
+              <path>
+                <target id="f4cc4cb5-949f-4634-9425-71e99a8e33bc" name="CreateQuoteCommand" type="element" specialization="Command" />
+                <target id="4b053d7d-88de-4fc7-ae0d-f51721c0a30a" name="quote" type="association" specialization="Create Entity Action Target End" />
+                <target id="7722a815-ad85-4b20-8a4f-7fbadb0054ae" name="NotifyQuoteCreated" type="element" specialization="Operation" />
+              </path>
+              <sources>
+                <source identifier="CreateQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="19c5ccad-f41f-4613-bd0b-b8e2adba6245">
+                  <path>
+                    <target id="f4cc4cb5-949f-4634-9425-71e99a8e33bc" name="CreateQuoteCommand" type="element" specialization="Command" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
