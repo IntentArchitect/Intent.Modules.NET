@@ -472,6 +472,11 @@
           <isRequired>true</isRequired>
           <options />
         </setting>
+        <setting id="14bc1e98-930b-494c-97a9-5da4e1f3a5fa" title="Default Mapping Mode" type="hidden">
+          <defaultValue>advanced</defaultValue>
+          <isRequired>false</isRequired>
+          <options />
+        </setting>
       </settings>
     </group>
   </additionalSettings>
