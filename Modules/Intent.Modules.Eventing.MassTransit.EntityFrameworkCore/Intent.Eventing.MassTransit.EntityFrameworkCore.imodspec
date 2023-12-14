@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit.EntityFrameworkCore</id>
-  <version>5.1.0-pre.0</version>
+  <version>5.1.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Integrates MassTransit with Entity Framework Core to bring you transaction scope handling in your consumers.</summary>
   <description>Integrates MassTransit with Entity Framework Core to bring you transaction scope handling in your consumers.</description>
@@ -18,13 +18,12 @@
     <factoryExtension id="Intent.Eventing.MassTransit.EntityFrameworkCore.EFOutboxPatternConfigurator" externalReference="ef7c0f8f-14aa-4c0f-b0ea-3c1e876f4f8b" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
-  <interoperability>
-  </interoperability>
+  <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.3" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.EntityFrameworkCore" version="4.5.0-pre.1" />
-    <dependency id="Intent.Eventing.MassTransit" version="6.0.0-pre.2" />
+    <dependency id="Intent.EntityFrameworkCore" version="4.5.0" />
+    <dependency id="Intent.Eventing.MassTransit" version="6.0.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

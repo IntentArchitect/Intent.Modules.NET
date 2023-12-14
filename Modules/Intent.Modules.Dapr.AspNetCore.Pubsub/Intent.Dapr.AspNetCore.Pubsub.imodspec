@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Pubsub</id>
-  <version>2.0.0-pre.2</version>
+  <version>2.0.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</summary>
   <description>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</description>
@@ -55,13 +55,13 @@
     </detect>
     <detect id="Intent.Modelers.Services.CRUD.ServiceDispatch">
       <install>
-        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.8-pre.0" />
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.8" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.AspNetCore" version="6.0.0-pre.2" />
+        <package id="Intent.AspNetCore" version="6.0.0" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
@@ -69,8 +69,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.4.2" />
-    <dependency id="Intent.Common" version="3.5.0-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0-pre.1" />
+    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Dapr.AspNetCore" version="1.2.6" />
     <dependency id="Intent.Eventing.Contracts" version="4.0.9" />

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>4.1.0-pre.1</Version>
+    <Version>4.1.0</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.5.0-beta.3" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.0-beta.9" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
