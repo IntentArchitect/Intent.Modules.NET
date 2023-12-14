@@ -307,8 +307,8 @@
       </childElements>
     </childElement>
     <childElement id="d6171bdf-824f-4088-b018-ab19cd2a602f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>SignalR (Preview)</name>
-      <display>SignalR (Preview)</display>
+      <name>SignalR</name>
+      <display>SignalR</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

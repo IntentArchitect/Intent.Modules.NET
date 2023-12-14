@@ -229,8 +229,8 @@
       </childElements>
     </childElement>
     <childElement id="9393b0f4-4dd4-4dd7-8144-492c36b17631" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Cosmos DB (PREVIEW)</name>
-      <display>Cosmos DB (PREVIEW)</display>
+      <name>Cosmos DB</name>
+      <display>Cosmos DB</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
