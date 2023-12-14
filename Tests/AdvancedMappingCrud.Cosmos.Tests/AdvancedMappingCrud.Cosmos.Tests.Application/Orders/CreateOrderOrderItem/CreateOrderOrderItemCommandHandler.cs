@@ -40,6 +40,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrderOrderIt
             };
 
             order.OrderItems.Add(orderItem);
+            _orderRepository.Update(order);
             await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return orderItem.Id;
         }

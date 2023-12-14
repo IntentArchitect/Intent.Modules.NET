@@ -27,6 +27,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         }
         public string Id { get; set; } = default!;
         public string PartInt { get; set; }
+        public string Name { get; set; } = default!;
 
         public NonStringPartitionKey ToEntity(NonStringPartitionKey? entity = default)
         {
@@ -34,6 +35,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
 
             ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(PartInt), int.Parse(PartInt, CultureInfo.InvariantCulture));
+            ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
 
             return entity;
         }
@@ -42,6 +44,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             Id = entity.Id;
             PartInt = entity.PartInt.ToString(CultureInfo.InvariantCulture);
+            Name = entity.Name;
 
             return this;
         }

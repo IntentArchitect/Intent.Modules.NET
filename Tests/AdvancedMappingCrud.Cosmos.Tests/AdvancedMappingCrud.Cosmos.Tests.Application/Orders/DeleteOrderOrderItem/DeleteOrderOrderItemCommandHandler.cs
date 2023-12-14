@@ -39,6 +39,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.DeleteOrderOrderIt
             }
 
             order.OrderItems.Remove(orderItem);
+            _orderRepository.Update(order);
         }
     }
 }

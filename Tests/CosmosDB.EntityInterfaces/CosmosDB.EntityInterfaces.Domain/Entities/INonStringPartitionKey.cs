@@ -11,5 +11,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
         string Id { get; set; }
 
         int PartInt { get; set; }
+
+        string Name { get; set; }
     }
 }

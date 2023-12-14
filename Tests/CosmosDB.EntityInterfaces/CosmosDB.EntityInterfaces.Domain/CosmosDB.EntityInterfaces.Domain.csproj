@@ -107,6 +107,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\IOrder.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IOrderItem.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

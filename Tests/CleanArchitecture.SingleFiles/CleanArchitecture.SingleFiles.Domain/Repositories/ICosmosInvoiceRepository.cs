@@ -15,5 +15,7 @@ namespace CleanArchitecture.SingleFiles.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ICosmosInvoiceRepository : ICosmosDBRepository<CosmosInvoice, ICosmosInvoiceDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<CosmosInvoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

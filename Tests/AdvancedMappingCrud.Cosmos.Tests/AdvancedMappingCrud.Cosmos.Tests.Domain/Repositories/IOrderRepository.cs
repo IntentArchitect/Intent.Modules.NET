@@ -14,5 +14,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IOrderRepository : ICosmosDBRepository<Order, IOrderDocument>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<Order?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
     }
 }

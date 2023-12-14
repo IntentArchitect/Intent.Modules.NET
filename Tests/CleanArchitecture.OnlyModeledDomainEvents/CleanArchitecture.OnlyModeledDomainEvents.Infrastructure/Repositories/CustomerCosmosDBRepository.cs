@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories;
 using CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories.Documents;
@@ -17,5 +19,7 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Repositories
             Microsoft.Azure.CosmosRepository.IRepository<CustomerDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
         {
         }
+
+        public async Task<Customer?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
     }
 }

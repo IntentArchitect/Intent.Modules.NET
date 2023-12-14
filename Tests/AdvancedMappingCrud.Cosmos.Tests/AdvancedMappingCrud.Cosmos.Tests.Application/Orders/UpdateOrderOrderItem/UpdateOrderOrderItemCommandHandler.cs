@@ -41,6 +41,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrderOrderIt
             orderItem.Quantity = request.Quantity;
             orderItem.Amount = request.Amount;
             orderItem.ProductId = request.ProductId;
+
+            _orderRepository.Update(order);
         }
     }
 }

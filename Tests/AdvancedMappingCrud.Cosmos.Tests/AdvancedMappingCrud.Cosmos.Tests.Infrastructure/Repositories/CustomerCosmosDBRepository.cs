@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents;
@@ -17,5 +19,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             Microsoft.Azure.CosmosRepository.IRepository<CustomerDocument> cosmosRepository) : base(unitOfWork, cosmosRepository, "id")
         {
         }
+
+        public async Task<Customer?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
     }
 }
