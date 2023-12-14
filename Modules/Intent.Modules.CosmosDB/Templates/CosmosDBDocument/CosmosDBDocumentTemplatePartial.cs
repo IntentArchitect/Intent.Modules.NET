@@ -103,12 +103,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
 
                     var pk = Model.GetPrimaryKeyAttribute();
-
+                    Model.TryGetPartitionAttribute(out var partitionAttribute);
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
                         associationEnds: associationEnds,
-                        partitionKeyAttribute: pk?.PartitionKeyAttribute,
+                        partitionKeyAttribute: partitionAttribute,
                         entityInterfaceTypeName: EntityTypeName,
                         entityImplementationTypeName: EntityStateTypeName,
                         entityRequiresReflectionConstruction: Model.Constructors.Any() &&
@@ -199,8 +199,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 {
                     typeName = Helpers.PrimaryKeyType;
                 }
+
                 //Partition key must be a string
-                if (metadataModel.Id == pk.PartitionKeyAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                if (partitionAttribute != null && metadataModel.Id == partitionAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 {
                     typeName = "string";
                 }

@@ -69,6 +69,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         .ToList();
 
                     var pk = Model.GetPrimaryKeyAttribute();
+                    Model.TryGetPartitionAttribute(out var partitionAttribute);
 
                     foreach (var attribute in attributes)
                     {
@@ -77,7 +78,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface
                         {
                             typeName = Helpers.PrimaryKeyType;
                         }
-                        else if (Model.IsAggregateRoot() && pk?.PartitionKeyAttribute != null && attribute.Id == pk.PartitionKeyAttribute.Id)
+                        else if (Model.IsAggregateRoot() && partitionAttribute != null && attribute.Id == partitionAttribute.Id)
                         {
                             typeName = "string";
                         }
