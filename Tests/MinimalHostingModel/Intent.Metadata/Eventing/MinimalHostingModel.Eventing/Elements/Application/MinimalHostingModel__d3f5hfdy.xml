@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="34773aaf-2db8-4ea0-8227-edcd8f1b43bf" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>MinimalHostingModel</name>
+  <display>MinimalHostingModel</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a7643473-1e3b-4779-bcfa-7b7c16a636f1</parentFolderId>
+  <diagram>
+    <targetPackageId>fbdb90da-9506-4cc7-89b1-178e13c80186</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
