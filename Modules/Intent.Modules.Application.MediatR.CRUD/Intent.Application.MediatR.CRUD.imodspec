@@ -18,15 +18,15 @@
     <factoryExtension id="Intent.Application.MediatR.CRUD.MongoDbRepositoryUpdateExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.2.0-beta.0" />
-    <dependency id="Intent.Common" version="3.5.0-beta.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.14" />
+    <dependency id="Intent.Application.MediatR" version="4.2.0-beta.5" />
+    <dependency id="Intent.Common" version="3.5.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.3.3" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.5.0-beta.2" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="4.1.0-beta.2" />
-    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.0-beta.15" />
+    <dependency id="Intent.Modelers.Services" version="3.5.0-pre.1" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="4.1.0-pre.1" />
+    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.0-pre.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <interoperability>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.Internal.EnvironmentVariableTest</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Module for simulating environment variables dispatching</summary>
   <description>Module for simulating environment variables dispatching</description>
@@ -21,8 +21,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0-beta.3" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0-beta.13" />
+    <dependency id="Intent.Common" version="3.5.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>
