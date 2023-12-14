@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>6.0.0-beta.10</version>
-  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>6.0.0-pre.0</version>
+  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
   <authors>Intent Architect</authors>
@@ -142,7 +142,7 @@
     <dependency id="Intent.Common.CSharp" version="3.4.0-beta.6" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts" version="5.0.0-beta.4" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.3" />
+    <dependency id="Intent.Modelers.Domain" version="3.5.0-pre.0" />
     <dependency id="Intent.Modelers.Eventing" version="5.0.0-beta.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.0-beta.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.0-beta.3" />

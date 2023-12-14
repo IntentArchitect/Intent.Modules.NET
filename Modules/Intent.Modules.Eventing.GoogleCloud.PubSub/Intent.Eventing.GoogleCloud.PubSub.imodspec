@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub</id>
-  <version>1.0.6-beta.0</version>
-  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>1.1.0-pre.0</version>
+  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</summary>
   <description>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</description>
   <authors>Intent Architect</authors>
