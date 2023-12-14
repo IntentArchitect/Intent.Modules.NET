@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Common.Exceptions;
@@ -25,16 +26,16 @@ namespace CosmosDB.Application.NonStringPartitionKeys.UpdateNonStringPartitionKe
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateNonStringPartitionKeyCommand request, CancellationToken cancellationToken)
         {
-            var nonStringPartitionKey = await _nonStringPartitionKeyRepository.FindByIdAsync((request.Id, request.PartInt), cancellationToken);
-            if (nonStringPartitionKey is null)
+            var existingNonStringPartitionKey = await _nonStringPartitionKeyRepository.FindByIdAsync((request.Id, request.PartInt), cancellationToken);
+            if (existingNonStringPartitionKey is null)
             {
                 throw new NotFoundException($"Could not find NonStringPartitionKey '({request.Id}, {request.PartInt})'");
             }
 
-            nonStringPartitionKey.PartInt = request.PartInt;
-            nonStringPartitionKey.Name = request.Name;
+            existingNonStringPartitionKey.PartInt = request.PartInt;
+            existingNonStringPartitionKey.Name = request.Name;
 
-            _nonStringPartitionKeyRepository.Update(nonStringPartitionKey);
+            _nonStringPartitionKeyRepository.Update(existingNonStringPartitionKey);
         }
     }
 }

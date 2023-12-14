@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ee7e5a66-4b14-4b01-80b6-800edf80ce64">
+  <sourceEnd id="61540e94-ccdc-47d9-afdd-6c3779308556" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Orders.DeleteOrderOrderItemCommand</display>
+    <order>0</order>
+    <typeReference id="f1fbc87e-1be8-45cc-9d41-06c5e52e1a82">
+      <typeId>4771244c-a7b2-470c-aa16-756bb8abea6a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SpecificServices</typePackageName>
+      <typePackageId>e15d978a-f58d-41bf-bdc7-207652bd244a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ee7e5a66-4b14-4b01-80b6-800edf80ce64" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>orderItem</name>
+    <display>[delete] orderItem: OrderItem</display>
+    <order>3</order>
+    <typeReference id="5c522f14-ae0f-4a13-af1f-2fe7f566e46c">
+      <typeId>bd723a25-fde6-4734-af0b-7fc96a3c3de7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ComosDB.ContainerPackage</typePackageName>
+      <typePackageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4771244c-a7b2-470c-aa16-756bb8abea6a" location="DeleteOrderOrderItemCommand" />
+        <target applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bd723a25-fde6-4734-af0b-7fc96a3c3de7" location="OrderItem" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bd723a25-fde6-4734-af0b-7fc96a3c3de7" name="OrderItem" type="element" specialization="Class" />
+              <target id="820f55dd-8c73-4704-be89-2d455c05e836" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4771244c-a7b2-470c-aa16-756bb8abea6a" name="DeleteOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="c44685d6-bfcc-4b94-a074-116d3d163da2" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

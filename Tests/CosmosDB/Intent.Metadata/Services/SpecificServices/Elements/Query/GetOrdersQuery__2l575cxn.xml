@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="77226b25-d5e4-435c-aaf2-9c9f9decae23" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOrdersQuery</name>
+  <display>GetOrdersQuery: OrderDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="4085ebec-5ac4-404e-a63d-9f7171788e1f">
+    <typeId>1cb22d76-c99d-4533-821d-5cb508c7955e</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>SpecificServices</typePackageName>
+    <typePackageId>e15d978a-f58d-41bf-bdc7-207652bd244a</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f0a38851-8aa6-42b1-b43a-1f4ccb17b53d</parentFolderId>
+  <packageId>e15d978a-f58d-41bf-bdc7-207652bd244a</packageId>
+  <packageName>SpecificServices</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Orders" />
+  </metadata>
+  <childElements />
+</class>

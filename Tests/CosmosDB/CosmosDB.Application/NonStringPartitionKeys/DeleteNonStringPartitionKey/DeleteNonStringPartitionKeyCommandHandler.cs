@@ -25,13 +25,13 @@ namespace CosmosDB.Application.NonStringPartitionKeys.DeleteNonStringPartitionKe
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(DeleteNonStringPartitionKeyCommand request, CancellationToken cancellationToken)
         {
-            var nonStringPartitionKey = await _nonStringPartitionKeyRepository.FindByIdAsync((request.Id, request.PartInt), cancellationToken);
-            if (nonStringPartitionKey is null)
+            var existingNonStringPartitionKey = await _nonStringPartitionKeyRepository.FindByIdAsync((request.Id, request.PartInt), cancellationToken);
+            if (existingNonStringPartitionKey is null)
             {
                 throw new NotFoundException($"Could not find NonStringPartitionKey '({request.Id}, {request.PartInt})'");
             }
 
-            _nonStringPartitionKeyRepository.Remove(nonStringPartitionKey);
+            _nonStringPartitionKeyRepository.Remove(existingNonStringPartitionKey);
         }
     }
 }

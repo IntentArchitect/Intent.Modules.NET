@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetProductPrice(productId: guid): decimal</display>
+    <display>[call] result: GetProductPrice(...): decimal</display>
     <order>1</order>
     <typeReference id="c9cdc522-d012-445a-8fe2-7a8412ec4cef">
       <typeId>f7b5def8-837c-48a3-8e6c-9999846d6cc8</typeId>

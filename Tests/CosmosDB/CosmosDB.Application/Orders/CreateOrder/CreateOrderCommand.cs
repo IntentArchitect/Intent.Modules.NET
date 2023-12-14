@@ -8,7 +8,7 @@ using MediatR;
 
 namespace CosmosDB.Application.Orders.CreateOrder
 {
-    public class CreateOrderCommand : IRequest<OrderCreatedDto>, ICommand
+    public class CreateOrderCommand : IRequest, ICommand
     {
         public CreateOrderCommand(string warehouseId, string refNo, DateTime orderDate)
         {

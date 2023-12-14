@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -13,7 +14,7 @@ using MediatR;
 namespace CosmosDB.Application.Orders.CreateOrder
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, OrderCreatedDto>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
@@ -26,7 +27,7 @@ namespace CosmosDB.Application.Orders.CreateOrder
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<OrderCreatedDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var order = new Order
             {
@@ -36,7 +37,6 @@ namespace CosmosDB.Application.Orders.CreateOrder
             };
 
             _orderRepository.Add(order);
-            return order.MapToOrderCreatedDto(_mapper);
         }
     }
 }

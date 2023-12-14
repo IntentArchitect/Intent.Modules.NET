@@ -36,6 +36,7 @@ namespace CosmosDB.Application.NonStringPartitionKeys.GetNonStringPartitionKeyBy
             {
                 throw new NotFoundException($"Could not find NonStringPartitionKey '({request.Id}, {request.PartInt})'");
             }
+
             return nonStringPartitionKey.MapToNonStringPartitionKeyDto(_mapper);
         }
     }

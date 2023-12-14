@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="a2f7738f-4f46-484b-bb57-c411fb63a28d" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetPersonById(personId: guid): PersonDto</display>
+    <display>[call] result: GetPersonById(...): PersonDto</display>
     <order>2</order>
     <typeReference id="530c863c-1dc1-4e46-a718-bbd5c0c6d3cc">
       <typeId>75164753-0cac-446b-b867-a56b434306f1</typeId>

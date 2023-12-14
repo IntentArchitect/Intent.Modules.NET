@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="f152ce9f-b55b-47f7-9de1-ac87babe6e4f" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : DeactivateCustomer(customerId: guid): void</display>
+    <display>[call] : DeactivateCustomer(...): void</display>
     <order>1</order>
     <typeReference id="af40f894-51da-402c-b738-8320afbe26e5">
       <typeId>d0ca58b1-01d0-42f5-bf08-6454eda591e9</typeId>

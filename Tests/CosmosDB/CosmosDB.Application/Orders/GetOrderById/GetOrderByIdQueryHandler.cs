@@ -33,6 +33,7 @@ namespace CosmosDB.Application.Orders.GetOrderById
             {
                 throw new NotFoundException($"Could not find Order '({request.Id}, {request.WarehouseId})'");
             }
+
             return order.MapToOrderDto(_mapper);
         }
     }

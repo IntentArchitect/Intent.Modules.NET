@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.Domain.Entities;
@@ -25,13 +26,13 @@ namespace CosmosDB.Application.NonStringPartitionKeys.CreateNonStringPartitionKe
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CreateNonStringPartitionKeyCommand request, CancellationToken cancellationToken)
         {
-            var nonStringPartitionKey = new NonStringPartitionKey
+            var newNonStringPartitionKey = new NonStringPartitionKey
             {
                 PartInt = request.PartInt,
-                Name = request.Name
+                Name = request.Name,
             };
 
-            _nonStringPartitionKeyRepository.Add(nonStringPartitionKey);
+            _nonStringPartitionKeyRepository.Add(newNonStringPartitionKey);
         }
     }
 }

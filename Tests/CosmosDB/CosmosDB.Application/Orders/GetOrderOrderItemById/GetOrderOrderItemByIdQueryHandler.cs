@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CosmosDB.Domain.Common.Exceptions;
+using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
