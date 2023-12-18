@@ -47,7 +47,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         }
 
         var dtoModel = operationModel.ReturnType.GenericTypeParameters.First().Element.AsDTOModel();
-        var domainModel = dtoModel.Mapping.Element.AsClassModel();
+        var domainModel = dtoModel.Mapping?.Element.AsClassModel();
 
         if (domainModel == null)
         {

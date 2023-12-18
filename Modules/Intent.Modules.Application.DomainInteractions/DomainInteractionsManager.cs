@@ -54,133 +54,114 @@ public class DomainInteractionsManager
     {
         var domainInteractionManager = this;
         var statements = new List<CSharpStatement>();
-        foreach (var queryAction in model.QueryEntityActions())
+        try
         {
-            var foundEntity = queryAction.Element.AsClassModel();
-            if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
+            foreach (var queryAction in model.QueryEntityActions())
             {
-                statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
-            }
-        }
-
-        foreach (var createAction in model.CreateEntityActions())
-        {
-            statements.AddRange(domainInteractionManager.CreateEntity(createAction));
-        }
-
-        foreach (var updateAction in model.UpdateEntityActions())
-        {
-            var entity = updateAction.Element.AsClassModel() ?? OperationModelExtensions.AsOperationModel(updateAction.Element).ParentClass;
-
-            statements.AddRange(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
-
-            statements.Add(string.Empty);
-            statements.AddRange(domainInteractionManager.UpdateEntity(updateAction));
-        }
-
-        foreach (var callAction in model.CallServiceOperationActions())
-        {
-            statements.AddRange(domainInteractionManager.CallServiceOperation(callAction));
-        }
-
-        foreach (var deleteAction in model.DeleteEntityActions())
-        {
-            var foundEntity = deleteAction.Element.AsClassModel();
-            statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
-            statements.AddRange(domainInteractionManager.DeleteEntity(deleteAction));
-        }
-
-        foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
-        {
-            var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
-                .Select(x =>
+                var foundEntity = queryAction.Element.AsClassModel();
+                if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
                 {
-                    if (x is CSharpAssignmentStatement)
+                    statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
+                }
+            }
+
+            foreach (var createAction in model.CreateEntityActions())
+            {
+                statements.AddRange(domainInteractionManager.CreateEntity(createAction));
+            }
+
+            foreach (var updateAction in model.UpdateEntityActions())
+            {
+                var entity = updateAction.Element.AsClassModel() ?? OperationModelExtensions.AsOperationModel(updateAction.Element).ParentClass;
+
+                statements.AddRange(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
+
+                statements.Add(string.Empty);
+                statements.AddRange(domainInteractionManager.UpdateEntity(updateAction));
+            }
+
+            foreach (var callAction in model.CallServiceOperationActions())
+            {
+                statements.AddRange(domainInteractionManager.CallServiceOperation(callAction));
+            }
+
+            foreach (var deleteAction in model.DeleteEntityActions())
+            {
+                var foundEntity = deleteAction.Element.AsClassModel();
+                statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
+                statements.AddRange(domainInteractionManager.DeleteEntity(deleteAction));
+            }
+
+            foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
+            {
+                try
+                {
+                    var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+                    .Select(x =>
                     {
-                        x.WithSemicolon();
-                    }
-                    return x;
-                }).ToList();
-            processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
-            statements.AddRange(processingStatements);
-        }
+                        if (x is CSharpAssignmentStatement)
+                        {
+                            x.WithSemicolon();
+                        }
 
-        foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+                        return x;
+                    }).ToList();
+                    processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
+                    statements.AddRange(processingStatements);
+
+                }
+                catch (Exception ex)
+                {
+                    throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
+                }
+            }
+
+            foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
+            {
+                statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
+            }
+
+            return statements;
+        }
+        catch (ElementException ex)
         {
-            statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
+            throw;
         }
-
-        return statements;
+        catch (Exception ex)
+        {
+            throw new ElementException(model.InternalElement, "An error occurred while generating the domain interactions logic. See inner exception for more details", ex);
+        }
     }
 
     public List<CSharpStatement> QueryEntity(ClassModel foundEntity, IAssociationEnd associationEnd)
     {
-        var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
-        if (queryMapping == null)
+        try
         {
-            throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
-        }
-        var entityVariableName = associationEnd.Name;
-
-        _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
-        _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
-        _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
-        _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
-
-        var dataAccess = InjectDataAccessProvider(foundEntity);
-        var statements = new List<CSharpStatement>();
-
-        if (MustAccessEntityThroughAggregate(dataAccess))
-        {
-            if (!TryGetFindAggregateStatements(queryMapping, foundEntity, out var findAggStatements))
+            var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
+            if (queryMapping == null)
             {
-                return new List<CSharpStatement>();
+                throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
             }
 
-            statements.AddRange(findAggStatements);
+            var entityVariableName = associationEnd.Name;
 
-            var queryFields = queryMapping.MappedEnds
-                .Select(x => x.IsOneToOne()
-                    ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
-                    : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
-                .ToList();
-            
-            var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
-            if (associationEnd.TypeReference.IsCollection)
-            {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)).SeparatedFromPrevious());
-            }
-            else
-            {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)).SeparatedFromPrevious());
-            }
-        }
-        else
-        {
-            // USE THE FindByIdAsync/FindByIdsAsync METHODS:
-            if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
-            	&& foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
-            {
-                var idFields = queryMapping.MappedEnds
-                    .OrderBy(x => ((IElement)x.TargetElement).Order)
-                    .Select(x => new PrimaryKeyFilterMapping(
-                        _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
-                        x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
-                        x))
-                    .ToList();
+            _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+            _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
+            _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
+            _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
 
-                if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
+            var dataAccess = InjectDataAccessProvider(foundEntity);
+            var statements = new List<CSharpStatement>();
+
+            if (MustAccessEntityThroughAggregate(dataAccess))
+            {
+                if (!TryGetFindAggregateStatements(queryMapping, foundEntity, out var findAggStatements))
                 {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields)));
+                    return new List<CSharpStatement>();
                 }
-                else
-                {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields)));
-                }
-            }
-            // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
-            else
-            {
+
+                statements.AddRange(findAggStatements);
+
                 var queryFields = queryMapping.MappedEnds
                     .Select(x => x.IsOneToOne()
                         ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
@@ -188,40 +169,89 @@ public class DomainInteractionsManager
                     .ToList();
 
                 var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
-
                 if (associationEnd.TypeReference.IsCollection)
                 {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
-                }
-                else if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
-                {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression, pageNo, pageSize)));
+                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)).SeparatedFromPrevious());
                 }
                 else
                 {
-                    if (!queryFields.Any())
-                    {
-                        throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
-                    }
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
+                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)).SeparatedFromPrevious());
                 }
             }
-        }
+            else
+            {
+                // USE THE FindByIdAsync/FindByIdsAsync METHODS:
+                if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
+                                                  && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
+                {
+                    var idFields = queryMapping.MappedEnds
+                        .OrderBy(x => ((IElement)x.TargetElement).Order)
+                        .Select(x => new PrimaryKeyFilterMapping(
+                            _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
+                            x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
+                            x))
+                        .ToList();
 
-        if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
+                    if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
+                    {
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields)));
+                    }
+                    else
+                    {
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields)));
+                    }
+                }
+                // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
+                else
+                {
+                    var queryFields = queryMapping.MappedEnds
+                        .Select(x => x.IsOneToOne()
+                            ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
+                            : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
+                        .ToList();
+
+                    var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
+
+                    if (associationEnd.TypeReference.IsCollection)
+                    {
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
+                    }
+                    else if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
+                    {
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression, pageNo, pageSize)));
+                    }
+                    else
+                    {
+                        if (!queryFields.Any())
+                        {
+                            throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
+                        }
+
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
+                    }
+                }
+            }
+
+            if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
+            {
+                var queryFields = queryMapping.MappedEnds
+                    .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
+                    .ToList();
+                statements.Add(CreateIfNullThrowNotFoundStatement(
+                    template: _template,
+                    variable: entityVariableName,
+                    message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
+
+            }
+
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
+
+            return statements;
+        }
+        catch (Exception ex)
         {
-            var queryFields = queryMapping.MappedEnds
-                .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
-                .ToList();
-            statements.Add(CreateIfNullThrowNotFoundStatement(
-                template: _template,
-                variable: entityVariableName,
-                message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
-
+            throw new ElementException(associationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
-        TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
-
-        return statements;
     }
 
     public CSharpStatement CreateIfNullThrowNotFoundStatement(
@@ -246,7 +276,7 @@ public class DomainInteractionsManager
                             p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
                 .Distinct()
                 .ToList();
-            if (aggregateAssociations.Count == 1) 
+            if (aggregateAssociations.Count == 1)
             {
                 var aggregateEntity = aggregateAssociations.Single().Class;
 
@@ -259,7 +289,7 @@ public class DomainInteractionsManager
                         $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}",
                         requiresExplicitUpate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null
                         );
-                    
+
                     return true;
                 }
                 else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
@@ -360,137 +390,168 @@ public class DomainInteractionsManager
 
     public IEnumerable<CSharpStatement> CreateEntity(CreateEntityActionTargetEndModel createAction)
     {
-        var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
-        var entityVariableName = createAction.Name;
-        var dataAccess = InjectDataAccessProvider(entity);
-
-        TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, dataAccess, true));
-
-        var mapping = createAction.Mappings.SingleOrDefault();
-        var statements = new List<CSharpStatement>();
-
-        if (MustAccessEntityThroughAggregate(dataAccess))
+        try
         {
-            if (!TryGetFindAggregateStatements(mapping.SourceElement as IElement, entity, out statements))
+            var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
+            var entityVariableName = createAction.Name;
+            var dataAccess = InjectDataAccessProvider(entity);
+
+            TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, dataAccess, true));
+
+            var mapping = createAction.Mappings.SingleOrDefault();
+            var statements = new List<CSharpStatement>();
+
+            if (MustAccessEntityThroughAggregate(dataAccess))
             {
-                return new List<CSharpStatement>();
+                if (!TryGetFindAggregateStatements(mapping.SourceElement as IElement, entity, out statements))
+                {
+                    return new List<CSharpStatement>();
+                }
             }
-        }
 
-        if (mapping != null)
-        {
-            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-        }
-        else
-        {
-            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", $"new {entity.Name}();"));
-        }
+            if (mapping != null)
+            {
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
+            }
+            else
+            {
+                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", $"new {entity.Name}();"));
+            }
 
-        _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
-        _csharpMapping.SetFromReplacement(entity, entityVariableName);
-        _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
-        _csharpMapping.SetToReplacement(entity, entityVariableName);
-        return statements;
+            _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
+            _csharpMapping.SetFromReplacement(entity, entityVariableName);
+            _csharpMapping.SetToReplacement(createAction.InternalAssociationEnd, entityVariableName);
+            _csharpMapping.SetToReplacement(entity, entityVariableName);
+            return statements;
+        }
+        catch (Exception ex)
+        {
+            throw new ElementException(createAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
+        }
     }
 
     public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
     {
-        var entityDetails = TrackedEntities[updateAction.Id];
-        var entity = entityDetails.Model;
-        var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
-
-        var statements = new List<CSharpStatement>();
-
-        if (entityDetails.IsCollection)
+        try
         {
-            _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
-            if (updateMapping != null)
+            var entityDetails = TrackedEntities[updateAction.Id];
+            var entity = entityDetails.Model;
+            var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
+
+            var statements = new List<CSharpStatement>();
+
+            if (entityDetails.IsCollection)
             {
-                statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                    .AddStatements(_csharpMapping.GenerateUpdateStatements(updateMapping)));
+                _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
+                if (updateMapping != null)
+                {
+                    statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
+                        .AddStatements(_csharpMapping.GenerateUpdateStatements(updateMapping)));
+                }
+
+                if (RepositoryRequiresExplicitUpdate(entity))
+                {
+                    statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
+                        .SeparatedFromPrevious());
+                }
+            }
+            else
+            {
+                if (updateMapping != null)
+                {
+                    statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
+                }
+
+                if (RepositoryRequiresExplicitUpdate(entity))
+                {
+                    statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
+                        .SeparatedFromPrevious());
+                }
             }
 
-            if (RepositoryRequiresExplicitUpdate(entity))
-            {
-                statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
-                    .SeparatedFromPrevious());
-            }
-        }
-        else
-        {
-            if (updateMapping != null)
-            {
-                statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
-            }
-
-            if (RepositoryRequiresExplicitUpdate(entity))
+            if (RequiresAggegateExplicitUpdate(entityDetails))
             {
                 statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                     .SeparatedFromPrevious());
             }
-        }
 
-        if (RequiresAggegateExplicitUpdate(entityDetails))
+            return statements;
+        }
+        catch (Exception ex)
         {
-            statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
-                .SeparatedFromPrevious());
+            throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
-
-        return statements;
     }
 
     public IEnumerable<CSharpStatement> DeleteEntity(DeleteEntityActionTargetEndModel deleteAction)
     {
-        var entityDetails = TrackedEntities[deleteAction.Id];
-        var statements = new List<CSharpStatement>();
-        if (entityDetails.IsCollection)
+        try
         {
-            statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                .AddStatement(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName.Singularize()))
+            var entityDetails = TrackedEntities[deleteAction.Id];
+            var statements = new List<CSharpStatement>();
+            if (entityDetails.IsCollection)
+            {
+                statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
+                    .AddStatement(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName.Singularize()))
+                        .SeparatedFromPrevious());
+            }
+            else
+            {
+                statements.Add(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName)
                     .SeparatedFromPrevious());
+            }
+            return statements;
         }
-        else
+        catch (Exception ex)
         {
-            statements.Add(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName)
-                .SeparatedFromPrevious());
+            throw new ElementException(deleteAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
-        return statements;
     }
 
     public IEnumerable<CSharpStatement> CallServiceOperation(CallServiceOperationTargetEndModel callServiceOperation)
     {
-        var operationModel = (IElement)callServiceOperation.Element;
-        var serviceModel = operationModel.ParentElement;
-        if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var serviceInterface) 
-            && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterface))
-            || callServiceOperation.Mappings.Any() is false)
+        try
         {
-            yield break;
-        }
-
-        var serviceField = InjectService(serviceInterface);
-        var isAsync = serviceModel.IsServiceModel() || operationModel.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase);
-        var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
-        if (isAsync && methodInvocation is CSharpInvocationStatement s)
-        {
-            s.AddArgument("cancellationToken");
-        }
-        var invoke = new CSharpAccessMemberStatement($"{(isAsync ? "await " : "")}{serviceField}", methodInvocation);
-        if (operationModel.TypeReference.Element != null)
-        {
-            string variableName = callServiceOperation.Name.ToLocalVariableName();
-            _csharpMapping.SetFromReplacement(callServiceOperation, variableName);
-            _csharpMapping.SetToReplacement(callServiceOperation, variableName);
-            yield return new CSharpAssignmentStatement($"var {variableName}", invoke);
-
-            if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
+            var statements = new List<CSharpStatement>();
+            var operationModel = (IElement)callServiceOperation.Element;
+            var serviceModel = operationModel.ParentElement;
+            if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var serviceInterface)
+                && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterface))
+                || callServiceOperation.Mappings.Any() is false)
             {
-                TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
+                return Array.Empty<CSharpStatement>();
             }
+
+            var serviceField = InjectService(serviceInterface);
+            var isAsync = serviceModel.IsServiceModel() || operationModel.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase);
+            var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
+            if (isAsync && methodInvocation is CSharpInvocationStatement s)
+            {
+                s.AddArgument("cancellationToken");
+            }
+            var invoke = new CSharpAccessMemberStatement($"{(isAsync ? "await " : "")}{serviceField}", methodInvocation);
+            if (operationModel.TypeReference.Element != null)
+            {
+                string variableName = callServiceOperation.Name.ToLocalVariableName();
+                _csharpMapping.SetFromReplacement(callServiceOperation, variableName);
+                _csharpMapping.SetToReplacement(callServiceOperation, variableName);
+                statements.Add(new CSharpAssignmentStatement($"var {variableName}", invoke));
+
+                if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
+                {
+                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
+                }
+            }
+            else
+            {
+                statements.Add(invoke);
+            }
+
+            return statements;
         }
-        else
+        catch (Exception ex)
         {
-            yield return invoke;
+            throw new ElementException(callServiceOperation.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
     }
 
