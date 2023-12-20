@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="29b227b8-98c9-426e-8e77-f91565727b4a">
+  <sourceEnd id="be0013c0-f2c7-485a-b59d-6c071f0b6947" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetUserByIdQuery</display>
+    <order>0</order>
+    <typeReference id="78cd1b88-8052-4a52-aa5c-f43f7514e99c">
+      <typeId>7c8ff483-395f-47e3-b349-40bd242d0cc0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="29b227b8-98c9-426e-8e77-f91565727b4a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>user</name>
+    <display>[query] user: User</display>
+    <order>1</order>
+    <typeReference id="4334f5aa-4b08-42f8-addb-874e3bf24c4c">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7c8ff483-395f-47e3-b349-40bd242d0cc0" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetUserByIdQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7c8ff483-395f-47e3-b349-40bd242d0cc0" name="GetUserByIdQuery" type="element" specialization="Query" />
+                  <target id="336aef87-bed8-45e3-a3a0-72aa8a6c0ef2" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

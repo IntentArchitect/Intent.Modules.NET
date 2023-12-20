@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="da528ffb-bb6f-4d9e-af80-2381f1f4197d">
+  <sourceEnd id="4cb7ddaa-1974-4d46-a53c-b18c14328a74" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Users.UpdateUserAddressCommand</display>
+    <order>0</order>
+    <typeReference id="ed1d17c2-1ab6-4e2c-89c9-2bb2ba38fb97">
+      <typeId>eeb9bc7a-0781-40a0-ad0f-572ac9d6254b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="da528ffb-bb6f-4d9e-af80-2381f1f4197d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>address</name>
+    <display>[update] address: Address</display>
+    <order>6</order>
+    <typeReference id="93034433-a1c2-452d-a7f7-b247d5751141">
+      <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateUserAddressCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Address]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="1f5ffd4b-67be-43ec-861e-3aebff39f83b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="bc7b9d92-3968-4bfc-9857-5ec6437280e5" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateUserAddressCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Address]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UserId}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="21a9832c-e2a8-4f2c-b3fc-50b4f2381862" name="UserId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="UserId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="b130150c-7347-44fa-beab-fda01ee79932" name="UserId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="f8603373-7ff2-43bd-b461-48774dba3cda" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="37a317ea-79ea-4a9e-a433-a7f6273da631" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="93c06185-bad6-403f-a6f5-7dd7656c0ca7" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="82a9ae79-2708-41cd-bfcd-178fa0246bbf" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{City}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="0cadbc67-ed8d-464f-9be1-05712683c17c" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="d944f874-aa34-4cf5-8e14-832ddf5d15a6" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Postal}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="696444d5-61bb-4f8d-a0c7-44225bd391e4" name="Postal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Postal" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="eeb9bc7a-0781-40a0-ad0f-572ac9d6254b" name="UpdateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="7b89a83f-f7df-4c07-b990-f9038339227b" name="Postal" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd13015f-0643-4a62-9bc7-2d70eddf3de5" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>NewQuoteCreatedHandler</name>
+  <display>NewQuoteCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0fe46e70-fb75-41d7-afa5-10cb420de4ee</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

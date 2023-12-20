@@ -7,9 +7,9 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DefaultDomainEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventHandler", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.Application.EventHandlers
+namespace AdvancedMappingCrud.Repositories.Tests.Application.EventHandlers.Customers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class NewQuoteCreatedHandler : INotificationHandler<DomainEventNotification<NewQuoteCreated>>

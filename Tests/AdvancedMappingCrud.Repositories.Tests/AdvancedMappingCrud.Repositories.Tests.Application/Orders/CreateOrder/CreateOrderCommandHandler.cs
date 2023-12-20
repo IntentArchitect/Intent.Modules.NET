@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
@@ -30,7 +31,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
                 RefNo = request.RefNo,
                 OrderDate = request.OrderDate,
                 OrderStatus = request.OrderStatus,
-                CustomerId = request.CustomerId
+                CustomerId = request.CustomerId,
+                OrderItems = request.OrderItems
+                    .Select(oi => new OrderItem
+                    {
+                        Quantity = oi.Quantity,
+                        Amount = oi.Amount,
+                        ProductId = oi.ProductId
+                    })
+                    .ToList()
             };
 
             _orderRepository.Add(order);

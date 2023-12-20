@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d9a57445-8691-4462-986c-866548346f96">
+  <sourceEnd id="d3861640-c4cf-415f-b37c-f21dd3cd3340" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Users.DeleteUserAddressCommand</display>
+    <order>0</order>
+    <typeReference id="dd3559a3-3de4-4b3e-b43f-8bbcd193390d">
+      <typeId>d1ecb8b3-f27d-4e71-88a4-55d7b57815bc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d9a57445-8691-4462-986c-866548346f96" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>address</name>
+    <display>[delete] address: Address</display>
+    <order>2</order>
+    <typeReference id="0dae318e-4bce-4baf-bab7-1166fab45606">
+      <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d1ecb8b3-f27d-4e71-88a4-55d7b57815bc" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteUserAddressCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Address]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="1f5ffd4b-67be-43ec-861e-3aebff39f83b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d1ecb8b3-f27d-4e71-88a4-55d7b57815bc" name="DeleteUserAddressCommand" type="element" specialization="Command" />
+                  <target id="30fa2a4d-0785-4876-8081-cb87da126bf7" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

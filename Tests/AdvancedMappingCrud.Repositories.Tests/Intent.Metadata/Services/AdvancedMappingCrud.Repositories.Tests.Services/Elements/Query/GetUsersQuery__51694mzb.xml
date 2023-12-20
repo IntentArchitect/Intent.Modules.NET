@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be41e848-7789-4dae-8b3c-6b697bf1034c" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetUsersQuery</name>
+  <display>GetUsersQuery: UserDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c391f735-c35b-42a0-9265-b35aa7848e68">
+    <typeId>62f3b9c7-b0a2-4d42-9768-0757b3fdfb2f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>a428c4c6-01f2-4b72-8dc1-54bde6bad58c</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Users" />
+  </metadata>
+  <childElements />
+</class>

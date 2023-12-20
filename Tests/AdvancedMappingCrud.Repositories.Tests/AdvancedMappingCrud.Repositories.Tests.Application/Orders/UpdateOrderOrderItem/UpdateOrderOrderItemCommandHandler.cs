@@ -40,7 +40,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.UpdateOrderO
 
             orderItem.Quantity = request.Quantity;
             orderItem.Amount = request.Amount;
-            orderItem.OrderId = request.OrderId;
             orderItem.ProductId = request.ProductId;
         }
     }

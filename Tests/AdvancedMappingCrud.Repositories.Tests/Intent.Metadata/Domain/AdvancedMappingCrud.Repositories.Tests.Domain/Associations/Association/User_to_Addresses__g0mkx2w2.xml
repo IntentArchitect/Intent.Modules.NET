@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="34e0dcca-e55f-4057-a8b1-81dc98d2868d">
+  <sourceEnd id="1dbf732f-b8ce-41f4-9783-a6d9c351e33f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="e74e084f-54ec-4ef8-8740-84143f7f22b9">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="34e0dcca-e55f-4057-a8b1-81dc98d2868d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Addresses</name>
+    <display>Addresses: Address[*]   [1 --&gt; *]</display>
+    <order>5</order>
+    <typeReference id="ae3cf4f6-8d2a-468b-9fd1-de19de5d9994">
+      <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

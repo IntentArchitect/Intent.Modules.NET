@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1bcf7fd0-3529-4b21-940c-9689f50d3d5d">
+  <sourceEnd id="578fa45e-6664-4a67-a49a-aa85cf9cfaf0" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetUserAddressByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a7040226-ba51-4319-b669-970efd654eee">
+      <typeId>cfb77750-9572-41cd-8a09-6e74a7dae58b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1bcf7fd0-3529-4b21-940c-9689f50d3d5d" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>address</name>
+    <display>[query] address: Address</display>
+    <order>2</order>
+    <typeReference id="6b8dbef4-b706-4495-b8db-6f125f76c87a">
+      <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cfb77750-9572-41cd-8a09-6e74a7dae58b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetUserAddressByIdQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Address]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="1f5ffd4b-67be-43ec-861e-3aebff39f83b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="cfb77750-9572-41cd-8a09-6e74a7dae58b" name="GetUserAddressByIdQuery" type="element" specialization="Query" />
+                  <target id="314f4f21-cea0-4e8f-87f8-ae4ff6bc1c1e" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UserId}</expression>
+            <path>
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="21a9832c-e2a8-4f2c-b3fc-50b4f2381862" name="UserId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="UserId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="cfb77750-9572-41cd-8a09-6e74a7dae58b" name="GetUserAddressByIdQuery" type="element" specialization="Query" />
+                  <target id="22f19497-48ff-422f-976e-50fddccb080f" name="UserId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

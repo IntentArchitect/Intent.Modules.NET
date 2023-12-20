@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
@@ -28,5 +29,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
         public Guid QuoteId { get; set; }
 
         public virtual Quote Quote { get; set; }
+
+        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
     }
 }

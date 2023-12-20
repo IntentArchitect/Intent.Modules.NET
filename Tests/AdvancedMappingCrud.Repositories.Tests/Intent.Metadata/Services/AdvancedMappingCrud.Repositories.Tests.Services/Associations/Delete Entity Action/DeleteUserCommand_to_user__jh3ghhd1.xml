@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="694a8fee-752b-4ebd-8073-0ef26d53427c">
+  <sourceEnd id="c4e01ab2-147e-4966-8fc1-234b2224f178" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Users.DeleteUserCommand</display>
+    <order>0</order>
+    <typeReference id="e3bb69c2-1870-4205-94db-1db17caed827">
+      <typeId>fb6eaa43-d5a4-40b9-800a-7f18c380dd50</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="694a8fee-752b-4ebd-8073-0ef26d53427c" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>user</name>
+    <display>[delete] user: User</display>
+    <order>1</order>
+    <typeReference id="a50310ab-5a47-4435-8d18-b0f9593975ca">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fb6eaa43-d5a4-40b9-800a-7f18c380dd50" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteUserCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="fb6eaa43-d5a4-40b9-800a-7f18c380dd50" name="DeleteUserCommand" type="element" specialization="Command" />
+                  <target id="9e17e985-04dc-4624-a445-83f1af4ced1b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

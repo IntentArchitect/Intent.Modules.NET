@@ -24,6 +24,31 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .WithMany()
                 .HasForeignKey(x => x.QuoteId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.OwnsMany(x => x.Addresses, ConfigureAddresses);
+        }
+
+        public void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.UserId);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.UserId)
+                .IsRequired();
+
+            builder.Property(x => x.Line1)
+                .IsRequired();
+
+            builder.Property(x => x.Line2)
+                .IsRequired();
+
+            builder.Property(x => x.City)
+                .IsRequired();
+
+            builder.Property(x => x.Postal)
+                .IsRequired();
         }
     }
 }

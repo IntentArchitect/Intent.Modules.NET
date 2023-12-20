@@ -27,12 +27,10 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ad
             CreateAdvAggregateWithUniqueConstraintIndexElementCommand request,
             CancellationToken cancellationToken)
         {
-            var aggregateWithUniqueConstraintIndexElement = new AggregateWithUniqueConstraintIndexElement
-            {
-                SingleUniqueField = request.SingleUniqueField,
-                CompUniqueFieldA = request.CompUniqueFieldA,
-                CompUniqueFieldB = request.CompUniqueFieldB
-            };
+            var aggregateWithUniqueConstraintIndexElement = new AggregateWithUniqueConstraintIndexElement(
+                singleUniqueField: request.SingleUniqueField,
+                compUniqueFieldA: request.CompUniqueFieldA,
+                compUniqueFieldB: request.CompUniqueFieldB);
 
             _aggregateWithUniqueConstraintIndexElementRepository.Add(aggregateWithUniqueConstraintIndexElement);
             await _aggregateWithUniqueConstraintIndexElementRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

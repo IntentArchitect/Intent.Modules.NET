@@ -22,6 +22,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
             RuleFor(v => v.OrderStatus)
                 .NotNull()
                 .IsInEnum();
+
+            RuleFor(v => v.OrderItems)
+                .NotNull();
         }
     }
 }

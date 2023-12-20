@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ea49dc8c-9a5e-425d-8c10-d16f8bded511">
+  <sourceEnd id="fbe1c9ef-8f15-4e96-a0c8-62b35f70fd5a" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Users.UpdateUserCommand</display>
+    <order>0</order>
+    <typeReference id="b33d0598-8841-4963-8a02-a9d06dde5937">
+      <typeId>81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ea49dc8c-9a5e-425d-8c10-d16f8bded511" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>user</name>
+    <display>[update] user: User</display>
+    <order>5</order>
+    <typeReference id="9cfcab4e-4416-450b-8bdf-a06dc13d61d3">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateUserCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="8ffcaa8d-e6c0-4fd8-8198-e6378805f18d" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateUserCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="16e16f74-79b4-48ae-8903-4da355712f2d" name="Email" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="2f95d291-4dba-481a-92e6-e929e3ac3a82" name="Email" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{QuoteId}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="0b145467-15e1-48fc-91b3-e551829558af" name="QuoteId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="QuoteId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="da49e54c-8b92-44e3-9fcb-a7f3f5d8f75f" name="QuoteId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="ab6fcfec-b889-49fb-a96d-d9a56b230110" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="c5501fb7-68b4-4e1d-abfe-4202c9ae6f1d" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="36a7333a-6ce3-4687-8c93-f34cf6ea482b" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="4065a0bf-abd2-419c-865d-b99c00d1a162" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -11,7 +11,6 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ad
 {
     public class CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommand>
     {
-        private readonly IAggregateWithUniqueConstraintIndexElementRepository _aggregateWithUniqueConstraintIndexElementRepository;
         [IntentManaged(Mode.Merge)]
         public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository)
         {
@@ -22,34 +21,13 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ad
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SingleUniqueField)
-                .NotNull()
-                .MaximumLength(256)
-                .MustAsync(CheckUniqueConstraint_SingleUniqueField)
-                .WithMessage("SingleUniqueField already exists.");
+                .NotNull();
 
             RuleFor(v => v.CompUniqueFieldA)
-                .NotNull()
-                .MaximumLength(256);
+                .NotNull();
 
             RuleFor(v => v.CompUniqueFieldB)
-                .NotNull()
-                .MaximumLength(256);
-
-            RuleFor(v => v)
-                .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)
-                .WithMessage("The combination of CompUniqueFieldA and CompUniqueFieldB already exists.");
-        }
-
-        private async Task<bool> CheckUniqueConstraint_SingleUniqueField(string value, CancellationToken cancellationToken)
-        {
-            return !await _aggregateWithUniqueConstraintIndexElementRepository.AnyAsync(p => p.SingleUniqueField == value, cancellationToken);
-        }
-
-        private async Task<bool> CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB(
-            CreateAdvAggregateWithUniqueConstraintIndexElementCommand model,
-            CancellationToken cancellationToken)
-        {
-            return !await _aggregateWithUniqueConstraintIndexElementRepository.AnyAsync(p => p.CompUniqueFieldA == model.CompUniqueFieldA && p.CompUniqueFieldB == model.CompUniqueFieldB, cancellationToken);
+                .NotNull();
         }
     }
 }
