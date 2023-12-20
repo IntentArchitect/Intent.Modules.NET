@@ -11,11 +11,10 @@ namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.Ad
 {
     public class CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommand>
     {
-        [IntentManaged(Mode.Merge)]
-        public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository)
+        [IntentManaged(Mode.Fully)]
+        public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator()
         {
             ConfigureValidationRules();
-            _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
         }
 
         private void ConfigureValidationRules()
