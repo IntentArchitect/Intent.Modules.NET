@@ -39,6 +39,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {
+                    @class.RepresentsModel(model);
                     @class.TryAddXmlDocComments(Model.InternalElement);
                     AddAuthorization(@class);
                     @class.ImplementsInterface(Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest");

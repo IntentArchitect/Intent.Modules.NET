@@ -43,6 +43,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             csharpFile.OnBuild((Action<CSharpFile>)(file =>
                 {
                     var @class = file.TypeDeclarations.First();
+                    @class.RepresentsModel(Model);
 
                     ConfigureClass(@class);
 
@@ -121,6 +122,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     {
                         @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
                         {
+                            property.RepresentsModel(field);
                             property.TryAddXmlDocComments(field.InternalElement);
                             SetAccessLevel(property.Setter);
                             property.WithComments(field.GetXmlDocLines());

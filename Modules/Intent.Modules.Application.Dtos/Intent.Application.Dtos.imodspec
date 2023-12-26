@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos</id>
-  <version>4.1.1</version>
-  <supportedClientVersions>[3.3.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.2.0-pre.0</version>
+  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
   <description>Generates code for your Application Service that applies the Interface segregation principal</description>
   <authors>Intent Architect</authors>

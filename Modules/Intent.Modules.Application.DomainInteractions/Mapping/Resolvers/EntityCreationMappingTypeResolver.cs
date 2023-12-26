@@ -3,6 +3,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
@@ -33,7 +34,7 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
         }
-
+         
         return null;
     }
 }

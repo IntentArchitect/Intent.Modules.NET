@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
@@ -16,6 +17,11 @@ public class StandardDomainMappingTypeResolver : IMappingTypeResolver
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
         var model = mappingModel.Model;
+
+        if (model.IsGeneralizationTargetEndModel())
+        {
+            return new InheritedChildrenMapping(mappingModel, _template);
+        }
 
         if (mappingModel.Mapping?.SourceElement?.TypeReference?.IsCollection == true && mappingModel.Model.SpecializationType == "Operation")
         {
