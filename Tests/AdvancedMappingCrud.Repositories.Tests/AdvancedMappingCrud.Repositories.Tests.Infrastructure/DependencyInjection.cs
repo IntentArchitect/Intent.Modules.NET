@@ -1,6 +1,7 @@
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Services;
@@ -24,13 +25,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<ICorporateFuneralCoverQuoteRepository, CorporateFuneralCoverQuoteRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IFuneralCoverQuoteRepository, FuneralCoverQuoteRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IQuoteRepository, QuoteRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddMassTransitConfiguration(configuration);
+            services.AddHttpClients(configuration);
             return services;
         }
     }

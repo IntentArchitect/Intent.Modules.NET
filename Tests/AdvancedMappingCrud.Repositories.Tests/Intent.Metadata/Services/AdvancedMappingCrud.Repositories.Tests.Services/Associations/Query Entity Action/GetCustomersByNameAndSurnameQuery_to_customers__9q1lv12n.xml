@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dcd2838c-9caa-47f0-915d-2149f128592e">
+  <sourceEnd id="60f9c32d-76e3-47a8-a6cf-5fcfd76b40f2" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersByNameAndSurnameQuery</display>
+    <order>0</order>
+    <typeReference id="eef7ee2b-c4af-4534-bb09-633653392b1d">
+      <typeId>b0ec8cee-7d2b-4018-9280-09d89bdd5718</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dcd2838c-9caa-47f0-915d-2149f128592e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>2</order>
+    <typeReference id="2057b1d3-3f5c-4b6d-8b48-5688234b854f">
+      <typeId>8ed97c04-fbb0-4712-a969-b9ade95e0fe5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b0ec8cee-7d2b-4018-9280-09d89bdd5718" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetCustomersByNameAndSurnameQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+              <target id="53f266a2-9972-4a35-8afa-b1d7efe58bed" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b0ec8cee-7d2b-4018-9280-09d89bdd5718" name="GetCustomersByNameAndSurnameQuery" type="element" specialization="Query" />
+                  <target id="4bb59a26-ae0d-4258-bcbd-6eacd7ae74c4" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+              <target id="4319966f-9b3d-4faf-a27e-96a1062d252b" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b0ec8cee-7d2b-4018-9280-09d89bdd5718" name="GetCustomersByNameAndSurnameQuery" type="element" specialization="Query" />
+                  <target id="895544eb-530f-416f-abc8-f80c314063b5" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

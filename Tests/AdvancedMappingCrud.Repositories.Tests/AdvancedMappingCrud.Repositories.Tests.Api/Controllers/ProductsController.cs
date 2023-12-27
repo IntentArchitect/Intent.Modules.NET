@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Products;
@@ -25,12 +26,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         private readonly IProductsService _appService;
         private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IEventBus _eventBus;
 
-        public ProductsController(IProductsService appService, IValidationService validationService, IUnitOfWork unitOfWork)
+        public ProductsController(IProductsService appService,
+            IValidationService validationService,
+            IUnitOfWork unitOfWork,
+            IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
 
         /// <summary>
@@ -54,6 +60,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);
         }
     }

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>FuneralCoverQuote</name>
+  <display>FuneralCoverQuote : Quote</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5ed367e-aea5-4a03-890f-dd671a48d907</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ab3f018e-e38b-4dc7-8265-c9f3267cdf01" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Amount</name>
+      <display>Amount: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5998e913-578f-4c0f-ad53-e7844e52ef55">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>029a89c6-9b95-4c63-af26-7bcdfe92e78e</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>FuneralCoverQuote(refNo: string, personId: guid, personEmail: string?)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>029a89c6-9b95-4c63-af26-7bcdfe92e78e</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="594906e7-27f7-43f0-a5aa-0ac3e65be84c" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[Constructor]" />
+          <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="029a89c6-9b95-4c63-af26-7bcdfe92e78e" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[FuneralCoverQuote]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{refNo}</expression>
+              <path>
+                <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
+                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+                <target id="19bffd5c-f3ed-4aa6-a682-a51efa75de64" name="RefNo" type="element" specialization="Attribute" />
+              </path>
+              <sources>
+                <source identifier="refNo" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="38244143-ea75-4362-84bd-21e2b183fde7" name="refNo" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+            <mappedEnd>
+              <expression>{personId}</expression>
+              <path>
+                <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
+                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+                <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+              </path>
+              <sources>
+                <source identifier="personId" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="d8c10486-b3bc-4315-9cab-142bca6b41ec" name="personId" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+            <mappedEnd>
+              <expression>{personEmail}</expression>
+              <path>
+                <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
+                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+                <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" />
+              </path>
+              <sources>
+                <source identifier="personEmail" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="2d68d1cd-4c18-4b8c-b409-4cf662ea3df6" name="personEmail" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="38244143-ea75-4362-84bd-21e2b183fde7" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>refNo</name>
+          <display>in : refNo: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5573685d-3483-49f5-b2f6-93ae0c771fd4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>594906e7-27f7-43f0-a5aa-0ac3e65be84c</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d8c10486-b3bc-4315-9cab-142bca6b41ec" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>personId</name>
+          <display>in : personId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="def32d3b-c3f8-46e9-9b6c-29cd188b0160">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>594906e7-27f7-43f0-a5aa-0ac3e65be84c</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2d68d1cd-4c18-4b8c-b409-4cf662ea3df6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>personEmail</name>
+          <display>in : personEmail: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1b21848e-6f0e-459e-ac31-4a8f2cf7541b">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>594906e7-27f7-43f0-a5aa-0ac3e65be84c</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -25,12 +25,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateQuo
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CreateQuoteCommand request, CancellationToken cancellationToken)
         {
-            var quote = new Quote
-            {
-                RefNo = request.RefNo,
-                PersonId = request.PersonId,
-                PersonEmail = request.PersonEmail
-            };
+            var quote = new Quote(
+                refNo: request.RefNo,
+                personId: request.PersonId,
+                personEmail: request.PersonEmail);
 
             quote.NotifyQuoteCreated();
 

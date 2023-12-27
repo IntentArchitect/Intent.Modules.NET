@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e9f3a810-fc70-4ea8-bd79-782730bcefc1">
+  <sourceEnd id="037a42bb-0040-4dfd-9d5f-84242a8594f4" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCorporateFuneralCoverQuoteCommand</display>
+    <order>0</order>
+    <typeReference id="d7bd4e6a-eac0-4fd9-93ed-968ee3977b15">
+      <typeId>a04f60d4-d5a2-459b-bb0a-2c081ef93748</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e9f3a810-fc70-4ea8-bd79-782730bcefc1" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>corporateFuneralCoverQuote</name>
+    <display>[update] corporateFuneralCoverQuote: CorporateFuneralCoverQuote</display>
+    <order>8</order>
+    <typeReference id="247bc472-90d5-406e-b10f-d0453420ddd5">
+      <typeId>4da701dd-1644-418e-ac1a-19668809b605</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a04f60d4-d5a2-459b-bb0a-2c081ef93748" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCorporateFuneralCoverQuoteCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4da701dd-1644-418e-ac1a-19668809b605" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CorporateFuneralCoverQuote]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+              <target id="906ee3fe-d676-45c2-abbe-1fd4a31100b8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="407a5b30-32ea-4b05-97a4-7e9c11abdc1a" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a04f60d4-d5a2-459b-bb0a-2c081ef93748" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCorporateFuneralCoverQuoteCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4da701dd-1644-418e-ac1a-19668809b605" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CorporateFuneralCoverQuote]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Corporate}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="b70dde4f-6e17-4d21-a69d-ba8800380d4d" name="Corporate" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Corporate" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="db2c696b-798e-4f0f-b81a-bcd7de138ab8" name="Corporate" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Registration}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="a845fa44-0735-432e-922a-5329fedb33a0" name="Registration" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Registration" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="dcd2b7d3-afe6-4bc0-be12-8a7198409b0a" name="Registration" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
+              <target id="ab3f018e-e38b-4dc7-8265-c9f3267cdf01" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="4629cc86-cae2-4ea6-80c9-82d92971f0b4" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{refNo}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+              <target id="19bffd5c-f3ed-4aa6-a682-a51efa75de64" name="RefNo" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="refNo" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="50011f84-76cd-45db-9362-4d8f60ba5988" name="refNo" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{personId}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+              <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="personId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="a173c1ec-b8e6-4247-9e1e-4ea0eae6df74" name="personId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{personEmail}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
+              <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="personEmail" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a04f60d4-d5a2-459b-bb0a-2c081ef93748" name="UpdateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="43dec3f1-5499-438e-ae35-cf5db5e9f6f3" name="personEmail" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

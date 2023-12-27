@@ -67,6 +67,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a62220ea-608d-4ed1-9fd0-88eeaf08a71a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#391bdd9e-55c1-4ccb-881c-981b364d8124</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a62220ea-608d-4ed1-9fd0-88eeaf08a71a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#488aa1b9-6c0e-4b95-8618-784468d93831</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrdersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a359a43b-34ea-4ec8-ab75-bd275ba9af1e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>6d2fb404-c0da-4d9c-b902-f3f7c0e537fb</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

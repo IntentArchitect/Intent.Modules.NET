@@ -122,5 +122,67 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="1a8de443-e593-4528-b031-decf155ee7c4" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>QuoteLine(productId: guid)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1ef04c46-7955-472d-9c4f-af43c9e2921d</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1a8de443-e593-4528-b031-decf155ee7c4" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[Constructor]" />
+          <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1ef04c46-7955-472d-9c4f-af43c9e2921d" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[QuoteLine]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{ProductId}</expression>
+              <path>
+                <target id="1ef04c46-7955-472d-9c4f-af43c9e2921d" name="QuoteLine" type="element" specialization="Class" />
+                <target id="ed6ed74b-117f-4aea-a827-1c5479e030e5" name="ProductId" type="element" specialization="Attribute" />
+              </path>
+              <sources>
+                <source identifier="ProductId" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" />
+                    <target id="81ca97d8-3d63-4f65-9fc0-46d406898eaa" name="ProductId" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="81ca97d8-3d63-4f65-9fc0-46d406898eaa" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>productId</name>
+          <display>in : productId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ac526e54-b1b3-477c-99df-a5f014c9fc3c">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1a8de443-e593-4528-b031-decf155ee7c4</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

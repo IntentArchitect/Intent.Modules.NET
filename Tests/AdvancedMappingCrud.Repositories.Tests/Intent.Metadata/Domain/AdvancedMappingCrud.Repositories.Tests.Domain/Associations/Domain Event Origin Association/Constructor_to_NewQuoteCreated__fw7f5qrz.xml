@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5016d0c8-8099-4123-a79a-aea1c09540c8">
+  <sourceEnd id="5287dcd3-3495-4d89-b303-2a1c11d45d81" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : CorporateFuneralCoverQuote.Constructor</display>
+    <order>4</order>
+    <typeReference id="eac57b54-08dc-4a45-802e-cb50bce80778">
+      <typeId>172cc8df-b269-4c96-8f94-ac176105d459</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5016d0c8-8099-4123-a79a-aea1c09540c8" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : NewQuoteCreated</display>
+    <order>3</order>
+    <typeReference id="6eb8fba7-77c9-4610-a562-924811444c81">
+      <typeId>51da9af6-ef50-4720-9eda-59ecb3cc858c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4da701dd-1644-418e-ac1a-19668809b605" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[CorporateFuneralCoverQuote]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="51da9af6-ef50-4720-9eda-59ecb3cc858c" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[NewQuoteCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CorporateFuneralCoverQuote}</expression>
+            <path>
+              <target id="51da9af6-ef50-4720-9eda-59ecb3cc858c" name="NewQuoteCreated" type="element" specialization="Domain Event" />
+              <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="CorporateFuneralCoverQuote" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

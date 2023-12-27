@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fa05782e-5b7c-42e9-89ee-491a4afc7ccc">
+  <sourceEnd id="e27927c1-c014-4b5d-92ff-64f1cb44581d" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Customers.QuoteCreatedIntegrationEventHandler</display>
+    <order>0</order>
+    <typeReference id="a98822b2-6fa7-455c-87fb-268d7eff1a20">
+      <typeId>3c699a99-95bd-4bc7-aaa4-4203295be61d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fa05782e-5b7c-42e9-89ee-491a4afc7ccc" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: QuoteCreatedIntegrationEvent</display>
+    <order>0</order>
+    <typeReference id="fc9c5b45-6d7f-42c9-b92d-750253a66503">
+      <typeId>bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

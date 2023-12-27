@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +30,21 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUsers
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            var users = await _userRepository.FindAllAsync(cancellationToken);
+            IQueryable<User> FilterUsers(IQueryable<User> queryable)
+            {
+                if (request.Name != null)
+                {
+                    queryable = queryable.Where(x => x.Name == request.Name);
+                }
+
+                if (request.Surname != null)
+                {
+                    queryable = queryable.Where(x => x.Surname == request.Surname);
+                }
+                return queryable;
+            }
+
+            var users = await _userRepository.FindAllAsync(FilterUsers, cancellationToken);
             return users.MapToUserDtoList(_mapper);
         }
     }

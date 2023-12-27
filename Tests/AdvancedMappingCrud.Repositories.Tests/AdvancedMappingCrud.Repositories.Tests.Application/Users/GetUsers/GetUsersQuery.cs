@@ -10,8 +10,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUsers
 {
     public class GetUsersQuery : IRequest<List<UserDto>>, IQuery
     {
-        public GetUsersQuery()
+        public GetUsersQuery(string? name, string? surname)
         {
+            Name = name;
+            Surname = surname;
         }
+
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
     }
 }

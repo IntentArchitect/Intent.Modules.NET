@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0e9c813a-5996-4ffc-88d1-35355f5400f6">
+  <sourceEnd id="94c506be-f009-4b12-9f2f-87913d6de1b3" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : NewQuoteCreatedHandler.handler</display>
+    <order>0</order>
+    <typeReference id="6fba47af-db5c-4a5d-b257-6acf51cafac0">
+      <typeId>52a77343-8971-412c-9fc2-85d4391e7415</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0e9c813a-5996-4ffc-88d1-35355f5400f6" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] QuoteCreatedIntegrationEvent</display>
+    <order>3</order>
+    <typeReference id="f03abd8c-62fc-40a2-ba8a-215f02dbd1c2">
+      <typeId>bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="52a77343-8971-412c-9fc2-85d4391e7415" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[handler]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[QuoteCreatedIntegrationEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Quote.Id}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="09267e03-4d43-4b0d-8c04-e954a38ce548" name="Id" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="906ee3fe-d676-45c2-abbe-1fd4a31100b8" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.RefNo}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="b3e59655-6f0d-43f3-b063-b9715ee0e81f" name="RefNo" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote.RefNo" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="19bffd5c-f3ed-4aa6-a682-a51efa75de64" name="RefNo" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.PersonId}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="4fea627f-d0f6-4d03-acfd-db0459598723" name="PersonId" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote.PersonId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.PersonEmail}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="89133374-00a7-47bb-bb70-6641d85fb0c5" name="PersonEmail" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote.PersonEmail" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.QuoteLines}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="58a4d613-b8a6-4d7a-804d-be07fa2c9639" name="QuoteLines" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote.QuoteLines" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.QuoteLines.Id}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="58a4d613-b8a6-4d7a-804d-be07fa2c9639" name="QuoteLines" type="element" specialization="Property" />
+              <target id="7f9ff155-79e2-4770-9ddb-fd292ba89a8f" name="Id" type="element" specialization="Eventing DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Quote.QuoteLines.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
+                  <target id="27c0b1af-27fe-4367-8fd3-6b6abc15be43" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Quote.QuoteLines.ProductId}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" />
+              <target id="58a4d613-b8a6-4d7a-804d-be07fa2c9639" name="QuoteLines" type="element" specialization="Property" />
+              <target id="7dc31fdd-f2b3-4dca-aa7b-cefeb0f990d2" name="ProductId" type="element" specialization="Eventing DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Quote.QuoteLines.ProductId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                  <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
+                  <target id="ed6ed74b-117f-4aea-a827-1c5479e030e5" name="ProductId" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

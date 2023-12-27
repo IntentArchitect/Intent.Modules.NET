@@ -10,8 +10,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
 {
     public class GetCustomersQuery : IRequest<List<CustomerDto>>, IQuery
     {
-        public GetCustomersQuery()
+        public GetCustomersQuery(bool isActive, string? name, string? surname)
         {
+            IsActive = isActive;
+            Name = name;
+            Surname = surname;
         }
+
+        public bool IsActive { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
     }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8d7a2f35-865e-40cc-acc7-1632f5466a12">
+  <sourceEnd id="22dd2a0b-b98a-4c67-bee0-bd76d923a92c" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Quote.Constructor</display>
+    <order>2</order>
+    <typeReference id="a8126893-e1e3-4c92-8e13-2c1a223a478a">
+      <typeId>156cdc02-ec8b-4a8d-8fff-a0018ce22359</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8d7a2f35-865e-40cc-acc7-1632f5466a12" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : NewQuoteCreated</display>
+    <order>3</order>
+    <typeReference id="3b6dfdee-9e3d-431f-ab8e-22e15200e1ff">
+      <typeId>51da9af6-ef50-4720-9eda-59ecb3cc858c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="52aa9e0f-ec4a-4593-8f17-01ab01d64d45" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[Quote]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="51da9af6-ef50-4720-9eda-59ecb3cc858c" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[NewQuoteCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Quote}</expression>
+            <path>
+              <target id="51da9af6-ef50-4720-9eda-59ecb3cc858c" name="NewQuoteCreated" type="element" specialization="Domain Event" />
+              <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Quote" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="52aa9e0f-ec4a-4593-8f17-01ab01d64d45" name="Quote" type="element" specialization="Class" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

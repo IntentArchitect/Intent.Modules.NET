@@ -7,6 +7,18 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class QuoteLine
     {
+        public QuoteLine(Guid productId)
+        {
+            ProductId = productId;
+        }
+
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        protected QuoteLine()
+        {
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid QuoteId { get; set; }

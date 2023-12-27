@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="5693e498-0329-4b9f-9de3-2aa4afa3653d">
       <typeId>fd1d8986-fb5c-47ce-b608-4d42e581624c</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -21,7 +21,7 @@
   <targetEnd id="1bbdcdad-188f-4cfd-8a21-f84264016769" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>customers</name>
     <display>[query] customers: Customer[*]</display>
-    <order>0</order>
+    <order>3</order>
     <typeReference id="aea10a9d-619d-4c1b-ade5-3e27e5f3bc4c">
       <typeId>8ed97c04-fbb0-4712-a969-b9ade95e0fe5</typeId>
       <isNavigable>true</isNavigable>
@@ -36,9 +36,55 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fd1d8986-fb5c-47ce-b608-4d42e581624c" location="GetCustomersQuery" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" location="Customer" />
-        <mappedEnds />
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fd1d8986-fb5c-47ce-b608-4d42e581624c" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetCustomersQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+              <target id="53f266a2-9972-4a35-8afa-b1d7efe58bed" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="fd1d8986-fb5c-47ce-b608-4d42e581624c" name="GetCustomersQuery" type="element" specialization="Query" />
+                  <target id="ee10558a-29a0-4497-9916-7bc0762a58ca" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+              <target id="4319966f-9b3d-4faf-a27e-96a1062d252b" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="fd1d8986-fb5c-47ce-b608-4d42e581624c" name="GetCustomersQuery" type="element" specialization="Query" />
+                  <target id="7b456a93-9e14-4fa4-a4f9-676a44181ddd" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+              <target id="fb1ce02c-19f5-41c0-a670-5069ca4335c6" name="IsActive" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="fd1d8986-fb5c-47ce-b608-4d42e581624c" name="GetCustomersQuery" type="element" specialization="Query" />
+                  <target id="f3f37bd4-bb37-4c47-bb0d-9a50cc2f66dd" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
       </mapping>
     </mappings>
     <metadata />

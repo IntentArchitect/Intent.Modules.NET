@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd22ee3d-1919-4f9e-9ad3-f47016fa3263" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>AdvancedMappingCrud.Repositories.Tests</name>
+  <display>AdvancedMappingCrud.Repositories.Tests</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>768dd543-f6b2-4bbd-b516-a792abfaf211</parentFolderId>
+  <diagram>
+    <targetPackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

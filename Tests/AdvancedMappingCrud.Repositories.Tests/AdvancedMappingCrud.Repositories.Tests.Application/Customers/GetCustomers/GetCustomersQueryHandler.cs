@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,23 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _customerRepository.FindAllAsync(cancellationToken);
+            IQueryable<Customer> FilterCustomers(IQueryable<Customer> queryable)
+            {
+                queryable = queryable.Where(x => x.IsActive == request.IsActive);
+
+                if (request.Name != null)
+                {
+                    queryable = queryable.Where(x => x.Name == request.Name);
+                }
+
+                if (request.Surname != null)
+                {
+                    queryable = queryable.Where(x => x.Surname == request.Surname);
+                }
+                return queryable;
+            }
+
+            var customers = await _customerRepository.FindAllAsync(FilterCustomers, cancellationToken);
             return customers.MapToCustomerDtoList(_mapper);
         }
     }

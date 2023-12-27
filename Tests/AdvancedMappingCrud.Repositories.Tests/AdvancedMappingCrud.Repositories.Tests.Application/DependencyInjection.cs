@@ -1,11 +1,14 @@
 using System.Reflection;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Behaviours;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Implementation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Customers;
+using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.EventHandlers.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services;
+using AdvancedMappingCrud.Repositories.Tests.Eventing.Messages;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -29,6 +32,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
@@ -39,6 +43,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<IPricingService, PricingService>();
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IPersonService, PersonService>();
+            services.AddTransient<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEventHandler>();
             return services;
         }
     }

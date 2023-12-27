@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="2d2057dc-e16f-4892-9c20-9df3fce4d41c">
       <typeId>be41e848-7789-4dae-8b3c-6b697bf1034c</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -21,7 +21,7 @@
   <targetEnd id="6ace06ec-da52-4653-a9b1-759faf267808" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>users</name>
     <display>[query] users: User[*]</display>
-    <order>0</order>
+    <order>2</order>
     <typeReference id="5a2ce147-e4be-493f-9820-db3c522f3104">
       <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
       <isNavigable>true</isNavigable>
@@ -38,7 +38,40 @@
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="be41e848-7789-4dae-8b3c-6b697bf1034c" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetUsersQuery]" />
         <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[User]" />
-        <mappedEnds />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="ab6fcfec-b889-49fb-a96d-d9a56b230110" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="be41e848-7789-4dae-8b3c-6b697bf1034c" name="GetUsersQuery" type="element" specialization="Query" />
+                  <target id="cb7c9bae-2cc7-4d01-9c7b-6d0ce7938dfc" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+              <target id="36a7333a-6ce3-4687-8c93-f34cf6ea482b" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="be41e848-7789-4dae-8b3c-6b697bf1034c" name="GetUsersQuery" type="element" specialization="Query" />
+                  <target id="e0ca253d-14dc-4c3e-932f-4d6d1f9734bc" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
       </mapping>
     </mappings>
     <metadata />

@@ -265,5 +265,75 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="ad995abd-a676-483a-86ad-a878601267cd" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>AddAddress</name>
+      <display>AddAddress(addresses: Address[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bee47ada-283a-4046-a720-a873a83f0a8e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a7b77563-def1-45b2-889c-91fa833ba330</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
+          <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ad995abd-a676-483a-86ad-a878601267cd" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[AddAddress]" />
+          <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a7b77563-def1-45b2-889c-91fa833ba330" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[User]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>{Addresses}</expression>
+              <path>
+                <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+                <target id="34e0dcca-e55f-4057-a8b1-81dc98d2868d" name="Addresses" type="association" specialization="Association Target End" />
+              </path>
+              <sources>
+                <source identifier="Addresses" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
+                  <path>
+                    <target id="ad995abd-a676-483a-86ad-a878601267cd" name="AddAddress" type="element" specialization="Operation" />
+                    <target id="67a038fe-f4cb-47c4-a689-294bc8240454" name="Addresses" type="element" specialization="Parameter" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="67a038fe-f4cb-47c4-a689-294bc8240454" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>addresses</name>
+          <display>in : addresses: Address[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="81810f6d-e5fe-4afd-b23e-90d358905d0b">
+            <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ad995abd-a676-483a-86ad-a878601267cd</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

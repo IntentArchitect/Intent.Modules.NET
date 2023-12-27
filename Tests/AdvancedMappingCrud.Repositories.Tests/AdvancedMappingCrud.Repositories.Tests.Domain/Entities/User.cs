@@ -31,5 +31,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
         public virtual Quote Quote { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+
+        public void AddAddress(IEnumerable<Address> addresses)
+        {
+            Addresses.Clear();
+
+            foreach (var item in addresses)
+            {
+                Addresses.Add(item);
+            }
+        }
     }
 }
