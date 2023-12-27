@@ -9,7 +9,7 @@
       <requiredPackages />
       <macros>
         <macro trigger="on-loaded">
-          <script>lookupTypesOf("DTO-Field").forEach(element =&gt; {
+          <script>lookupTypesOf("DTO-Field", false).forEach(element =&gt; {
     const stereotype = element.getStereotype("Validations");
     if (stereotype == null ||
         !stereotype.getProperty("Has Custom Validation").getValue()) {
@@ -30,4 +30,5 @@
   <associationExtensions />
   <mappingSettings />
   <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

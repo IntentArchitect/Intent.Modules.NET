@@ -14,6 +14,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -115,6 +116,11 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
             {
                 return new ObjectInitializationMapping(mappingModel, _template);
+            }
+            if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
+                || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
+            {
+                return new TypeConvertingCSharpMapping(mappingModel, _template);
             }
             return null;
         }

@@ -62,7 +62,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="lookupTypesOf(&quot;DTO-Field&quot;).forEach(element =&gt; {&#xD;&#xA;    const stereotype = element.getStereotype(&quot;Validations&quot;);&#xD;&#xA;    if (stereotype == null ||&#xD;&#xA;        !stereotype.getProperty(&quot;Has Custom Validation&quot;).getValue()) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    stereotype.getProperty(&quot;Has Custom Validation&quot;).setValue(false);&#xD;&#xA;    stereotype.getProperty(&quot;Must&quot;).setValue(true);&#xD;&#xA;});&#xD;&#xA;" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="lookupTypesOf(&quot;DTO-Field&quot;, false).forEach(element =&gt; {&#xD;&#xA;    const stereotype = element.getStereotype(&quot;Validations&quot;);&#xD;&#xA;    if (stereotype == null ||&#xD;&#xA;        !stereotype.getProperty(&quot;Has Custom Validation&quot;).getValue()) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    stereotype.getProperty(&quot;Has Custom Validation&quot;).setValue(false);&#xD;&#xA;    stereotype.getProperty(&quot;Must&quot;).setValue(true);&#xD;&#xA;});&#xD;&#xA;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

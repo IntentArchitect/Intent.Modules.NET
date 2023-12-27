@@ -1,16 +1,18 @@
 ﻿using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 
 public class MessageCreationMappingTypeResolver : IMappingTypeResolver
 {
-    private readonly ICSharpFileBuilderTemplate _sourceTemplate;
+    private readonly ICSharpFileBuilderTemplate _template;
 
-    public MessageCreationMappingTypeResolver(ICSharpFileBuilderTemplate sourceTemplate)
+    public MessageCreationMappingTypeResolver(ICSharpFileBuilderTemplate template)
     {
-        _sourceTemplate = sourceTemplate;
+        _template = template;
     }
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
@@ -23,7 +25,12 @@ public class MessageCreationMappingTypeResolver : IMappingTypeResolver
         var model = mappingModel.Model;
         if (model.IsMessageModel() || model.TypeReference?.Element?.IsEventingDTOModel() == true)
         {
-            return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
+            return new ObjectInitializationMapping(mappingModel, _template);
+        }
+        if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
+            || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
+        {
+            return new TypeConvertingCSharpMapping(mappingModel, _template);
         }
         return null;
     }

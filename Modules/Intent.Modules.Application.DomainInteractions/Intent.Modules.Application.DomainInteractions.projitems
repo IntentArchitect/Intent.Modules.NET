@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDataAccessProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MappingExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\InheritedChildrenMapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TemplateExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityCreationMappingTypeResolver.cs" />

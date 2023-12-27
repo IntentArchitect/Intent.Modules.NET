@@ -2,6 +2,7 @@
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
@@ -51,7 +52,6 @@ public class StandardDomainMappingTypeResolver : IMappingTypeResolver
         {
             return new MapChildrenMapping(mappingModel, _template);
         }
-
 
         return null;
     }

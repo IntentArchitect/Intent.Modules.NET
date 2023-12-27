@@ -162,13 +162,9 @@ public class DomainInteractionsManager
 
                 statements.AddRange(findAggStatements);
 
-                var queryFields = queryMapping.MappedEnds
-                    .Select(x => x.IsOneToOne()
-                        ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
-                        : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
-                    .ToList();
+                var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
+                statements.AddRange(requiredStatements);
 
-                var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
                 if (associationEnd.TypeReference.IsCollection)
                 {
                     statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)).SeparatedFromPrevious());
@@ -204,13 +200,8 @@ public class DomainInteractionsManager
                 // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
                 else
                 {
-                    var queryFields = queryMapping.MappedEnds
-                        .Select(x => x.IsOneToOne()
-                            ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
-                            : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
-                        .ToList();
-
-                    var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
+                    var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
+                    statements.AddRange(requiredStatements);
 
                     if (associationEnd.TypeReference.IsCollection)
                     {
@@ -222,9 +213,9 @@ public class DomainInteractionsManager
                     }
                     else
                     {
-                        if (!queryFields.Any())
+                        if (string.IsNullOrWhiteSpace(expression))
                         {
-                            throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value.");
+                            throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value. Either specify this action returns a collection or map at least one field.");
                         }
 
                         statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
@@ -252,6 +243,47 @@ public class DomainInteractionsManager
         {
             throw new ElementException(associationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
+    }
+
+    private string CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
+    {
+        requiredStatements = new List<CSharpStatement>();
+
+        var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
+            .Select(x => x.IsOneToOne()
+                ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
+                : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
+            .ToList();
+
+        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
+
+        if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
+        {
+            return expression;
+        }
+
+        var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
+        var filterName = $"Filter{typeName.Pluralize()}";
+        var block = new CSharpStatementBlock($"IQueryable<{typeName}> {filterName}(IQueryable<{typeName}> queryable)");
+
+        if (!string.IsNullOrWhiteSpace(expression))
+        {
+            block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
+        }
+
+        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
+        {
+            block.AddIfStatement(_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
+            {
+                inside.AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon());
+            });
+        }
+
+        block.AddStatement("return queryable;");
+        block.SeparatedFromNext();
+        requiredStatements.Add(block);
+
+        return filterName;
     }
 
     public CSharpStatement CreateIfNullThrowNotFoundStatement(
@@ -801,19 +833,6 @@ public class DomainInteractionsManager
 
 
 public record EntityDetails(ClassModel Model, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
-
-public static class MappingExtensions
-{
-    public static IElementToElementMapping GetQueryEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
-    {
-        return mappings.SingleOrDefault(x => x.Type == "Query Entity Mapping");
-    }
-
-    public static IElementToElementMapping GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
-    {
-        return mappings.SingleOrDefault(x => x.Type == "Update Entity Mapping");
-    }
-}
 
 internal static class AttributeModelExtensions
 {
