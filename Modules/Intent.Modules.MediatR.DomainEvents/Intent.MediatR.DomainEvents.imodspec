@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MediatR.DomainEvents</id>
-  <version>5.0.1-pre.0</version>
+  <version>5.0.1-pre.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>

@@ -264,7 +264,7 @@ public class DomainInteractionsManager
 
         var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
         var filterName = $"Filter{typeName.Pluralize()}";
-        var block = new CSharpStatementBlock($"IQueryable<{typeName}> {filterName}(IQueryable<{typeName}> queryable)");
+        var block = new CSharpStatementBlock($"${_template.UseType("System.Linq.IQueryable")}<{typeName}> {filterName}(${_template.UseType("System.Linq.IQueryable")}<{typeName}> queryable)");
 
         if (!string.IsNullOrWhiteSpace(expression))
         {
