@@ -30,9 +30,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.CreateUserAdd
             var user = await _userRepository.FindByIdAsync(request.UserId, cancellationToken);
             if (user is null)
             {
-                throw new NotFoundException($"Could not find Address '{request.UserId}'");
+                throw new NotFoundException($"Could not find UserAddress '{request.UserId}'");
             }
-            var address = new Address
+            var address = new UserAddress
             {
                 UserId = request.UserId,
                 Line1 = request.Line1,

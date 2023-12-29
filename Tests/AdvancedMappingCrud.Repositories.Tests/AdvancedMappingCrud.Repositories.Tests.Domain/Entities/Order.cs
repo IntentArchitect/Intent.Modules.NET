@@ -23,6 +23,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
+        public Address DeliveryAddress { get; set; }
+
+        public Address? BillingAddress { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

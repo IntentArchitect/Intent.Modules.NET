@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="62745502-301a-4ffc-a371-ffe7c87ee53e" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>address</name>
-    <display>[create] address: Address</display>
+    <display>[create] address: UserAddress</display>
     <order>5</order>
     <typeReference id="3b0631c7-2fda-4e82-8853-f90fce09e050">
       <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>

@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="6a02666d-5595-4587-9032-9b245e000fc5" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>addresses</name>
-    <display>[query] addresses: Address[*]</display>
+    <display>[query] addresses: UserAddress[*]</display>
     <order>1</order>
     <typeReference id="949477c5-440c-4df9-a9db-c041fdc258f1">
       <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>

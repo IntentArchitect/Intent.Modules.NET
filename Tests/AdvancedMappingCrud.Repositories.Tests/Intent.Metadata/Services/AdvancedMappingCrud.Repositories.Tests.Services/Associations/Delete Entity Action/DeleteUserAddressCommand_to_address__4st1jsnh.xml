@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="d9a57445-8691-4462-986c-866548346f96" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
     <name>address</name>
-    <display>[delete] address: Address</display>
+    <display>[delete] address: UserAddress</display>
     <order>2</order>
     <typeReference id="0dae318e-4bce-4baf-bab7-1166fab45606">
       <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>

@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Users
 {
-    public class UserAddressDto : IMapFrom<Address>
+    public class UserAddressDto : IMapFrom<UserAddress>
     {
         public UserAddressDto()
         {
@@ -41,7 +41,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Address, UserAddressDto>();
+            profile.CreateMap<UserAddress, UserAddressDto>();
         }
     }
 }

@@ -170,6 +170,34 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="4c1dc5b8-bbed-424a-8c0c-2d5022483fb9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.ValueObjects.ValueObject</name>
+          <display>Intent.ValueObjects.ValueObject</display>
+          <externalReference>Intent.ValueObjects</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>be55778e-4aa9-493e-aa22-9492bdd94674</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="514ffb4d-c8ea-420d-a8d0-f6ca092eb99d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.ValueObjects.ValueObjectBase</name>
+          <display>Intent.ValueObjects.ValueObjectBase</display>
+          <externalReference>Intent.ValueObjects</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>be55778e-4aa9-493e-aa22-9492bdd94674</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

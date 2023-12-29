@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.OwnsMany(x => x.Addresses, ConfigureAddresses);
         }
 
-        public void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
+        public void ConfigureAddresses(OwnedNavigationBuilder<User, UserAddress> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);

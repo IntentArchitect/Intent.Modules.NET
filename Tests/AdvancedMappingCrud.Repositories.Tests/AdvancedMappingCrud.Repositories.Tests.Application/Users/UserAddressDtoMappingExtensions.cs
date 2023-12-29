@@ -11,10 +11,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users
 {
     public static class UserAddressDtoMappingExtensions
     {
-        public static UserAddressDto MapToUserAddressDto(this Address projectFrom, IMapper mapper)
+        public static UserAddressDto MapToUserAddressDto(this UserAddress projectFrom, IMapper mapper)
             => mapper.Map<UserAddressDto>(projectFrom);
 
-        public static List<UserAddressDto> MapToUserAddressDtoList(this IEnumerable<Address> projectFrom, IMapper mapper)
+        public static List<UserAddressDto> MapToUserAddressDtoList(this IEnumerable<UserAddress> projectFrom, IMapper mapper)
             => projectFrom.Select(x => x.MapToUserAddressDto(mapper)).ToList();
     }
 }

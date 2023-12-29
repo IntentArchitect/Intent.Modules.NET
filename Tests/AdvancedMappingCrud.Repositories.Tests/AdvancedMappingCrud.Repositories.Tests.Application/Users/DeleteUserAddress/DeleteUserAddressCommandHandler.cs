@@ -29,13 +29,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.DeleteUserAdd
             var user = await _userRepository.FindByIdAsync(request.UserId, cancellationToken);
             if (user is null)
             {
-                throw new NotFoundException($"Could not find Address '{request.UserId}'");
+                throw new NotFoundException($"Could not find UserAddress '{request.UserId}'");
             }
 
             var address = user.Addresses.FirstOrDefault(x => x.Id == request.Id);
             if (address is null)
             {
-                throw new NotFoundException($"Could not find Address '{request.Id}'");
+                throw new NotFoundException($"Could not find UserAddress '{request.Id}'");
             }
 
             user.Addresses.Remove(address);

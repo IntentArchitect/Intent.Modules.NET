@@ -16,13 +16,21 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
             DateTime orderDate,
             OrderStatus orderStatus,
             Guid customerId,
-            List<CreateOrderCommandOrderItemsDto> orderItems)
+            List<CreateOrderCommandOrderItemsDto> orderItems,
+            string line1,
+            string line2,
+            string city,
+            string postal)
         {
             RefNo = refNo;
             OrderDate = orderDate;
             OrderStatus = orderStatus;
             CustomerId = customerId;
             OrderItems = orderItems;
+            Line1 = line1;
+            Line2 = line2;
+            City = city;
+            Postal = postal;
         }
 
         public string RefNo { get; set; }
@@ -30,5 +38,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
         public OrderStatus OrderStatus { get; set; }
         public Guid CustomerId { get; set; }
         public List<CreateOrderCommandOrderItemsDto> OrderItems { get; set; }
+        public string Line1 { get; set; }
+        public string Line2 { get; set; }
+        public string City { get; set; }
+        public string Postal { get; set; }
     }
 }

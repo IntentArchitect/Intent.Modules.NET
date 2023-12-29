@@ -25,6 +25,18 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull();
+
+            RuleFor(v => v.Line1)
+                .NotNull();
+
+            RuleFor(v => v.Line2)
+                .NotNull();
+
+            RuleFor(v => v.City)
+                .NotNull();
+
+            RuleFor(v => v.Postal)
+                .NotNull();
         }
     }
 }

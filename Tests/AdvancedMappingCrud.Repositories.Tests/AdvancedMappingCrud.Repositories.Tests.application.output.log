@@ -1444,6 +1444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#050f0248-ba17-49d9-868e-f048970d74f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#be55778e-4aa9-493e-aa22-9492bdd94674</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/AdvancedMappingCrud.Repositories.Tests.Domain.csproj</ApplicationRelativeFilePath>
@@ -1504,14 +1512,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/CustomerStatistics.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerStatistics.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#93dd60e4-2bcc-46f9-be53-97693c0b97dd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Address.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1592,6 +1592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#93dd60e4-2bcc-46f9-be53-97693c0b97dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserAddress.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1728,6 +1736,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Services/PricingService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PricingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/ValueObject.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

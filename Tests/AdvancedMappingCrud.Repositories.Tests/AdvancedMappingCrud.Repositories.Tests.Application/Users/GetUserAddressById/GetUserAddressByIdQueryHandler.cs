@@ -32,13 +32,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUserAddres
             var user = await _userRepository.FindByIdAsync(request.UserId, cancellationToken);
             if (user is null)
             {
-                throw new NotFoundException($"Could not find Address '{request.UserId}'");
+                throw new NotFoundException($"Could not find UserAddress '{request.UserId}'");
             }
 
             var address = user.Addresses.FirstOrDefault(x => x.Id == request.Id && x.UserId == request.UserId);
             if (address is null)
             {
-                throw new NotFoundException($"Could not find Address '({request.Id}, {request.UserId})'");
+                throw new NotFoundException($"Could not find UserAddress '({request.Id}, {request.UserId})'");
             }
             return address.MapToUserAddressDto(_mapper);
         }

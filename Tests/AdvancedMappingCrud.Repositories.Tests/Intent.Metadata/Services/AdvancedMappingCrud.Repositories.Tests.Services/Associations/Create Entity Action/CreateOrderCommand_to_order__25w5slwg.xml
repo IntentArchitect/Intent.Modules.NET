@@ -21,7 +21,7 @@
   <targetEnd id="7c6dae1f-0648-4530-94dd-0b4046346f87" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>order</name>
     <display>[create] order: Order</display>
-    <order>5</order>
+    <order>9</order>
     <typeReference id="df867a41-f92e-4d9c-9eab-6b1c9f885bdc">
       <typeId>9cf81436-99bd-4077-bcd0-de9f1f75c8e5</typeId>
       <isNavigable>true</isNavigable>
@@ -108,6 +108,134 @@
                 <path>
                   <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
                   <target id="8bfe7b1a-a4fd-4372-a30e-c900a97d21d8" name="CustomerId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="e0372fae-4737-4d17-8b05-1df5e0fa52bd" name="BillingAddress" type="association" specialization="Association Target End" />
+              <target id="7273ff2a-1d03-4745-94f6-9ae19e9b829b" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="46589eb9-7e3f-4cba-b900-a4bce8f40b97" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="e0372fae-4737-4d17-8b05-1df5e0fa52bd" name="BillingAddress" type="association" specialization="Association Target End" />
+              <target id="c49d4b74-264e-4c5d-a76c-b0c51e660f38" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="b92438d8-ef36-4891-89e4-cbb379addb57" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{City}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="e0372fae-4737-4d17-8b05-1df5e0fa52bd" name="BillingAddress" type="association" specialization="Association Target End" />
+              <target id="43a2bef6-f50d-466f-b72b-08e01480e7a0" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="4ab89743-0223-45c9-ba5d-dd7c08e5999c" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Postal}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="e0372fae-4737-4d17-8b05-1df5e0fa52bd" name="BillingAddress" type="association" specialization="Association Target End" />
+              <target id="dc7032ab-1aec-4a80-8f0b-4245bed070d1" name="Postal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Postal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="304095e1-32ef-4166-b2cb-f86293911cbb" name="Postal" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="b431663d-06eb-4896-9033-e2e2ca840fff" name="DeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="7273ff2a-1d03-4745-94f6-9ae19e9b829b" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="46589eb9-7e3f-4cba-b900-a4bce8f40b97" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="b431663d-06eb-4896-9033-e2e2ca840fff" name="DeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="c49d4b74-264e-4c5d-a76c-b0c51e660f38" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="b92438d8-ef36-4891-89e4-cbb379addb57" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{City}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="b431663d-06eb-4896-9033-e2e2ca840fff" name="DeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="43a2bef6-f50d-466f-b72b-08e01480e7a0" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="4ab89743-0223-45c9-ba5d-dd7c08e5999c" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Postal}</expression>
+            <path>
+              <target id="9cf81436-99bd-4077-bcd0-de9f1f75c8e5" name="Order" type="element" specialization="Class" />
+              <target id="b431663d-06eb-4896-9033-e2e2ca840fff" name="DeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="dc7032ab-1aec-4a80-8f0b-4245bed070d1" name="Postal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Postal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="03a2d5ea-6731-4d44-8c9a-04777b640f3f" name="CreateOrderCommand" type="element" specialization="Command" />
+                  <target id="304095e1-32ef-4166-b2cb-f86293911cbb" name="Postal" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Domain;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -39,7 +40,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
                         Amount = oi.Amount,
                         ProductId = oi.ProductId
                     })
-                    .ToList()
+                    .ToList(),
+                DeliveryAddress = new Address(
+                    line1: request.Line1,
+                    line2: request.Line2,
+                    city: request.City,
+                    postal: request.Postal),
+                BillingAddress = new Address(
+                    line1: request.Line1,
+                    line2: request.Line2,
+                    city: request.City,
+                    postal: request.Postal)
             };
 
             _orderRepository.Add(order);

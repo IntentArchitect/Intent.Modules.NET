@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUserAddres
             var user = await _userRepository.FindByIdAsync(request.UserId, cancellationToken);
             if (user is null)
             {
-                throw new NotFoundException($"Could not find Address '{request.UserId}'");
+                throw new NotFoundException($"Could not find UserAddress '{request.UserId}'");
             }
 
             var addresses = user.Addresses.Where(x => x.UserId == request.UserId);

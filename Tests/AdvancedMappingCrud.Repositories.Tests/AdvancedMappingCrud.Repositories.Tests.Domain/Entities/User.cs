@@ -30,9 +30,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public virtual Quote Quote { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public virtual ICollection<UserAddress> Addresses { get; set; } = new List<UserAddress>();
 
-        public void AddAddress(IEnumerable<Address> addresses)
+        public void AddAddress(IEnumerable<UserAddress> addresses)
         {
             Addresses.Clear();
 

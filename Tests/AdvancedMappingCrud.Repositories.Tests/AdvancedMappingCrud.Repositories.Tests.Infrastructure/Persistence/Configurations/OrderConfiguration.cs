@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.Domain;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
 
             builder.OwnsMany(x => x.OrderItems, ConfigureOrderItems);
 
+            builder.OwnsOne(x => x.DeliveryAddress, ConfigureDeliveryAddress)
+                .Navigation(x => x.DeliveryAddress).IsRequired();
+
+            builder.OwnsOne(x => x.BillingAddress, ConfigureBillingAddress);
+
             builder.Ignore(e => e.DomainEvents);
         }
 
@@ -59,6 +65,40 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .WithMany()
                 .HasForeignKey(x => x.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
+        }
+
+        public void ConfigureDeliveryAddress(OwnedNavigationBuilder<Order, Address> builder)
+        {
+            builder.WithOwner();
+
+            builder.Property(x => x.Line1)
+                .IsRequired();
+
+            builder.Property(x => x.Line2)
+                .IsRequired();
+
+            builder.Property(x => x.City)
+                .IsRequired();
+
+            builder.Property(x => x.Postal)
+                .IsRequired();
+        }
+
+        public void ConfigureBillingAddress(OwnedNavigationBuilder<Order, Address> builder)
+        {
+            builder.WithOwner();
+
+            builder.Property(x => x.Line1)
+                .IsRequired();
+
+            builder.Property(x => x.Line2)
+                .IsRequired();
+
+            builder.Property(x => x.City)
+                .IsRequired();
+
+            builder.Property(x => x.Postal)
+                .IsRequired();
         }
     }
 }

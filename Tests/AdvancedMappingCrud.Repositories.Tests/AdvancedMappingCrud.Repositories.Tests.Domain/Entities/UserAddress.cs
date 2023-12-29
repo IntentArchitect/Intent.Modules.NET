@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
-    public class Address
+    public class UserAddress
     {
         public Guid Id { get; set; }
 
