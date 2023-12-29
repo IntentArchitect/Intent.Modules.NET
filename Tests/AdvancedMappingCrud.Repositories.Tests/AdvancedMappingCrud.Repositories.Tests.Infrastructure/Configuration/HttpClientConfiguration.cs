@@ -1,4 +1,6 @@
 using System;
+using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationServices;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
             services.AddHttpContextAccessor();
+
+            services
+                .AddHttpClient<ICustomersServiceProxy, CustomersServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:CustomersServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:CustomersServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
         }
     }
 }

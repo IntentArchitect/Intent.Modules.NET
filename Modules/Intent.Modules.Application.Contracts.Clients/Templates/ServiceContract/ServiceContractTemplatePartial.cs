@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -33,6 +34,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
                 pagedResultTemplateId: PagedResultTemplate.TemplateId)
         {
+            // So that this service (which is an application layer interface) is discoverable
+            FulfillsRole(TemplateRoles.Application.Services.Interface);
         }
     }
 }
