@@ -203,7 +203,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="514a5a22-934e-46cb-8b5d-fc74423c3b90" name="Amount" type="element" specialization="Attribute" />
+          <target id="514a5a22-934e-46cb-8b5d-fc74423c3b90" name="UnitPrice" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c1143139-94fa-4d3c-96db-f76355cb1ad4</parentFolderId>

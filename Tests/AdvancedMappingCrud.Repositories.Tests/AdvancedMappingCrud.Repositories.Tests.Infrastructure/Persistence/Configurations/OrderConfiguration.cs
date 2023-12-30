@@ -52,7 +52,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Property(x => x.Quantity)
                 .IsRequired();
 
-            builder.Property(x => x.Amount)
+            builder.Property(x => x.Units)
+                .IsRequired();
+
+            builder.Property(x => x.UnitPrice)
                 .IsRequired();
 
             builder.Property(x => x.OrderId)

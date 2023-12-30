@@ -35,7 +35,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<OrderItem, OrderOrderItemDto>();
+            profile.CreateMap<OrderItem, OrderOrderItemDto>()
+                .ForMember(d => d.Amount, opt => opt.MapFrom(src => src.UnitPrice));
         }
     }
 }

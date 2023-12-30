@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,6 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
     public interface ICustomerManager
     {
         CustomerStatistics GetCustomerStatistics(Guid customerId);
-        void DeactivateCustomer(Guid customerId);
+        Task DeactivateCustomerAsync(Guid customerId, CancellationToken cancellationToken = default);
     }
 }

@@ -11,7 +11,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public int Quantity { get; set; }
 
-        public decimal Amount { get; set; }
+        public int Units { get; set; }
+
+        public decimal UnitPrice { get; set; }
 
         public Guid OrderId { get; set; }
 

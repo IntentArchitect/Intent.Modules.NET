@@ -17,6 +17,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
             builder.Property(x => x.Name)
                 .IsRequired();
 
+            builder.Property(x => x.Price)
+                .IsRequired();
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

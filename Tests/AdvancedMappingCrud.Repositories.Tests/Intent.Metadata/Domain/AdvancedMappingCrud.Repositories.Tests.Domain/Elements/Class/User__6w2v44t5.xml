@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="ad995abd-a676-483a-86ad-a878601267cd" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
       <name>AddAddress</name>
-      <display>AddAddress(addresses: Address[*]): void</display>
+      <display>AddAddress(addresses: UserAddress[*]): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -311,7 +311,7 @@
       <childElements>
         <childElement id="67a038fe-f4cb-47c4-a689-294bc8240454" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>addresses</name>
-          <display>in : addresses: Address[*]</display>
+          <display>in : addresses: UserAddress[*]</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="81810f6d-e5fe-4afd-b23e-90d358905d0b">

@@ -547,21 +547,27 @@ public class DomainInteractionsManager
             var statements = new List<CSharpStatement>();
             var operationModel = (IElement)callServiceOperation.Element;
             var serviceModel = operationModel.ParentElement;
-            if ((!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var serviceInterface)
-                && !_template.TryGetTypeName(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterface))
+            if ((!_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var serviceInterfaceTemplate)
+                && !_template.TryGetTemplate(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterfaceTemplate))
                 || callServiceOperation.Mappings.Any() is false)
             {
                 return Array.Empty<CSharpStatement>();
             }
 
-            var serviceField = InjectService(serviceInterface);
-            var isAsync = serviceModel.IsServiceModel() || operationModel.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase);
+            // So that the mapping system can resolve the name of the operation from the interface itself:
+            _template.AddTypeSource(serviceInterfaceTemplate.Id);
+
+            var serviceField = InjectService(_template.GetTypeName(serviceInterfaceTemplate));
             var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
-            if (isAsync && methodInvocation is CSharpInvocationStatement s)
+            CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
+            if (methodInvocation is CSharpInvocationStatement s)
             {
-                s.AddArgument("cancellationToken");
+                if (s.Expression.Reference is ICSharpMethodDeclaration method && method.IsAsync)
+                {
+                    s.AddArgument("cancellationToken");
+                    invoke = new CSharpAwaitExpression(invoke);
+                }
             }
-            var invoke = new CSharpAccessMemberStatement($"{(isAsync ? "await " : "")}{serviceField}", methodInvocation);
             if (operationModel.TypeReference.Element != null)
             {
                 string variableName = callServiceOperation.Name.ToLocalVariableName();

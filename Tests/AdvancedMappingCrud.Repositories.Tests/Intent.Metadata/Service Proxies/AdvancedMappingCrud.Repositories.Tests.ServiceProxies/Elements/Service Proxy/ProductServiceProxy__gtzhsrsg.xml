@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51f9ec06-4633-4e3c-8f13-1ff1c413f937" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ProductServiceProxy</name>
+  <display>ProductServiceProxy</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>0e3734cb-dd6e-4824-94b4-0596d33525be</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="b9c64131-4227-4b8a-9d95-8d5a5c97897f" name="AdvancedMappingCrud.DbContext.Tests.Services" type="association" specialization="Package Reference" />
+      <target id="2262014b-21f6-451e-b3a8-e942df338cc8" name="Products" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>05df0336-f0c0-46bf-bc9e-c369e322770b</parentFolderId>
+  <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0fac5f00-0bf9-478c-9817-ca3a5174bb9d" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateProductCommand</name>
+      <display>CreateProductCommand(command: CreateProductCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="911e103a-1169-4fc4-adcc-31e8d3bc36f0">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d48f3b80-030b-4a99-bdea-4e5c6ef18273" name="CreateProductCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>51f9ec06-4633-4e3c-8f13-1ff1c413f937</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="70393278-8f8e-41b5-b473-fd6ba0c42377" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateProductCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f8406593-45a2-4d26-8b70-e2c49bd1f1b5">
+            <typeId>d48f3b80-030b-4a99-bdea-4e5c6ef18273</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+            <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0fac5f00-0bf9-478c-9817-ca3a5174bb9d</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="d48f3b80-030b-4a99-bdea-4e5c6ef18273" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="89f37d8d-1df6-4d95-9f44-017108d8396b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteProductCommand</name>
+      <display>DeleteProductCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6c6c8025-6ac0-4729-9dc5-6175075b8c09">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f5d8586f-c762-4415-a817-28a9c3594f28" name="DeleteProductCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>51f9ec06-4633-4e3c-8f13-1ff1c413f937</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="606bc4da-6697-42ef-9734-ead5dfe994ec" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7fffbd60-8078-4869-9202-5ac4fbe7c3f5">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>89f37d8d-1df6-4d95-9f44-017108d8396b</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ed01e07c-e898-4293-b9a4-d5b2f3d011ac" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5874b84f-e627-4b2a-abcb-ab3aedcfa421" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateProductCommand</name>
+      <display>UpdateProductCommand(id: guid, command: UpdateProductCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="53767ce8-dfee-4325-b029-aad6bd6360b4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="544b6348-f5f7-4cde-ac61-99ac37bfb494" name="UpdateProductCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>51f9ec06-4633-4e3c-8f13-1ff1c413f937</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="be3a5698-42ea-4a29-a262-26aac5da9d21" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ba751d60-f205-4830-bf4d-98d67cac2429">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5874b84f-e627-4b2a-abcb-ab3aedcfa421</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1fbbb82c-7240-4986-915d-89f327e6561f" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="c64a3aa8-4375-4813-9ea2-b57075229e3e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateProductCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dc04f388-a221-49d4-88d2-36c621f220b7">
+            <typeId>544b6348-f5f7-4cde-ac61-99ac37bfb494</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+            <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5874b84f-e627-4b2a-abcb-ab3aedcfa421</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="544b6348-f5f7-4cde-ac61-99ac37bfb494" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0640246b-24f3-481c-88f3-0c059060f49d" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetProductByIdQuery</name>
+      <display>GetProductByIdQuery(id: guid): ProductDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="07a277d9-dce1-472f-b127-6f3a86c4fbe7">
+        <typeId>f46645db-5a6a-4031-8ab7-d5ab87a71c56</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+        <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="77d43b4c-07e3-4c3b-9d0f-bbf7e768bd62" name="GetProductByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>51f9ec06-4633-4e3c-8f13-1ff1c413f937</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="684c8fb6-2a2c-4903-b4fb-d4718f82e7a9" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7dd85eb2-f341-49ba-b9a9-1056a613837c">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0640246b-24f3-481c-88f3-0c059060f49d</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="b5b1fd9c-8207-47b2-b2cd-bbf891f4a91c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="49999a43-ce5b-4bc0-b64b-8d892edee188" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetProductsQuery</name>
+      <display>GetProductsQuery(): ProductDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d852ffac-75f2-4b50-a940-3785f246b2e7">
+        <typeId>f46645db-5a6a-4031-8ab7-d5ab87a71c56</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+        <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="cbf873a8-701c-423a-9bda-652ea778bc5d" name="GetProductsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>51f9ec06-4633-4e3c-8f13-1ff1c413f937</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

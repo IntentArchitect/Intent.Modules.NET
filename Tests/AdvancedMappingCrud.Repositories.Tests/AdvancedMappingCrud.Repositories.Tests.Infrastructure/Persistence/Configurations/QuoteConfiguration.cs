@@ -40,6 +40,12 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Property(x => x.ProductId)
                 .IsRequired();
 
+            builder.Property(x => x.Units)
+                .IsRequired();
+
+            builder.Property(x => x.UnitPrice)
+                .IsRequired();
+
             builder.HasOne(x => x.Product)
                 .WithMany()
                 .HasForeignKey(x => x.ProductId)

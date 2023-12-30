@@ -13,6 +13,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Domain.Entities
 
         public string Name { get; set; }
 
+        public decimal Price { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

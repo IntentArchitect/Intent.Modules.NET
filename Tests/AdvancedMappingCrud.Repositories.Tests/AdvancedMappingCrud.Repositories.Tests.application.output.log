@@ -811,11 +811,43 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>20045b21-63b0-4026-8d4f-fe43dae69fae</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#d48f3b80-030b-4a99-bdea-4e5c6ef18273</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationServices/Contracts/DbContext/Tests/Services/Products/CreateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContext/Tests/Services/Products/CreateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20045b21-63b0-4026-8d4f-fe43dae69fae</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationServices/Contracts/DbContext/Tests/Services/Products/ProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContext/Tests/Services/Products/ProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20045b21-63b0-4026-8d4f-fe43dae69fae</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#544b6348-f5f7-4cde-ac61-99ac37bfb494</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationServices/Contracts/DbContext/Tests/Services/Products/UpdateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContext/Tests/Services/Products/UpdateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b310dbed-c3d5-4dad-b0ad-64a7067a1b42</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#e8fc3424-965b-4da6-8422-7961fd7387cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationServices/ICustomersServiceProxy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomersServiceProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b310dbed-c3d5-4dad-b0ad-64a7067a1b42</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#51f9ec06-4633-4e3c-8f13-1ff1c413f937</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationServices/IProductServiceProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IProductServiceProxy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1816,6 +1848,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f5311d4-d100-4d58-ab2e-e49c8f072c2f</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#51f9ec06-4633-4e3c-8f13-1ff1c413f937</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/HttpClients/ProductServiceProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductServiceProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

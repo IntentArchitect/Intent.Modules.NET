@@ -37,7 +37,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrder
                     .Select(oi => new OrderItem
                     {
                         Quantity = oi.Quantity,
-                        Amount = oi.Amount,
+                        UnitPrice = oi.Amount,
                         ProductId = oi.ProductId
                     })
                     .ToList(),

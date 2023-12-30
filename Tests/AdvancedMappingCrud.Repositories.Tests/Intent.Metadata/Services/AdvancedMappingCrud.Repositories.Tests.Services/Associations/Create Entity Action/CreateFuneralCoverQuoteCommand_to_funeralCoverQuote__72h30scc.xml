@@ -21,7 +21,7 @@
   <targetEnd id="dcdf7166-c590-44ac-85c6-7c7df761923e" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>funeralCoverQuote</name>
     <display>[create] funeralCoverQuote: FuneralCoverQuote</display>
-    <order>4</order>
+    <order>5</order>
     <typeReference id="2980f51f-d5fe-4f10-acaa-d5ece9fdca30">
       <typeId>029a89c6-9b95-4c63-af26-7bcdfe92e78e</typeId>
       <isNavigable>true</isNavigable>

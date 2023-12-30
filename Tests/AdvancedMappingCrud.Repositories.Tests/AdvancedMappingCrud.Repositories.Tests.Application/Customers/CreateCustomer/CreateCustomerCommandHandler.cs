@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -15,11 +16,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateCus
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
     {
         private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomersServiceProxy _customersServiceProxy;
 
         [IntentManaged(Mode.Merge)]
-        public CreateCustomerCommandHandler(ICustomerRepository customerRepository)
+        public CreateCustomerCommandHandler(ICustomerRepository customerRepository, ICustomersServiceProxy customersServiceProxy)
         {
             _customerRepository = customerRepository;
+            _customersServiceProxy = customersServiceProxy;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

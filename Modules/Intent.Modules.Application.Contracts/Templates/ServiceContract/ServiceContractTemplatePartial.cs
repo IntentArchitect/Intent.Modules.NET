@@ -31,41 +31,42 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
 
-        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-            .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", inter =>
+        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
+            .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", @interface =>
             {
-                inter.ImplementsInterfaces(new[] { UseType("System.IDisposable") });
-                inter.TryAddXmlDocComments(Model.InternalElement);
+                @interface.RepresentsModel(Model);
+                @interface.ImplementsInterfaces(new[] { UseType("System.IDisposable") });
+                @interface.TryAddXmlDocComments(Model.InternalElement);
                 foreach (var operation in Model.Operations)
                 {
-                    inter.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(),
-                        method =>
+                    @interface.AddMethod(operation, method =>
+                    {
+                        method.TryAddXmlDocComments(operation.InternalElement);
+
+                        foreach (var parameterModel in operation.Parameters)
                         {
-                            method.TryAddXmlDocComments(operation.InternalElement);
+                            method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name, p => p.WithXmlDocComment(parameterModel.InternalElement));
+                        }
 
-                            foreach (var parameterModel in operation.Parameters)
-                            {
-                                method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name, p => p.WithXmlDocComment(parameterModel.InternalElement));
-                            }
-
-                            if (operation.IsAsync())
-                            {
-                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
-                            }
-                        });
+                        if (operation.IsAsync())
+                        {
+                            method.Async();
+                            method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                        }
+                    });
                 }
             });
     }
 
-    private string GetOperationReturnType(OperationModel o)
-    {
-        if (o.ReturnType == null)
-        {
-            return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
-        }
+    //private string GetOperationReturnType(OperationModel o)
+    //{
+    //    if (o.ReturnType == null)
+    //    {
+    //        return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
+    //    }
 
-        return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
-    }
+    //    return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
+    //}
 
     [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 

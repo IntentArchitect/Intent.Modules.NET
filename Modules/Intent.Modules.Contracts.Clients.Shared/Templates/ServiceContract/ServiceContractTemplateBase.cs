@@ -37,12 +37,20 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
                 .AddInterface($"I{Model.Name}",
                     @interface =>
                     {
+                        @interface.RepresentsModel(Model);
                         @interface.ImplementsInterfaces("IDisposable");
 
                         foreach (var endpoint in model.GetMappedEndpoints().ToArray())
                         {
-                            @interface.AddMethod(GetOperationReturnType(endpoint), GetOperationName(endpoint), method =>
+                            @interface.AddMethod(GetTypeName(endpoint.ReturnType), GetOperationName(endpoint), method =>
                             {
+                                method.Async();
+                                var representativeOperation = model.Operations.SingleOrDefault(x => x.Mapping.ElementId == endpoint.Id);
+                                if (representativeOperation != null)
+                                {
+                                    method.RepresentsModel(representativeOperation);
+                                }
+
                                 foreach (var input in endpoint.Inputs)
                                 {
                                     method.AddParameter(GetTypeName(input.TypeReference), input.Name.ToParameterName());
@@ -54,12 +62,12 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
                     });
         }
 
-        private string GetOperationReturnType(IHttpEndpointModel endpoint)
-        {
-            return endpoint.ReturnType?.Element == null
-                ? "Task"
-                : $"Task<{GetTypeName(endpoint.ReturnType)}>";
-        }
+        //private string GetOperationReturnType(IHttpEndpointModel endpoint)
+        //{
+        //    return endpoint.ReturnType?.Element == null
+        //        ? "Task"
+        //        : $"Task<{GetTypeName(endpoint.ReturnType)}>";
+        //}
 
         private static string GetOperationName(IHttpEndpointModel endpoint)
         {

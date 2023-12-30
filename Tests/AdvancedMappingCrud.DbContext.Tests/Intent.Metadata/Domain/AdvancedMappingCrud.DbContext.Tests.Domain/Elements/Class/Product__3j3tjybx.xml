@@ -39,6 +39,7 @@
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
             <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -79,6 +80,30 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="60c5f582-2743-4797-9034-a91d93bbcead" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a51b27f0-023b-4d9c-b3f7-a664f80136ab">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>49d6ee32-7e2b-4082-85cc-dda03e2eb756</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
       <metadata />
       <childElements />
     </childElement>

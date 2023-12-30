@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7040a041-ee49-4dc1-ad9b-989bbad41dfa">
+  <sourceEnd id="f0417666-37bc-4099-9267-6b3857ef1a2b" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.CreateFuneralCoverQuoteCommand</display>
+    <order>0</order>
+    <typeReference id="5ba37aa3-4fab-4e19-b3c7-516270cd96f7">
+      <typeId>150dd6e4-2c3e-427e-9676-2c60a466752a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7040a041-ee49-4dc1-ad9b-989bbad41dfa" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetProductsQuery(...): ProductDto[*]</display>
+    <order>4</order>
+    <typeReference id="4e95d503-df5f-4eb2-a790-3da297ad7aef">
+      <typeId>49999a43-ce5b-4bc0-b64b-8d892edee188</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</typePackageName>
+      <typePackageId>05df0336-f0c0-46bf-bc9e-c369e322770b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="150dd6e4-2c3e-427e-9676-2c60a466752a" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateFuneralCoverQuoteCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="49999a43-ce5b-4bc0-b64b-8d892edee188" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetProductsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateFuneralCoverQuoteCommand}</expression>
+            <path>
+              <target id="49999a43-ce5b-4bc0-b64b-8d892edee188" name="GetProductsQuery" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="CreateFuneralCoverQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="150dd6e4-2c3e-427e-9676-2c60a466752a" name="CreateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

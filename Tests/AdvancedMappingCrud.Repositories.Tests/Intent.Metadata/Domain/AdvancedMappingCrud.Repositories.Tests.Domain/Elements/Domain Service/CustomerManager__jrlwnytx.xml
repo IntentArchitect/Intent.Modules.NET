@@ -63,8 +63,8 @@
       </childElements>
     </childElement>
     <childElement id="d0ca58b1-01d0-42f5-bf08-6454eda591e9" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
-      <name>DeactivateCustomer</name>
-      <display>DeactivateCustomer(customerId: guid): void</display>
+      <name>DeactivateCustomerAsync</name>
+      <display>DeactivateCustomerAsync(customerId: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

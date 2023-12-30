@@ -26,6 +26,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:CustomersServiceProxy:Uri");
                     http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:CustomersServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
                 });
+
+            services
+                .AddHttpClient<IProductServiceProxy, ProductServiceProxyHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ProductServiceProxy:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ProductServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
         }
     }
 }

@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.Deactivat
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(DeactivateCustomerCommand request, CancellationToken cancellationToken)
         {
-            _customerManager.DeactivateCustomer(request.CustomerId);
+            await _customerManager.DeactivateCustomerAsync(request.CustomerId, cancellationToken);
         }
     }
 }

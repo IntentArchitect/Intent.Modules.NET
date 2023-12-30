@@ -33,6 +33,7 @@ public class StandardDomainMappingTypeResolver : IMappingTypeResolver
         {
             return new ConstructorMapping(mappingModel, _template);
         }
+
         if (model.SpecializationType == "Operation")
         {
             return new MethodInvocationMapping(mappingModel, _template);
@@ -51,6 +52,12 @@ public class StandardDomainMappingTypeResolver : IMappingTypeResolver
         if (mappingModel.Model.SpecializationType == "Update Entity Action Target End")
         {
             return new MapChildrenMapping(mappingModel, _template);
+        }
+
+        if (mappingModel.Model.SpecializationType == "Parameter" &&
+            mappingModel.Model.TypeReference.Element.SpecializationType is "DTO" or "Command" or "Query")
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
         }
 
         return null;

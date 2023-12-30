@@ -58,31 +58,32 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
-
-                            var csharpMapping = new CSharpClassMappingManager(this);
-                            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
-                            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
-                            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
-                            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
-                            var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
-
-                            csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
-                            method.AddMetadata("mapping-manager", csharpMapping);
-
-                            method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
                         });
                     }
-                }).AfterBuild(file =>
+                })
+                .AfterBuild(file =>
                 {
-                    foreach (var handleMethod in file.Classes.First().Methods.Where(x => x.Name == "Handle"))
+                    // TODO: MOVE TO FACTORY EXTENSION:
+                    foreach (var handledDomainEvents in Model.HandledDomainEvents())
                     {
-                        if (handleMethod?.Statements.Count == 0)
+                        var method = (CSharpClassMethod)file.Classes.First().GetReferenceForModel(handledDomainEvents);
+                        var csharpMapping = new CSharpClassMappingManager(this);
+                        csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
+                        csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
+                        csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
+                        csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
+                        var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
+
+                        csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
+                        method.AddMetadata("mapping-manager", csharpMapping);
+
+                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
+                        if (method.Statements.Count == 0)
                         {
-                            handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
+                            method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         }
                     }
-
-                }, 1000);
+                });
         }
 
         [IntentManaged(Mode.Fully)]

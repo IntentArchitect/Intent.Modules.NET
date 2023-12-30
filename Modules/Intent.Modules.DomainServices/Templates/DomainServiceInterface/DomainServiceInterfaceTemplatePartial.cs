@@ -28,30 +28,28 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Domain.DomainServices.Interface);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
                 .AddInterface($"I{Model.Name}", @interface =>
                 {
                     @interface.TryAddXmlDocComments(Model.InternalElement);
+                    @interface.RepresentsModel(Model);
                     foreach (var operation in Model.Operations)
                     {
                         var isAsync = operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase);
-                        var returnType = GetTypeName(operation);
-
-                        if (isAsync)
-                        {
-                            returnType = operation.ReturnType?.Element == null
-                                ? UseType("System.Threading.Tasks.Task")
-                                : $"{UseType("System.Threading.Tasks.Task")}<{returnType}>";
-                        }
-
-                        @interface.AddMethod(returnType, operation.Name.ToPascalCase(), method =>
+                        
+                        @interface.AddMethod(operation, method =>
                         {
                             method.TryAddXmlDocComments(operation.InternalElement);
+
+                            if (isAsync)
+                            {
+                                method.Async();
+                            }
 
                             foreach (var parameter in operation.Parameters)
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(),
-                                    parm => parm.WithDefaultValue(parameter.Value));
+                                    param => param.WithDefaultValue(parameter.Value));
                             }
 
                             if (isAsync)

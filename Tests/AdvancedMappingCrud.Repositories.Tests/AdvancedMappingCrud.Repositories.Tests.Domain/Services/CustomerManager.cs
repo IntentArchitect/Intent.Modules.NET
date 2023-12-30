@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public void DeactivateCustomer(Guid customerId)
+        public async Task DeactivateCustomerAsync(Guid customerId, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Implement your domain service logic here...");
         }

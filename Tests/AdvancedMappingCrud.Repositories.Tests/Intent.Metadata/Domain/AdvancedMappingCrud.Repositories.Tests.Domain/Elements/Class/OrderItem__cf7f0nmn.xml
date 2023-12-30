@@ -72,9 +72,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="d928333c-27f6-411c-ac3c-8c40e560e35f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Units</name>
+      <display>Units: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="334acac4-2af5-48b1-98c2-a7dec0cf1f7d">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>770b57a5-197b-48bb-96b4-629807f06401</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="514a5a22-934e-46cb-8b5d-fc74423c3b90" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Amount</name>
-      <display>Amount: decimal</display>
+      <name>UnitPrice</name>
+      <display>UnitPrice: decimal</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="55cfbfbf-83bb-4ee3-a555-23cac49e920a">

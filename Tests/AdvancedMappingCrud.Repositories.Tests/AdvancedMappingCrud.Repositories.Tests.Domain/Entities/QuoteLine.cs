@@ -25,6 +25,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public Guid ProductId { get; set; }
 
+        public int Units { get; set; }
+
+        public decimal UnitPrice { get; set; }
+
         public virtual Product Product { get; set; }
     }
 }
