@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="708b47a2-31f7-4b23-9604-9f101e3e0283">
   <sourceEnd id="760606c2-b901-461d-a23b-ba92bec7d4e2" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
-    <display>: handler</display>
+    <display>: </display>
     <order>0</order>
     <typeReference id="94d65332-5147-4476-91d9-49dd2688a970">
       <typeId>52a77343-8971-412c-9fc2-85d4391e7415</typeId>

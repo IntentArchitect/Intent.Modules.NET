@@ -93,65 +93,6 @@
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
       <stereotypes />
-      <mappings>
-        <mapping type="Domain Entity Mapping" typeId="d2a7e80f-a237-4d2d-97b4-eb88363b680f">
-          <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="172cc8df-b269-4c96-8f94-ac176105d459" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[Constructor]" />
-          <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4da701dd-1644-418e-ac1a-19668809b605" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[CorporateFuneralCoverQuote]" />
-          <mappedEnds>
-            <mappedEnd>
-              <expression>{refNo}</expression>
-              <path>
-                <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-                <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-                <target id="19bffd5c-f3ed-4aa6-a682-a51efa75de64" name="RefNo" type="element" specialization="Attribute" />
-              </path>
-              <sources>
-                <source identifier="refNo" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
-                  <path>
-                    <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-                    <target id="af88a39f-99a1-4862-98a8-c1ead9ef7c35" name="refNo" type="element" specialization="Parameter" />
-                  </path>
-                </source>
-              </sources>
-            </mappedEnd>
-            <mappedEnd>
-              <expression>{personId}</expression>
-              <path>
-                <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-                <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-                <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
-              </path>
-              <sources>
-                <source identifier="personId" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
-                  <path>
-                    <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-                    <target id="3b5c2926-0e08-478b-a274-acf043df9aca" name="personId" type="element" specialization="Parameter" />
-                  </path>
-                </source>
-              </sources>
-            </mappedEnd>
-            <mappedEnd>
-              <expression>{personEmail}</expression>
-              <path>
-                <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-                <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-                <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" />
-              </path>
-              <sources>
-                <source identifier="personEmail" mappingType="Data Mapping" mappingTypeId="df822d0a-ba2e-48ac-b1c8-86b301416a51">
-                  <path>
-                    <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-                    <target id="f406e73d-1f52-4e66-86a3-5ed1e89fb6ee" name="personEmail" type="element" specialization="Parameter" />
-                  </path>
-                </source>
-              </sources>
-            </mappedEnd>
-          </mappedEnds>
-        </mapping>
-      </mappings>
       <metadata />
       <childElements>
         <childElement id="af88a39f-99a1-4862-98a8-c1ead9ef7c35" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">

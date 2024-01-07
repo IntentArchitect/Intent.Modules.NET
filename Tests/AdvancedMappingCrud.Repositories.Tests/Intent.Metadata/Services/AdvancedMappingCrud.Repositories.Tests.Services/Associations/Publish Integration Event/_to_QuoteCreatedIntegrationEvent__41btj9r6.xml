@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="0e9c813a-5996-4ffc-88d1-35355f5400f6">
   <sourceEnd id="94c506be-f009-4b12-9f2f-87913d6de1b3" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
-    <display>published by : NewQuoteCreatedHandler.handler</display>
+    <display>published by : NewQuoteCreatedHandler.</display>
     <order>0</order>
     <typeReference id="6fba47af-db5c-4a5d-b257-6acf51cafac0">
       <typeId>52a77343-8971-412c-9fc2-85d4391e7415</typeId>

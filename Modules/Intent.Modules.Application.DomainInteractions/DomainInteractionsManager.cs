@@ -203,17 +203,17 @@ public class DomainInteractionsManager
                     var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
                     statements.AddRange(requiredStatements);
 
-                    if (associationEnd.TypeReference.IsCollection)
-                    {
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
-                    }
-                    else if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
+                    if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
                     {
                         statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression, pageNo, pageSize)));
                     }
+                    else if (associationEnd.TypeReference.IsCollection)
+                    {
+                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
+                    }
                     else
                     {
-                        if (string.IsNullOrWhiteSpace(expression))
+                        if (expression == null)
                         {
                             throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value. Either specify this action returns a collection or map at least one field.");
                         }
@@ -245,7 +245,7 @@ public class DomainInteractionsManager
         }
     }
 
-    private string CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
+    private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
     {
         requiredStatements = new List<CSharpStatement>();
 
@@ -255,7 +255,7 @@ public class DomainInteractionsManager
                 : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
             .ToList();
 
-        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : "";
+        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
 
         if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
         {
@@ -264,8 +264,8 @@ public class DomainInteractionsManager
 
         var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
         var filterName = $"Filter{typeName.Pluralize()}";
-        var block = new CSharpStatementBlock($"${_template.UseType("System.Linq.IQueryable")}<{typeName}> {filterName}(${_template.UseType("System.Linq.IQueryable")}<{typeName}> queryable)");
-
+        var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
+        block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
         if (!string.IsNullOrWhiteSpace(expression))
         {
             block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());

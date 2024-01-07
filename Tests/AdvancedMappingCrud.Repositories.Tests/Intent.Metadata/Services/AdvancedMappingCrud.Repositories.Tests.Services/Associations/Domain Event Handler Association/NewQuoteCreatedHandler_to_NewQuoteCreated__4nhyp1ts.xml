@@ -19,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="52a77343-8971-412c-9fc2-85d4391e7415" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
-    <name>handler</name>
     <display>handles : NewQuoteCreated</display>
     <sort-children>by-type-then-manually</sort-children>
     <order>0</order>

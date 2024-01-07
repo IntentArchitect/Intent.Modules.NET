@@ -21,7 +21,7 @@
   <targetEnd id="6ace06ec-da52-4653-a9b1-759faf267808" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>users</name>
     <display>[query] users: User[*]</display>
-    <order>2</order>
+    <order>5</order>
     <typeReference id="5a2ce147-e4be-493f-9820-db3c522f3104">
       <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
       <isNavigable>true</isNavigable>

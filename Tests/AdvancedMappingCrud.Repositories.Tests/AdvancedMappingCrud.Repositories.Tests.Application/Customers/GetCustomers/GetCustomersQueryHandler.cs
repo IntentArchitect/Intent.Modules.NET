@@ -30,6 +30,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
+
             IQueryable<Customer> FilterCustomers(IQueryable<Customer> queryable)
             {
                 queryable = queryable.Where(x => x.IsActive == request.IsActive);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="29096c0b-6d46-4b38-8685-bbb87e97d14e">
   <sourceEnd id="b7426733-a965-48c7-a4f9-814119c9debc" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
-    <display>called by : NewQuoteCreatedHandler.handler</display>
+    <display>called by : NewQuoteCreatedHandler.</display>
     <order>0</order>
     <typeReference id="e8940a7d-b3d8-43ac-8da7-236ab51c632f">
       <typeId>52a77343-8971-412c-9fc2-85d4391e7415</typeId>

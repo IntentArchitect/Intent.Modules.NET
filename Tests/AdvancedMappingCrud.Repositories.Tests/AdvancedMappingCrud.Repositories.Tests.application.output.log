@@ -508,6 +508,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#32843436-8834-4567-a73a-8efc74602386</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2282a452-06d4-4fab-bacb-ec2861bb33e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/DeactivateCustomer/DeactivateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -648,6 +656,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersByNameAndSurname/GetCustomersByNameAndSurnameQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomersByNameAndSurname/GetCustomersByNameAndSurnameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#48fea747-369c-4879-9545-fbbb02323118</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginated/GetCustomersPaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#48fea747-369c-4879-9545-fbbb02323118</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginated/GetCustomersPaginatedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#48fea747-369c-4879-9545-fbbb02323118</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginated/GetCustomersPaginatedQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1046,24 +1078,24 @@
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#c1524784-cead-4977-9b47-008d8bd0fd4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrdersPaginated/GetOrdersPaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersPaginated/GetOrdersPaginatedQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryHandler#c1524784-cead-4977-9b47-008d8bd0fd4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrdersPaginated/GetOrdersPaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersPaginated/GetOrdersPaginatedQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c1524784-cead-4977-9b47-008d8bd0fd4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrdersPaginated/GetOrdersPaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersPaginated/GetOrdersPaginatedQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1081,6 +1113,14 @@
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/OrderDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5703695e-1e73-4952-aa86-64f42b623a5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/OrderDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
@@ -1473,6 +1513,14 @@
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Users/UserDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#62f3b9c7-b0a2-4d42-9768-0757b3fdfb2f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>

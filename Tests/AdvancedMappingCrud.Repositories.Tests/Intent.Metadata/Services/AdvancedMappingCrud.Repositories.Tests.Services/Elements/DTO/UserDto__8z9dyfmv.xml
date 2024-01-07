@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" type="association" specialization="Generalization Target End" />
           <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" type="association" specialization="Generalization Target End" />
           <target id="ab6fcfec-b889-49fb-a96d-d9a56b230110" name="Name" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -150,7 +150,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+          <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" type="association" specialization="Generalization Target End" />
           <target id="36a7333a-6ce3-4687-8c93-f34cf6ea482b" name="Surname" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="298ff82f-f4a3-47d2-a9f3-6967e6cda112">
-  <sourceEnd id="cfcbea63-475b-461d-8bdd-fdbf99177221" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <display>: FuneralCoverQuote</display>
+<association id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8">
+  <sourceEnd id="6e8a3b50-dc3f-4a34-926e-eddb099bae97" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: User</display>
     <order>0</order>
-    <typeReference id="5ac48df6-c961-465a-a801-3aeaedbfd184">
-      <typeId>029a89c6-9b95-4c63-af26-7bcdfe92e78e</typeId>
+    <typeReference id="9278e7d7-6645-4fda-ba4a-3837539c644d">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,12 +18,11 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>base</name>
-    <display>extends Quote</display>
+  <targetEnd id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <display>extends Person</display>
     <order>0</order>
-    <typeReference id="5d9ac357-5e1c-496f-bfc1-443f58196fe9">
-      <typeId>52aa9e0f-ec4a-4593-8f17-01ab01d64d45</typeId>
+    <typeReference id="b828de46-c412-4ef8-9180-6f6f41ac168f">
+      <typeId>af0ff776-0276-4965-b87f-df90a53a3330</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

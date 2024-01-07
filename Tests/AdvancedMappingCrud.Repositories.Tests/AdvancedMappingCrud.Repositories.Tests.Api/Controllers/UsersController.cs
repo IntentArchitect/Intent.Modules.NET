@@ -4,6 +4,7 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.ResponseTypes;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.Tests.Application.Users;
 using AdvancedMappingCrud.Repositories.Tests.Application.Users.CreateUser;
 using AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUsers;
@@ -49,18 +50,20 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified List&lt;UserDto&gt;.</response>
+        /// <response code="200">Returns the specified PagedResult&lt;UserDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("api/user")]
-        [ProducesResponseType(typeof(List<UserDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PagedResult<UserDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<UserDto>>> GetUsers(
+        public async Task<ActionResult<PagedResult<UserDto>>> GetUsers(
             [FromQuery] string? name,
             [FromQuery] string? surname,
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetUsersQuery(name: name, surname: surname), cancellationToken);
+            var result = await _mediator.Send(new GetUsersQuery(name: name, surname: surname, pageNo: pageNo, pageSize: pageSize), cancellationToken);
             return Ok(result);
         }
     }
