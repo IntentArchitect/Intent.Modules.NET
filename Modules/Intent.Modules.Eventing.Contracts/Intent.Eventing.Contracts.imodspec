@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
-  <version>5.0.1-pre.2</version>
+  <version>5.0.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
@@ -61,8 +61,8 @@
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Modelers.Eventing" version="5.0.1-pre.0" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.1-pre.1" />
+    <dependency id="Intent.Modelers.Eventing" version="5.0.1" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

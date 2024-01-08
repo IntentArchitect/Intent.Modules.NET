@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.0.1-pre.1</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -132,12 +132,12 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.2.1-pre.2" />
+        <package id="Intent.Application.MediatR" version="4.2.1" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.8-pre.0" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.8" />
       </install>
     </detect>
     <detect id="Intent.Entities">
@@ -158,7 +158,7 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.0.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.8" />
-    <dependency id="Intent.Modelers.Domain" version="3.5.1-pre.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>

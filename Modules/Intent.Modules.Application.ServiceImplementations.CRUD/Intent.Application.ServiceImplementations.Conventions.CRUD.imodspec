@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>5.0.1-pre.4</version>
+  <version>5.0.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>CRUD conventions for standard Services</summary>
   <description>CRUD conventions for standard Services</description>
@@ -13,14 +13,14 @@
   <decorators />
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="4.0.2" />
-    <dependency id="Intent.Application.ServiceImplementations" version="4.5.1-pre.0" />
+    <dependency id="Intent.Application.ServiceImplementations" version="4.1.4" />
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.1-pre.8" />
+    <dependency id="Intent.Common.CSharp" version="3.4.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.RDBMS" version="3.5.1" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.5.1-pre.2" />
-    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.1-pre.5" />
+    <dependency id="Intent.Modelers.Services" version="3.5.1" />
+    <dependency id="Intent.Modelers.Services.DomainInteractions" version="1.0.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

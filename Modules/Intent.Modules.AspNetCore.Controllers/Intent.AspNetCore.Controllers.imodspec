@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>6.0.1-pre.0</version>
+  <version>6.0.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -45,7 +45,7 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.2.3-pre.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.2.3" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
@@ -66,8 +66,8 @@
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Metadata.WebApi" version="4.4.1-pre.0" />
-    <dependency id="Intent.Modelers.Services" version="3.5.1-pre.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.4.1" />
+    <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
