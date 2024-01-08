@@ -69,7 +69,7 @@
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.3.41" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Modelers.Services" version="3.4.2" />
+    <dependency id="Intent.Modelers.Services" version="3.5.1-pre.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0" />
   </dependencies>
   <files>

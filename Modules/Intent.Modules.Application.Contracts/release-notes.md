@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Improvement: Making use of more sophisticated resolution systems when generating C# code.
+
 ### Version 5.0.3
 
 - Fixed: Nullability related compiler warnings.
