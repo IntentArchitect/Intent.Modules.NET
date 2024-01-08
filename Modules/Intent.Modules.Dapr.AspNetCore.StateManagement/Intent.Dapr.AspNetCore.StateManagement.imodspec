@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.StateManagement</id>
-  <version>1.2.1-pre.0</version>
+  <version>1.2.1-pre.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Create long running, stateless and stateful services.</summary>
   <description>Create long running, stateless and stateful services.</description>
@@ -96,7 +96,7 @@
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Dapr.AspNetCore" version="1.2.1" />
+    <dependency id="Intent.Dapr.AspNetCore" version="2.0.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.0.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.8" />
     <dependency id="Intent.Modelers.Domain" version="3.4.5" />
