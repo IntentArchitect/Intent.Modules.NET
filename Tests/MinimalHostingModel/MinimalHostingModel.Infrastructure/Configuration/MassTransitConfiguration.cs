@@ -32,6 +32,8 @@ namespace MinimalHostingModel.Infrastructure.Configuration
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
                     cfg.ConfigureEndpoints(context);
                     cfg.UseInMemoryOutbox();
+                    cfg.UsePublishFilter(typeof(FinbucklePublishingFilter<>), context);
+                    cfg.UseConsumeFilter(typeof(FinbuckleConsumingFilter<>), context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

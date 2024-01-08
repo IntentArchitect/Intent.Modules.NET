@@ -52,6 +52,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/MultiTenancyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiTenancyConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
@@ -88,6 +96,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ODataQueryFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/TenantHeaderOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantHeaderOperationFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -707,6 +723,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/appsettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>028e8dc9-58eb-4b9a-8bab-af464754ba4d</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -728,6 +752,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleConsumingFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleMessageHeaderStrategy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbucklePublishingFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbucklePublishingFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -768,6 +816,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DesignTimeDbContextFactory.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

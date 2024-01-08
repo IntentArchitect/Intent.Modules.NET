@@ -43,6 +43,7 @@ try
     builder.Services.ConfigureApiVersioning();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.ConfigureSwagger(builder.Configuration);
+    builder.Services.ConfigureMultiTenancy(builder.Configuration);
 
     // Add services to the container.
 
@@ -53,6 +54,7 @@ try
     app.UseExceptionHandler();
     app.UseHttpsRedirection();
     app.UseRouting();
+    app.UseMultiTenancy();
     app.UseAuthentication();
     app.UseAuthorization();
     app.UseCors();

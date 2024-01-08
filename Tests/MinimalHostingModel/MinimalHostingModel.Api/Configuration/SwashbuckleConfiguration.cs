@@ -45,6 +45,7 @@ namespace MinimalHostingModel.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.OperationFilter<TenantHeaderOperationFilter>();
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

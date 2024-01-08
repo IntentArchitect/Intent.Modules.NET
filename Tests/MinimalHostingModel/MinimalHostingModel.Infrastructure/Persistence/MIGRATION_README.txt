@@ -4,59 +4,61 @@ Package Manager Console (View > Other Windows > Package Manager Console) or usin
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
 
+A separate "appsettings.json" file is used in this project for managing connection strings.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Add-Migration -Name {ChangeName} -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations add {ChangeName} --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef migrations add {ChangeName} --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Remove-Migration -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Remove-Migration -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations remove --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef migrations remove --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Update-Database -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef database update --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -Migration {Target} -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Update-Database -Migration {Target} -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef database update {Target} --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef database update {Target} --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration -Idempotent -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Script-Migration -Idempotent -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script --idempotent --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef migrations script --idempotent --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration {Source} {Target} -StartupProject "MinimalHostingModel.Api" -Project "MinimalHostingModel.Infrastructure"
+Script-Migration {Source} {Target} -Project "MinimalHostingModel.Infrastructure" -Context "ApplicationDbContext"  -- {ConnectionStringName}
 
 CLI:
-dotnet ef migrations script {Source} {Target} --startup-project "MinimalHostingModel.Api" --project "MinimalHostingModel.Infrastructure"
+dotnet ef migrations script {Source} {Target} --project "MinimalHostingModel.Infrastructure" --context "ApplicationDbContext" -- {ConnectionStringName}
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Drop all tables in schema:
