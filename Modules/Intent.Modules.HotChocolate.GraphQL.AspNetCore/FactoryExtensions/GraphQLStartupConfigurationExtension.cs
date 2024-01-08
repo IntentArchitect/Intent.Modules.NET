@@ -28,13 +28,19 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.FactoryExtensions
         {
             var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            template.CSharpFile.AfterBuild(_ =>
+            template.CSharpFile.AfterBuild(_ => 
             {
                 var startup = template.StartupFile;
 
                 startup.AddServiceConfiguration(
                     context => new CSharpInvocationStatement($"{context.Services}.ConfigureGraphQL"),
                     (statement, _) => statement.AddMetadata("configure-services-graphql", true));
+
+            }, 100); 
+
+            template.CSharpFile.AfterBuild(_ =>
+            {
+                var startup = template.StartupFile;
 
                 startup.ConfigureEndpoints((statements, context) =>
                 {
@@ -45,7 +51,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.FactoryExtensions
                 {
                     startup.ConfigureApp((statements, context) =>
                     {
-                        var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
+                        var useRoutingStatement = statements.FindStatement(x => x is not CSharpStatementBlock && x.ToString()!.Contains(".UseRouting()"));
                         if (useRoutingStatement != null)
                         {
                             useRoutingStatement.InsertBelow($"{context.App}.UseWebSockets();");

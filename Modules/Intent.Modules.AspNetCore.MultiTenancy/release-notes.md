@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Fixed: Various hosting registration issues for minimal hosting model.
+
 ### Version 5.1.0
 
 - Improvement: Raises errors when EF model contain `Multi Tenant` stereotypes on composite/owned entities with advice on how to correct the model. 

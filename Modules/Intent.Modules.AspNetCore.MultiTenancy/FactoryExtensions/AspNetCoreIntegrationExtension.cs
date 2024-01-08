@@ -46,12 +46,16 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
         var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-        template?.CSharpFile.AfterBuild(_ =>
+        template?.CSharpFile.OnBuild(_ =>
         {
             template.StartupFile.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureMultiTenancy({ctx.Configuration});");
+        }, 100);
+
+        template?.CSharpFile.AfterBuild(_ =>
+        {
             template.StartupFile.ConfigureApp((statements, ctx) =>
             {
-                var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
+                var useRoutingStatement = statements.FindStatement(x => x is not CSharpStatementBlock && x.ToString()!.Contains(".UseRouting()"));
                 if (useRoutingStatement == null)
                 {
                     throw new("app.UseRouting() was not configured");
