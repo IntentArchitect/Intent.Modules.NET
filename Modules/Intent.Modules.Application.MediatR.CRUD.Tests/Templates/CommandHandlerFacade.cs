@@ -11,6 +11,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Entities.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
@@ -494,7 +496,10 @@ internal class CommandHandlerFacade
 
         if (includeOnAddAssignment)
         {
-            statements.Add($"{repositoryVarName}.OnAdd(ent => added{SingularTargetDomainName} = ent);");
+            var castExpression = _activeTemplate.ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces()
+                ? $"({_activeTemplate.GetTypeName(TemplateRoles.Domain.Entity.Primary, TargetDomainModel)})"
+                : string.Empty;
+            statements.Add($"{repositoryVarName}.OnAdd(ent => added{SingularTargetDomainName} = {castExpression}ent);");
         }
 
         if (HasIdReturnTypeOnCommand())

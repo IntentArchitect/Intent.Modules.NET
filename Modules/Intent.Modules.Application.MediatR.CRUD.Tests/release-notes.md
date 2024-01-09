@@ -1,3 +1,7 @@
+### Version 1.3.4
+
+- Fixed: Having Entity Interfaces enabled would cause code compilation errors.
+
 ### Version 1.3.3
 
 - Improvement: Updated test for Query By Id cases where a nullable object is returned, it shouldn't check for a `NotFoundException` to be thrown but rather to assert that the result is `default`.

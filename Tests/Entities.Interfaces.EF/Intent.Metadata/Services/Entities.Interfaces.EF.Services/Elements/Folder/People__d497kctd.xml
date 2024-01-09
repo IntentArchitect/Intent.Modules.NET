@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a4caa2af-618b-419d-bbd9-325dcba1c819" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>People</name>
+  <display>People</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cfa82cef-62a5-42c2-ada5-f324a4b02c1b</parentFolderId>
+  <packageId>cfa82cef-62a5-42c2-ada5-f324a4b02c1b</packageId>
+  <packageName>Entities.Interfaces.EF.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

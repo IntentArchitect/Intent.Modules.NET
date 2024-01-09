@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities.Interfaces.EF.Application\Entities.Interfaces.EF.Application.csproj" />
+    <ProjectReference Include="..\Entities.Interfaces.EF.Infrastructure\Entities.Interfaces.EF.Infrastructure.csproj" />
+    <ProjectReference Include="..\Entities.Interfaces.EF.Domain\Entities.Interfaces.EF.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+  </Project>
