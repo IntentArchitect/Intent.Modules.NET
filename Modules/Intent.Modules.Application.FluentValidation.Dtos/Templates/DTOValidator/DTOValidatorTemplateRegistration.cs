@@ -41,10 +41,15 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         {
             var commandElements = _metadataManager.Services(application).GetElementsOfType(CommandTypeId);
             var queryElements = _metadataManager.Services(application).GetElementsOfType(QueryTypeId);
+            var dtoFields = commandElements.Union(queryElements)
+                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
+
             var operations = _metadataManager.Services(application).GetServiceModels()
                 .SelectMany(x => x.Operations.Select(o => o.InternalElement));
+            var parameters = operations
+                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == ParameterModel.SpecializationTypeId));
 
-            var referencedElements = DeepGetDistinctReferencedElements(commandElements.Union(queryElements).Union(operations));
+            var referencedElements = DeepGetDistinctReferencedElements(dtoFields.Union(parameters));
             var referencedElementIds = referencedElements.Select(x => x.Id).ToHashSet();
 
             return _metadataManager.Services(application).GetDTOModels()

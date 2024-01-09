@@ -508,14 +508,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#32843436-8834-4567-a73a-8efc74602386</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2282a452-06d4-4fab-bacb-ec2861bb33e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/DeactivateCustomer/DeactivateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -688,14 +680,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/PersonDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/PersonDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9874338b-c127-47bb-bda9-290ef5021e2e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/PersonDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/PersonDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1116,14 +1100,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5703695e-1e73-4952-aa86-64f42b623a5e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/OrderDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrderDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c1143139-94fa-4d3c-96db-f76355cb1ad4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Orders/OrderOrderItemDto.cs</ApplicationRelativeFilePath>
@@ -1216,14 +1192,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Products/ProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/ProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#49a4c237-46c5-4b2f-9ab4-e6e5a75ad37b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1513,14 +1481,6 @@
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Users/UserDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#62f3b9c7-b0a2-4d42-9768-0757b3fdfb2f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>

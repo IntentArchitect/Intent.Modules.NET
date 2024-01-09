@@ -364,14 +364,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#be074957-2839-4681-8436-17dff12563d1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#6c237b10-46e8-46b3-9067-0bfae3f45758</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -676,14 +668,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d0136969-4f0d-4b83-a8b0-9c8e7578a64e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#a888cb11-23fb-4c96-ac3a-79d33339b0bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Invoices/InvoiceInvoiceLineDto.cs</ApplicationRelativeFilePath>
@@ -760,14 +744,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Products/ProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/ProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>21b05f5f-f434-477a-98b4-a911cfead889</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#80ca8299-2395-45f2-888e-5400970b8e4b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

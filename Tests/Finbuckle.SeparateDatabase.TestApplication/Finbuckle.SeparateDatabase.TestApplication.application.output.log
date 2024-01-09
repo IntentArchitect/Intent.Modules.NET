@@ -252,14 +252,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4856e43-4af7-4f3e-8b8d-607b825a245b</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2c858e1e-459b-4004-acbf-750786391717</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b4856e43-4af7-4f3e-8b8d-607b825a245b</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4a9865c6-c4d2-472b-92da-13b6404a7f05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Application/Users/UserRoleDto.cs</ApplicationRelativeFilePath>
@@ -272,14 +264,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Application/Users/UserRoleDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserRoleDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b4856e43-4af7-4f3e-8b8d-607b825a245b</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4a9865c6-c4d2-472b-92da-13b6404a7f05</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.Application/Users/UserRoleDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserRoleDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

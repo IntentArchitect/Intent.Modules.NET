@@ -1100,14 +1100,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomains/SampleDomainDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f784648e-ac13-4e81-a272-4e7c783a498e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleDomainUpdateDtoValidator.cs</ApplicationRelativeFilePath>

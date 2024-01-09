@@ -300,14 +300,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a9f819a1-bd04-4406-91d1-59cfb2b3c57f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Application/Clients/ClientDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Clients/ClientDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#0a48e0e7-cbd4-49cc-a052-c3e0a2ec6072</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Application/Clients/CreateClient/CreateClientCommand.cs</ApplicationRelativeFilePath>

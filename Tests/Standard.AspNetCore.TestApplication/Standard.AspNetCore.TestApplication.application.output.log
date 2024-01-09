@@ -548,14 +548,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f4c37d49-8f76-4d39-a333-109b93d536a4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
@@ -624,14 +616,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Validation/ValidationDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Validation/ValidationDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

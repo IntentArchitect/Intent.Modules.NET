@@ -460,14 +460,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#7d7e6630-73d5-4352-8825-6f219f34987f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CustomerDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2b391219-1a2a-4f12-8db8-727f546537bc</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e24b9578-de20-41b6-a64a-8489eaf84d0b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerUpdateDtoValidator.cs</ApplicationRelativeFilePath>

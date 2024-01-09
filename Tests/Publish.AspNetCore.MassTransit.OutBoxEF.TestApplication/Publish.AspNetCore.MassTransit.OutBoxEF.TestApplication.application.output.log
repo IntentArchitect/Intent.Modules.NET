@@ -332,14 +332,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d64fa423-6444-4fc0-adc4-f08e3da9ec50</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ced362ed-87a0-4d7c-b118-821aafea5933</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserUpdateDto.cs</ApplicationRelativeFilePath>

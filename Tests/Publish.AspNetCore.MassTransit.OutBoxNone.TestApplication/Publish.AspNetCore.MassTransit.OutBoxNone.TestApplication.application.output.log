@@ -300,14 +300,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#304775d7-c50d-459a-8f23-0b1c97612db9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/RoleDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4f9ce099-b23f-4963-b721-1ae444722c36</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDto.cs</ApplicationRelativeFilePath>
