@@ -55,7 +55,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             template.StartupFile.ConfigureApp((statements, ctx) =>
             {
-                var useRoutingStatement = statements.FindStatement(x => x is not CSharpStatementBlock && x.ToString()!.Contains(".UseRouting()"));
+                var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
                 if (useRoutingStatement == null)
                 {
                     throw new("app.UseRouting() was not configured");
