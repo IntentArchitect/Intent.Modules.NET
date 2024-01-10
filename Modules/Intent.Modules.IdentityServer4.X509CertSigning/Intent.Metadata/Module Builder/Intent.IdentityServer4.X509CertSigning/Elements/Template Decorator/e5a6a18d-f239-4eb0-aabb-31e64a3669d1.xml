@@ -3,7 +3,6 @@
   <name>X509CertSigningIdentityConfigurationDecorator</name>
   <display>X509CertSigningIdentityConfigurationDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="82ba9be5-63c4-4fc5-a0b9-3fd74c8079c2">
     <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>

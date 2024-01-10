@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Improvement: Updated to be compatible with latest Intent Architect Modules.
+
 ### Version 4.0.6
 
 - Improvement: Updated to be compatible with .NET 8.

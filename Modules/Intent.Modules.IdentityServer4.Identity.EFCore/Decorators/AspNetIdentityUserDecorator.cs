@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.IdentityServer4.Identity.EFCore.FactoryExtensions;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
 

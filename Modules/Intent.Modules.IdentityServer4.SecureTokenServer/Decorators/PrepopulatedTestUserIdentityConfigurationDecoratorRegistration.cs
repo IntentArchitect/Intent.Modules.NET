@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
     [Description(PrepopulatedTestUserIdentityConfigurationDecorator.DecoratorId)]
     public class PrepopulatedTestUserIdentityConfigurationDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
             return new PrepopulatedTestUserIdentityConfigurationDecorator(template, application);

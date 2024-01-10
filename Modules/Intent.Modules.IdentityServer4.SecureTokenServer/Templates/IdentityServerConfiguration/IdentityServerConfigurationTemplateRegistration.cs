@@ -18,6 +18,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentitySer
     {
         public override string TemplateId => IdentityServerConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new IdentityServerConfigurationTemplate(outputTarget);

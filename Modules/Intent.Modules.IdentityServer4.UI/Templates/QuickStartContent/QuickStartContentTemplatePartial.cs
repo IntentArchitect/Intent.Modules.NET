@@ -47,6 +47,7 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
             );
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
             return _zipEntry.Content;

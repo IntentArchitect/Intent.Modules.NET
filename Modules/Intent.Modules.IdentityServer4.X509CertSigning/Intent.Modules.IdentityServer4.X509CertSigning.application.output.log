@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#9077e920-9e84-4b01-98fe-c71dd2d25010</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/X509CertSigningAppSettingsDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>X509CertSigningAppSettingsDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#9077e920-9e84-4b01-98fe-c71dd2d25010</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/X509CertSigningAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>X509CertSigningAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e5a6a18d-f239-4eb0-aabb-31e64a3669d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/X509CertSigningIdentityConfigurationDecorator.cs</ApplicationRelativeFilePath>
@@ -51,17 +35,9 @@
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a664fd66-4b59-4477-8849-444c4e4dac33</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.X509CertSigning.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.X509CertSigning.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

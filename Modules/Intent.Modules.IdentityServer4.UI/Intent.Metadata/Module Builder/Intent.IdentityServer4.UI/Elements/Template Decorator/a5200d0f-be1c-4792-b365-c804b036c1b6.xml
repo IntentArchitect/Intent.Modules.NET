@@ -3,7 +3,6 @@
   <name>ExternalTestStoreDecorator</name>
   <display>ExternalTestStoreDecorator: ExternalAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <typeReference id="3a225601-c0d8-4f1a-84d5-c32198bee5fd">
     <typeId>cfb67386-2b94-40e7-b2e9-fa47a2148d35</typeId>

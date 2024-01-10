@@ -3,7 +3,7 @@
   <name>AccountController</name>
   <display>AccountController: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="c5c8fe1a-7272-42ef-99de-747acb638622">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

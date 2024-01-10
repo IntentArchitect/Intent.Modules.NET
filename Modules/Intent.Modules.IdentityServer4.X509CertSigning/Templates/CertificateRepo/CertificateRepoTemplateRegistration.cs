@@ -18,9 +18,10 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
     {
         public override string TemplateId => CertificateRepoTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new CertificateRepoTemplate(outputTarget, null);
+            return new CertificateRepoTemplate(outputTarget);
         }
     }
 }

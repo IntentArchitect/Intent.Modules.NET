@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
     [Description(ExternalTestStoreDecorator.DecoratorId)]
     public class ExternalTestStoreDecoratorRegistration : DecoratorRegistration<ExternalControllerTemplate, ExternalAuthProviderDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override ExternalAuthProviderDecorator CreateDecoratorInstance(ExternalControllerTemplate template, IApplication application)
         {
             return new ExternalTestStoreDecorator(template, application);

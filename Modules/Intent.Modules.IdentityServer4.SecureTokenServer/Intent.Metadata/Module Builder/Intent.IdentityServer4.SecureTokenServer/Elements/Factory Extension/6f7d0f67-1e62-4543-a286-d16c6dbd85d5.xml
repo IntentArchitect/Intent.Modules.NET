@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6f7d0f67-1e62-4543-a286-d16c6dbd85d5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IdentityConfigurationAppSettingsExtension</name>
+  <display>IdentityConfigurationAppSettingsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dbcde434-4411-479b-8374-34cb11190cf1</parentFolderId>
+  <packageId>dbcde434-4411-479b-8374-34cb11190cf1</packageId>
+  <packageName>Intent.IdentityServer4.SecureTokenServer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

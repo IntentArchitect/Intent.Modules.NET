@@ -3,7 +3,6 @@
   <name>AccountTestStoreDecorator</name>
   <display>AccountTestStoreDecorator: AccountAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="b5a1e36d-674d-4921-ac0c-8d51a40c749f">
     <typeId>cddac3d6-bb33-4fbd-8a21-00e4fd833225</typeId>

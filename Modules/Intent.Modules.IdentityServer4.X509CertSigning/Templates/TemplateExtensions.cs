@@ -10,7 +10,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCertificateRepoName<T>(this IntentTemplateBase<T> template)
+        public static string GetCertificateRepoName(this IIntentTemplate template)
         {
             return template.GetTypeName(CertificateRepoTemplate.TemplateId);
         }

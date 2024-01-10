@@ -18,6 +18,7 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.Controllers.ExternalContro
     {
         public override string TemplateId => ExternalControllerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ExternalControllerTemplate(outputTarget);

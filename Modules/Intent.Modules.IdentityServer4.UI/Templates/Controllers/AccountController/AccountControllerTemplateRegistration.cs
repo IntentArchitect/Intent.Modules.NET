@@ -18,6 +18,7 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.Controllers.AccountControl
     {
         public override string TemplateId => AccountControllerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AccountControllerTemplate(outputTarget);

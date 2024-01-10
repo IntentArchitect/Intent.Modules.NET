@@ -3,7 +3,6 @@
   <name>AccountAuthProviderDecorator</name>
   <display>AccountAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>62c7762a-3091-4e29-bb21-bfea845ef51d</parentFolderId>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="026a7815-f19d-45f3-9971-b24e6efed46e" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IdentityServerStartupExtension</name>
+  <display>IdentityServerStartupExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dbcde434-4411-479b-8374-34cb11190cf1</parentFolderId>
+  <packageId>dbcde434-4411-479b-8374-34cb11190cf1</packageId>
+  <packageName>Intent.IdentityServer4.SecureTokenServer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

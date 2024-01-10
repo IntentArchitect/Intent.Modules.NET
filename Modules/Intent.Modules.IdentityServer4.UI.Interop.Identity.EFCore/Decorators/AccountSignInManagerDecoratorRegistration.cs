@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
     [Description(AccountSignInManagerDecorator.DecoratorId)]
     public class AccountSignInManagerDecoratorRegistration : DecoratorRegistration<AccountControllerTemplate, AccountAuthProviderDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override AccountAuthProviderDecorator CreateDecoratorInstance(AccountControllerTemplate template, IApplication application)
         {
             return new AccountSignInManagerDecorator(template, application);

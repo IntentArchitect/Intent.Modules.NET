@@ -34,22 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#589e9d0d-5459-4b1b-b435-a8ece676b1ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/IdentityDbContextDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityDbContextDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#589e9d0d-5459-4b1b-b435-a8ece676b1ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/IdentityDbContextDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6e4ab589-36f5-42ff-b02f-814441137fc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/IdentityUserDecorator.cs</ApplicationRelativeFilePath>
@@ -65,19 +49,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#3f299ed0-f171-4588-af30-77371a8d7437</CorrelationId>
+      <ProjectId>0057c8ee-7417-4288-9357-bab62c19d060</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#566fa121-2bd7-4899-b24d-fbaeed4dbe41</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PrepopulatedUsersConfigurationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PrepopulatedUsersConfigurationDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/IdentityDbContextExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityDbContextExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#3f299ed0-f171-4588-af30-77371a8d7437</CorrelationId>
+      <ProjectId>0057c8ee-7417-4288-9357-bab62c19d060</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#99db300c-dc7d-453f-b220-473de791c3f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PrepopulatedUsersConfigurationDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PrepopulatedUsersConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/PrepopulatedUsersConfigurationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrepopulatedUsersConfigurationExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -91,17 +75,9 @@
     <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#ef2b4d6c-38f2-4376-8ade-d209767821c6</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.Identity.EFCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.Identity.EFCore.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -13,6 +13,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
     [Description(AspNetIdentityUserDecorator.DecoratorId)]
     public class AspNetIdentityUserDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
             return new AspNetIdentityUserDecorator(template, application);

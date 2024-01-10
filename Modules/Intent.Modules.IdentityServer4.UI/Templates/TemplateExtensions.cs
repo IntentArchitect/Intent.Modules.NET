@@ -11,12 +11,12 @@ namespace Intent.Modules.IdentityServer4.UI.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAccountControllerName<T>(this IntentTemplateBase<T> template)
+        public static string GetAccountControllerName(this IIntentTemplate template)
         {
             return template.GetTypeName(AccountControllerTemplate.TemplateId);
         }
 
-        public static string GetExternalControllerName<T>(this IntentTemplateBase<T> template)
+        public static string GetExternalControllerName(this IIntentTemplate template)
         {
             return template.GetTypeName(ExternalControllerTemplate.TemplateId);
         }

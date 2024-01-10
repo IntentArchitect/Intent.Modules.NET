@@ -3,7 +3,6 @@
   <name>AccountSignInManagerDecorator</name>
   <display>AccountSignInManagerDecorator: AccountAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="c6a30c47-d052-4649-b2cc-e2214ebc9dfd">
     <typeId>cddac3d6-bb33-4fbd-8a21-00e4fd833225</typeId>

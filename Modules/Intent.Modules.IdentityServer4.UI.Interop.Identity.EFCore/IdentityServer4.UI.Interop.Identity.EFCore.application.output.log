@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#712bc34d-9b9a-477f-9f97-8b10b32b5349</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8b44873b-3e52-41f4-afff-c07cb79f9b13</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#549d231d-6168-4c8a-bcb2-ff7752ffe263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AccountSignInManagerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountSignInManagerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>8b44873b-3e52-41f4-afff-c07cb79f9b13</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#549d231d-6168-4c8a-bcb2-ff7752ffe263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AccountSignInManagerDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountSignInManagerDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>8b44873b-3e52-41f4-afff-c07cb79f9b13</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6c00f196-4c16-4f06-8203-7baf9198f454</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ExternalSignInManagerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExternalSignInManagerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>8b44873b-3e52-41f4-afff-c07cb79f9b13</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#6c00f196-4c16-4f06-8203-7baf9198f454</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ExternalSignInManagerDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExternalSignInManagerDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>6289a1b3-7e43-4c1a-9472-c9e8703d41e7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.UI.Interop.Identity.EFCore.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.UI.Interop.Identity.EFCore.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,15 +51,9 @@
     <FileLog>
       <ProjectId>6289a1b3-7e43-4c1a-9472-c9e8703d41e7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#6289a1b3-7e43-4c1a-9472-c9e8703d41e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6289a1b3-7e43-4c1a-9472-c9e8703d41e7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

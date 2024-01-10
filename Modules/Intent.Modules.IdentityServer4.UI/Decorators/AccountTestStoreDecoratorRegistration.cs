@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
     [Description(AccountTestStoreDecorator.DecoratorId)]
     public class AccountTestStoreDecoratorRegistration : DecoratorRegistration<AccountControllerTemplate, AccountAuthProviderDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override AccountAuthProviderDecorator CreateDecoratorInstance(AccountControllerTemplate template, IApplication application)
         {
             return new AccountTestStoreDecorator(template, application);

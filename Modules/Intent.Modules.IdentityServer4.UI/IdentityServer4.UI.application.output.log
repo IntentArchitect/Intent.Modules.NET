@@ -41,59 +41,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MVCControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MVCControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MVCControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MVCControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#f3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/RazorPageControllerStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorPageControllerStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#f3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/RazorPageControllerStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorPageControllerStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StaticFilesStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StaticFilesStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StaticFilesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StaticFilesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c2836371-2d1f-4565-ae1a-a29c6c999789</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/IdentityServerQuickstartExtractorFactoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerQuickstartExtractorFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#964ecdf0-eef5-4e14-aa17-40534db403ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MVCControllerEndpointStartupExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MVCControllerEndpointStartupExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#117909bc-e603-4145-b9b5-90a34ba4b8da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/RazorPageControllerStartupExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RazorPageControllerStartupExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b04a03ff-0d89-4420-938b-ef8113fd4e3b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/StaticFilesStartupExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StaticFilesStartupExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -107,17 +83,9 @@
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#ba65ea8f-9c7c-4acc-bb47-4e80763dc120</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.UI.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

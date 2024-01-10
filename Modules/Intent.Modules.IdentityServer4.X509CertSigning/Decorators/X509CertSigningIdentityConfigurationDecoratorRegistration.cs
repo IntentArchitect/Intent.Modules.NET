@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
     [Description(X509CertSigningIdentityConfigurationDecorator.DecoratorId)]
     public class X509CertSigningIdentityConfigurationDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
             return new X509CertSigningIdentityConfigurationDecorator(template, application);

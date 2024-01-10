@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b04a03ff-0d89-4420-938b-ef8113fd4e3b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>StaticFilesStartupExtension</name>
+  <display>StaticFilesStartupExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cd56af70-eebc-4a8c-9a59-65b917e4e434</parentFolderId>
+  <packageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</packageId>
+  <packageName>Intent.IdentityServer4.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

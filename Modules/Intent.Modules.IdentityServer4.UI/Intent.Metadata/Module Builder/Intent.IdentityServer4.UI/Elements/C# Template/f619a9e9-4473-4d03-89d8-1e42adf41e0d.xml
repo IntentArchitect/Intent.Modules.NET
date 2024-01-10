@@ -3,7 +3,7 @@
   <name>ExternalController</name>
   <display>ExternalController: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="cf9d9174-f059-4c86-a376-343ba90fbc03">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

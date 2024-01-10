@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
-  <version>4.0.4</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.1.0-pre.0</version>
+  <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>The main module responsible for IdentityServer4 hosting</summary>
   <description>The main module responsible for IdentityServer4 hosting</description>
@@ -20,16 +20,13 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator" externalReference="af8b9891-e035-439d-b11b-3c4c8f155836" />
-    <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityServerStartupDecorator" externalReference="34dde606-0f40-4dea-b47e-1aef9ccc48dd" />
     <decorator id="Intent.IdentityServer4.SecureTokenServer.PrepopulatedTestUserIdentityConfigurationDecorator" externalReference="0d7e806a-7048-454f-aba3-33cfff1582c3" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="4.0.2" />
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.25" />
   </dependencies>
   <interoperability></interoperability>
@@ -52,4 +49,8 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsExtension" externalReference="6f7d0f67-1e62-4543-a286-d16c6dbd85d5" />
+    <factoryExtension id="Intent.IdentityServer4.SecureTokenServer.IdentityServerStartupExtension" externalReference="026a7815-f19d-45f3-9971-b24e6efed46e" />
+  </factoryExtensions>
 </package>

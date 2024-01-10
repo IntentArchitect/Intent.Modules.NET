@@ -52,7 +52,8 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
             Path.Combine(ResourceHelper.QuickstartFileName, "README.md").Replace("\\", "/")
         };
 
-        public void DoRegistration(ITemplateInstanceRegistry registery, IApplication applicationManager)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
             ResourceHelper.ReadQuickstartFileContents(archive =>
             {
@@ -60,7 +61,7 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
                 {
                     if (FilesToIgnore.Contains(entry.FullName)) { continue; }
 
-                    registery.Register(TemplateId, project => new QuickStartContentTemplate(project, new ZipEntry
+                    registry.RegisterTemplate(TemplateId, project => new QuickStartContentTemplate(project, new ZipEntry
                     {
                         FullFileNamePath = entry.FullName
                             .Replace(ResourceHelper.QuickstartFileName + "/", string.Empty)

@@ -3,7 +3,6 @@
   <name>ExternalSignInManagerDecorator</name>
   <display>ExternalSignInManagerDecorator: ExternalAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="928926ac-115c-46da-acde-830354ff3771">
     <typeId>cfb67386-2b94-40e7-b2e9-fa47a2148d35</typeId>

@@ -12,6 +12,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
     [Description(ExternalSignInManagerDecorator.DecoratorId)]
     public class ExternalSignInManagerDecoratorRegistration : DecoratorRegistration<ExternalControllerTemplate, ExternalAuthProviderDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override ExternalAuthProviderDecorator CreateDecoratorInstance(ExternalControllerTemplate template, IApplication application)
         {
             return new ExternalSignInManagerDecorator(template, application);

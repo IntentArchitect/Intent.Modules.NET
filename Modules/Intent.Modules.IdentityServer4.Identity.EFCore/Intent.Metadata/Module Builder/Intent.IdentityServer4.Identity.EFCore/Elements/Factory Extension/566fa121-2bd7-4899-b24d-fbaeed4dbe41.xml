@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="566fa121-2bd7-4899-b24d-fbaeed4dbe41" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IdentityDbContextExtension</name>
+  <display>IdentityDbContextExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1594b654-0151-4686-8e52-05efce0e3522</parentFolderId>
+  <packageId>1594b654-0151-4686-8e52-05efce0e3522</packageId>
+  <packageName>Intent.IdentityServer4.Identity.EFCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

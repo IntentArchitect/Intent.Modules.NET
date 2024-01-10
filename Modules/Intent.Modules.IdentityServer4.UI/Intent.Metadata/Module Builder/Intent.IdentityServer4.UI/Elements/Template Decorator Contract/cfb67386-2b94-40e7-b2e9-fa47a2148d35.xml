@@ -3,7 +3,6 @@
   <name>ExternalAuthProviderDecorator</name>
   <display>ExternalAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f619a9e9-4473-4d03-89d8-1e42adf41e0d</parentFolderId>

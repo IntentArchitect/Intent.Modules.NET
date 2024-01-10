@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="117909bc-e603-4145-b9b5-90a34ba4b8da" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>RazorPageControllerStartupExtension</name>
+  <display>RazorPageControllerStartupExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cd56af70-eebc-4a8c-9a59-65b917e4e434</parentFolderId>
+  <packageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</packageId>
+  <packageName>Intent.IdentityServer4.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

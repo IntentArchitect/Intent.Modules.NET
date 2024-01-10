@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -30,5 +31,18 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            this.ApplyAppSetting("CertificateOptions", new
+            {
+                Store = new
+                {
+                    FindType = "FindBySubjectName",
+                    FindValue = "localhost",
+                    StoreName = "My",
+                    StoreLocation = "LocalMachine"
+                }
+            });
+        }
     }
 }

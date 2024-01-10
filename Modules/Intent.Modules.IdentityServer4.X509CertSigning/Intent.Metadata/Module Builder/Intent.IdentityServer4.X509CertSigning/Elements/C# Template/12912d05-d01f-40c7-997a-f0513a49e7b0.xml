@@ -3,7 +3,6 @@
   <name>CertificateRepo</name>
   <display>CertificateRepo: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="6e45c0ae-1b0a-4a98-abd4-3b3bb6a64d9e">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

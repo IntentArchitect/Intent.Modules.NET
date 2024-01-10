@@ -10,7 +10,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetIdentityServerConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetIdentityServerConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(IdentityServerConfigurationTemplate.TemplateId);
         }
