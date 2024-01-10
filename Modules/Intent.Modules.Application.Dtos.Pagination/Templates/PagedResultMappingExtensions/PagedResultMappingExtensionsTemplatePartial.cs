@@ -43,14 +43,18 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             return GetTypeName(Roles.Domain.EntityInterface, dto.Mapping.ElementId);
         }
 
-        private string GetPagedResultInterfaceName()
+        private string GetPagedListInterfaceName()
         {
-            return GetTypeName(Roles.Repository.InterfacePagedResult);
+            return TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name) ? name
+                : TryGetTypeName(TemplateRoles.Repository.Interface.PagedResult, out name) ? name // for backward compatibility
+                : TryGetTypeName(TemplateRoles.Application.Common.PagedList, out name) ? name
+                : TryGetTypeName(TemplateRoles.Infrastructure.Data.PagedList, out name) ? name // for backward compatibility
+                : null;
         }
 
         public override bool CanRunTemplate()
         {
-            return TryGetTemplate<ITemplate>(Roles.Repository.InterfacePagedResult, out _);
+            return !string.IsNullOrWhiteSpace(GetPagedListInterfaceName());
         }
     }
 }

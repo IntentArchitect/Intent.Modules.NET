@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -43,6 +43,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RepositoryInterfaceTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\PagedListInterface\PagedListInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PagedListInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>RepositoryInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PagedListInterface\PagedListInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagedListInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

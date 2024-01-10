@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface
+namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface
 {
     using Intent.Modules.Common.CSharp.Templates;
     using System;
@@ -16,9 +16,9 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class PagedResultInterfaceTemplate : CSharpTemplateBase<object>
+    public partial class PagedListInterfaceTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -29,7 +29,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
             this.Write("using System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]" +
                     "\r\n\r\nnamespace ");
             
-            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -45,14 +45,13 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
     /// <typeparam name=""T"">Type of elements</typeparam>
     public interface ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("<out T> : IEnumerable<T>\r\n    {\r\n        int TotalCount { get;  }\r\n        int Pa" +
-                    "geCount { get; }\r\n        int PageNo { get; }\r\n        int PageSize { get; }\r\n  " +
-                    "  }\r\n}\r\n");
+            this.Write("<T> : IList<T>\r\n    {\r\n        int TotalCount { get;  }\r\n        int PageCount { " +
+                    "get; }\r\n        int PageNo { get; }\r\n        int PageSize { get; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

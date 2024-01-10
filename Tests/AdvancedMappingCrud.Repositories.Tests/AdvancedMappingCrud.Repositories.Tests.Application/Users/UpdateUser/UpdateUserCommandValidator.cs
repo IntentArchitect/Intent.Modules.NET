@@ -24,6 +24,12 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.UpdateUser
 
             RuleFor(v => v.Surname)
                 .NotNull();
+
+            RuleFor(v => v.Line1)
+                .NotNull();
+
+            RuleFor(v => v.Line2)
+                .NotNull();
         }
     }
 }

@@ -1,12 +1,10 @@
-<#@ template  debug="true"  inherits="CSharpTemplateBase<object>" #>
-<#@ output extension=".cs" #>
-<#@ Assembly Name="System.Core" #>
-<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 using System.Collections.Generic;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.PagedListInterface", Version = "1.0")]
 
-namespace <#= Namespace #>
+namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
 {
     /// <summary>
     /// Instead of retrieving the entire collection of elements from
@@ -15,9 +13,9 @@ namespace <#= Namespace #>
     /// will return a different "page" of elements. 
     /// </summary>
     /// <typeparam name="T">Type of elements</typeparam>
-    public interface <#= ClassName #><out T> : IEnumerable<T>
+    public interface IPagedList<T> : IList<T>
     {
-        int TotalCount { get;  }
+        int TotalCount { get; }
         int PageCount { get; }
         int PageNo { get; }
         int PageSize { get; }

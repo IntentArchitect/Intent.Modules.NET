@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Exceptions;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -35,6 +36,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.UpdateUser
             user.Name = request.Name;
             user.Surname = request.Surname;
             user.QuoteId = request.QuoteId;
+            user.DefaultDeliveryAddress.Line1 = request.Line1;
+            user.DefaultDeliveryAddress.Line2 = request.Line2;
+            user.DefaultBillingAddress ??= new UserDefaultAddress();
+            user.DefaultBillingAddress.Line1 = request.Line1;
+            user.DefaultBillingAddress.Line2 = request.Line2;
         }
     }
 }

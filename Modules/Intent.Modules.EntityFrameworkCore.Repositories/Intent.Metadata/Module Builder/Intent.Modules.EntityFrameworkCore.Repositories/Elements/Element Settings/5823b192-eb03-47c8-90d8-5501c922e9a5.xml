@@ -4,6 +4,7 @@
   <display>Stored Procedure Parameter</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>575edd35-9438-406d-b0a7-b99d6f29b560</parentFolderId>

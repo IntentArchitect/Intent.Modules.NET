@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AutoMapper;
@@ -82,34 +83,34 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await QueryInternal(filterExpression, queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(x => true);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -117,7 +118,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -157,14 +158,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await QueryInternal(queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -239,7 +240,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await projection.ToListAsync(cancellationToken);
         }
 
-        public async Task<IPagedResult<TProjection>> FindAllProjectToAsync<TProjection>(
+        public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
@@ -247,7 +248,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
         {
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await PagedList<TProjection>.CreateAsync(
+            return await ToPagedListAsync(
                 projection,
                 pageNo,
                 pageSize,
@@ -261,6 +262,22 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        private static async Task<IPagedList<T>> ToPagedListAsync<T>(
+            IQueryable<T> queryable,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var count = await queryable.CountAsync(cancellationToken);
+            var skip = ((pageNo - 1) * pageSize);
+
+            var results = await queryable
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+            return new PagedList<T>(count, pageNo, pageSize, results);
         }
     }
 }

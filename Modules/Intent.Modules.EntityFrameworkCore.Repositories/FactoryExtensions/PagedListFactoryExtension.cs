@@ -28,52 +28,54 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Repository.PagedList)).ToArray();
-            if (!templates.Any())
-            {
-                return;
-            }
-            var template = templates.Single(); // Registration should guarantee one template instance
-            template.CSharpFile.AfterBuild(file =>
-            {
-                file.AddUsing("Microsoft.EntityFrameworkCore");
-                var @class = file.Classes.First();
-                var T = @class.GenericParameters.First();
-                var pagedResultInterfaceName = template.GetTypeName(PagedResultInterfaceTemplate.TemplateId);
-                @class.AddMethod($"Task<{pagedResultInterfaceName}<{T}>>", "CreateAsync", method =>
-                {
-                    method.Static();
-                    method.Async();
-                    method.AddParameter($"IQueryable<{T}>", "source")
-                        .AddParameter("int", "pageNo")
-                        .AddParameter("int", "pageSize")
-                        .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
-                    method.AddStatement("var count = await source.CountAsync(cancellationToken);");
-                    method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
-                    method.AddStatement(new CSharpMethodChainStatement("var results = await source")
-                        .AddChainStatement("Skip(skip)")
-                        .AddChainStatement("Take(pageSize)")
-                        .AddChainStatement("ToListAsync(cancellationToken)"));
-                    method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
-                });
-                if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
-                {
-                    @class.AddMethod($"{pagedResultInterfaceName}<{T}>", "Create", method =>
-                    {
-                        method.Static();
-                        method.AddParameter($"IQueryable<{T}>", "source")
-                            .AddParameter("int", "pageNo")
-                            .AddParameter("int", "pageSize");
-                        method.AddStatement("var count = source.Count();");
-                        method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
-                        method.AddStatement(new CSharpMethodChainStatement("var results = source")
-                            .AddChainStatement("Skip(skip)")
-                            .AddChainStatement("Take(pageSize)")
-                            .AddChainStatement("ToList()"));
-                        method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
-                    });
-                }
-            });
+            //var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Common.PagedList)).ToArray();
+            //if (!templates.Any())
+            //{
+            //    return;
+            //}
+            //var template = templates.Single(); // Registration should guarantee one template instance
+            //template.CSharpFile.AfterBuild(file =>
+            //{
+            //    //file.AddUsing("Microsoft.EntityFrameworkCore");
+            //    var @class = file.Classes.First();
+            //    var T = @class.GenericParameters.First();
+            //    var pagedResultInterfaceName = template.GetTypeName(TemplateRoles.Repository.Interface.PagedList);
+            //    // This has been moved to to the actual template itself:
+            //    @class.AddMethod($"Task<{pagedResultInterfaceName}<{T}>>", "CreateAsync", method =>
+            //    {
+            //        method.Static();
+            //        method.Async();
+            //        method.AddParameter($"IQueryable<{T}>", "source")
+            //            .AddParameter("int", "pageNo")
+            //            .AddParameter("int", "pageSize")
+            //            .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
+            //        method.AddStatement("var count = await source.CountAsync(cancellationToken);");
+            //        method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+            //        method.AddStatement(new CSharpMethodChainStatement("var results = await source")
+            //            .AddChainStatement("Skip(skip)")
+            //            .AddChainStatement("Take(pageSize)")
+            //            .AddChainStatement("ToListAsync(cancellationToken)"));
+            //        method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
+            //    });
+            //    // This has not been moved to to the actual template itself because it requires this setting (consider changing this):
+            //    if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
+            //    {
+            //        @class.AddMethod($"{pagedResultInterfaceName}<{T}>", "Create", method =>
+            //        {
+            //            method.Static();
+            //            method.AddParameter($"IQueryable<{T}>", "source")
+            //                .AddParameter("int", "pageNo")
+            //                .AddParameter("int", "pageSize");
+            //            method.AddStatement("var count = source.Count();");
+            //            method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+            //            method.AddStatement(new CSharpMethodChainStatement("var results = source")
+            //                .AddChainStatement("Skip(skip)")
+            //                .AddChainStatement("Take(pageSize)")
+            //                .AddChainStatement("ToList()"));
+            //            method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
+            //        });
+            //    }
+            //});
         }
     }
 }

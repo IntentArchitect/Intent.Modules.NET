@@ -3,6 +3,7 @@
   <name>Exceptions</name>
   <display>Exceptions</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>775f4876-d6ec-44d5-b2fc-0a824c36971d</parentFolderId>
@@ -28,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>101b202e-be9e-416c-9af1-655cb41bd671</parentFolderId>
+      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

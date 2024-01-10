@@ -284,10 +284,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>f94963d4-0562-4980-a2ef-7f7d5e5e06ea</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f94963d4-0562-4980-a2ef-7f7d5e5e06ea</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f94963d4-0562-4980-a2ef-7f7d5e5e06ea</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -828,6 +844,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginated/GetProductsPaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginated/GetProductsPaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginated/GetProductsPaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginated/GetProductsPaginatedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginated/GetProductsPaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginated/GetProductsPaginatedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#192e0e88-66c0-4da7-8434-700e3006d32b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#192e0e88-66c0-4da7-8434-700e3006d32b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#192e0e88-66c0-4da7-8434-700e3006d32b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByName/GetProductsPaginatedByNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDto.cs</ApplicationRelativeFilePath>
@@ -840,6 +904,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/ProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

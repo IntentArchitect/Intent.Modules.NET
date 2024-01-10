@@ -353,16 +353,15 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"Where");
+        var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
         if (expression != null)
         {
-            invocation.AddArgument(expression);
+            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Where"))
+                .AddArgument(expression)
+                .WithoutSemicolon());
         }
 
-        return new CSharpMethodChainStatement(invocation.ToString())
-            .AddChainStatement($"Skip({pageNo})")
-            .AddChainStatement($"Take({pageNo})")
-            .AddChainStatement($"ToListAsync(cancellationToken)");
+        return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
     }
 }
 

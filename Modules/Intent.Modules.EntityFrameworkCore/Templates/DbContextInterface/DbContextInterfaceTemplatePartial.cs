@@ -50,7 +50,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             return base.CanRunTemplate() && IsEnabled;
         }
 
-        public bool IsEnabled => ExecutionContext.Settings.GetDatabaseSettings().GenerateDbContextInterface() 
+        public bool IsEnabled => ExecutionContext.Settings.GetDatabaseSettings().GenerateDbContextInterface()
                                  || !TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
         [IntentManaged(Mode.Fully)]

@@ -50,9 +50,9 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write(@"
     {
         /// <summary>
-        /// Maps a page of Domain elements into a page of DTO elements. See <see cref=""IPagedResult{T}""/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref=""IpagedList{T}""/>. 
         /// </summary>
-        /// <param name=""pagedResult"">A single page retrieved from a persistence store.</param>
+        /// <param name=""pagedList"">A single page retrieved from a persistence store.</param>
         /// <param name=""mapFunc"">
         /// Provide a mapping function where a single Domain element is supplied to the function
         /// that returns a single DTO element. There are some convenient mapping extension methods
@@ -73,12 +73,12 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write("<TDto> MapToPagedResult<TDomain, TDto>(this ");
             
             #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedResultInterfaceName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
             
             #line default
             #line hidden
-            this.Write("<TDomain> pagedResult, Func<TDomain, TDto> mapFunc)\r\n        { \r\n            var " +
-                    "data = pagedResult.Select(mapFunc).ToList();\r\n\r\n            return ");
+            this.Write("<TDomain> pagedList, Func<TDomain, TDto> mapFunc)\r\n        { \r\n            var da" +
+                    "ta = pagedList.Select(mapFunc).ToList();\r\n\r\n            return ");
             
             #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
@@ -86,10 +86,10 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             #line default
             #line hidden
             this.Write(@"<TDto>.Create(
-                totalCount: pagedResult.TotalCount,
-                pageCount: pagedResult.PageCount,
-                pageSize: pagedResult.PageSize,
-                pageNumber: pagedResult.PageNo,
+                totalCount: pagedList.TotalCount,
+                pageCount: pagedList.PageCount,
+                pageSize: pagedList.PageSize,
+                pageNumber: pagedList.PageNo,
                 data: data);
         }
     }

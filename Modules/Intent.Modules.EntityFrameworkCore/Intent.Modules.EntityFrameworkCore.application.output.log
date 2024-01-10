@@ -234,6 +234,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList/PagedListTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList/PagedListTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

@@ -24,9 +24,4 @@ public static class Roles
     {
         public const string EntityInterface = "Domain.Entity.Interface";
     }
-
-    public static class Repository
-    {
-        public const string InterfacePagedResult = "Repository.Interface.PagedResult";
-    }
 }

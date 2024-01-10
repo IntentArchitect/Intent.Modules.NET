@@ -1,18 +1,18 @@
+using System.Linq;
+using System.Reflection;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
-using System.Linq;
-using Intent.Modules.Common.CSharp.Builder;
-using System.Reflection;
-using Intent.Metadata.Models;
-using Intent.Modules.Common.CSharp.VisualStudio;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

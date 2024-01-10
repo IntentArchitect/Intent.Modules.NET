@@ -21,7 +21,7 @@
   <targetEnd id="ea49dc8c-9a5e-425d-8c10-d16f8bded511" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
     <name>user</name>
     <display>[update] user: User</display>
-    <order>5</order>
+    <order>7</order>
     <typeReference id="9cfcab4e-4416-450b-8bdf-a06dc13d61d3">
       <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
       <isNavigable>true</isNavigable>
@@ -87,6 +87,70 @@
                 <path>
                   <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
                   <target id="da49e54c-8b92-44e3-9fcb-a7f3f5d8f75f" name="QuoteId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="5ff73199-8066-479b-857a-29b5310167e4" name="DefaultBillingAddress" type="association" specialization="Association Target End" />
+              <target id="ab03885d-9ae2-4e58-8c40-1c7fa9561358" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="21986acb-24f3-4854-936e-458287d5fcb3" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="5ff73199-8066-479b-857a-29b5310167e4" name="DefaultBillingAddress" type="association" specialization="Association Target End" />
+              <target id="a9162208-777e-47fb-8fae-8f13ca3497c2" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="47c8ca50-4915-441f-be47-db32027a26ab" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="94eeb9e9-52ec-41f1-b880-66752ee0ff06" name="DefaultDeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="ab03885d-9ae2-4e58-8c40-1c7fa9561358" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="21986acb-24f3-4854-936e-458287d5fcb3" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
+              <target id="94eeb9e9-52ec-41f1-b880-66752ee0ff06" name="DefaultDeliveryAddress" type="association" specialization="Association Target End" />
+              <target id="a9162208-777e-47fb-8fae-8f13ca3497c2" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="81d506a7-4cbd-4dbe-9b50-1ba83f4a09d1" name="UpdateUserCommand" type="element" specialization="Command" />
+                  <target id="47c8ca50-4915-441f-be47-db32027a26ab" name="Line2" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

@@ -4,7 +4,6 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractExtensionMethods;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase;
 using Intent.RoslynWeaver.Attributes;
@@ -50,10 +49,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
         public static string GetEFRepositoryInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(EFRepositoryInterfaceTemplate.TemplateId);
-        }
-        public static string GetPagedListName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(PagedListTemplate.TemplateId);
         }
 
         public static string GetRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel

@@ -40,7 +40,7 @@ internal static class AssertionMethodHelper
 
             var paginatedDtoModel = queryModel.TypeReference.GenericTypeParameters.First().Element.AsDTOModel();
             var concretePaginatedResult = template.GetTypeName("Application.Contract.Dto.Pagination.Result");
-            var paginatedResultInterface = template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult);
+            var paginatedResultInterface = template.GetTypeName(TemplateRoles.Repository.Interface.PagedList);
             var domainEntityTypeName = template.GetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel);
             var queryReturnDtoTypeName = template.GetTypeName(TemplateRoles.Application.Contracts.Dto, paginatedDtoModel);
             

@@ -26,6 +26,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.OwnsMany(x => x.Addresses, ConfigureAddresses);
+
+            builder.OwnsOne(x => x.DefaultDeliveryAddress, ConfigureDefaultDeliveryAddress)
+                .Navigation(x => x.DefaultDeliveryAddress).IsRequired();
+
+            builder.OwnsOne(x => x.DefaultBillingAddress, ConfigureDefaultBillingAddress);
         }
 
         public void ConfigureAddresses(OwnedNavigationBuilder<User, UserAddress> builder)
@@ -48,6 +53,34 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .IsRequired();
 
             builder.Property(x => x.Postal)
+                .IsRequired();
+        }
+
+        public void ConfigureDefaultDeliveryAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Line1)
+                .IsRequired();
+
+            builder.Property(x => x.Line2)
+                .IsRequired();
+        }
+
+        public void ConfigureDefaultBillingAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Line1)
+                .IsRequired();
+
+            builder.Property(x => x.Line2)
                 .IsRequired();
         }
     }

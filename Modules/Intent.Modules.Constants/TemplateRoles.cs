@@ -45,12 +45,15 @@ namespace Intent.Modules.Constants
 
         public static class Repository
         {
+            [Obsolete("This template has been moved Infrastructure.Data.PagedList")]
             public const string PagedList = "Repository.Implementation.PagedList";
 
             public static class Interface
             {
                 public const string Entity = "Repository.Interface.Entity";
+                [Obsolete("This template has been moved Repository.Interface.PagedList")]
                 public const string PagedResult = "Repository.Interface.PagedResult";
+                public const string PagedList = "Repository.Interface.PagedList";
             }
         }
 
@@ -64,6 +67,8 @@ namespace Intent.Modules.Constants
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
                 public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
+                public const string PagedList = "Application.Common.PagedList";
+
             }
 
             public static class Contracts
@@ -110,6 +115,8 @@ namespace Intent.Modules.Constants
             public static class Data
             {
                 public const string DbContext = "Infrastructure.Data.DbContext";
+                [Obsolete("This template has been moved Application.Common.PagedList")]
+                public const string PagedList = "Infrastructure.Data.PagedList";
             }
         }
     }

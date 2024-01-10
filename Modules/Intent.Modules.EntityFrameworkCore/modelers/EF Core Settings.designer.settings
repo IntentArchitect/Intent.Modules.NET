@@ -602,6 +602,7 @@ function getNamingConvention() {
   <associationExtensions>
     <associationExtension type="Association" typeId="eaf9ed4e-0b61-4ac1-ba88-09f912c12087">
       <sourceEndExtension>
+        <typeOrder />
         <typeReferenceExtension>
           <isRequired>true</isRequired>
           <targetTypes />
@@ -611,6 +612,7 @@ function getNamingConvention() {
         </typeReferenceExtension>
       </sourceEndExtension>
       <targetEndExtension>
+        <typeOrder />
         <typeReferenceExtension>
           <isRequired>true</isRequired>
           <targetTypes />
@@ -622,6 +624,7 @@ function getNamingConvention() {
     </associationExtension>
     <associationExtension type="Generalization" typeId="5de35973-3ac7-4e65-b48c-385605aec561">
       <sourceEndExtension>
+        <typeOrder />
         <typeReferenceExtension>
           <isRequired>true</isRequired>
           <targetTypes />
@@ -631,6 +634,7 @@ function getNamingConvention() {
         </typeReferenceExtension>
       </sourceEndExtension>
       <targetEndExtension>
+        <typeOrder />
         <typeReferenceExtension>
           <isRequired>true</isRequired>
           <targetTypes />
@@ -641,4 +645,7 @@ function getNamingConvention() {
       </targetEndExtension>
     </associationExtension>
   </associationExtensions>
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

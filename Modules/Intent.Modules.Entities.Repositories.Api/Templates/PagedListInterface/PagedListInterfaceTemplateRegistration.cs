@@ -8,26 +8,26 @@ using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface
+namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class PagedResultInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class PagedListInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public PagedResultInterfaceTemplateRegistration(IMetadataManager metadataManager)
+        public PagedListInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => PagedResultInterfaceTemplate.TemplateId;
+        public override string TemplateId => PagedListInterfaceTemplate.TemplateId;
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new PagedResultInterfaceTemplate(outputTarget);
+            return new PagedListInterfaceTemplate(outputTarget);
         }
     }
 }

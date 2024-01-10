@@ -4,11 +4,14 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.DbContext.Tests.Api.Controllers.ResponseTypes;
+using AdvancedMappingCrud.DbContext.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.CreateProduct;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.DeleteProduct;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductById;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProducts;
+using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginated;
+using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginatedByName;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.UpdateProduct;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -111,6 +114,41 @@ namespace AdvancedMappingCrud.DbContext.Tests.Api.Controllers
         {
             var result = await _mediator.Send(new GetProductByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ProductDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/product/paged-by-name-and-price")]
+        [ProducesResponseType(typeof(PagedResult<ProductDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ProductDto>>> GetProductsPaginatedByName(
+            [FromQuery] string name,
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetProductsPaginatedByNameQuery(name: name, pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ProductDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/product/paged")]
+        [ProducesResponseType(typeof(PagedResult<ProductDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ProductDto>>> GetProductsPaginated(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetProductsPaginatedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>

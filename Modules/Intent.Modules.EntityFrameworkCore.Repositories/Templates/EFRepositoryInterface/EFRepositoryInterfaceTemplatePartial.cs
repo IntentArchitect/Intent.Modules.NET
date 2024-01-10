@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
@@ -35,6 +36,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                 .AddInterface($"IEFRepository", @interface =>
                 {
                     string nullableChar = this.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                    var pagedListInterface = TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+                        ? name
+                        : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
 
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
@@ -61,18 +65,18 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
@@ -95,7 +99,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
@@ -132,16 +136,16 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
-                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                        .AddMethod($"{pagedListInterface}<{tDomain}>", "FindAll", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                         )
-                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                        .AddMethod($"{pagedListInterface}<{tDomain}>", "FindAll", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                         )
-                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                        .AddMethod($"{pagedListInterface}<{tDomain}>", "FindAll", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
@@ -159,7 +163,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepository
                         .AddMethod($"List<{tDomain}>", "FindAll", method => method
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
                         )
-                        .AddMethod($"IPagedResult<{tDomain}>", "FindAll", method => method
+                        .AddMethod($"{pagedListInterface}<{tDomain}>", "FindAll", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")

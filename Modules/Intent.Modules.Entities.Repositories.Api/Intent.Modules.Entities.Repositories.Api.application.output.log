@@ -60,32 +60,32 @@
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#97d051af-0bef-4bdd-ac68-ea8d27c6d5fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultInterface/PagedResultInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultInterface/PagedResultInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/PagedListInterface/PagedListInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedListInterface/PagedListInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#97d051af-0bef-4bdd-ac68-ea8d27c6d5fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultInterface/PagedResultInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultInterface/PagedResultInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/PagedListInterface/PagedListInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedListInterface/PagedListInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#97d051af-0bef-4bdd-ac68-ea8d27c6d5fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultInterface/PagedResultInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultInterface/PagedResultInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/PagedListInterface/PagedListInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedListInterface/PagedListInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#97d051af-0bef-4bdd-ac68-ea8d27c6d5fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultInterface/PagedResultInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultInterface/PagedResultInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/PagedListInterface/PagedListInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedListInterface/PagedListInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

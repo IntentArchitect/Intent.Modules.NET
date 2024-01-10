@@ -23,6 +23,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
         {
             Email = null!;
             Quote = null!;
+            DefaultDeliveryAddress = null!;
         }
         public string Email { get; set; }
 
@@ -31,6 +32,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
         public virtual Quote Quote { get; set; }
 
         public virtual ICollection<UserAddress> Addresses { get; set; } = new List<UserAddress>();
+
+        public virtual UserDefaultAddress DefaultDeliveryAddress { get; set; }
+
+        public virtual UserDefaultAddress? DefaultBillingAddress { get; set; }
 
         public void AddAddress(IEnumerable<UserAddress> addresses)
         {

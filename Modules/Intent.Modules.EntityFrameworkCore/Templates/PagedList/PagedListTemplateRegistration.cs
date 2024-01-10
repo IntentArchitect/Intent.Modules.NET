@@ -13,7 +13,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
+namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class PagedListTemplateRegistration : ITemplateRegistration
@@ -31,8 +31,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
             // This bypasses the cached lookup
-            var templates = applicationManager.FindTemplateInstances(TemplateRoles.Repository.PagedList, _ => true).ToArray();
-            if (templates.All(p => p.Id == TemplateId))
+            var templates = applicationManager.FindTemplateInstances(TemplateRoles.Application.Common.PagedList, _ => true).ToArray();
+            if (templates.All(p => p.Id == TemplateId)) // GCB - what is this for? Ensures that there is only one?
             {
                 registry.RegisterTemplate(TemplateId, project => new PagedListTemplate(project, null));
             }

@@ -89,7 +89,7 @@ internal class QueryHandlerFacade
     public string OwnerToCompositeNavigationPropertyName =>
         AggregateOwnerDomainModel.GetNestedCompositeAssociation(TargetDomainModel).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
 
-    public string PagedResultInterfaceName => _activeTemplate.GetTypeName(TemplateRoles.Repository.Interface.PagedResult);
+    public string PagedResultInterfaceName => _activeTemplate.GetTypeName(TemplateRoles.Repository.Interface.PagedList);
 
     public bool HasDomainEventBaseName()
     {

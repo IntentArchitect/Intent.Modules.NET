@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5ff73199-8066-479b-857a-29b5310167e4">
+  <sourceEnd id="95ff65c0-ce4d-4137-b8e9-715e88aab0dd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="84e18429-e802-407d-9b40-8c0ddb7fce17">
+      <typeId>a7b77563-def1-45b2-889c-91fa833ba330</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5ff73199-8066-479b-857a-29b5310167e4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DefaultBillingAddress</name>
+    <display>DefaultBillingAddress: UserDefaultAddress?   [1 --&gt; 0..1]</display>
+    <order>8</order>
+    <typeReference id="d499ce18-15d8-4d05-a758-694ab8f7f1c4">
+      <typeId>ff976e51-96e9-4100-9524-0f75f022193c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
