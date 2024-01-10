@@ -3,10 +3,22 @@
   <name>Documents</name>
   <display>Documents</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>31dd5ac0-7bc0-4b10-bfb1-c1764452a2fa</parentFolderId>
-  <stereotypes />
+  <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+  <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="93a7276c-f275-42d4-aca4-1f2ba442f666" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4dff9ae2-b2d0-4d2a-bd27-3eb8ece237d9</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4dff9ae2-b2d0-4d2a-bd27-3eb8ece237d9</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

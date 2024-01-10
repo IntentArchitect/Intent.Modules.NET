@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Filters
+namespace MyCustomNamespace.Filters
 {
     public class AuthorizeCheckOperationFilter : IOperationFilter
     {

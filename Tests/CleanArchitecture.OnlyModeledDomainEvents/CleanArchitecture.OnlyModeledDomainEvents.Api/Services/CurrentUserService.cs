@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Identity.CurrentUserService", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Services
+namespace MyCustomNamespace.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

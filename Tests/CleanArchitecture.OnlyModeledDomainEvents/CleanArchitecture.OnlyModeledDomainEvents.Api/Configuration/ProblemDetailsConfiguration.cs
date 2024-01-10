@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.ProblemDetailsConfiguration", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration
+namespace MyCustomNamespace.Configuration
 {
     public static class ProblemDetailsConfiguration
     {

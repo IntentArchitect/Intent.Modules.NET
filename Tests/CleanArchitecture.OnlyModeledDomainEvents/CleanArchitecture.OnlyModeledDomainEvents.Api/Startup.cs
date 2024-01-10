@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration;
-using CleanArchitecture.OnlyModeledDomainEvents.Api.Filters;
 using CleanArchitecture.OnlyModeledDomainEvents.Application;
 using CleanArchitecture.OnlyModeledDomainEvents.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -15,12 +13,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MyCustomNamespace.Configuration;
+using MyCustomNamespace.Filters;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api
+namespace MyCustomNamespace
 {
     [IntentManaged(Mode.Merge)]
     public class Startup

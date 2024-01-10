@@ -8,7 +8,7 @@ using Serilog.Events;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api
+namespace MyCustomNamespace
 {
     public class Program
     {

@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a708c3cc-fe3f-4b87-953d-57c98e464f53</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

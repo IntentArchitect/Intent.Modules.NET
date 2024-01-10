@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
-using CleanArchitecture.OnlyModeledDomainEvents.Api.Filters;
 using CleanArchitecture.OnlyModeledDomainEvents.Application;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,13 +13,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using MyCustomNamespace.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration
+namespace MyCustomNamespace.Configuration
 {
     public static class SwashbuckleConfiguration
     {

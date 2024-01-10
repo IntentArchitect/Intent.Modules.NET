@@ -1,6 +1,5 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
-using CleanArchitecture.OnlyModeledDomainEvents.Api.Services;
 using CleanArchitecture.OnlyModeledDomainEvents.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,11 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using MyCustomNamespace.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Identity.ApplicationSecurityConfiguration", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration
+namespace MyCustomNamespace.Configuration
 {
     public static class ApplicationSecurityConfiguration
     {

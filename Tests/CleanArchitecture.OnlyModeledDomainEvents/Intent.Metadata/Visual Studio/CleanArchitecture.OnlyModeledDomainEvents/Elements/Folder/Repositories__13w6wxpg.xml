@@ -21,6 +21,54 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="944145a1-7e82-4093-ae49-68a1ccba7ee9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepository</name>
+      <display>Intent.CosmosDB.CosmosDBRepository</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4561315d-ae29-49a0-9bcc-854511f7a9b2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepositoryBase</name>
+      <display>Intent.CosmosDB.CosmosDBRepositoryBase</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c0b69e5a-5e8d-4d60-82c1-a4a332e7d17f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosPagedList</name>
+      <display>Intent.CosmosDB.CosmosPagedList</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="0b3d775a-e428-47a4-a7bc-2463d9a4cd6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
       <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
@@ -79,48 +127,6 @@
       <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
       <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
       <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="944145a1-7e82-4093-ae49-68a1ccba7ee9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBRepository</name>
-      <display>Intent.CosmosDB.CosmosDBRepository</display>
-      <externalReference>Intent.CosmosDB</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="4561315d-ae29-49a0-9bcc-854511f7a9b2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosDBRepositoryBase</name>
-      <display>Intent.CosmosDB.CosmosDBRepositoryBase</display>
-      <externalReference>Intent.CosmosDB</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="c0b69e5a-5e8d-4d60-82c1-a4a332e7d17f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.CosmosDB.CosmosPagedList</name>
-      <display>Intent.CosmosDB.CosmosPagedList</display>
-      <externalReference>Intent.CosmosDB</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6d7d4710-c29c-43ae-b4ea-7e46a5cb637c</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

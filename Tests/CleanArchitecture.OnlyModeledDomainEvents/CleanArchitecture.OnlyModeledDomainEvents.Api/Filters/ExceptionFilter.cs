@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.ExceptionFilter", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Filters
+namespace MyCustomNamespace.Filters
 {
     public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {

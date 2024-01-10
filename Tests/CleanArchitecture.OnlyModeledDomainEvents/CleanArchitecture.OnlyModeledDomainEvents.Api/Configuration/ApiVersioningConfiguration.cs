@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Versioning.ApiVersioningConfiguration", Version = "1.0")]
 
-namespace CleanArchitecture.OnlyModeledDomainEvents.Api.Configuration
+namespace MyCustomNamespace.Configuration
 {
     public static class ApiVersioningConfiguration
     {

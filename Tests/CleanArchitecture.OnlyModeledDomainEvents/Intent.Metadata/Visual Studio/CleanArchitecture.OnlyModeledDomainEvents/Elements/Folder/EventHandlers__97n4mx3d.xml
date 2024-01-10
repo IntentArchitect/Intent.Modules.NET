@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>47fcca85-fd0a-4af8-8621-5696655cc502</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

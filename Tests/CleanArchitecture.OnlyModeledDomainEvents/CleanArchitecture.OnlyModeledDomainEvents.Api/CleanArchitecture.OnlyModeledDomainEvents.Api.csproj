@@ -5,6 +5,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>enable</Nullable>
+    <RootNamespace>MyCustomNamespace</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
