@@ -109,7 +109,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully)]
-        private static Priviledge CreateOrUpdatePriviledge(Priviledge entity, Roles.PriviledgeDto dto)
+        private static Priviledge CreateOrUpdatePriviledge(Priviledge? entity, Roles.PriviledgeDto dto)
         {
             if (dto == null)
             {

@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Improvement: CreateOrUpdate methods now support domain interfaces.
+
 ### Version 5.0.0
 
 - Fixed: When DTOs had the same names as its domain entity, generation of mapping extension method calls would result in uncompilable code.

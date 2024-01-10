@@ -104,7 +104,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully)]
-        private static Role CreateOrUpdateRole(Role entity, UpdateUserRoleDto dto)
+        private static Role CreateOrUpdateRole(Role? entity, UpdateUserRoleDto dto)
         {
             if (dto == null)
             {

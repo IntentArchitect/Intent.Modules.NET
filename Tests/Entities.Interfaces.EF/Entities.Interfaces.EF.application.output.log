@@ -92,6 +92,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#77952071-5423-4103-b6ef-2c438692888c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/CreateOrderCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#77952071-5423-4103-b6ef-2c438692888c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/CreateOrderCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#83fd5994-eac8-487f-a3b1-e36c479ef4b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/DeleteOrderCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrderCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#551f7294-107b-4532-9e87-388858d0ab0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/GetOrderByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#2b401559-ea43-411f-9bc4-01adf1190a3d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/GetOrdersQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrdersQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/OrderAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#57bc5c40-c8fd-4942-8809-833a323fb7f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/UpdateOrderCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#57bc5c40-c8fd-4942-8809-833a323fb7f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/Orders/UpdateOrderCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dad92bb2-d61c-4e70-9ae5-9f7d558cb70b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#300e026d-de94-47b1-8a2f-94d31d226415</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application.Tests/People/CreatePersonCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -268,10 +332,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>21938228-69d5-466d-aca0-14aeab7a1fb7</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21938228-69d5-466d-aca0-14aeab7a1fb7</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21938228-69d5-466d-aca0-14aeab7a1fb7</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -296,6 +376,174 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Entities.Interfaces.EF.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Entities.Interfaces.EF.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#77952071-5423-4103-b6ef-2c438692888c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/CreateOrder/CreateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#77952071-5423-4103-b6ef-2c438692888c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#77952071-5423-4103-b6ef-2c438692888c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9af114c8-69d9-4cf1-b694-754ee38fe10e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/CreateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9af114c8-69d9-4cf1-b694-754ee38fe10e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/CreateOrderOrderItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderItemDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#83fd5994-eac8-487f-a3b1-e36c479ef4b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/DeleteOrder/DeleteOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#83fd5994-eac8-487f-a3b1-e36c479ef4b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#83fd5994-eac8-487f-a3b1-e36c479ef4b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#551f7294-107b-4532-9e87-388858d0ab0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrderById/GetOrderByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#551f7294-107b-4532-9e87-388858d0ab0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#551f7294-107b-4532-9e87-388858d0ab0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2b401559-ea43-411f-9bc4-01adf1190a3d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrders/GetOrdersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2b401559-ea43-411f-9bc4-01adf1190a3d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrders/GetOrdersQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2b401559-ea43-411f-9bc4-01adf1190a3d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/GetOrders/GetOrdersQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#47792c3d-65f8-4e37-8757-c52be78408bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/OrderDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#47792c3d-65f8-4e37-8757-c52be78408bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/OrderDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#57bc5c40-c8fd-4942-8809-833a323fb7f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/UpdateOrder/UpdateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#57bc5c40-c8fd-4942-8809-833a323fb7f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/UpdateOrder/UpdateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#57bc5c40-c8fd-4942-8809-833a323fb7f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/UpdateOrder/UpdateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrder/UpdateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#463bae0b-f90c-4eba-94fc-c5645eb1bd4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/UpdateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>014bebbb-edf8-4e3c-bb93-3cecbc260189</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#463bae0b-f90c-4eba-94fc-c5645eb1bd4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Application/Orders/UpdateOrderOrderItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderOrderItemDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -484,10 +732,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>5fa53280-3204-40a3-b1f6-bd458442c022</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Entities/IOrder.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5fa53280-3204-40a3-b1f6-bd458442c022</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#40350a68-a5bf-42d2-9194-cfeb4b685bd6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Entities/IOrderItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5fa53280-3204-40a3-b1f6-bd458442c022</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#94a92a48-ec75-4a40-b869-db513da4dea7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Entities/IPerson.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPerson.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5fa53280-3204-40a3-b1f6-bd458442c022</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Order.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5fa53280-3204-40a3-b1f6-bd458442c022</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#40350a68-a5bf-42d2-9194-cfeb4b685bd6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Entities/OrderItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderItem.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -504,6 +784,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0c09714-c5d0-48c9-8227-7d11309a40fb</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Domain/Repositories/IOrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -556,6 +844,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6963f40-2c9c-4644-8df4-217957cd9904</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Infrastructure/Persistence/Configurations/OrderConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6963f40-2c9c-4644-8df4-217957cd9904</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#94a92a48-ec75-4a40-b869-db513da4dea7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
@@ -568,6 +864,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e5132ec-7f12-4724-a666-acc03f83e806</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#fffea1a2-74cb-4819-8f2f-a89fdc9c1071</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.Interfaces.EF.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

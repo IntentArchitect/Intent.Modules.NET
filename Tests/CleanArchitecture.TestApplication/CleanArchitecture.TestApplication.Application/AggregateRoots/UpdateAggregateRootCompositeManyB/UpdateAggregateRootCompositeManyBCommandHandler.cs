@@ -66,7 +66,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
         [IntentManaged(Mode.Fully)]
         private static CompositeManyBB CreateOrUpdateCompositeManyBB(
-            CompositeManyBB entity,
+            CompositeManyBB? entity,
             UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             entity ??= new CompositeManyBB();

@@ -1,7 +1,11 @@
+### Version 6.0.2
+
+- Improvement: CreateOrUpdate methods now support domain interfaces.
+
 ### Version 6.0.0
 
 - Improvement: Advanced Mapping system CRUD Support.
-- Improvement: When multiple matching CRUD stategies are found the module will now apply the first strategy based on the registration order.
+- Improvement: When multiple matching CRUD strategies are found the module will now apply the first strategy based on the registration order.
 
 ### Version 5.4.0
 

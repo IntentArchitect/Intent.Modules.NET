@@ -1,7 +1,6 @@
-### Version 5.0.0
+### Version 5.0.2
 
-- Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.
-- Fixed: In Private setter scenarios, accessing the collection will now happen through the private field instead of the property when implementing the mapping in operations.
+- Improvement: Made small changes to UpdateHelper to make it more extensible.
 
 ### Version 4.4.2
 

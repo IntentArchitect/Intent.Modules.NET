@@ -44,7 +44,7 @@ namespace TableStorage.Tests.Application.Orders.UpdateOrder
         }
 
         [IntentManaged(Mode.Fully)]
-        private static Customer CreateOrUpdateCustomer(Customer entity, UpdateOrderCustomerDto dto)
+        private static Customer CreateOrUpdateCustomer(Customer? entity, UpdateOrderCustomerDto dto)
         {
             entity ??= new Customer();
             entity.Name = dto.Name;

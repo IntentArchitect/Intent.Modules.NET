@@ -45,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
         [IntentManaged(Mode.Fully)]
         private static CompositeManyB CreateOrUpdateCompositeManyB(
-            CompositeManyB entity,
+            CompositeManyB? entity,
             UpdateAggregateRootCompositeManyBDto dto)
         {
             entity ??= new CompositeManyB();
@@ -60,7 +60,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
         [IntentManaged(Mode.Fully)]
         private static CompositeManyBB CreateOrUpdateCompositeManyBB(
-            CompositeManyBB entity,
+            CompositeManyBB? entity,
             UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             entity ??= new CompositeManyBB();
@@ -122,7 +122,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
 
         [IntentManaged(Mode.Fully)]
         private static CompositeManyAA CreateOrUpdateCompositeManyAA(
-            CompositeManyAA entity,
+            CompositeManyAA? entity,
             UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
         {
             entity ??= new CompositeManyAA();

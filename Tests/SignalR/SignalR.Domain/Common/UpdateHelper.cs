@@ -30,8 +30,7 @@ namespace SignalR.Domain.Common
             ICollection<TOriginal> baseCollection,
             ICollection<TChanged>? changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck,
-            Func<TOriginal, TChanged, TOriginal> assignmentAction)
-            where TOriginal : class, new()
+            Func<TOriginal?, TChanged, TOriginal> assignmentAction)
         {
             if (changedCollection == null)
             {
@@ -43,8 +42,7 @@ namespace SignalR.Domain.Common
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);
             foreach (var elementToAdd in result.ToAdd)
             {
-                var newEntity = new TOriginal();
-                assignmentAction(newEntity, elementToAdd);
+                var newEntity = assignmentAction(default, elementToAdd);
 
                 baseCollection.Add(newEntity);
             }

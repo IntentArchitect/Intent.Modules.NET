@@ -22,6 +22,7 @@ namespace Entities.Interfaces.EF.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             return services;
         }

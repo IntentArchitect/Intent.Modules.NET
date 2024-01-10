@@ -41,7 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 
         [IntentManaged(Mode.Fully)]
         private static ImplicitKeyNestedComposition CreateOrUpdateImplicitKeyNestedComposition(
-            ImplicitKeyNestedComposition entity,
+            ImplicitKeyNestedComposition? entity,
             UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
         {
             entity ??= new ImplicitKeyNestedComposition();

@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.Entities\Settings\ModuleSettingsExtensions.cs" Link="External\ModuleSettingsExtensions.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.ServiceImplementations" Version="4.1.1" />

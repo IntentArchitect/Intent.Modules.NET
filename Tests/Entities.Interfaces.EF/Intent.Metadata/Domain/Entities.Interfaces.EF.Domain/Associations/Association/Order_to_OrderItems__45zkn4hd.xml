@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d2aaab3c-895e-4841-8b30-3db398c1e6da">
+  <sourceEnd id="6d95c1cf-a4d3-4d71-8312-dc8cdd9185c2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="9cd4d599-4848-49bf-b510-1fe7a4c21431">
+      <typeId>fffea1a2-74cb-4819-8f2f-a89fdc9c1071</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.Interfaces.EF.Domain</typePackageName>
+      <typePackageId>86a6d72a-8488-4388-9c15-0fbe3b255e48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d2aaab3c-895e-4841-8b30-3db398c1e6da" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OrderItems</name>
+    <display>OrderItems: OrderItem[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="dc34daee-ae5b-4214-ad39-fe6cf6f54a71">
+      <typeId>40350a68-a5bf-42d2-9194-cfeb4b685bd6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Entities.Interfaces.EF.Domain</typePackageName>
+      <typePackageId>86a6d72a-8488-4388-9c15-0fbe3b255e48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -103,7 +103,7 @@ namespace DtoSettings.Class.Internal.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully)]
-        private static InvoiceLine CreateOrUpdateInvoiceLine(InvoiceLine entity, InvoiceLineDto dto)
+        private static InvoiceLine CreateOrUpdateInvoiceLine(InvoiceLine? entity, InvoiceLineDto dto)
         {
             if (dto == null)
             {

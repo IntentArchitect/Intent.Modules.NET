@@ -9,8 +9,11 @@ using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Entities.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -232,22 +235,29 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                                 codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{dtoEntityIdField.Name.ToPascalCase()}, {updateMethodName});");
                             }
 
-                            var entityTypeName = _template.GetTypeName(targetEntityElement);
+                            var createEntityInterfaces = _template.ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+                            var implementationName = _template.GetTypeName(TemplateRoles.Domain.Entity.EntityImplementation, targetEntityElement);
+                            var interfaceName = createEntityInterfaces ? _template.GetTypeName(TemplateRoles.Domain.Entity.Interface, targetEntityElement) : implementationName;
+                            string nullableChar = _template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+
+                            var fieldIsNullable = field.TypeReference.IsNullable;
+                            var nullable = fieldIsNullable ? "?" : string.Empty;
+
                             var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod(entityTypeName,
+                            @class.AddMethod($"{interfaceName}{nullable}",
                                 updateMethodName,
                                 method =>
                                 {
                                     method.Private()
                                         .Static()
                                         .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                        .AddParameter(entityTypeName, "entity")
-                                        .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element),
+                                        .AddParameter($"{interfaceName}{nullableChar}", "entity")
+                                        .AddParameter($"{_template.GetTypeName((IElement)field.TypeReference.Element)}{nullable}",
                                             "dto")
                                         .AddStatementBlock("if (dto == null)", s => s
                                             .AddStatement("return null;")
                                         )
-                                        .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
+                                        .AddStatement($"entity ??= new {implementationName}();", s => s.SeparatedFromPrevious())
                                         .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement,
                                             ((IElement)field.TypeReference.Element).ChildElements
                                             .Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(),
@@ -268,8 +278,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var targetDto = field.TypeReference.Element.AsDTOModel();
             if (!MethodExists(mappingMethodName, @class, targetDto))
             {
-                var domainType = _template.GetTypeName(domain);
-                @class.AddMethod(domainType, mappingMethodName, method =>
+                var createEntityInterfaces = _template.ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+                var implementationName = _template.GetTypeName(TemplateRoles.Domain.Entity.EntityImplementation, domain);
+                var interfaceName = createEntityInterfaces ? _template.GetTypeName(TemplateRoles.Domain.Entity.Interface, domain) : implementationName;
+
+                @class.AddMethod(interfaceName, mappingMethodName, method =>
                 {
                     method.Static()
                         .AddAttribute(CSharpIntentManagedAttribute.Fully())
@@ -283,7 +296,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                         method.AddStatement(@"#warning Not all fields specified for ValueObject.");
                     }
                     var ctorParameters = string.Join(",", attributeMap.Select(m => $"{m.Domain.Name.ToParameterName()}: {(m.Dto == null ? $"default({_template.GetTypeName(m.Domain.TypeReference)})" : $"dto.{m.Dto.Name.ToPascalCase()}")}"));
-                    method.AddStatement($"return new {domainType}({ctorParameters});");
+                    method.AddStatement($"return new {implementationName}({ctorParameters});");
                 });
             }
         }

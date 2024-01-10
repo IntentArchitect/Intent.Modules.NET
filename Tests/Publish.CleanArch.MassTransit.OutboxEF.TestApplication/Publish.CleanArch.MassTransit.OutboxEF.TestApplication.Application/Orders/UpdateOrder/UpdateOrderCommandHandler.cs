@@ -45,7 +45,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         }
 
         [IntentManaged(Mode.Fully)]
-        private static OrderItem CreateOrUpdateOrderItem(OrderItem entity, UpdateOrderOrderItemDto dto)
+        private static OrderItem CreateOrUpdateOrderItem(OrderItem? entity, UpdateOrderOrderItemDto dto)
         {
             entity ??= new OrderItem();
             entity.OrderId = dto.OrderId;

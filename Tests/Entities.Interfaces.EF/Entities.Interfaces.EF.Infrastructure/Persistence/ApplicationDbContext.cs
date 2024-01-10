@@ -15,6 +15,8 @@ namespace Entities.Interfaces.EF.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Order> Orders { get; set; }
+
         public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +24,7 @@ namespace Entities.Interfaces.EF.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
         }
 

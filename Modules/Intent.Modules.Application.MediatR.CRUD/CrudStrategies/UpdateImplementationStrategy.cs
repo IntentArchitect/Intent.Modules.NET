@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Threading;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -11,6 +13,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
@@ -288,21 +291,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return $"(e, d) => {string.Join(" && ", dtoFields.Select(dtoField => $"e.{(dtoField.Mapping != null ? dtoField.Mapping.Element.AsAttributeModel().Name.ToPascalCase() : "Id")} == d.{dtoField.Name.ToPascalCase()}"))}";
         }
 
+
+
         private void AddCreateOrUpdateMethod(string updateMethodName, IElement domainElement, DTOFieldModel field)
         {
-            var domainTypeName = _template.GetTypeName(domainElement);
+            var createEntityInterfaces = _template.ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();            
+            var implementationName = _template.GetTypeName(TemplateRoles.Domain.Entity.EntityImplementation, domainElement);
+            var interfaceName = createEntityInterfaces ? _template.GetTypeName(TemplateRoles.Domain.Entity.Interface, domainElement) : implementationName;
+            string nullableChar = _template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+
             var fieldIsNullable = field.TypeReference.IsNullable;
+            var nullable = fieldIsNullable ? "?" : string.Empty;
 
             var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));
             var existingMethod = @class.FindMethod(x => x.Name == updateMethodName &&
-                                                        x.ReturnType == domainTypeName &&
-                                                        x.Parameters.FirstOrDefault()?.Type == domainTypeName &&
+                                                        x.ReturnType == $"{interfaceName}{nullable}" &&
+                                                        x.Parameters.FirstOrDefault()?.Type == $"{interfaceName}{nullable}" &&
                                                         x.Parameters.Skip(1).FirstOrDefault()?.Type == _template.GetTypeName((IElement)field.TypeReference.Element));
             if (existingMethod == null)
             {
-                var nullable = fieldIsNullable ? "?" : string.Empty;
 
-                @class.AddMethod($"{domainTypeName}{nullable}",
+                @class.AddMethod($"{interfaceName}{nullable}",
                     updateMethodName,
                     method =>
                     {
@@ -310,7 +319,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         method.Private()
                             .Static()
                             .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                            .AddParameter($"{domainTypeName}{nullable}", "entity")
+                            .AddParameter($"{interfaceName}{nullableChar}", "entity")
                             .AddParameter($"{_template.GetTypeName((IElement)field.TypeReference.Element)}{nullable}", "dto");
 
                         if (fieldIsNullable)
@@ -319,7 +328,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 .AddStatement("return null;"));
                         }
 
-                        method.AddStatement($"entity ??= new {domainTypeName}();", s => s.SeparatedFromPrevious())
+                        method.AddStatement($"entity ??= new {implementationName}();", s => s.SeparatedFromPrevious())
                             .AddStatements(GetDtoPropertyAssignments(
                                 entityVarName: "entity",
                                 dtoVarName: "dto",

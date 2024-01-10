@@ -112,7 +112,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         }
 
         [IntentManaged(Mode.Fully)]
-        private static Preference CreateOrUpdatePreference(Preference entity, Users.PreferenceDto dto)
+        private static Preference CreateOrUpdatePreference(Preference? entity, Users.PreferenceDto dto)
         {
             if (dto == null)
             {

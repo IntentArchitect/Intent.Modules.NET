@@ -29,6 +29,7 @@ namespace Entities.Interfaces.EF.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
             return services;
         }
     }
