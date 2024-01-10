@@ -23,7 +23,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 ["Language Version"] = _project.LanguageVersion,
                 ["Nullable Enabled"] = _project.NullableEnabled,
                 ["Target Frameworks"] = _project.TargetFrameworkVersion(),
-                ["Root Namespace"] = _project.GetNETCoreSettings()?.RootNamespace(),
+                ["Root Namespace"] = _project.GetNETSettings()?.RootNamespace() ?? _project.GetNETCoreSettings()?.RootNamespace(),
                 ["InternalElement"] = project.InternalElement,
                 [MetadataKey.IsMatch] = true
             };

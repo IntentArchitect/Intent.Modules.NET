@@ -18,6 +18,18 @@ namespace Intent.Modules.VisualStudio.Projects
             return project.HasStereotype(".NET Core Settings");
         }
 
+        public static NETSettings GetNETSettings(this IVisualStudioProject project)
+        {
+            var stereotype = project.GetStereotype(".NET Settings");
+            return stereotype != null ? new NETSettings(stereotype) : null;
+        }
+
+        public static bool HasNETSettings(this IVisualStudioProject project)
+        {
+            return project.HasStereotype(".NET Settings");
+        }
+
+
         public static CSharpProjectOptions GetCSharpProjectOptions(this IVisualStudioProject project)
         {
             var stereotype = project.GetStereotype("C# Project Options");
@@ -49,6 +61,19 @@ namespace Intent.Modules.VisualStudio.Projects
                    stereotype?.GetProperty<bool>("Nullable Enabled") == true;
         }
     }
+
+    /// <summary>
+    /// An alias of one of the generated stereotype extensions, Intent generates one
+    /// for each target element type and they are always the same. No one was chosen
+    /// in particular to extend for this alias.
+    /// </summary>
+    internal class NETSettings : CSharpProjectNETModelStereotypeExtensions.NETSettings
+    {
+        public NETSettings(IStereotype stereotype) : base(stereotype)
+        {
+        }
+    }
+
 
     /// <summary>
     /// An alias of one of the generated stereotype extensions, Intent generates one

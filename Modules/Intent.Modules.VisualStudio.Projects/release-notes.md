@@ -1,3 +1,7 @@
+### Version 3.5.1
+
+- Fixed: Fix an issue where `Root Namespace` project setting was not working.
+
 ### Version 3.5.0
 
 - New Feature: It is now possible to specify `Use minimal hosting model` and `Use top-level statements` on `.NET Project`s with their `SDK` set to `Microsoft.NET.Sdk.Web`.
