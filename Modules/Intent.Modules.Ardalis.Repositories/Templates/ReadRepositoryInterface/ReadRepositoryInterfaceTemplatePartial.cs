@@ -45,6 +45,12 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             return GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
         }
 
+        private string GetPagedListInterface()
+        {
+            return TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name) ? name
+                    : GetTypeName(TemplateRoles.Repository.Interface.PagedResult);
+        }
+
         private bool HasSinglePrimaryKey()
         {
             if (!TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))

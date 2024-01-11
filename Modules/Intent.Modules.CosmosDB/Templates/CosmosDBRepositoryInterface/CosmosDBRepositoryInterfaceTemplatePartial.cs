@@ -36,6 +36,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"ICosmosDBRepository", @interface =>
                 {
+                    var pagedListInterface = TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+                        ? name : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
+
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TDocumentInterface", out var toDocumentInterface);
@@ -53,13 +56,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")

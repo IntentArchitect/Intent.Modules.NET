@@ -1,3 +1,7 @@
+### Version 4.5.0
+
+- Improvement: Moved `PagedList<T>` type into the `Intent.EntityFrameworkCore 4.6.0` module since pagination is an separate concert to the repository pattern.
+
 ### Version 4.3.0
 
 - Improvement: Added several repository method overloads to bettere support more advanced queryOptions though LINQ.

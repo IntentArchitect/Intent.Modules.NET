@@ -1,6 +1,11 @@
 ### Version 5.0.2
 
 - Improvement: CreateOrUpdate methods now support domain interfaces.
+- Fixed: Optional query filters not working with DbContext oriented data-access.
+
+### Version 5.0.1
+
+- Imrpovement: Support for optional query filters when querying lists (or paginated lists) of entities.
 
 ### Version 5.0.0
 

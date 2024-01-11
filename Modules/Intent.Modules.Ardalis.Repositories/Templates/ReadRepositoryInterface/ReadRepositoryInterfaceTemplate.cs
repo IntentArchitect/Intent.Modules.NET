@@ -113,7 +113,14 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             #line default
             #line hidden
             this.Write(">> FindAllAsync(CancellationToken cancellationToken = default);\r\n\r\n        [Inten" +
-                    "tManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
+                    "tManaged(Mode.Fully)]\r\n        Task<");
+            
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterface()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
             
             #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
@@ -121,7 +128,14 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             #line default
             #line hidden
             this.Write(">> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = d" +
-                    "efault);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
+                    "efault);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<");
+            
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterface()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
             
             #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
@@ -136,8 +150,14 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             #line default
             #line hidden
             this.Write(", bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellati" +
-                    "onToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedR" +
-                    "esult<");
+                    "onToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<");
+            
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterface()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
             
             #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));

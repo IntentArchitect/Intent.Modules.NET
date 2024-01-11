@@ -1,4 +1,8 @@
-﻿### Version 4.4.16
+﻿### Version 4.6.0
+
+- Improvement: Moved `PagedList<T>` type into this module from the `Intent.EntityFrameworkCore.Repositories 4.5.0` module since pagination is an separate concert to the repository pattern.
+
+### Version 4.4.16
 
 - Improvement: Updated to be compatible with .NET 8.
 - Improvement: Added a setting for making `Enum`s persist as strings. (with thanks to [@shainegordon](https://github.com/shainegordon) for their [PR](https://github.com/IntentArchitect/Intent.Modules.NET/pull/12) for this).

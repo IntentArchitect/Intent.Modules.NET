@@ -110,7 +110,8 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                 });
         }
 
-        public string PagedResultInterfaceName => GetTypeName(PagedResultInterfaceTemplate.TemplateId);
+        public string PagedResultInterfaceName => TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+            ? name : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

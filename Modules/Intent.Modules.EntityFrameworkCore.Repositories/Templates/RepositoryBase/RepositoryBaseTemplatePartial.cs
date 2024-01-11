@@ -464,7 +464,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
         }
 
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
-        public string PagedListInterfaceName => GetTypeName(TemplateRoles.Repository.Interface.PagedList);
+        public string PagedListInterfaceName => TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+            ? name : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
         public string PagedListClassName => GetTypeName(TemplateRoles.Application.Common.PagedList);
 
         [IntentManaged(Mode.Fully)]

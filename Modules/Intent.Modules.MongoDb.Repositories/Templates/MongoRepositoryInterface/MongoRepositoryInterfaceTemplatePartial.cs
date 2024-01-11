@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -30,6 +31,8 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryInterface
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IMongoRepository", @interface =>
                 {
+                    var pagedListInterface = TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+                        ? name : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
@@ -55,18 +58,18 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryInterface
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
-                        .AddMethod($"Task<IPagedResult<{tDomain}>>", "FindAllAsync", method => method
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")

@@ -9,14 +9,20 @@
     <Import_RootNamespace>Intent.Modules.Application.DomainInteractions</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\CompositeDataAccessProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\DbContextDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDataAccessProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\IDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MappingExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\InheritedChildrenMapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TemplateExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityCreationMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityUpdateMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\StandardDomainMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ValueObjectMappingTypeResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)DataAccessProviders\" />
   </ItemGroup>
 </Project>

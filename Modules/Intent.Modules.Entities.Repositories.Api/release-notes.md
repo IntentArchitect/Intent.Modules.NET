@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Renamed the `IPagedResult<T>` interface to `IPagedList<T>` to remain consistent with the concrete type `PagedList<T>` and to prevent confusion with the `PagedResult<T>` type which is for outbound DTOs.
+
 ### Version 4.1.3
 
 - Improvement: Upgrades IUnitOfWork Interface template to CSharpFileBuilder paradigm.

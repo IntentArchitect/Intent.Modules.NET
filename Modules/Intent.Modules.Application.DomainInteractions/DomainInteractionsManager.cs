@@ -151,7 +151,8 @@ public class DomainInteractionsManager
             _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
 
             var dataAccess = InjectDataAccessProvider(foundEntity);
-            var statements = new List<CSharpStatement>();
+            CSharpStatement queryInvocation = null;
+            var prerequisiteStatement = new List<CSharpStatement>();
 
             if (MustAccessEntityThroughAggregate(dataAccess))
             {
@@ -160,18 +161,16 @@ public class DomainInteractionsManager
                     return new List<CSharpStatement>();
                 }
 
-                statements.AddRange(findAggStatements);
-
-                var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
-                statements.AddRange(requiredStatements);
+                prerequisiteStatement.AddRange(findAggStatements);
 
                 if (associationEnd.TypeReference.IsCollection)
                 {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)).SeparatedFromPrevious());
+                    queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                    prerequisiteStatement.AddRange(requiredStatements);
                 }
                 else
                 {
-                    statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)).SeparatedFromPrevious());
+                    queryInvocation =  dataAccess.FindAsync(queryMapping);
                 }
             }
             else
@@ -190,38 +189,38 @@ public class DomainInteractionsManager
 
                     if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
                     {
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdsAsync(idFields)));
+                        queryInvocation =  dataAccess.FindByIdsAsync(idFields);
                     }
                     else
                     {
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindByIdAsync(idFields)));
+                        queryInvocation =  dataAccess.FindByIdAsync(idFields);
                     }
                 }
                 // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
                 else
                 {
-                    var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
-                    statements.AddRange(requiredStatements);
+                    //var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
 
                     if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
                     {
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression, pageNo, pageSize)));
+                        queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, out var requiredStatements);
+                        prerequisiteStatement.AddRange(requiredStatements);
                     }
                     else if (associationEnd.TypeReference.IsCollection)
                     {
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAllAsync(expression)));
+                        queryInvocation =  dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                        prerequisiteStatement.AddRange(requiredStatements);
                     }
                     else
                     {
-                        if (expression == null)
-                        {
-                            throw new ElementException(associationEnd, "No query fields have been mapped for this Query Entity Action, which signifies a single return value. Either specify this action returns a collection or map at least one field.");
-                        }
-
-                        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", dataAccess.FindAsync(expression)));
+                        queryInvocation =  dataAccess.FindAsync(queryMapping);
                     }
                 }
             }
+
+            var statements = new List<CSharpStatement>();
+            statements.AddRange(prerequisiteStatement);
+            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", queryInvocation).SeparatedFromPrevious());
 
             if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
             {
@@ -243,47 +242,6 @@ public class DomainInteractionsManager
         {
             throw new ElementException(associationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
-    }
-
-    private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
-    {
-        requiredStatements = new List<CSharpStatement>();
-
-        var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
-            .Select(x => x.IsOneToOne()
-                ? $"x.{x.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}"
-                : $"x.{x.TargetElement.Name}.{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}")
-            .ToList();
-
-        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
-
-        if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
-        {
-            return expression;
-        }
-
-        var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
-        var filterName = $"Filter{typeName.Pluralize()}";
-        var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
-        block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
-        if (!string.IsNullOrWhiteSpace(expression))
-        {
-            block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
-        }
-
-        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
-        {
-            block.AddIfStatement(_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
-            {
-                inside.AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon());
-            });
-        }
-
-        block.AddStatement("return queryable;");
-        block.SeparatedFromNext();
-        requiredStatements.Add(block);
-
-        return filterName;
     }
 
     public CSharpStatement CreateIfNullThrowNotFoundStatement(
@@ -314,12 +272,14 @@ public class DomainInteractionsManager
 
                 if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
                 {
-                    bool requiresExplicitUpate = RepositoryRequiresExplicitUpdate(aggregateEntity);
+                    bool requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(aggregateEntity);
                     var repositoryName = InjectService(repositoryInterface);
                     dataAccessProvider = new CompositeDataAccessProvider(
-                        $"{repositoryName}.UnitOfWork",
-                        $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}",
-                        requiresExplicitUpate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null
+                        saveChangesAccessor: $"{repositoryName}.UnitOfWork",
+                        accessor: $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}",
+                        explicitUpdateStatement: requiresExplicitUpdate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null,
+                        template: _template,
+                        mappingManager: _csharpMapping
                         );
 
                     return true;
@@ -329,8 +289,11 @@ public class DomainInteractionsManager
                 {
                     var dbContextField = InjectService(dbContextInterface, "dbContext");
                     dataAccessProvider = new CompositeDataAccessProvider(
-                        dbContextField,
-                        $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}");
+                        saveChangesAccessor: dbContextField,
+                        accessor: $"{aggregateEntity.Name.ToLocalVariableName()}.{aggregateAssociations.Single().OtherEnd().Name}",
+                        explicitUpdateStatement: null, 
+                        template: _template,
+                        mappingManager: _csharpMapping);
                     return true;
                 }
             }
@@ -347,7 +310,7 @@ public class DomainInteractionsManager
             dataAccessProvider = null;
             return false;
         }
-        dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface));
+        dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface), _template, _csharpMapping);
         return true;
     }
 
@@ -619,7 +582,7 @@ public class DomainInteractionsManager
             return false;
         }
         var dbContextField = InjectService(dbContextInterface, "dbContext");
-        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template);
+        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template, _csharpMapping);
         return true;
     }
 
@@ -757,7 +720,7 @@ public class DomainInteractionsManager
         statements.Add(CreateIfNullThrowNotFoundStatement(
             template: _template,
             variable: aggregateVariableName,
-            message: $"Could not find {foundEntity.Name.ToPascalCase()} '{{{idFields.Select(x => x.Value).AsSingleOrTuple()}}}'"));
+            message: $"Could not find {foundEntity.Name.ToPascalCase()} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
         return true;
     }
 
