@@ -20,7 +20,9 @@
       </properties>
     </stereotype>
   </stereotypes>
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="PackagePartitionKey" />
+  </metadata>
   <childElements>
     <childElement id="21550b2c-cd83-4cda-b229-558d5381b875" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>

@@ -63,7 +63,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" name="base" type="association" specialization="Generalization Target End" />
+          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" type="association" specialization="Generalization Target End" />
           <target id="fb6f07e2-2e70-4a4e-bd44-a7c61bfb1ac6" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -170,7 +170,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" name="base" type="association" specialization="Generalization Target End" />
+          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" type="association" specialization="Generalization Target End" />
           <target id="d2266353-6f88-4e2d-bcbc-0a4845239854" name="GenericAttribute" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>

@@ -117,6 +117,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OrderItem.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ICustomer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

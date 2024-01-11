@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -82,7 +83,13 @@ namespace Intent.Modules.CosmosDB.Templates
 
         public static string GetDocumentInterfaceName<T>(this CSharpTemplateBase<T> template, ITypeReference typeReference)
         {
-            var classProvider = template.GetTemplate<IClassProvider>(CosmosDBDocumentInterfaceTemplate.TemplateId, typeReference.Element);
+            if (!template.TryGetTemplate<IClassProvider>(CosmosDBDocumentInterfaceTemplate.TemplateId, typeReference.Element, out var classProvider))
+            { 
+                if (!template.TryGetTemplate<IClassProvider>(CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId, typeReference.Element, out classProvider))
+                {
+                    throw new Exception($"No Interface template found for {typeReference.Element.Name}.");
+                }
+            }
             var typeName = template.UseType(classProvider.FullTypeName());
 
             if (typeReference.IsCollection)

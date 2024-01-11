@@ -66,7 +66,7 @@
         <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" name="base" type="association" specialization="Generalization Target End" />
+          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" type="association" specialization="Generalization Target End" />
           <target id="fb6f07e2-2e70-4a4e-bd44-a7c61bfb1ac6" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>

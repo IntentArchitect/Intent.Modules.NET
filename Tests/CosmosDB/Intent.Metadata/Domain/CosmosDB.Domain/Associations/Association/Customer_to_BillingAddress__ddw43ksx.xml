@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="34c0573a-9c27-46a2-ad87-073b916549c0">
-  <sourceEnd id="5ecc5109-24a8-4e65-afd1-50db8879f355" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <display>: DerivedType</display>
+<association id="cea3a3b3-da78-47f3-9aaa-4887db211751">
+  <sourceEnd id="f8b98c7c-a208-41b1-963f-e9ca8516651b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
     <order>0</order>
-    <typeReference id="e5d8297c-0583-42b1-92b4-ad76fdff824f">
-      <typeId>563dcec1-bab5-4069-8042-6267fe16522d</typeId>
+    <typeReference id="184c9015-cd28-4c56-b41f-88b08eb84323">
+      <typeId>55d7a6e9-f464-45a4-a761-e5ea8683067e</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,14 +19,14 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="34c0573a-9c27-46a2-ad87-073b916549c0" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>base</name>
-    <display>extends BaseType</display>
-    <order>0</order>
-    <typeReference id="4a4f0df1-0eb0-4645-bbc9-73abe6d5e7af">
-      <typeId>85d4bd39-f73c-4237-b9f3-8c79df10fe2c</typeId>
+  <targetEnd id="cea3a3b3-da78-47f3-9aaa-4887db211751" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BillingAddress</name>
+    <display>BillingAddress: Address?   [1 --&gt; 0..1]</display>
+    <order>3</order>
+    <typeReference id="fb1e0b8d-ebdf-4f97-b87f-95cd787e057b">
+      <typeId>edd1bc45-8a56-413e-bf72-09b932895b29</typeId>
       <isNavigable>true</isNavigable>
-      <isNullable>false</isNullable>
+      <isNullable>true</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
       <typePackageName>CosmosDB.Domain</typePackageName>
@@ -37,7 +38,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Generalization</associationType>
-  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
   <stereotypes />
 </association>
