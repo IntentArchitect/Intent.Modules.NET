@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Application.Common.Pagination;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common.Interfaces;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -78,34 +79,34 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Repositorie
             return await QueryInternal(filterExpression, queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(x => true);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -113,7 +114,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Repositorie
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -153,14 +154,14 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Repositorie
             return await QueryInternal(queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -224,6 +225,22 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Repositorie
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        private static async Task<IPagedList<T>> ToPagedListAsync<T>(
+            IQueryable<T> queryable,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var count = await queryable.CountAsync(cancellationToken);
+            var skip = ((pageNo - 1) * pageSize);
+
+            var results = await queryable
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+            return new PagedList<T>(count, pageNo, pageSize, results);
         }
     }
 }

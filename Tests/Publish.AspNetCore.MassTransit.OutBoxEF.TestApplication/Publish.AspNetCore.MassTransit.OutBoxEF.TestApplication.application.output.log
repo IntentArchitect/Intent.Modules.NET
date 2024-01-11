@@ -108,6 +108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b7a25525-aedf-4a34-ba1c-8f62069cdada</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a25525-aedf-4a34-ba1c-8f62069cdada</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
@@ -436,10 +444,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>d00e4070-7760-4fdc-bbbb-6a32445640fd</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -560,14 +568,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/Mapping/ClassWithVORepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Mapping/ClassWithVORepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>095a789f-0be7-4a2c-a936-c54813387ac5</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

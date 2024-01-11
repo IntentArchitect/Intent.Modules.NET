@@ -55,7 +55,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Pagination
             testQuery.PageNo = 1;
             testQuery.PageSize = 5;
             var logEntryRepository = Substitute.For<ILogEntryRepository>();
-            var fetchedResults = Substitute.For<IPagedResult<LogEntry>>();
+            var fetchedResults = Substitute.For<IPagedList<LogEntry>>();
             fetchedResults.GetEnumerator().Returns(c => testEntities.GetEnumerator());
             logEntryRepository.FindAllAsync(1, 5, CancellationToken.None).Returns(Task.FromResult(fetchedResults));
 

@@ -300,6 +300,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f888852-6244-4bf0-bc9d-f096685ffc10</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f888852-6244-4bf0-bc9d-f096685ffc10</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
@@ -788,10 +796,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6dd5c9e-82fc-45f5-8938-a4d364bedfb3</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -920,14 +928,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>97a21a99-14e9-4754-bd28-a54383d0c7e2</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

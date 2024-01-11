@@ -2532,10 +2532,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CosmosDB.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

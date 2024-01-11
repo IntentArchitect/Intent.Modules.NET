@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
@@ -388,10 +396,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>12bcee79-6414-4eee-99e1-27c5c92fec60</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -464,14 +472,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58979235-8069-41ab-a341-9757097ba6cb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

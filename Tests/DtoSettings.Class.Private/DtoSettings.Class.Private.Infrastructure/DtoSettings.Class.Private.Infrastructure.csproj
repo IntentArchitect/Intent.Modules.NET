@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DtoSettings.Class.Private.Domain\DtoSettings.Class.Private.Domain.csproj" />
+    <ProjectReference Include="..\DtoSettings.Class.Private.Application\DtoSettings.Class.Private.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

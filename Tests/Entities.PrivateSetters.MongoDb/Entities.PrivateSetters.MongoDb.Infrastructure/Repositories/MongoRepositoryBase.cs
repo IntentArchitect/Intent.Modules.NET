@@ -89,7 +89,7 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Repositories
             return await QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -102,7 +102,7 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -116,7 +116,7 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,

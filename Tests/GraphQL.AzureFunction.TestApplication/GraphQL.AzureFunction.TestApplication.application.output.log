@@ -228,6 +228,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
@@ -580,10 +588,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>096adf41-3159-4774-b87a-fc3f1c5ef054</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -656,14 +664,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e8b76ef8-9a94-4566-9a52-384bc7003fd2</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/PagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

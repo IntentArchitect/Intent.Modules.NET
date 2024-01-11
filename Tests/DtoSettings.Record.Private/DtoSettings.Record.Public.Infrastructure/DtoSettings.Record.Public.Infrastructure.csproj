@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DtoSettings.Record.Public.Domain\DtoSettings.Record.Public.Domain.csproj" />
+    <ProjectReference Include="..\DtoSettings.Record.Public.Application\DtoSettings.Record.Public.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

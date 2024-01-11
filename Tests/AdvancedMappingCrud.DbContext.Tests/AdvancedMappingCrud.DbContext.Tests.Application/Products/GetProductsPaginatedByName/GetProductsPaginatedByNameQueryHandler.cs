@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPa
             CancellationToken cancellationToken)
         {
             var products = await _dbContext.Products
-                .Where(x => x.Name == request.Name)
+    .Where(x => x.Name == request.Name)
                 .ToPagedListAsync(request.PageNo, request.PageSize, cancellationToken);
             return products.MapToPagedResult(x => x.MapToProductDto(_mapper));
         }

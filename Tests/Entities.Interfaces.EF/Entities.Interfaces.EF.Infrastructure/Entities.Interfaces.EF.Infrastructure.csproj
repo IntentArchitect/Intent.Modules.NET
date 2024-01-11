@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entities.Interfaces.EF.Domain\Entities.Interfaces.EF.Domain.csproj" />
+    <ProjectReference Include="..\Entities.Interfaces.EF.Application\Entities.Interfaces.EF.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

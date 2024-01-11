@@ -23,20 +23,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="017991de-e68f-4b1e-843b-65b60ed3ca4b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>025c56bc-ef27-4978-94e8-382ec783e2f9</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="76f87b0d-c525-4561-9e57-d3935e611595" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -69,6 +55,20 @@
       <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
       <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>025c56bc-ef27-4978-94e8-382ec783e2f9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="24a1541a-6d5c-4983-a7e5-b0f33509318e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

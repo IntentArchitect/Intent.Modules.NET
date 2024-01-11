@@ -23,20 +23,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f37b567c-5f4a-487f-982e-cfc9f47c23ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f31b6af3-a758-40f0-b01d-20925f5e1545</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="9c5c2cac-7e91-47d6-8546-551b530bdecb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -83,6 +69,20 @@
       <name>Intent.Azure.TableStorage.TableStorageRepositoryInterface</name>
       <display>Intent.Azure.TableStorage.TableStorageRepositoryInterface</display>
       <externalReference>Intent.Azure.TableStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f31b6af3-a758-40f0-b01d-20925f5e1545</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="61d6f7ae-f674-487e-9b0d-495d9f57bc35" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5911417b-8e71-41a1-8da5-4d5b93ad3b43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
-      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
-      <packageName>CleanArchitecture.SingleFiles</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="e74d7804-5a88-4b44-8e4e-1209c35ede38" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -153,6 +137,20 @@
       <name>Intent.CosmosDB.CosmosDBRepositoryInterface</name>
       <display>Intent.CosmosDB.CosmosDBRepositoryInterface</display>
       <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1de0d86f-6dfa-461f-833e-c3ead5f90337" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -12,7 +12,7 @@ using MultipleDocumentStores.Domain.Repositories;
 
 namespace MultipleDocumentStores.Infrastructure.Repositories
 {
-    public class MongoPagedList<T> : List<T>, IPagedResult<T>
+    public class MongoPagedList<T> : List<T>, IPagedList<T>
     {
         public MongoPagedList(IQueryable<T> source, int pageNo, int pageSize)
         {
@@ -53,7 +53,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
         }
 
-        public static async Task<IPagedResult<T>> CreateAsync(
+        public static async Task<IPagedList<T>> CreateAsync(
             IQueryable<T> source,
             int pageNo,
             int pageSize,

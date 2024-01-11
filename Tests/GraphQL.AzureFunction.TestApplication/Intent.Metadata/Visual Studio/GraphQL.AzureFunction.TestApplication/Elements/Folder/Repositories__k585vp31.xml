@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="11001bb5-d073-4845-977a-25ad4e40ac12" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.PagedList</name>
-      <display>Intent.EntityFrameworkCore.Repositories.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e8b76ef8-9a94-4566-9a52-384bc7003fd2</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="bbd49f73-a9dc-4bd5-9f80-4809d88e9a12" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>

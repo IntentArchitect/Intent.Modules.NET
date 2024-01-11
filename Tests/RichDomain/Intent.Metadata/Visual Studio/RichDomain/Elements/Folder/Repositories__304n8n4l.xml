@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c4b30e1a-7aca-439c-8ccd-7ba4310aa41d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>0e3e7a2b-d532-4b83-8c37-45b03236274e</parentFolderId>
-      <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
-      <packageName>RichDomain</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="55e2d0cb-c311-4c9e-99cd-d54ddf51bdff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -95,6 +79,20 @@
       <parentFolderId>0e3e7a2b-d532-4b83-8c37-45b03236274e</parentFolderId>
       <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
       <packageName>RichDomain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="88da5b9f-0764-4e44-8928-fde292db20d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0e3e7a2b-d532-4b83-8c37-45b03236274e</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -10,7 +10,7 @@ using Microsoft.Azure.CosmosRepository.Paging;
 
 namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
 {
-    internal class CosmosPagedList<TDomain, TDomainState, TDocument> : List<TDomain>, IPagedResult<TDomain>
+    internal class CosmosPagedList<TDomain, TDomainState, TDocument> : List<TDomain>, IPagedList<TDomain>
         where TDomain : class
         where TDomainState : class, TDomain
         where TDocument : ICosmosDBDocument<TDomain, TDomainState, TDocument>

@@ -85,22 +85,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3bbef0ca-5b44-4597-9c53-5711c393dee7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.PagedList</name>
-      <display>Intent.EntityFrameworkCore.Repositories.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5679ef54-392d-494d-b721-faf0afca4959</parentFolderId>
-      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
-      <packageName>CleanArchitecture.SingleFiles</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="bc0fa454-d311-428a-abd8-ffb162141fc6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>

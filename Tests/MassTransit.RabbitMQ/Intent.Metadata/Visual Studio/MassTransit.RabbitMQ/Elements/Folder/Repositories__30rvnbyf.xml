@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="beeaa1d2-6e89-4ab0-80e3-7736bc6ad3a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.PagedList</name>
-      <display>Intent.EntityFrameworkCore.Repositories.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f844c42b-8e13-4781-a8c3-c3e0da3c1df3</parentFolderId>
-      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
-      <packageName>MassTransit.RabbitMQ</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="44614297-f22f-4999-b631-9003db9473c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>

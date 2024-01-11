@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7bfd142d-77ff-42f7-9e76-1186ad4b12ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7cf8333e-2636-44ae-a93d-ebab3f47debf</parentFolderId>
-      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
-      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="0e0f52c2-40c6-4402-89ea-1b8ab1755e3d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -95,6 +79,20 @@
       <parentFolderId>7cf8333e-2636-44ae-a93d-ebab3f47debf</parentFolderId>
       <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
       <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4d7bfa08-7186-43c7-a889-16fe29df86b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7cf8333e-2636-44ae-a93d-ebab3f47debf</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

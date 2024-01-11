@@ -14,7 +14,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Pagination.LogEntr
 {
     public static class LogEntryAssertions
     {
-        public static void AssertEquivalent(PagedResult<LogEntryDto> actualDtos, IPagedResult<LogEntry> expectedEntities)
+        public static void AssertEquivalent(PagedResult<LogEntryDto> actualDtos, IPagedList<LogEntry> expectedEntities)
         {
             if (expectedEntities == null)
             {

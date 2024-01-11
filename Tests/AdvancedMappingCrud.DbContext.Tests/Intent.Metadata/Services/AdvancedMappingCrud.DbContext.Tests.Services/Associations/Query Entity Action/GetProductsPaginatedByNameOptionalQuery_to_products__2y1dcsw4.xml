@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0ab97e2a-00f0-4b6a-b56d-defee93ab593">
+  <sourceEnd id="49277616-8d90-4983-8515-97c1d8e514c3" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductsPaginatedByNameOptionalQuery</display>
+    <order>0</order>
+    <typeReference id="604f3e62-c2fd-497c-8127-0302c3b863f3">
+      <typeId>48e84690-9c37-4663-b2fb-bdb3eab8cb79</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+      <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0ab97e2a-00f0-4b6a-b56d-defee93ab593" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>4</order>
+    <typeReference id="0c1d1bcf-0a5c-441f-b29a-8eb9bde323fb">
+      <typeId>49d6ee32-7e2b-4082-85cc-dda03e2eb756</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.DbContext.Tests.Domain</typePackageName>
+      <typePackageId>e9a90d1a-2d6c-4860-967f-32435319b518</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="48e84690-9c37-4663-b2fb-bdb3eab8cb79" location="[AdvancedMappingCrud.DbContext.Tests].[Services].[GetProductsPaginatedByNameOptionalQuery]" />
+        <target applicationId="0e3734cb-dd6e-4824-94b4-0596d33525be" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="49d6ee32-7e2b-4082-85cc-dda03e2eb756" location="[AdvancedMappingCrud.DbContext.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="49d6ee32-7e2b-4082-85cc-dda03e2eb756" name="Product" type="element" specialization="Class" />
+              <target id="a3408e8e-adbf-4be6-8f37-012baad9cb13" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="48e84690-9c37-4663-b2fb-bdb3eab8cb79" name="GetProductsPaginatedByNameOptionalQuery" type="element" specialization="Query" />
+                  <target id="f12324fc-eb98-4c83-ac53-870c53200b5a" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -892,6 +892,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#48e84690-9c37-4663-b2fb-bdb3eab8cb79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#48e84690-9c37-4663-b2fb-bdb3eab8cb79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#48e84690-9c37-4663-b2fb-bdb3eab8cb79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptional/GetProductsPaginatedByNameOptionalQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDto.cs</ApplicationRelativeFilePath>
@@ -904,14 +928,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/ProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Products/ProductDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

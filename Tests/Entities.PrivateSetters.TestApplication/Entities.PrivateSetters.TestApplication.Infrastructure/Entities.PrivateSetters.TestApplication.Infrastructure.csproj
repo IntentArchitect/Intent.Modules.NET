@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entities.PrivateSetters.TestApplication.Domain\Entities.PrivateSetters.TestApplication.Domain.csproj" />
+    <ProjectReference Include="..\Entities.PrivateSetters.TestApplication.Application\Entities.PrivateSetters.TestApplication.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

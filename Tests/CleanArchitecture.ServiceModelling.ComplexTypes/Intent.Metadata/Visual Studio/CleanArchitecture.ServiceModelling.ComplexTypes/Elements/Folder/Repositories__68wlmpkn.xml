@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ecb55cf2-b548-4cea-8640-3f2f37e21fd4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
-      <externalReference>Intent.Entities.Repositories.Api</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a430ef02-831b-46f6-84e5-16ad96fe600b</parentFolderId>
-      <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
-      <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="3902e043-2b4b-46a0-b2a8-e7ab82b4d9ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
       <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
@@ -95,6 +79,20 @@
       <parentFolderId>a430ef02-831b-46f6-84e5-16ad96fe600b</parentFolderId>
       <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
       <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1787ce08-1a71-4d51-aeaf-9c7ba0b7b325" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a430ef02-831b-46f6-84e5-16ad96fe600b</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

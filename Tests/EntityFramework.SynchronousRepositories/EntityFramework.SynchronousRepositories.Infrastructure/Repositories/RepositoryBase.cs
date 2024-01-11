@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using EntityFramework.SynchronousRepositories.Application.Common.Pagination;
 using EntityFramework.SynchronousRepositories.Domain.Common.Interfaces;
 using EntityFramework.SynchronousRepositories.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -82,34 +83,34 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return await QueryInternal(filterExpression, queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(x => true);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
                 cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -117,7 +118,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -157,14 +158,14 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return await QueryInternal(queryOptions).ToListAsync<TDomain>(cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(queryOptions);
-            return await PagedList<TDomain>.CreateAsync(
+            return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
                 pageSize,
@@ -214,7 +215,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return QueryInternal(filterExpression, queryOptions).ToList<TDomain>();
         }
 
-        public virtual IPagedResult<TDomain> FindAll(int pageNo, int pageSize)
+        public virtual IPagedList<TDomain> FindAll(int pageNo, int pageSize)
         {
             var query = QueryInternal(x => true);
             return PagedList<TDomain>.Create(
@@ -223,7 +224,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
                 pageSize);
         }
 
-        public virtual IPagedResult<TDomain> FindAll(
+        public virtual IPagedList<TDomain> FindAll(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize)
@@ -235,7 +236,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
                 pageSize);
         }
 
-        public virtual IPagedResult<TDomain> FindAll(
+        public virtual IPagedList<TDomain> FindAll(
             Expression<Func<TPersistence, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -263,7 +264,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return QueryInternal(queryOptions).ToList<TDomain>();
         }
 
-        public virtual IPagedResult<TDomain> FindAll(
+        public virtual IPagedList<TDomain> FindAll(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
@@ -283,6 +284,18 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         public virtual bool Any(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default)
         {
             return QueryInternal(queryOptions).Any();
+        }
+
+        private static IPagedList<T> ToPagedList<T>(IQueryable<T> queryable, int pageNo, int pageSize)
+        {
+            var count = queryable.Count();
+            var skip = ((pageNo - 1) * pageSize);
+
+            var results = queryable
+                .Skip(skip)
+                .Take(pageSize)
+                .ToList();
+            return new PagedList<T>(count, pageNo, pageSize, results);
         }
 
         protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
@@ -330,6 +343,22 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
+        private static async Task<IPagedList<T>> ToPagedListAsync<T>(
+            IQueryable<T> queryable,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var count = await queryable.CountAsync(cancellationToken);
+            var skip = ((pageNo - 1) * pageSize);
+
+            var results = await queryable
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+            return new PagedList<T>(count, pageNo, pageSize, results);
+        }
+
         public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
             CancellationToken cancellationToken = default)
@@ -339,7 +368,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return await projection.ToListAsync(cancellationToken);
         }
 
-        public async Task<IPagedResult<TProjection>> FindAllProjectToAsync<TProjection>(
+        public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
@@ -347,7 +376,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         {
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await PagedList<TProjection>.CreateAsync(
+            return await ToPagedListAsync(
                 projection,
                 pageNo,
                 pageSize,
@@ -370,14 +399,14 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             return projection.ToList();
         }
 
-        public IPagedResult<TProjection> FindAllProjectTo<TProjection>(
+        public IPagedList<TProjection> FindAllProjectTo<TProjection>(
             int pageNo,
             int pageSize,
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default)
         {
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return PagedList<TProjection>.Create(
+            return ToPagedList(
                 projection,
                 pageNo,
                 pageSize);

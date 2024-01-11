@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ce69123b-5a49-4a9b-927e-cd671071b938" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.PagedList</name>
-      <display>Intent.EntityFrameworkCore.Repositories.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>d6aacfd9-b7c5-4876-b40e-f19ddb090dfd</parentFolderId>
-      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
-      <packageName>MassTransitFinbuckle.Test</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="7da34b5b-ea2f-4034-8338-afdbc4740b16" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>

@@ -112,7 +112,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             return results;
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -120,7 +120,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TDocumentInterface, bool>> filterExpression,
             int pageNo,
             int pageSize,

@@ -12,6 +12,7 @@ using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductById;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProducts;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginated;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginatedByName;
+using AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginatedByNameOptional;
 using AdvancedMappingCrud.DbContext.Tests.Application.Products.UpdateProduct;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -120,7 +121,25 @@ namespace AdvancedMappingCrud.DbContext.Tests.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified PagedResult&lt;ProductDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpGet("api/product/paged-by-name-and-price")]
+        [HttpGet("api/product/paged-by-name-optional")]
+        [ProducesResponseType(typeof(PagedResult<ProductDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ProductDto>>> GetProductsPaginatedByNameOptional(
+            [FromQuery] string? name,
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetProductsPaginatedByNameOptionalQuery(name: name, pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ProductDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/product/paged-by-name")]
         [ProducesResponseType(typeof(PagedResult<ProductDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

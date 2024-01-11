@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bfd0351b-077a-4a99-a6e8-99e41cdfd32f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
+    <childElement id="33f2b7f8-e025-4758-ae93-97481071c74d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
       <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -51,9 +51,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="33f2b7f8-e025-4758-ae93-97481071c74d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
-      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+    <childElement id="96b49404-7644-4692-a8fc-1895e31b34f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
       <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

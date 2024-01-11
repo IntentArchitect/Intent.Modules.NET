@@ -45,7 +45,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
 
         public static void AssertEquivalent(
             PagedResult<AggregateRootLongDto> actualDtos,
-            IPagedResult<AggregateRootLong> expectedEntities)
+            IPagedList<AggregateRootLong> expectedEntities)
         {
             if (expectedEntities == null)
             {

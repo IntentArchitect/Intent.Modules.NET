@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EntityFrameworkCore.SplitQueries.MySql.Domain\EntityFrameworkCore.SplitQueries.MySql.Domain.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SplitQueries.MySql.Application\EntityFrameworkCore.SplitQueries.MySql.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

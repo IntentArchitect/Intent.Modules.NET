@@ -55,7 +55,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             testQuery.PageNo = 1;
             testQuery.PageSize = 5;
             var aggregateRootLongRepository = Substitute.For<IAggregateRootLongRepository>();
-            var fetchedResults = Substitute.For<IPagedResult<AggregateRootLong>>();
+            var fetchedResults = Substitute.For<IPagedList<AggregateRootLong>>();
             fetchedResults.GetEnumerator().Returns(c => testEntities.GetEnumerator());
             aggregateRootLongRepository.FindAllAsync(1, 5, CancellationToken.None).Returns(Task.FromResult(fetchedResults));
 

@@ -53,9 +53,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5bad4505-7b94-4098-a0d2-195444028c1b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.PagedResultInterface</name>
-      <display>Intent.Entities.Repositories.Api.PagedResultInterface</display>
+    <childElement id="0fc0c3ff-efd2-4e3c-894b-58b0feefd489" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
       <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -69,16 +69,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0fc0c3ff-efd2-4e3c-894b-58b0feefd489" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
-      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+    <childElement id="96ddabea-9579-4892-8e4d-652fd248a7ad" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
       <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22a6cd96-765c-4611-acde-2f596d55c4f8</parentFolderId>
-      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
-      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
