@@ -89,6 +89,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#17df1d73-9ffb-4731-990c-4c8cc8230ad0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/PostgresUtcConverterExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PostgresUtcConverterExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -255,6 +263,22 @@
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2178a1d0-2b06-4741-bed9-7fbbcfb1649f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2178a1d0-2b06-4741-bed9-7fbbcfb1649f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UtcDateTimeOffsetConverter/UtcDateTimeOffsetConverterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

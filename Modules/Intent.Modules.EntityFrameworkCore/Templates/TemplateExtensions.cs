@@ -3,6 +3,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.Modules.EntityFrameworkCore.Templates.UtcDateTimeOffsetConverter;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +32,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
         public static string GetEntityTypeConfigurationName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
+        }
+
+        public static string GetUtcDateTimeOffsetConverterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(UtcDateTimeOffsetConverterTemplate.TemplateId);
         }
 
     }

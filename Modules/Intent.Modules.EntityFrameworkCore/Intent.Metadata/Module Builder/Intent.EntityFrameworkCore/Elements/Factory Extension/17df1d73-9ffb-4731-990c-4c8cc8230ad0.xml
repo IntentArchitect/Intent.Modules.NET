@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="17df1d73-9ffb-4731-990c-4c8cc8230ad0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>PostgresUtcConverterExtension</name>
+  <display>PostgresUtcConverterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -38,16 +41,26 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private void AddConfigureConventions(IApplication application)
         {
+            if (!HasConventions(application))
+            {
+                return;
+            }
+
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
             if (dbContext is null)
             {
                 return;
             }
 
-            var storeEnumsAsStrings = dbContext.ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings();
-            if (!storeEnumsAsStrings)
+            var conventions = new List<CSharpStatement>();
+
+            if ( dbContext.ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
             {
-                return;
+                conventions.Add(GetStoreEnumsAsStringsConvention(dbContext));
+            }
+            if (application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql())
+            {
+                conventions.Add(GetPostgresDateTimeOffsetConvention(dbContext));
             }
 
             dbContext.CSharpFile.OnBuild(file =>
@@ -59,12 +72,24 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     method.Override();
                     method.AddParameter("ModelConfigurationBuilder", "configurationBuilder");
                     method.AddStatement("base.ConfigureConventions(configurationBuilder);");
-                    method.AddStatement($"configurationBuilder.Properties(typeof({dbContext.UseType("System.Enum")})).HaveConversion<string>();");
+                    method.AddStatements(conventions);
                 });
-
             });
+        }
 
+        public CSharpStatement GetStoreEnumsAsStringsConvention(ICSharpFileBuilderTemplate template)
+        {
+            return $"configurationBuilder.Properties(typeof({template.UseType("System.Enum")})).HaveConversion<string>();";
+        }
+        public CSharpStatement GetPostgresDateTimeOffsetConvention(ICSharpFileBuilderTemplate template)
+        {
+            return $"configurationBuilder.Properties(typeof({template.UseType("System.DateTimeOffset")})).HaveConversion(typeof({template.GetUtcDateTimeOffsetConverterName()}));";
+        }
 
+        private bool HasConventions(IApplication application)
+        { 
+            return application.Settings.GetDatabaseSettings().StoreEnumsAsStrings() ||
+                application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql();
         }
     }
 }
