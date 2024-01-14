@@ -218,7 +218,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         public virtual IPagedList<TDomain> FindAll(int pageNo, int pageSize)
         {
             var query = QueryInternal(x => true);
-            return PagedList<TDomain>.Create(
+            return ToPagedList<TDomain>(
                 query,
                 pageNo,
                 pageSize);
@@ -230,7 +230,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             int pageSize)
         {
             var query = QueryInternal(filterExpression);
-            return PagedList<TDomain>.Create(
+            return ToPagedList<TDomain>(
                 query,
                 pageNo,
                 pageSize);
@@ -243,7 +243,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
         {
             var query = QueryInternal(filterExpression, queryOptions);
-            return PagedList<TDomain>.Create(
+            return ToPagedList<TDomain>(
                 query,
                 pageNo,
                 pageSize);
@@ -270,7 +270,7 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions)
         {
             var query = QueryInternal(queryOptions);
-            return PagedList<TDomain>.Create(
+            return ToPagedList<TDomain>(
                 query,
                 pageNo,
                 pageSize);

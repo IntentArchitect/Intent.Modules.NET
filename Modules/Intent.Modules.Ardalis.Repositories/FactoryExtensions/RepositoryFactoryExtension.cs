@@ -135,7 +135,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddStatement($"IQueryable<TPersistence> queryable = _dbContext.Set<TPersistence>();")
                                 .AddStatement($"queryable = queryable.Where(filterExpression);")
                                 .AddStatement($"var result = linq(queryable);")
-                                .AddStatement(new CSharpInvocationStatement($"return await PagedList<TPersistence>.CreateAsync")
+                                .AddStatement(new CSharpInvocationStatement($"return await ToPagedListAsync<TDomain>")
                                     .AddArgument("result")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
