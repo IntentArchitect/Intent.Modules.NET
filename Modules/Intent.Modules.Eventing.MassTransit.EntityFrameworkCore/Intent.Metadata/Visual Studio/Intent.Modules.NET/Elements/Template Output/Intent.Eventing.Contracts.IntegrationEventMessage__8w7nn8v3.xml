@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a9827880-0051-4e22-97f7-89a7ea123703" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+  <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+  <externalReference>Intent.Eventing.Contracts</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>391b81be-0ee8-469f-835b-f3c5b2abfa6d</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

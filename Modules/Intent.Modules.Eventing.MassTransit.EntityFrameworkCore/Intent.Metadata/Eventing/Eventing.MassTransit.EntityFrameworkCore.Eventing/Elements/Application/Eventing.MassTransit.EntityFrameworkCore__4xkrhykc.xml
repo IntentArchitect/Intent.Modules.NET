@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="357e3647-14fc-4164-a125-c76b82c003d4" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Eventing.MassTransit.EntityFrameworkCore</name>
+  <display>Eventing.MassTransit.EntityFrameworkCore</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>069572f1-0074-4ddf-ae00-631efbe8d14c</parentFolderId>
+  <diagram>
+    <targetPackageId>e8e03d89-e245-47b3-b2a0-7728343b26d9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
