@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.AspNetCore</id>
-  <version>5.0.1-pre.3</version>
+  <version>5.0.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL bootstrapping for ASP.NET Core.</summary>
   <description>GraphQL bootstrapping for ASP.NET Core.</description>
@@ -28,7 +28,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.AspNetCore" version="6.0.1-pre.1" />
+        <package id="Intent.AspNetCore" version="6.0.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

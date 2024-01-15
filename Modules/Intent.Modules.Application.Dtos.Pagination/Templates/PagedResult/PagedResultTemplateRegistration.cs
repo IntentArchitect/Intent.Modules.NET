@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResult
     {
         public override string TemplateId => PagedResultTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new PagedResultTemplate(outputTarget);

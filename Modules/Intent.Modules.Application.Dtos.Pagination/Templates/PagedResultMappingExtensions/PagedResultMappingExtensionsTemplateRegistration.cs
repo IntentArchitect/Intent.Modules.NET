@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
 
         public override string TemplateId => PagedResultMappingExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<DTOModel> model)
         {
             return new PagedResultMappingExtensionsTemplate(outputTarget, model);

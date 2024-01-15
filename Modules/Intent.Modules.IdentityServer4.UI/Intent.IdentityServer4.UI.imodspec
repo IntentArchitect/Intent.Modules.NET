@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI</id>
-  <version>4.1.0-pre.0</version>
+  <version>4.1.0</version>
   <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</summary>
@@ -51,7 +51,7 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.Identity.EFCore">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="4.1.0-pre.0" />
+        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="4.1.0" />
       </install>
     </detect>
   </interoperability>

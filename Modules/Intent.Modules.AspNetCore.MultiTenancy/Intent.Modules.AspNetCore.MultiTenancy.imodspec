@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>5.1.1-pre.4</version>
+  <version>5.1.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -102,7 +102,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.AspNetCore" version="6.0.1-pre.1" />
+        <package id="Intent.AspNetCore" version="6.0.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
@@ -110,7 +110,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.0-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.5.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

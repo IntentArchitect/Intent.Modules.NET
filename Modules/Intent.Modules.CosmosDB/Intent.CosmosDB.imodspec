@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.0.2-pre.3</version>
+  <version>1.0.2</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -132,22 +132,22 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.2.2-pre.1" />
+        <package id="Intent.Application.MediatR" version="4.2.2" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.9-pre.1" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.9" />
       </install>
     </detect>
     <detect id="Intent.Entities">
       <install>
-        <package id="Intent.Entities" version="5.0.2-pre.2" />
+        <package id="Intent.Entities" version="5.0.2" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">
       <install>
-        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.1-pre.4" />
+        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

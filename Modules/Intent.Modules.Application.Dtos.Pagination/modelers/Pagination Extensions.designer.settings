@@ -53,6 +53,7 @@ addPagination(element);
 </script>
         </option>
       </scriptOptions>
+      <mappingOptions />
       <typeOrder />
       <mappingSettings />
     </elementExtension>
@@ -102,10 +103,14 @@ addPagination(element);
 </script>
         </option>
       </scriptOptions>
+      <mappingOptions />
       <typeOrder />
       <mappingSettings />
     </elementExtension>
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>
