@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1e04d079-8fbb-41ca-9c31-0b514463e9cf" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Converters</name>
+  <display>Converters</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c35a1d0a-4abb-490a-986b-819c79313e09</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f5df2c97-0aa9-4a41-8626-2968b8c7c743" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter</name>
+      <display>Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1e04d079-8fbb-41ca-9c31-0b514463e9cf</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

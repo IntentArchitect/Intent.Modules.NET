@@ -171,6 +171,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>77dcae28-3eb0-4bc6-ab09-8e0765c3f8a9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure/Persistence/Configurations/Converters/UtcDateTimeOffsetConverter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UtcDateTimeOffsetConverter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>75be858f-3393-4a0f-900e-fadf662f3b11</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

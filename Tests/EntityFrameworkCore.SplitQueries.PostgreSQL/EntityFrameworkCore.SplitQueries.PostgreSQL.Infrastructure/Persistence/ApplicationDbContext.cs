@@ -1,4 +1,6 @@
+using System;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common.Interfaces;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence.Configurations.Converters;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +34,12 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence
             new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
             new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties(typeof(DateTimeOffset)).HaveConversion(typeof(UtcDateTimeOffsetConverter));
         }
     }
 }
