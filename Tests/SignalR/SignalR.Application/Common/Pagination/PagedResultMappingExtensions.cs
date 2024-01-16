@@ -11,13 +11,13 @@ namespace SignalR.Application.Common.Pagination
     public static class PagedResultMappingExtensions
     {
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IpagedList{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>. 
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <param name="mapFunc">
         /// Provide a mapping function where a single Domain element is supplied to the function
         /// that returns a single DTO element. There are some convenient mapping extension methods
-        /// available or alternatively you can instantiate a new DTO element.
+        /// available, or alternatively you can instantiate a new DTO element.
         /// <example>results.MapToPagedResult(x => x.MapToItemDTO(_mapper));</example>
         /// <example>results.MapToPagedResult(x => ItemDTO.Create(x.ItemName));</example>
         /// </param>
