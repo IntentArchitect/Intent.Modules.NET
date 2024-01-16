@@ -4,10 +4,11 @@
   <display>AdvancedMappingCrud.Repositories.Tests</display>
   <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>768dd543-f6b2-4bbd-b516-a792abfaf211</parentFolderId>
+  <packageId>768dd543-f6b2-4bbd-b516-a792abfaf211</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing</packageName>
   <diagram>
     <targetPackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</targetPackageId>
   </diagram>

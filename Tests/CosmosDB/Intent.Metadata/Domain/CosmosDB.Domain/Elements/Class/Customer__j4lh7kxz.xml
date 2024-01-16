@@ -71,5 +71,29 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="1bdccb0e-9450-4cc0-b981-9c592baa75ec" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Tags</name>
+      <display>Tags: string[*]?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4dd265e8-8d17-4a0f-9572-49928a3fc056">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>55d7a6e9-f464-45a4-a761-e5ea8683067e</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
