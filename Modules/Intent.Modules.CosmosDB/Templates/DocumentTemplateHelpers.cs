@@ -255,7 +255,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     if (attribute.TypeReference.IsCollection)
                     {
                         template.AddUsing("System.Linq");
-                        suffix = $"{suffix}.ToList()";
+                        suffix = $"{suffix}{(attribute.TypeReference.IsNullable ? "?" : "")}.ToList()";
                     }
 
                     method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");

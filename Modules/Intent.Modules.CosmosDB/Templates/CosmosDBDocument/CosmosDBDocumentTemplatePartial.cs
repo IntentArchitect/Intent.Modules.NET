@@ -12,6 +12,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
@@ -247,8 +248,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 
                 if (metadataModel is AttributeModel attributeModel && attributeModel.TypeReference.IsCollection)
                 {
+                    string nullablePostFix = "";
+                    bool isNullable = attributeModel.TypeReference.IsNullable;
+                    if (isNullable)
+                    {
+                        nullablePostFix = OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                    }
                     @class.AddProperty(
-                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>",
+                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>{nullablePostFix}",
                         name: entityProperty.Name,
                         configure: property =>
                         {
