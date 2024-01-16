@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -21,6 +23,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         }
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
+        public List<string>? Tags { get; set; }
+        IReadOnlyList<string>? ICustomerDocument.Tags => Tags;
         public AddressDocument DeliveryAddress { get; set; } = default!;
         IAddressDocument ICustomerDocument.DeliveryAddress => DeliveryAddress;
         public AddressDocument? BillingAddress { get; set; }
@@ -32,6 +36,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
 
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
             entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
+            entity.Tags = Tags;
             entity.DeliveryAddress = DeliveryAddress.ToEntity() ?? throw new Exception($"{nameof(entity.DeliveryAddress)} is null");
             entity.BillingAddress = BillingAddress?.ToEntity();
 
@@ -42,6 +47,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             Id = entity.Id;
             Name = entity.Name;
+            Tags = entity.Tags?.ToList();
             DeliveryAddress = AddressDocument.FromEntity(entity.DeliveryAddress)!;
             BillingAddress = AddressDocument.FromEntity(entity.BillingAddress);
 

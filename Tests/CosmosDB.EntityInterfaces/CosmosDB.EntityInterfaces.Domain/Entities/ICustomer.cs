@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CosmosDB.EntityInterfaces.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,6 +12,8 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
         string Id { get; set; }
 
         string Name { get; set; }
+
+        ICollection<string>? Tags { get; set; }
 
         Address DeliveryAddress { get; set; }
 

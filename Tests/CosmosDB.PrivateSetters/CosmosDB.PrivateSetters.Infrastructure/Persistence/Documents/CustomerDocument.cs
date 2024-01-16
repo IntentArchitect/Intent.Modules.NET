@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -21,6 +23,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         }
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
+        public List<string>? Tags { get; set; }
+        IReadOnlyList<string>? ICustomerDocument.Tags => Tags;
         public AddressDocument DeliveryAddress { get; set; } = default!;
         IAddressDocument ICustomerDocument.DeliveryAddress => DeliveryAddress;
         public AddressDocument? BillingAddress { get; set; }
@@ -32,6 +36,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
 
             ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(Tags), Tags);
             ReflectionHelper.ForceSetProperty(entity, nameof(DeliveryAddress), DeliveryAddress.ToEntity() ?? throw new Exception($"{nameof(entity.DeliveryAddress)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(BillingAddress), BillingAddress?.ToEntity());
 
@@ -42,6 +47,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             Id = entity.Id;
             Name = entity.Name;
+            Tags = entity.Tags?.ToList();
             DeliveryAddress = AddressDocument.FromEntity(entity.DeliveryAddress)!;
             BillingAddress = AddressDocument.FromEntity(entity.BillingAddress);
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,6 +10,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories.Documents
     {
         string Id { get; }
         string Name { get; }
+        IReadOnlyList<string>? Tags { get; }
         IAddressDocument DeliveryAddress { get; }
         IAddressDocument? BillingAddress { get; }
     }

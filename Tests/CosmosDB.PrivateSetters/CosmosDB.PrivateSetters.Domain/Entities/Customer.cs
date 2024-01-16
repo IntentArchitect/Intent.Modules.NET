@@ -9,6 +9,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class Customer : IHasDomainEvent
     {
+        private List<string> _tags = new List<string>();
         private string? _id;
 
         public string Id
@@ -18,6 +19,12 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
         }
 
         public string Name { get; private set; }
+
+        public IReadOnlyCollection<string>? Tags
+        {
+            get => _tags.AsReadOnly();
+            private set => _tags = new List<string>(value);
+        }
 
         public Address DeliveryAddress { get; private set; }
 
