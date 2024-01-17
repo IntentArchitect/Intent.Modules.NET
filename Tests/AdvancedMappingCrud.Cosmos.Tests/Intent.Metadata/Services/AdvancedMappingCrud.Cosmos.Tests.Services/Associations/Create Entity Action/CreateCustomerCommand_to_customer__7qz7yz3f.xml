@@ -21,7 +21,7 @@
   <targetEnd id="400c0270-c185-4e74-a87e-9489be149174" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>customer</name>
     <display>[create] customer: Customer</display>
-    <order>3</order>
+    <order>7</order>
     <typeReference id="02b2b11a-7dbd-4505-b810-0ab924911c46">
       <typeId>41461520-9a59-4626-b0e9-2926ac9540a4</typeId>
       <isNavigable>true</isNavigable>
@@ -36,8 +36,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
-        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" location="CreateCustomerCommand" />
-        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="Customer" />
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[CreateCustomerCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{CreateCustomerCommand}</expression>
@@ -93,6 +93,70 @@
                 <path>
                   <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
                   <target id="d9aa1e5a-95e9-4a45-81f7-dd719eaa9e2b" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="436d11b3-18ba-4745-8bea-9b8cef556370" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="569290cc-45c2-45bf-98c6-2a7a43992569" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="ea9546e1-e5f0-455e-87df-9aa90fcab155" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="d24e9690-2b6e-4324-b617-6a51f21dc1db" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{City}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="fe3a1524-0eb5-4a7d-8f24-328e4a0f3ceb" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="afeb573f-4a04-4a7d-93e9-e9f35cd37004" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{PostalCode}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="f3c78bc8-64a2-47e9-8bfc-3869aea11a82" name="PostalCode" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="PostalCode" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="8d1b2d5e-92bb-4a86-b610-d7fbf94a937d" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="813995a9-832d-42a4-afcd-2dab5be98f38" name="PostalCode" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

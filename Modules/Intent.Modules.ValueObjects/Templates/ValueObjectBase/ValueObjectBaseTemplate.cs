@@ -91,6 +91,7 @@ namespace {Namespace}
 
         private string GetEFSameType()
         {
+            this.AddUsing("System");
             return @"public static bool AreSameType(object obj1, object obj2)
         {
             if (obj1 == null || obj2 == null)

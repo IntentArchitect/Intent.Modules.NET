@@ -10,7 +10,9 @@
   <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
   <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
   <stereotypes />
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
   <childElements>
     <childElement id="ced6bf55-e994-4626-b382-db284d47f206" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
@@ -37,7 +39,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata />
@@ -45,11 +49,11 @@
     </childElement>
     <childElement id="bd0477ab-f843-4f10-aa29-488e423424c1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Quantity</name>
-      <display>Quantity: binary</display>
+      <display>Quantity: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a24dd296-aa05-43c9-906b-137aff9dbd3b">
-        <typeId>013af2c5-3c32-4752-8f59-db5691050aef</typeId>
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

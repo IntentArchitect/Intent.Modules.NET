@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Exceptions;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -34,6 +35,11 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.UpdateCustomer
             customer.Name = request.Name;
             customer.Surname = request.Surname;
             customer.IsActive = request.IsActive;
+            customer.ShippingAddress = new Address(
+                line1: request.Line1,
+                line2: request.Line2,
+                city: request.City,
+                postalCode: request.PostalCode);
 
             _customerRepository.Update(customer);
         }

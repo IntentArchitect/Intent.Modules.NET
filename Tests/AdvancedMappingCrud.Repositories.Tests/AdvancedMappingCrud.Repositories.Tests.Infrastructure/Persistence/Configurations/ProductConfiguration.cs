@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.Domain;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,20 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Property(x => x.Name)
                 .IsRequired();
 
+            builder.OwnsMany(x => x.Tags, ConfigureTags);
+
             builder.Ignore(e => e.DomainEvents);
+        }
+
+        public void ConfigureTags(OwnedNavigationBuilder<Product, Tag> builder)
+        {
+            builder.WithOwner();
+
+            builder.Property(x => x.Name)
+                .IsRequired();
+
+            builder.Property(x => x.Value)
+                .IsRequired();
         }
     }
 }

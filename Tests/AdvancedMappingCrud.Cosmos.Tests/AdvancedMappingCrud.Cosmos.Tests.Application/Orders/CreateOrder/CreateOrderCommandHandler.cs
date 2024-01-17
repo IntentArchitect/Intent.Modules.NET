@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -30,7 +32,18 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrder
                 CustomerId = request.CustomerId,
                 RefNo = request.RefNo,
                 OrderDate = request.OrderDate,
-                OrderStatus = request.OrderStatus
+                OrderStatus = request.OrderStatus,
+                OrderItems = request.OrderItems
+                    .Select(oi => new OrderItem
+                    {
+                        Quantity = oi.Quantity,
+                        Amount = oi.Amount,
+                        ProductId = oi.ProductId
+                    })
+                    .ToList(),
+                OrderTags = request.OrderTags
+                    .Select(ot => new OrderTags(name: ot.Name, value: ot.Value))
+                    .ToList()
             };
 
             _orderRepository.Add(order);

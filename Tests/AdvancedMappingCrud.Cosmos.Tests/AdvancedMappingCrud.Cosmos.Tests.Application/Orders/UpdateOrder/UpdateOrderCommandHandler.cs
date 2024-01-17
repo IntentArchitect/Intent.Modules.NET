@@ -1,6 +1,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
+using AdvancedMappingCrud.Cosmos.Tests.Domain.Common;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Exceptions;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -35,8 +37,19 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
             order.RefNo = request.RefNo;
             order.OrderDate = request.OrderDate;
             order.OrderStatus = request.OrderStatus;
+            order.OrderTags = UpdateHelper.CreateOrUpdateCollection(order.OrderTags, request.OrderTags, (e, d) => e.Equals(new OrderTags(name: d.Name, value: d.Value)), CreateOrUpdateOrderTags);
 
             _orderRepository.Update(order);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static OrderTags CreateOrUpdateOrderTags(OrderTags? valueObject, UpdateOrderCommandOrderTagsDto dto)
+        {
+            if (valueObject is null)
+            {
+                return new OrderTags(name: dto.Name, value: dto.Value);
+            }
+            return valueObject;
         }
     }
 }

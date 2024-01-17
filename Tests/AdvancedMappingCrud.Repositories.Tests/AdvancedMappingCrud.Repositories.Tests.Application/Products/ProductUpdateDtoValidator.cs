@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -9,15 +10,19 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Products
     public class ProductUpdateDtoValidator : AbstractValidator<ProductUpdateDto>
     {
         [IntentManaged(Mode.Merge)]
-        public ProductUpdateDtoValidator()
+        public ProductUpdateDtoValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull();
+
+            RuleFor(v => v.Tags)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateProductTagDto>()!));
         }
     }
 }

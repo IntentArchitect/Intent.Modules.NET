@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -29,7 +30,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.CreateCustomer
             {
                 Name = request.Name,
                 Surname = request.Surname,
-                IsActive = request.IsActive
+                IsActive = request.IsActive,
+                ShippingAddress = new Address(
+                    line1: request.Line1,
+                    line2: request.Line2,
+                    city: request.City,
+                    postalCode: request.PostalCode)
             };
 
             _customerRepository.Add(customer);

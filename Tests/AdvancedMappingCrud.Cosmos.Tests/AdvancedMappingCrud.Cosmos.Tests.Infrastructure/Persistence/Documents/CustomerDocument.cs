@@ -23,6 +23,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public string Name { get; set; } = default!;
         public string Surname { get; set; } = default!;
         public bool IsActive { get; set; }
+        public AddressDocument ShippingAddress { get; set; } = default!;
+        IAddressDocument ICustomerDocument.ShippingAddress => ShippingAddress;
 
         public Customer ToEntity(Customer? entity = default)
         {
@@ -32,6 +34,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
             entity.Surname = Surname ?? throw new Exception($"{nameof(entity.Surname)} is null");
             entity.IsActive = IsActive;
+            entity.ShippingAddress = ShippingAddress.ToEntity() ?? throw new Exception($"{nameof(entity.ShippingAddress)} is null");
 
             return entity;
         }
@@ -42,6 +45,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             Name = entity.Name;
             Surname = entity.Surname;
             IsActive = entity.IsActive;
+            ShippingAddress = AddressDocument.FromEntity(entity.ShippingAddress)!;
 
             return this;
         }

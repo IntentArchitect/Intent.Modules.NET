@@ -14,17 +14,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
         {
             OrderId = null!;
             Id = null!;
-            Quantity = null!;
             ProductId = null!;
         }
 
         public string OrderId { get; set; }
         public string Id { get; set; }
-        public byte[] Quantity { get; set; }
+        public int Quantity { get; set; }
         public decimal Amount { get; set; }
         public string ProductId { get; set; }
 
-        public static OrderOrderItemDto Create(string orderId, string id, byte[] quantity, decimal amount, string productId)
+        public static OrderOrderItemDto Create(string orderId, string id, int quantity, decimal amount, string productId)
         {
             return new OrderOrderItemDto
             {

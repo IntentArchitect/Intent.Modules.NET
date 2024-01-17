@@ -67,6 +67,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#c5c7590b-668d-4237-9ad4-a2df580080b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrdersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a8f510e5-ac9c-426b-a539-af3673bb9834</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5953d7a0-4268-4835-a44e-d00c269d64b5</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -268,10 +292,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>76e568ef-abb4-4dba-bb4a-70d8272059b6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>76e568ef-abb4-4dba-bb4a-70d8272059b6</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>76e568ef-abb4-4dba-bb4a-70d8272059b6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -304,6 +344,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#23cf2587-c715-479d-88f9-36209075000a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/CustomerAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#23cf2587-c715-479d-88f9-36209075000a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/CustomerAddressDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerAddressDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -448,6 +504,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#81eff4f9-6f04-44b4-8d67-a613e66939ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/CreateOrderCommandOrderItemsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandOrderItemsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#81eff4f9-6f04-44b4-8d67-a613e66939ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/CreateOrderCommandOrderItemsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandOrderItemsDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#087e4df3-c7fa-4176-86cc-68d2f9a25e86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/CreateOrderCommandOrderTagsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandOrderTagsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#087e4df3-c7fa-4176-86cc-68d2f9a25e86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/CreateOrderCommandOrderTagsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderCommandOrderTagsDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -652,6 +740,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#167b7c44-4447-49b0-8e74-88551754173f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/OrderOrderTagsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderTagsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#167b7c44-4447-49b0-8e74-88551754173f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/OrderOrderTagsDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderTagsDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#4c2ce237-6ad2-44f0-a115-5881ba8c1d4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/UpdateOrder/UpdateOrderCommand.cs</ApplicationRelativeFilePath>
@@ -676,6 +780,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#5143abc3-560d-419d-98c8-81a2d170f2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/UpdateOrderCommandOrderTagsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderCommandOrderTagsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5143abc3-560d-419d-98c8-81a2d170f2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/UpdateOrderCommandOrderTagsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderCommandOrderTagsDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c5471d8f-ca36-4d2e-b755-a6ceb98a4c18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/UpdateOrderOrderItem/UpdateOrderOrderItemCommand.cs</ApplicationRelativeFilePath>
@@ -696,6 +816,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Orders/UpdateOrderOrderItem/UpdateOrderOrderItemCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/UpdateOrderOrderItem/UpdateOrderOrderItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#568546e5-201f-4aa8-b6d4-7dbc99c2c969</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Address.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -803,6 +931,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#f0b94a07-ebce-47df-8aae-969790b3329a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/OrderTags.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderTags.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBValueObjectDocumentInterface#568546e5-201f-4aa8-b6d4-7dbc99c2c969</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IAddressDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAddressDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#41461520-9a59-4626-b0e9-2926ac9540a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -824,6 +968,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IOrderItemDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IOrderItemDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBValueObjectDocumentInterface#f0b94a07-ebce-47df-8aae-969790b3329a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IOrderTagsDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderTagsDocument.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -883,6 +1035,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/ValueObject.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d4eeffac-8fb8-4bb3-a1b2-235ce87f7be2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d4eeffac-8fb8-4bb3-a1b2-235ce87f7be2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -904,6 +1064,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/CosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBValueObjectDocument#568546e5-201f-4aa8-b6d4-7dbc99c2c969</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/AddressDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressDocument.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -940,10 +1108,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBValueObjectDocument#f0b94a07-ebce-47df-8aae-969790b3329a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/OrderTagsDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderTagsDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#af9b5e7b-6122-4dc7-b0e9-412260df74b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ProductDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.ReflectionHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ReflectionHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReflectionHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

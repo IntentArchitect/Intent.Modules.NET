@@ -36,8 +36,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
-        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" location="CreateProduct" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="97321be8-d956-4dbf-aee7-2e177c8612d0" location="Product" />
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateProduct]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="97321be8-d956-4dbf-aee7-2e177c8612d0" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Product]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{CreateProduct}</expression>
@@ -53,17 +53,69 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{Dto.Name}</expression>
+            <expression>{dto.Name}</expression>
             <path>
               <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
               <target id="230e01c3-f6e1-4f77-8516-ec722f64f962" name="Name" type="element" specialization="Attribute" />
             </path>
             <sources>
-              <source identifier="Dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
                   <target id="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" name="CreateProduct" type="element" specialization="Operation" />
                   <target id="8c48c340-8329-4fef-b0c9-6d4cbab4aa16" name="dto" type="element" specialization="Parameter" />
                   <target id="d0f2b5c0-e23d-4074-bb80-61105ecabf5c" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" name="CreateProduct" type="element" specialization="Operation" />
+                  <target id="8c48c340-8329-4fef-b0c9-6d4cbab4aa16" name="dto" type="element" specialization="Parameter" />
+                  <target id="df08e516-fcca-4639-9555-de4d655fbc29" name="Tags" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags.Name}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+              <target id="d637bff8-d2e9-4e30-8a61-e246ffb54c0a" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" name="CreateProduct" type="element" specialization="Operation" />
+                  <target id="8c48c340-8329-4fef-b0c9-6d4cbab4aa16" name="dto" type="element" specialization="Parameter" />
+                  <target id="df08e516-fcca-4639-9555-de4d655fbc29" name="Tags" type="element" specialization="DTO-Field" />
+                  <target id="c11adc1d-6e81-47e3-a777-f7e7de836022" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags.Value}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+              <target id="f83e472e-c0c9-408a-9d79-a38d10364e83" name="Value" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags.Value" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="26e95445-3ad1-4f19-8b6a-d09c4cb4d6a3" name="CreateProduct" type="element" specialization="Operation" />
+                  <target id="8c48c340-8329-4fef-b0c9-6d4cbab4aa16" name="dto" type="element" specialization="Parameter" />
+                  <target id="df08e516-fcca-4639-9555-de4d655fbc29" name="Tags" type="element" specialization="DTO-Field" />
+                  <target id="b1cd167d-6ca5-4e2c-a511-33ef59a8b5ba" name="Value" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

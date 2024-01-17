@@ -11,5 +11,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents
         string Name { get; }
         string Surname { get; }
         bool IsActive { get; }
+        IAddressDocument ShippingAddress { get; }
     }
 }

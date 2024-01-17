@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Mappings;
 using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
             Id = null!;
             CustomerId = null!;
             RefNo = null!;
+            OrderItems = null!;
+            OrderTags = null!;
         }
 
         public string Id { get; set; }
@@ -24,8 +27,17 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
         public string RefNo { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
+        public List<OrderOrderItemDto> OrderItems { get; set; }
+        public List<OrderOrderTagsDto> OrderTags { get; set; }
 
-        public static OrderDto Create(string id, string customerId, string refNo, DateTime orderDate, OrderStatus orderStatus)
+        public static OrderDto Create(
+            string id,
+            string customerId,
+            string refNo,
+            DateTime orderDate,
+            OrderStatus orderStatus,
+            List<OrderOrderItemDto> orderItems,
+            List<OrderOrderTagsDto> orderTags)
         {
             return new OrderDto
             {
@@ -33,13 +45,17 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
                 CustomerId = customerId,
                 RefNo = refNo,
                 OrderDate = orderDate,
-                OrderStatus = orderStatus
+                OrderStatus = orderStatus,
+                OrderItems = orderItems,
+                OrderTags = orderTags
             };
         }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Order, OrderDto>();
+            profile.CreateMap<Order, OrderDto>()
+                .ForMember(d => d.OrderItems, opt => opt.MapFrom(src => src.OrderItems))
+                .ForMember(d => d.OrderTags, opt => opt.MapFrom(src => src.OrderTags));
         }
     }
 }

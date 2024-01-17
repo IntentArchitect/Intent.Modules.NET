@@ -63,5 +63,45 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);
         }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;ProductDto&gt;.</response>
+        [HttpGet]
+        [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ProductDto>>> FindProducts(CancellationToken cancellationToken = default)
+        {
+            var result = default(List<ProductDto>);
+            result = await _appService.FindProducts(cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> UpdateProduct(
+            [FromRoute] Guid id,
+            [FromBody] ProductUpdateDto dto,
+            CancellationToken cancellationToken = default)
+        {
+            await _validationService.Handle(dto, cancellationToken);
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            {
+                await _appService.UpdateProduct(id, dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+            }
+            await _eventBus.FlushAllAsync(cancellationToken);
+            return NoContent();
+        }
     }
 }

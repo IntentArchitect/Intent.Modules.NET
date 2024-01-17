@@ -9,7 +9,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrderOrderIt
 {
     public class CreateOrderOrderItemCommand : IRequest<string>, ICommand
     {
-        public CreateOrderOrderItemCommand(string orderId, byte[] quantity, decimal amount, string productId)
+        public CreateOrderOrderItemCommand(string orderId, int quantity, decimal amount, string productId)
         {
             OrderId = orderId;
             Quantity = quantity;
@@ -18,7 +18,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrderOrderIt
         }
 
         public string OrderId { get; set; }
-        public byte[] Quantity { get; set; }
+        public int Quantity { get; set; }
         public decimal Amount { get; set; }
         public string ProductId { get; set; }
     }

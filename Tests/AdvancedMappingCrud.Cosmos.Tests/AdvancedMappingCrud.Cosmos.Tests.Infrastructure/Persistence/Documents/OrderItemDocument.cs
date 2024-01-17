@@ -11,7 +11,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
     internal class OrderItemDocument : IOrderItemDocument
     {
         public string Id { get; set; } = default!;
-        public byte[] Quantity { get; set; } = default!;
+        public int Quantity { get; set; }
         public decimal Amount { get; set; }
         public string ProductId { get; set; } = default!;
 
@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             entity ??= new OrderItem();
 
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
-            entity.Quantity = Quantity ?? throw new Exception($"{nameof(entity.Quantity)} is null");
+            entity.Quantity = Quantity;
             entity.Amount = Amount;
             entity.ProductId = ProductId ?? throw new Exception($"{nameof(entity.ProductId)} is null");
 

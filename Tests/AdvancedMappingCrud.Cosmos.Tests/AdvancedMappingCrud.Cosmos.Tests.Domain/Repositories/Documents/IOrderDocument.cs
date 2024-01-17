@@ -15,5 +15,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents
         DateTime OrderDate { get; }
         OrderStatus OrderStatus { get; }
         IReadOnlyList<IOrderItemDocument> OrderItems { get; }
+        IReadOnlyList<IOrderTagsDocument> OrderTags { get; }
     }
 }

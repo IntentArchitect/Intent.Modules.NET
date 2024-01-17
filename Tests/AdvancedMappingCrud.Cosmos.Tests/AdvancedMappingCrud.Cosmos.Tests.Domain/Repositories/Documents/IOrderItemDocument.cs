@@ -8,7 +8,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents
     public interface IOrderItemDocument
     {
         string Id { get; }
-        byte[] Quantity { get; }
+        int Quantity { get; }
         decimal Amount { get; }
         string ProductId { get; }
     }

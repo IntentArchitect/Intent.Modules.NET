@@ -19,9 +19,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrderOrderIt
             RuleFor(v => v.OrderId)
                 .NotNull();
 
-            RuleFor(v => v.Quantity)
-                .NotNull();
-
             RuleFor(v => v.ProductId)
                 .NotNull();
         }

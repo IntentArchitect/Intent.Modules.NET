@@ -32,7 +32,7 @@ namespace CosmosDB.PrivateSetters.Domain
 
         public override bool Equals(object? obj)
         {
-            if (obj == null || obj.GetType() != GetType())
+            if (obj == null || !AreSameType(obj, this))
             {
                 return false;
             }
@@ -57,6 +57,19 @@ namespace CosmosDB.PrivateSetters.Domain
         public static bool operator !=(ValueObject one, ValueObject two)
         {
             return NotEqualOperator(one, two);
+        }
+
+        public static bool AreSameType(object obj1, object obj2)
+        {
+            if (obj1 == null || obj2 == null)
+            {
+                return false;
+            }
+
+            var type1 = obj1.GetType();
+            var type2 = obj2.GetType();
+
+            return type1 == type2;
         }
     }
 }

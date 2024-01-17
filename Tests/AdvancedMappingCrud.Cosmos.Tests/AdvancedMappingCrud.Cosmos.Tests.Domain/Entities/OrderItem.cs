@@ -15,7 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
             set => _id = value;
         }
 
-        public byte[] Quantity { get; set; }
+        public int Quantity { get; set; }
 
         public decimal Amount { get; set; }
 

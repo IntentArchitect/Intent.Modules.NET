@@ -23,6 +23,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
 
         public bool IsActive { get; set; }
 
+        public Address ShippingAddress { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

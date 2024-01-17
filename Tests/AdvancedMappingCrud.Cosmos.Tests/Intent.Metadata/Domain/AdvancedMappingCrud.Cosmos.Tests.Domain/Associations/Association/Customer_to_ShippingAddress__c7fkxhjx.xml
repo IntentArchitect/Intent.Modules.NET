@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="87dba1a2-db25-4403-8a97-afb984565688">
+  <sourceEnd id="03d6a284-1840-4189-8d24-b3d8ce7f0c03" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="5e2b3f7f-037e-453c-b9e1-1125425df38f">
+      <typeId>41461520-9a59-4626-b0e9-2926ac9540a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="87dba1a2-db25-4403-8a97-afb984565688" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ShippingAddress</name>
+    <display>ShippingAddress: Address   [1 --&gt; 1]</display>
+    <order>4</order>
+    <typeReference id="f4a50318-c766-4a24-953b-974e043fadda">
+      <typeId>568546e5-201f-4aa8-b6d4-7dbc99c2c969</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

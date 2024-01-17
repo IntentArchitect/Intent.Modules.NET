@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Products;
+using AdvancedMappingCrud.Repositories.Tests.Domain;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Exceptions;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
@@ -37,7 +39,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
         {
             var product = new Product
             {
-                Name = dto.Name
+                Name = dto.Name,
+                Tags = dto.Tags
+                    .Select(t => new Tag(name: t.Name, value: t.Value))
+                    .ToList()
             };
 
             _productRepository.Add(product);
@@ -73,6 +78,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             }
 
             product.Name = dto.Name;
+            product.Tags = UpdateHelper.CreateOrUpdateCollection(product.Tags, dto.Tags, (e, d) => e.Equals(new Tag(name: d.Name, value: d.Value)), CreateOrUpdateTag);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -101,6 +107,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
 
         public void Dispose()
         {
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static Tag CreateOrUpdateTag(Tag? valueObject, UpdateProductTagDto dto)
+        {
+            if (valueObject is null)
+            {
+                return new Tag(name: dto.Name, value: dto.Value);
+            }
+            return valueObject;
         }
     }
 }

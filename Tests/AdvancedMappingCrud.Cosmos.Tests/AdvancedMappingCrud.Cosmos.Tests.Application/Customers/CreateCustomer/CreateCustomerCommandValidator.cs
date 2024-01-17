@@ -21,6 +21,18 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.CreateCustomer
 
             RuleFor(v => v.Surname)
                 .NotNull();
+
+            RuleFor(v => v.Line1)
+                .NotNull();
+
+            RuleFor(v => v.Line2)
+                .NotNull();
+
+            RuleFor(v => v.City)
+                .NotNull();
+
+            RuleFor(v => v.PostalCode)
+                .NotNull();
         }
     }
 }

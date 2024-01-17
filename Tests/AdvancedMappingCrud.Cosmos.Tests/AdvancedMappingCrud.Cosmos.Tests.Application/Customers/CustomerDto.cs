@@ -15,21 +15,29 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers
             Id = null!;
             Name = null!;
             Surname = null!;
+            ShippingAddress = null!;
         }
 
         public string Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool IsActive { get; set; }
+        public CustomerAddressDto ShippingAddress { get; set; }
 
-        public static CustomerDto Create(string id, string name, string surname, bool isActive)
+        public static CustomerDto Create(
+            string id,
+            string name,
+            string surname,
+            bool isActive,
+            CustomerAddressDto shippingAddress)
         {
             return new CustomerDto
             {
                 Id = id,
                 Name = name,
                 Surname = surname,
-                IsActive = isActive
+                IsActive = isActive,
+                ShippingAddress = shippingAddress
             };
         }
 

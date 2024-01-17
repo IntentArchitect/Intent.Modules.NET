@@ -21,7 +21,7 @@
   <targetEnd id="38a7dbec-3be0-4d0c-933f-8038d6a8a221" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
     <name>customer</name>
     <display>[update] customer: Customer</display>
-    <order>4</order>
+    <order>8</order>
     <typeReference id="b769bc1d-3577-4237-9e5c-a4353d960d0c">
       <typeId>41461520-9a59-4626-b0e9-2926ac9540a4</typeId>
       <isNavigable>true</isNavigable>
@@ -57,8 +57,8 @@
         </mappedEnds>
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
-        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" location="UpdateCustomerCommand" />
-        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="Customer" />
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Name}</expression>
@@ -101,6 +101,70 @@
                 <path>
                   <target id="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" name="UpdateCustomerCommand" type="element" specialization="Command" />
                   <target id="95d578ce-1576-42dc-bace-d29373b68b2f" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line1}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="436d11b3-18ba-4745-8bea-9b8cef556370" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="f7b09a2d-5943-4a63-8b76-4032f2cac8e7" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Line2}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="ea9546e1-e5f0-455e-87df-9aa90fcab155" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="04499958-7a3c-4758-9258-caf946d005c6" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{City}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="fe3a1524-0eb5-4a7d-8f24-328e4a0f3ceb" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="a36cb422-395c-44b2-b39e-395a0013bebd" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{PostalCode}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="87dba1a2-db25-4403-8a97-afb984565688" name="ShippingAddress" type="association" specialization="Association Target End" />
+              <target id="f3c78bc8-64a2-47e9-8bfc-3869aea11a82" name="PostalCode" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="PostalCode" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="fbc46db2-f2b4-4e0f-b28b-c53e643efb13" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="35e95749-2cfe-42f4-8dbd-039d3bd33ba3" name="PostalCode" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

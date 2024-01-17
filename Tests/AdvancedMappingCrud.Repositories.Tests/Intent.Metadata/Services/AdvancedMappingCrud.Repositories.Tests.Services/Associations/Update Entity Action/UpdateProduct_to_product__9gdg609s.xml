@@ -57,21 +57,73 @@
         </mappedEnds>
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
-        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="753ea92e-8fbf-48e1-8325-52f06daf41fd" location="UpdateProduct" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="97321be8-d956-4dbf-aee7-2e177c8612d0" location="Product" />
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="753ea92e-8fbf-48e1-8325-52f06daf41fd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateProduct]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="97321be8-d956-4dbf-aee7-2e177c8612d0" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Product]" />
         <mappedEnds>
           <mappedEnd>
-            <expression>{Dto.Name}</expression>
+            <expression>{dto.Name}</expression>
             <path>
               <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
               <target id="230e01c3-f6e1-4f77-8516-ec722f64f962" name="Name" type="element" specialization="Attribute" />
             </path>
             <sources>
-              <source identifier="Dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
                   <target id="753ea92e-8fbf-48e1-8325-52f06daf41fd" name="UpdateProduct" type="element" specialization="Operation" />
                   <target id="1f810dfe-eb07-464b-896c-9ac1de5a7ca5" name="dto" type="element" specialization="Parameter" />
                   <target id="bc622630-47a4-4a52-9e4c-05d630386264" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="753ea92e-8fbf-48e1-8325-52f06daf41fd" name="UpdateProduct" type="element" specialization="Operation" />
+                  <target id="1f810dfe-eb07-464b-896c-9ac1de5a7ca5" name="dto" type="element" specialization="Parameter" />
+                  <target id="d9d29f90-0a20-43c9-aa53-9f16c0685270" name="Tags" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags.Name}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+              <target id="d637bff8-d2e9-4e30-8a61-e246ffb54c0a" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="753ea92e-8fbf-48e1-8325-52f06daf41fd" name="UpdateProduct" type="element" specialization="Operation" />
+                  <target id="1f810dfe-eb07-464b-896c-9ac1de5a7ca5" name="dto" type="element" specialization="Parameter" />
+                  <target id="d9d29f90-0a20-43c9-aa53-9f16c0685270" name="Tags" type="element" specialization="DTO-Field" />
+                  <target id="8a538e44-1d33-4ba2-bde4-175bb10db03a" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Tags.Value}</expression>
+            <path>
+              <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+              <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+              <target id="f83e472e-c0c9-408a-9d79-a38d10364e83" name="Value" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Tags.Value" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="753ea92e-8fbf-48e1-8325-52f06daf41fd" name="UpdateProduct" type="element" specialization="Operation" />
+                  <target id="1f810dfe-eb07-464b-896c-9ac1de5a7ca5" name="dto" type="element" specialization="Parameter" />
+                  <target id="d9d29f90-0a20-43c9-aa53-9f16c0685270" name="Tags" type="element" specialization="DTO-Field" />
+                  <target id="e62a1229-0938-43b9-ad08-789157597acb" name="Value" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>

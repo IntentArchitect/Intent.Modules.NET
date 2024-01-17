@@ -29,6 +29,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public OrderStatus OrderStatus { get; set; }
         public List<OrderItemDocument> OrderItems { get; set; } = default!;
         IReadOnlyList<IOrderItemDocument> IOrderDocument.OrderItems => OrderItems;
+        public List<OrderTagsDocument> OrderTags { get; set; } = default!;
+        IReadOnlyList<IOrderTagsDocument> IOrderDocument.OrderTags => OrderTags;
 
         public Order ToEntity(Order? entity = default)
         {
@@ -40,6 +42,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             entity.OrderDate = OrderDate;
             entity.OrderStatus = OrderStatus;
             entity.OrderItems = OrderItems.Select(x => x.ToEntity()).ToList();
+            entity.OrderTags = OrderTags.Select(x => x.ToEntity()).ToList();
 
             return entity;
         }
@@ -52,6 +55,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             OrderDate = entity.OrderDate;
             OrderStatus = entity.OrderStatus;
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
+            OrderTags = entity.OrderTags.Select(x => OrderTagsDocument.FromEntity(x)!).ToList();
 
             return this;
         }

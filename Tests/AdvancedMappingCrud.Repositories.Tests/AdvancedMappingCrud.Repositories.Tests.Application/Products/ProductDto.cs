@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Mappings;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AutoMapper;
@@ -14,23 +15,27 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Products
         public ProductDto()
         {
             Name = null!;
+            Tags = null!;
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public List<TagDto> Tags { get; set; }
 
-        public static ProductDto Create(Guid id, string name)
+        public static ProductDto Create(Guid id, string name, List<TagDto> tags)
         {
             return new ProductDto
             {
                 Id = id,
-                Name = name
+                Name = name,
+                Tags = tags
             };
         }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Product, ProductDto>();
+            profile.CreateMap<Product, ProductDto>()
+                .ForMember(d => d.Tags, opt => opt.MapFrom(src => src.Tags));
         }
     }
 }

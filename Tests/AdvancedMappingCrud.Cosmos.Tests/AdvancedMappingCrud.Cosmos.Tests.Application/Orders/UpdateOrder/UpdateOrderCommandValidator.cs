@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -9,12 +10,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
     public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]
-        public UpdateOrderCommandValidator()
+        public UpdateOrderCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Id)
                 .NotNull();
@@ -28,6 +29,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
             RuleFor(v => v.OrderStatus)
                 .NotNull()
                 .IsInEnum();
+
+            RuleFor(v => v.OrderTags)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderCommandOrderTagsDto>()!));
         }
     }
 }

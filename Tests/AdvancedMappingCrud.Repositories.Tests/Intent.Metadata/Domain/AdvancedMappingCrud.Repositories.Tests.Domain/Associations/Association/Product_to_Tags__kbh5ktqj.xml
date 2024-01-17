@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547">
+  <sourceEnd id="ce755002-e0a7-4057-aa38-62f9313551b0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Product</name>
+    <display>Product: Product</display>
+    <order>0</order>
+    <typeReference id="cd334ee6-ba3f-489a-97fe-18c67d4ac1f2">
+      <typeId>97321be8-d956-4dbf-aee7-2e177c8612d0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Tags</name>
+    <display>Tags: Tag[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="eb98f856-57b5-4ee8-af81-1b6a6c865499">
+      <typeId>d3185694-e50b-4dfb-b15a-3edfd3642b9a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
