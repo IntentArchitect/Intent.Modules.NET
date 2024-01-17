@@ -1,3 +1,7 @@
+### Version 6.0.3
+
+- Improvement: Added support for `ValueObject` collections.
+
 ### Version 6.0.2
 
 - Fixed: Optional query filters not working with DbContext oriented data-access.

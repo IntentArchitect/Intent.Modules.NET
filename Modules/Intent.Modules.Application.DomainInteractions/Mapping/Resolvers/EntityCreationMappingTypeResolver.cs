@@ -34,7 +34,12 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
         }
-         
+
+        if (model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection)
+        {
+            return new ValueObjectCollectionCreationMapping(mappingModel, _sourceTemplate);
+        }
+
         return null;
     }
 }

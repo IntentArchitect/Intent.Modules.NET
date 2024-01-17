@@ -1,4 +1,8 @@
-﻿### Version 4.1.1
+﻿### Version 4.1.3
+
+- Fixed: Value Object equality comparisons now taking into account EF Lazy Loading Proxies (Castle Proxies).
+
+### Version 4.1.1
 
 - Fixed: Nullability related compiler warnings.
 

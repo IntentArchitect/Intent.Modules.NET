@@ -33,6 +33,11 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
             return new ObjectUpdateMapping(mappingModel, _sourceTemplate);
         }
 
+        if (model.SpecializationType == "Association Target End" && model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection)
+        {
+            return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
+        }
+
         return null;
     }
 }

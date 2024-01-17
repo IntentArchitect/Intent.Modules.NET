@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Added support for `Value Object` collections.
+
 ### Version 5.0.2
 
 - Improvement: CreateOrUpdate methods now support domain interfaces.

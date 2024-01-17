@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Added support for `Value Object` collections.
+
 ### Version 5.0.2
 
 - Fixed: Optional query filters not working with DbContext oriented data-access.

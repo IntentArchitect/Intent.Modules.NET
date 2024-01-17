@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,9 +11,19 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObjectBase
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class ValueObjectBaseTemplate
     {
+
+        public bool UsingEF
+        {
+            get
+            {
+                return this.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore");
+            }
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
+            var sameTypeImplementation = UsingEF ? GetEFSameType() : GetDefaultSameType();
             return $@"
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +57,7 @@ namespace {Namespace}
 
         public override bool Equals(object? obj)
         {{
-            if (obj == null || obj.GetType() != GetType())
+            if (obj == null || !AreSameType(obj, this))
             {{
                 return false;
             }}
@@ -72,8 +83,62 @@ namespace {Namespace}
         {{
             return NotEqualOperator(one, two);
         }}
+
+        {sameTypeImplementation}
     }}
 }}";
         }
+
+        private string GetEFSameType()
+        {
+            return @"public static bool AreSameType(object obj1, object obj2)
+        {
+            if (obj1 == null || obj2 == null)
+            {
+                return false;
+            }
+
+            var type1 = obj1.GetType();
+            var type2 = obj2.GetType();
+
+            if (IsEFProxy(type1))
+            {
+                type1 = type1.BaseType!;
+            }
+
+            if (IsEFProxy(type2))
+            {
+                type2 = type2.BaseType!;
+            }
+
+            return type1 == type2;
+        }
+
+        private static bool IsEFProxy(Type type)
+        {
+            return type.Namespace == ""Castle.Proxies"";
+        }
+";
+
+        }
+
+        private string GetDefaultSameType()
+        {
+            return @"public static bool AreSameType(object obj1, object obj2)
+        {
+            if (obj1 == null || obj2 == null)
+            {
+                return false;
+            }
+
+            var type1 = obj1.GetType();
+            var type2 = obj2.GetType();
+
+            return type1 == type2;
+        }
+";
+
+        }
+
     }
 }
