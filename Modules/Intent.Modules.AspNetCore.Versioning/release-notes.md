@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: The obsolete `Microsoft.AspNetCore.Mvc.Versioning` and `Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer` NuGet packages were not automatically removed if installed by an earlier version of this module.
+
 ### Version 1.0.4
 
 - Improvement: Updated to be compatible with .NET 8.
@@ -8,7 +12,7 @@
 
 ### Version 1.0.2
 
-- Fixed: Moving away from obsolete `Microsoft.AspNetCore.Mvc.Versioning` and `Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer` nuget packages for `Asp.Versioning.Mvc` and `Asp.Versioning.Mvc.ApiExplorer`.
+- Fixed: Moving away from obsolete `Microsoft.AspNetCore.Mvc.Versioning` and `Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer` NuGet packages for `Asp.Versioning.Mvc` and `Asp.Versioning.Mvc.ApiExplorer`.
 
 ### Version 1.0.0
 
