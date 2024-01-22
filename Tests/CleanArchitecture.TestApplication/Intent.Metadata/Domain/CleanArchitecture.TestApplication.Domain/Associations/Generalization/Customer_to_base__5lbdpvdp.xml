@@ -21,7 +21,7 @@
   <targetEnd id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>base</name>
     <display>extends Person</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="a7e8e73b-9eb2-41c6-93f8-f424b6fb8c79">
       <typeId>ca6a9fcb-ad51-412c-a9a3-045bf61abaf4</typeId>
       <isNavigable>true</isNavigable>

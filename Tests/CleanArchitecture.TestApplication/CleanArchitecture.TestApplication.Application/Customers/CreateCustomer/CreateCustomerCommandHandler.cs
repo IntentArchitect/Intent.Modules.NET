@@ -29,13 +29,13 @@ namespace CleanArchitecture.TestApplication.Application.Customers.CreateCustomer
             var customer = new Customer
             {
                 Email = request.Email,
+                Name = request.Name,
+                Surname = request.Surname,
                 Address = new Address(
                     line1: request.Address.Line1,
                     line2: request.Address.Line2,
                     city: request.Address.City,
-                    postal: request.Address.Postal),
-                Name = request.Name,
-                Surname = request.Surname
+                    postal: request.Address.Postal)
             };
 
             _customerRepository.Add(customer);

@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
-namespace CleanArchitecture.TestApplication.Domain.Entities
+namespace CleanArchitecture.TestApplication.Domain.Entities.DDD
 {
     public class Person : IHasDomainEvent
     {
