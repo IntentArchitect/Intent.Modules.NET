@@ -94,7 +94,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
 
         foreach (var packageId in toRemovePackages)
         {
-            var item = project.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
+            var item = project.Items.FirstOrDefault(x => x.ItemType == "PackageReference" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
             if (item == null)
             {
                 continue;

@@ -1,3 +1,7 @@
+### Version 3.5.2
+
+- Fixed: NuGet package removals weren't being processed.
+
 ### Version 3.5.1
 
 - Fixed: Fix an issue where `Root Namespace` project setting was not working.
