@@ -1,3 +1,8 @@
+### Version 4.1.5
+
+- New Feature: Added support for `Integration Command` domain mapping.
+
+
 ### Version 4.1.4
 
 - Fixed: Mapping from Value Objects is now supported.

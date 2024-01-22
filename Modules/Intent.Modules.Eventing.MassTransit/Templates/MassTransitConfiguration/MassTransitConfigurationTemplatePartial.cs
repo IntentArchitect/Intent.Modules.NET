@@ -78,7 +78,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.AddParameter("IRegistrationConfigurator", "cfg", parm => parm.WithThisModifier());
                     foreach (var subscription in Subscriptions)
                     {
-                        method.AddStatement(GetAddConsumerStatement("cfg", subscription.Message, HasMessageBrokerStereotype(subscription)));                        
+                        method.AddStatement(GetAddConsumerStatement("cfg", subscription.Message, HasMessageBrokerStereotype(subscription)));
                     }
                 });
                 AddNonDefaultEndpointConfigurationMethods(@class);
@@ -87,7 +87,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private IEnumerable<MessageModel> MessagesWithSettings { get; }
     private IEnumerable<Subscription> Subscriptions { get; }
-    
+
     private record Subscription(
         MessageModel Message,
         IAzureServiceBusConsumerSettings? AzureConsumerSettings,
@@ -106,7 +106,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .SelectMany(x => x.SubscribedMessages())
             .Select(s => new Subscription(s.TypeReference.Element.AsMessageModel(), s.GetAzureServiceBusConsumerSettings(), s.GetRabbitMQConsumerSettings()));
     }
-    
+
     private bool HasMessageBrokerStereotype(Subscription subscription)
     {
         return (subscription.AzureConsumerSettings is not null &&
@@ -115,7 +115,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                (subscription.RabbitMqConsumerSettings is not null &&
                 ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsRabbitmq());
     }
-    
+
     private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
     {
         var statements = new List<CSharpStatement>();

@@ -49,7 +49,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
 
                         var domainMapping = (IElement)model.GetMapFromDomainMapping()?.Element;
                         var targetElementProperties = domainMapping?.ChildElements ?? Enumerable.Empty<IElement>();
-                        
+
                         var codeLines = new CSharpStatementAggregator();
                         codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
                         codeLines.Add(new CSharpStatementBlock()

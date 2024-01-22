@@ -1,5 +1,9 @@
 ### Version 6.0.0
 
+- Feature: Support for Sending Commands.
+
+### Version 6.0.0
+
 - Feature: Added support for explicitly modeled Integration Event Handler and the Advance Mapping systems available in Intent Architect 4.1.x
 
 ### Version 5.2.4
