@@ -78,6 +78,10 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         method.AddMetadata("mapping-manager", csharpMapping);
 
                         method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
+                        if (method.Statements.Count > 0)
+                        {
+                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                        }
                     }
                 })
                 .AfterBuild(file =>
