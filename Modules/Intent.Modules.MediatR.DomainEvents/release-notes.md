@@ -1,6 +1,7 @@
 ### Version 5.0.3
 
 - Improvement: Added support for `Value Object` collections.
+- Fixed: Domain Event handlers sometimes ended up with a `throw new NotImplementedException...` when there was an implementation.
 
 ### Version 5.0.2
 
@@ -8,7 +9,7 @@
 
 ### Version 5.0.1
 
-- Imrpovement: Support for optional query filters when querying lists (or paginated lists) of entities.
+- Improvement: Support for optional query filters when querying lists (or paginated lists) of entities.
  
 ### Version 5.0.0
 
@@ -20,7 +21,7 @@
 
 ### Version 4.2.0
 
-- Converted Default Domaint Event Handler to use the C# Builder implmentation paradigm. These classes can now be easily extended.
+- Converted Default Domain Event Handler to use the C# Builder implementation paradigm. These classes can now be easily extended.
 
 ### Version 4.1.2
 

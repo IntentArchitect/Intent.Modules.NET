@@ -78,12 +78,20 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         method.AddMetadata("mapping-manager", csharpMapping);
 
                         method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
+                    }
+                })
+                .AfterBuild(file =>
+                {
+                    // TODO: MOVE TO FACTORY EXTENSION:
+                    foreach (var handledDomainEvents in Model.HandledDomainEvents())
+                    {
+                        var method = (CSharpClassMethod)file.Classes.First().GetReferenceForModel(handledDomainEvents);
                         if (method.Statements.Count == 0)
                         {
                             method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         }
                     }
-                });
+                }, 10000);
         }
 
         [IntentManaged(Mode.Fully)]
