@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.128-alpha">
+  <PropertyGroup>
+    <ShouldRunNpmInstall>true</ShouldRunNpmInstall>
+    <ShouldRunBuildScript>true</ShouldRunBuildScript>
+    <BuildCommand>build</BuildCommand>
+    <StartupCommand>startup</StartupCommand>
+    <TestCommand>test</TestCommand>
+    <CleanCommand>clean</CleanCommand>
+    <PublishCommand>publish</PublishCommand>
+  </PropertyGroup>
+</Project>

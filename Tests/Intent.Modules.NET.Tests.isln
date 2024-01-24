@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.30" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="3.3.38" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -85,5 +85,6 @@
     <application id="b2a57b08-b2ce-420a-b5c8-f4c4abbd720a" name="Application.Identity.AccountController.UserIdentity" relativePath="Application.Identity.AccountController.UserIdentity/Application.Identity.AccountController.UserIdentity.application.config" />
     <application id="0e3734cb-dd6e-4824-94b4-0596d33525be" name="AdvancedMappingCrud.DbContext.Tests" relativePath="AdvancedMappingCrud.DbContext.Tests/AdvancedMappingCrud.DbContext.Tests.application.config" />
     <application id="200bbefa-5b4e-430e-ac37-9bb7f9b12604" name="Entities.Interfaces.EF" relativePath="Entities.Interfaces.EF/Entities.Interfaces.EF.application.config" />
+    <application id="f30a8ca0-4346-4589-a466-22bc302e8f67" name="JavaScriptProject" relativePath="JavaScriptProject/JavaScriptProject.application.config" />
   </applications>
 </solution>

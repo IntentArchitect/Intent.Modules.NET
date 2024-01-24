@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>f30a8ca0-4346-4589-a466-22bc302e8f67</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>JavaScriptProject.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>459bcb48-28e5-428f-baa3-8c71804f3070</ProjectId>
+      <CorrelationId>Intent.ContinuousIntegration.AzurePipelines.azure-pipelines</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>JavaScriptProject/Folder1/azure-pipelines.yaml</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>../azure-pipelines.yaml</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5701d30d-bc62-4413-8090-fadeb2263308</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.JavaScriptProject#5701d30d-bc62-4413-8090-fadeb2263308</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>JavaScriptProject/JavaScriptProject.esproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JavaScriptProject.esproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a672882-04ea-4537-9e58-95ceef5fb235" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <externalReference>0e775482-8f02-489e-8a6f-d9b723020405</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</parentFolderId>
+  <packageId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</packageId>
+  <packageName>JavaScriptProject</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e59a96e1-d5c7-4d43-8d9f-fb1b0f12fc7e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>SolutionItems</name>
+      <display>SolutionItems</display>
+      <externalReference>53a48cec-ce2d-43c9-80cf-3b00951d55f8</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0a672882-04ea-4537-9e58-95ceef5fb235</parentFolderId>
+      <packageId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</packageId>
+      <packageName>JavaScriptProject</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

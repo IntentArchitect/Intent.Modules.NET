@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5701d30d-bc62-4413-8090-fadeb2263308" type="JavaScript Project" typeId="69af0b31-9d69-4b5a-a6a2-fc9314f11d92">
+  <name>JavaScriptProject</name>
+  <display>JavaScriptProject</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0a672882-04ea-4537-9e58-95ceef5fb235</parentFolderId>
+  <packageId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</packageId>
+  <packageName>JavaScriptProject</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="141b4305-433b-4d5a-97ed-7796eabbe2aa" name="JavaScript Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="9163e435-1135-457b-a257-7a60f26ed7f6" display="Should run npm install" value="false" isActive="true" />
+        <property name="fd5c8c5e-b005-4f5b-9796-6e384dbf5662" display="Should run build script" value="true" isActive="true" />
+        <property name="21436a87-591f-41b9-8024-c397d33a9159" display="Build command" value="build" isActive="true" />
+        <property name="7d8108b4-32ef-447a-b5a7-53be87c4721b" display="Startup command" value="startup" isActive="true" />
+        <property name="2d30620f-f358-4313-94f8-aa1068789c40" display="Test command" value="test" isActive="true" />
+        <property name="bd6bcd2c-1afd-4255-8bb8-84151af05d05" display="Clean command" value="clean" isActive="true" />
+        <property name="ce4dbe58-6ed7-47ac-b3c1-a85e932af6c5" display="Publish command" value="publish" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2" name="JavaScript Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="55b86eda-5fda-4270-9284-9cb1518ff718" display="Relative Location" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>
