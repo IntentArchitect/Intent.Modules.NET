@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class SolutionFolderModel : IMetadataModel, IHasStereotypes, IHasName
+    public class SolutionFolderModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
     {
         public const string SpecializationType = "Solution Folder";
         protected readonly IElement _element;
@@ -68,8 +68,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new ASPNETWebApplicationNETFrameworkModel(x))
             .ToList();
 
-        [IntentManaged(Mode.Fully)]
-        public IList<WCFServiceApplicationModel> WCFServiceApplications => _element.ChildElements
+        public IList<WCFServiceApplicationModel> WCFServiceApplicationNETFrameworks => _element.ChildElements
             .GetElementsOfType(WCFServiceApplicationModel.SpecializationTypeId)
             .Select(x => new WCFServiceApplicationModel(x))
             .ToList();

@@ -1,5 +1,8 @@
-### Version 3.5.2
+### Version 3.6.0
 
+- Improvement: Deprecated ".NET Core" project types are no longer visible on the context menu, use `C# Project (.NET)` instead and change the `SDK` and other options on it to create equivalent projects.
+- Improvement: Options to create ".NET Framework" projects are now hidden by default, to have these options show use toggle the `Enable .NET Framework project creation` application setting.
+- Improvement: `Add .NET Core Version` and `Add .NET Framework Version` options are now hidden unless you have the `Intent.ModuleBuilder` module installed.
 - Fixed: NuGet package removals weren't being processed.
 
 ### Version 3.5.1

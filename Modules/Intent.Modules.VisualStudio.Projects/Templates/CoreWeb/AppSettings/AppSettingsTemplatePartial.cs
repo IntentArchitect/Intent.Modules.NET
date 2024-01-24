@@ -12,8 +12,8 @@ using Intent.Templates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 {

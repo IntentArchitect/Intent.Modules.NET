@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class ConsoleAppNETCoreModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject
+    public class ConsoleAppNETCoreModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper
     {
         public const string SpecializationType = "Console App (.NET Core)";
         public const string SpecializationTypeId = "27b265c8-e185-4c33-9908-8d23d5e945d1";

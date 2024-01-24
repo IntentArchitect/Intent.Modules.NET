@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static NETFrameworkSettings GetNETFrameworkSettings(this ASPNETWebApplicationNETFrameworkModel model)
         {
-            var stereotype = model.GetStereotype(".NET Framework Settings");
+            var stereotype = model.GetStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9");
             return stereotype != null ? new NETFrameworkSettings(stereotype) : null;
         }
 
 
         public static bool HasNETFrameworkSettings(this ASPNETWebApplicationNETFrameworkModel model)
         {
-            return model.HasStereotype(".NET Framework Settings");
+            return model.HasStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9");
         }
 
         public static bool TryGetNETFrameworkSettings(this ASPNETWebApplicationNETFrameworkModel model, out NETFrameworkSettings stereotype)
@@ -32,20 +32,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new NETFrameworkSettings(model.GetStereotype(".NET Framework Settings"));
+            stereotype = new NETFrameworkSettings(model.GetStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9"));
             return true;
         }
 
         public static CSharpProjectOptions GetCSharpProjectOptions(this ASPNETWebApplicationNETFrameworkModel model)
         {
-            var stereotype = model.GetStereotype("C# Project Options");
+            var stereotype = model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500");
             return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
 
         public static bool HasCSharpProjectOptions(this ASPNETWebApplicationNETFrameworkModel model)
         {
-            return model.HasStereotype("C# Project Options");
+            return model.HasStereotype("d9b43864-0370-401b-9e71-b1d286919500");
         }
 
         public static bool TryGetCSharpProjectOptions(this ASPNETWebApplicationNETFrameworkModel model, out CSharpProjectOptions stereotype)
@@ -56,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            stereotype = new CSharpProjectOptions(model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500"));
             return true;
         }
 

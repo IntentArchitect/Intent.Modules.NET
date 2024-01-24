@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public class SQLServerDatabaseProjectModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject
+    public class SQLServerDatabaseProjectModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper
     {
         public const string SpecializationType = "SQL Server Database Project";
         public const string SpecializationTypeId = "00D1A9C2-B5F0-4AF3-8072-F6C62B433612";

@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class RuntimeEnvironmentModel : IMetadataModel, IHasStereotypes, IHasName
+    public class RuntimeEnvironmentModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
     {
         public const string SpecializationType = "Runtime Environment";
         public const string SpecializationTypeId = "9edf270e-3f38-406c-ac94-07b9737bb531";

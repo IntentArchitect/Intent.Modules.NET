@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public class RoleModel : IHasStereotypes, IMetadataModel, IOutputTargetRole, IHasName
+    public class RoleModel : IHasStereotypes, IMetadataModel, IOutputTargetRole, IHasName, IElementWrapper
     {
         public const string SpecializationType = "Role";
         protected readonly IElement _element;

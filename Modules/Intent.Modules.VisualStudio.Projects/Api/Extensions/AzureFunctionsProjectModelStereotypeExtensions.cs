@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static NETCoreSettings GetNETCoreSettings(this AzureFunctionsProjectModel model)
         {
-            var stereotype = model.GetStereotype(".NET Core Settings");
+            var stereotype = model.GetStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a");
             return stereotype != null ? new NETCoreSettings(stereotype) : null;
         }
 
 
         public static bool HasNETCoreSettings(this AzureFunctionsProjectModel model)
         {
-            return model.HasStereotype(".NET Core Settings");
+            return model.HasStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a");
         }
 
         public static bool TryGetNETCoreSettings(this AzureFunctionsProjectModel model, out NETCoreSettings stereotype)
@@ -32,20 +32,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new NETCoreSettings(model.GetStereotype(".NET Core Settings"));
+            stereotype = new NETCoreSettings(model.GetStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a"));
             return true;
         }
 
         public static AzureFunctionsProjectSettings GetAzureFunctionsProjectSettings(this AzureFunctionsProjectModel model)
         {
-            var stereotype = model.GetStereotype("Azure Functions Project Settings");
+            var stereotype = model.GetStereotype("97218a15-c5ad-42f7-aac4-a9b8edcb5acd");
             return stereotype != null ? new AzureFunctionsProjectSettings(stereotype) : null;
         }
 
 
         public static bool HasAzureFunctionsProjectSettings(this AzureFunctionsProjectModel model)
         {
-            return model.HasStereotype("Azure Functions Project Settings");
+            return model.HasStereotype("97218a15-c5ad-42f7-aac4-a9b8edcb5acd");
         }
 
         public static bool TryGetAzureFunctionsProjectSettings(this AzureFunctionsProjectModel model, out AzureFunctionsProjectSettings stereotype)
@@ -56,20 +56,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new AzureFunctionsProjectSettings(model.GetStereotype("Azure Functions Project Settings"));
+            stereotype = new AzureFunctionsProjectSettings(model.GetStereotype("97218a15-c5ad-42f7-aac4-a9b8edcb5acd"));
             return true;
         }
 
         public static CSharpProjectOptions GetCSharpProjectOptions(this AzureFunctionsProjectModel model)
         {
-            var stereotype = model.GetStereotype("C# Project Options");
+            var stereotype = model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500");
             return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
 
         public static bool HasCSharpProjectOptions(this AzureFunctionsProjectModel model)
         {
-            return model.HasStereotype("C# Project Options");
+            return model.HasStereotype("d9b43864-0370-401b-9e71-b1d286919500");
         }
 
         public static bool TryGetCSharpProjectOptions(this AzureFunctionsProjectModel model, out CSharpProjectOptions stereotype)
@@ -80,7 +80,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            stereotype = new CSharpProjectOptions(model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500"));
             return true;
         }
 

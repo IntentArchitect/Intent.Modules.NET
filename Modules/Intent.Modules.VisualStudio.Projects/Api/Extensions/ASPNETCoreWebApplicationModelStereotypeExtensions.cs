@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static NETCoreSettings GetNETCoreSettings(this ASPNETCoreWebApplicationModel model)
         {
-            var stereotype = model.GetStereotype(".NET Core Settings");
+            var stereotype = model.GetStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a");
             return stereotype != null ? new NETCoreSettings(stereotype) : null;
         }
 
 
         public static bool HasNETCoreSettings(this ASPNETCoreWebApplicationModel model)
         {
-            return model.HasStereotype(".NET Core Settings");
+            return model.HasStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a");
         }
 
         public static bool TryGetNETCoreSettings(this ASPNETCoreWebApplicationModel model, out NETCoreSettings stereotype)
@@ -32,20 +32,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new NETCoreSettings(model.GetStereotype(".NET Core Settings"));
+            stereotype = new NETCoreSettings(model.GetStereotype("5d85edfb-490c-42c2-81ef-c57c0300eb5a"));
             return true;
         }
 
         public static CSharpProjectOptions GetCSharpProjectOptions(this ASPNETCoreWebApplicationModel model)
         {
-            var stereotype = model.GetStereotype("C# Project Options");
+            var stereotype = model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500");
             return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
 
         public static bool HasCSharpProjectOptions(this ASPNETCoreWebApplicationModel model)
         {
-            return model.HasStereotype("C# Project Options");
+            return model.HasStereotype("d9b43864-0370-401b-9e71-b1d286919500");
         }
 
         public static bool TryGetCSharpProjectOptions(this ASPNETCoreWebApplicationModel model, out CSharpProjectOptions stereotype)
@@ -56,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            stereotype = new CSharpProjectOptions(model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500"));
             return true;
         }
 

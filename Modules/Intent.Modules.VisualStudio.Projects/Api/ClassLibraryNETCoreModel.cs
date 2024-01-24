@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public class ClassLibraryNETCoreModel : IHasStereotypes, IMetadataModel, IVisualStudioProject, IHasName
+    public class ClassLibraryNETCoreModel : IHasStereotypes, IMetadataModel, IVisualStudioProject, IHasName, IElementWrapper
     {
         public const string SpecializationType = "Class Library (.NET Core)";
         public const string SpecializationTypeId = "52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE";

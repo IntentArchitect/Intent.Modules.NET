@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class CSharpProjectNETModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject
+    public class CSharpProjectNETModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper
     {
         public const string SpecializationType = "C# Project (.NET)";
         public const string SpecializationTypeId = "8e9e6693-2888-4f48-a0d6-0f163baab740";

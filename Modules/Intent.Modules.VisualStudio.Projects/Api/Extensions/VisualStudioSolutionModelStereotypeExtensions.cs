@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static VisualStudioSolutionOptions GetVisualStudioSolutionOptions(this VisualStudioSolutionModel model)
         {
-            var stereotype = model.GetStereotype("Visual Studio Solution Options");
+            var stereotype = model.GetStereotype("90085088-b29b-4386-b87e-f7f62c76c5de");
             return stereotype != null ? new VisualStudioSolutionOptions(stereotype) : null;
         }
 
 
         public static bool HasVisualStudioSolutionOptions(this VisualStudioSolutionModel model)
         {
-            return model.HasStereotype("Visual Studio Solution Options");
+            return model.HasStereotype("90085088-b29b-4386-b87e-f7f62c76c5de");
         }
 
         public static bool TryGetVisualStudioSolutionOptions(this VisualStudioSolutionModel model, out VisualStudioSolutionOptions stereotype)
@@ -32,7 +32,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new VisualStudioSolutionOptions(model.GetStereotype("Visual Studio Solution Options"));
+            stereotype = new VisualStudioSolutionOptions(model.GetStereotype("90085088-b29b-4386-b87e-f7f62c76c5de"));
             return true;
         }
 

@@ -38,6 +38,7 @@
         <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
+        <property name="ad2bbaa1-becc-477b-83d2-97179678e4bb" display="Allow Static" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
         <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
         <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="false" isActive="true" />
@@ -52,7 +53,7 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0dc2b846-c968-49eb-99b7-8776919313a8</parentFolderId>
@@ -94,18 +95,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f1c43a2-d549-470f-a313-c04dac8dc969" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="dc8ca7be-fe56-4a1d-9c4c-c00983fd82cc" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Azure Functions Project</name>
           <display>Azure Functions Project: Azure Functions Project</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3740f362-7be5-4d59-8c50-7a227ccc7d8c">
+          <typeReference id="6d132cf0-9d85-4209-aed7-fe88be6cdb1d">
             <typeId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -133,18 +135,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return false;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5da99478-2c70-4c53-8cce-4fd95fcd605d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="39ac8f00-0433-4d0f-ae25-012957e35ef1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>C# Project (.NET)</name>
           <display>C# Project (.NET): C# Project (.NET)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="a40b9704-7a89-4f3b-9b74-6f1ba4cab5a7">
+          <typeReference id="f10252b8-73e7-4109-93ef-e8b5dc23c4c8">
             <typeId>8e9e6693-2888-4f48-a0d6-0f163baab740</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -172,18 +175,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0220ae4a-7eb7-40ab-a098-cb5cdbfea341" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="b2a1eda4-d1e9-4be7-bc7d-4ac24fe5cf9e" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Class Library (.NET Core)</name>
           <display>Class Library (.NET Core): Class Library (.NET Core)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="b47625b6-5005-475b-9c23-6b45976ab45e">
+          <typeReference id="932e21b3-1de7-48be-bde1-a947acd1f6ef">
             <typeId>52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -211,18 +215,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return false;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1afd22cf-9896-4daa-b250-7b08eede918d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="a311927b-af14-462b-8579-30888bc59ad1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Class Library (.NET Framework)</name>
           <display>Class Library (.NET Framework): Class Library (.NET Framework)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="4af95c65-a638-4ee4-8eb4-44b336754984">
+          <typeReference id="80bb63bd-9a46-4a62-a874-27317c2375c4">
             <typeId>0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -250,18 +255,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return application.getSettings(&quot;ee3f6418-ee19-4bb7-9b8e-07a4f1d94499&quot;).getField(&quot;2dee07a2-4956-474b-b58e-ae04404ba2a3&quot;).value == &quot;true&quot;;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1048818d-fb87-45c0-b268-1e9e4576ad3c" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="06325dbd-1eb5-458b-a6bf-3c289c099b7e" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>ASP.NET Core Web Application</name>
           <display>ASP.NET Core Web Application: ASP.NET Core Web Application</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3b7d2adc-a7f0-46de-8a59-59764a69aaea">
+          <typeReference id="732d94e7-b3aa-4b8f-bd22-ae3de63999a6">
             <typeId>FFD54A85-9362-48AC-B646-C93AB9AC63D2</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -289,18 +295,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return false;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="927b4c8a-5494-43c9-8b01-2ed25bd6c450" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="9f21d831-54b9-4065-b1f6-bd18941529a3" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>ASP.NET Web Application (.NET Framework)</name>
           <display>ASP.NET Web Application (.NET Framework): ASP.NET Web Application (.NET Framework)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="c7c4965d-6146-4a1d-9018-f458464787b9">
+          <typeReference id="3bdd87a4-947b-4bbc-a1e6-d74b2860f1e4">
             <typeId>8AF747CF-58F0-449C-8B95-46080FEFC8C0</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -328,18 +335,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return application.getSettings(&quot;ee3f6418-ee19-4bb7-9b8e-07a4f1d94499&quot;).getField(&quot;2dee07a2-4956-474b-b58e-ae04404ba2a3&quot;).value == &quot;true&quot;;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="228c4171-994c-495a-b998-e8a97b6264f1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>WCF Service Application</name>
-          <display>WCF Service Application: WCF Service Application</display>
+        <childElement id="114da21d-ff8e-4575-b656-daa5b60b79ed" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>WCF Service Application (.NET Framework)</name>
+          <display>WCF Service Application (.NET Framework): WCF Service Application</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8efbe19e-8b51-4a1c-bd9b-4f71069019bc">
+          <typeReference id="32d32a6e-52a4-4038-90a8-477c50d14cca">
             <typeId>3CDFF513-03D8-4BAB-9435-160108A086A3</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -367,18 +375,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return application.getSettings(&quot;ee3f6418-ee19-4bb7-9b8e-07a4f1d94499&quot;).getField(&quot;2dee07a2-4956-474b-b58e-ae04404ba2a3&quot;).value == &quot;true&quot;;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b28e2ff1-318a-483e-aa5c-a27d606e3d2e" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="9d3a6b43-651b-46ff-88c1-3e91482ec0fc" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Console App (.NET Framework)</name>
           <display>Console App (.NET Framework): Console App (.NET Framework)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="82231939-428a-415e-8315-75bcc9895113">
+          <typeReference id="7e8bdad7-e6bc-4cda-9c6b-d89a759240eb">
             <typeId>673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -406,18 +415,19 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return application.getSettings(&quot;ee3f6418-ee19-4bb7-9b8e-07a4f1d94499&quot;).getField(&quot;2dee07a2-4956-474b-b58e-ae04404ba2a3&quot;).value == &quot;true&quot;;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c3f996bb-19b0-44e7-84cf-6479095c990b" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="ab255f22-f4e9-4a0f-9f2d-383647ad59c1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Console App (.NET Core)</name>
           <display>Console App (.NET Core): Console App (.NET Core)</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="e1192699-f697-47c7-a052-662764a79f59">
+          <typeReference id="6ae5e2a1-5c9e-4aab-9ec3-b15c6360456a">
             <typeId>27b265c8-e185-4c33-9908-8d23d5e945d1</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -445,6 +455,7 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return false;" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -484,6 +495,7 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -523,6 +535,7 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -562,6 +575,7 @@
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

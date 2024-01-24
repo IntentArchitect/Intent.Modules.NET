@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class NETFrameworkVersionModel : IMetadataModel, IHasStereotypes, IHasName
+    public class NETFrameworkVersionModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
     {
         public const string SpecializationType = ".NET Framework Version";
         protected readonly IElement _element;

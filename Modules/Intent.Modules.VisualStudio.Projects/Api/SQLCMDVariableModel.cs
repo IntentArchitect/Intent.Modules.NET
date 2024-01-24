@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class SQLCMDVariableModel : IMetadataModel, IHasStereotypes, IHasName
+    public class SQLCMDVariableModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
     {
         public const string SpecializationType = "SQLCMD Variable";
         public const string SpecializationTypeId = "e96716fe-877e-47e5-8b50-f5087cbe8482";

@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class AzureFunctionsProjectModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject
+    public class AzureFunctionsProjectModel : IMetadataModel, IHasStereotypes, IHasName, IVisualStudioProject, IElementWrapper
     {
         public const string SpecializationType = "Azure Functions Project";
         public const string SpecializationTypeId = "73e51385-5e20-4e2c-aa0b-6eb2dc8de52e";

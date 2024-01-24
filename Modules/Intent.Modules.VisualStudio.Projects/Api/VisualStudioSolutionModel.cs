@@ -44,6 +44,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new ASPNETWebApplicationNETFrameworkModel(x))
             .ToList();
 
+        public IList<WCFServiceApplicationModel> WCFServiceApplicationNETFrameworks => UnderlyingPackage.ChildElements
+            .GetElementsOfType(WCFServiceApplicationModel.SpecializationTypeId)
+            .Select(x => new WCFServiceApplicationModel(x))
+            .ToList();
+
         public IList<ClassLibraryNETCoreModel> ClassLibraryNETCores => UnderlyingPackage.ChildElements
             .GetElementsOfType(ClassLibraryNETCoreModel.SpecializationTypeId)
             .Select(x => new ClassLibraryNETCoreModel(x))
