@@ -19,7 +19,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
 
         private IFileMetadata _fileMetadata;
 
-        public VisualStudio2015SolutionTemplate(IApplication application, VisualStudioSolutionModel model, IEnumerable<IVisualStudioProject> projects)
+        public VisualStudio2015SolutionTemplate(IApplication application, VisualStudioSolutionModel model, IEnumerable<IVisualStudioSolutionProject> projects)
         {
             Application = application;
             Model = model;
@@ -30,7 +30,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
         public string Id => Identifier;
         public IApplication Application { get; }
         public VisualStudioSolutionModel Model { get; }
-        public IEnumerable<IVisualStudioProject> Projects { get; }
+        public IEnumerable<IVisualStudioSolutionProject> Projects { get; }
 
         public bool CanRunTemplate() => true;
 
@@ -100,7 +100,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
             IEnumerable<SolutionFolderModel> modelFolders,
             List<Node> projectConfigurationPlatforms,
             IReadOnlyCollection<string> solutionConfigurationPlatforms,
-            IReadOnlyCollection<IVisualStudioProject> projects)
+            IReadOnlyCollection<IVisualStudioSolutionProject> projects)
         {
             foreach (var projectModel in projects.Where(x => x.ParentFolder?.Id == modelParent?.Id))
             {

@@ -5,24 +5,28 @@ using Intent.Metadata.Models;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
-    public interface IVisualStudioProject : IMetadataModel, IHasStereotypes
+    public interface IVisualStudioSolutionProject : IMetadataModel, IHasStereotypes
     {
         string Name { get; }
-        string Type { get; }
+        IOutputTargetConfig ToOutputTargetConfig();
+        SolutionFolderModel ParentFolder { get; }
+        string FileExtension { get; }
+        public IElement InternalElement { get; }
         string ProjectTypeId { get; }
         string RelativeLocation { get; }
-        public IElement InternalElement { get; }
-
-        IOutputTargetConfig ToOutputTargetConfig();
-        IEnumerable<string> TargetFrameworkVersion();
+        VisualStudioSolutionModel Solution { get; }
         IList<RoleModel> Roles { get; }
         IList<TemplateOutputModel> TemplateOutputs { get; }
         IList<FolderModel> Folders { get; }
-        SolutionFolderModel ParentFolder { get; }
-        VisualStudioSolutionModel Solution { get; }
+    }
+
+    public interface IVisualStudioProject : IVisualStudioSolutionProject
+    {
+        string Type { get; }
+
+        IEnumerable<string> TargetFrameworkVersion();
         string LanguageVersion { get; }
         bool NullableEnabled { get; }
-        string FileExtension { get; }
     }
 
     public static class VisualStudioProjectExtensions

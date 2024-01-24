@@ -100,6 +100,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .ToList();
         }
 
+        public static IList<JavaScriptProjectModel> GetJavaScriptProjectModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(JavaScriptProjectModel.SpecializationTypeId)
+                .Select(x => new JavaScriptProjectModel(x))
+                .ToList();
+        }
+
         public static IList<RuntimeEnvironmentModel> GetRuntimeEnvironmentModels(this IDesigner designer)
         {
             return designer.GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)

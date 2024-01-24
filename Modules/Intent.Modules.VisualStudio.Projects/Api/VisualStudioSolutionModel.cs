@@ -109,6 +109,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new CSharpProjectNETModel(x))
             .ToList();
 
+        public IList<JavaScriptProjectModel> JavaScriptProjects => UnderlyingPackage.ChildElements
+            .GetElementsOfType(JavaScriptProjectModel.SpecializationTypeId)
+            .Select(x => new JavaScriptProjectModel(x))
+            .ToList();
+
         public IList<ConsoleAppNETCoreModel> ConsoleAppNETCores => UnderlyingPackage.ChildElements
             .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
             .Select(x => new ConsoleAppNETCoreModel(x))

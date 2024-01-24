@@ -147,7 +147,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         #region ITemplate implementation
 
         public IFileMetadata GetMetadata() => _fileMetadata ?? throw new InvalidOperationException($"{nameof(_fileMetadata)} is null");
-        public string RunTemplate() => _projectRootElement.RawXml;
+        public string RunTemplate() => _projectRootElement.RawXml.ReplaceLineEndings();
         public string Id => TemplateId;
 
         private class FileConfig : IFileMetadata, ITemplateFileConfig

@@ -156,6 +156,46 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="64f7219b-8e17-4f87-a47f-0b973104c90d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>JavaScript Project</name>
+          <display>JavaScript Project: JavaScript Project</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0bc4e090-1b1b-4cb1-806a-f997b28d1b2e">
+            <typeId>69af0b31-9d69-4b5a-a6a2-fc9314f11d92</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3b1cc619-f3d8-40ef-8989-8449ab0efecb</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" value="ctrl + shift + j" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="JavaScriptProject" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="10941e6e-c628-460a-92bf-a4d3a8bb85ea" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Class Library (.NET Core)</name>
           <display>Class Library (.NET Core): Class Library (.NET Core)</display>

@@ -2,6 +2,7 @@
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject;
 using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.OutputTargets
@@ -31,6 +32,16 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
             foreach (var solutionFolder in solutionFolders)
             {
                 registry.RegisterOutputTarget(solutionFolder.ToOutputTarget());
+            }
+
+            var javaScriptProjects = _metadataManager.VisualStudio(application).GetJavaScriptProjectModels();
+            foreach (var model in javaScriptProjects)
+            {
+                registry.RegisterOutputTarget(model.ToOutputTargetConfig());
+                foreach (var folder in model.Folders.DetectDuplicates())
+                {
+                    Register(registry, folder);
+                }
             }
         }
 

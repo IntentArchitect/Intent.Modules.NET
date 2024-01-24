@@ -140,6 +140,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#69af0b31-9d69-4b5a-a6a2-fc9314f11d92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/JavaScriptProjectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JavaScriptProjectModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#6453c4bd-78b8-4589-a223-9f57a348a1a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/NETFrameworkVersionModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -168,6 +176,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/FolderModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FolderModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#69af0b31-9d69-4b5a-a6a2-fc9314f11d92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/JavaScriptProjectModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JavaScriptProjectModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
