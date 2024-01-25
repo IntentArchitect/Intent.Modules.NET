@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79">
   <sourceEnd id="02c11b52-d103-4069-a1c1-bceadc24cbea" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <name>DerivedFromAbstractClass</name>
-    <display>DerivedFromAbstractClass: DerivedFromAbstractClass</display>
+    <display>: DerivedFromAbstractClass</display>
     <order>0</order>
     <typeReference id="252ba3ed-3413-4b76-b2fc-e90c7a5e2946">
       <typeId>d6a02046-3378-4a7c-9d90-f53bdc23ebff</typeId>
@@ -20,9 +19,8 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>AbstractBaseClass</name>
-    <display>AbstractBaseClass: AbstractBaseClass</display>
-    <order>2</order>
+    <display>extends AbstractBaseClass</display>
+    <order>0</order>
     <typeReference id="d3f097ff-62a4-4ca6-841d-6cfac011b20e">
       <typeId>a91d6bef-daa7-4d29-ad49-66bb90eafed6</typeId>
       <isNavigable>true</isNavigable>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="28296d86-174b-447d-8945-241fc02ff073" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>PersonUpdatedEvent</name>
+  <display>PersonUpdatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</parentFolderId>
+  <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+  <packageName>RichDomain.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ca6784f6-6f9e-4e6e-8890-f69d6df8f10e" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Person</name>
+      <display>Person: Person</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2bea552f-9d24-4f23-92b2-e74f17450ca8">
+        <typeId>c2056685-3725-4ae1-a9cc-cc7621296e32</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>RichDomain.Domain</typePackageName>
+        <typePackageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>28296d86-174b-447d-8945-241fc02ff073</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

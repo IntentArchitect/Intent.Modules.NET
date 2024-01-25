@@ -62,7 +62,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>38950864-1930-4a7f-9a21-57f1b4043ad1</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
@@ -129,7 +129,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="24e53e6c-0bd9-456a-bd3f-5ed33c8bf54d" name="BaseClass" type="association" specialization="Generalization Target End" />
+              <target id="24e53e6c-0bd9-456a-bd3f-5ed33c8bf54d" name="" type="association" specialization="Generalization Target End" />
               <target id="80dfd18b-466e-4522-93f4-d78689219558" name="BaseAttribute" type="element" specialization="Attribute" />
             </mappedPath>
           </mappedClass>

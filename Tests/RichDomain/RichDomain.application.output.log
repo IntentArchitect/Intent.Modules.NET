@@ -339,6 +339,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>21843354-8ac3-41ce-9815-9a89bbff67f8</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#28296d86-174b-447d-8945-241fc02ff073</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/EventHandlers/PersonUpdatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonUpdatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7523b3aa-ab87-45fe-adc9-365f5b100829</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#71014629-4128-42fc-9f22-fde750c0c01f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -680,6 +688,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Entities/PersonState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersonState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3085689b-b994-4a00-9fe6-20c6898ec7cb</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#28296d86-174b-447d-8945-241fc02ff073</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Events/PersonUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonUpdatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

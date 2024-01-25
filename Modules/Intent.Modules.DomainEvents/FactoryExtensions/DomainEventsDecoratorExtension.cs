@@ -32,8 +32,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
     {
         public override string Id => "Intent.DomainEvents.DomainEventsDecoratorExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => -10;
+        [IntentManaged(Mode.Ignore)] public override int Order => -10;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -45,18 +44,36 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 {
                     var @class = file.Classes.FirstOrDefault();
                     if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
-                        model.IsAggregateRoot() && 
+                        model.IsAggregateRoot() &&
                         model.ParentClass == null &&
                         AggregateGetsDomainEventing(application, model)
-                        )
+                       )
                     {
                         @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                        @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
-                        {
-                            property.WithInitialValue($"new {property.Type}()");
-                            property.AddMetadata("non-persistent", true);
-                        });
+                        @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents",
+                            property =>
+                            {
+                                property.WithInitialValue($"new {property.Type}()");
+                                property.AddMetadata("non-persistent", true);
+                            });
+                    }
+                });
+            }
 
+            var entityImplTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.EntityImplementation));
+            foreach (var template in entityImplTemplates)
+            {
+                template.AddTypeSource(DomainEventTemplate.TemplateId);
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.FirstOrDefault();
+                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
+                        model.IsAggregateRoot() &&
+                        model.ParentClass == null &&
+                        AggregateGetsDomainEventing(application, model)
+                       )
+                    {
                         foreach (var ctorModel in model.Constructors.Where(x => x.PublishedDomainEvents().Any()))
                         {
                             var ctor = @class.Constructors.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, ctorModel));
@@ -72,7 +89,8 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                     }
                                     else
                                     {
-                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
+                                            ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
                                     }
                                 }
                             }
@@ -93,7 +111,8 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                                     }
                                     else
                                     {
-                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
+                                            method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
                                     }
                                 }
                             }
@@ -122,8 +141,9 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             if (application.Settings.GetDomainSettings().ImplementDomainEventingOn().IsModelledEvents())
             {
                 return model.Constructors.Where(x => x.PublishedDomainEvents().Any()).Any() ||
-                    model.Operations.Where(x => x.PublishedDomainEvents().Any()).Any();
+                       model.Operations.Where(x => x.PublishedDomainEvents().Any()).Any();
             }
+
             //Default is they all get
             return true;
         }
@@ -154,7 +174,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 {
                     continue;
                 }
-                
+
                 switch (pathItem.Specialization)
                 {
                     case OperationModel.SpecializationType:
@@ -172,8 +192,8 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             return string.Join(".", mappedPath);
         }
 
-        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template, 
-            IList<string> availableParameters, 
+        private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
+            IList<string> availableParameters,
             DomainEventModel model)
         {
             var classModel = template is ITemplateWithModel templateWithModel ? templateWithModel.Model as ClassModel : null;
