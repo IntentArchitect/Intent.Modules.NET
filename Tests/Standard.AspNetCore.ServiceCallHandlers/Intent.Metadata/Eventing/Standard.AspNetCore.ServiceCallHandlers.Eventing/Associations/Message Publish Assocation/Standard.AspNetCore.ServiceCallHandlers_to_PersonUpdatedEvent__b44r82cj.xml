@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f244a192-e338-4e3c-82d2-617a5e63d192">
+  <sourceEnd id="71c85698-4918-4131-9665-e3bbddb376e6" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <display>publisher: Standard.AspNetCore.ServiceCallHandlers</display>
+    <order>0</order>
+    <typeReference id="ac1ae84a-0f5d-47f5-8e01-77637616a3c1">
+      <typeId>d711cd6f-7d88-4e67-8bf3-f8dd511a93ea</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Eventing</typePackageName>
+      <typePackageId>8cd0214a-b291-43d9-b377-77487a6817d6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f244a192-e338-4e3c-82d2-617a5e63d192" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <display>publish: PersonUpdatedEvent</display>
+    <order>1</order>
+    <typeReference id="eb164a75-af69-4744-aa1e-aeab09bb64aa">
+      <typeId>aa8cb996-35f7-4602-90e9-da48c8d3c0d3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages</typePackageName>
+      <typePackageId>32b18a86-0725-42f4-bc56-f890ff8fdeb5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

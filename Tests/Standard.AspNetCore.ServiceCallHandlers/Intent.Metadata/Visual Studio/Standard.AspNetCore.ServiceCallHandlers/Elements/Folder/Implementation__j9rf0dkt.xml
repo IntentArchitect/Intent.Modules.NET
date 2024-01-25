@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7f450fec-eff4-41b8-a19e-660645525363" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Implementation</name>
+  <display>Implementation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6e063b21-0902-4e72-8a91-b01a2ec5e662</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f9481663-0e8f-4913-aacf-1bff2a2056f0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceImplementations.ServiceImplementation</name>
+      <display>Intent.Application.ServiceImplementations.ServiceImplementation</display>
+      <externalReference>Intent.Application.ServiceImplementations</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7f450fec-eff4-41b8-a19e-660645525363</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="91e9a8d0-f056-4de2-bba5-a01dbdbea901" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation</name>
+      <display>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation</display>
+      <externalReference>Intent.Application.ServiceCallHandlers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7f450fec-eff4-41b8-a19e-660645525363</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

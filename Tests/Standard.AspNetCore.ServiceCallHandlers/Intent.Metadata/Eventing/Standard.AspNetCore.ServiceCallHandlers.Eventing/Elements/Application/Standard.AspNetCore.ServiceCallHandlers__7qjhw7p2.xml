@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d711cd6f-7d88-4e67-8bf3-f8dd511a93ea" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Standard.AspNetCore.ServiceCallHandlers</name>
+  <display>Standard.AspNetCore.ServiceCallHandlers</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cd0214a-b291-43d9-b377-77487a6817d6</parentFolderId>
+  <packageId>8cd0214a-b291-43d9-b377-77487a6817d6</packageId>
+  <packageName>Standard.AspNetCore.ServiceCallHandlers.Eventing</packageName>
+  <diagram>
+    <targetPackageId>32b18a86-0725-42f4-bc56-f890ff8fdeb5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4338d341-5aae-45ce-bc98-9b05cdc1843d">
+  <sourceEnd id="cb87d770-2d7b-48c3-9bab-9ac502dd4afa" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : PeopleService.UpdatePerson</display>
+    <order>0</order>
+    <typeReference id="6d3aeb64-46f3-4612-89af-aace7391f736">
+      <typeId>84b452c8-82ce-498d-90d2-e591dacdfed5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4338d341-5aae-45ce-bc98-9b05cdc1843d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>person</name>
+    <display>[update] person: Person</display>
+    <order>2</order>
+    <typeReference id="e2a214fd-2cce-4316-a708-227dfbe7be20">
+      <typeId>dae4966e-ded7-4c54-9362-332816989698</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Domain</typePackageName>
+      <typePackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="84b452c8-82ce-498d-90d2-e591dacdfed5" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[UpdatePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="dae4966e-ded7-4c54-9362-332816989698" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="dae4966e-ded7-4c54-9362-332816989698" name="Person" type="element" specialization="Class" />
+              <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="84b452c8-82ce-498d-90d2-e591dacdfed5" name="UpdatePerson" type="element" specialization="Operation" />
+                  <target id="46ad9bf5-3f45-497b-b056-210c6592eb96" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="84b452c8-82ce-498d-90d2-e591dacdfed5" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[UpdatePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="dae4966e-ded7-4c54-9362-332816989698" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="dae4966e-ded7-4c54-9362-332816989698" name="Person" type="element" specialization="Class" />
+              <target id="36075680-dc2f-4238-8451-e5e7309fd4b5" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="84b452c8-82ce-498d-90d2-e591dacdfed5" name="UpdatePerson" type="element" specialization="Operation" />
+                  <target id="e3bd9e0c-c443-4e15-bede-781cff5d7284" name="dto" type="element" specialization="Parameter" />
+                  <target id="c930f7dd-7738-4847-b273-4de338e7d207" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

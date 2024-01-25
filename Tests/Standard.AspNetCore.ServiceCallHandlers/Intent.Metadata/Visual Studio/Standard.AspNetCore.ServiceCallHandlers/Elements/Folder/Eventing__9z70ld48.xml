@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d945490-fd1f-43ef-a54e-a69010514f18" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41664478-7414-4e9a-b1fa-7d80f9d94c36</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e37d834e-4aea-4a56-ae89-a44ad4655049" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1d945490-fd1f-43ef-a54e-a69010514f18</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="60d73bef-d943-4979-97c2-c80d453f426f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1d945490-fd1f-43ef-a54e-a69010514f18</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e841519f-ed03-42a6-bf65-62a30d4b3f95" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbucklePublishingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbucklePublishingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1d945490-fd1f-43ef-a54e-a69010514f18</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="eb533e8a-1199-4045-8ab6-9a93264086fb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1d945490-fd1f-43ef-a54e-a69010514f18</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="07ae9b4a-d2e0-440b-9977-6c890c8c85ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.WrapperConsumer</name>
+      <display>Intent.Eventing.MassTransit.WrapperConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1d945490-fd1f-43ef-a54e-a69010514f18</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

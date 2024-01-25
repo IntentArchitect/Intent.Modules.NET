@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3891b68c-e6ad-4253-8da8-8c74796dec89">
+  <sourceEnd id="d754bbaa-79b6-4f0a-854a-037f075483c2" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindPeople</display>
+    <order>0</order>
+    <typeReference id="28ccc8c1-dd04-4add-ba80-17632cc6073e">
+      <typeId>eb80e54d-a9a4-486e-b812-fbb293256ae9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3891b68c-e6ad-4253-8da8-8c74796dec89" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>people</name>
+    <display>[query] people: Person[*]</display>
+    <order>3</order>
+    <typeReference id="d9001149-deaa-4a4d-aca8-c6e7759de65c">
+      <typeId>dae4966e-ded7-4c54-9362-332816989698</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Domain</typePackageName>
+      <typePackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eb80e54d-a9a4-486e-b812-fbb293256ae9" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[FindPeople]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="dae4966e-ded7-4c54-9362-332816989698" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Person]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

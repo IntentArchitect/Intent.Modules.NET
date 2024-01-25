@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="31f5cefc-c1ce-427d-99b1-e9d0fa002129" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41664478-7414-4e9a-b1fa-7d80f9d94c36</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d5e8fdad-1bf7-4750-a8d2-93d8f623f0cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitConfiguration</name>
+      <display>Intent.Eventing.MassTransit.MassTransitConfiguration</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f5cefc-c1ce-427d-99b1-e9d0fa002129</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

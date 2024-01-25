@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="27dac2c9-d81f-489f-af3e-dc263e22143f" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>94033a31-4f5e-40cf-897f-b1cf565edce1</parentFolderId>
+  <packageId>94033a31-4f5e-40cf-897f-b1cf565edce1</packageId>
+  <packageName>Standard.AspNetCore.ServiceCallHandlers.Domain</packageName>
+  <diagram>
+    <targetPackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
