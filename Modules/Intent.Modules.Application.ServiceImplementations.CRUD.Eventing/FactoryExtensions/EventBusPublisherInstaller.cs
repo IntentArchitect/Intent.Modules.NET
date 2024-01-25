@@ -8,6 +8,7 @@ using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodI
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
@@ -29,14 +30,19 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
 
     protected override void OnBeforeTemplateExecution(IApplication application)
     {
-        var templates = application.FindTemplateInstances<ServiceImplementationTemplate>(TemplateDependency.OnTemplate(ServiceImplementationTemplate.TemplateId));
+        var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Application.Implementation.Custom")).ToList();
+        if (!templates.Any())
+        {
+            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ServiceImplementationTemplate.TemplateId)).ToList();
+        }
+
         foreach (var template in templates)
         {
             template.CSharpFile.AfterBuild(file => { ProcessTemplate(application, template, file); });
         }
     }
 
-    private void ProcessTemplate(IApplication application, ServiceImplementationTemplate template, CSharpFile file)
+    private void ProcessTemplate(IApplication application, ICSharpFileBuilderTemplate template, CSharpFile file)
     {
         var createStrategy = new CreateImplementationStrategy(template, application);
         var updateStrategy = new UpdateImplementationStrategy(template, application);

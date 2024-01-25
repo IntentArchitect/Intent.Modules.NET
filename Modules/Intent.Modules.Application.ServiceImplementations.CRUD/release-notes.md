@@ -1,6 +1,7 @@
 ### Version 5.0.3
 
 - Improvement: Added support for `Value Object` collections.
+- Improvement: Now can inject code in Service Implementations that are not standard but custom. Just ensure that Templates are of `File Builder` type, `Class` has a model that contains the `ServiceModel` as "model" metadata of the targeted `Service` and the `methods` that require implementation have `OperationModel` as "model" metadata.
 
 ### Version 5.0.2
 

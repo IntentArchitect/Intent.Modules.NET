@@ -85,6 +85,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
+        _template.AddUsing("Microsoft.EntityFrameworkCore");
         var invocation = new CSharpMethodChainStatement($"await {CreateQueryFilterExpression(queryMapping, out prerequisiteStatements)}");
         return invocation.AddChainStatement($"ToListAsync(cancellationToken)");
     }

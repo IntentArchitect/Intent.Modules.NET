@@ -53,9 +53,11 @@ namespace Intent.Modules.Application.ServiceCallHandlers.FactoryExtensions
                             continue;
                         }
 
+                        method.Attributes.OfType<CSharpIntentManagedAttribute>().First().WithBodyFully();
+
                         method.Statements.Clear();
                         method.AddStatement(
-                            $"var sch = ({schTemplate.GetServiceCallHandlerImplementationName()})_serviceProvider.GetRequiredService(typeof({schTemplate.GetServiceCallHandlerImplementationName()}));");
+                            $"var sch = ({template.GetTypeName(ServiceCallHandlerImplementationTemplate.TemplateId, model)})_serviceProvider.GetRequiredService(typeof({template.GetTypeName(ServiceCallHandlerImplementationTemplate.TemplateId, model)}));");
 
                         var resultPart = (model.ReturnType is not null ? "var result = " : string.Empty);
                         var asyncPart = (model.IsAsync() ? "await " : string.Empty);
