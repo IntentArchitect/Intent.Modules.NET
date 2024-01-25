@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14fc2437-0298-4299-9a4f-0baf96b71cec" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ServiceImplementationExtension</name>
+  <display>ServiceImplementationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>325e1436-97b3-4bb8-b9ed-5e4bfb416bce</parentFolderId>
+  <packageId>325e1436-97b3-4bb8-b9ed-5e4bfb416bce</packageId>
+  <packageName>Intent.Application.ServiceCallHandlers</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

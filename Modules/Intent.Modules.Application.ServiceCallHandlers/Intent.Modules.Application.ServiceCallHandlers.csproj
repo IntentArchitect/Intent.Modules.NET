@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,15 +8,17 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.1" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.9" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0-pre.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Application.ServiceImplementations\Intent.Modules.Application.ServiceImplementations.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
@@ -24,10 +26,6 @@
     <None Update="Templates\ServiceCallHandler\ServiceCallHandlerImplementationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceCallHandlerImplementationTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\ServiceImplementation\ServiceImplementationTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceImplementationTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -41,11 +39,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ServiceCallHandlerImplementationTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\ServiceImplementation\ServiceImplementationTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ServiceImplementationTemplate.tt</DependentUpon>
-    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\" />
   </ItemGroup>
 
 </Project>
