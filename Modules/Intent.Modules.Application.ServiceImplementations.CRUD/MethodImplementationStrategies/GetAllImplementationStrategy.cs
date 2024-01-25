@@ -18,9 +18,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 {
     public class GetAllImplementationStrategy : IImplementationStrategy
     {
-        private readonly ServiceImplementationTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
 
-        public GetAllImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+        public GetAllImplementationStrategy(ICSharpFileBuilderTemplate template, IApplication application)
         {
             _template = template;
         }

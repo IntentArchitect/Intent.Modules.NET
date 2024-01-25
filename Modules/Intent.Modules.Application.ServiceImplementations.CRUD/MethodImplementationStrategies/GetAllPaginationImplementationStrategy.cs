@@ -20,9 +20,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
 public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 {
-    private readonly ServiceImplementationTemplate _template;
+    private readonly ICSharpFileBuilderTemplate _template;
 
-    public GetAllPaginationImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+    public GetAllPaginationImplementationStrategy(ICSharpFileBuilderTemplate template, IApplication application)
     {
         _template = template;
     }

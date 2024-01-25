@@ -15,10 +15,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 {
     public class LegacyDeleteImplementationStrategy : IImplementationStrategy
     {
-        private readonly ServiceImplementationTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
         private readonly IApplication _application;
 
-        public LegacyDeleteImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+        public LegacyDeleteImplementationStrategy(ICSharpFileBuilderTemplate template, IApplication application)
         {
             _template = template;
             _application = application;

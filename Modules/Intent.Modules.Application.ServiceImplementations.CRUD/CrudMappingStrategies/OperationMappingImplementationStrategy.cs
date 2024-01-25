@@ -9,6 +9,7 @@ using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodI
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -18,18 +19,20 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 {
     public class OperationMappingImplementationStrategy : IImplementationStrategy
     {
-        private readonly ServiceImplementationTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
         private readonly DomainInteractionsManager _domainInteractionManager;
         private readonly CSharpClassMappingManager _csharpMapping;
 
-        public OperationMappingImplementationStrategy(ServiceImplementationTemplate template)
+        public OperationMappingImplementationStrategy(ICSharpFileBuilderTemplate template)
         {
             _template = template;
         }
 
         public bool IsMatch(OperationModel operationModel)
         {
-            return operationModel.HasDomainInteractions();
+            var @class = _template.CSharpFile.Classes.First();
+            var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
+            return method is not null && operationModel.HasDomainInteractions();
         }
 
         public void ApplyStrategy(OperationModel operationModel)
@@ -38,7 +41,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
             var @class = _template.CSharpFile.Classes.First();
-            var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
+            var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
             method.Statements.Clear();
             method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 

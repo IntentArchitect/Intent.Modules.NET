@@ -18,9 +18,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
 public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
 {
-    private readonly ServiceImplementationTemplate _template;
+    private readonly ICSharpFileBuilderTemplate _template;
 
-    public DeleteWithReturnDtoImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+    public DeleteWithReturnDtoImplementationStrategy(ICSharpFileBuilderTemplate template, IApplication application)
     {
         _template = template;
     }

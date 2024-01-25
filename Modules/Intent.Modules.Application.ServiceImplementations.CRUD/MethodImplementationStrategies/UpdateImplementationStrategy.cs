@@ -21,9 +21,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 {
     public class UpdateImplementationStrategy : IImplementationStrategy
     {
-        private readonly ServiceImplementationTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
 
-        public UpdateImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+        public UpdateImplementationStrategy(ICSharpFileBuilderTemplate template, IApplication application)
         {
             _template = template;
         }

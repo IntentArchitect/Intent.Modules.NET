@@ -28,6 +28,8 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
         {
             SetDefaultTypeCollectionFormat("List<{0}>");
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
+            
+            FulfillsRole("Application.Implementation.Custom");
 
             var parentName = (model.ParentService.Name + "Handlers").ToPascalCase();
 
@@ -38,7 +40,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
                 .AddClass($"{Model.Name}SCH", @class =>
                 {
                     @class.TryAddXmlDocComments(model.InternalElement);
-                    @class.AddMetadata("model", model);
+                    @class.AddMetadata("model", model.ParentService);
                     @class.RepresentsModel(model);
 
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
@@ -46,6 +48,8 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
 
                     @class.AddMethod(GetOperationReturnType(model), "Handle", method =>
                     {
+                        method.AddMetadata("model", model);
+                        
                         foreach (var parameter in model.Parameters)
                         {
                             method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name);
