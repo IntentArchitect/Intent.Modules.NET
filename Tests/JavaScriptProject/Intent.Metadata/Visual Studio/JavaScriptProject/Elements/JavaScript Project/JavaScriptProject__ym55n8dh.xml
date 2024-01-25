@@ -17,7 +17,7 @@
       <properties>
         <property name="9163e435-1135-457b-a257-7a60f26ed7f6" display="Should run npm install" value="false" isActive="true" />
         <property name="fd5c8c5e-b005-4f5b-9796-6e384dbf5662" display="Should run build script" value="true" isActive="true" />
-        <property name="21436a87-591f-41b9-8024-c397d33a9159" display="Build command" value="build" isActive="true" />
+        <property name="21436a87-591f-41b9-8024-c397d33a9159" display="Build command" value="npm run build" isActive="true" />
         <property name="7d8108b4-32ef-447a-b5a7-53be87c4721b" display="Startup command" value="startup" isActive="true" />
         <property name="2d30620f-f358-4313-94f8-aa1068789c40" display="Test command" value="test" isActive="true" />
         <property name="bd6bcd2c-1afd-4255-8bb8-84151af05d05" display="Clean command" value="clean" isActive="true" />

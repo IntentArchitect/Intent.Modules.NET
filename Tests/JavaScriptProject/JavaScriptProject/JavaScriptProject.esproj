@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ShouldRunNpmInstall>true</ShouldRunNpmInstall>
     <ShouldRunBuildScript>true</ShouldRunBuildScript>
-    <BuildCommand>build</BuildCommand>
+    <BuildCommand>npm run build</BuildCommand>
     <StartupCommand>startup</StartupCommand>
     <TestCommand>test</TestCommand>
     <CleanCommand>clean</CleanCommand>
