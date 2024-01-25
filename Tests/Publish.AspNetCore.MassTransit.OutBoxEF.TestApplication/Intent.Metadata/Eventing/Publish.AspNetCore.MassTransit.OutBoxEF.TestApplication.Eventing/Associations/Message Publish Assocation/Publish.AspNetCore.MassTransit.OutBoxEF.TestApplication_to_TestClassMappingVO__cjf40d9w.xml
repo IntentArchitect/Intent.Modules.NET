@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="3b83d3a6-f397-41de-8328-595af6444cd3">
   <sourceEnd id="332066d8-3910-48b9-93dc-f071d769f59a" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
-    <name>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</name>
     <display>publisher: Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</display>
     <order>0</order>
     <typeReference id="b906969b-c129-4531-89fc-78f47682a2ed">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="3b83d3a6-f397-41de-8328-595af6444cd3" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
-    <name>TestClassMappingVO</name>
     <display>publish: TestClassMappingVO</display>
     <order>3</order>
     <typeReference id="03bc80ef-aa2d-45f3-b47c-b61da5affa04">

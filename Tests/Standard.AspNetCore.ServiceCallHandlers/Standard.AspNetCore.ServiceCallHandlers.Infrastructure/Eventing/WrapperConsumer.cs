@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Eventing;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Interfaces;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.WrapperConsumer", Version = "1.0")]
@@ -17,9 +17,9 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Eventing
         where THandler : IIntegrationEventHandler<TMessage>
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly IApplicationDbContext _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public WrapperConsumer(IServiceProvider serviceProvider, IApplicationDbContext unitOfWork)
+        public WrapperConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
         {
             _serviceProvider = serviceProvider;
             _unitOfWork = unitOfWork;

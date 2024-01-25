@@ -2,9 +2,11 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Interfaces;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Common.Interfaces;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Repositories;
 using Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Configuration;
 using Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence;
+using Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Infrastructure.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -20,7 +22,8 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddMassTransitConfiguration(configuration);
             return services;
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="545986d2-7ba6-4657-9b85-1d9378ac008c" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+<class id="8e896297-f0e3-4f6c-a661-ec390244cef9" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
   <name>PersonDto</name>
   <display>PersonDto</display>
   <isAbstract>false</isAbstract>
@@ -15,18 +15,18 @@
       <target id="dae4966e-ded7-4c54-9362-332816989698" name="Person" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>a489364e-73d3-4296-a944-8453da33a65a</parentFolderId>
+  <parentFolderId>6bb82b66-3090-4bce-97f7-47cd58fd6f2e</parentFolderId>
   <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
   <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="3937a505-43fa-485b-9625-3abeb87424bf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="740c8cf8-e44e-46b7-b700-8603b3512626" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="0aa1dfd7-2d29-4b01-b790-1bed55d9cbae">
+      <typeReference id="8e04016f-861a-4837-bb45-27fafdca3dda">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -45,7 +45,7 @@
           <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>545986d2-7ba6-4657-9b85-1d9378ac008c</parentFolderId>
+      <parentFolderId>8e896297-f0e3-4f6c-a661-ec390244cef9</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -74,12 +74,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="c8222b63-bfd5-4b88-8b67-ce44e54b2a74" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="e0413576-517a-45c3-b05b-baa5acc09d22" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Name</name>
       <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="6602b8b8-a300-44f8-bbeb-6d06bed63f85">
+      <typeReference id="f6cbbdb1-bb6e-4622-afa0-0f202a93343d">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -98,7 +98,7 @@
           <target id="36075680-dc2f-4238-8451-e5e7309fd4b5" name="Name" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>545986d2-7ba6-4657-9b85-1d9378ac008c</parentFolderId>
+      <parentFolderId>8e896297-f0e3-4f6c-a661-ec390244cef9</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>

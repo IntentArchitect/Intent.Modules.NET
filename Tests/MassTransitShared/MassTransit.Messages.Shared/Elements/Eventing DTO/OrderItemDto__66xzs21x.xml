@@ -6,7 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>cb6c20ce-8d48-4013-ae35-4e3310784497</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>e437007c-33fd-46d5-9293-d4529b4b82e6</mappingSettingsId>

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.Pagination.PagedResultMappingExtensions", Version = "1.0")]
@@ -10,7 +11,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Common.Pagination
     public static class PagedResultMappingExtensions
     {
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="PagedList{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>. 
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <param name="mapFunc">
@@ -23,7 +24,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Common.Pagination
         /// <typeparam name="TDomain">Domain element type</typeparam>
         /// <typeparam name="TDto">DTO element type</typeparam>
         /// <returns>A single page of DTO elements</returns>
-        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(this PagedList<TDomain> pagedList, Func<TDomain, TDto> mapFunc)
+        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(this IPagedList<TDomain> pagedList, Func<TDomain, TDto> mapFunc)
         {
             var data = pagedList.Select(mapFunc).ToList();
 

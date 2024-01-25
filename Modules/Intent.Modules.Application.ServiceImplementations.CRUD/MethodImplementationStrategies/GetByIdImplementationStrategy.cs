@@ -34,6 +34,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 return false;
             }
+            
+            if (_template.CSharpFile.Classes.First()
+                    .FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id) is null)
+            {
+                return false;
+            }
 
             if (operationModel.Parameters.Count != 1)
             {
@@ -88,7 +94,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             codeLines.Add($@"return element.MapTo{unqualifiedDtoTypeName}(_mapper);");
 
             var @class = _template.CSharpFile.Classes.First();
-            var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
+            var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
+            
             var attr = method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault();
             if (attr == null)
             {

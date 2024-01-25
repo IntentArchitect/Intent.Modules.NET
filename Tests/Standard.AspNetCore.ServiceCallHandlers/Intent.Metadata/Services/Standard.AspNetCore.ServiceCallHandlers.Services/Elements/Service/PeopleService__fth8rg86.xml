@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="d7105ab2-82aa-4427-814c-6028b474ce56" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+<class id="d065ffc7-1701-4c3d-83fa-dbda3fb52c67" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
   <name>PeopleService</name>
   <display>PeopleService</display>
   <isAbstract>false</isAbstract>
@@ -21,13 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="40d6c795-9d87-4c57-bfaa-2ff17bc3edc8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="2a8432bd-728d-476a-892a-fda3858db898" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>CreatePerson</name>
       <display>CreatePerson(dto: PersonCreateDto): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="a50cefbf-9f4a-45b2-bbdf-4e94da7d0838">
+      <typeReference id="b2a8a9b5-ebcd-4d80-a903-b6fc55fe27f5">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -39,7 +39,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>d7105ab2-82aa-4427-814c-6028b474ce56</parentFolderId>
+      <parentFolderId>d065ffc7-1701-4c3d-83fa-dbda3fb52c67</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -56,13 +56,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="18e670b8-d59f-47d4-9689-0eba26af4bdf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="3990244f-1cbd-4f64-a2b2-439f2173754e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
           <display>in : dto: PersonCreateDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="cef635bf-d335-4afd-9c1f-7f71c249155c">
-            <typeId>a3e2b9d8-6dd1-4934-9b14-08ec2c045e67</typeId>
+          <typeReference id="a5cb8a3b-3840-4d41-b0e5-6fb5b9512635">
+            <typeId>97efecc0-591c-4150-9992-47e121a7e4b5</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -73,7 +73,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>40d6c795-9d87-4c57-bfaa-2ff17bc3edc8</parentFolderId>
+          <parentFolderId>2a8432bd-728d-476a-892a-fda3858db898</parentFolderId>
           <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
           <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
           <stereotypes>
@@ -93,14 +93,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="59f65ab8-6c0c-4797-9087-108676e7da76" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="140ea21b-ea5d-40bf-8a2b-f34b4074830c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindPersonById</name>
       <display>FindPersonById(id: guid): PersonDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="e56738c6-77c4-480e-bace-4626c4b8605e">
-        <typeId>545986d2-7ba6-4657-9b85-1d9378ac008c</typeId>
+      <typeReference id="0003a7d0-1cdf-41aa-9abe-44ad0c0cfc1b">
+        <typeId>8e896297-f0e3-4f6c-a661-ec390244cef9</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -111,7 +111,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>d7105ab2-82aa-4427-814c-6028b474ce56</parentFolderId>
+      <parentFolderId>d065ffc7-1701-4c3d-83fa-dbda3fb52c67</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -128,12 +128,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9e2749c1-7938-425f-8531-d06936428314" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="3929b036-dcca-4537-a887-135efea2ed2b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="cca610d4-9226-4d9f-8fd1-5ea49eb9659f">
+          <typeReference id="da1e8c17-591e-4f85-908a-1f784f6f3e34">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -145,7 +145,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>59f65ab8-6c0c-4797-9087-108676e7da76</parentFolderId>
+          <parentFolderId>140ea21b-ea5d-40bf-8a2b-f34b4074830c</parentFolderId>
           <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
           <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
           <stereotypes>
@@ -165,38 +165,24 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="eb80e54d-a9a4-486e-b812-fbb293256ae9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="7b96ac22-f8e7-4eea-8abb-68c592777833" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindPeople</name>
-      <display>FindPeople(pageNo: int, pageSize: int): PagedResult&lt;PersonDto&gt;</display>
+      <display>FindPeople(): PersonDto[*]</display>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="b4e90ba9-9c00-4122-a499-626306b1b4ee">
-        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+      <typeReference id="a095a4a3-4a87-4e1f-a782-73b9214c0467">
+        <typeId>8e896297-f0e3-4f6c-a661-ec390244cef9</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
+        <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Modelers.Services</typePackageName>
-        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+        <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+        <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
         <stereotypes />
-        <genericTypeParameters>
-          <genericTypeParameter id="f1ea9cba-0b11-430b-b614-70bd9203baf5">
-            <typeId>545986d2-7ba6-4657-9b85-1d9378ac008c</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
-            <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
-            <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </genericTypeParameter>
-        </genericTypeParameters>
+        <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>d7105ab2-82aa-4427-814c-6028b474ce56</parentFolderId>
+      <parentFolderId>d065ffc7-1701-4c3d-83fa-dbda3fb52c67</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -212,64 +198,15 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements>
-        <childElement id="9c333bc9-1606-4a38-bd51-dc6e21a41976" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>pageNo</name>
-          <display>in : pageNo: int</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="69cbcb5c-978f-47e6-9366-7bbc703fe87b">
-            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>eb80e54d-a9a4-486e-b812-fbb293256ae9</parentFolderId>
-          <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
-          <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3260f30e-8603-4b27-a5fc-cdd73383419b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>pageSize</name>
-          <display>in : pageSize: int</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="83e55a47-52bf-4488-97d3-53bf2b750f7a">
-            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>eb80e54d-a9a4-486e-b812-fbb293256ae9</parentFolderId>
-          <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
-          <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
+      <childElements />
     </childElement>
-    <childElement id="84b452c8-82ce-498d-90d2-e591dacdfed5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="86476342-6e20-42a1-9f64-1b30bd29245f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>UpdatePerson</name>
       <display>UpdatePerson(id: guid, dto: PersonUpdateDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="7a632765-ab57-4720-863b-2a0711fd05bb">
+      <typeReference id="505162d5-2d48-4161-adc6-17cbe23c25a0">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -278,7 +215,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>d7105ab2-82aa-4427-814c-6028b474ce56</parentFolderId>
+      <parentFolderId>d065ffc7-1701-4c3d-83fa-dbda3fb52c67</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -295,12 +232,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="46ad9bf5-3f45-497b-b056-210c6592eb96" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="3e3a3f54-3918-4204-bfb4-43feac02923c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3999b9f8-b2d8-442f-86ad-3d278d28e6c8">
+          <typeReference id="8b44be1c-d6df-445c-88b0-768b12bea897">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -312,7 +249,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>84b452c8-82ce-498d-90d2-e591dacdfed5</parentFolderId>
+          <parentFolderId>86476342-6e20-42a1-9f64-1b30bd29245f</parentFolderId>
           <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
           <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
           <stereotypes>
@@ -330,13 +267,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e3bd9e0c-c443-4e15-bede-781cff5d7284" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="7bfbfb2a-8fc4-403c-81e0-0d76454b386b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
           <display>in : dto: PersonUpdateDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="e014f570-b80a-4c0d-bece-205fd60f9e85">
-            <typeId>052d6f01-040b-4230-bdc6-6d0a840c0fe2</typeId>
+          <typeReference id="db2716b2-1ec6-4200-9ebd-4036158b4643">
+            <typeId>23cb65ab-4c94-4416-8f2e-a08504328ccf</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -347,7 +284,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>84b452c8-82ce-498d-90d2-e591dacdfed5</parentFolderId>
+          <parentFolderId>86476342-6e20-42a1-9f64-1b30bd29245f</parentFolderId>
           <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
           <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
           <stereotypes>
@@ -367,13 +304,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="599445a4-7d70-47ef-8670-9b05225dcae8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeletePerson</name>
       <display>DeletePerson(id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="1ec2e398-ec85-4f9d-819a-dbd2b0819539">
+      <typeReference id="82b023c9-c3ac-4772-b6f8-6a10e66f6aca">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -382,7 +319,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>d7105ab2-82aa-4427-814c-6028b474ce56</parentFolderId>
+      <parentFolderId>d065ffc7-1701-4c3d-83fa-dbda3fb52c67</parentFolderId>
       <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
       <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
       <stereotypes>
@@ -399,12 +336,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6d00f0b4-42df-4ea5-9eeb-46c2c4596abe" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="1312f4b7-be01-4000-a244-04b26abad485" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="666d78d5-dd6f-4a6f-a6cc-56bb1c1d2b84">
+          <typeReference id="58e05485-48cf-4f62-b450-9ec913f8f63c">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -416,7 +353,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>599445a4-7d70-47ef-8670-9b05225dcae8</parentFolderId>
+          <parentFolderId>2fa830ef-492e-4f75-9f27-c76f2ea47bdd</parentFolderId>
           <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
           <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
           <stereotypes>

@@ -1,6 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Interfaces;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Common.Interfaces;
 using Standard.AspNetCore.ServiceCallHandlers.Domain.Entities;
 using Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence.Configurations;
 
@@ -9,7 +9,7 @@ using Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence.Configu
 
 namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

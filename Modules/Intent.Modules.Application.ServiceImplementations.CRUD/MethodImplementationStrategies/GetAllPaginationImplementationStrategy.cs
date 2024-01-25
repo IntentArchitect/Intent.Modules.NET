@@ -36,6 +36,12 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         {
             return false;
         }
+        
+        if (_template.CSharpFile.Classes.First()
+                .FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id) is null)
+        {
+            return false;
+        }
 
         if ((!operationModel.Parameters.Any(IsPageNumberParam)
              && !operationModel.Parameters.Any(IsPageIndexParam))
@@ -90,7 +96,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{unqualifiedDtoTypeName}(_mapper));");
 
         var @class = _template.CSharpFile.Classes.First();
-        var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
+        var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
         var attr = method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault();
         if (attr == null)
         {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="cd031901-833b-4859-8404-99c1c7931309">
   <sourceEnd id="d80aa603-6225-43ee-bd68-4474cf34c656" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
-    <name>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</name>
     <display>publisher: Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</display>
     <order>0</order>
     <typeReference id="e79fb086-34cc-4f50-bc14-17a1b0d7b407">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="cd031901-833b-4859-8404-99c1c7931309" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
-    <name>UserDeletedEvent</name>
     <display>publish: UserDeletedEvent</display>
     <order>2</order>
     <typeReference id="de09d838-29ca-41f3-833a-b225254166ab">

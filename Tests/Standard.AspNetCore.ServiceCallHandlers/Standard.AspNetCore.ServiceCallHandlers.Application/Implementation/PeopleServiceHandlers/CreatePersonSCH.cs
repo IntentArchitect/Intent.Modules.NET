@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Interfaces;
+using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Eventing;
 using Standard.AspNetCore.ServiceCallHandlers.Application.People;
 using Standard.AspNetCore.ServiceCallHandlers.Domain.Entities;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Repositories;
+using Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation", Version = "1.0")]
@@ -16,25 +18,27 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
     [IntentManaged(Mode.Merge)]
     public class CreatePersonSCH
     {
-        private readonly IApplicationDbContext _dbContext;
+        private readonly IPersonRepository _personRepository;
+        private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Merge)]
-        public CreatePersonSCH(IApplicationDbContext dbContext)
+        public CreatePersonSCH(IPersonRepository personRepository, IEventBus eventBus)
         {
-            _dbContext = dbContext;
+            _personRepository = personRepository;
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(PersonCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var person = new Person
+            var newPerson = new Person
             {
-                Name = dto.Name
+                Name = dto.Name,
             };
-
-            _dbContext.People.Add(person);
-            await _dbContext.SaveChangesAsync(cancellationToken);
-            return person.Id;
+            _personRepository.Add(newPerson);
+            await _personRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            _eventBus.Publish(newPerson.MapToPersonCreatedEvent());
+            return newPerson.Id;
         }
     }
 }

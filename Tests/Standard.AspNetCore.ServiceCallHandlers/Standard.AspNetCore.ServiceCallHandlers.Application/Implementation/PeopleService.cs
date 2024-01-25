@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Pagination;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.PeopleServiceHandlers;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Interfaces;
 using Standard.AspNetCore.ServiceCallHandlers.Application.People;
@@ -42,13 +41,10 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<PagedResult<PersonDto>> FindPeople(
-            int pageNo,
-            int pageSize,
-            CancellationToken cancellationToken = default)
+        public async Task<List<PersonDto>> FindPeople(CancellationToken cancellationToken = default)
         {
             var sch = (FindPeopleSCH)_serviceProvider.GetRequiredService(typeof(FindPeopleSCH));
-            var result = await sch.Handle(pageNo, pageSize, cancellationToken);
+            var result = await sch.Handle(cancellationToken);
             return result;
         }
 

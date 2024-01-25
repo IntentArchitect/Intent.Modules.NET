@@ -6,7 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>71eac626-755a-4c5d-89f1-e66511d4df64</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="123b6381-5b1e-4560-95d7-f58dfe83921a" name="TestVO" type="association" specialization="Association" />
+          <target id="123b6381-5b1e-4560-95d7-f58dfe83921a" name="TestVO" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>05cf2d60-11ec-4a3a-ad11-0c23ea9abb7a</parentFolderId>

@@ -8,11 +8,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Eventing;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Interfaces;
-using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Pagination;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Validation;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Interfaces;
 using Standard.AspNetCore.ServiceCallHandlers.Application.People;
+using Standard.AspNetCore.ServiceCallHandlers.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -26,12 +25,12 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Api.Controllers
     {
         private readonly IPeopleService _appService;
         private readonly IValidationService _validationService;
-        private readonly IApplicationDbContext _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
         public PeopleController(IPeopleService appService,
             IValidationService validationService,
-            IApplicationDbContext unitOfWork,
+            IUnitOfWork unitOfWork,
             IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
@@ -86,19 +85,14 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified PagedResult&lt;PersonDto&gt;.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="200">Returns the specified List&lt;PersonDto&gt;.</response>
         [HttpGet]
-        [ProducesResponseType(typeof(PagedResult<PersonDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(List<PersonDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<PagedResult<PersonDto>>> FindPeople(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
-            CancellationToken cancellationToken = default)
+        public async Task<ActionResult<List<PersonDto>>> FindPeople(CancellationToken cancellationToken = default)
         {
-            var result = default(PagedResult<PersonDto>);
-            result = await _appService.FindPeople(pageNo, pageSize, cancellationToken);
+            var result = default(List<PersonDto>);
+            result = await _appService.FindPeople(cancellationToken);
             return Ok(result);
         }
 

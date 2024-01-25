@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -14,7 +15,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Interfaces
     {
         Task<Guid> CreatePerson(PersonCreateDto dto, CancellationToken cancellationToken = default);
         Task<PersonDto> FindPersonById(Guid id, CancellationToken cancellationToken = default);
-        Task<PagedResult<PersonDto>> FindPeople(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<List<PersonDto>> FindPeople(CancellationToken cancellationToken = default);
         Task UpdatePerson(Guid id, PersonUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeletePerson(Guid id, CancellationToken cancellationToken = default);
     }

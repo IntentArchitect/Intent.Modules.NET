@@ -6,7 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>71eac626-755a-4c5d-89f1-e66511d4df64</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
@@ -135,7 +135,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association" />
+          <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</parentFolderId>
