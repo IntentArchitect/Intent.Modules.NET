@@ -12,17 +12,41 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 
-public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
+public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyModel>, ICSharpFileBuilderTemplate
 {
     protected HttpClientTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
         ServiceProxyModel model,
+        string httpClientRequestExceptionTemplateId,
+        string jsonResponseTemplateId,
+        string serviceContractTemplateId,
+        string dtoContractTemplateId,
+        string enumContractTemplateId,
+        string pagedResultTemplateId)
+    : this(
+          templateId, 
+          outputTarget, 
+          new ServiceProxyModelAdapter(model), 
+          httpClientRequestExceptionTemplateId,
+            jsonResponseTemplateId,
+            serviceContractTemplateId,
+            dtoContractTemplateId,
+            enumContractTemplateId,
+            pagedResultTemplateId)
+    {
+    }
+
+    protected HttpClientTemplateBase(
+        string templateId,
+        IOutputTarget outputTarget,
+        IServiceProxyModel model,
         string httpClientRequestExceptionTemplateId,
         string jsonResponseTemplateId,
         string serviceContractTemplateId,

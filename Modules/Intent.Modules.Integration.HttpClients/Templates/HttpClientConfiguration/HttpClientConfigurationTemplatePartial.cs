@@ -29,6 +29,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
     public partial class HttpClientConfigurationTemplate : HttpClientConfigurationBase
     {
         public const string TemplateId = "Intent.Integration.HttpClients.HttpClientConfiguration";
+        private readonly IList<ServiceProxyModel> _typedModels;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model) 
@@ -39,11 +40,12 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) => 
                   {
-                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
-                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey(proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
+                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey((ServiceProxyModel)proxy, "Uri")}\");");
+                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey((ServiceProxyModel)proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
                   }                  
                   )
         {
+            _typedModels = model;
         }
 
         public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
@@ -55,7 +57,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
-            foreach (var proxy in Model.Distinct(new ServiceModelComparer()))
+            foreach (var proxy in _typedModels.Distinct(new ServiceModelComparer()))
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost:{app_port}/"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));

@@ -1,4 +1,8 @@
-﻿### Version 2.1.0
+﻿### Version 2.2.0
+
+- Improvement: Underlying proxy templates updated to support alternate Metadata models.
+
+### Version 2.1.0
 
 - Improvement: Added support for configuring headers in HttpClient requests either through request header propagation.
 - Improvement: Dapr HttpClient construction is now done using the HttpClientBuilder paradigm, to better support extension.

@@ -126,5 +126,7 @@
     <application id="49c326c7-719d-409f-8e61-4cbea4443bce" name="Intent.Modules.AspNetCore.ODataQuery" relativePath="Intent.Modules.AspNetCore.ODataQuery/Intent.Modules.AspNetCore.ODataQuery.application.config" />
     <application id="9682f956-8c35-4ae7-a720-cfef96c1ca57" name="Intent.Modules.EntityFrameworkCore.BulkOperations" relativePath="Intent.Modules.EntityFrameworkCore.BulkOperations/Intent.Modules.EntityFrameworkCore.BulkOperations.application.config" />
     <application id="d04c1f37-e8a9-49ec-84d7-89e70c2904c9" name="Intent.Modules.Application.ServiceCallHandlers" relativePath="Intent.Modules.Application.ServiceCallHandlers/Intent.Modules.Application.ServiceCallHandlers.application.config" />
+    <application id="0d9dbe6b-a824-4c09-9112-1a505ade2bb8" name="Intent.Modules.IntegrationTesting" relativePath="Intent.Modules.IntegrationTesting/Intent.Modules.IntegrationTesting.application.config" />
+    <application id="83e4ad01-be0c-40ea-953a-9a1acd26e2cd" name="Intent.Modules.IntegrationTesting.Metadata" relativePath="Intent.Modules.IntegrationTesting.Metadata/Intent.Modules.IntegrationTesting.Metadata.application.config" />
   </applications>
 </solution>
