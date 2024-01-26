@@ -9,10 +9,11 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.SolutionFile;
-using Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution;
+using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.DotNet.Cli.Sln.Internal;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -27,7 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         private readonly ISoftwareFactoryEventDispatcher _sfEventDispatcher;
         private readonly IChanges _changes;
         private readonly Dictionary<string, List<SoftwareFactoryEvent>> _actions = new();
-        private readonly Dictionary<string, VisualStudio2015SolutionTemplate> _vsSolutionsById = new();
+        private readonly Dictionary<string, VisualStudioSolutionTemplate> _vsSolutionsById = new();
         private IApplication _application;
 
         public VisualStudioSolutionSyncProcessor(
@@ -114,31 +115,76 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             {
                 var filePath = _vsSolutionsById[solution.Key].GetMetadata().GetFilePath();
                 var change = GetChange(filePath);
-                var slnFile = new SlnFile(filePath, change.Content);
+
+                var slnFile = SlnFile.Read(filePath, change.Content);
+                var original = slnFile.Generate();
 
                 foreach (var item in solution)
                 {
+                    var solutionFolderStack = new Stack<string>();
+                    var currentItem = item.Model;
+                    while (true)
+                    {
+                        solutionFolderStack.Push(currentItem.Name);
+                        if (currentItem.InternalElement.ParentElement?.IsSolutionFolderModel() == true)
+                        {
+                            currentItem = currentItem.InternalElement.ParentElement.AsSolutionFolderModel();
+                            continue;
+                        }
+
+                        break;
+                    }
+
                     foreach (var @event in item.Events)
                     {
                         switch (@event.EventIdentifier)
                         {
                             case SoftwareFactoryEvents.FileAddedEvent:
-                                slnFile.AddSolutionItem(item.Model.Name, @event.GetValue("Path"));
+                                var solutionFolderPath = GetPath(item.Model);
+                                if (solutionFolderPath.Count == 0)
+                                {
+                                    slnFile.Sections.AddSolutionItem(@event.GetValue("Path"));
+                                    break;
+                                }
+
+                                var solutionFolderProject = solutionFolderPath
+                                    .Aggregate(
+                                        seed: default(SlnProject),
+                                        func: (current, solutionFolder) => current == default
+                                            ? slnFile.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name)
+                                            : current.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name));
+
+                                solutionFolderProject.Sections.AddSolutionItem(@event.GetValue("Path"));
                                 break;
                             case SoftwareFactoryEvents.FileRemovedEvent:
-                                slnFile.RemoveSolutionItem(item.Model.Name, @event.GetValue("Path"));
+                                slnFile.RemoveSolutionItem(@event.GetValue("Path"));
+                                break;
+                            default:
                                 break;
                         }
                     }
                 }
 
-                if (!slnFile.IsChanged)
+                if (original == slnFile.Generate())
                 {
                     continue;
                 }
 
                 change.ChangeContent(slnFile.ToString());
             }
+        }
+
+        private IReadOnlyCollection<SolutionFolderModel> GetPath(SolutionFolderModel solutionFolderModel)
+        {
+            var stack = new Stack<SolutionFolderModel>();
+
+            while (solutionFolderModel != null)
+            {
+                stack.Push(solutionFolderModel);
+                solutionFolderModel = solutionFolderModel.ParentFolder;
+            }
+
+            return stack;
         }
 
         public void Handle(SoftwareFactoryEvent @event)
@@ -155,7 +201,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         public void PostCreation(ITemplate template)
         {
-            if (template is VisualStudio2015SolutionTemplate vsSolutionTemplate)
+            if (template is VisualStudioSolutionTemplate vsSolutionTemplate)
             {
                 _vsSolutionsById.Add(vsSolutionTemplate.Model.Id, vsSolutionTemplate);
             }

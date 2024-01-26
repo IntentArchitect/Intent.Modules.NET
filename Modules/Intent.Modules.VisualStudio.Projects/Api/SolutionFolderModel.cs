@@ -26,6 +26,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             _element = element;
         }
 
+        public SolutionFolderModel ParentFolder => InternalElement.ParentElement.IsSolutionFolderModel()
+            ? InternalElement.ParentElement.AsSolutionFolderModel()
+            : null;
+
         [IntentManaged(Mode.Fully)]
         public string Id => _element.Id;
 

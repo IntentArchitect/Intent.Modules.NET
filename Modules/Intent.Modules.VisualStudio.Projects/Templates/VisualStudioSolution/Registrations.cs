@@ -4,12 +4,12 @@ using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution
+namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 {
     [Description("Visual Studio 2015 Solution- VS Projects")]
     public class Registrations : IApplicationTemplateRegistration
     {
-        public string TemplateId => VisualStudio2015SolutionTemplate.Identifier;
+        public string TemplateId => VisualStudioSolutionTemplate.Identifier;
         private readonly IMetadataManager _metadataManager;
 
         public Registrations(IMetadataManager metadataManager)
@@ -29,7 +29,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                     .Where(x => x.Solution.Id == vsSolution.Id)
                     .ToList();
 
-                registry.RegisterApplicationTemplate(VisualStudio2015SolutionTemplate.Identifier, () => new VisualStudio2015SolutionTemplate(application, vsSolution, projects));
+                registry.RegisterApplicationTemplate(VisualStudioSolutionTemplate.Identifier, () => new VisualStudioSolutionTemplate(application, vsSolution, projects));
             }
         }
     }

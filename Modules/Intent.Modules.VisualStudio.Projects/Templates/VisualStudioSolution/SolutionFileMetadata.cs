@@ -1,9 +1,9 @@
-﻿using Intent.Templates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Intent.Templates;
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution
+namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 {
     public class SolutionFileMetadata : IFileMetadata, ITemplateFileConfig
     {

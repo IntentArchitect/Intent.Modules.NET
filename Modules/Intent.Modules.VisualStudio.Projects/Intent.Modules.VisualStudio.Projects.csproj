@@ -57,6 +57,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SqlProjectTemplate.cs</LastGenOutput>
     </None>
+    <Compile Update="SolutionFile\LocalizableStrings.Designer.cs">
+      <DependentUpon>LocalizableStrings.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -146,6 +151,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CoreWebCSProjectTemplate.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="SolutionFile\LocalizableStrings.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>LocalizableStrings.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

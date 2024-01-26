@@ -1,345 +1,1204 @@
-﻿using System;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+//
+// SlnFile.cs
+//
+// Author:
+//       Lluis Sanchez Gual <lluis@xamarin.com>
+//
+// Copyright (c) 2016 Xamarin, Inc (http://www.xamarin.com)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using Intent.Modules.VisualStudio.Projects.SolutionFile;
+using Microsoft.DotNet.Cli.Sln.Internal.FileManipulation;
+using Microsoft.DotNet.Tools.Common;
 
-namespace Intent.Modules.VisualStudio.Projects.SolutionFile
+namespace Microsoft.DotNet.Cli.Sln.Internal
 {
-    internal class SlnFile
+    internal partial class SlnFile
     {
-        private readonly string _originalOutput;
+        private SlnProjectCollection _projects = new();
+        private SlnSectionCollection _sections = new();
+        private SlnPropertySet _metadata = new(true);
+        private int _prefixBlankLines = 1;
+        private TextFormatInfo _format = new();
 
-        public SlnFile(string path, string content)
+        public string FormatVersion { get; set; }
+        public string ProductDescription { get; set; }
+
+        public string VisualStudioVersion
         {
-            FilePath = Path.GetFullPath(path);
-            Parse(content);
-            _originalOutput = GetOutput();
+            get { return _metadata.GetValue("VisualStudioVersion"); }
+            set { _metadata.SetValue("VisualStudioVersion", value); }
         }
 
-        public List<Node> Nodes { get; set; } = new();
-
-        public string FilePath { get; set; }
-
-        public bool IsChanged => _originalOutput != GetOutput();
-
-        private string GetOutput()
+        public string MinimumVisualStudioVersion
         {
-            var writer = new Writer();
-            foreach (var node in Nodes)
+            get { return _metadata.GetValue("MinimumVisualStudioVersion"); }
+            set { _metadata.SetValue("MinimumVisualStudioVersion", value); }
+        }
+
+        public string BaseDirectory
+        {
+            get { return Path.GetDirectoryName(FullPath); }
+        }
+
+        public string FullPath { get; set; }
+
+        public SlnPropertySet SolutionConfigurationsSection
+        {
+            get
             {
-                node.Visit(writer);
+                return _sections
+                    .GetOrCreateSection("SolutionConfigurationPlatforms", SlnSectionType.PreProcess)
+                    .Properties;
             }
-
-            return writer.ToString();
         }
 
-        public void Parse(string content)
+        public SlnPropertySetCollection ProjectConfigurationsSection
         {
-            var lines = content.TrimEnd().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
-            var queue = new Queue<string>(lines);
-            var parsers = new INodeParser[]
+            get
             {
-                new CommentNode.Parser(),
-                new HeaderNode.Parser(),
-                new SolutionItemComplexNode.Parser(),
-                new SolutionItemSimpleNode.Parser(),
-                new SolutionItemSectionNode.Parser(),
-                new KeyValueNode.Parser(),
-                new WhitespaceNode.Parser()
+                return _sections
+                    .GetOrCreateSection("ProjectConfigurationPlatforms", SlnSectionType.PostProcess)
+                    .NestedPropertySets;
+            }
+        }
+
+        public SlnSectionCollection Sections
+        {
+            get { return _sections; }
+        }
+
+        public SlnProjectCollection Projects
+        {
+            get { return _projects; }
+        }
+
+        public SlnFile()
+        {
+            _projects.ParentFile = this;
+            _sections.ParentFile = this;
+        }
+
+        public static SlnFile Read(string file)
+        {
+            SlnFile slnFile = new()
+            {
+                FullPath = Path.GetFullPath(file),
+                _format = FileUtil.GetTextFormatInfo(file)
             };
 
-            List<Node> GetChildNodes()
+            using (var sr = new StreamReader(new FileStream(file, FileMode.Open, FileAccess.Read)))
             {
-                var childNodes = new List<Node>();
+                slnFile.Read(sr);
+            }
 
-                while (queue.TryDequeue(out var line))
+            return slnFile;
+        }
+
+        private void Read(TextReader reader)
+        {
+            const string HeaderPrefix = "Microsoft Visual Studio Solution File, Format Version";
+
+            string line;
+            int curLineNum = 0;
+            bool globalFound = false;
+            bool productRead = false;
+
+            while ((line = reader.ReadLine()) != null)
+            {
+                curLineNum++;
+                line = line.Trim();
+                if (line.StartsWith(HeaderPrefix, StringComparison.Ordinal))
                 {
-                    if (line.Trim().StartsWith("End"))
+                    if (line.Length <= HeaderPrefix.Length)
                     {
-                        break;
+                        throw new InvalidSolutionFormatException(
+                            curLineNum,
+                            LocalizableStrings.FileHeaderMissingVersionError);
                     }
 
-                    var parsed = false;
-
-                    foreach (var parser in parsers)
+                    FormatVersion = line.Substring(HeaderPrefix.Length).Trim();
+                    _prefixBlankLines = curLineNum - 1;
+                }
+                if (line.StartsWith("# ", StringComparison.Ordinal))
+                {
+                    if (!productRead)
                     {
-                        if (!parser.TryParse(line, queue, GetChildNodes, out var node))
+                        productRead = true;
+                        ProductDescription = line.Substring(2);
+                    }
+                }
+                else if (line.StartsWith("Project", StringComparison.Ordinal))
+                {
+                    SlnProject p = new();
+                    p.Read(reader, line, ref curLineNum);
+                    _projects.Add(p);
+                }
+                else if (line == "Global")
+                {
+                    if (globalFound)
+                    {
+                        throw new InvalidSolutionFormatException(
+                            curLineNum,
+                            LocalizableStrings.GlobalSectionMoreThanOnceError);
+                    }
+                    globalFound = true;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        curLineNum++;
+                        line = line.Trim();
+                        if (line == "EndGlobal")
+                        {
+                            break;
+                        }
+                        else if (line.StartsWith("GlobalSection", StringComparison.Ordinal))
+                        {
+                            var sec = new SlnSection();
+                            sec.Read(reader, line, ref curLineNum);
+                            _sections.Add(sec);
+                        }
+                        else // Ignore text that's out of place
                         {
                             continue;
                         }
-
-                        parsed = true;
-                        childNodes.Add(node);
-                        break;
                     }
-
-                    if (!parsed)
+                    if (line == null)
                     {
-                        throw new Exception($"Could not parse: {line}");
+                        throw new InvalidSolutionFormatException(
+                            curLineNum,
+                            LocalizableStrings.GlobalSectionNotClosedError);
                     }
                 }
-
-                return childNodes;
-            }
-
-            while (queue.TryDequeue(out var line))
-            {
-                var parsed = false;
-
-                foreach (var parser in parsers)
+                else if (line.IndexOf('=') != -1)
                 {
-                    if (!parser.TryParse(line, queue, GetChildNodes, out var node))
-                    {
-                        continue;
-                    }
-
-                    parsed = true;
-                    Nodes.Add(node);
-                    break;
-                }
-
-                if (!parsed)
-                {
-                    throw new Exception($"Could not parse: {line}");
+                    _metadata.ReadLine(line, curLineNum);
                 }
             }
-        }
-
-        // For removing files from a solution folder
-        public void RemoveSolutionItem(string solutionFolderName, string filePath)
-        {
-            var relativePath = GetRelativePath(filePath);
-
-            var solutionFolderNode = Nodes
-                .OfType<SolutionItemComplexNode>()
-                .SingleOrDefault(node =>
-                    node.Parameter == "{2150E333-8FDC-42A3-9474-1A3956D46DE8}" && // This guid is for solution folders
-                    node.Values[0] == solutionFolderName);
-
-            if (solutionFolderNode == null)
+            if (FormatVersion == null)
             {
-                throw new Exception($"Could not find solution folder with name '{solutionFolderName}'");
-            }
-
-            if (!solutionFolderNode.ChildNodes.Any())
-            {
-                return;
-            }
-
-            var childNodes = solutionFolderNode.ChildNodes.OfType<SolutionItemSectionNode>().Single().ChildNodes;
-            var toRemove = childNodes.SingleOrDefault(x => x is KeyValueNode node && node.Key == relativePath);
-            if (toRemove == null)
-            {
-                return;
-            }
-
-            childNodes.Remove(toRemove);
-            if (childNodes.Any())
-            {
-                return;
-            }
-
-            solutionFolderNode.ChildNodes.Clear();
-        }
-
-        // For adding files to a solution folder
-        public void AddSolutionItem(string solutionFolderName, string filePath)
-        {
-            var relativePath = GetRelativePath(filePath);
-
-            var solutionFolderNode = Nodes
-                .OfType<SolutionItemComplexNode>()
-                .SingleOrDefault(node =>
-                    node.Parameter == "{2150E333-8FDC-42A3-9474-1A3956D46DE8}" && // This guid is for solution folders
-                    node.Values[0] == solutionFolderName);
-
-            if (solutionFolderNode == null)
-            {
-                throw new Exception($"Could not find solution folder with name '{solutionFolderName}'");
-            }
-
-            if (!solutionFolderNode.ChildNodes.Any())
-            {
-                solutionFolderNode.ChildNodes.Add(new SolutionItemSectionNode(
-                    name: "ProjectSection",
-                    sectionName: "SolutionItems",
-                    value: "preProject",
-                    childNodes: new List<Node>()));
-            }
-
-            var childNodes = solutionFolderNode.ChildNodes.OfType<SolutionItemSectionNode>().Single().ChildNodes;
-            if (!childNodes.Any(x => x is KeyValueNode node && node.Key == relativePath))
-            {
-                // Insert in order: https://stackoverflow.com/a/12172412/706555
-                var index = childNodes
-                    .OfType<KeyValueNode>()
-                    .Select(x => x.Key)
-                    .ToList()
-                    .BinarySearch(relativePath);
-                if (index < 0)
-                {
-                    index = ~index;
-                }
-
-                childNodes.Insert(index, new KeyValueNode(relativePath, relativePath));
+                throw new InvalidSolutionFormatException(LocalizableStrings.FileHeaderMissingError);
             }
         }
 
-        private string GetRelativePath(string filePath)
+        public void Write(string file = null)
         {
-            // .sln files always use forward slashes
-            return Path.GetRelativePath(Path.GetDirectoryName(FilePath), filePath).Replace("/", "\\");
+            if (!string.IsNullOrEmpty(file))
+            {
+                FullPath = Path.GetFullPath(file);
+            }
+            var sw = new StringWriter();
+            Write(sw);
+            File.WriteAllText(FullPath, sw.ToString(), Encoding.UTF8);
         }
 
-        public IReadOnlyCollection<SolutionItemComplexNode> GetChildrenWithParentOf(SolutionItemComplexNode node)
+        private void Write(TextWriter writer)
         {
-            var globalNode = Nodes.OfType<SolutionItemSimpleNode>().SingleOrDefault();
-            var section = globalNode?.ChildNodes.OfType<SolutionItemSectionNode>().SingleOrDefault(x => x.SectionName == "NestedProjects");
-            var items = (section?.ChildNodes.OfType<KeyValueNode>() ??
-                         Enumerable.Empty<KeyValueNode>())
-                .ToDictionary(x => x.Key, x => x.Value);
-
-            if (node == null)
+            writer.NewLine = _format.NewLine;
+            for (int n = 0; n < _prefixBlankLines; n++)
             {
-                return Nodes.OfType<SolutionItemComplexNode>()
-                    .Where(x => !items.ContainsKey(x.Id))
-                    .ToArray();
+                writer.WriteLine();
+            }
+            writer.WriteLine("Microsoft Visual Studio Solution File, Format Version " + FormatVersion);
+            writer.WriteLine("# " + ProductDescription);
+
+            _metadata.Write(writer);
+
+            foreach (var p in _projects)
+            {
+                p.Write(writer);
             }
 
-            return items
-                .Where(x => x.Value == node.Id)
-                .Select(x => Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(y => x.Key == y.Id))
-                .Where(x => x != null)
-                .ToArray();
+            writer.WriteLine("Global");
+            foreach (SlnSection s in _sections)
+            {
+                s.Write(writer, "GlobalSection");
+            }
+            writer.WriteLine("EndGlobal");
+        }
+    }
+
+    internal class SlnProject
+    {
+        private SlnSectionCollection _sections = new();
+
+        private SlnFile _parentFile;
+
+        public SlnFile ParentFile
+        {
+            get
+            {
+                return _parentFile;
+            }
+            internal set
+            {
+                _parentFile = value;
+                _sections.ParentFile = _parentFile;
+            }
         }
 
-        public void SetParent(SolutionItemComplexNode child, SolutionItemComplexNode parent)
-        {
-            var globalNode = Nodes.OfType<SolutionItemSimpleNode>().SingleOrDefault();
-            if (parent == null)
-            {
-                var section = globalNode?.ChildNodes.OfType<SolutionItemSectionNode>().SingleOrDefault(x => x.SectionName == "NestedProjects");
+        public string Id { get; set; }
+        public string TypeGuid { get; set; }
+        public string Name { get; set; }
 
-                var itemToRemove = section?.ChildNodes.OfType<KeyValueNode>().SingleOrDefault(x => x.Key == child.Id);
-                if (itemToRemove == null)
+        private string _filePath;
+        public string FilePath
+        {
+            get
+            {
+                return _filePath;
+            }
+            set
+            {
+                _filePath = PathUtility.RemoveExtraPathSeparators(
+                    PathUtility.GetPathWithDirectorySeparator(value));
+            }
+        }
+
+        public int Line { get; private set; }
+        internal bool Processed { get; set; }
+
+        public SlnSectionCollection Sections
+        {
+            get { return _sections; }
+        }
+
+        public SlnSection Dependencies
+        {
+            get
+            {
+                return _sections.GetSection("ProjectDependencies", SlnSectionType.PostProcess);
+            }
+        }
+
+        internal void Read(TextReader reader, string line, ref int curLineNum)
+        {
+            Line = curLineNum;
+
+            int n = 0;
+            FindNext(curLineNum, line, ref n, '(');
+            n++;
+            FindNext(curLineNum, line, ref n, '"');
+            int n2 = n + 1;
+            FindNext(curLineNum, line, ref n2, '"');
+            TypeGuid = line.Substring(n + 1, n2 - n - 1);
+
+            n = n2 + 1;
+            FindNext(curLineNum, line, ref n, ')');
+            FindNext(curLineNum, line, ref n, '=');
+
+            FindNext(curLineNum, line, ref n, '"');
+            n2 = n + 1;
+            FindNext(curLineNum, line, ref n2, '"');
+            Name = line.Substring(n + 1, n2 - n - 1);
+
+            n = n2 + 1;
+            FindNext(curLineNum, line, ref n, ',');
+            FindNext(curLineNum, line, ref n, '"');
+            n2 = n + 1;
+            FindNext(curLineNum, line, ref n2, '"');
+            FilePath = line.Substring(n + 1, n2 - n - 1);
+
+            n = n2 + 1;
+            FindNext(curLineNum, line, ref n, ',');
+            FindNext(curLineNum, line, ref n, '"');
+            n2 = n + 1;
+            FindNext(curLineNum, line, ref n2, '"');
+            Id = line.Substring(n + 1, n2 - n - 1);
+
+            while ((line = reader.ReadLine()) != null)
+            {
+                curLineNum++;
+                line = line.Trim();
+                if (line == "EndProject")
                 {
                     return;
                 }
+                if (line.StartsWith("ProjectSection", StringComparison.Ordinal))
+                {
+                    if (_sections == null)
+                    {
+                        _sections = new SlnSectionCollection();
+                    }
+                    var sec = new SlnSection();
+                    _sections.Add(sec);
+                    sec.Read(reader, line, ref curLineNum);
+                }
+            }
 
-                section.ChildNodes.Remove(itemToRemove);
+            throw new InvalidSolutionFormatException(
+                curLineNum,
+                LocalizableStrings.ProjectSectionNotClosedError);
+        }
+
+        private void FindNext(int ln, string line, ref int i, char c)
+        {
+            var inputIndex = i;
+            i = line.IndexOf(c, i);
+            if (i == -1)
+            {
+                throw new InvalidSolutionFormatException(
+                    ln,
+                    string.Format(LocalizableStrings.ProjectParsingErrorFormatString, c, inputIndex));
+            }
+        }
+
+        internal void Write(TextWriter writer)
+        {
+            writer.Write("Project(\"");
+            writer.Write(TypeGuid);
+            writer.Write("\") = \"");
+            writer.Write(Name);
+            writer.Write("\", \"");
+            writer.Write(PathUtility.GetPathWithBackSlashes(FilePath));
+            writer.Write("\", \"");
+            writer.Write(Id);
+            writer.WriteLine("\"");
+            if (_sections != null)
+            {
+                foreach (SlnSection s in _sections)
+                {
+                    s.Write(writer, "ProjectSection");
+                }
+            }
+            writer.WriteLine("EndProject");
+        }
+    }
+
+    internal class SlnSection
+    {
+        private SlnPropertySetCollection _nestedPropertySets;
+        private SlnPropertySet _properties;
+        private List<string> _sectionLines;
+        private int _baseIndex;
+
+        public string Id { get; set; }
+        public int Line { get; private set; }
+
+        internal bool Processed { get; set; }
+
+        public SlnFile ParentFile { get; internal set; }
+
+        public bool IsEmpty
+        {
+            get
+            {
+                return (_properties == null || _properties.Count == 0) &&
+                    (_nestedPropertySets == null || _nestedPropertySets.All(t => t.IsEmpty)) &&
+                    (_sectionLines == null || _sectionLines.Count == 0);
+            }
+        }
+
+        /// <summary>
+        /// If true, this section won't be written to the file if it is empty
+        /// </summary>
+        /// <value><c>true</c> if skip if empty; otherwise, <c>false</c>.</value>
+        public bool SkipIfEmpty { get; set; }
+
+        public void Clear()
+        {
+            _properties = null;
+            _nestedPropertySets = null;
+            _sectionLines = null;
+        }
+
+        public SlnPropertySet Properties
+        {
+            get
+            {
+                if (_properties == null)
+                {
+                    _properties = new SlnPropertySet
+                    {
+                        ParentSection = this
+                    };
+                    if (_sectionLines != null)
+                    {
+                        foreach (var line in _sectionLines)
+                        {
+                            _properties.ReadLine(line, Line);
+                        }
+                        _sectionLines = null;
+                    }
+                }
+                return _properties;
+            }
+        }
+
+        public SlnPropertySetCollection NestedPropertySets
+        {
+            get
+            {
+                if (_nestedPropertySets == null)
+                {
+                    _nestedPropertySets = new SlnPropertySetCollection(this);
+                    if (_sectionLines != null)
+                    {
+                        LoadPropertySets();
+                    }
+                }
+                return _nestedPropertySets;
+            }
+        }
+
+        public void SetContent(IEnumerable<KeyValuePair<string, string>> lines)
+        {
+            _sectionLines = new List<string>(lines.Select(p => p.Key + " = " + p.Value));
+            _properties = null;
+            _nestedPropertySets = null;
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> GetContent()
+        {
+            if (_sectionLines != null)
+            {
+                return _sectionLines.Select(li =>
+                {
+                    int i = li.IndexOf('=');
+                    if (i != -1)
+                    {
+                        return new KeyValuePair<string, string>(li.Substring(0, i).Trim(), li.Substring(i + 1).Trim());
+                    }
+                    else
+                    {
+                        return new KeyValuePair<string, string>(li.Trim(), "");
+                    }
+                });
+            }
+            else
+            {
+                return new KeyValuePair<string, string>[0];
+            }
+        }
+
+        public SlnSectionType SectionType { get; set; }
+
+        private SlnSectionType ToSectionType(int curLineNum, string s)
+        {
+            if (s == "preSolution" || s == "preProject")
+            {
+                return SlnSectionType.PreProcess;
+            }
+            if (s == "postSolution" || s == "postProject")
+            {
+                return SlnSectionType.PostProcess;
+            }
+            throw new InvalidSolutionFormatException(
+                curLineNum,
+                string.Format(LocalizableStrings.InvalidSectionTypeError, s));
+        }
+
+        private string FromSectionType(bool isProjectSection, SlnSectionType type)
+        {
+            if (type == SlnSectionType.PreProcess)
+            {
+                return isProjectSection ? "preProject" : "preSolution";
+            }
+            else
+            {
+                return isProjectSection ? "postProject" : "postSolution";
+            }
+        }
+
+        internal void Read(TextReader reader, string line, ref int curLineNum)
+        {
+            Line = curLineNum;
+            int k = line.IndexOf('(');
+            if (k == -1)
+            {
+                throw new InvalidSolutionFormatException(
+                    curLineNum,
+                    LocalizableStrings.SectionIdMissingError);
+            }
+            var tag = line.Substring(0, k).Trim();
+            var k2 = line.IndexOf(')', k);
+            if (k2 == -1)
+            {
+                throw new InvalidSolutionFormatException(
+                    curLineNum,
+                    LocalizableStrings.SectionIdMissingError);
+            }
+            Id = line.Substring(k + 1, k2 - k - 1);
+
+            k = line.IndexOf('=', k2);
+            SectionType = ToSectionType(curLineNum, line.Substring(k + 1).Trim());
+
+            var endTag = "End" + tag;
+
+            _sectionLines = new List<string>();
+            _baseIndex = ++curLineNum;
+            while ((line = reader.ReadLine()) != null)
+            {
+                curLineNum++;
+                line = line.Trim();
+                if (line == endTag)
+                {
+                    break;
+                }
+                _sectionLines.Add(line);
+            }
+            if (line == null)
+            {
+                throw new InvalidSolutionFormatException(
+                    curLineNum,
+                    LocalizableStrings.ClosingSectionTagNotFoundError);
+            }
+        }
+
+        private void LoadPropertySets()
+        {
+            if (_sectionLines != null)
+            {
+                SlnPropertySet curSet = null;
+                for (int n = 0; n < _sectionLines.Count; n++)
+                {
+                    var line = _sectionLines[n];
+                    if (string.IsNullOrEmpty(line.Trim()))
+                    {
+                        continue;
+                    }
+                    var i = line.IndexOf('.');
+                    if (i == -1)
+                    {
+                        throw new InvalidSolutionFormatException(
+                            _baseIndex + n,
+                            string.Format(LocalizableStrings.InvalidPropertySetFormatString, '.'));
+                    }
+                    var id = line.Substring(0, i);
+                    if (curSet == null || id != curSet.Id)
+                    {
+                        curSet = new SlnPropertySet(id);
+                        _nestedPropertySets.Add(curSet);
+                    }
+                    curSet.ReadLine(line.Substring(i + 1), _baseIndex + n);
+                }
+                _sectionLines = null;
+            }
+        }
+
+        internal void Write(TextWriter writer, string sectionTag)
+        {
+            if (SkipIfEmpty && IsEmpty)
+            {
                 return;
             }
 
-            GetOrCreateGlobalNode("Global", out globalNode);
-            globalNode.GetOrCreateSection(
-                name: "NestedProjects",
-                value: "preSolution",
-                childNodes: new List<Node>(),
-                sectionNode: out var nestedProjects);
-
-            var node = nestedProjects.ChildNodes.OfType<KeyValueNode>().SingleOrDefault(x => x.Key == child.Id);
-            if (node == null)
+            writer.Write("\t");
+            writer.Write(sectionTag);
+            writer.Write('(');
+            writer.Write(Id);
+            writer.Write(") = ");
+            writer.WriteLine(FromSectionType(sectionTag == "ProjectSection", SectionType));
+            if (_sectionLines != null)
             {
-                node = new KeyValueNode(child.Id, parent.Id);
-                nestedProjects.ChildNodes.Add(node);
+                foreach (var l in _sectionLines)
+                {
+                    writer.WriteLine("\t\t" + l);
+                }
+            }
+            else if (_properties != null)
+            {
+                _properties.Write(writer);
+            }
+            else if (_nestedPropertySets != null)
+            {
+                foreach (var ps in _nestedPropertySets)
+                {
+                    ps.Write(writer);
+                }
+            }
+            writer.WriteLine("\tEnd" + sectionTag);
+        }
+    }
+
+    /// <summary>
+    /// A collection of properties
+    /// </summary>
+    internal class SlnPropertySet : IDictionary<string, string>
+    {
+        private OrderedDictionary _values = new();
+        private bool _isMetadata;
+
+        internal bool Processed { get; set; }
+
+        public SlnFile ParentFile
+        {
+            get { return ParentSection != null ? ParentSection.ParentFile : null; }
+        }
+
+        public SlnSection ParentSection { get; set; }
+
+        /// <summary>
+        /// Text file line of this section in the original file
+        /// </summary>
+        /// <value>The line.</value>
+        public int Line { get; private set; }
+
+        internal SlnPropertySet()
+        {
+        }
+
+        /// <summary>
+        /// Creates a new property set with the specified ID
+        /// </summary>
+        /// <param name="id">Identifier.</param>
+        public SlnPropertySet(string id)
+        {
+            Id = id;
+        }
+
+        internal SlnPropertySet(bool isMetadata)
+        {
+            _isMetadata = isMetadata;
+        }
+
+        public bool IsEmpty
+        {
+            get
+            {
+                return _values.Count == 0;
+            }
+        }
+
+        internal void ReadLine(string line, int currentLine)
+        {
+            if (Line == 0)
+            {
+                Line = currentLine;
+            }
+            int k = line.IndexOf('=');
+            if (k != -1)
+            {
+                var name = line.Substring(0, k).Trim();
+                var val = line.Substring(k + 1).Trim();
+                _values[name] = val;
+            }
+            else
+            {
+                line = line.Trim();
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    _values.Add(line, null);
+                }
+            }
+        }
+
+        internal void Write(TextWriter writer)
+        {
+            foreach (DictionaryEntry e in _values)
+            {
+                if (!_isMetadata)
+                {
+                    writer.Write("\t\t");
+                }
+                if (Id != null)
+                {
+                    writer.Write(Id + ".");
+                }
+                writer.WriteLine(e.Key + " = " + e.Value);
+            }
+        }
+
+        public string Id { get; private set; }
+
+        public string GetValue(string name, string defaultValue = null)
+        {
+            string res;
+            if (TryGetValue(name, out res))
+            {
+                return res;
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
+
+        public T GetValue<T>(string name)
+        {
+            return (T)GetValue(name, typeof(T), default(T));
+        }
+
+        public T GetValue<T>(string name, T defaultValue)
+        {
+            return (T)GetValue(name, typeof(T), defaultValue);
+        }
+
+        public object GetValue(string name, Type t, object defaultValue)
+        {
+            string val;
+            if (TryGetValue(name, out val))
+            {
+                if (t == typeof(bool))
+                {
+                    return (object)val.Equals("true", StringComparison.OrdinalIgnoreCase);
+                }
+                if (t.GetTypeInfo().IsEnum)
+                {
+                    return Enum.Parse(t, val, true);
+                }
+                if (t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>))
+                {
+                    var at = t.GetTypeInfo().GetGenericArguments()[0];
+                    if (string.IsNullOrEmpty(val))
+                    {
+                        return null;
+                    }
+                    return Convert.ChangeType(val, at, CultureInfo.InvariantCulture);
+
+                }
+                return Convert.ChangeType(val, t, CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
+
+        public void SetValue(string name, string value, string defaultValue = null, bool preserveExistingCase = false)
+        {
+            if (value == null && defaultValue == "")
+            {
+                value = "";
+            }
+            if (value == defaultValue)
+            {
+                // if the value is default, only remove the property if it was not already the default
+                // to avoid unnecessary project file churn
+                string res;
+                if (TryGetValue(name, out res) &&
+                    !string.Equals(defaultValue ?? "",
+                        res, preserveExistingCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))
+                {
+                    Remove(name);
+                }
+                return;
+            }
+            string currentValue;
+            if (preserveExistingCase && TryGetValue(name, out currentValue) &&
+                string.Equals(value, currentValue, StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+            _values[name] = value;
+        }
+
+        public void SetValue(string name, object value, object defaultValue = null)
+        {
+            var isDefault = Equals(value, defaultValue);
+            if (isDefault)
+            {
+                // if the value is default, only remove the property if it was not already the default
+                // to avoid unnecessary project file churn
+                if (ContainsKey(name) && (defaultValue == null ||
+                    !Equals(defaultValue, GetValue(name, defaultValue.GetType(), null))))
+                {
+                    Remove(name);
+                }
                 return;
             }
 
-            node.Value = parent.Id;
-        }
-
-        public SolutionItemComplexNode GetParent(SolutionItemComplexNode child)
-        {
-            var globalNode = Nodes.OfType<SolutionItemSimpleNode>().SingleOrDefault();
-            var section = globalNode?.ChildNodes.OfType<SolutionItemSectionNode>().SingleOrDefault(x => x.SectionName == "NestedProjects");
-            var parentId = section?.ChildNodes.OfType<KeyValueNode>().SingleOrDefault(x => x.Key == child.Id)?.Value;
-
-            return Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
-        }
-
-        /// <returns><see langword="true"/> if the project already existed.</retu,rns>
-        public bool GetOrCreateProjectNode(
-            string typeId,
-            string name,
-            string path,
-            string id,
-            string parentId,
-            out SolutionItemProjectNode project,
-            bool tryMatchOnPathGlobally = true)
-        {
-            var parentNode = Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
-            var childNodes = GetChildrenWithParentOf(parentNode);
-
-            var projectNodes = Nodes
-                .OfType<SolutionItemComplexNode>()
-                .Where(x => x.Name == "Project")
-                .ToArray();
-
-            id = $"{{{id}}}".ToUpperInvariant();
-
-            var node =
-                childNodes.SingleOrDefault(x => x.Id == id) ??
-                childNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path)) ??
-                projectNodes.SingleOrDefault(x => x.Id == id);
-
-            if (tryMatchOnPathGlobally)
+            if (value is bool)
             {
-                node ??= projectNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path));
+                _values[name] = (bool)value ? "TRUE" : "FALSE";
             }
-
-            if (node != null)
+            else
             {
-                project = new SolutionItemProjectNode(node);
+                _values[name] = Convert.ToString(value, CultureInfo.InvariantCulture);
+            }
+        }
+
+        void IDictionary<string, string>.Add(string key, string value)
+        {
+            SetValue(key, value);
+        }
+
+        public bool ContainsKey(string key)
+        {
+            return _values.Contains(key);
+        }
+
+        public bool Remove(string key)
+        {
+            var wasThere = _values.Contains(key);
+            _values.Remove(key);
+            return wasThere;
+        }
+
+        public bool TryGetValue(string key, out string value)
+        {
+            value = (string)_values[key];
+            return value != null;
+        }
+
+        public string this[string index]
+        {
+            get
+            {
+                return (string)_values[index];
+            }
+            set
+            {
+                _values[index] = value;
+            }
+        }
+
+        public ICollection<string> Values
+        {
+            get
+            {
+                return _values.Values.Cast<string>().ToList();
+            }
+        }
+
+        public ICollection<string> Keys
+        {
+            get { return _values.Keys.Cast<string>().ToList(); }
+        }
+
+        void ICollection<KeyValuePair<string, string>>.Add(KeyValuePair<string, string> item)
+        {
+            SetValue(item.Key, item.Value);
+        }
+
+        public void Clear()
+        {
+            _values.Clear();
+        }
+
+        internal void ClearExcept(HashSet<string> keys)
+        {
+            foreach (var k in _values.Keys.Cast<string>().Except(keys).ToArray())
+            {
+                _values.Remove(k);
+            }
+        }
+
+        bool ICollection<KeyValuePair<string, string>>.Contains(KeyValuePair<string, string> item)
+        {
+            var val = GetValue(item.Key);
+            return val == item.Value;
+        }
+
+        public void CopyTo(KeyValuePair<string, string>[] array, int arrayIndex)
+        {
+            foreach (DictionaryEntry de in _values)
+            {
+                array[arrayIndex++] = new KeyValuePair<string, string>((string)de.Key, (string)de.Value);
+            }
+        }
+
+        bool ICollection<KeyValuePair<string, string>>.Remove(KeyValuePair<string, string> item)
+        {
+            if (((ICollection<KeyValuePair<string, string>>)this).Contains(item))
+            {
+                Remove(item.Key);
                 return true;
             }
-
-            project = new SolutionItemProjectNode(typeId, name, path, id);
-
-            SetParent(project.UnderlyingNode, parentNode);
-
-            if (projectNodes.Length != 0)
+            else
             {
-                Nodes.Insert(
-                    index: Nodes.IndexOf(projectNodes[projectNodes.Length - 1]) + 1,
-                    item: project.UnderlyingNode);
-
                 return false;
             }
-
-            var lastLeadingNode = Nodes
-                .TakeWhile(x => x is HeaderNode or CommentNode or WhitespaceNode or KeyValueNode)
-                .LastOrDefault();
-            if (lastLeadingNode != null)
-            {
-                Nodes.Insert(
-                    index: Nodes.IndexOf(lastLeadingNode) + 1,
-                    item: project.UnderlyingNode);
-
-                return false;
-            }
-
-            Nodes.Insert(0, project.UnderlyingNode);
-            return false;
         }
 
-        public bool GetOrCreateGlobalNode(string name, out SolutionItemSimpleNode globalNode)
+        public int Count
         {
-            globalNode = Nodes
-                .OfType<SolutionItemSimpleNode>()
-                .SingleOrDefault(x => x.Name == name);
-
-            if (globalNode != null)
+            get
             {
-                return true;
+                return _values.Count;
             }
-
-            globalNode = new SolutionItemSimpleNode(name, new List<Node>());
-            Nodes.Add(globalNode);
-
-            return false;
         }
 
-        public override string ToString() => GetOutput();
+        internal void SetLines(IEnumerable<KeyValuePair<string, string>> lines)
+        {
+            _values.Clear();
+            foreach (var line in lines)
+            {
+                _values[line.Key] = line.Value;
+            }
+        }
+
+        bool ICollection<KeyValuePair<string, string>>.IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+        {
+            foreach (DictionaryEntry de in _values)
+            {
+                yield return new KeyValuePair<string, string>((string)de.Key, (string)de.Value);
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            foreach (DictionaryEntry de in _values)
+            {
+                yield return new KeyValuePair<string, string>((string)de.Key, (string)de.Value);
+            }
+        }
+    }
+
+    internal class SlnProjectCollection : Collection<SlnProject>
+    {
+        private SlnFile _parentFile;
+
+        internal SlnFile ParentFile
+        {
+            get
+            {
+                return _parentFile;
+            }
+            set
+            {
+                _parentFile = value;
+                foreach (var it in this)
+                {
+                    it.ParentFile = _parentFile;
+                }
+            }
+        }
+
+        public SlnProject GetProject(string id)
+        {
+            return this.FirstOrDefault(s => s.Id == id);
+        }
+
+        public SlnProject GetOrCreateProject(string id)
+        {
+            var p = this.FirstOrDefault(s => s.Id.Equals(id, StringComparison.OrdinalIgnoreCase));
+            if (p == null)
+            {
+                p = new SlnProject { Id = id };
+                Add(p);
+            }
+            return p;
+        }
+
+        protected override void InsertItem(int index, SlnProject item)
+        {
+            base.InsertItem(index, item);
+            item.ParentFile = ParentFile;
+        }
+
+        protected override void SetItem(int index, SlnProject item)
+        {
+            base.SetItem(index, item);
+            item.ParentFile = ParentFile;
+        }
+
+        protected override void RemoveItem(int index)
+        {
+            var it = this[index];
+            it.ParentFile = null;
+            base.RemoveItem(index);
+        }
+
+        protected override void ClearItems()
+        {
+            foreach (var it in this)
+            {
+                it.ParentFile = null;
+            }
+            base.ClearItems();
+        }
+    }
+
+    internal class SlnSectionCollection : Collection<SlnSection>
+    {
+        private SlnFile _parentFile;
+
+        internal SlnFile ParentFile
+        {
+            get
+            {
+                return _parentFile;
+            }
+            set
+            {
+                _parentFile = value;
+                foreach (var it in this)
+                {
+                    it.ParentFile = _parentFile;
+                }
+            }
+        }
+
+        public SlnSection GetSection(string id)
+        {
+            return this.FirstOrDefault(s => s.Id == id);
+        }
+
+        public SlnSection GetSection(string id, SlnSectionType sectionType)
+        {
+            return this.FirstOrDefault(s => s.Id == id && s.SectionType == sectionType);
+        }
+
+        public SlnSection GetOrCreateSection(string id, SlnSectionType sectionType)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException("id");
+            }
+            var sec = this.FirstOrDefault(s => s.Id == id);
+            if (sec == null)
+            {
+                sec = new SlnSection
+                {
+                    Id = id,
+                    SectionType = sectionType
+                };
+                Add(sec);
+            }
+            return sec;
+        }
+
+        public void RemoveSection(string id)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException("id");
+            }
+            var s = GetSection(id);
+            if (s != null)
+            {
+                Remove(s);
+            }
+        }
+
+        protected override void InsertItem(int index, SlnSection item)
+        {
+            base.InsertItem(index, item);
+            item.ParentFile = ParentFile;
+        }
+
+        protected override void SetItem(int index, SlnSection item)
+        {
+            base.SetItem(index, item);
+            item.ParentFile = ParentFile;
+        }
+
+        protected override void RemoveItem(int index)
+        {
+            var it = this[index];
+            it.ParentFile = null;
+            base.RemoveItem(index);
+        }
+
+        protected override void ClearItems()
+        {
+            foreach (var it in this)
+            {
+                it.ParentFile = null;
+            }
+            base.ClearItems();
+        }
+    }
+
+    internal class SlnPropertySetCollection : Collection<SlnPropertySet>
+    {
+        private SlnSection _parentSection;
+
+        internal SlnPropertySetCollection(SlnSection parentSection)
+        {
+            _parentSection = parentSection;
+        }
+
+        public SlnPropertySet GetPropertySet(string id, bool ignoreCase = false)
+        {
+            var sc = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
+            return this.FirstOrDefault(s => s.Id.Equals(id, sc));
+        }
+
+        public SlnPropertySet GetOrCreatePropertySet(string id, bool ignoreCase = false)
+        {
+            var ps = GetPropertySet(id, ignoreCase);
+            if (ps == null)
+            {
+                ps = new SlnPropertySet(id);
+                Add(ps);
+            }
+            return ps;
+        }
+
+        protected override void InsertItem(int index, SlnPropertySet item)
+        {
+            base.InsertItem(index, item);
+            item.ParentSection = _parentSection;
+        }
+
+        protected override void SetItem(int index, SlnPropertySet item)
+        {
+            base.SetItem(index, item);
+            item.ParentSection = _parentSection;
+        }
+
+        protected override void RemoveItem(int index)
+        {
+            var it = this[index];
+            it.ParentSection = null;
+            base.RemoveItem(index);
+        }
+
+        protected override void ClearItems()
+        {
+            foreach (var it in this)
+            {
+                it.ParentSection = null;
+            }
+            base.ClearItems();
+        }
+    }
+
+    internal class InvalidSolutionFormatException : Exception
+    {
+        public InvalidSolutionFormatException(string details)
+            : base(details)
+        {
+        }
+
+        public InvalidSolutionFormatException(int line, string details)
+            : base(string.Format(LocalizableStrings.ErrorMessageFormatString, line, details))
+        {
+        }
+    }
+
+    internal enum SlnSectionType
+    {
+        PreProcess,
+        PostProcess
     }
 }
