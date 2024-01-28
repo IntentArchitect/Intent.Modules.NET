@@ -125,12 +125,47 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
         }
 
 
-        public static void AddSolutionItem(this SlnSectionCollection sections, string solutionItemPath)
+        public static void AddSolutionItem(
+            this SlnFile slnFile,
+            SlnProject parentProject,
+            string solutionItemAbsolutePath,
+            string relativeOutputPathPrefix)
         {
-            var relativePath = sections.ParentFile.GetRelativePath(solutionItemPath);
+            var relativePath = slnFile.GetRelativePath(solutionItemAbsolutePath);
+            var relativePathDirectory = Path.GetDirectoryName(relativePath);
+            var relativeSolutionFolderPath = relativePath;
+
+            if (!string.IsNullOrWhiteSpace(relativePathDirectory))
+            {
+                if (!string.IsNullOrWhiteSpace(relativeOutputPathPrefix))
+                {
+                    relativeSolutionFolderPath = Path.GetRelativePath(relativeOutputPathPrefix, relativePathDirectory!);
+                }
+
+                parentProject = relativeSolutionFolderPath
+                    .Split(Path.DirectorySeparatorChar)
+                    .Aggregate(
+                        seed: parentProject,
+                        func: (current, path) => current?.GetOrCreateFolder(Guid.NewGuid().ToString(), path) ??
+                                                 slnFile.GetOrCreateFolder(Guid.NewGuid().ToString(), path));
+            }
+
+            var sections = parentProject?.Sections ??
+                           slnFile.Sections;
 
             var solutionItems = sections.GetOrCreateSection(SectionId.SolutionItems, SlnSectionType.PreProcess);
             solutionItems.Properties[relativePath] = relativePath;
+
+            var toInsertInOrder = solutionItems.Properties
+                .OrderBy(x => x.Key)
+                .ThenBy(x => x.Value)
+                .ToArray();
+            solutionItems.Properties.Clear();
+
+            foreach (var item in toInsertInOrder)
+            {
+                solutionItems.Properties.TryAdd(item.Key, item.Value);
+            }
         }
 
         public static void RemoveSolutionItem(this SlnFile slnFile, string solutionItemPath)

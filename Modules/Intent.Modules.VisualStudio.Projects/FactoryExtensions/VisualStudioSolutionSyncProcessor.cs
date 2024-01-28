@@ -137,27 +137,38 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                     foreach (var @event in item.Events)
                     {
+                        var absolutePath = @event.GetValue("Path");
+                        if (!@event.AdditionalInfo.TryGetValue("RelativeOutputPathPrefix", out var relativeOutputPathPrefix))
+                        {
+                            relativeOutputPathPrefix = null;
+                        }
+
                         switch (@event.EventIdentifier)
                         {
                             case SoftwareFactoryEvents.FileAddedEvent:
                                 var solutionFolderPath = GetPath(item.Model);
                                 if (solutionFolderPath.Count == 0)
                                 {
-                                    slnFile.Sections.AddSolutionItem(@event.GetValue("Path"));
+                                    slnFile.AddSolutionItem(
+                                        parentProject: null,
+                                        solutionItemAbsolutePath: absolutePath,
+                                        relativeOutputPathPrefix: relativeOutputPathPrefix);
                                     break;
                                 }
 
                                 var solutionFolderProject = solutionFolderPath
                                     .Aggregate(
                                         seed: default(SlnProject),
-                                        func: (current, solutionFolder) => current == default
-                                            ? slnFile.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name)
-                                            : current.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name));
+                                        func: (current, solutionFolder) => current?.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name) ??
+                                                                           slnFile.GetOrCreateFolder(solutionFolder.Id, solutionFolder.Name));
 
-                                solutionFolderProject.Sections.AddSolutionItem(@event.GetValue("Path"));
+                                slnFile.AddSolutionItem(
+                                    parentProject: solutionFolderProject,
+                                    solutionItemAbsolutePath: absolutePath,
+                                    relativeOutputPathPrefix: relativeOutputPathPrefix);
                                 break;
                             case SoftwareFactoryEvents.FileRemovedEvent:
-                                slnFile.RemoveSolutionItem(@event.GetValue("Path"));
+                                slnFile.RemoveSolutionItem(absolutePath);
                                 break;
                             default:
                                 break;
@@ -165,12 +176,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     }
                 }
 
-                if (original == slnFile.Generate())
+                var updated = slnFile.Generate();
+                if (original == updated)
                 {
                     continue;
                 }
 
-                change.ChangeContent(slnFile.ToString());
+                change.ChangeContent(updated);
             }
         }
 
