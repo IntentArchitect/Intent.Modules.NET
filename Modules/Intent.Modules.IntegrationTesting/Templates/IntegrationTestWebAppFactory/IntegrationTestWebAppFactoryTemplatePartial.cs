@@ -42,7 +42,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
                     {
                         foreach (var container in containers)
                         {
-                            ctor.AddStatement($"{container.PropertyName} = new {container.TypeName}()");
+                            ctor.AddStatement($"{container.PropertyName} = new {container.TypeName}();");
                         }
                     });
 
@@ -58,7 +58,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
                             .Async();
                         foreach (var container in containers)
                         {
-                            method.AddStatement($"await {container.PropertyName}.InitializeAsync()");
+                            method.AddStatement($"await {container.PropertyName}.InitializeAsync();");
                         }
                     });
                     @class.AddMethod("Task", "DisposeAsync", method =>
@@ -68,7 +68,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
                             .IsExplicitImplementationFor("IAsyncLifetime");
                         foreach (var container in containers)
                         {
-                            method.AddStatement($"await {container.PropertyName}.DisposeAsync()");
+                            method.AddStatement($"await {container.PropertyName}.DisposeAsync();");
                         }
                     });
                     @class.AddMethod("IHost", "CreateHost", method =>
@@ -80,7 +80,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
                             .AddStatement("var result = base.CreateHost(builder);");
                         foreach (var container in containers)
                         {
-                            method.AddStatement($"{container.PropertyName}.OnHostCreation(result.Services)");
+                            method.AddStatement($"{container.PropertyName}.OnHostCreation(result.Services);");
                         }
                         method.AddStatement("return result;");
                     });
@@ -108,7 +108,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
         {
             if (ContainerHelper.RequireCosmosContainer(this))
             {
-                yield return new RequiredContainer("CosmosFixture", this.GetCosmosContainerFixtureName());
+                yield return new RequiredContainer("CosmosContainerFixture", this.GetCosmosContainerFixtureName());
             }
             if (ContainerHelper.RequireRDBMSEFContainer(this))
             {

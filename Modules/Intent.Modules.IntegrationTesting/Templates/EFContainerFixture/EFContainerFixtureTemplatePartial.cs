@@ -24,7 +24,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
         public EFContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"CosmosContainerFixture", @class =>
+                .AddClass($"RBBMSFixture", @class =>
                 {
                     var dbStrategy = ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum() switch
                     {
@@ -35,9 +35,6 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
                     AddUsing("System.Reflection");
                     AddUsing("DotNet.Testcontainers.Builders");
                     AddUsing("DotNet.Testcontainers.Configurations");
-                    AddUsing("Microsoft.Azure.Cosmos");
-                    AddUsing("Microsoft.Azure.Cosmos.Fluent");
-                    AddUsing("Microsoft.Azure.CosmosRepository.Options");
                     AddUsing("Microsoft.Extensions.DependencyInjection");
                     AddUsing("Microsoft.Extensions.Options");
                     foreach (var clause in dbStrategy.Usings)
@@ -115,7 +112,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
             var dbContextRegistration = @"services.AddDbContext<ApplicationDbContext>((sp, options) =>
                 {{
                     options.UseSqlServer(
-                        _mssSqlContainer.GetConnectionString(),
+                        _dbContainer.GetConnectionString(),
                         b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                     options.UseLazyLoadingProxies();
                 }});
@@ -123,7 +120,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
 
             return new DbStrategy(
                 containerType: "MsSqlContainer",
-                usings: new() { "Testcontainers.MsSql" },
+                usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore", "" },
                 nuGetPackages: new() { NugetPackages.TestcontainersMsSql },
                 containerInitialization: containerInitialization,
                 dbContextRegistration: dbContextRegistration

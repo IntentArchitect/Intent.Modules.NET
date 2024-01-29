@@ -26,6 +26,8 @@ namespace Intent.Modules.IntegrationTesting.Templates.ServiceEndpointTest
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
                 .AddClass($"{Model.Name}Tests", @class =>
                 {
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
+                    @class.AddAttribute("Collection", a => a.AddArgument("\"Sequential\""));
                     @class.WithBaseType(this.GetBaseIntegrationTestName());
                     @class.AddConstructor(ctor =>
                     {
