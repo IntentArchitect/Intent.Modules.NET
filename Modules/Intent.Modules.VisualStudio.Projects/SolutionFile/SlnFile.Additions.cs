@@ -193,8 +193,8 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
             id = $"{{{id}}}".ToUpperInvariant();
             typeGuid = $"{{{typeGuid}}}".ToUpperInvariant();
 
-            var project = slnProjects.FirstOrDefault(s => s.Id.Equals(id, StringComparison.OrdinalIgnoreCase)) ??
-                          slnProjects.FirstOrDefault(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            var project = slnProjects.FirstOrDefault(s => string.Equals(s.Id, id, StringComparison.OrdinalIgnoreCase)) ??
+                          slnProjects.FirstOrDefault(s => string.Equals(s.Name, name, StringComparison.OrdinalIgnoreCase));
 
             alreadyExisted = project != null;
 

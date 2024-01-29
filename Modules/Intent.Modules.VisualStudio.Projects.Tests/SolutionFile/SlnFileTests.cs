@@ -39,7 +39,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 # Visual Studio 14
                 VisualStudioVersion = 14.0.25420.1
                 MinimumVisualStudioVersion = 10.0.40219.1
-                Project("TYPE_ID") = "NAME", "Project.csproj", "ID"
+                Project("{TYPE_ID}") = "NAME", "Project.csproj", "{ID}"
                 EndProject
                 Global
                 EndGlobal
@@ -56,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
         {
             // Arrange
             var slnFile = SlnFile.CreateEmpty(".");
-            var project = slnFile.Projects.GetOrCreateProject(id: "ID");
+            var project = slnFile.Projects.GetOrCreateProject(id: "{ID}");
             project.FilePath = "Project.csproj";
 
             // Act
@@ -76,7 +76,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 # Visual Studio 14
                 VisualStudioVersion = 14.0.25420.1
                 MinimumVisualStudioVersion = 10.0.40219.1
-                Project("TYPE_ID") = "NAME", "Project.csproj", "ID"
+                Project("{TYPE_ID}") = "NAME", "Project.csproj", "{ID}"
                 EndProject
                 Global
                 EndGlobal
