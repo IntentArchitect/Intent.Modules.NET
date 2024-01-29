@@ -27,11 +27,15 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.Templates.DefaultLocalCon
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 fileName: $"configuration-store",
                 fileExtension: "yaml",
                 relativeLocation: "dapr/components/"
             );
+
+            config.CustomMetadata.Add("RelativeOutputPathPrefix", "dapr/components");
+
+            return config;
         }
     }
 }

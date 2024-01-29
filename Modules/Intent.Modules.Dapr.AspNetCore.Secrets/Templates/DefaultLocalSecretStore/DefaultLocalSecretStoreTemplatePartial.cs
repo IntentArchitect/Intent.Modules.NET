@@ -27,11 +27,15 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.Templates.DefaultLocalSecretSto
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 fileName: $"secret-store",
                 fileExtension: "yaml",
                 relativeLocation: "dapr/components/"
             );
+
+            config.CustomMetadata.Add("RelativeOutputPathPrefix", "dapr/components");
+
+            return config;
         }
     }
 }

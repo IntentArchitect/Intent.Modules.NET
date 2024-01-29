@@ -129,11 +129,14 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
             this SlnFile slnFile,
             SlnProject parentProject,
             string solutionItemAbsolutePath,
-            string relativeOutputPathPrefix)
+            string relativeOutputPathPrefix,
+            Func<string> idProvider = null)
         {
+            idProvider ??= () => Guid.NewGuid().ToString();
+
             var relativePath = slnFile.GetRelativePath(solutionItemAbsolutePath);
             var relativePathDirectory = Path.GetDirectoryName(relativePath);
-            var relativeSolutionFolderPath = relativePath;
+            var relativeSolutionFolderPath = relativePathDirectory;
 
             if (!string.IsNullOrWhiteSpace(relativePathDirectory))
             {
@@ -144,27 +147,51 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
 
                 parentProject = relativeSolutionFolderPath
                     .Split(Path.DirectorySeparatorChar)
+                    .Where(x => x != ".")
                     .Aggregate(
                         seed: parentProject,
-                        func: (current, path) => current?.GetOrCreateFolder(Guid.NewGuid().ToString(), path) ??
-                                                 slnFile.GetOrCreateFolder(Guid.NewGuid().ToString(), path));
+                        func: (current, path) => current?.GetOrCreateFolder(idProvider(), path) ??
+                                                 slnFile.GetOrCreateFolder(idProvider(), path));
             }
 
-            var sections = parentProject?.Sections ??
+            var targetSectionsCollection = parentProject?.Sections ??
                            slnFile.Sections;
 
-            var solutionItems = sections.GetOrCreateSection(SectionId.SolutionItems, SlnSectionType.PreProcess);
-            solutionItems.Properties[relativePath] = relativePath;
+            var targetSection = targetSectionsCollection.GetOrCreateSection(SectionId.SolutionItems, SlnSectionType.PreProcess);
+            targetSection.Properties[relativePath] = relativePath;
 
-            var toInsertInOrder = solutionItems.Properties
+            var toInsertInOrder = targetSection.Properties
                 .OrderBy(x => x.Key)
                 .ThenBy(x => x.Value)
                 .ToArray();
-            solutionItems.Properties.Clear();
+            targetSection.Properties.Clear();
 
             foreach (var item in toInsertInOrder)
             {
-                solutionItems.Properties.TryAdd(item.Key, item.Value);
+                targetSection.Properties.TryAdd(item.Key, item.Value);
+            }
+
+            // Clean up others
+            var otherSections = Enumerable.Empty<SlnSectionCollection>()
+                .Append(slnFile.Sections)
+                .Union(slnFile.Projects.Select(x => x.Sections))
+                .Where(x => x != targetSectionsCollection)
+                .ToArray();
+
+            foreach (var otherSection in otherSections)
+            {
+                var solutionItems = otherSection.GetSection(SectionId.SolutionItems);
+                if (solutionItems?.Properties.ContainsKey(relativePath) != true)
+                {
+                    continue;
+                }
+
+                solutionItems.Properties.Remove(relativePath);
+
+                if (solutionItems.Properties.Count == 0)
+                {
+                    otherSection.RemoveSection(SectionId.SolutionItems);
+                }
             }
         }
 

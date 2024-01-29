@@ -29,11 +29,15 @@ namespace Intent.Modules.Dapr.AspNetCore.Bindings.Cron.Templates.CronBindingComp
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 fileName: $"bindings.cron.{Name.ToKebabCase().Replace("/", "-").Replace("\\", "-")}",
                 fileExtension: "yml",
                 relativeLocation: "dapr/components"
             );
+
+            config.CustomMetadata.Add("RelativeOutputPathPrefix", "dapr/components");
+
+            return config;
         }
 
         private string Name => Model.GetStereotypeProperty<string>("Http Settings", "Route");

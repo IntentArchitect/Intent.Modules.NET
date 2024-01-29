@@ -295,5 +295,77 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
 
             // Assert
         }
+
+        [Fact]
+        public void ItShouldCorrectlyPutIntoSubFolders()
+        {
+            // Arrange
+            var slnFile = SlnFile.CreateEmpty("/File.sln");
+
+            // Act
+            slnFile.AddSolutionItem(
+                parentProject: null,
+                solutionItemAbsolutePath: "/Subfolder/File.ext",
+                relativeOutputPathPrefix: null,
+                idProvider: () => "ID");
+
+            var result = slnFile.Generate();
+
+            // Assert
+            result.ReplaceLineEndings().ShouldBe("""
+                Microsoft Visual Studio Solution File, Format Version 12.00
+                # Visual Studio 14
+                VisualStudioVersion = 14.0.25420.1
+                MinimumVisualStudioVersion = 10.0.40219.1
+                Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subfolder", "Subfolder", "{ID}"
+                	ProjectSection(SolutionItems) = preProject
+                		Subfolder\File.ext = Subfolder\File.ext
+                	EndProjectSection
+                EndProject
+                Global
+                EndGlobal
+
+                """
+                .ReplaceLineEndings());
+        }
+
+        [Fact]
+        public void ItShouldMoveExistingFilesWhenFolderIsDifferent()
+        {
+            // Arrange
+            var idCounter = 0;
+            var slnFile = SlnFile.CreateEmpty("/File.sln");
+            var project = slnFile.Projects.GetOrCreateProject("OLD", "OldFolder", SlnFileExtensions.TypeGuid.Folder[1..^1], "OldFolder", null, out _);
+            var section = project.Sections.GetOrCreateSection(SlnFileExtensions.SectionId.SolutionItems, SlnSectionType.PreProcess);
+            section.Properties.TryAdd("NewFolder\\File.ext", "NewFolder\\File.ext");
+
+            // Act
+            slnFile.AddSolutionItem(
+                parentProject: null,
+                solutionItemAbsolutePath: "/NewFolder/File.ext",
+                relativeOutputPathPrefix: null,
+                idProvider: () => idCounter++.ToString());
+
+            var result = slnFile.Generate();
+
+            // Assert
+            result.ReplaceLineEndings().ShouldBe("""
+                Microsoft Visual Studio Solution File, Format Version 12.00
+                # Visual Studio 14
+                VisualStudioVersion = 14.0.25420.1
+                MinimumVisualStudioVersion = 10.0.40219.1
+                Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldFolder", "OldFolder", "{OLD}"
+                EndProject
+                Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder", "NewFolder", "{0}"
+                	ProjectSection(SolutionItems) = preProject
+                		NewFolder\File.ext = NewFolder\File.ext
+                	EndProjectSection
+                EndProject
+                Global
+                EndGlobal
+
+                """
+                .ReplaceLineEndings());
+        }
     }
 }
