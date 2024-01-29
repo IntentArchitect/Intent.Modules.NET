@@ -1403,7 +1403,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ca8e7db5-54da-4f00-aa50-68c424acf855</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ca8e7db5-54da-4f00-aa50-68c424acf855</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

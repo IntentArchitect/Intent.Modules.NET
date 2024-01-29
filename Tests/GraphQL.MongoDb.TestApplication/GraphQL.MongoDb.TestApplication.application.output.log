@@ -803,7 +803,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e7bb0f4e-f966-469b-b10f-2e6cafd531df</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e7bb0f4e-f966-469b-b10f-2e6cafd531df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

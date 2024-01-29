@@ -507,7 +507,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#98edc616-5f17-4fce-b93f-fe01230d91c6</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#98edc616-5f17-4fce-b93f-fe01230d91c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

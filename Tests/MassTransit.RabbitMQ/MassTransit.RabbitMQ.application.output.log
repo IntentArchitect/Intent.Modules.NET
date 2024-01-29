@@ -491,7 +491,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#2b40d123-6d46-4759-89e7-a360ec7e29be</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2b40d123-6d46-4759-89e7-a360ec7e29be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

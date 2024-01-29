@@ -1107,7 +1107,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1f431e6e-b70a-4bb6-a0ef-7458f32b5512</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#1f431e6e-b70a-4bb6-a0ef-7458f32b5512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

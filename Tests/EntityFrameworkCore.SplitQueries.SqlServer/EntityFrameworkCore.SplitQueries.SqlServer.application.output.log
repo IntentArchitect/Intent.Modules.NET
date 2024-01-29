@@ -187,7 +187,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

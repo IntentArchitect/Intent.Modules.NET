@@ -1771,7 +1771,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#77896063-2cc6-46a0-9f31-84703d132fa9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#77896063-2cc6-46a0-9f31-84703d132fa9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

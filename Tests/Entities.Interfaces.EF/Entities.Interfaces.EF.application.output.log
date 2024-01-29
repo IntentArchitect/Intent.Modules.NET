@@ -899,7 +899,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#137f5938-aeca-428f-8bf9-326c432e2192</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#137f5938-aeca-428f-8bf9-326c432e2192</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Interfaces.EF.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -2339,7 +2339,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#56d31717-e6fb-4f75-a58a-879b4d0daef9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#56d31717-e6fb-4f75-a58a-879b4d0daef9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

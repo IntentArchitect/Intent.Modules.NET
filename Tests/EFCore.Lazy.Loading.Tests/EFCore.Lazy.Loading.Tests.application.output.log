@@ -467,7 +467,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#40672f49-153a-4ae4-a587-55b4a9fceca2</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#40672f49-153a-4ae4-a587-55b4a9fceca2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EFCore.Lazy.Loading.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

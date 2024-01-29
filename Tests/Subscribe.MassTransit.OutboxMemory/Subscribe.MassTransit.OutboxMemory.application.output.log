@@ -643,7 +643,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#d8fd623c-89bd-4f09-9c9a-41f4db054184</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d8fd623c-89bd-4f09-9c9a-41f4db054184</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

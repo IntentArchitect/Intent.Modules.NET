@@ -435,7 +435,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

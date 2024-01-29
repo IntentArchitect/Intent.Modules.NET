@@ -123,7 +123,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#d92d09ee-db5e-42de-986e-feba7197d5e9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d92d09ee-db5e-42de-986e-feba7197d5e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Interval.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

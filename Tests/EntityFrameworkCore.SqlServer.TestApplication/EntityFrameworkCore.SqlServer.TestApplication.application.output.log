@@ -4715,7 +4715,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#71be862b-da80-4536-8846-ccf29fdabbd9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#71be862b-da80-4536-8846-ccf29fdabbd9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -355,7 +355,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#47b321f9-5e9d-413f-9115-a63dbdf2982f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#47b321f9-5e9d-413f-9115-a63dbdf2982f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

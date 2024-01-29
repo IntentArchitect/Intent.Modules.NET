@@ -587,7 +587,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#3666517d-3a27-4747-8c60-5172ece34e91</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#3666517d-3a27-4747-8c60-5172ece34e91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

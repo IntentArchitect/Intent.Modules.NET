@@ -635,7 +635,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#17153b8a-9853-462a-a3a3-3b18b059dd4e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#17153b8a-9853-462a-a3a3-3b18b059dd4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

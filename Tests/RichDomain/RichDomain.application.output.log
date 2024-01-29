@@ -899,7 +899,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#076efad2-3524-475f-981d-f7bb06ea9c21</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#076efad2-3524-475f-981d-f7bb06ea9c21</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

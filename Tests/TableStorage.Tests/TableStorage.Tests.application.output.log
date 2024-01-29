@@ -931,7 +931,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#73585c35-a67b-4ddd-b57c-ca2aeba01d74</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#73585c35-a67b-4ddd-b57c-ca2aeba01d74</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

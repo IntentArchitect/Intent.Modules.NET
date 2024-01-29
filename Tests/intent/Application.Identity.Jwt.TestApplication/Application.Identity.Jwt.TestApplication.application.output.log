@@ -299,7 +299,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c2b4a780-047f-4f48-bf01-0c021ce8721d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c2b4a780-047f-4f48-bf01-0c021ce8721d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

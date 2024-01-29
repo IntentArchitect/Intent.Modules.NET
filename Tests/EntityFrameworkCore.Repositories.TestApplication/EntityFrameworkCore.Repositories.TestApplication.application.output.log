@@ -891,7 +891,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#9f2cb83e-a5fc-4377-8dda-dc86eecaea12</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9f2cb83e-a5fc-4377-8dda-dc86eecaea12</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

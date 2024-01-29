@@ -4,23 +4,23 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{51041368-70DE-4C19-A361-EE2EB457D704}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Api", "CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj", "{A366B3C5-C903-4942-9304-DDAD54211311}"
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.TestApplication.Api", "CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj", "{A366B3C5-C903-4942-9304-DDAD54211311}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BB3E58A1-85B8-4463-B5DB-03AC44A8D10E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Application", "CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj", "{200C87E3-90DC-414E-BB27-53F91DECA874}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.TestApplication.Application", "CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj", "{200C87E3-90DC-414E-BB27-53F91DECA874}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{83664713-36F6-4861-A097-3946A5493D3B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Domain", "CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj", "{D2FF75B0-39F3-4CAD-B440-26C5B416E00A}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.TestApplication.Domain", "CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj", "{D2FF75B0-39F3-4CAD-B440-26C5B416E00A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{3CD5584D-F72F-4B9A-8706-79A8093FD179}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Infrastructure", "CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj", "{FAABC763-8338-418E-A75C-A453905D6339}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.TestApplication.Infrastructure", "CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj", "{FAABC763-8338-418E-A75C-A453905D6339}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{E7E1116C-8613-4400-981F-3C3397C52FDA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.TestApplication.Application.Tests", "CleanArchitecture.TestApplication.Application.Tests\CleanArchitecture.TestApplication.Application.Tests.csproj", "{36DA585A-BFF5-4A4F-AFB0-A7A6646A622B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.TestApplication.Application.Tests", "CleanArchitecture.TestApplication.Application.Tests\CleanArchitecture.TestApplication.Application.Tests.csproj", "{36DA585A-BFF5-4A4F-AFB0-A7A6646A622B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Frontend", "0 - Frontend", "{78F16BB7-C736-4ED4-B9E5-976FC5607203}"
 EndProject

@@ -683,7 +683,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8ab04101-bcc2-4325-baab-7570faf71b83</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#8ab04101-bcc2-4325-baab-7570faf71b83</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

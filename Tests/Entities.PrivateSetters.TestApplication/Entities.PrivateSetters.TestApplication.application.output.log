@@ -2619,7 +2619,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#96de381b-111a-4371-9073-13eda9523421</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#96de381b-111a-4371-9073-13eda9523421</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

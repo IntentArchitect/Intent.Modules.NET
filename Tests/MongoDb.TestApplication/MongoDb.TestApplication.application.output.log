@@ -3051,7 +3051,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#34805a6b-0c48-47ef-aa88-3389c0b4d72b</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#34805a6b-0c48-47ef-aa88-3389c0b4d72b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

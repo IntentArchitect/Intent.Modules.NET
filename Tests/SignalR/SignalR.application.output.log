@@ -555,7 +555,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#0869b96e-b1a4-43f4-892a-c68e14a898a5</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#0869b96e-b1a4-43f4-892a-c68e14a898a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -595,7 +595,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#76e13d0e-3361-4bd7-8238-629326ffdb87</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#76e13d0e-3361-4bd7-8238-629326ffdb87</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.Constants.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

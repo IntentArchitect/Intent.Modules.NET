@@ -435,7 +435,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b4100c4f-008d-48d9-b763-6048e68c931d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b4100c4f-008d-48d9-b763-6048e68c931d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.CosmosDb.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

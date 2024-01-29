@@ -299,7 +299,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b7000dca-c61c-4308-b864-74f62d3b2ed8</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b7000dca-c61c-4308-b864-74f62d3b2ed8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

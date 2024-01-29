@@ -1315,7 +1315,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#dd3f3e5c-e812-46db-af89-f630a56fa304</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#dd3f3e5c-e812-46db-af89-f630a56fa304</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

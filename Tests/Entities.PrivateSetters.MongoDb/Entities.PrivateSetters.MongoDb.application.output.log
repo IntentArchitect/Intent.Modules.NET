@@ -395,7 +395,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

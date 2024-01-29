@@ -3,7 +3,7 @@
   <ApplicationId>f30a8ca0-4346-4589-a466-22bc302e8f67</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>JavaScriptProject.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

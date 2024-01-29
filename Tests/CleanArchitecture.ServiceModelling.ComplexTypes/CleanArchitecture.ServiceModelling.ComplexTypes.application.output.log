@@ -1259,7 +1259,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8774feb9-d75a-4e76-aac9-aa40d984b235</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#8774feb9-d75a-4e76-aac9-aa40d984b235</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.ServiceModelling.ComplexTypes.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

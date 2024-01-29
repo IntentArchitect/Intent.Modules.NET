@@ -659,7 +659,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#941894ee-9173-4b5e-aae9-d4fb9d409961</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#941894ee-9173-4b5e-aae9-d4fb9d409961</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDBMultiTenancy.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

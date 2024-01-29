@@ -2099,7 +2099,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e8c23427-3443-420a-b219-bac8e6a8f88b</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e8c23427-3443-420a-b219-bac8e6a8f88b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

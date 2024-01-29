@@ -587,7 +587,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#d8556337-c7da-4c53-a299-134f76ed097d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d8556337-c7da-4c53-a299-134f76ed097d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.EF.SqlServer.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

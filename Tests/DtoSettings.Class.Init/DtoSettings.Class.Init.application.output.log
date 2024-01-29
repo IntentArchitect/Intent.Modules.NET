@@ -363,7 +363,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#9a3a04f0-fa2e-4239-bf35-d2e480a03267</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9a3a04f0-fa2e-4239-bf35-d2e480a03267</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

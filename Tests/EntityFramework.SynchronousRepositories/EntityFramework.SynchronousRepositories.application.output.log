@@ -491,7 +491,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#bc68fc51-ced1-404e-a87d-06a0b513961f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#bc68fc51-ced1-404e-a87d-06a0b513961f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFramework.SynchronousRepositories.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

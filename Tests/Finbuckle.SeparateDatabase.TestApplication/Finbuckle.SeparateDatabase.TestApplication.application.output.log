@@ -459,7 +459,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b68aedb2-d547-4520-aa0f-90f84365f5a7</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b68aedb2-d547-4520-aa0f-90f84365f5a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SeparateDatabase.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

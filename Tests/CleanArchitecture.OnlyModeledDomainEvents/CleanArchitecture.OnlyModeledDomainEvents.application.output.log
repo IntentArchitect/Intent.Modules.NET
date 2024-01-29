@@ -659,7 +659,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.OnlyModeledDomainEvents.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

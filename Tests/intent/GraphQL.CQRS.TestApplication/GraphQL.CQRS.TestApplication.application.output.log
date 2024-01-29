@@ -1019,7 +1019,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#0856bf34-b8ca-4b71-b85d-9f328d486e41</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#0856bf34-b8ca-4b71-b85d-9f328d486e41</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

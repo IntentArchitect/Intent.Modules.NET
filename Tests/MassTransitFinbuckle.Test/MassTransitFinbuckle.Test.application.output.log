@@ -531,7 +531,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#11d71a8d-e02a-4bfc-9a15-ba1756f154cc</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#11d71a8d-e02a-4bfc-9a15-ba1756f154cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

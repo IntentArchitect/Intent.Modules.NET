@@ -907,7 +907,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#07842d4d-0659-4f4f-8e98-4c3ed802d4b0</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#07842d4d-0659-4f4f-8e98-4c3ed802d4b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

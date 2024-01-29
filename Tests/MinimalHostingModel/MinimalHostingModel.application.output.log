@@ -859,7 +859,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#7a254ecf-09b1-431f-83b1-ef39009b2028</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7a254ecf-09b1-431f-83b1-ef39009b2028</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

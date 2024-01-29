@@ -1187,7 +1187,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#941f8521-a7d4-4bbb-86d2-988a78ff25c1</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#941f8521-a7d4-4bbb-86d2-988a78ff25c1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

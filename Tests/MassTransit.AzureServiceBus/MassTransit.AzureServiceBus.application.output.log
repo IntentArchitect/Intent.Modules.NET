@@ -523,7 +523,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ace25762-8d03-4a07-860f-0391c331ba2a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ace25762-8d03-4a07-860f-0391c331ba2a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -931,7 +931,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1bf96b99-2de5-4c48-ad41-6cea5f23e96e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#1bf96b99-2de5-4c48-ad41-6cea5f23e96e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

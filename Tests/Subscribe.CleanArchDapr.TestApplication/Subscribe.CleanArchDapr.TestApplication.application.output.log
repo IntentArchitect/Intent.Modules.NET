@@ -595,7 +595,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#0ab81258-6725-401d-bdd5-f9885802d8f1</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#0ab81258-6725-401d-bdd5-f9885802d8f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

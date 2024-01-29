@@ -123,7 +123,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#5754b04c-6d03-4195-9584-d028ff658d73</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#5754b04c-6d03-4195-9584-d028ff658d73</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -395,7 +395,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#d66fae3e-ac05-4fe9-a4c5-7a1a9766365f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d66fae3e-ac05-4fe9-a4c5-7a1a9766365f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.GooglePubSub.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -571,7 +571,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4d8c426a-95b5-485f-b207-d8c636c8729e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#4d8c426a-95b5-485f-b207-d8c636c8729e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.GooglePubSub.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
