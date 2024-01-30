@@ -31,7 +31,8 @@ internal static class PersistenceUnitOfWork
         string resultVariableName = "result",
         string cancellationTokenExpression = "cancellationToken",
         string fieldSuffix = "unitOfWork",
-        bool allowTransactionScope = true)
+        bool allowTransactionScope = true,
+        bool includeComments = true)
     {
         var cosmosDbParameterName = $"cosmosDB{fieldSuffix.ToPascalCase()}";
         var daprParameterName = $"daprStateStore{fieldSuffix.ToPascalCase()}";
@@ -50,7 +51,10 @@ internal static class PersistenceUnitOfWork
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
                 cosmosDbParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
             }
 
             useOutsideTransactionScope = true;
@@ -64,7 +68,10 @@ internal static class PersistenceUnitOfWork
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
                 daprParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
             }
 
             useOutsideTransactionScope = true;
@@ -82,7 +89,10 @@ internal static class PersistenceUnitOfWork
             {
                 constructor.AddParameter(typeName,
                 efParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
 
             }
 
@@ -97,7 +107,10 @@ internal static class PersistenceUnitOfWork
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
                 mongoDbParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
             }
             useOutsideTransactionScope = true;
         }
@@ -110,7 +123,10 @@ internal static class PersistenceUnitOfWork
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
                 tableStorageParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
             }
 
             useOutsideTransactionScope = true;
@@ -133,15 +149,18 @@ internal static class PersistenceUnitOfWork
             var transactionScopeAsyncFlowOption =
                 template.UseType("System.Transactions.TransactionScopeAsyncFlowOption");
 
-            method.AddStatements(new[]
-            {
-                new CSharpStatement("// The execution is wrapped in a transaction scope to ensure that if any other").SeparatedFromPrevious(),
-                "// SaveChanges calls to the data source (e.g. EF Core) are called, that they are",
-                "// transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-",
-                "// locks are released, while write-locks are maintained for the duration of the",
-                "// transaction). Learn more on this approach for EF Core:",
-                "// https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions"
-            });
+            if (includeComments)
+            { 
+                method.AddStatements(new[]
+                {
+                    new CSharpStatement("// The execution is wrapped in a transaction scope to ensure that if any other").SeparatedFromPrevious(),
+                    "// SaveChanges calls to the data source (e.g. EF Core) are called, that they are",
+                    "// transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-",
+                    "// locks are released, while write-locks are maintained for the duration of the",
+                    "// transaction). Learn more on this approach for EF Core:",
+                    "// https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions"
+                });
+            }
 
             method.AddUsingBlock(@$"var transaction = new {transactionScope}({transactionScopeOption}.Required,
                 new {transactionOptions} {{ IsolationLevel = {isolationLevel}.ReadCommitted }}, {transactionScopeAsyncFlowOption}.Enabled)",
@@ -164,7 +183,7 @@ internal static class PersistenceUnitOfWork
 
         hasCSharpStatements.AddStatement(invocationStatement);
 
-        if (useTransactionScope)
+        if (useTransactionScope && includeComments)
         {
             hasCSharpStatements.AddStatements(new[]
             {
@@ -183,11 +202,14 @@ internal static class PersistenceUnitOfWork
 
         if (useTransactionScope)
         {
-            hasCSharpStatements.AddStatements(new[]
+            if (includeComments)
             {
-                new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
-                "// disposed if anything failed."
-            });
+                hasCSharpStatements.AddStatements(new[]
+                {
+                    new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
+                    "// disposed if anything failed."
+                });
+            }
             hasCSharpStatements.AddStatement(
                 "transaction.Complete();",
                 s => s.AddMetadata("transaction", "complete"));

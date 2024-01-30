@@ -27,9 +27,9 @@ namespace MultipleDocumentStores.Application.Common.Behaviours
             IDaprStateStoreUnitOfWork daprStateStoreDataSource,
             IMongoDbUnitOfWork mongoDbDataSource)
         {
-            _cosmosDBDataSource = cosmosDBDataSource;
-            _daprStateStoreDataSource = daprStateStoreDataSource;
-            _mongoDbDataSource = mongoDbDataSource;
+            _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
+            _daprStateStoreDataSource = daprStateStoreDataSource ?? throw new ArgumentNullException(nameof(daprStateStoreDataSource));
+            _mongoDbDataSource = mongoDbDataSource ?? throw new ArgumentNullException(nameof(mongoDbDataSource));
         }
 
         public async Task<TResponse> Handle(

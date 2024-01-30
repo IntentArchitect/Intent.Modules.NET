@@ -25,8 +25,8 @@ namespace TableStorage.Tests.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(IUnitOfWork dataSource, ITableStorageUnitOfWork tableStorageDataSource)
         {
-            _dataSource = dataSource;
-            _tableStorageDataSource = tableStorageDataSource;
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
+            _tableStorageDataSource = tableStorageDataSource ?? throw new ArgumentNullException(nameof(tableStorageDataSource));
         }
 
         public async Task<TResponse> Handle(

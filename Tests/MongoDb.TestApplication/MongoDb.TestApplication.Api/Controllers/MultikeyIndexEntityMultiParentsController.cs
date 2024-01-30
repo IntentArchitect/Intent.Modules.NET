@@ -49,6 +49,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(string);
             result = await _appService.CreateMultikeyIndexEntityMultiParent(dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(FindMultikeyIndexEntityMultiParentById), new { id = result }, result);
         }
@@ -102,6 +103,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             await _appService.UpdateMultikeyIndexEntityMultiParent(id, dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
@@ -121,6 +123,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _appService.DeleteMultikeyIndexEntityMultiParent(id, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
         }

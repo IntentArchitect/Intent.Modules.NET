@@ -67,7 +67,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                             {
                                 statement
                                     .SeparatedFromPrevious()
-                                    .AddMetadata("model", proxy);
+                                    .AddMetadata("model", proxy.UnderlyingModel);
 
                                 statement
                                     .AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{GetTypeName(serviceContractTemplateId, proxy)}, {GetTypeName(httpClientTemplateId, proxy)}>")

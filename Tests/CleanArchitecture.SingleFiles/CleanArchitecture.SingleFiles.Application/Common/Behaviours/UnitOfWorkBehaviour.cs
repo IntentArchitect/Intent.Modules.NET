@@ -30,10 +30,10 @@ namespace CleanArchitecture.SingleFiles.Application.Common.Behaviours
             IUnitOfWork dataSource,
             IMongoDbUnitOfWork mongoDbDataSource)
         {
-            _cosmosDBDataSource = cosmosDBDataSource;
-            _daprStateStoreDataSource = daprStateStoreDataSource;
-            _dataSource = dataSource;
-            _mongoDbDataSource = mongoDbDataSource;
+            _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
+            _daprStateStoreDataSource = daprStateStoreDataSource ?? throw new ArgumentNullException(nameof(daprStateStoreDataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
+            _mongoDbDataSource = mongoDbDataSource ?? throw new ArgumentNullException(nameof(mongoDbDataSource));
         }
 
         public async Task<TResponse> Handle(

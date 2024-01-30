@@ -1,3 +1,7 @@
+### Version 4.2.10
+
+- Improvement: Added `ArgumentNullException` check on `IUnitOfWork` dependency injection.
+
 ### Version 4.2.7
 
 - Improvement: Updated to be compatible with .NET 8.

@@ -48,7 +48,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 InstallValidation(template);
                 InstallTransactionWithUnitOfWork(template, application);
                 InstallMessageBus(template, application);
-                InstallMongoDbUnitOfWork(template, application);
             }
         }
 
@@ -168,7 +167,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         invocationStatement: dispatchStmt,
                         returnType: null,
                         resultVariableName: "result",
-                        fieldSuffix: "unitOfWork");
+                        fieldSuffix: "unitOfWork",
+                        includeComments:false);
 
                     //Move return statement to the end
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
@@ -202,33 +202,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
-        }
-
-        private static void InstallMongoDbUnitOfWork(IControllerTemplate<IControllerModel> template, IApplication application)
-        {
-            if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
-            {
-                return;
-            }
-
-            template.CSharpFile.AfterBuild(file =>
-            {
-                var @class = file.Classes.First();
-                var ctor = @class.Constructors.First();
-                ctor.AddParameter(template.GetTypeName("Domain.UnitOfWork.MongoDb"), "mongoDbUnitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
-
-                foreach (var method in @class.Methods)
-                {
-                    if (!method.TryGetMetadata<IControllerOperationModel>("model", out var operation) ||
-                        operation.Verb == HttpVerb.Get)
-                    {
-                        continue;
-                    }
-
-                    method.Statements.LastOrDefault(x => x.ToString()!.StartsWith("return "))
-                        ?.InsertAbove("await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
-                }
-            }, -150);
         }
 
         private static string GetUnitOfWork(IControllerTemplate<IControllerModel> template)

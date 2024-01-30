@@ -22,7 +22,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Eventing
         public WrapperConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
         {
             _serviceProvider = serviceProvider;
-            _unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)

@@ -23,7 +23,7 @@ namespace CosmosDB.PrivateSetters.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(ICosmosDBUnitOfWork cosmosDBDataSource)
         {
-            _cosmosDBDataSource = cosmosDBDataSource;
+            _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
         }
 
         public async Task<TResponse> Handle(

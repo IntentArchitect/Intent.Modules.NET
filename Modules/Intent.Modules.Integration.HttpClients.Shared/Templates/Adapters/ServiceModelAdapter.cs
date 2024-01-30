@@ -1,19 +1,17 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Metadata.WebApi.Models;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 {
-    internal class ServiceProxyModelAdapter : IServiceProxyModel
+    internal class ServiceModelAdapter : IServiceProxyModel
     {
-        private readonly ServiceProxyModel _model;
-        public ServiceProxyModelAdapter(ServiceProxyModel model)
+        private readonly ServiceModel _model;
+        public ServiceModelAdapter(ServiceModel model)
         {
             _model = model;
         }
@@ -26,10 +24,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 
         public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
         {
-            return ServiceProxyHelpers.GetMappedEndpoints(_model);
+            return _model.Operations
+                .Select(x => x.InternalElement)
+                .Where(x => x?.TryGetHttpSettings(out _) == true)
+                .Select(HttpEndpointModelFactory.GetEndpoint);
         }
     }
-
-
-
 }

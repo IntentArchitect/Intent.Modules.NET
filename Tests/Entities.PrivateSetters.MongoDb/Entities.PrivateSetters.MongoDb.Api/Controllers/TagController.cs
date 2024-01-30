@@ -22,10 +22,14 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
     {
         private readonly ITagService _appService;
         private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
+        private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
-        public TagController(ITagService appService, IMongoDbUnitOfWork mongoDbUnitOfWork)
+        public TagController(ITagService appService,
+            IMongoDbUnitOfWork mongoDbUnitOfWork,
+            IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
@@ -40,6 +44,8 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         public async Task<ActionResult> Create([FromBody] CreateTagDto dto, CancellationToken cancellationToken = default)
         {
             await _appService.Create(dto, cancellationToken);
+
+            await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }

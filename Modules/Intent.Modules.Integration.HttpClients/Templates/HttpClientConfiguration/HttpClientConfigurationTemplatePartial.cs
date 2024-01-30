@@ -40,8 +40,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) => 
                   {
-                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey((ServiceProxyModel)proxy, "Uri")}\");");
-                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey((ServiceProxyModel)proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
+                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
+                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey(proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
                   }                  
                   )
         {
@@ -63,6 +63,11 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Timeout"), "00:01:00"));
             }
+        }
+
+        private static string GetConfigKey(IServiceProxyModel proxy, string key)
+        {
+            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
         }
 
         private static string GetConfigKey(ServiceProxyModel proxy, string key)

@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Application.Common.Behav
 
         public UnitOfWorkBehaviour(IUnitOfWork dataSource)
         {
-            _dataSource = dataSource;
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(

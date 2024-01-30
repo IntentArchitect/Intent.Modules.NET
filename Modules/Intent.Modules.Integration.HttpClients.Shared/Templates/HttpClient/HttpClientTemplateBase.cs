@@ -79,7 +79,10 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
-                @class.AddMetadata("model", model);
+                if (model.UnderlyingModel != null)
+                {
+                    @class.AddMetadata("model", model.UnderlyingModel);
+                }
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())

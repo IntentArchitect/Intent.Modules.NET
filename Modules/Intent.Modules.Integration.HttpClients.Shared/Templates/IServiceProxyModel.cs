@@ -10,5 +10,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates
     {
         string Name { get; }
         IEnumerable<IHttpEndpointModel> GetMappedEndpoints();
+
+        public IMetadataModel UnderlyingModel { get; }
     }
 }

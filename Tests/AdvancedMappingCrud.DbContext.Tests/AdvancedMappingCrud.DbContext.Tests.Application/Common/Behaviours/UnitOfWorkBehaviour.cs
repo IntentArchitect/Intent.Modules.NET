@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(IApplicationDbContext dataSource)
         {
-            _dataSource = dataSource;
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(
