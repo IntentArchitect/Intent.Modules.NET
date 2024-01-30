@@ -1,3 +1,7 @@
+### Version 4.0.15
+
+- Fixed: `Expose as HTTP` would fail when used on Commands and Queries with advanced mappings.
+
 ### Version 4.0.13
 
 - New Feature: Azure Functions can now receive RabbitMQ triggers.

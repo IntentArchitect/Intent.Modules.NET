@@ -23,13 +23,13 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
         private readonly IList<ServiceConfigurationRequest> _serviceConfigurations =
             new List<ServiceConfigurationRequest>();
 
-        
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
             AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.Functions.Extensions.DependencyInjection")
                 .AddClass($"Startup", @class =>
@@ -52,7 +52,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("Configure");
                     method.AddStatements(GetServiceConfigurationStatementList());
-                    
+
                     foreach (var request in GetRelevantServiceConfigurationRequests())
                     {
                         foreach (var templateDependency in request.TemplateDependencies)
@@ -78,7 +78,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
         {
             _serviceConfigurations.Add(request);
         }
-        
+
         private IEnumerable<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
         {
             return _serviceConfigurations
@@ -86,7 +86,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                 .OrderBy(o => o.Priority)
                 .ToArray();
         }
-        
+
         private List<CSharpStatement> GetServiceConfigurationStatementList()
         {
             var statementList = new List<CSharpStatement>();
@@ -106,7 +106,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
 
             return statementList;
         }
-        
+
         private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
         {
             if (request.ExtensionMethodParameterList?.Any() != true)

@@ -271,4 +271,6 @@ if (!httpVerb) {
   <associationSettings />
   <associationExtensions />
   <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

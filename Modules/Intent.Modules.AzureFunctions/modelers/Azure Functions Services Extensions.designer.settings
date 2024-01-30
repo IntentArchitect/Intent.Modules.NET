@@ -111,4 +111,6 @@ if (element.getStereotype(comsmosDBTriggerId) == null) {
   <associationSettings />
   <associationExtensions />
   <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>
