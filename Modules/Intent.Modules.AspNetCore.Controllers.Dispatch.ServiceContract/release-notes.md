@@ -1,3 +1,7 @@
+### Version 5.2.4
+
+- Fixed: Addressed an issue around UnitOfWork pattern for `ServiceModel` based services and CosmosDB.
+
 ### Version 5.2.1
 
 - Improvement: Added support for a customizable service dispatch.

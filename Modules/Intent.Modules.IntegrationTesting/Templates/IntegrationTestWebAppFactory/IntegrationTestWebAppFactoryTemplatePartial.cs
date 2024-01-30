@@ -48,7 +48,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.IntegrationTestWebAppFacto
 
                     foreach (var container in containers)
                     {
-                        @class.AddProperty(container.TypeName, container.TypeName, p => p.ReadOnly());
+                        @class.AddProperty(container.TypeName, container.PropertyName, p => p.ReadOnly());
                     }
 
 

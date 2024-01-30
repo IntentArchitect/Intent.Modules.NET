@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -44,10 +45,13 @@ internal static class PersistenceUnitOfWork
         var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
                 cosmosDbParameterName,
                 c => c.IntroduceReadonlyField());
+            }
 
             useOutsideTransactionScope = true;
         }
@@ -55,10 +59,13 @@ internal static class PersistenceUnitOfWork
         var requiresDapr = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _);
         if (requiresDapr)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
                 daprParameterName,
                 c => c.IntroduceReadonlyField());
+            }
 
             useOutsideTransactionScope = true;
         }
@@ -66,13 +73,18 @@ internal static class PersistenceUnitOfWork
         var requiresEf = template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null;
         if (requiresEf)
         {
-            constructor.AddParameter(
-                template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
-                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out  unitOfWork) ? unitOfWork
+            string typeName = template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ? unitOfWork
                     : template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork) ? unitOfWork
-                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support."),
+                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support.");
+
+            if (!constructor.Parameters.Any(p => p.Type == typeName))
+            {
+                constructor.AddParameter(typeName,
                 efParameterName,
                 c => c.IntroduceReadonlyField());
+
+            }
 
             useTransactionScope = allowTransactionScope;
         }
@@ -80,21 +92,26 @@ internal static class PersistenceUnitOfWork
         var requiresMongoDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _);
         if (requiresMongoDb)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
                 mongoDbParameterName,
                 c => c.IntroduceReadonlyField());
-
+            }
             useOutsideTransactionScope = true;
         }
 
         var requiresTableStorage = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
         if (requiresTableStorage)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
                 tableStorageParameterName,
                 c => c.IntroduceReadonlyField());
+            }
 
             useOutsideTransactionScope = true;
         }

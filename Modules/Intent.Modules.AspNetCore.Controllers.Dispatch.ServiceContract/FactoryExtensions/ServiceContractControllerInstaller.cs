@@ -13,6 +13,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -135,19 +136,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         private static void InstallTransactionWithUnitOfWork(IControllerTemplate<IControllerModel> template, IApplication application)
         {
-            if (!InteropCoordinator.ShouldInstallUnitOfWork(application))
+            if (!InteropCoordinator.ShouldInstallUnitOfWork(template))
             {
                 return;
             }
 
             template.CSharpFile.OnBuild(file =>
             {
+
                 var @class = file.Classes.First();
-                var ctor = @class.Constructors.First();
-                ctor.AddParameter(GetUnitOfWork(template), "unitOfWork", p =>
-                {
-                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                });
 
                 foreach (var method in @class.Methods)
                 {
@@ -157,22 +154,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         continue;
                     }
 
-                    template.AddUsing("System.Transactions");
-
                     var dispatchStmt = method.FindStatement(stmt => stmt.HasMetadata("service-contract-dispatch"));
                     if (dispatchStmt == null)
                     {
                         continue;
                     }
 
-                    var transactionScopeStmt = new CSharpStatementBlock(@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))")
-                        .AddStatement("await _unitOfWork.SaveChangesAsync(cancellationToken);")
-                        .AddStatement("transaction.Complete();");
-                    transactionScopeStmt.AddMetadata("transaction-scope", true);
-                    dispatchStmt.InsertAbove(transactionScopeStmt);
                     dispatchStmt.Remove();
-                    transactionScopeStmt.InsertStatement(0, dispatchStmt);
+                    method.ApplyUnitOfWorkImplementations(
+                        template: template,
+                        constructor: @class.Constructors.First(),
+                        invocationStatement: dispatchStmt,
+                        returnType: null,
+                        resultVariableName: "result",
+                        fieldSuffix: "unitOfWork");
+
+                    var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
+                    if (returnStatement != null)
+                    {
+                        returnStatement.Remove();
+                        method.AddStatement(returnStatement);
+                    }
+
                 }
             }, order: 1);
         }
