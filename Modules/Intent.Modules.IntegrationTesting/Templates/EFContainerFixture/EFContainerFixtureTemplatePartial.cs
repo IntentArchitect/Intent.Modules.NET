@@ -119,7 +119,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
             return new DbStrategy(
                 containerType: "PostgreSqlContainer ",
                 usings: new() { "Testcontainers.PostgreSql" },
-                nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql},
+                nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql },
                 containerInitialization: containerInitialization,
                 dbContextRegistration: dbContextRegistration
                 );
@@ -144,7 +144,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
 
             return new DbStrategy(
                 containerType: "MsSqlContainer",
-                usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore"},
+                usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersMsSql },
                 containerInitialization: containerInitialization,
                 dbContextRegistration: dbContextRegistration

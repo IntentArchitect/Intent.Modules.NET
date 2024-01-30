@@ -43,6 +43,8 @@ internal static class PersistenceUnitOfWork
         var useTransactionScope = false;
         var useOutsideTransactionScope = false;
 
+        //This is for the ArgumentNullException
+        template.AddUsing("System");
         var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
