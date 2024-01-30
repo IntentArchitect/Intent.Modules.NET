@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IntegrationTesting.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,12 +26,14 @@ namespace Intent.Modules.IntegrationTesting.Templates.BaseIntegrationTest
                 .AddClass($"BaseIntegrationTest", @class =>
                 {
                     AddUsing("Microsoft.Extensions.DependencyInjection");
-                    @class.ImplementsInterface($"IClassFixture<{this.GetIntegrationTestWebAppFactoryName()}>");
-                    @class.AddField("IServiceScope", "_scope", f => f.PrivateReadOnly());
+                    if (this.ExecutionContext.Settings.GetIntegrationTestSettings().ContainerIsolation().IsContainerPerTestClass())
+                    {
+                        @class.ImplementsInterface($"IClassFixture<{this.GetIntegrationTestWebAppFactoryName()}>");
+                    }
+
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(this.GetIntegrationTestWebAppFactoryName(), "factory", p => p.IntroduceReadonlyField());
-                        ctor.AddStatement("_scope = factory.Services.CreateScope();");
                     });
 
                     @class.AddMethod("HttpClient", "CreateClient", method =>

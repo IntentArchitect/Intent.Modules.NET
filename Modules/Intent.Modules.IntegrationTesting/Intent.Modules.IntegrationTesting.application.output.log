@@ -33,6 +33,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>238743a6-9452-4551-979b-e68ee99f2d20</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#4ece5953-d069-4257-9f0e-6c14afb2bb67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#11bb9e08-4faa-491d-9968-90aa2e38bee4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -230,6 +238,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ServiceEndpointTest/ServiceEndpointTestTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceEndpointTest/ServiceEndpointTestTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5c0dd717-a98d-49c4-8051-a73277edf999</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SharedContainerFixture/SharedContainerFixtureTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SharedContainerFixture/SharedContainerFixtureTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5c0dd717-a98d-49c4-8051-a73277edf999</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SharedContainerFixture/SharedContainerFixtureTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SharedContainerFixture/SharedContainerFixtureTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

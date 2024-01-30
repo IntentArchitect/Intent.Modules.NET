@@ -11,7 +11,9 @@ namespace Intent.Modules.IntegrationTesting
         public static readonly INugetPackageInfo Xunit = new NugetPackageInfo("xunit", "2.4.2");
         public static readonly INugetPackageInfo XunitRunnerVisualstudio = new NugetPackageInfo("xunit.runner.visualstudio", "2.4.5");
         public static readonly INugetPackageInfo TestcontainersCosmosDb = new NugetPackageInfo("Testcontainers.CosmosDb", "3.7.0");
-        public static readonly INugetPackageInfo TestcontainersMsSql = new NugetPackageInfo("Testcontainers.MsSql", "3.7.0");       
+        public static readonly INugetPackageInfo TestcontainersMsSql = new NugetPackageInfo("Testcontainers.MsSql", "3.7.0");
+        public static readonly INugetPackageInfo TestcontainersPostgreSql = new NugetPackageInfo("Testcontainers.PostgreSql", "3.7.0");
+        
 
         public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => new(
             name: "Microsoft.AspNetCore.Mvc.Testing",

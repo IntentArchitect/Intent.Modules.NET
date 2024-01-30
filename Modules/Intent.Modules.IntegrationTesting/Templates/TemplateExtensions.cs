@@ -14,6 +14,7 @@ using Intent.Modules.IntegrationTesting.Templates.JsonResponse;
 using Intent.Modules.IntegrationTesting.Templates.PagedResult;
 using Intent.Modules.IntegrationTesting.Templates.ProxyServiceContract;
 using Intent.Modules.IntegrationTesting.Templates.ServiceEndpointTest;
+using Intent.Modules.IntegrationTesting.Templates.SharedContainerFixture;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -106,6 +107,11 @@ namespace Intent.Modules.IntegrationTesting.Templates
         public static string GetServiceEndpointTestName(this IIntentTemplate template, ServiceModel model)
         {
             return template.GetTypeName(ServiceEndpointTestTemplate.TemplateId, model);
+        }
+
+        public static string GetSharedContainerFixtureName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(SharedContainerFixtureTemplate.TemplateId);
         }
 
     }

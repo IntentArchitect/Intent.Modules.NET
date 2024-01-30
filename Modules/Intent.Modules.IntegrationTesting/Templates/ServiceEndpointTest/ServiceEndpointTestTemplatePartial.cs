@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IntegrationTesting.Settings;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -15,19 +16,23 @@ using Intent.Templates;
 
 namespace Intent.Modules.IntegrationTesting.Templates.ServiceEndpointTest
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Ignore)]
     public partial class ServiceEndpointTestTemplate : CSharpTemplateBase<IHttpEndpointModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.IntegrationTesting.ServiceEndpointTest";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceEndpointTestTemplate(IOutputTarget outputTarget, IHttpEndpointModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
                 .AddClass($"{Model.Name}Tests", @class =>
                 {
-                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
-                    @class.AddAttribute("Collection", a => a.AddArgument("\"Sequential\""));
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
+                    string collectionName = "Sequential";
+                    if (this.ExecutionContext.Settings.GetIntegrationTestSettings().ContainerIsolation().IsSharedContainer())
+                    {
+                        collectionName = "SharedContainer";
+                    }
+                    @class.AddAttribute("Collection", a => a.AddArgument($"\"{collectionName}\""));
                     @class.WithBaseType(this.GetBaseIntegrationTestName());
                     @class.AddConstructor(ctor =>
                     {

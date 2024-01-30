@@ -104,6 +104,14 @@
       <role>IntegrationTests.Tests</role>
       <location></location>
     </template>
+    <template id="Intent.IntegrationTesting.SharedContainerFixture" externalReference="5c0dd717-a98d-49c4-8051-a73277edf999">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>IntegrationTests</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.IntegrationTesting.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration" externalReference="e52a995f-2a26-431a-902a-de6d29e8c071">
       <role>IntegrationTests</role>
       <location></location>
@@ -111,7 +119,20 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="d37f669a-8f2c-49ed-8c28-6ad31d836754" title="Integration Test Settings" externalReference="d37f669a-8f2c-49ed-8c28-6ad31d836754">
+      <settings>
+        <setting id="e3ac09d9-db67-4432-8c77-44d38fe228a9" title="Container Isolation" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>shared-container</defaultValue>
+          <options>
+            <option value="container-per-test-class" description="Container per Test Class" />
+            <option value="shared-container" description="Shared Container" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.1" />

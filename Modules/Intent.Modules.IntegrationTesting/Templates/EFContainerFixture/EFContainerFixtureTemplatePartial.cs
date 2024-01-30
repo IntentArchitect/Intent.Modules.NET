@@ -98,7 +98,31 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
 
         private DbStrategy GetPostgresStrategy()
         {
-            throw new NotImplementedException();
+            var containerInitialization = @"_dbContainer = new PostgreSqlBuilder()
+        .WithImage(""postgres:14.7"")
+        .WithDatabase(""db"")
+        .WithUsername(""postgres"")
+        .WithPassword(""postgres"")
+        .WithCleanUp(true)
+        .Build();"
+                .ConvertToStatements();
+
+            var dbContextRegistration = @"services.AddDbContext<ApplicationDbContext>((sp, options) =>
+                {{
+                    options.UseNpgsql(
+                        _dbContainer.GetConnectionString(),
+                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                    options.UseLazyLoadingProxies();
+                }});
+".ConvertToStatements();
+
+            return new DbStrategy(
+                containerType: "PostgreSqlContainer ",
+                usings: new() { "Testcontainers.PostgreSql" },
+                nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql},
+                containerInitialization: containerInitialization,
+                dbContextRegistration: dbContextRegistration
+                );
         }
 
         private DbStrategy GetSqlServerStrategy()
@@ -120,11 +144,11 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
 
             return new DbStrategy(
                 containerType: "MsSqlContainer",
-                usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore", "" },
+                usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore"},
                 nuGetPackages: new() { NugetPackages.TestcontainersMsSql },
                 containerInitialization: containerInitialization,
                 dbContextRegistration: dbContextRegistration
-                ); ;
+                );
         }
 
         public override bool CanRunTemplate()
