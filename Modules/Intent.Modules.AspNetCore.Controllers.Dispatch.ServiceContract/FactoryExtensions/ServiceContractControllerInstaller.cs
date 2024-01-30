@@ -160,6 +160,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         continue;
                     }
 
+                    //remove current dispatch statement (UOW implementation replaces it)
                     dispatchStmt.Remove();
                     method.ApplyUnitOfWorkImplementations(
                         template: template,
@@ -169,6 +170,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         resultVariableName: "result",
                         fieldSuffix: "unitOfWork");
 
+                    //Move return statement to the end
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
                     if (returnStatement != null)
                     {
