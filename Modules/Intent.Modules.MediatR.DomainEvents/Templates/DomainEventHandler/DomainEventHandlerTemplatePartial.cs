@@ -54,7 +54,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         {
                             method.RepresentsModel(handledDomainEvents);
                             method.RegisterAsProcessingHandlerForModel(handledDomainEvents);
-                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
@@ -78,10 +78,6 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         method.AddMetadata("mapping-manager", csharpMapping);
 
                         method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
-                        if (method.Statements.Count > 0)
-                        {
-                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-                        }
                     }
                 })
                 .AfterBuild(file =>
