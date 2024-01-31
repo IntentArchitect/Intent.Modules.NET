@@ -1,6 +1,14 @@
+### Version 5.0.2
+
+- Fixed: Ensure that handlers that receive Event Bus Publisher code will adjust the method to be fully managed without any `NotImplementedExceptions` being thrown.
+
+### Version 5.0.1
+
+- Fixed: Allow type conversion for Enum / primitive types during mapping scenarios.
+
 ### Version 5.0.0
 
-- Added support for the Advanced Mapping functionality and explicit modeling of actions available in Intent Archtiect 4.1.x.
+- New Feature: Added support for the Advanced Mapping functionality and explicit modeling of actions available in Intent Archtiect 4.1.x.
 
 ### Version 4.0.9
 

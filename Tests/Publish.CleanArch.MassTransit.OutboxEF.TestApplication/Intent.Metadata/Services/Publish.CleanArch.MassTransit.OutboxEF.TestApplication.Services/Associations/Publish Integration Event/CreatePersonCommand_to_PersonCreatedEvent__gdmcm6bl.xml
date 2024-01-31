@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="91f075d0-ad68-4a18-a1a3-d9d0e55143dc">
+  <sourceEnd id="30453ae6-02e9-4276-ad3f-a4a5152f7edb" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="a7560b4f-0828-44fb-ba2e-114c20716611">
+      <typeId>6f116147-1f7c-4359-a0d1-bb21d3a8ea26</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="91f075d0-ad68-4a18-a1a3-d9d0e55143dc" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] PersonCreatedEvent</display>
+    <order>3</order>
+    <typeReference id="532d001e-4686-4139-8eef-2081fbcf1a76">
+      <typeId>23b21ef2-4707-4723-8a26-525b29c672de</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source elementId="6f116147-1f7c-4359-a0d1-bb21d3a8ea26" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[CreatePersonCommand]" />
+        <target elementId="23b21ef2-4707-4723-8a26-525b29c672de" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[PersonCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="23b21ef2-4707-4723-8a26-525b29c672de" name="PersonCreatedEvent" type="element" specialization="Message" />
+              <target id="d41610d2-4773-44ab-94bb-deddd87143a3" name="FirstName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="6f116147-1f7c-4359-a0d1-bb21d3a8ea26" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="8d365d6f-5c35-492f-a86f-887d123205b3" name="FirstName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="23b21ef2-4707-4723-8a26-525b29c672de" name="PersonCreatedEvent" type="element" specialization="Message" />
+              <target id="f7666678-a229-477f-af85-f25fd48eee04" name="LastName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="6f116147-1f7c-4359-a0d1-bb21d3a8ea26" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="83562dc1-9dd3-440c-9b91-e7ead0ff4ce1" name="LastName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{DateOfBirth}</expression>
+            <path>
+              <target id="23b21ef2-4707-4723-8a26-525b29c672de" name="PersonCreatedEvent" type="element" specialization="Message" />
+              <target id="bec7adf3-bfb6-4054-9e06-790da05f9ac7" name="DateOfBirth" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="DateOfBirth" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="6f116147-1f7c-4359-a0d1-bb21d3a8ea26" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="07fb79ac-8ce3-43f0-baa3-3e99f61a55c7" name="DateOfBirth" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

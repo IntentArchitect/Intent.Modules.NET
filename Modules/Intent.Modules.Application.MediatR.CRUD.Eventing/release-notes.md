@@ -1,3 +1,11 @@
+### Version 5.0.1
+
+- Improvement: Module dependency versions updated.
+
+### Version 5.0.0
+
+- New Feature: Updated target handlers based on new Advanced Mapping capabilities.
+
 ### Version 4.0.13
 
 - Fixed: In some cases modeling messages being published that are correlated to Commands that have CRUD implementations would have thrown a `Sequence contains more than one matching element`.
@@ -20,4 +28,4 @@
 
 ### Version 4.0.0
 
-- New: Injects the Eventing Publishers into the CRUD Command Handlers.
+- New Feature: Injects the Eventing Publishers into the CRUD Command Handlers.

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23b21ef2-4707-4723-8a26-525b29c672de" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>PersonCreatedEvent</name>
+  <display>PersonCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b7b6238-b2a0-4bd2-a99b-c1c7116d7761</parentFolderId>
+  <packageId>e34283b3-859f-4000-8713-1d68ff426fdb</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d41610d2-4773-44ab-94bb-deddd87143a3" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2b9f2d53-87d5-45ed-934f-bd71be5660cc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>23b21ef2-4707-4723-8a26-525b29c672de</parentFolderId>
+      <packageId>e34283b3-859f-4000-8713-1d68ff426fdb</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f7666678-a229-477f-af85-f25fd48eee04" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="be85d2ef-b08f-4ab8-b213-1bf202756dc7">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>23b21ef2-4707-4723-8a26-525b29c672de</parentFolderId>
+      <packageId>e34283b3-859f-4000-8713-1d68ff426fdb</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bec7adf3-bfb6-4054-9e06-790da05f9ac7" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>DateOfBirth</name>
+      <display>DateOfBirth: date</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e53c1259-2028-4d68-be76-e4be4049495e">
+        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>23b21ef2-4707-4723-8a26-525b29c672de</parentFolderId>
+      <packageId>e34283b3-859f-4000-8713-1d68ff426fdb</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
