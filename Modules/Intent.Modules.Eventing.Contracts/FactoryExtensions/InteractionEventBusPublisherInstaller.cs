@@ -201,8 +201,14 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 
         private static void AddPublishStatement(CSharpClassMethod method, CSharpStatement publishStatement)
         {
+            var notImplementedStatement = method.Statements.FirstOrDefault(p => p.GetText("").Contains("throw new NotImplementedException"));
+            if (notImplementedStatement is not null)
+            {
+                notImplementedStatement.Remove();
+                method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault()?.WithBodyFully();
+            }
+            
             var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
-
             if (returnClause != null)
             {
                 returnClause.InsertAbove(publishStatement);

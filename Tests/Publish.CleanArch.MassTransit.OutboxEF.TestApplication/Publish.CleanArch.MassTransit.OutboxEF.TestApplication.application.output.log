@@ -387,6 +387,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#23b21ef2-4707-4723-8a26-525b29c672de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/People/PersonCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#a8bba7cd-3196-4264-8a58-2e5093eb05c9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -568,6 +576,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/UpdateOrderOrderItemDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/UpdateOrderOrderItemDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6f116147-1f7c-4359-a0d1-bb21d3a8ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/People/CreatePerson/CreatePersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6f116147-1f7c-4359-a0d1-bb21d3a8ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/People/CreatePerson/CreatePersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1f09bfc0-3422-4043-84cf-cee8727c188b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6f116147-1f7c-4359-a0d1-bb21d3a8ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/People/CreatePerson/CreatePersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
