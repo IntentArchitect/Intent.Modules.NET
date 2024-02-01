@@ -47,13 +47,17 @@ namespace Intent.Modules.Blazor.Server.FactoryExtensions
                     var ifDevelopmentStatement = (CSharpIfStatement)statements
                         .FindStatement(m => m is CSharpIfStatement cif && cif.GetText("").Contains("env.IsDevelopment()"));
 
-                    ifDevelopmentStatement.InsertBelow(new CSharpElseStatement(), statement => {
-                        var elseStatement = (CSharpElseStatement)statement;
+                    if (ifDevelopmentStatement is not null)
+                    {
+                        ifDevelopmentStatement.InsertBelow(new CSharpElseStatement(), statement =>
+                        {
+                            var elseStatement = (CSharpElseStatement)statement;
 
-                        elseStatement.AddStatement("app.UseExceptionHandler(\"/Error\");");
-                        elseStatement.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
-                        elseStatement.AddStatement("app.UseHsts();");
-                    });
+                            elseStatement.AddStatement("app.UseExceptionHandler(\"/Error\");");
+                            elseStatement.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
+                            elseStatement.AddStatement("app.UseHsts();");
+                        });
+                    }
 
                     statements.AddStatement("app.UseStaticFiles();");
                 });
