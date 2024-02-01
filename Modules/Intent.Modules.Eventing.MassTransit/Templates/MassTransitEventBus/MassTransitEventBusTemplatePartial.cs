@@ -46,10 +46,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
 
                     @class.AddField("List<object>", "_messagesToPublish", field => field
                         .PrivateReadOnly()
-                        .WithAssignment("new List<object>()"));
+                        .WithAssignment(new CSharpStatement("new List<object>()")));
                     @class.AddField("List<MessageToSend>", "_messagesToSend", field => field
                         .PrivateReadOnly()
-                        .WithAssignment("new List<MessageToSend>()"));
+                        .WithAssignment(new CSharpStatement("new List<MessageToSend>()")));
 
                     @class.AddConstructor(ctor => { ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField()); });
 

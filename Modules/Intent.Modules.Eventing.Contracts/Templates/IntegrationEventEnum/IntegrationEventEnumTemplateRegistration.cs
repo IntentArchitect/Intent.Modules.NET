@@ -29,6 +29,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum
 
         public override string TemplateId => IntegrationEventEnumTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EnumModel model)
         {
             return new IntegrationEventEnumTemplate(outputTarget, model);

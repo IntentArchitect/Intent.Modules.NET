@@ -18,6 +18,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInt
     {
         public override string TemplateId => IntegrationEventHandlerInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new IntegrationEventHandlerInterfaceTemplate(outputTarget);

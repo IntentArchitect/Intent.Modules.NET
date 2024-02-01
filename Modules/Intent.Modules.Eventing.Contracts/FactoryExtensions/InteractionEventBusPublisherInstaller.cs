@@ -90,6 +90,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
             foreach (var template in templates)
             {
+
                 //var model = (template as ITemplateWithModel)?.Model as IProcessingHandler ?? throw new Exception($"Unable to resolve {nameof(DomainEventHandlerModel)} for {TemplateFulfillingRoles.Application.DomainEventHandler.Explicit} template");
                 //if (!model.HandledDomainEvents().Any(x => x.PublishedIntegrationEvents().Any()))
                 //{
@@ -121,6 +122,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
             {
+
                 //var model = (template as ITemplateWithModel)?.Model as IntegrationEventHandlerModel;
                 //if (model == null || !model.IntegrationEventSubscriptions().Any(x => x.PublishedIntegrationEvents().Any()))
                 //{
@@ -138,7 +140,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         var method = processingHandler.Method;
                         method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
                         var eventVariableName = method.Parameters.FirstOrDefault()?.Name ?? throw new Exception("Expected at least one parameter on Integration Event Handler method.");
-                        
+
                         AddPublishingLogic(template, method, eventVariableName, processingHandler.Model.PublishedIntegrationEvents());
                     }
                 });
@@ -207,7 +209,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 notImplementedStatement.Remove();
                 method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault()?.WithBodyFully();
             }
-            
+
             var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
             if (returnClause != null)
             {

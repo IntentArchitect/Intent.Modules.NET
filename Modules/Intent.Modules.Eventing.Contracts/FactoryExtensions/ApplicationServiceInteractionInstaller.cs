@@ -1,20 +1,20 @@
+using System;
+using System.Linq;
+using System.Reflection;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Linq;
-using Intent.Modelers.Services.EventInteractions;
-using Intent.Modules.Constants;
-using System.Reflection;
-using Intent.Modelers.Services.Api;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -97,7 +97,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         }
     }
 
-
+    [IntentManaged(Mode.Ignore)]
     public class CreateCommandMappingResolver : IMappingTypeResolver
     {
         private readonly ICSharpFileBuilderTemplate _template;
@@ -126,6 +126,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         }
     }
 
+    [IntentManaged(Mode.Ignore)]
     public class CallServiceOperationMappingResolver : IMappingTypeResolver
     {
         private readonly ICSharpFileBuilderTemplate _template;

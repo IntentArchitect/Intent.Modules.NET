@@ -18,25 +18,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
+namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class IntegrationEventMessageTemplate : CSharpTemplateBase<MessageModel>, ICSharpFileBuilderTemplate
+    public partial class IntegrationCommandTemplate : CSharpTemplateBase<IntegrationCommandModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.Contracts.IntegrationEventMessage";
+        public const string TemplateId = "Intent.Eventing.Contracts.IntegrationCommand";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public IntegrationEventMessageTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
+        public IntegrationCommandTemplate(IOutputTarget outputTarget, IntegrationCommandModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateId);
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
 
-            CSharpFile = new CSharpFile(
-                    @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
-                    relativeLocation: this.GetFolderPath())
-                .AddRecord($"{Model.Name.RemoveSuffix("Event")}Event", record =>
+            CSharpFile = new CSharpFile(Model.InternalElement.Package.Name.ToPascalCase(), this.GetFolderPath())
+                .AddRecord($"{Model.Name}", record =>
                 {
                     // See this article on how to handle NRTs for DTOs
                     // https://github.com/dotnet/docs/issues/18099
@@ -60,6 +58,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
                     }
                 });
         }
+
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
