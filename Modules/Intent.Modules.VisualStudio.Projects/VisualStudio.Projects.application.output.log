@@ -3,6 +3,12 @@
   <ApplicationId>ad79943a-b771-42b0-9563-9e01f7ea2dbc</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8d6f4aac-236d-4bc7-83f6-f9ce6a516654</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../VisualStudio.Projects.VisualStudio.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#FFD54A85-9362-48AC-B646-C93AB9AC63D2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

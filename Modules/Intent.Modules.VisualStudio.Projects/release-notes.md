@@ -1,3 +1,7 @@
+### Version 3.6.1
+
+- Improvement: Modernized the Visual Studio icon to the 2022 version.
+
 ### Version 3.6.0
 
 - Feature: Added support for [JavaScript Projects](https://learn.microsoft.com/visualstudio/javascript/javascript-project-system-msbuild-reference).
