@@ -62,6 +62,18 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
                         });
                     }
 
+                    foreach (var subscription in Model.IntegrationCommandSubscriptions())
+                    {
+                        @class.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName(subscription)}>");
+                        @class.AddMethod("Task", "HandleAsync", method =>
+                        {
+                            method.Async();
+                            method.AddParameter(this.GetIntegrationCommandName(subscription.TypeReference.Element.AsIntegrationCommandModel()), "message");
+                            method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            method.RepresentsModel(subscription);
+                            method.RegisterAsProcessingHandlerForModel(subscription);
+                        });
+                    }
                 })
                 .AfterBuild(file =>
                 {
@@ -79,6 +91,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
         private string GetMessageName(SubscribeIntegrationEventTargetEndModel subscription)
         {
             return this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
+        }
+        
+        private string GetMessageName(SubscribeIntegrationCommandTargetEndModel subscription)
+        {
+            return this.GetIntegrationCommandName(subscription.TypeReference.Element.AsIntegrationCommandModel());
         }
 
         [IntentManaged(Mode.Fully)]

@@ -87,16 +87,17 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
 
                         method.AddForEachStatement("toSend", "_messagesToSend", fe =>
                         {
-                            method.AddIfStatement("ConsumeContext is not null", block =>
+                            fe.AddIfStatement("ConsumeContext is not null", block =>
                             {
                                 block.AddStatement("await SendWithConsumeContext(toSend, cancellationToken);");
                             });
-                            method.AddElseStatement(block =>
+                            fe.AddElseStatement(block =>
                             {
                                 block.AddStatement("await SendWithNormalContext(toSend, cancellationToken);");
                             });
-                            method.AddStatement("_messagesToSend.Clear();", s => s.SeparatedFromPrevious());
                         });
+                        method.AddStatement("_messagesToSend.Clear();", s => s.SeparatedFromPrevious());
+                        
                         method.AddIfStatement("ConsumeContext is not null", block =>
                         {
                             block.AddStatement("await PublishWithConsumeContext(cancellationToken);");
