@@ -13,35 +13,35 @@ namespace Intent.Eventing.MassTransit.Api
 {
     public static class SubscribeIntegrationCommandTargetEndModelStereotypeExtensions
     {
-        public static MessageConsumption GetMessageConsumption(this SubscribeIntegrationCommandTargetEndModel model)
+        public static CommandConsumption GetCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("Message Consumption");
-            return stereotype != null ? new MessageConsumption(stereotype) : null;
+            var stereotype = model.GetStereotype("Command Consumption");
+            return stereotype != null ? new CommandConsumption(stereotype) : null;
         }
 
 
-        public static bool HasMessageConsumption(this SubscribeIntegrationCommandTargetEndModel model)
+        public static bool HasCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model)
         {
-            return model.HasStereotype("Message Consumption");
+            return model.HasStereotype("Command Consumption");
         }
 
-        public static bool TryGetMessageConsumption(this SubscribeIntegrationCommandTargetEndModel model, out MessageConsumption stereotype)
+        public static bool TryGetCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model, out CommandConsumption stereotype)
         {
-            if (!HasMessageConsumption(model))
+            if (!HasCommandConsumption(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new MessageConsumption(model.GetStereotype("Message Consumption"));
+            stereotype = new CommandConsumption(model.GetStereotype("Command Consumption"));
             return true;
         }
 
-        public class MessageConsumption
+        public class CommandConsumption
         {
             private IStereotype _stereotype;
 
-            public MessageConsumption(IStereotype stereotype)
+            public CommandConsumption(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

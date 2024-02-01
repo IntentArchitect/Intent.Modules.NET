@@ -13,35 +13,35 @@ namespace Intent.Eventing.MassTransit.Api
 {
     public static class SendIntegrationCommandTargetEndModelStereotypeExtensions
     {
-        public static MessageDistribuion GetMessageDistribuion(this SendIntegrationCommandTargetEndModel model)
+        public static CommandDistribution GetCommandDistribution(this SendIntegrationCommandTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("Message Distribuion");
-            return stereotype != null ? new MessageDistribuion(stereotype) : null;
+            var stereotype = model.GetStereotype("Command Distribution");
+            return stereotype != null ? new CommandDistribution(stereotype) : null;
         }
 
 
-        public static bool HasMessageDistribuion(this SendIntegrationCommandTargetEndModel model)
+        public static bool HasCommandDistribution(this SendIntegrationCommandTargetEndModel model)
         {
-            return model.HasStereotype("Message Distribuion");
+            return model.HasStereotype("Command Distribution");
         }
 
-        public static bool TryGetMessageDistribuion(this SendIntegrationCommandTargetEndModel model, out MessageDistribuion stereotype)
+        public static bool TryGetCommandDistribution(this SendIntegrationCommandTargetEndModel model, out CommandDistribution stereotype)
         {
-            if (!HasMessageDistribuion(model))
+            if (!HasCommandDistribution(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new MessageDistribuion(model.GetStereotype("Message Distribuion"));
+            stereotype = new CommandDistribution(model.GetStereotype("Command Distribution"));
             return true;
         }
 
-        public class MessageDistribuion
+        public class CommandDistribution
         {
             private IStereotype _stereotype;
 
-            public MessageDistribuion(IStereotype stereotype)
+            public CommandDistribution(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
@@ -51,11 +51,6 @@ namespace Intent.Eventing.MassTransit.Api
             public string SendAddress()
             {
                 return _stereotype.GetProperty<string>("Send Address");
-            }
-
-            public string AppSettingName()
-            {
-                return _stereotype.GetProperty<string>("AppSetting Name");
             }
 
         }

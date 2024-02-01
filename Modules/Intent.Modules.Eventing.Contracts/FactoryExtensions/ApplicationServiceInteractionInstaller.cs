@@ -75,7 +75,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
                     mappingManager.SetFromReplacement(integrationData.Model, "message");
                     mappingManager.SetFromReplacement(integrationData.ElementModel, "message");
-                    
+
                     foreach (var sendCommand in integrationData.SentCommandDestinations.Where(x => x.Mappings.Any()))
                     {
                         if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))

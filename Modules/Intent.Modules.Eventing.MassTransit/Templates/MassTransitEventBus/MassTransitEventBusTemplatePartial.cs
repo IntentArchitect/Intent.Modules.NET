@@ -39,8 +39,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             .Private()
                             .AddConstructor(ctor =>
                             {
-                                ctor.AddParameter("object", "message", p => p.IntroduceProperty());
-                                ctor.AddParameter("Uri?", "address", p => p.IntroduceProperty());
+                                ctor.AddParameter("object", "message", p => p.IntroduceProperty(prop => prop.WithoutSetter()));
+                                ctor.AddParameter("Uri?", "address", p => p.IntroduceProperty(prop => prop.WithoutSetter()));
                             });
                     });
 
@@ -87,25 +87,13 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
 
                         method.AddForEachStatement("toSend", "_messagesToSend", fe =>
                         {
-                            fe.AddIfStatement("ConsumeContext is not null", block =>
-                            {
-                                block.AddStatement("await SendWithConsumeContext(toSend, cancellationToken);");
-                            });
-                            fe.AddElseStatement(block =>
-                            {
-                                block.AddStatement("await SendWithNormalContext(toSend, cancellationToken);");
-                            });
+                            fe.AddIfStatement("ConsumeContext is not null", block => { block.AddStatement("await SendWithConsumeContext(toSend, cancellationToken);"); });
+                            fe.AddElseStatement(block => { block.AddStatement("await SendWithNormalContext(toSend, cancellationToken);"); });
                         });
                         method.AddStatement("_messagesToSend.Clear();", s => s.SeparatedFromPrevious());
-                        
-                        method.AddIfStatement("ConsumeContext is not null", block =>
-                        {
-                            block.AddStatement("await PublishWithConsumeContext(cancellationToken);");
-                        });
-                        method.AddElseStatement(block =>
-                        {
-                            block.AddStatement("await PublishWithNormalContext(cancellationToken);");
-                        });
+
+                        method.AddIfStatement("ConsumeContext is not null", block => { block.AddStatement("await PublishWithConsumeContext(cancellationToken);"); });
+                        method.AddElseStatement(block => { block.AddStatement("await PublishWithNormalContext(cancellationToken);"); });
                         method.AddStatement("_messagesToPublish.Clear();", s => s.SeparatedFromPrevious());
                     });
 
@@ -115,16 +103,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                         method.AddParameter("MessageToSend", "toSend");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        method.AddIfStatement("toSend.Address is null", block =>
-                        {
-                            block.AddStatement("await ConsumeContext!.Send(toSend.Message).ConfigureAwait(false);");
-                        });
+                        method.AddIfStatement("toSend.Address is null", block => { block.AddStatement("await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);"); });
                         method.AddElseStatement(block =>
                         {
                             block.AddStatement("var endpoint = await ConsumeContext!.GetSendEndpoint(toSend.Address).ConfigureAwait(false);");
-                            block.AddStatement("await endpoint.Send(toSend.Message).ConfigureAwait(false);");
+                            block.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
                         });
-
                     });
 
                     @class.AddMethod("Task", "SendWithNormalContext", method =>
@@ -136,15 +120,14 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                         method.AddIfStatement("toSend.Address is null", block =>
                         {
                             block.AddStatement("var bus = _serviceProvider.GetRequiredService<IBus>();");
-                            block.AddStatement("await bus.Send(toSend.Message).ConfigureAwait(false);");
+                            block.AddStatement("await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
                         });
                         method.AddElseStatement(block =>
                         {
                             block.AddStatement("var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();");
                             block.AddStatement("var endpoint = await sendEndpointProvider.GetSendEndpoint(toSend.Address).ConfigureAwait(false);");
-                            block.AddStatement("await endpoint.Send(toSend.Message).ConfigureAwait(false);");
+                            block.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
                         });
-
                     });
 
 
