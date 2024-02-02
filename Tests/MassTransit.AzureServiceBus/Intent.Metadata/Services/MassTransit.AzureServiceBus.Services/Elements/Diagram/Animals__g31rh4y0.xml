@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d6a6fecb-dbb7-42f1-a772-ad8434a9b081" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Animals</name>
+  <display>Animals</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a022f73-f0f8-428e-b0ee-ba26971c0a0a</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <diagram>
+    <targetPackageId>2a022f73-f0f8-428e-b0ee-ba26971c0a0a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

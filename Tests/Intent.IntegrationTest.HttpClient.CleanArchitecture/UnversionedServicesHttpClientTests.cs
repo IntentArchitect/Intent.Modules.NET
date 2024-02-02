@@ -79,5 +79,13 @@ public class UnversionedServicesHttpClientTests
         public void Publish<T>(T message) where T : class { }
 
         public Task FlushAllAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
+        public void Send<T>(T message) where T : class
+        {
+            
+        }
+
+        public void Send<T>(T message, Uri address) where T : class
+        {
+        }
     }
 }

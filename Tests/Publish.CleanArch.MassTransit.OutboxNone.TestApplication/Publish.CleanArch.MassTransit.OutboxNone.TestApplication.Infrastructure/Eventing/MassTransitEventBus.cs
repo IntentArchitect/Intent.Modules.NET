@@ -16,6 +16,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly List<object> _messagesToPublish = new List<object>();
+        private readonly List<MessageToSend> _messagesToSend = new List<MessageToSend>();
         private readonly List<ScheduleEntry> _messagesToSchedule = new List<ScheduleEntry>();
 
         public MassTransitEventBus(IServiceProvider serviceProvider)
@@ -30,6 +31,18 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToPublish.Add(message);
         }
 
+        public void Send<T>(T message)
+            where T : class
+        {
+            _messagesToSend.Add(new MessageToSend(message, null));
+        }
+
+        public void Send<T>(T message, Uri address)
+            where T : class
+        {
+            _messagesToSend.Add(new MessageToSend(message, address));
+        }
+
         public void SchedulePublish<T>(T message, DateTime scheduled)
             where T : class
         {
@@ -42,8 +55,34 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToSchedule.Add(ScheduleEntry.ForDelay(message, delay));
         }
 
+        private class MessageToSend
+        {
+            public MessageToSend(object message, Uri? address)
+            {
+                Message = message;
+                Address = address;
+            }
+
+            public object Message { get; }
+            public Uri? Address { get; }
+        }
+
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
+            foreach (var toSend in _messagesToSend)
+            {
+                if (ConsumeContext is not null)
+                {
+                    await SendWithConsumeContext(toSend, cancellationToken);
+                }
+                else
+                {
+                    await SendWithNormalContext(toSend, cancellationToken);
+                }
+            }
+
+            _messagesToSend.Clear();
+
             if (ConsumeContext is not null)
             {
                 await PublishWithConsumeContext(cancellationToken);
@@ -55,6 +94,34 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 
             _messagesToPublish.Clear();
             _messagesToSchedule.Clear();
+        }
+
+        private async Task SendWithConsumeContext(MessageToSend toSend, CancellationToken cancellationToken)
+        {
+            if (toSend.Address is null)
+            {
+                await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                var endpoint = await ConsumeContext!.GetSendEndpoint(toSend.Address).ConfigureAwait(false);
+                await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+            }
+        }
+
+        private async Task SendWithNormalContext(MessageToSend toSend, CancellationToken cancellationToken)
+        {
+            if (toSend.Address is null)
+            {
+                var bus = _serviceProvider.GetRequiredService<IBus>();
+                await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();
+                var endpoint = await sendEndpointProvider.GetSendEndpoint(toSend.Address).ConfigureAwait(false);
+                await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+            }
         }
 
         private async Task PublishWithConsumeContext(CancellationToken cancellationToken)

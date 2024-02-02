@@ -5,7 +5,7 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9808e5b7-a317-4040-a20c-195f8a8bda20</parentFolderId>
+  <parentFolderId>3ef5f7c1-f1c2-4145-a746-13f29e8e0ab1</parentFolderId>
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
   <stereotypes />

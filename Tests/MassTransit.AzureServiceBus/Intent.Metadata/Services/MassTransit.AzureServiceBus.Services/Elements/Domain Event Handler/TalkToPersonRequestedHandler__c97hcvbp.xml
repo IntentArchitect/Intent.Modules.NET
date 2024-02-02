@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c96379a3-0189-44f0-8b0d-a568319c282d" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>TalkToPersonRequestedHandler</name>
+  <display>TalkToPersonRequestedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de5e012f-721f-48d9-a454-0f1909ba73ce</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

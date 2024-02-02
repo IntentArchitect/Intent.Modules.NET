@@ -12,6 +12,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     {
         void Publish<T>(T message) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
+        void Send<T>(T message)
+            where T : class;
+        void Send<T>(T message, Uri address)
+            where T : class;
         void SchedulePublish<T>(T message, DateTime scheduled)
             where T : class;
         void SchedulePublish<T>(T message, TimeSpan delay)

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd4b96a4-00c6-4c4e-94ce-2b2e04455eef" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Person</name>
+  <display>Person</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</parentFolderId>
+  <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+  <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="749c95db-1199-457a-9624-f3e0d421b3f6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cb02b094-55f2-42b6-838d-1d8affce1050">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e620c938-6665-4626-809a-1870fec49192" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3b7038c2-9af1-4451-b390-6ed70f9f6399">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a935e196-443c-4325-880f-aeaf4f71a6cd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="59094e09-5886-488f-8afe-5c97ca8da137">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a5c7f205-2bfa-4b6c-a313-bc2877691f80" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Talk</name>
+      <display>Talk(message: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bbc77641-4664-495b-bbb1-fe2e18e79e02">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9e192542-9a20-4a71-ad4d-d7069847793c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>message</name>
+          <display>in : message: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f14c9bae-de04-480e-8d87-583410c6c02e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a5c7f205-2bfa-4b6c-a313-bc2877691f80</parentFolderId>
+          <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+          <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

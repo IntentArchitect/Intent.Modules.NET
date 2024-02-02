@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -11,5 +12,9 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Co
     {
         void Publish<T>(T message) where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
+        void Send<T>(T message)
+            where T : class;
+        void Send<T>(T message, Uri address)
+            where T : class;
     }
 }

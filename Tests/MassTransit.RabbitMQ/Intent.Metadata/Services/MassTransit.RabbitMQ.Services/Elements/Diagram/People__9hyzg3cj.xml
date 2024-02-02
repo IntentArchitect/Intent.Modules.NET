@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="25c8ac89-651d-4a92-afa4-dc6063d60358" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>People</name>
+  <display>People</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62ed4c1c-0df7-4e5e-9191-c8efb7a5d90c</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <diagram>
+    <targetPackageId>62ed4c1c-0df7-4e5e-9191-c8efb7a5d90c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

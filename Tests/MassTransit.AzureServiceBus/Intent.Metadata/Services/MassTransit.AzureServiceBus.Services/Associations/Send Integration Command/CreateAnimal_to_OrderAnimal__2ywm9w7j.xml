@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ebcce32a-9ef6-47ed-ba8e-63f6069cfa3f">
+  <sourceEnd id="c17d09d4-e1e9-4f72-a76f-353b41db6bc1" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalsService.CreateAnimal</display>
+    <order>0</order>
+    <typeReference id="8d018162-278c-4a69-a98a-41586d6f9ffd">
+      <typeId>b008053a-08af-49a1-a89c-48a951ed8805</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ebcce32a-9ef6-47ed-ba8e-63f6069cfa3f" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] OrderAnimal</display>
+    <order>2</order>
+    <typeReference id="2637bce5-66a3-47da-a7a0-6562c378e5c3">
+      <typeId>cfefcaa5-cf3b-4306-ba46-adb1144d99d9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b008053a-08af-49a1-a89c-48a951ed8805" location="[MassTransit.AzureServiceBus].[Services].[CreateAnimal]" />
+        <target applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cfefcaa5-cf3b-4306-ba46-adb1144d99d9" location="[MassTransit.AzureServiceBus].[Services].[OrderAnimal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.name}</expression>
+            <path>
+              <target id="cfefcaa5-cf3b-4306-ba46-adb1144d99d9" name="OrderAnimal" type="element" specialization="Integration Command" />
+              <target id="ff5e57b3-e0f9-4d14-9e0e-b81e19b8880e" name="name" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="dto.name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b008053a-08af-49a1-a89c-48a951ed8805" name="CreateAnimal" type="element" specialization="Operation" />
+                  <target id="ecd25b3a-db22-4caa-8525-dd13232cb67e" name="dto" type="element" specialization="Parameter" />
+                  <target id="e7dbec90-0377-4a67-b3b7-8a6fdd4a096f" name="name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.type}</expression>
+            <path>
+              <target id="cfefcaa5-cf3b-4306-ba46-adb1144d99d9" name="OrderAnimal" type="element" specialization="Integration Command" />
+              <target id="2fb58f2a-ea37-4068-bf1e-4aad2fc6cd2f" name="type" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="dto.type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b008053a-08af-49a1-a89c-48a951ed8805" name="CreateAnimal" type="element" specialization="Operation" />
+                  <target id="ecd25b3a-db22-4caa-8525-dd13232cb67e" name="dto" type="element" specialization="Parameter" />
+                  <target id="783a5560-fa55-4744-96a1-6dd546c7a69b" name="type" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

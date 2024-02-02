@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d56cab46-ff55-47b9-8480-4eacf0c80c32">
+  <sourceEnd id="1c15e09a-c5cb-49e5-a0fa-3cc5bc707956" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="f042eb13-33c2-4abd-8584-ea081cc3483c">
+      <typeId>801bea67-ee55-40c4-bb72-b9212cb3691b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d56cab46-ff55-47b9-8480-4eacf0c80c32" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreatePersonIdentity</display>
+    <order>3</order>
+    <typeReference id="04d9eb2a-593c-4131-810d-9557f900a941">
+      <typeId>598e0a53-e3bf-4c6f-9287-bfc2942f2c89</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" value="Person" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="801bea67-ee55-40c4-bb72-b9212cb3691b" location="[MassTransit.AzureServiceBus].[Services].[CreatePersonCommand]" />
+        <target applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="598e0a53-e3bf-4c6f-9287-bfc2942f2c89" location="[MassTransit.AzureServiceBus].[Services].[CreatePersonIdentity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="598e0a53-e3bf-4c6f-9287-bfc2942f2c89" name="CreatePersonIdentity" type="element" specialization="Integration Command" />
+              <target id="ef36f22c-cc6a-4204-ac24-48ab385c76b8" name="FirstName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="801bea67-ee55-40c4-bb72-b9212cb3691b" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="2eb79bda-b240-4b09-b3fa-bb2a7156b8ea" name="FirstName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="598e0a53-e3bf-4c6f-9287-bfc2942f2c89" name="CreatePersonIdentity" type="element" specialization="Integration Command" />
+              <target id="9f1d030b-d335-4644-b7c2-86f11cc9767f" name="LastName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="801bea67-ee55-40c4-bb72-b9212cb3691b" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="9f213ed6-4b9d-4fa9-b898-776adea6ce7b" name="LastName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" value="Person" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

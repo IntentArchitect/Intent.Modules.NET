@@ -6,6 +6,7 @@ using MassTransit.Configuration;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Infrastructure.Eventing;
+using MassTransit.RabbitMQ.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -39,6 +40,8 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
                     });
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
+                    cfg.AddReceiveEndpoints(context);
+                    EndpointConventionRegistration();
                 });
             });
         }
@@ -47,7 +50,39 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
         {
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).Endpoint(config => { config.InstanceId = "MassTransit-RabbitMQ"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).Endpoint(config => { config.InstanceId = "MassTransit-RabbitMQ"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).Endpoint(config => { config.InstanceId = "MassTransit-RabbitMQ"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>)).Endpoint(config => { config.InstanceId = "MassTransit-RabbitMQ"; config.ConfigureConsumeTopology = false; });
 
+        }
+
+        private static void AddReceiveEndpoints(this IRabbitMqBusFactoryConfigurator cfg, IBusRegistrationContext context)
+        {
+            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.order-animal", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(context);
+            });
+            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.make-sound-command", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(context);
+            });
+            cfg.ReceiveEndpoint("Person", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(context);
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(context);
+            });
+        }
+
+        private static void EndpointConventionRegistration()
+        {
+            EndpointConvention.Map<CreatePersonIdentity>(new Uri("queue:Person"));
+            EndpointConvention.Map<MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.make-sound-command"));
+            EndpointConvention.Map<OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.order-animal"));
+            EndpointConvention.Map<TalkToPersonCommand>(new Uri("queue:Person"));
         }
 
         private static void ConfigureNonDefaultEndpoints(
