@@ -48,9 +48,9 @@ namespace Intent.Eventing.MassTransit.Api
 
             public string Name => _stereotype.Name;
 
-            public string SendAddress()
+            public string DestinationQueueName()
             {
-                return _stereotype.GetProperty<string>("Send Address");
+                return _stereotype.GetProperty<string>("Destination Queue Name");
             }
 
         }

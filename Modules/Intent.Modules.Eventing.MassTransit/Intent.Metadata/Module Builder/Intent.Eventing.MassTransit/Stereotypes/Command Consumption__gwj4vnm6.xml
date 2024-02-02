@@ -29,7 +29,7 @@ return "";</displayFunction>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder>(optional)</placeholder>
+      <placeholder>(uses convention)</placeholder>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction />

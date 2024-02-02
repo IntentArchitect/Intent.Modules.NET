@@ -55,6 +55,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .ToArray();
 
         CommandSubscriptions = GetIntegrationEventHandlerCommandSubscriptions().ToArray();
+        CommandSendDispatches = GetIntegrationCommandSendDispatches().ToArray();
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -93,10 +94,12 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     }
                 });
                 AddReceivedEndpointsForCommandSubscriptions(@class);
+                AddEndpointConventionRegistrations(@class);
                 AddNonDefaultEndpointConfigurationMethods(@class);
             });
     }
 
+    public IReadOnlyCollection<SendIntegrationCommandTargetEndModel> CommandSendDispatches { get; }
     private IReadOnlyCollection<SubscribeIntegrationCommandTargetEndModel> CommandSubscriptions { get; }
     private IReadOnlyCollection<MessageModel> MessagesWithSettings { get; }
     private IReadOnlyCollection<Subscription> EventSubscriptions { get; }
@@ -117,6 +120,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         return ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
             .SelectMany(x => x.IntegrationCommandSubscriptions());
+    }
+
+    private IEnumerable<SendIntegrationCommandTargetEndModel> GetIntegrationCommandSendDispatches()
+    {
+        return ExecutionContext.MetadataManager.GetExplicitlySentIntegrationCommandDispatches(ExecutionContext.GetApplicationConfig().Id);
     }
 
     private static IEnumerable<Subscription> GetApplicationSubscriptions(IList<ApplicationModel> appModels)
@@ -241,6 +249,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             yield return new CSharpStatement("cfg.AddReceiveEndpoints(context);");
         }
+
+        if (CommandSendDispatches.Any())
+        {
+            yield return new CSharpStatement("EndpointConventionRegistration();");
+        }
     }
 
     private void AddMessageTopologyConfiguration(CSharpClass @class)
@@ -298,7 +311,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             $@"{this.GetIntegrationEventHandlerInterfaceName()}<{commandName}>, {commandName}";
         var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
 
-        return $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => config.InstanceId = ""{sanitizedAppName}"");";
+        return
+            $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
     }
 
     private string GetMessageBrokerBusFactoryConfiguratorName()
@@ -338,22 +352,58 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
-            foreach (var subscription in CommandSubscriptions)
+            foreach (var subscription in CommandSubscriptions.GroupBy(key =>
+                     {
+                         var model = key.TypeReference.Element.AsIntegrationCommandModel();
+                         var destinationAddress = key.GetCommandConsumption().QueueName();
+                         if (string.IsNullOrWhiteSpace(destinationAddress))
+                         {
+                             destinationAddress = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
+                         }
+
+                         return destinationAddress;
+                     }))
             {
                 method.AddInvocationStatement("cfg.ReceiveEndpoint", caller =>
                 {
-                    var model = subscription.TypeReference.Element.AsIntegrationCommandModel();
-                    
-                    var destinationAddress = subscription.GetCommandConsumption().QueueName();
-                    if (string.IsNullOrWhiteSpace(destinationAddress))
+                    caller.AddArgument($@"""{subscription.Key}""");
+                    var lambda = new CSharpLambdaBlock("e");
+                    caller.AddArgument(lambda);
+
+                    lambda.AddStatement("e.ConfigureConsumeTopology = false;");
+
+                    foreach (var subscriber in subscription)
                     {
-                        destinationAddress = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
+                        var model = subscriber.TypeReference.Element.AsIntegrationCommandModel();
+                        lambda.AddStatement(
+                            $"e.Consumer<WrapperConsumer<IIntegrationEventHandler<{this.GetIntegrationCommandName(model)}>, {this.GetIntegrationCommandName(model)}>>(context);");
                     }
-                    caller.AddArgument($@"""{destinationAddress}""");
-                    
-                    caller.AddArgument(new CSharpLambdaBlock("e")
-                        .AddStatement($"e.Consumer<WrapperConsumer<IIntegrationEventHandler<{this.GetIntegrationCommandName(model)}>, {this.GetIntegrationCommandName(model)}>>(context);"));
                 });
+            }
+        });
+    }
+
+    private void AddEndpointConventionRegistrations(CSharpClass @class)
+    {
+        if (!CommandSendDispatches.Any())
+        {
+            return;
+        }
+
+        @class.AddMethod("void", "EndpointConventionRegistration", method =>
+        {
+            method.Private().Static();
+
+            foreach (var dispatchModel in CommandSendDispatches)
+            {
+                var model = dispatchModel.TypeReference.Element.AsIntegrationCommandModel();
+                var queueName = dispatchModel.GetCommandDistribution().DestinationQueueName();
+                if (string.IsNullOrWhiteSpace(queueName))
+                {
+                    queueName = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
+                }
+
+                method.AddStatement($@"EndpointConvention.Map<{GetTypeName(IntegrationCommandTemplate.TemplateId, model)}>(new Uri(""queue:{queueName}""));");
             }
         });
     }
