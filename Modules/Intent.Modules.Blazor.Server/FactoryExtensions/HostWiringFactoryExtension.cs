@@ -1,11 +1,15 @@
 using System;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,53 +34,39 @@ namespace Intent.Modules.Blazor.Server.FactoryExtensions
 
         private void RegisterStartup(IApplication application)
         {
-            var startup = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Startup");
-            if (startup is null)
+            var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+
+            startup?.CSharpFile.AfterBuild(file =>
             {
-                return;
-            }
-
-            startup.CSharpFile.AfterBuild(file =>
-            {
-                var @class = file.Classes.First();
-
-                var configureServicesBlock = @class.FindMethod("ConfigureServices");
-                if (configureServicesBlock == null)
-                {
-                    return;
-                }
-
-                configureServicesBlock.AddStatement("services.AddRazorPages();");
-                configureServicesBlock.AddStatement("services.AddServerSideBlazor();");
-
-                var configureBlock = @class.FindMethod("Configure");
-                if (configureBlock == null)
-                {
-                    return;
-                }
-
-
-                var ifDevelopmentStmt = (CSharpIfStatement)configureBlock.FindStatement(s => s is CSharpIfStatement cif && cif.GetText("").Contains("env.IsDevelopment()"));
-
-                ifDevelopmentStmt.InsertBelow(new CSharpElseStatement(), s =>
-                {
-                    var elseStmt = (CSharpElseStatement)s;
-                    elseStmt.AddStatement("app.UseExceptionHandler(\"/Error\");");
-                    elseStmt.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
-                    elseStmt.AddStatement("app.UseHsts();");
+                startup.StartupFile.ConfigureServices((statements, context) => {
+                    statements.AddStatement($"{context.Services}.AddRazorPages();");
+                    statements.AddStatement($"{context.Services}.AddServerSideBlazor();");
                 });
 
-                configureBlock.AddStatement("app.UseStaticFiles();");
+                startup.StartupFile.ConfigureApp((statements, context) => {
+                    var ifDevelopmentStatement = (CSharpIfStatement)statements
+                        .FindStatement(m => m is CSharpIfStatement cif && cif.GetText("").Contains("env.IsDevelopment()"));
 
-                var useEndpointsBlock = (IHasCSharpStatements)configureBlock.FindStatement(s => s.GetText("").Contains("UseEndpoints"));
-                if (useEndpointsBlock == null)
+                    if (ifDevelopmentStatement is not null)
+                    {
+                        ifDevelopmentStatement.InsertBelow(new CSharpElseStatement(), statement =>
+                        {
+                            var elseStatement = (CSharpElseStatement)statement;
+
+                            elseStatement.AddStatement("app.UseExceptionHandler(\"/Error\");");
+                            elseStatement.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
+                            elseStatement.AddStatement("app.UseHsts();");
+                        });
+                    }
+
+                    statements.AddStatement("app.UseStaticFiles();");
+                });
+
+                startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
-                    return;
-                }
-
-                useEndpointsBlock.AddStatement("endpoints.MapBlazorHub();");
-                useEndpointsBlock.AddStatement("endpoints.MapFallbackToPage(\"/_Host\");");
-
+                    statements.AddStatement($"{context.Endpoints}.MapBlazorHub();");
+                    statements.AddStatement($"{context.Endpoints}.MapFallbackToPage(\"/_Host\");");
+                });
             });
         }
     }
