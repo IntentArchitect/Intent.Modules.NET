@@ -62,4 +62,13 @@ public static class Infrastructure
         }
     }
 
+    public static class Oracle
+    {
+        public const string Name = nameof(Oracle);
+        public static class Property
+        {
+            public const string ConnectionStringName = nameof(ConnectionStringName);
+            public const string ConnectionStringSettingPath = nameof(ConnectionStringSettingPath);
+        }
+    }
 }

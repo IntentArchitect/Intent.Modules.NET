@@ -1,4 +1,5 @@
-﻿using Intent.Engine;
+﻿using System.Diagnostics;
+using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.EntityFrameworkCore;
@@ -49,6 +50,16 @@ public static class NugetPackages
             (5, 0) => "5.0.4",
             (6, 0) => "6.0.2",
             _ => "7.0.0"
+        });
+
+    public static NugetPackageInfo OracleEntityFrameworkCore(IOutputTarget outputTarget) => new(
+        name: "Oracle.EntityFrameworkCore",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.21.90",
+            (6, 0) => "6.21.130",
+            (7, 0) => "7.21.13",
+            _ => "8.21.121"
         });
 
     private static string GetMicrosoftEfVersion(IOutputTarget outputTarget) => outputTarget.GetMaxNetAppVersion() switch

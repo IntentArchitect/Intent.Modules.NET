@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f97ac581-99be-4eb9-8d4e-45741465698c">
+  <sourceEnd id="50960ab6-6c7b-47e5-8574-fd85bd6ad22f" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Invoices.CreateInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="d86a7fa4-fd33-4b27-ac79-a2d5d35070a1">
+      <typeId>555e4160-0f7e-48d4-b78a-5f1ff8acef68</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Services</typePackageName>
+      <typePackageId>f8a4e0d0-cf3a-4848-9f5a-43fca1e1dfdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f97ac581-99be-4eb9-8d4e-45741465698c" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>invoice</name>
+    <display>[create] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="ee748351-6906-481f-9d8a-0e08e57f39c1">
+      <typeId>d294b302-812d-4a36-8a45-fb98f8d00a9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="555e4160-0f7e-48d4-b78a-5f1ff8acef68" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[CreateInvoiceCommand]" />
+        <target applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d294b302-812d-4a36-8a45-fb98f8d00a9e" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateInvoiceCommand}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateInvoiceCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="555e4160-0f7e-48d4-b78a-5f1ff8acef68" name="CreateInvoiceCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Number}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+              <target id="c94e0a29-7eae-4877-b43a-36da5beaed4a" name="Number" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Number" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="555e4160-0f7e-48d4-b78a-5f1ff8acef68" name="CreateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="41a8ae74-52f9-41b5-aeab-fc9721a7c352" name="Number" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

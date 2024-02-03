@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="726c5cb0-fdc5-43a2-9d29-0f5783ee10bc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Services</name>
+  <display>Services</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="076c5270-790b-40cd-b9aa-2209dfadc222" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.CurrentUserService</name>
+      <display>Intent.Application.Identity.CurrentUserService</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>726c5cb0-fdc5-43a2-9d29-0f5783ee10bc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

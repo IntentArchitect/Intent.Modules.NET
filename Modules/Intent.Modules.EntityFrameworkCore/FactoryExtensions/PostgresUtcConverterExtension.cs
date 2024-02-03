@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -6,8 +8,6 @@ using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
-using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             var classModels = application.MetadataManager.Domain(application).GetClassModels()
                 .Where(x => x.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true &&
                 x.Attributes.Any(a => a.TypeReference?.Element.Name == "datetimeoffset")
-                ).ToArray();            
+                ).ToArray();
 
         }
     }

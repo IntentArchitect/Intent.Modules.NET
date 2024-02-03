@@ -179,6 +179,13 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         expression: "hcBuilder.AddMongoDb",
                         connectionStringNameVar: Infrastructure.MongoDb.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.MongoDb.Property.ConnectionStringSettingPath);
+                case Infrastructure.Oracle.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksOracle(OutputTarget));
+                    return GetDatabaseHealthCheckStatement(
+                        @event: @event,
+                        expression: "hcBuilder.AddOracle",
+                        connectionStringNameVar: Infrastructure.Oracle.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.Oracle.Property.ConnectionStringSettingPath);
                 default:
                     return null;
             }

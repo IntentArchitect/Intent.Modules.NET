@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cce0ba5a-f96a-4bf9-ba2e-962ee210ab13" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3614ce20-1661-4df6-b9a7-93a25270fa5c</parentFolderId>
+  <packageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

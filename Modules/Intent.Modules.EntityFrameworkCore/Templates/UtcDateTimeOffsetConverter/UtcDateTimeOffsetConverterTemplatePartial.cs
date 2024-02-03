@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.UtcDateTimeOffsetConverte
                     @class.WithBaseType("ValueConverter<DateTimeOffset, DateTimeOffset>");
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.CallsBase(baseCall => 
+                        ctor.CallsBase(baseCall =>
                         {
                             baseCall
                                 .AddArgument("nonUtc => nonUtc.ToUniversalTime()")

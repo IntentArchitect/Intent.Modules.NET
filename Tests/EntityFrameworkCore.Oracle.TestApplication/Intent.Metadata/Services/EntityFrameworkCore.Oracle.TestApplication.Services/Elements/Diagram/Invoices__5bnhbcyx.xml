@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3a5f524d-9a0c-4f35-8817-0bbfe040c2e5" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Invoices</name>
+  <display>Invoices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>98fade60-2eae-4dc2-a948-9a12b28a9607</parentFolderId>
+  <packageId>f8a4e0d0-cf3a-4848-9f5a-43fca1e1dfdb</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication.Services</packageName>
+  <diagram>
+    <targetPackageId>98fade60-2eae-4dc2-a948-9a12b28a9607</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
