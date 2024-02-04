@@ -21,7 +21,7 @@ namespace CleanArchitecture.SingleFiles.Api.Configuration
             var hcBuilder = services.AddHealthChecks();
             hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDb", tags: new[] { "database" });
             hcBuilder.Services.AddSingleton(_ => new CosmosClient(configuration["RepositoryOptions:CosmosConnectionString"]!));
-            hcBuilder.AddAzureCosmosDB(healthCheckName: "CosmosDb", tags: new[] { "database" });
+            hcBuilder.AddAzureCosmosDB(name: "CosmosDb", tags: new[] { "database" });
 
             return services;
         }

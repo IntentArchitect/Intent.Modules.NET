@@ -194,7 +194,8 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             string connectionStringNameVar,
             string connectionStringSettingPathVar)
         {
-            if (OutputTarget.GetMaxNetAppVersion().Major < 7)
+            var dotnetMajorVer = OutputTarget.GetMaxNetAppVersion().Major;
+            if (dotnetMajorVer < 7)
             {
                 return GetDatabaseHealthCheckStatements(
                     @event: @event,
@@ -207,8 +208,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             addSingletonStatement.AddArgument($"_ => new {UseType("Microsoft.Azure.Cosmos.CosmosClient")}({GetConnectionStringArgument(@event, connectionStringNameVar, connectionStringSettingPathVar)})");
 
             var addCosmosStatement = new CSharpInvocationStatement("hcBuilder.AddAzureCosmosDB");
+            var argName = dotnetMajorVer < 8
+                ? "healthCheckName"
+                : "name";
 
-            addCosmosStatement.AddArgument($@"healthCheckName: ""{@event.InfrastructureComponent}""");
+            addCosmosStatement.AddArgument($@"{argName}: ""{@event.InfrastructureComponent}""");
             addCosmosStatement.AddArgument(@"tags: new[] { ""database"" }");
 
             return new[]

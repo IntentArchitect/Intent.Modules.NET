@@ -20,7 +20,7 @@ namespace CosmosDB.PrivateSetters.Api.Configuration
         {
             var hcBuilder = services.AddHealthChecks();
             hcBuilder.Services.AddSingleton(_ => new CosmosClient(configuration["RepositoryOptions:CosmosConnectionString"]!));
-            hcBuilder.AddAzureCosmosDB(healthCheckName: "CosmosDb", tags: new[] { "database" });
+            hcBuilder.AddAzureCosmosDB(name: "CosmosDb", tags: new[] { "database" });
 
             return services;
         }
