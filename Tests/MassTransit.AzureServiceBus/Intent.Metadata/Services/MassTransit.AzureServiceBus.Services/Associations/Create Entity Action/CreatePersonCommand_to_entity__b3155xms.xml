@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e4f81b92-b028-4ea3-ae47-48dc4eefa1b9">
+  <sourceEnd id="85d2f4cb-1b88-407b-9d9c-4396c5750b29" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : People.CreatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="0a70b839-f25c-4a6a-ab1c-fe93c00bb934">
+      <typeId>801bea67-ee55-40c4-bb72-b9212cb3691b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e4f81b92-b028-4ea3-ae47-48dc4eefa1b9" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>entity</name>
+    <display>[create] entity: Person</display>
+    <order>2</order>
+    <typeReference id="8e583f62-9d35-48ae-a243-3e64eaaf8f43">
+      <typeId>cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Domain</typePackageName>
+      <typePackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="801bea67-ee55-40c4-bb72-b9212cb3691b" location="[MassTransit.AzureServiceBus].[Services].[CreatePersonCommand]" />
+        <target applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cd4b96a4-00c6-4c4e-94ce-2b2e04455eef" location="[MassTransit.AzureServiceBus].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreatePersonCommand}</expression>
+            <path>
+              <target id="cd4b96a4-00c6-4c4e-94ce-2b2e04455eef" name="Person" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreatePersonCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="801bea67-ee55-40c4-bb72-b9212cb3691b" name="CreatePersonCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="cd4b96a4-00c6-4c4e-94ce-2b2e04455eef" name="Person" type="element" specialization="Class" />
+              <target id="e620c938-6665-4626-809a-1870fec49192" name="FirstName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="801bea67-ee55-40c4-bb72-b9212cb3691b" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="2eb79bda-b240-4b09-b3fa-bb2a7156b8ea" name="FirstName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="cd4b96a4-00c6-4c4e-94ce-2b2e04455eef" name="Person" type="element" specialization="Class" />
+              <target id="a935e196-443c-4325-880f-aeaf4f71a6cd" name="LastName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="801bea67-ee55-40c4-bb72-b9212cb3691b" name="CreatePersonCommand" type="element" specialization="Command" />
+                  <target id="9f213ed6-4b9d-4fa9-b898-776adea6ce7b" name="LastName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

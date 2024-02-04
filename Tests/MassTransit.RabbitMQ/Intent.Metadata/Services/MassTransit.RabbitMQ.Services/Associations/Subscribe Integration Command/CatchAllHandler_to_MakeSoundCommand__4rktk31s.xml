@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="844fe144-5a82-48d4-a68c-11a322a14262">
+  <sourceEnd id="666e2041-bcc5-47ee-935c-45922e2d72f2" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: MassTransit.RabbitMQ.Services.CatchAllHandler</display>
+    <order>0</order>
+    <typeReference id="c986e7cb-1c91-429f-a7db-7ddfd4635990">
+      <typeId>5d2c6008-6d5e-4892-a53f-4de2c4625916</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="844fe144-5a82-48d4-a68c-11a322a14262" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <display>handles: MakeSoundCommand</display>
+    <order>1</order>
+    <typeReference id="567dee69-b070-4927-a945-fa33e3171e23">
+      <typeId>55fd5346-5936-4b7f-bcea-cc4c70b4bd59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

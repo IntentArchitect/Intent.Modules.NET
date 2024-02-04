@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="111fcfd2-cc40-47a9-83ef-6ecaa64b0f60" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Basic Test</name>
+  <display>Basic Test</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3ef5f7c1-f1c2-4145-a746-13f29e8e0ab1</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <diagram>
+    <targetPackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0633cc57-1655-4be9-a184-fdfdd45a4239" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>AnimalSoundRequestedEventHandler</name>
+  <display>AnimalSoundRequestedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a022f73-f0f8-428e-b0ee-ba26971c0a0a</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
@@ -18,6 +20,16 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetIntegrationCommandName<T>(this IIntentTemplate<T> template) where T : IntegrationCommandModel
+        {
+            return template.GetTypeName(IntegrationCommandTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationCommandName(this IIntentTemplate template, IntegrationCommandModel model)
+        {
+            return template.GetTypeName(IntegrationCommandTemplate.TemplateId, model);
         }
 
         public static string GetIntegrationEventDtoName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.EventingDTOModel

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a926fac8-e36d-42d1-b408-ca197d81e6f5">
+  <sourceEnd id="8eef26df-a747-461e-900c-9650f984544e" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: MassTransit.AzureServiceBus.Services.CatchAllHandler</display>
+    <order>0</order>
+    <typeReference id="a67f4982-dfce-46c5-ad50-1993fa0eda25">
+      <typeId>aa975e05-5a14-4b44-b2c5-198e92fdb653</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a926fac8-e36d-42d1-b408-ca197d81e6f5" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <display>handles: TalkToPersonCommand</display>
+    <order>3</order>
+    <typeReference id="02389b80-7670-4fa3-b5c2-15103343f846">
+      <typeId>9ac040bb-c3ee-4ddc-a0b6-082a0336c945</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" value="Person" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" value="Person" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

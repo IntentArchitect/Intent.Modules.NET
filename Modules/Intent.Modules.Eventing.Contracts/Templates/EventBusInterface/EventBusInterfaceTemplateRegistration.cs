@@ -18,6 +18,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
     {
         public override string TemplateId => EventBusInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new EventBusInterfaceTemplate(outputTarget);

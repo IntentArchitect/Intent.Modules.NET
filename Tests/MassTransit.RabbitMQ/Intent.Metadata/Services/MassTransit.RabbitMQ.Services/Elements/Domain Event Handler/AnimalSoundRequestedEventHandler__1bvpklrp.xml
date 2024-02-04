@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7dde8913-9cbb-4f8e-8671-3a501be2619f" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>AnimalSoundRequestedEventHandler</name>
+  <display>AnimalSoundRequestedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>717d57fc-9fae-4e95-9ae8-5065d430ad97</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

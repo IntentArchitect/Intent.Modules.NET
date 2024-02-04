@@ -133,7 +133,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Eventing", "Intent.Modules.Application.MediatR.CRUD.Eventing\Intent.Modules.Application.MediatR.CRUD.Eventing.csproj", "{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3}"
 EndProject

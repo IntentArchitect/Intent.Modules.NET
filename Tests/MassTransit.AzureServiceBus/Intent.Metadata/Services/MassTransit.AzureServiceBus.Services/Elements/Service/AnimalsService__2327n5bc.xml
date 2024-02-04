@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd525f1e-87ea-4eb7-8be6-9fae3662b315" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>AnimalsService</name>
+  <display>AnimalsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a022f73-f0f8-428e-b0ee-ba26971c0a0a</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b008053a-08af-49a1-a89c-48a951ed8805" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateAnimal</name>
+      <display>CreateAnimal(dto: CreateAnimalDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4fba004c-1ed2-40b8-b51a-753525e41bd8">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dd525f1e-87ea-4eb7-8be6-9fae3662b315</parentFolderId>
+      <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+      <packageName>MassTransit.AzureServiceBus.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ecd25b3a-db22-4caa-8525-dd13232cb67e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateAnimalDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2a1c8770-f6ff-4c3e-8754-55de55c61873">
+            <typeId>12cdc727-98b7-45a3-810a-d93865cfb686</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+            <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b008053a-08af-49a1-a89c-48a951ed8805</parentFolderId>
+          <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+          <packageName>MassTransit.AzureServiceBus.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

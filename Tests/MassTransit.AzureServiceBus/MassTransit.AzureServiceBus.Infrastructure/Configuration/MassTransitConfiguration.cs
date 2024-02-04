@@ -5,6 +5,7 @@ using MassTransit;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Eventing.Messages;
 using MassTransit.AzureServiceBus.Infrastructure.Eventing;
+using MassTransit.AzureServiceBus.Services;
 using MassTransit.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +36,8 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     cfg.Host(configuration["AzureMessageBus:ConnectionString"]);
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
+                    cfg.AddReceiveEndpoints(context);
+                    EndpointConventionRegistration();
                 });
             });
         }
@@ -43,6 +46,41 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
         {
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).Endpoint(config => { config.InstanceId = "MassTransit-AzureServiceBus"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).Endpoint(config => { config.InstanceId = "MassTransit-AzureServiceBus"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).Endpoint(config => { config.InstanceId = "MassTransit-AzureServiceBus"; config.ConfigureConsumeTopology = false; });
+            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>)).Endpoint(config => { config.InstanceId = "MassTransit-AzureServiceBus"; config.ConfigureConsumeTopology = false; });
+        }
+
+        private static void AddReceiveEndpoints(
+            this IServiceBusBusFactoryConfigurator cfg,
+            IBusRegistrationContext context)
+        {
+            cfg.ReceiveEndpoint("mass-transit.azure-service-bus.services.order-animal", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(context);
+            });
+            cfg.ReceiveEndpoint("mass-transit.azure-service-bus.services.make-sound-command", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(context);
+            });
+            cfg.ReceiveEndpoint("Person", e =>
+            {
+                e.ConfigureConsumeTopology = false;
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(context);
+                e.Consumer<WrapperConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(context);
+            });
+
+        }
+
+        private static void EndpointConventionRegistration()
+        {
+            EndpointConvention.Map<TalkToPersonCommand>(new Uri("queue:Person"));
+            EndpointConvention.Map<MakeSoundCommand>(new Uri("queue:mass-transit.azure-service-bus.services.make-sound-command"));
+            EndpointConvention.Map<CreatePersonIdentity>(new Uri("queue:Person"));
+            EndpointConvention.Map<OrderAnimal>(new Uri("queue:mass-transit.azure-service-bus.services.order-animal"));
         }
 
         private static void ConfigureNonDefaultEndpoints(

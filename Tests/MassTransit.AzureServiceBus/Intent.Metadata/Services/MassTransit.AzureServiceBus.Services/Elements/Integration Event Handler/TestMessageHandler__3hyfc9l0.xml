@@ -5,7 +5,7 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>13f85863-e934-4433-8ce6-ff5b15c25868</parentFolderId>
+  <parentFolderId>9de6131a-a450-4c42-a8b0-b2406b8dc0a1</parentFolderId>
   <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
   <packageName>MassTransit.AzureServiceBus.Services</packageName>
   <stereotypes />

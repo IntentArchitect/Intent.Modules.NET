@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -31,6 +32,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
             AddTypeSource(TemplateId);
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
+
             CSharpFile = new CSharpFile(
                     @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
                     relativeLocation: this.GetFolderPath())

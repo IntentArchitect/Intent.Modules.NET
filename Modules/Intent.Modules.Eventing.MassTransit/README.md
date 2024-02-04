@@ -10,15 +10,104 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 ## What's in this module?
 
-This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:
-
-* MassTransit Message Broker implimentation.
+* Modeling Integration Events and Commands.
+* MassTransit Message Broker Implementation.
 * Message Publishing.
 * Message Consumption.
-* Multitenancy Finbuckle integration.
+* Multi-tenancy Finbuckle integration.
 * `app.settings` configuration.
 * Dependency Injection wiring.
 * Telemetry support.
+
+## Modeling Integration Events and Commands
+
+From version `6.0.0` of this Module, modeling Integration Events can be achieved from within the Services designer.
+
+### Publishing Integration Events
+
+Create an Integration Event by right-clicking on a Folder and selecting `New Message`.
+
+![New Message](docs/images/new-message.png)
+
+You can drag that Message onto the diagram in order to make publish from elements or subscribe handlers to those Events.
+
+Right click on an element you wish to publish from (that has the context menu option available).
+
+![Publish Integration Event](docs/images/publish-integration-event.png)
+
+Drag the line to the Message that needs to be published. 
+
+![Publish Integration Event with line](docs/images/publish-integration-event-with-line.png)
+
+Finally map what the element should populate on the Message by right-clicking on the dotted line and selecting the `Map to Message` option.
+
+![Publish Integration Event mapping option](docs/images/publish-integration-event-mapping-option.png)
+
+### Subscribing to Integration Events
+
+Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
+
+![New Integration Event Handler](docs/images/integration-event-handler-new.png)
+
+Introduce the Message that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#publishing-integration-events) or by referencing the package that contains that Event in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
+Ensure that the Message is present on the diagram. 
+
+To subscribe to the Event, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Event`.
+
+![Subscribe Integration Event](docs/images/integration-event-handler-subscribe-event.png)
+
+Drag the line to the Event message and will then add a handler operation to work from.
+
+![Subscribed to Integration Event](docs/images/integration-event-handler-event-associated.png)
+
+### Sending Integration Commands
+
+Create an Integration Command by right-clicking on a Folder and selecting `New Integration Command`.
+
+![New Integration Command](docs/images/new-integration-command.png)
+
+You can drag that Integration Command onto the diagram in order to make publish from elements or subscribe handlers to those Commands.
+
+Right click on an element you wish to publish from (that has the context menu option available).
+
+![Send Integration Command](docs/images/send-integration-command.png)
+
+Drag the line to the Command that needs to be Sent.
+
+![Send Integration Command with line](docs/images/send-integration-command-with-line.png)
+
+Finally map what the element should populate on the Command by right-clicking on the dotted line and selecting the `Map to Message` option.
+
+![Send Integration Command mapping option](docs/images/send-integration-command-mapping-option.png)
+
+### Subscribing to Integration Commands
+
+Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
+
+![New Integration Event Handler](docs/images/integration-event-handler-new.png)
+
+Introduce the Integration Command that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#sending-integration-commands) or by referencing the package that contains that Integration Command in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
+Ensure that the Integration Command is present on the diagram.
+
+To subscribe to the Integration Command, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Command`.
+
+![Subscribe Integration Command](docs/images/integration-event-handler-subscribe-command.png)
+
+Drag the line to the Integration Command and will then add a handler operation to work from.
+
+![Subscribed to Integration Command](docs/images/integration-event-handler-command-associated.png)
+
+### Integration Command Queues
+
+By default a Command will be sent to a Queue directly with a name that uses the Integration Command name as the convention. If you need to change this name (especially if you want different kinds of Commands to be sent to the same queue since order is important) there is a `Command Distribution` stereotype found on the association line. 
+
+When updating this on the Sending side: left-click on the line between the element and the Integration Command and you will see this in your properties panel:
+
+![Queue Name on Sending Command](docs/images/send-integration-command-queue-name.png)
+
+When updating this on the Subscription side: left-click on the handles method located on the Integration Event Handler that is set to subscribe to the Integration Command. You will see this in the properties panel:
+
+![Queue Name on Subscribing to Command](docs/images/subscribe-integration-command-queue-name.png)
 
 ## Modules Settings
 
@@ -59,15 +148,15 @@ For more information on these options check out the MassTransit [documentation](
 
 ## Designer Support - Eventing Designer
 
-The eventing desinger can be used to describe messaging from an Applications perspective. This really boils down to the following:
+The eventing designer can be used to describe messaging from an Applications perspective. This really boils down to the following:
 
 * The message contracts, i.e. the message content.
 * Which messages the application publishes.
 * Which messages the application subscribes to.
 
-## MassTransit ESB Implimentation
+## MassTransit Message Broker Implementation
 
-Provider a MassTranist specific implementation of the `IEventBus` interface.
+Provider a MassTransit specific implementation of the `IEventBus` interface.
 
 ## Message Publishing
 
@@ -77,7 +166,7 @@ Message publishing can be done through the `IEventBus` interface using the `Publ
 
 For every message subscribed to in the `Eventing Designer`, this module will register up an Infrasrtuctual handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer inegration message handler, which implements `IIntegrationEventHandler`.
 
-An example of the technical message handler registeration:
+An example of the technical message handler registration:
 
 ```csharp
 
@@ -114,17 +203,17 @@ The is what the Business logic Integration Event handler looks like:
 
 ```
 
-## Multitenancy Finbuckle Integration
+## Multi-tenancy Finbuckle Integration
 
-If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multitenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.
+If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multi-tenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.
 
 Notable details of the implementation:
 
-* Tenancy Publishing Filter, this filter add's the current Tenant Identity to outbound messages.
+* Tenancy Publishing Filter, this filter adds the current Tenant Identity to outbound messages.
 * Tenancy Consuming Filter, reads the Tenant Identity in inbound messages and configures Finbuckle accordingly.
 * Finbuckle Message Header Tenancy Strategy, Finbuckle integration with setting up Tenancy through Message headers.
 
-You can configure the name of the header in your `appsettings.json`, by default the header will be "Tenant-Identifier". If you re-configure these make sure the configuration is done across publishers and consuimers.
+You can configure the name of the header in your `appsettings.json`, by default the header will be "Tenant-Identifier". If you re-configure these make sure the configuration is done across publishers and consumers.
 
 ```json
 {
@@ -159,7 +248,7 @@ You `app.settings.json` will have 2 sections populated, one for MassTransit itse
 
 ### Dependency Injection wiring
 
-Registers up the MassTransit dependency injection in the Infrastructual layer.
+Registers up the MassTransit dependency injection in the Infrastructure layer.
 
 ```csharp
     public static class DependencyInjection
@@ -173,7 +262,7 @@ Registers up the MassTransit dependency injection in the Infrastructual layer.
     }
 ```
 
-Adds a MassTransit Configuration file, which look similar to this depnding on your configuration.
+Adds a MassTransit Configuration file, which look similar to this depending on your configuration.
 
 ```csharp
     public static class MassTransitConfiguration

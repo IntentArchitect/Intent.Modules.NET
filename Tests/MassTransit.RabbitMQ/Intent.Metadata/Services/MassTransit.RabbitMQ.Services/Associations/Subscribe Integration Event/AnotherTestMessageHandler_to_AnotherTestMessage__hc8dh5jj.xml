@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="61434cde-c1de-4596-9789-f346cefa9ca4">
   <sourceEnd id="3c4f768d-66ae-4790-b355-0db647b8fdaa" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
-    <display>handled by: MassTransit.RabbitMQ.Services.AnotherTestMessageHandler</display>
+    <display>handled by: Test.AnotherTestMessageHandler</display>
     <order>0</order>
     <typeReference id="f01d6453-d66f-45dd-a19b-9c1f0dd8b635">
       <typeId>deac8939-84b1-4219-a8a7-4763c2aa7c01</typeId>

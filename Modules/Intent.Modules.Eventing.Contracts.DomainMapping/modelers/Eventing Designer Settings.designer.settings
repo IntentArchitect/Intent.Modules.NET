@@ -203,6 +203,235 @@ for (const property of properties) {
         </macro>
       </macros>
     </elementExtension>
+    <elementExtension type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+      <mappingSettings>
+        <mappingSetting id="e72001cc-e117-4919-9a7b-bd8d8633f8d7">
+          <name>Map From Domain</name>
+          <shortcut>ctrl + shift + m</shortcut>
+          <defaultModeler>6ab29b31-27af-4f56-a67c-986d82097d63</defaultModeler>
+          <optionsSource>elements-of-type</optionsSource>
+          <autoSyncTypeReferences>true</autoSyncTypeReferences>
+          <targetTypeOptions>
+            <option specializationType="04e12b51-ed12-42a3-9667-a6aa81bb6d10" displayText="Class" />
+            <option specializationType="0814e459-fb9b-47db-b7eb-32ce30397e8a" displayText="Domain Event" />
+          </targetTypeOptions>
+          <mapFrom>root</mapFrom>
+          <mappings>
+            <mapping id="1a41f28b-461b-482e-a3ea-b9b5145cbee6">
+              <criteria specializationType="Class">
+                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+              </criteria>
+              <mapTo specializationType="Integration Command" childMappingMode="map-to-child" />
+              <behaviour autoSelectChildren="true" />
+              <childMappings>
+                <mapping id="95be6ac8-15da-4704-b8ec-9bb1d00492c1">
+                  <criteria specializationType="Attribute">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren>false</hasChildren>
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="3b92560f-5256-47af-a813-79a8a389a7c0">
+                  <criteria specializationType="Association Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection>true</isCollection>
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="82a4b38b-336e-4ff6-a4fd-f29b238f5af3">
+                  <criteria specializationType="Association Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection>false</isCollection>
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="traverse" useMappingSettings="1a41f28b-461b-482e-a3ea-b9b5145cbee6" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+              </childMappings>
+            </mapping>
+            <mapping id="ee161ed8-c96c-4672-a908-8c91774726a0">
+              <criteria specializationType="Domain Event">
+                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+              </criteria>
+              <mapTo specializationType="Integration Command" childMappingMode="map-to-child" />
+              <behaviour autoSelectChildren="false" />
+              <childMappings>
+                <mapping id="1da50600-24d1-4942-80f4-b53afe68915a">
+                  <criteria specializationType="Property">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="traverse" />
+                  <behaviour autoSelectChildren="true" />
+                  <childMappings>
+                    <mapping id="a3fd92eb-1fda-4b27-89fd-ba240d8fb02b">
+                      <criteria specializationType="Attribute">
+                        <hasTypeReference>true</hasTypeReference>
+                        <isCollection p13:nil="true" xmlns:p13="http://www.w3.org/2001/XMLSchema-instance" />
+                        <hasChildren>false</hasChildren>
+                      </criteria>
+                      <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                      <behaviour autoSelectChildren="false" />
+                      <childMappings />
+                    </mapping>
+                  </childMappings>
+                </mapping>
+              </childMappings>
+            </mapping>
+          </mappings>
+        </mappingSetting>
+      </mappingSettings>
+      <macros>
+        <macro trigger="on-mapped">
+          <script>class MappingHelper {
+    /**
+     * Ensures that a mapped to type exists, is mapped to the {@link EnsureMappedToTypeOptions.property}'s mapped element and updates
+     * the {@link options.property}'s type reference to point to the type.
+     *
+     * @returns The existing or created type
+     */
+    static ensureMappedToType(options) {
+        let { property, name, mappingSettingsId, includeKeys, sourcePropertySpecialization, typePropertySpecialization, typeSpecialization } = options;
+        const domainElement = property.getMapping().getElement().typeReference.getType();
+        name !== null &amp;&amp; name !== void 0 ? name : (name = domainElement.getName());
+        includeKeys !== null &amp;&amp; includeKeys !== void 0 ? includeKeys : (includeKeys = true);
+        sourcePropertySpecialization !== null &amp;&amp; sourcePropertySpecialization !== void 0 ? sourcePropertySpecialization : (sourcePropertySpecialization = "Attribute");
+        const type = MappingHelper.getOrCreateType(name, property.getParent().getParent(), typeSpecialization);
+        type.setMapping(domainElement.id, mappingSettingsId);
+        property.typeReference.setType(type.id);
+        let typeUpdated = false;
+        let primaryKeyFound = false;
+        for (const attribute of MappingHelper.getAttributesToMap(domainElement, sourcePropertySpecialization, [])) {
+            const { element, path } = attribute;
+            if (!includeKeys &amp;&amp; (element.getName() == "id" ||
+                element.hasStereotype("Foreign Key") ||
+                element.hasStereotype("Primary Key") ||
+                (element.hasStereotype("Partition Key") &amp;&amp; element.getName() === "PartitionKey") || // Legacy Cosmos DB designer option
+                MappingHelper.isOwnerForeignKey(element.getName(), domainElement))) {
+                continue;
+            }
+            if (type.getChildren(typePropertySpecialization).some(x =&gt; x.getName().toLowerCase() === element.getName().toLowerCase())) {
+                continue;
+            }
+            const typeProperty = createElement(typePropertySpecialization, element.getName(), type.id);
+            typeProperty.typeReference.setType(element.typeReference.getTypeId());
+            typeProperty.typeReference.setIsNullable(element.typeReference.isNullable);
+            typeProperty.typeReference.setIsCollection(element.typeReference.isCollection);
+            typeProperty.setMapping(path);
+            typeUpdated = true;
+        }
+        const implicitPkName = MappingHelper.applyNamingConvention("id");
+        if (includeKeys &amp;&amp;
+            !primaryKeyFound &amp;&amp;
+            !type.getChildren(typePropertySpecialization).some(x =&gt; x.getName().toLowerCase() === implicitPkName.toLowerCase())) {
+            const typeProperty = createElement(typePropertySpecialization, implicitPkName, MappingHelper.getSurrogateKeyType());
+            typeProperty.setOrder(0);
+            typeUpdated = true;
+        }
+        if (typeUpdated) {
+            type.collapse();
+        }
+        return type;
+    }
+    static isOwnerForeignKey(attributeName, domainElement) {
+        for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
+            if (attributeName.toLowerCase().indexOf(association.getName().toLowerCase()) &gt;= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    static getOrCreateType(elementName, parentElement, typeSpecialization) {
+        let type = parentElement.getChildren(typeSpecialization).filter(x =&gt; x.getName().toLowerCase() === elementName.toLowerCase())[0];
+        type !== null &amp;&amp; type !== void 0 ? type : (type = createElement(typeSpecialization, elementName, parentElement.id));
+        return type;
+    }
+    static *getAttributesToMap(classElement, propertySourceType, currentPath) {
+        for (const attribute of classElement.getChildren(propertySourceType)) {
+            yield {
+                element: attribute,
+                path: currentPath.concat([attribute.id])
+            };
+        }
+        let generalizations = classElement.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+        if (generalizations.length != 1) {
+            return;
+        }
+        for (const generalization of generalizations) {
+            const baseType = generalization.typeReference.getType();
+            for (const baseTypeAttribute of MappingHelper.getAttributesToMap(baseType, propertySourceType, [baseType.id])) {
+                yield baseTypeAttribute;
+            }
+        }
+    }
+    static getSurrogateKeyType() {
+        var _a, _b, _c;
+        const commonTypes = {
+            guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
+            long: "33013006-E404-48C2-AC46-24EF5A5774FD",
+            int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"
+        };
+        const javaTypes = {
+            long: "e9e575eb-f8de-4ce4-9838-2d09665a752d",
+            int: "b3e5cb3b-8a26-4346-810b-9789afa25a82"
+        };
+        const typeNameToIdMap = new Map();
+        typeNameToIdMap.set("guid", commonTypes.guid);
+        typeNameToIdMap.set("int", lookup(javaTypes.int) != null ? javaTypes.int : commonTypes.int);
+        typeNameToIdMap.set("long", lookup(javaTypes.long) != null ? javaTypes.long : commonTypes.long);
+        const typeName = (_c = (_b = (_a = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")) === null || _a === void 0 ? void 0 : _a.getField("Key Type")) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "guid";
+        return typeNameToIdMap.has(typeName)
+            ? typeNameToIdMap.get(typeName)
+            : typeNameToIdMap.get("guid");
+    }
+    static applyNamingConvention(str) {
+        var _a, _b, _c;
+        const convention = (_c = (_b = (_a = application.getSettings("c4d1e35c-7c0d-4926-afe0-18f17563ce17")) === null || _a === void 0 ? void 0 : _a.getField("Attribute Naming Convention")) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "pascal-case";
+        switch (convention) {
+            case "pascal-case":
+                return toPascalCase(str);
+            case "camel-case":
+                return toCamelCase(str);
+        }
+        return str;
+    }
+}
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.Eventing.Contracts.DomainMapping by the "On Mapped" event for both the DTOs and Messages.
+ *
+ * Source code here:
+ * https://github.com/IntentSoftware/Intent.Modules/blob/master/DesignerMacros/dotnet/eventing-domain-mapping-on-mapped/eventing-domain-mapping-on-mapped.ts
+ */
+//element = lookup("f94b6b5a-514f-45f6-be31-92499ea8173b");
+/// &lt;reference path="../../common/mappingHelper.ts" /&gt;
+const mappingSettingId = "e437007c-33fd-46d5-9293-d4529b4b82e6";
+let properties = element.getChildren()
+    .filter(x =&gt; { var _a; return ((_a = x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) != "Eventing DTO" &amp;&amp; x.getMapping().getElement().specialization.startsWith("Association"); });
+for (const property of properties) {
+    MappingHelper.ensureMappedToType({
+        mappingSettingsId: mappingSettingId,
+        property: property,
+        typePropertySpecialization: "Eventing DTO-Field",
+        typeSpecialization: "Eventing DTO",
+        name: `${property.getMapping().getElement().typeReference.getType().getName()}Dto`
+    });
+}
+</script>
+        </macro>
+      </macros>
+    </elementExtension>
     <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
       <mappingSettings>
         <mappingSetting id="1b4f670b-4c97-4dd0-a1c5-831f3a695859">
@@ -455,4 +684,7 @@ for (const property of properties) {
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

@@ -29,6 +29,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
 
         public override string TemplateId => IntegrationEventMessageTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageModel model)
         {
             return new IntegrationEventMessageTemplate(outputTarget, model);
