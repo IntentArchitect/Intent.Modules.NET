@@ -58,9 +58,56 @@ To subscribe to the Event, right-click on the newly created Integration Event Ha
 
 Drag the line to the Event message and will then add a handler operation to work from.
 
-![Subscribed to Integration Event](docs/images/integration-event-handler-associated.png)
+![Subscribed to Integration Event](docs/images/integration-event-handler-event-associated.png)
 
+### Sending Integration Commands
 
+Create an Integration Command by right-clicking on a Folder and selecting `New Integration Command`.
+
+![New Integration Command](docs/images/new-integration-command.png)
+
+You can drag that Integration Command onto the diagram in order to make publish from elements or subscribe handlers to those Commands.
+
+Right click on an element you wish to publish from (that has the context menu option available).
+
+![Send Integration Command](docs/images/send-integration-command.png)
+
+Drag the line to the Command that needs to be Sent.
+
+![Send Integration Command with line](docs/images/send-integration-command-with-line.png)
+
+Finally map what the element should populate on the Command by right-clicking on the dotted line and selecting the `Map to Message` option.
+
+![Send Integration Command mapping option](docs/images/send-integration-command-mapping-option.png)
+
+### Subscribing to Integration Commands
+
+Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
+
+![New Integration Event Handler](docs/images/integration-event-handler-new.png)
+
+Introduce the Integration Command that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#sending-integration-commands) or by referencing the package that contains that Integration Command in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
+Ensure that the Integration Command is present on the diagram.
+
+To subscribe to the Integration Command, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Command`.
+
+![Subscribe Integration Command](docs/images/integration-event-handler-subscribe-command.png)
+
+Drag the line to the Integration Command and will then add a handler operation to work from.
+
+![Subscribed to Integration Command](docs/images/integration-event-handler-command-associated.png)
+
+### Integration Command Queues
+
+By default a Command will be sent to a Queue directly with a name that uses the Integration Command name as the convention. If you need to change this name (especially if you want different kinds of Commands to be sent to the same queue since order is important) there is a `Command Distribution` stereotype found on the association line. 
+
+When updating this on the Sending side: left-click on the line between the element and the Integration Command and you will see this in your properties panel:
+
+![Queue Name on Sending Command](docs/images/send-integration-command-queue-name.png)
+
+When updating this on the Subscription side: left-click on the handles method located on the Integration Event Handler that is set to subscribe to the Integration Command. You will see this in the properties panel:
+
+![Queue Name on Subscribing to Command](docs/images/subscribe-integration-command-queue-name.png)
 
 ## Modules Settings
 
