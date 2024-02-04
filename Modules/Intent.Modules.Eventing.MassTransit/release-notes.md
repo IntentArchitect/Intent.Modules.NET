@@ -1,4 +1,4 @@
-### Version 6.0.0
+### Version 6.0.2
 
 - Feature: Support for Sending Commands.
 
