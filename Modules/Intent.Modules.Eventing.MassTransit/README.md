@@ -10,15 +10,57 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 ## What's in this module?
 
-This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:
-
-* MassTransit Message Broker implementation.
+* Modeling Integration Events and Commands.
+* MassTransit Message Broker Implementation.
 * Message Publishing.
 * Message Consumption.
 * Multi-tenancy Finbuckle integration.
 * `app.settings` configuration.
 * Dependency Injection wiring.
 * Telemetry support.
+
+## Modeling Integration Events and Commands
+
+From version `6.0.0` of this Module, modeling Integration Events can be achieved from within the Services designer.
+
+### Publishing Integration Events
+
+Create an Integration Event by right-clicking on a Folder and selecting `New Message`.
+
+![New Message](docs/images/new-message.png)
+
+You can drag that Message onto the diagram in order to make publish from elements or subscribe handlers to those Events.
+
+Right click on an element you wish to publish from (that has the context menu option available).
+
+![Publish Integration Event](docs/images/publish-integration-event.png)
+
+Drag the line to the Message that needs to be published. 
+
+![Publish Integration Event with line](docs/images/publish-integration-event-with-line.png)
+
+Finally map what the element should populate on the Message by right-clicking on the dotted line and selecting the `Map to Message` option.
+
+![Publish Integration Event mapping option](docs/images/publish-integration-event-mapping-option.png)
+
+### Subscribing to Integration Events
+
+Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
+
+![New Integration Event Handler](docs/images/integration-event-handler-new.png)
+
+Introduce the Message that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#publishing-integration-events) or by referencing the package that contains that Event in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
+Ensure that the Message is present on the diagram. 
+
+To subscribe to the Event, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Event`.
+
+![Subscribe Integration Event](docs/images/integration-event-handler-subscribe-event.png)
+
+Drag the line to the Event message and will then add a handler operation to work from.
+
+![Subscribed to Integration Event](docs/images/integration-event-handler-associated.png)
+
+
 
 ## Modules Settings
 
