@@ -12,10 +12,10 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 This module consumes your `Eventing Model`, which you build in the `Eventing Designer` and generates the corresponding MassTransit implementation:
 
-* MassTransit Message Broker implimentation.
+* MassTransit Message Broker implementation.
 * Message Publishing.
 * Message Consumption.
-* Multitenancy Finbuckle integration.
+* Multi-tenancy Finbuckle integration.
 * `app.settings` configuration.
 * Dependency Injection wiring.
 * Telemetry support.
@@ -59,15 +59,15 @@ For more information on these options check out the MassTransit [documentation](
 
 ## Designer Support - Eventing Designer
 
-The eventing desinger can be used to describe messaging from an Applications perspective. This really boils down to the following:
+The eventing designer can be used to describe messaging from an Applications perspective. This really boils down to the following:
 
 * The message contracts, i.e. the message content.
 * Which messages the application publishes.
 * Which messages the application subscribes to.
 
-## MassTransit ESB Implimentation
+## MassTransit Message Broker Implementation
 
-Provider a MassTranist specific implementation of the `IEventBus` interface.
+Provider a MassTransit specific implementation of the `IEventBus` interface.
 
 ## Message Publishing
 
@@ -77,7 +77,7 @@ Message publishing can be done through the `IEventBus` interface using the `Publ
 
 For every message subscribed to in the `Eventing Designer`, this module will register up an Infrasrtuctual handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer inegration message handler, which implements `IIntegrationEventHandler`.
 
-An example of the technical message handler registeration:
+An example of the technical message handler registration:
 
 ```csharp
 
@@ -114,17 +114,17 @@ The is what the Business logic Integration Event handler looks like:
 
 ```
 
-## Multitenancy Finbuckle Integration
+## Multi-tenancy Finbuckle Integration
 
-If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multitenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.
+If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multi-tenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.
 
 Notable details of the implementation:
 
-* Tenancy Publishing Filter, this filter add's the current Tenant Identity to outbound messages.
+* Tenancy Publishing Filter, this filter adds the current Tenant Identity to outbound messages.
 * Tenancy Consuming Filter, reads the Tenant Identity in inbound messages and configures Finbuckle accordingly.
 * Finbuckle Message Header Tenancy Strategy, Finbuckle integration with setting up Tenancy through Message headers.
 
-You can configure the name of the header in your `appsettings.json`, by default the header will be "Tenant-Identifier". If you re-configure these make sure the configuration is done across publishers and consuimers.
+You can configure the name of the header in your `appsettings.json`, by default the header will be "Tenant-Identifier". If you re-configure these make sure the configuration is done across publishers and consumers.
 
 ```json
 {
@@ -159,7 +159,7 @@ You `app.settings.json` will have 2 sections populated, one for MassTransit itse
 
 ### Dependency Injection wiring
 
-Registers up the MassTransit dependency injection in the Infrastructual layer.
+Registers up the MassTransit dependency injection in the Infrastructure layer.
 
 ```csharp
     public static class DependencyInjection
@@ -173,7 +173,7 @@ Registers up the MassTransit dependency injection in the Infrastructual layer.
     }
 ```
 
-Adds a MassTransit Configuration file, which look similar to this depnding on your configuration.
+Adds a MassTransit Configuration file, which look similar to this depending on your configuration.
 
 ```csharp
     public static class MassTransitConfiguration
