@@ -26,8 +26,8 @@ public static class AzureKeyVaultConfiguration
     private static TokenCredential GetTokenCredential(IConfiguration configuration)
     {
         if (!string.IsNullOrWhiteSpace(configuration["KeyVault:TenantId"]) &&
-            !string.IsNullOrWhiteSpace(configuration["KeyVault:ClientId"]) &&
-            !string.IsNullOrWhiteSpace(configuration["KeyVault:Secret"]))
+                !string.IsNullOrWhiteSpace(configuration["KeyVault:ClientId"]) &&
+                !string.IsNullOrWhiteSpace(configuration["KeyVault:Secret"]))
         {
             // Manually specify the connection details for Azure Key Vault.
             // Its recommended to store the 'Secret' inside the .NET User Secret's secrets.json file.

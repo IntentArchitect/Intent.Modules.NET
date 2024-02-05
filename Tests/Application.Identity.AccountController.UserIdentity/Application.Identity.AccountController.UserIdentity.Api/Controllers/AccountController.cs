@@ -118,7 +118,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Controllers
 
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null ||
-            !await _userManager.CheckPasswordAsync(user, password))
+                !await _userManager.CheckPasswordAsync(user, password))
             {
                 _logger.LogWarning("Invalid login attempt.");
                 return Forbid();

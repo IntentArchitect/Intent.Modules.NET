@@ -64,7 +64,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.WithCompositeKeys
 
             // Assert
             act.Should().ThrowAsync<ValidationException>().Result
-            .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
+                .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
         }
 
         private ValidationBehaviour<CreateWithCompositeKeyCommand, System.Guid> GetValidationBehaviour()

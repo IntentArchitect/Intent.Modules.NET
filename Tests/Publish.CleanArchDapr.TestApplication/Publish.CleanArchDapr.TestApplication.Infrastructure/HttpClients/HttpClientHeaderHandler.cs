@@ -73,7 +73,7 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.HttpClients
             var hasContent = request.Content != null;
 
             if (!request.Headers.TryGetValues(key, out var _) &&
-            !(hasContent && request.Content!.Headers.TryGetValues(key, out var _)))
+                !(hasContent && request.Content!.Headers.TryGetValues(key, out var _)))
             {
                 if (!request.Headers.TryAddWithoutValidation(key, value) && hasContent)
                 {
@@ -91,7 +91,7 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.HttpClients
             var hasContent = request.Content != null;
 
             if (!request.Headers.TryGetValues(key, out var _) &&
-            !(hasContent && request.Content!.Headers.TryGetValues(key, out var _)))
+                !(hasContent && request.Content!.Headers.TryGetValues(key, out var _)))
             {
                 if (stringValues.Count == 1)
                 {

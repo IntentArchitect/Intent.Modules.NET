@@ -47,14 +47,14 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
                         method
                             .Static()
                             .Private()
-                            .AddStatements(@"var assembly = typeof(DaprClient).Assembly;
-                string assemblyVersion = assembly
-                    .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
-                    .FirstOrDefault()?
-                    .InformationalVersion;
+                            .AddStatements(@"
+                                var assembly = typeof(DaprClient).Assembly;
+                                string assemblyVersion = assembly
+                                    .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
+                                    .FirstOrDefault()?
+                                    .InformationalVersion;
 
-                return new ProductInfoHeaderValue(""dapr-sdk-dotnet"", $""v{assemblyVersion}"");".ConvertToStatements());
-                            ;
+                                return new ProductInfoHeaderValue(""dapr-sdk-dotnet"", $""v{assemblyVersion}"");".ConvertToStatements());
                     });
                 });
         }

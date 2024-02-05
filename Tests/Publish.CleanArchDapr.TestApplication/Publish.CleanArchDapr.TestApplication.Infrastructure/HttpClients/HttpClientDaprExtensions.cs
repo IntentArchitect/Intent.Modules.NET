@@ -26,9 +26,9 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.HttpClients
         {
             var assembly = typeof(DaprClient).Assembly;
             string assemblyVersion = assembly
-            .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
-            .FirstOrDefault()?
-            .InformationalVersion;
+                .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
+                .FirstOrDefault()?
+                .InformationalVersion;
 
             return new ProductInfoHeaderValue("dapr-sdk-dotnet", $"v{assemblyVersion}");
         }
