@@ -79,7 +79,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
 
 
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
-                    ? template.UseType(template.GetTypeInfo( template.Model.GetRequestDtoParameter().TypeReference).WithIsNullable(false))
+                    ? template.UseType(template.GetTypeInfo(template.Model.GetRequestDtoParameter().TypeReference).WithIsNullable(false))
                     : null;
                 if (!string.IsNullOrEmpty(requestDtoTypeName))
                 {

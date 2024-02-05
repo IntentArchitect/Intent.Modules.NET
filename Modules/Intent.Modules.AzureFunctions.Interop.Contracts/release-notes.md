@@ -1,3 +1,7 @@
+### Version 4.1.7
+
+- Improvement: Updated icon to SVG format.
+
 ### Version 4.1.3
 
 - Update: Improved Queue Trigger support, including receiving messages as `QueueMessage`.

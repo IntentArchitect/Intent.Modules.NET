@@ -1,6 +1,7 @@
 ### Version 4.0.15
 
 - Fixed: `Expose as HTTP` would fail when used on Commands and Queries with advanced mappings.
+- Improvement: Updated icon to SVG format.
 
 ### Version 4.0.13
 
