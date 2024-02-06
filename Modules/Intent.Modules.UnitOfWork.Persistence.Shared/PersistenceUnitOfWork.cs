@@ -14,7 +14,7 @@ internal static class PersistenceUnitOfWork
     public static bool SystemUsesPersistenceUnitOfWork(this ICSharpFileBuilderTemplate template)
     {
         return
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
             template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
@@ -41,11 +41,11 @@ internal static class PersistenceUnitOfWork
         var useTransactionScope = false;
         var useOutsideTransactionScope = false;
 
-        var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _);
+        var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
             constructor.AddParameter(
-                template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
+                template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface),
                 cosmosDbParameterName,
                 c => c.IntroduceReadonlyField());
 

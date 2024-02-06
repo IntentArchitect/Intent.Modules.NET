@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,12 +22,72 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RedisOmDocumentOfTInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddInterface($"IRedisOmDocumentOfT", @interface =>
+                .AddUsing("System")
+                .AddInterface($"IRedisOmDocument", @interface =>
                 {
-                    @interface.AddMethod("bool", "ExampleMethod", method =>
+                    @interface
+                        .Internal()
+                        .AddGenericParameter("TDomain", out var tDomain, genericParameter =>
+                        {
+                            if (createEntityInterfaces)
+                            {
+                                genericParameter.Contravariant();
+                            }
+                        });
+
+                    var tDomainState = tDomain;
+                    if (createEntityInterfaces)
                     {
-                        method.AddParameter("string", "exampleParam");
+                        @interface
+                            .AddGenericParameter("TDomainState", out tDomainState);
+                    }
+
+                    @interface
+                        .AddGenericParameter("TDocument", out var tDocument, g => g.Covariant())
+                        .AddGenericTypeConstraint(tDomain, c => c
+                            .AddType("class"));
+                    if (createEntityInterfaces)
+                    {
+                        @interface
+                            .AddGenericTypeConstraint(tDomainState, c => c
+                                .AddType("class")
+                                .AddType(tDomain));
+                    }
+
+                    var tDomainStateConstraint = createEntityInterfaces
+                        ? $", {tDomainState}"
+                        : string.Empty;
+                    @interface
+                        .AddGenericTypeConstraint(tDocument, c => c
+                            .AddType($"{this.GetRedisOmDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"));
+
+                    @interface.ImplementsInterfaces(UseType("IRedisOmDocument"));
+
+                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                        .AddParameter(tDomain, "entity"));
+
+                    @interface.AddMethod(tDomainState, "ToEntity", c => c
+                        .AddParameter($"{tDomainState}?", "entity", p => p.WithDefaultValue("null")));
+                })
+                .AddInterface($"IRedisOmDocument", @interface =>
+                {
+                    @interface.Internal();
+                    @interface.ImplementsInterfaces(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+
+                    @interface.AddProperty("string", "PartitionKey", method => method
+                        .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
+                        .WithoutSetter()
+                        .Getter.WithExpressionImplementation("PartitionKey!")
+                    );
+
+                    @interface.AddProperty("string?", "PartitionKey", property =>
+                    {
+                        property.New();
+                        property.Getter.WithExpressionImplementation("Id");
+                        property.Setter.WithExpressionImplementation("Id = value ?? throw new ArgumentNullException(nameof(value))");
                     });
                 });
         }

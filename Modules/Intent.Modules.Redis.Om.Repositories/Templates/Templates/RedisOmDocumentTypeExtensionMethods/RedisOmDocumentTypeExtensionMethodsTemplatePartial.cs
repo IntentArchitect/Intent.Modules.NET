@@ -22,14 +22,27 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
         public RedisOmDocumentTypeExtensionMethodsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"RedisOmDocumentTypeExtensionMethods", @class =>
+                .AddUsing("System")
+                .AddUsing("System.Linq")
+                .AddClass($"TypeExtensionMethods", @class =>
                 {
-                    @class.AddConstructor(ctor =>
+                    @class.Internal().Static();
+                    @class.AddMethod("string", "GetNameForDocument", method =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
+                        method.Static();
+                        method.AddParameter("Type", "type", p => p.WithThisModifier());
+
+                        method.AddIfStatement("type.IsArray", @if =>
                         {
-                            param.IntroduceReadonlyField();
+                            @if.AddStatement("return GetNameForDocument(type.GetElementType()!) + \"[]\";");
                         });
+
+                        method.AddIfStatement("type.IsGenericType", @if =>
+                        {
+                            @if.AddStatement("return $\"{type.Name[..type.Name.LastIndexOf(\"`\", StringComparison.InvariantCulture)]}<{string.Join(\", \", type.GetGenericArguments().Select(GetNameForDocument))}>\";");
+                        });
+
+                        method.AddStatement("return type.Name;", s => s.SeparatedFromPrevious());
                     });
                 });
         }

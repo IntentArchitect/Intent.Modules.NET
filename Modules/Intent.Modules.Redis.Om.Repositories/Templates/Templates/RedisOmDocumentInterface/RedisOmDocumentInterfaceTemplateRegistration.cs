@@ -35,7 +35,9 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(RedisOmProvider.FilterDbProvider)
+                .ToArray();
         }
     }
 }

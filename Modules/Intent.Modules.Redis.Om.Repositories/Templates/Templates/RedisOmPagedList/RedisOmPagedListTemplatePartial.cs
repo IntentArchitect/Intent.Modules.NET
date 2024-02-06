@@ -5,6 +5,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,14 +23,66 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RedisOmPagedListTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"RedisOmPagedList", @class =>
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("Microsoft.Azure.CosmosRepository")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Paging")
+                .AddClass("CosmosPagedList", @class =>
                 {
+                    @class
+                        .Internal()
+                        .AddGenericParameter("TDomain", out var tDomain);
+
+                    var tDomainState = tDomain;
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericParameter("TDomainState", out tDomainState);
+                    }
+
+                    @class
+                        .AddGenericParameter("TDocument", out var tDocument)
+                        .WithBaseType($"List<{tDomain}>")
+                        .ImplementsInterface($"{this.GetPagedResultInterfaceName()}<{tDomain}>")
+                        .AddGenericTypeConstraint(tDomain, c => c
+                            .AddType("class"));
+
+                    if (createEntityInterfaces)
+                    {
+                        @class
+                            .AddGenericTypeConstraint(tDomainState, c => c
+                                .AddType("class")
+                                .AddType(tDomain));
+                    }
+
+                    var tDomainStateConstraint = createEntityInterfaces
+                        ? $", {tDomainState}"
+                        : string.Empty;
+                    @class
+                        .AddGenericTypeConstraint(tDocument, c => c
+                            .AddType($"{this.GetRedisOmDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"))
+                        ;
+
+                    @class.AddProperty("int", "TotalCount", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageCount", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageNo", prop => prop.WithoutSetter());
+                    @class.AddProperty("int", "PageSize", prop => prop.WithoutSetter());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
+                        ctor.AddParameter($"IPageQueryResult<{tDocument}>", "pagedResult")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize");
+
+                        ctor.AddStatement("TotalCount = pagedResult.Total ?? 0;");
+                        ctor.AddStatement("PageCount = pagedResult.TotalPages ?? 0;");
+                        ctor.AddStatement("PageNo = pageNo;");
+                        ctor.AddStatement("PageSize = pageSize;");
+
+                        ctor.AddForEachStatement("result", "pagedResult.Items", stmt =>
                         {
-                            param.IntroduceReadonlyField();
+                            stmt.AddStatement("Add(result.ToEntity());");
                         });
                     });
                 });

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="fb695450-421e-4ca5-80f2-2149532e24fc" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="30e6936f-b23a-4b60-81bf-f63af1ea6a49" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>RedisOmDocumentTypeExtensionMethods</name>
   <display>RedisOmDocumentTypeExtensionMethods: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="ca518695-a3d1-4bcd-9421-1fa80896bb4b">
+  <typeReference id="aeca3476-dc77-45f4-ae66-027662959a3b">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

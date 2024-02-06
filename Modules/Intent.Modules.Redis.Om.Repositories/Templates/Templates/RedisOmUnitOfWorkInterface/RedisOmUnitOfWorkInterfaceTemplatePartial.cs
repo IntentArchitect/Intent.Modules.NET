@@ -22,12 +22,13 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmUnitOf
         public RedisOmUnitOfWorkInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IRedisOmUnitOfWork", @interface =>
                 {
-                    @interface.AddMethod("bool", "ExampleMethod", method =>
-                    {
-                        method.AddParameter("string", "exampleParam");
-                    });
+                    @interface.AddMethod("Task", "SaveChangesAsync", method => method
+                        .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
+                    );
                 });
         }
 

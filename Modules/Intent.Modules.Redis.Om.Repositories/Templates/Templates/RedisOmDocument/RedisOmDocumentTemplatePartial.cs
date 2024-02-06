@@ -8,10 +8,13 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocumentInterface;
 using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmValueObjectDocument;
+using Intent.Redis.Om.Repositories.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -83,36 +86,185 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
                         .Where(x => entityPropertyIds.Contains(x.Id) && x.IsNavigable)
                         .ToList();
 
-                    // if (Model.IsAggregateRoot())
-                    // {
-                    //     AddPropertiesForAggregate(@class);
-                    // }
-                    // else
-                    // {
-                    //     this.AddCosmosDBDocumentProperties(
-                    //         @class: @class,
-                    //         attributes: attributes,
-                    //         associationEnds: associationEnds,
-                    //         documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId);
-                    // }
-                    //
-                    // var pk = Model.GetPrimaryKeyAttribute();
-                    // Model.TryGetPartitionAttribute(out var partitionAttribute);
-                    // this.AddCosmosDBMappingMethods(
-                    //     @class: @class,
-                    //     attributes: attributes,
-                    //     associationEnds: associationEnds,
-                    //     partitionKeyAttribute: partitionAttribute,
-                    //     entityInterfaceTypeName: EntityTypeName,
-                    //     entityImplementationTypeName: EntityStateTypeName,
-                    //     entityRequiresReflectionConstruction: Model.Constructors.Any() &&
-                    //                                           Model.Constructors.All(x => x.Parameters.Count != 0),
-                    //     entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
-                    //     isAggregate: Model.IsAggregateRoot(),
-                    //     hasBaseType: Model.ParentClass != null
-                    //     );
+                    if (Model.IsAggregateRoot())
+                    {
+                        AddPropertiesForAggregate(@class);
+                    }
+                    else
+                    {
+                        this.AddRedisOmDocumentProperties(
+                            @class: @class,
+                            attributes: attributes,
+                            associationEnds: associationEnds,
+                            documentInterfaceTemplateId: RedisOmDocumentInterfaceTemplate.TemplateId);
+                    }
+
+                    var pk = Model.GetPrimaryKeyAttribute();
+                    Model.TryGetPartitionAttribute(out var partitionAttribute);
+                    this.AddRedisOmMappingMethods(
+                        @class: @class,
+                        attributes: attributes,
+                        associationEnds: associationEnds,
+                        partitionKeyAttribute: partitionAttribute,
+                        entityInterfaceTypeName: EntityTypeName,
+                        entityImplementationTypeName: EntityStateTypeName,
+                        entityRequiresReflectionConstruction: Model.Constructors.Any() &&
+                                                              Model.Constructors.All(x => x.Parameters.Count != 0),
+                        entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
+                        isAggregate: Model.IsAggregateRoot(),
+                        hasBaseType: Model.ParentClass != null
+                        );
                 }, 1000);
         }
+
+        private void AddPropertiesForAggregate(CSharpClass @class)
+        {
+            var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
+            var genericTypeArguments = Model.GenericTypes.Any()
+                ? $"<{string.Join(", ", Model.GenericTypes)}>"
+                : string.Empty;
+            var tDomainStateConstraint = createEntityInterfaces
+                ? $", {EntityStateTypeName}{genericTypeArguments}"
+                : string.Empty;
+            @class.ImplementsInterface(
+                $"{this.GetRedisOmDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}>");
+
+            var pk = Model.GetPrimaryKeyAttribute();
+            Model.TryGetPartitionAttribute(out var partitionAttribute);
+            var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
+                .Properties.Where(x => x.ExplicitlyImplementing == null &&
+                                       x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
+                .ToArray();
+
+            // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for IItem.Id:
+            if (!string.Equals(pk.IdAttribute.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
+                entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pk.IdAttribute.Id))
+            {
+                var pkPropertyName = pk.IdAttribute.Name.ToPascalCase();
+                @class.AddProperty("string", "Id", property =>
+                {
+                    property.ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+                    property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"id\")");
+                    property.Getter.WithExpressionImplementation($"{pkPropertyName}");
+                    property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
+                });
+            }
+
+            // IItem.Type implementation:
+            if (Model.ParentClass == null)
+            {
+                @class.AddField("string?", "_type");
+                @class.AddProperty("string", "Type", property =>
+                {
+                    property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"type\")")
+                        .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+
+                    this.GetRedisOmDocumentTypeExtensionMethodsName(); // Ensure using is added for extension method
+                    property.Getter.WithExpressionImplementation("_type ??= GetType().GetNameForDocument()");
+                    property.Setter.WithExpressionImplementation("_type = value");
+                });
+            }
+
+            // ICosmosDBDocument.PartitionKey implementation:
+            {
+                if (partitionAttribute != null)
+                {
+                    @class.AddProperty("string?", "PartitionKey", property =>
+                    {
+                        property.ExplicitlyImplements(this.GetRedisOmDocumentOfTInterfaceName());
+                        property.Getter.WithExpressionImplementation($"{partitionAttribute.Name.ToPascalCase()}");
+                        property.Setter.WithExpressionImplementation($"{partitionAttribute.Name.ToPascalCase()} = value!");
+                    });
+                }
+            }
+
+            foreach (var entityProperty in entityProperties)
+            {
+                var metadataModel = entityProperty.GetMetadata<IMetadataModel>("model");
+                var typeReference = metadataModel switch
+                {
+                    AttributeModel attribute => attribute.TypeReference,
+                    AssociationEndModel associationEnd => associationEnd,
+                    _ => throw new InvalidOperationException()
+                };
+
+                var typeName = GetTypeName(typeReference);
+
+                // PK must always be a string
+                if (metadataModel.Id == pk.IdAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                {
+                    typeName = Helpers.PrimaryKeyType;
+                }
+
+                //Partition key must be a string
+                if (partitionAttribute != null && metadataModel.Id == partitionAttribute.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                {
+                    typeName = "string";
+                }
+
+                @class.AddProperty(typeName, entityProperty.Name, property =>
+                {
+                    if (IsNonNullableReferenceType(typeReference))
+                    {
+                        property.WithInitialValue("default!");
+                    }
+
+                    if (metadataModel is AttributeModel attributeModel && attributeModel.HasFieldSetting())
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{attributeModel.GetFieldSetting().Name()}\")");
+                    }
+                    else if (metadataModel is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
+                    }
+                    // Add "Id" property with JsonProperty attribute if not the PK
+                    else if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pk.IdAttribute.Id)
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
+                    }
+
+                    // Add "Type" property with JsonProperty attribute so as to not conflict with the IItem.Type property
+                    else if (string.Equals(entityProperty.Name, "Type", StringComparison.OrdinalIgnoreCase))
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
+                    }
+                });
+
+                if (metadataModel is AssociationTargetEndModel targetEndModel)
+                {
+                    @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
+                        property =>
+                        {
+                            property.ExplicitlyImplements(this.GetRedisOmDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
+                }
+
+                if (metadataModel is AttributeModel attributeModel && attributeModel.TypeReference.IsCollection)
+                {
+                    string nullablePostFix = "";
+                    bool isNullable = attributeModel.TypeReference.IsNullable;
+                    if (isNullable)
+                    {
+                        nullablePostFix = OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                    }
+                    @class.AddProperty(
+                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>{nullablePostFix}",
+                        name: entityProperty.Name,
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(this.GetRedisOmDocumentInterfaceName());
+                            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                            property.WithoutSetter();
+                        });
+                }
+            }
+        }
+
+        public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
+        public string EntityTypeName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
 
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 

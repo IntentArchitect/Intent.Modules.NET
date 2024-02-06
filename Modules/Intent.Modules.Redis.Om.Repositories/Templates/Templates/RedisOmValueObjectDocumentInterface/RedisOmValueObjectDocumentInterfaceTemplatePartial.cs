@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,13 +26,22 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmValueO
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RedisOmValueObjectDocumentInterfaceTemplate(IOutputTarget outputTarget, IElement model = null) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateId);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddInterface($"I{Model.Name}", @interface =>
+                .AddInterface($"I{Model.Name}Document", @interface =>
                 {
-                    @interface.AddMethod("bool", "ExampleMethod", method =>
+                    var attributes = Model.ChildElements
+                        .Where(x => x.IsAttributeModel())
+                        .Select(x => x.AsAttributeModel())
+                        .ToArray();
+
+                    foreach (var attribute in attributes)
                     {
-                        method.AddParameter("string", "exampleParam");
-                    });
+                        @interface.AddProperty(GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), p => p.WithoutSetter());
+                    }
                 });
         }
 

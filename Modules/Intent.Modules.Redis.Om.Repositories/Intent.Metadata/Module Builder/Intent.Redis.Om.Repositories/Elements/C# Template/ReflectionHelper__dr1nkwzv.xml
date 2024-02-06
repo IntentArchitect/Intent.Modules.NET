@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="2ce1f52e-1a36-40c2-a709-d27c4b6cf212" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>RedisOmDocumentOfTInterface</name>
-  <display>RedisOmDocumentOfTInterface: Single File</display>
+<class id="85d463b8-f154-4beb-9e85-9fa5921a19b6" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>ReflectionHelper</name>
+  <display>ReflectionHelper: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="afaeb702-e451-42f5-96d2-50745a8715c5">
+  <typeReference id="7ab11429-8f6d-4597-97e8-ac449202016c">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

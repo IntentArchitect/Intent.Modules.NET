@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="169c4c83-0839-4106-9225-6ca481c1fb30" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="4cca8f06-be62-4b46-a438-3cef6fc5e1ce" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>RedisOmUnitOfWork</name>
   <display>RedisOmUnitOfWork: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="28bdf0f4-73fb-4a6c-8522-27d73169eaac">
+  <typeReference id="1e741ccb-7c38-4ee9-84af-77b5d0c51d7d">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

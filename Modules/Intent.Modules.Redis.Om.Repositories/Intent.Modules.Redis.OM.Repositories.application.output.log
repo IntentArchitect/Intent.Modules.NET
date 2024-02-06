@@ -9,6 +9,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8faa0157-30e3-4806-9ebf-c8c68a4574a1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0a66489f-30aa-417b-a75d-b945863366fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AssociationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssociationTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8faa0157-30e3-4806-9ebf-c8c68a4574a1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0090fb93-483e-41af-a11d-5ad2dc796adf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AttributeModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AttributeModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a736bad7-6e69-40b6-8497-69eaea7b26b8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#3692bd87-42fd-4f8f-9fc0-2032683e0d2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -50,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#59fec2c9-87a8-4464-ba3b-d4a8c7ca2e9b</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c0321cb-387b-40ff-a031-714628f12931</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs</ProjectRelativeFilePath>
@@ -58,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#59fec2c9-87a8-4464-ba3b-d4a8c7ca2e9b</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#9c0321cb-387b-40ff-a031-714628f12931</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocument/RedisOmDocumentTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocument/RedisOmDocumentTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -66,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d3bacf4d-3401-43ee-82fb-36c5e781b36c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4baa3365-e3e5-4b27-8205-ca1eb5c18a3e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -74,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#d3bacf4d-3401-43ee-82fb-36c5e781b36c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4baa3365-e3e5-4b27-8205-ca1eb5c18a3e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -82,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2ce1f52e-1a36-40c2-a709-d27c4b6cf212</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a040181-5604-4371-9aaa-d780f4c439c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -90,7 +106,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2ce1f52e-1a36-40c2-a709-d27c4b6cf212</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2a040181-5604-4371-9aaa-d780f4c439c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentOfTInterface/RedisOmDocumentOfTInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -98,7 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb695450-421e-4ca5-80f2-2149532e24fc</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#30e6936f-b23a-4b60-81bf-f63af1ea6a49</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplatePartial.cs</ProjectRelativeFilePath>
@@ -106,7 +122,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fb695450-421e-4ca5-80f2-2149532e24fc</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#30e6936f-b23a-4b60-81bf-f63af1ea6a49</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmDocumentTypeExtensionMethods/RedisOmDocumentTypeExtensionMethodsTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -114,7 +130,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#498df299-1f79-4753-9fe2-8cf74699f01a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb01b94d-5cd9-4464-bbb4-fa29cab07dd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmPagedList/RedisOmPagedListTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmPagedList/RedisOmPagedListTemplatePartial.cs</ProjectRelativeFilePath>
@@ -122,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#498df299-1f79-4753-9fe2-8cf74699f01a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fb01b94d-5cd9-4464-bbb4-fa29cab07dd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmPagedList/RedisOmPagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmPagedList/RedisOmPagedListTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -130,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4be26d6a-ed5b-4d07-8e02-139304b86f11</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1cacd4ed-2666-4590-8f3d-527b8e18dfb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepository/RedisOmRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepository/RedisOmRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
@@ -138,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4be26d6a-ed5b-4d07-8e02-139304b86f11</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1cacd4ed-2666-4590-8f3d-527b8e18dfb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepository/RedisOmRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepository/RedisOmRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -146,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#af8e482e-a82e-421c-ab3a-b2dc1a9daf70</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#00eb45f6-daa8-48dd-9528-e735628d51f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplatePartial.cs</ProjectRelativeFilePath>
@@ -154,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#af8e482e-a82e-421c-ab3a-b2dc1a9daf70</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#00eb45f6-daa8-48dd-9528-e735628d51f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepositoryBase/RedisOmRepositoryBaseTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -162,7 +178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#931eb1af-96e7-468f-b780-f92bfa76d51c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#272a8935-2f1a-4b38-8b43-e0553bea2669</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -170,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#931eb1af-96e7-468f-b780-f92bfa76d51c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#272a8935-2f1a-4b38-8b43-e0553bea2669</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmRepositoryInterface/RedisOmRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -178,7 +194,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#169c4c83-0839-4106-9225-6ca481c1fb30</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cca8f06-be62-4b46-a438-3cef6fc5e1ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplatePartial.cs</ProjectRelativeFilePath>
@@ -186,7 +202,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#169c4c83-0839-4106-9225-6ca481c1fb30</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4cca8f06-be62-4b46-a438-3cef6fc5e1ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmUnitOfWork/RedisOmUnitOfWorkTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -194,7 +210,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e7ae68d9-c64d-47ac-bdb6-3a3222b93762</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71e5d976-e361-4d1a-9574-8926afd7351c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -202,7 +218,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e7ae68d9-c64d-47ac-bdb6-3a3222b93762</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71e5d976-e361-4d1a-9574-8926afd7351c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmUnitOfWorkInterface/RedisOmUnitOfWorkInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -210,7 +226,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f91f1aaa-62a5-432a-97a9-dd972a48cac4</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#314c3ae5-1788-4aba-96c7-e9c2e6e1e9c0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplatePartial.cs</ProjectRelativeFilePath>
@@ -218,7 +234,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f91f1aaa-62a5-432a-97a9-dd972a48cac4</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#314c3ae5-1788-4aba-96c7-e9c2e6e1e9c0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmValueObjectDocument/RedisOmValueObjectDocumentTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -226,7 +242,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2836ee45-7268-4f59-9488-8e4703753de7</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8010f5cc-2996-4172-aab8-daafb0f9fd01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -234,7 +250,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#2836ee45-7268-4f59-9488-8e4703753de7</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8010f5cc-2996-4172-aab8-daafb0f9fd01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/RedisOmValueObjectDocumentInterface/RedisOmValueObjectDocumentInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -242,7 +258,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d8095e9-9b8a-46fe-9248-6c2317f54f7d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#85d463b8-f154-4beb-9e85-9fa5921a19b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ProjectRelativeFilePath>
@@ -250,7 +266,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca825114-0097-4612-a06d-127d4acc837d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2d8095e9-9b8a-46fe-9248-6c2317f54f7d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#85d463b8-f154-4beb-9e85-9fa5921a19b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ProjectRelativeFilePath>

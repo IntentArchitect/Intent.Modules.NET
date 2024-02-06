@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,13 +28,85 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         public RedisOmRepositoryInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq.Expressions")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IRedisOmRepository", @interface =>
                 {
-                    @interface.AddMethod("bool", "ExampleMethod", method =>
-                    {
-                        method.AddParameter("string", "exampleParam");
-                    });
+                    var pagedListInterface = TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
+                        ? name : GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
+
+                    @interface
+                        .AddGenericParameter("TDomain", out var tDomain)
+                        .AddGenericParameter("TDocumentInterface", out var toDocumentInterface);
+
+                    @interface
+                        .ImplementsInterfaces($"{this.GetRepositoryInterfaceName()}<{tDomain}>")
+                        .AddProperty(this.GetRedisOmUnitOfWorkInterfaceName(), "UnitOfWork", property => property
+                            .WithoutSetter()
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"int", "pageNo")
+                            .AddParameter($"int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"int", "pageNo")
+                            .AddParameter($"int", "pageSize")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
+                            .AddParameter($"IEnumerable<string>", "ids")
+                            .AddParameter("CancellationToken", "cancellationToken",
+                                parameter => parameter.WithDefaultValue("default"))
+                        );
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+
+            foreach (var model in Model)
+            {
+                var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @interface = file.Interfaces.Single();
+                    @interface.Interfaces.Clear();
+                    var genericTypeParameters = model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", model.GenericTypes)}>"
+                        : string.Empty;
+                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
+                    var tDocumentInterfaceGenericArgument = template.GetTypeName(RedisOmDocumentInterfaceTemplate.TemplateId, model);
+                    @interface.ImplementsInterfaces($"{this.GetRedisOmRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
+
+                    if (model.GetPrimaryKeyAttribute()?.IdAttribute.TypeReference?.Element.Name == "string")
+                    {
+                        var toRemove = @interface.Methods
+                            .Where(x => x.Name == "FindByIdsAsync")
+                            .ToArray();
+
+                        foreach (var method in toRemove)
+                        {
+                            @interface.Methods.Remove(method);
+                        }
+                    }
+                }, 1000);
+            }
         }
 
         [IntentManaged(Mode.Fully)]
