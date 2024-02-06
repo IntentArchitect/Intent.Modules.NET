@@ -7,7 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-using System;
 using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,4 +16,5 @@ namespace <#= Namespace #>;
 public interface <#= ClassName #>
 {
     Task SendEmailConfirmationRequest(string email, string userId, string code);
+    Task SendPasswordResetCode(string email, string userId, string resetCode);
 }

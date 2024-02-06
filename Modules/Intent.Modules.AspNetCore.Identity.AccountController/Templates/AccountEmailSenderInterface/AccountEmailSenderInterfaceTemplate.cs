@@ -32,22 +32,23 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(M" +
-                    "ode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
+                    "namespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSenderInterface\AccountEmailSenderInterfaceTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSenderInterface\AccountEmailSenderInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\npublic interface ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSenderInterface\AccountEmailSenderInterfaceTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSenderInterface\AccountEmailSenderInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    Task SendEmailConfirmationRequest(string email, string userId, string co" +
+                    "de);\r\n    Task SendPasswordResetCode(string email, string userId, string resetCo" +
                     "de);\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }

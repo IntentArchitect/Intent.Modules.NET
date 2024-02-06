@@ -54,9 +54,20 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n    public async Task S" +
-                    "endEmailConfirmationRequest(string email, string userId, string code)\r\n    {\r\n  " +
-                    "      throw new NotImplementedException();\r\n    }\r\n}");
+            this.Write(@"
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    public async Task SendEmailConfirmationRequest(string email, string userId, string code)
+    {
+        throw new NotImplementedException();
+    }
+
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    public async Task SendPasswordResetCode(string email, string userId, string resetCode)
+    {
+        throw new NotImplementedException();
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }
