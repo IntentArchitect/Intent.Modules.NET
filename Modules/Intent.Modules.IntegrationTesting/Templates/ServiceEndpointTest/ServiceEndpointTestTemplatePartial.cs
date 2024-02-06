@@ -6,7 +6,9 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.IntegrationTesting.Settings;
+using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -14,15 +16,18 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.IntegrationTesting.Templates.ServiceEndpointTest
+namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpointTest
 {
     [IntentManaged(Mode.Ignore)]
     public partial class ServiceEndpointTestTemplate : CSharpTemplateBase<IHttpEndpointModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.IntegrationTesting.ServiceEndpointTest";
+        public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest";
 
         public ServiceEndpointTestTemplate(IOutputTarget outputTarget, IHttpEndpointModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AutoFixture);
+            AddTypeSource(ProxyServiceContractTemplate.TemplateId);
+            AddTypeSource(DtoContractTemplate.TemplateId);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
                 .AddClass($"{Model.Name}Tests", @class =>
                 {

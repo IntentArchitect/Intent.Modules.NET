@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -13,12 +14,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
+namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixture
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class EFContainerFixtureTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.IntegrationTesting.EFContainerFixture";
+        public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.EFContainerFixture";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EFContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -55,7 +56,7 @@ namespace Intent.Modules.IntegrationTesting.Templates.EFContainerFixture
                     @class.AddMethod("void", "ConfigureTestServices", method =>
                     {
                         method.AddParameter("IServiceCollection", "services");
-                        method.AddStatements(@$"var descriptor = services.SingleOrDefault(s => s.ServiceType  == typeof( DbContextOptions<ApplicationDbContext>));
+                        method.AddStatements(@$"var descriptor = services.SingleOrDefault(s => s.ServiceType  == typeof( DbContextOptions<{GetTypeName(TemplateRoles.Infrastructure.Data.DbContext)}>));
                 if (descriptor is not null)
                 {{
                     services.Remove(descriptor);
