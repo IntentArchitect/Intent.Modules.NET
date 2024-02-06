@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3692bd87-42fd-4f8f-9fc0-2032683e0d2d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EnsureParameterlessConstructorsExtension</name>
+  <display>EnsureParameterlessConstructorsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>739f3162-d1f8-4609-86df-756c6ff6b7e3</parentFolderId>
+  <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+  <packageName>Intent.Redis.Om.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
