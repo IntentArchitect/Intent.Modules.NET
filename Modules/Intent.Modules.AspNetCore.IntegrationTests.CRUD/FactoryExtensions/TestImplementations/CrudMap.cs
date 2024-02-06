@@ -8,7 +8,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 {
     internal class CrudMap
     {
-        public CrudMap(IServiceProxyModel proxy, ClassModel entity, List<Dependency> dependencies, IHttpEndpointModel create, IHttpEndpointModel? update, IHttpEndpointModel? delete, IHttpEndpointModel getById, IHttpEndpointModel? getAll)
+        public CrudMap(IServiceProxyModel proxy, ClassModel entity, List<Dependency> dependencies, IHttpEndpointModel create, IHttpEndpointModel? update, IHttpEndpointModel? delete, IHttpEndpointModel getById, IHttpEndpointModel? getAll, string? idField = null)
         {
             Proxy = proxy;
             Entity = entity;
@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             Delete = delete;
             GetById = getById;
             GetAll = getAll;
+            IdField = idField;
         }
 
         public IServiceProxyModel Proxy { get; }
@@ -28,6 +29,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
         public IHttpEndpointModel GetById { get; }
         public IHttpEndpointModel? GetAll { get; }
         public List<Dependency> Dependencies { get; set; }
+        public string? IdField { get; }
     }
 
     public class Dependency

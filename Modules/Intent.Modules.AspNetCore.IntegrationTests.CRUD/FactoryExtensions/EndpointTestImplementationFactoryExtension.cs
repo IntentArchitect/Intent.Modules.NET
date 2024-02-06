@@ -51,10 +51,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-#warning defensive checks , not returning PK, Composite Keys, Dependant Aggregates not having Services
-            var crudMaps = CrudMapHelper.LoadCrudMaps(_metadataManager, application);
-
             var testDataTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TestDataFactoryTemplate.TemplateId);
+            var crudMaps = CrudMapHelper.LoadCrudMaps(testDataTemplate, _metadataManager, application);
+
             PopulateTestDataFactory(testDataTemplate, crudMaps);
             GenerateCRUDTests(application, crudMaps);
         }
@@ -104,7 +103,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
-                        .AddStatement($"var dataFactory = new TestDataFactory(Factory);", s => s.SeparatedFromPrevious());
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious());
 
                     if (crudTest.Dependencies.Any())
                     {
@@ -143,7 +142,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
-                        .AddStatement($"var dataFactory = new TestDataFactory(Factory);", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{crudTest.Entity.Name.ToParameterName()}Id"} = await dataFactory.Create{crudTest.Entity.Name}();")
 
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
@@ -174,7 +173,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
-                        .AddStatement($"var dataFactory = new TestDataFactory(Factory);", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"await dataFactory.Create{crudTest.Entity.Name}();")
 
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
@@ -207,7 +206,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
-                        .AddStatement($"var dataFactory = new TestDataFactory(Factory);", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{crudTest.Entity.Name.ToParameterName()}Id"} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"await client.{crudTest.Delete!.Name}Async({sutId});")
@@ -240,7 +239,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
-                        .AddStatement($"var dataFactory = new TestDataFactory(Factory);", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{sutId}"} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
                         .AddStatement($"command.Id = {sutId};")
@@ -251,15 +250,23 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({sutId});")
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
-                        //Need to confirm Equality
                         ;
 
+                    //Checking that at least 1 field changed, ideally a string field
                     var matchingFields = ((IElement)getDtoModel.Element).ChildElements.Select(c => c.Name)
                     .Intersect(
-                    ((IElement)updateDtoModel.TypeReference.Element).ChildElements.Select(c => c.Name)).Where(x => !x.EndsWith("Id"));
+                    ((IElement)updateDtoModel.TypeReference.Element).ChildElements.Select(c => c.Name)).Where(x => !x.EndsWith("Id")).ToList();
                     if (matchingFields.Any())
                     {
-                        method.AddStatement($"Assert.Equal(command.{matchingFields.First()}, {crudTest.Entity.Name.ToParameterName()}.{matchingFields.First()});");
+                        var stringField = (((IElement)getDtoModel.Element).ChildElements).FirstOrDefault(x => matchingFields.Contains(x.Name) && x.TypeReference.HasStringType());
+                        if (stringField != null)
+                        {
+                            method.AddStatement($"Assert.Equal(command.{stringField.Name}, {crudTest.Entity.Name.ToParameterName()}.{stringField.Name});");
+                        }
+                        else
+                        {
+                            method.AddStatement($"Assert.Equal(command.{matchingFields.First()}, {crudTest.Entity.Name.ToParameterName()}.{matchingFields.First()});");
+                        }
                     }
 
                 });

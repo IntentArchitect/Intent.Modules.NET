@@ -68,8 +68,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
               .Build();".ConvertToStatements());
                     });
 
-#warning get these
-                    string databaseId = "CosmosIntegrationTest";
+                    string databaseId = "TestDb";
                     string containerId = "Container";
 
                     @class.AddMethod("void", "ConfigureTestServices", method =>

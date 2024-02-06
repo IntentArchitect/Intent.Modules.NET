@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         });
 
                     }
-#warning assumption
+
                     @class.AddMethod($"Task<{template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)}>", $"Create{crudTest.Entity.Name}", method =>
                     {
                         method.Async();
@@ -64,7 +64,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         method
                             .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
                             .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();")
-                            .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);")
+                            .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command){(crudTest.IdField != null ? $".{crudTest.IdField}" : "")};")
                             .AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
                         if (keyAliases.TryGetValue(sutId.ToPascalCase(), out var aliases))
                         {
@@ -132,63 +132,5 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             }
             return null;
         }
-
-        /*
-        private void SetupTestData(ICSharpFileBuilderTemplate template, CrudMap crudTest, CSharpClassMethod method, IHttpEndpointInputModel? dtoModel = null, bool forCreate = false, bool forUpdate = false)
-        {
-            CreatePrereqisiteData(crudTest, method);
-            if (!forCreate)
-            {
-#warning consolidate
-                var parameterNames = string.Join(",", crudTest.Dependencies
-                                        .SelectMany(x => x.Mappings)
-                                        .Where(a => a.TargetElement.AsAttributeModel() != null)
-                                        .Select(a => a.TargetElement.AsAttributeModel().Name.ToParameterName()));
-
-                method.AddStatement($"var {$"{crudTest.Entity.Name.ToParameterName()}Id"} = await dataFactory.Create{crudTest.Entity.Name}({parameterNames});");
-            }
-            if (dtoModel != null)
-            {
-                method
-                    .AddStatement($"var command = fixture.Create<{template.GetTypeName(dtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious());
-
-                if (forUpdate)
-                {
-#warning Hardcoded Id
-                    method.AddStatement($"command.Id = {crudTest.Entity.Name.ToParameterName()}Id;");
-                }
-                foreach (var mapping in crudTest.Dependencies.SelectMany(d => d.Mappings))
-                {
-                    var attribute = mapping.TargetElement.AsAttributeModel();
-                    if (attribute != null)
-                    {
-                        method.AddStatement($"command.{mapping.SourceElement.Name.ToPascalCase()} = {attribute.Name.ToParameterName()};");
-                    }
-                }
-            }
-        }
-
-
-        private static void CreatePrereqisiteData(CrudMap crudTest, CSharpClassMethod method)
-        {
-            CreatePrereqisiteData(method, crudTest.Dependencies);
-        }
-
-        private static void CreatePrereqisiteData(CSharpClassMethod method, List<Dependency> dependencies)
-        {
-            foreach (var dependency in dependencies)
-            {
-                if (dependency.CrudMap.Dependencies.Any())
-                {
-                    CreatePrereqisiteData(method, dependency.CrudMap.Dependencies);
-                }
-                var parameterNames = string.Join(",", dependency.CrudMap!.Dependencies
-                                        .SelectMany(x => x.Mappings)
-                                        .Where(a => a.TargetElement.AsAttributeModel() != null)
-                                        .Select(a => a.TargetElement.AsAttributeModel().Name.ToParameterName()));
-
-                method.AddStatement($"var {$"{dependency.EntityName.ToParameterName()}Id"} = await dataFactory.Create{dependency.EntityName}({parameterNames});");
-            }
-        }*/
     }
 }

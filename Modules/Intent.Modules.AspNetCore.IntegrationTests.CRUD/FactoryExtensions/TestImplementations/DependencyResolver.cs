@@ -55,14 +55,17 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             }
             if (toSort.Count > 0)
             {
-                Logging.Log.Warning($"CRUD Integration Test Generation : Unable to resolve required dependencies {string.Join(",", toSort.Select(x => $"({x.Entity.Name} -> [{string.Join(",", NotMetDependencies(x.Entity.Name, processed, x.Dependencies))}])"))}");
+                Logging.Log.Info($"CRUD Integration Test Generation : Unable to resolve required dependencies {string.Join(",", toSort.Select(x => $"({x.Entity.Name} -> [{string.Join(",", NotMetDependencies(x.Entity.Name, processed, x.Dependencies))}])"))}");
             }
             foreach (var map in maps)
             {
                 map.Dependencies = map.Dependencies.OrderBy(x => ordering.IndexOf(x.EntityName)).ToList();
                 foreach (var dep in map.Dependencies)
                 {
-                    dep.CrudMap = processed[dep.EntityName];
+                    if (processed.ContainsKey(dep.EntityName))
+                    {
+                        dep.CrudMap = processed[dep.EntityName];
+                    }
                 }
             }
         }

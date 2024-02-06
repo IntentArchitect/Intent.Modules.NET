@@ -33,7 +33,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.BaseIntegration
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(this.GetIntegrationTestWebAppFactoryName(), "factory", p => p.IntroduceProperty(p => p.ReadOnly()));
+                        ctor.AddParameter(this.GetIntegrationTestWebAppFactoryName(), "webAppFactory", p => p.IntroduceProperty(p => p.ReadOnly()));
                     });
 
 
@@ -41,7 +41,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.BaseIntegration
                     {
                         method
                             .Protected()
-                            .AddStatement("return Factory.CreateClient();");
+                            .AddStatement("return WebAppFactory.CreateClient();");
                     });
                 });
         }
