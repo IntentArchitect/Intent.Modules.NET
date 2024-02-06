@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.EndpointTestImplementationFactoryExtension;
 
-namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
+namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations
 {
     public class DependencySortingHelper
     {
@@ -19,11 +19,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             var processed = new Dictionary<string, CrudMap>();
             var toSort = new List<CrudMap>(maps);
             bool changes = true;
-            while (toSort.Count > 0 && changes) 
+            while (toSort.Count > 0 && changes)
             {
                 changes = false;
                 int i = 0;
-                while (i < toSort.Count) 
+                while (i < toSort.Count)
                 {
                     if (!toSort[i].Dependencies.Any())
                     {
@@ -53,7 +53,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     i++;
                 }
             }
-            if (toSort.Count > 0) 
+            if (toSort.Count > 0)
             {
                 Logging.Log.Warning($"CRUD Integration Test Generation : Unable to resolve required dependencies {string.Join(",", toSort.Select(x => $"({x.Entity.Name} -> [{string.Join(",", NotMetDependencies(x.Entity.Name, processed, x.Dependencies))}])"))}");
             }

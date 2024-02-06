@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
+namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations
 {
     internal class CrudMapHelper
     {

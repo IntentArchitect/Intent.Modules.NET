@@ -4,7 +4,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 
-namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
+namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations
 {
     internal class CrudMap
     {

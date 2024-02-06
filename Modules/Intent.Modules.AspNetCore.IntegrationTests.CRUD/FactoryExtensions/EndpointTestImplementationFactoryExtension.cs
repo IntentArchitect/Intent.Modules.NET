@@ -11,6 +11,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates;
+using Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.TestDataFactory;
 using Intent.Modules.Common;

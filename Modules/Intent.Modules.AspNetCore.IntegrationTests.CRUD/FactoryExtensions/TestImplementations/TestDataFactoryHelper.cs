@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
+namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations
 {
     internal class TestDataFactoryHelper
     {
@@ -19,7 +19,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         {
             template.CSharpFile.OnBuild(file =>
             {
-                varkeyAliases = GetKeyAliases(crudTests);
+                var keyAliases = GetKeyAliases(crudTests);
 
                 var @class = file.Classes.First();
                 @class.AddField("Dictionary<string, object>", "_idTracker", f => f.PrivateReadOnly().WithAssignment("new()"));
