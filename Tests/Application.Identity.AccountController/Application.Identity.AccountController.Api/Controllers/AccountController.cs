@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.Api.Services;
@@ -23,6 +27,8 @@ namespace Application.Identity.AccountController.Api.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        // Validate the email address using DataAnnotations like the UserValidator does when RequireUniqueEmail = true.
+        private static readonly EmailAddressAttribute EmailAddressAttribute = new EmailAddressAttribute();
         private readonly UserManager<ApplicationIdentityUser> _userManager;
         private readonly IUserStore<ApplicationIdentityUser> _userStore;
         private readonly ILogger<AccountController> _logger;
@@ -79,16 +85,9 @@ namespace Application.Identity.AccountController.Api.Controllers
 
             _logger.LogInformation("User created a new account with password.");
 
-            var userId = await _userManager.GetUserIdAsync(user);
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-
             if (_userManager.Options.SignIn.RequireConfirmedAccount)
             {
-                await _accountEmailSender.SendEmailConfirmationRequest(
-                    email: input.Email!,
-                    userId: userId,
-                    code: code);
+                await SendConfirmationEmail(user);
             }
 
             return Ok();
@@ -130,15 +129,10 @@ namespace Application.Identity.AccountController.Api.Controllers
                 return Forbid();
             }
 
-            var claims = await _userManager.GetClaimsAsync(user);
-            var roles = await _userManager.GetRolesAsync(user);
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim("role", role));
-            }
+            var claims = await GetClaims(user);
 
-            var token = _tokenService.GenerateAccessToken(username: email, claims: claims.ToArray());
-            var (refreshToken, refreshTokenExpiry) = _tokenService.GenerateRefreshToken();
+            var (token, expiry) = _tokenService.GenerateAccessToken(username: user.Email!, claims: claims.ToArray());
+            var (refreshToken, refreshTokenExpiry) = _tokenService.GenerateRefreshToken(user.Email!);
 
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpired = refreshTokenExpiry;
@@ -149,15 +143,20 @@ namespace Application.Identity.AccountController.Api.Controllers
             return Ok(new TokenResultDto
             {
                 AuthenticationToken = token,
+                ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
                 RefreshToken = refreshToken
             });
         }
 
         [HttpPost]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<ActionResult<TokenResultDto>> Refresh(RefreshTokenDto dto)
         {
-            var username = User.Identity!.Name!;
+            var username = _tokenService.GetUsernameFromRefreshToken(dto.RefreshToken);
+            if (username == null)
+            {
+                return BadRequest();
+            }
 
             var user = await _userManager.FindByNameAsync(username);
             if (user == null || user.RefreshToken != dto.RefreshToken)
@@ -165,19 +164,20 @@ namespace Application.Identity.AccountController.Api.Controllers
                 return BadRequest();
             }
 
-            var claims = await _userManager.GetClaimsAsync(user);
+            var claims = await GetClaims(user);
 
-            var newJwtToken = _tokenService.GenerateAccessToken(username, claims);
-            var (token, expiry) = _tokenService.GenerateRefreshToken();
+            var (token, expiry) = _tokenService.GenerateAccessToken(user.Email!, claims);
+            var (refreshToken, refreshTokenExpiry) = _tokenService.GenerateRefreshToken(user.Email!);
 
-            user.RefreshToken = token;
-            user.RefreshTokenExpired = expiry;
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpired = refreshTokenExpiry;
             await _userManager.UpdateAsync(user);
 
             return Ok(new TokenResultDto
             {
-                AuthenticationToken = newJwtToken,
-                RefreshToken = token
+                AuthenticationToken = token,
+                ExpiresIn = (int)(expiry - DateTime.UtcNow).TotalSeconds,
+                RefreshToken = refreshToken
             });
         }
 
@@ -220,6 +220,133 @@ namespace Application.Identity.AccountController.Api.Controllers
             return Ok();
         }
 
+        [HttpPost("~/api/[controller]/forgotPassword")]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto resetRequest)
+        {
+            var user = await _userManager.FindByEmailAsync(resetRequest.Email!);
+
+            if (user is not null && await _userManager.IsEmailConfirmedAsync(user))
+            {
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+                await _accountEmailSender.SendPasswordResetCode(resetRequest.Email!, user.Id,
+                    HtmlEncoder.Default.Encode(code));
+            }
+
+            // Don't reveal that the user does not exist or is not confirmed, so don't return a 200 if we would have
+            // returned a 400 for an invalid code given a valid user email.
+            return Ok();
+        }
+
+        [HttpPost("~/api/[controller]/resetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto resetRequest)
+        {
+            var modelState = new ModelStateDictionary();
+
+            var user = await _userManager.FindByEmailAsync(resetRequest.Email!);
+
+            if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
+            {
+                // Don't reveal that the user does not exist or is not confirmed, so don't return a 200 if we would have
+                // returned a 400 for an invalid code given a valid user email.
+                modelState.AddModelError<ResetPasswordDto>(x => x.ResetCode, "Invalid token");
+                return ValidationProblem();
+            }
+
+            IdentityResult result;
+            try
+            {
+                var code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(resetRequest.ResetCode!));
+                result = await _userManager.ResetPasswordAsync(user, code, resetRequest.NewPassword!);
+            }
+            catch (FormatException)
+            {
+                result = IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken());
+            }
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    modelState.AddModelError(string.Empty, error.Description);
+                }
+
+                return ValidationProblem(modelState);
+            }
+
+            return Ok();
+        }
+
+        [HttpGet("~/api/[controller]/manage/info")]
+        [Authorize]
+        public async Task<ActionResult<InfoResponseDto>> GetInfo()
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            return new InfoResponseDto
+            {
+                Email = user?.Email
+            };
+        }
+
+        [HttpPost("~/api/[controller]/manage/info")]
+        [Authorize]
+        public async Task<ActionResult<InfoResponseDto>> PostInfo(UpdateInfoDto infoRequest)
+        {
+            if (await _userManager.GetUserAsync(User) is not { } user)
+            {
+                return NotFound();
+            }
+
+            var modelState = new ModelStateDictionary();
+
+            if (!string.IsNullOrEmpty(infoRequest.NewEmail) && !EmailAddressAttribute.IsValid(infoRequest.NewEmail))
+            {
+                modelState.AddModelError<UpdateInfoDto>(x => x.NewEmail, "Invalid email address.");
+                return ValidationProblem(modelState);
+            }
+
+            if (!string.IsNullOrEmpty(infoRequest.NewPassword))
+            {
+                if (string.IsNullOrEmpty(infoRequest.OldPassword))
+                {
+                    modelState.AddModelError<UpdateInfoDto>(x => x.OldPassword, "The old password is required to set a new password. If the old password is forgotten, use /resetPassword.");
+                    return ValidationProblem(modelState);
+                }
+
+                var changePasswordResult = await _userManager.ChangePasswordAsync(user, infoRequest.OldPassword, infoRequest.NewPassword);
+                if (!changePasswordResult.Succeeded)
+                {
+                    foreach (var error in changePasswordResult.Errors)
+                    {
+                        modelState.AddModelError<UpdateInfoDto>(x => x.NewPassword, error.Description);
+                    }
+
+                    return ValidationProblem(modelState);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(infoRequest.NewEmail))
+            {
+                var email = await _userManager.GetEmailAsync(user);
+                if (email != infoRequest.NewEmail)
+                {
+                    await _userStore.SetUserNameAsync(user, infoRequest.NewEmail, CancellationToken.None);
+                    await _userManager.SetEmailAsync(user, infoRequest.NewEmail);
+                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    {
+                        await SendConfirmationEmail(user);
+                    }
+                }
+            }
+
+            return new InfoResponseDto
+            {
+                Email = user.Email
+            };
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Logout()
@@ -233,11 +360,40 @@ namespace Application.Identity.AccountController.Api.Controllers
             _logger.LogInformation($"User [{username}] logged out the system.");
             return Ok();
         }
+
+        private async Task SendConfirmationEmail(ApplicationIdentityUser user)
+        {
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+            var userId = await _userManager.GetUserIdAsync(user);
+
+            await _accountEmailSender.SendEmailConfirmationRequest(
+                email: user.Email!,
+                userId: userId,
+                code: code);
+        }
+
+        private async Task<IList<Claim>> GetClaims(ApplicationIdentityUser user)
+        {
+            var claims = await _userManager.GetClaimsAsync(user);
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim("role", role));
+            }
+
+            return claims;
+        }
     }
 
     public class TokenResultDto
     {
+        public string TokenType => "Bearer";
         public string? AuthenticationToken { get; set; }
+        public int ExpiresIn { get; set; }
         public string? RefreshToken { get; set; }
     }
 
@@ -262,5 +418,29 @@ namespace Application.Identity.AccountController.Api.Controllers
     public class RefreshTokenDto
     {
         public string? RefreshToken { get; set; }
+    }
+
+    public class UpdateInfoDto
+    {
+        public string? NewEmail { get; set; }
+        public string? NewPassword { get; set; }
+        public string? OldPassword { get; set; }
+    }
+
+    public class InfoResponseDto
+    {
+        public string? Email { get; set; }
+    }
+
+    public class ForgotPasswordDto
+    {
+        public string? Email { get; set; }
+    }
+
+    public class ResetPasswordDto
+    {
+        public string? Email { get; set; }
+        public string? ResetCode { get; set; }
+        public string? NewPassword { get; set; }
     }
 }

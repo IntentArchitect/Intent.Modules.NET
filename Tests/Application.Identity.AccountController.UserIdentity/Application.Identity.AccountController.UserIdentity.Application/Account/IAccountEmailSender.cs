@@ -10,4 +10,5 @@ namespace Application.Identity.AccountController.UserIdentity.Application.Accoun
 public interface IAccountEmailSender
 {
     Task SendEmailConfirmationRequest(string email, string userId, string code);
+    Task SendPasswordResetCode(string email, string userId, string resetCode);
 }
