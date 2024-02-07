@@ -76,9 +76,18 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
                         method
                             .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
-                            .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();")
-                            .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command){(crudTest.ResponseDtoIdField != null ? $".{crudTest.ResponseDtoIdField}" : "")};")
-                            .AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
+                            .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();");
+
+                        if (crudTest.ResponseDtoIdField is null)
+                        {
+                            method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);");
+                        }
+                        else
+                        {
+                            method.AddStatement($"var dto = await client.{crudTest.Create.Name}Async(command);");
+                            method.AddStatement($"var {sutId} = dto.{crudTest.ResponseDtoIdField};");
+                        }
+                        method.AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
                         if (keyAliases.TryGetValue(sutId.ToPascalCase(), out var aliases))
                         {
                             foreach (var alias in aliases)

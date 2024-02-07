@@ -119,7 +119,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
 
             return new DbStrategy(
                 containerType: "PostgreSqlContainer ",
-                usings: new() { "Testcontainers.PostgreSql" },
+                usings: new() { "Testcontainers.PostgreSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql },
                 containerInitialization: containerInitialization,
                 dbContextRegistration: dbContextRegistration

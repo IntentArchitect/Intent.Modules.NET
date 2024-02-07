@@ -123,9 +123,18 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);")
+                        .AddStatement("//Act", s => s.SeparatedFromPrevious());
 
+                    if (crudTest.ResponseDtoIdField is null)
+                    {
+                        method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);");
+                    }
+                    else
+                    {
+                        method.AddStatement($"var createdDto = await client.{crudTest.Create.Name}Async(command);");
+                        method.AddStatement($"var {sutId} = createdDto.{crudTest.ResponseDtoIdField};");
+                    }
+                    method
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});");

@@ -63,7 +63,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         public async Task<ActionResult> Mutation(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 _appService.Mutation(param);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -82,7 +82,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         public async Task<ActionResult> MutationAsync(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.MutationAsync(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -103,7 +103,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers.ServiceDispatch
         public async Task<ActionResult> MutationAsync(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.MutationAsync(param, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
