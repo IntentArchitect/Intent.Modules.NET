@@ -104,4 +104,14 @@ public static class NugetPackage
             (7, 0) => "7.0.0",
             _ => "8.0.0"
         });
+    
+    public static INugetPackageInfo AspNetCoreHealthChecksRedis(IOutputTarget outputTarget) => new NugetPackageInfo(
+        name: "AspNetCore.HealthChecks.Redis",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.1",
+            (6, 0) => "6.0.2",
+            (7, 0) => "7.0.0",
+            _ => "8.0.0"
+        });
 }

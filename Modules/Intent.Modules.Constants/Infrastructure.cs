@@ -72,9 +72,9 @@ public static class Infrastructure
         }
     }
 
-    public static class RedisOm
+    public static class Redis
     {
-        public const string Name = nameof(RedisOm);
+        public const string Name = nameof(Redis);
 
         public static class Property
         {

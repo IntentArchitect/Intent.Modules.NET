@@ -310,14 +310,9 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
-            // this.ApplyAppSetting("RepositoryOptions", new
-            // {
-            //     CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-            //     DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-            //     ContainerId = "Container"
-            // });
-            // ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.RedisOm.Name)
-            //     .WithProperty(Infrastructure.RedisOm.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
+            this.ApplyConnectionString("REDIS_CONNECTION_STRING", "redis://localhost:6379");
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Redis.Name)
+                .WithProperty(Infrastructure.Redis.Property.ConnectionStringName, "REDIS_CONNECTION_STRING"));
         }
 
         private string GetNullablePostfix(bool isNullable)
