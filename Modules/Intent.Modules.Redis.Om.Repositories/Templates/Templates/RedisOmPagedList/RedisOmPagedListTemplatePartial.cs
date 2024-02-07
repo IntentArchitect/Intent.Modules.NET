@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -45,7 +46,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                     @class
                         .AddGenericParameter("TDocument", out var tDocument)
                         .WithBaseType($"List<{tDomain}>")
-                        .ImplementsInterface($"{this.GetPagedResultInterfaceName()}<{tDomain}>")
+                        .ImplementsInterface($"{this.GetPagedListInterfaceName()}<{tDomain}>")
                         .AddGenericTypeConstraint(tDomain, c => c
                             .AddType("class"));
 
@@ -65,25 +66,40 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                             .AddType($"{this.GetRedisOmDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"))
                         ;
 
+                    @class.AddConstructor();
+                    var ctor = @class.Constructors.First();
+                    ctor.AddParameter("int", "totalCount")
+                        .AddParameter("int", "pageNo")
+                        .AddParameter("int", "pageSize")
+                        .AddParameter($"IEnumerable<{tDomain}>", "results");
+
+                    ctor.AddStatement("TotalCount = totalCount;");
+                    ctor.AddStatement("PageCount = GetPageCount(pageSize, totalCount);");
+                    ctor.AddStatement("PageNo = pageNo;");
+                    ctor.AddStatement("PageSize = pageSize;");
+
+                    ctor.AddForEachStatement("result", "results", stmt =>
+                    {
+                        stmt.AddStatement("Add(result);");
+                    });
+                    
                     @class.AddProperty("int", "TotalCount", prop => prop.WithoutSetter());
                     @class.AddProperty("int", "PageCount", prop => prop.WithoutSetter());
                     @class.AddProperty("int", "PageNo", prop => prop.WithoutSetter());
                     @class.AddProperty("int", "PageSize", prop => prop.WithoutSetter());
-                    @class.AddConstructor(ctor =>
+
+                    @class.AddMethod("int", "GetPageCount", method =>
                     {
-                        ctor.AddParameter($"IPageQueryResult<{tDocument}>", "pagedResult")
-                            .AddParameter("int", "pageNo")
-                            .AddParameter("int", "pageSize");
-
-                        ctor.AddStatement("TotalCount = pagedResult.Total ?? 0;");
-                        ctor.AddStatement("PageCount = pagedResult.TotalPages ?? 0;");
-                        ctor.AddStatement("PageNo = pageNo;");
-                        ctor.AddStatement("PageSize = pageSize;");
-
-                        ctor.AddForEachStatement("result", "pagedResult.Items", stmt =>
-                        {
-                            stmt.AddStatement("Add(result.ToEntity());");
-                        });
+                        method.Private().Static();
+                        method.AddParameter("int", "pageSize");
+                        method.AddParameter("int", "totalCount");
+                        method.AddStatements(@"
+            if (pageSize == 0)
+            {
+                return 0;
+            }
+            var remainder = totalCount % pageSize;
+            return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
                     });
                 });
         }

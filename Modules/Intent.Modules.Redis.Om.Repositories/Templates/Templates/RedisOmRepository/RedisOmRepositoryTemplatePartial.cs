@@ -58,11 +58,10 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(this.GetRedisOmUnitOfWorkName(), "unitOfWork");
-                        ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{entityDocumentName}>"), "cosmosRepository");
+                        ctor.AddParameter(UseType($"Redis.OM.RedisConnectionProvider"), "connectionProvider");
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("unitOfWork")
-                            .AddArgument("cosmosRepository")
-                            .AddArgument($"\"{pkFieldName}\"")
+                            .AddArgument("connectionProvider")
                         );
                     });
 
@@ -87,6 +86,21 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                                 .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
                         });
                     }
+
+                    @class.AddMethod("string", "GetIdValue", method =>
+                    {
+                        method.Override().Protected();
+                        method.AddParameter(EntityTypeName, "entity");
+                        method.WithExpressionBody($"entity.{pkAttribute.IdAttribute.Name}{pkAttribute.IdAttribute.GetToString(this)}");
+                    });
+
+                    @class.AddMethod("void", "SetIdValue", method =>
+                    {
+                        method.Override().Protected();
+                        method.AddParameter(EntityTypeName, "domainEntity");
+                        method.AddParameter(entityDocumentName, "document");
+                        method.WithExpressionBody($@"ReflectionHelper.ForceSetProperty(domainEntity, ""{pkAttribute.IdAttribute.Name}"", document.{pkAttribute.IdAttribute.Name})");
+                    });
                 });
         }
 

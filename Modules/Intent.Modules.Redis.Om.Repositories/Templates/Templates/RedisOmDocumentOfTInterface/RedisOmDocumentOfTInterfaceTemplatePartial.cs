@@ -64,31 +64,11 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
                         .AddGenericTypeConstraint(tDocument, c => c
                             .AddType($"{this.GetRedisOmDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"));
 
-                    @interface.ImplementsInterfaces(UseType("IRedisOmDocument"));
-
                     @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
                         .AddParameter(tDomain, "entity"));
 
                     @interface.AddMethod(tDomainState, "ToEntity", c => c
                         .AddParameter($"{tDomainState}?", "entity", p => p.WithDefaultValue("null")));
-                })
-                .AddInterface($"IRedisOmDocument", @interface =>
-                {
-                    @interface.Internal();
-                    @interface.ImplementsInterfaces(UseType("Microsoft.Azure.CosmosRepository.IItem"));
-
-                    @interface.AddProperty("string", "PartitionKey", method => method
-                        .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
-                        .WithoutSetter()
-                        .Getter.WithExpressionImplementation("PartitionKey!")
-                    );
-
-                    @interface.AddProperty("string?", "PartitionKey", property =>
-                    {
-                        property.New();
-                        property.Getter.WithExpressionImplementation("Id");
-                        property.Setter.WithExpressionImplementation("Id = value ?? throw new ArgumentNullException(nameof(value))");
-                    });
                 });
         }
 
