@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
@@ -26,9 +27,9 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RedisOmRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetDependencies.RedisOM);
+
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-            // AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
-            // AddNugetDependency(NugetDependencies.NewtonsoftJson);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -37,7 +38,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Microsoft.Azure.Cosmos")
                 .AddClass("RedisOmRepositoryBase", @class =>
                 {
                     @class
@@ -86,12 +86,15 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                     @class.AddConstructor(ctor =>
                     {
                         ctor.Protected();
-                        ctor.AddParameter(this.GetRedisOmUnitOfWorkName(), "unitOfWork",
-                            p => p.IntroduceReadonlyField());
-                        ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{tDocument}>"),
-                            "cosmosRepository", p => p.IntroduceReadonlyField());
-                        ctor.AddParameter("string", "idFieldName", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetRedisOmUnitOfWorkName(), "unitOfWork", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType($"Redis.OM.RedisConnectionProvider"), "connectionProvider", param => param.IntroduceReadonlyField());
+                        ctor.AddStatement($@"_collection = ({UseType($"Redis.OM.RedisCollection<{tDocument}>")})connectionProvider.RedisCollection<{tDocument}>(500);");
+                        ctor.AddStatement($@"_collectionName = _collection.StateManager.DocumentAttribute.Prefixes.FirstOrDefault()
+                              ?? throw new Exception($""{{typeof({tDocument}).FullName}} does not have a Document Prefix assigned."");");
                     });
+
+                    @class.AddField(UseType($"Redis.OM.RedisCollection<{tDocument}>"), "_collection", field => field.PrivateReadOnly());
+                    @class.AddField("string" + GetNullablePostfix(true), "_collectionName", field => field.PrivateReadOnly());
 
                     @class.AddProperty(this.GetRedisOmUnitOfWorkInterfaceName(), "UnitOfWork", p => p
                         .WithoutSetter()
@@ -106,9 +109,10 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                             invocation.AddMetadata(MetadataNames.EnqueueStatement, true);
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement(
-                                        "await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);",
+                                        c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
+                                    .AddStatement("await _collection.InsertAsync(document);")
+                                    .AddStatement("SetIdValue(entity, document);")
                                 );
                         })
                     );
@@ -121,9 +125,9 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement(
-                                        "await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);",
+                                        c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
+                                    .AddStatement("await _collection.UpdateAsync(document);")
                                 );
                         })
                     );
@@ -136,17 +140,16 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement(
-                                        "await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement($@"await _connectionProvider.Connection.UnlinkAsync($""{{_collectionName}}:{{GetIdValue(entity)}}"");")
                                 );
                         })
                     );
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
                         .Async()
-                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                        .AddStatement("var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);", c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
+                        .AddOptionalCancellationTokenParameter(this)
+                        .AddStatement("var documents = await _collection.ToListAsync();",
+                            c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
                         .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
                         .AddStatement("Track(results);")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
@@ -157,23 +160,12 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         .Async()
                         .Protected()
                         .AddParameter("string", "id")
-                        .AddParameter("string?", "partitionKey", p => p.WithDefaultValue("default"))
-                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                        .AddTryBlock(tryBlock =>
-                        {
-                            tryBlock
-                                .AddStatement(
-                                    "var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);",
-                                    c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                .AddStatement("var entity = document.ToEntity();")
-                                .AddStatement("Track(entity);")
-                                .AddStatement("return entity;", s => s.SeparatedFromPrevious());
-                        })
-                        .AddCatchBlock(UseType("Microsoft.Azure.Cosmos.CosmosException"), "ex", c =>
-                        {
-                            c.WithWhenExpression($"ex.StatusCode == {UseType("System.Net.HttpStatusCode")}.NotFound");
-                            c.AddStatement("return null;");
-                        })
+                        .AddOptionalCancellationTokenParameter(this)
+                        .AddStatement("var document = await _collection.FindByIdAsync(id);")
+                        .AddIfStatement("document is null", stmt => { stmt.AddStatement("return null;"); })
+                        .AddStatement("var entity = document.ToEntity();")
+                        .AddStatement("Track(entity);")
+                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
                     );
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
@@ -181,62 +173,81 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            .AddOptionalCancellationTokenParameter(this);
 
                         method
                             .AddStatement(
-                                "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
+                                "var documents = await _collection.Where(AdaptFilterPredicate(filterExpression)).ToListAsync();"
                                 , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
                             .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
                             .AddStatement("Track(results);")
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
                     });
 
-                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    @class.AddMethod($"Task<{this.GetPagedListInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
                         method.AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            .AddOptionalCancellationTokenParameter(this);
 
                         method.AddStatement("return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);");
                     });
 
-                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    @class.AddMethod($"Task<{this.GetPagedListInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            .AddOptionalCancellationTokenParameter(this);
 
                         var tDomainStateGenericTypeArgument = createEntityInterfaces
                             ? $", {tDomainState}"
                             : string.Empty;
-                        method
-                            .AddStatement(
-                                "var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);",
-                                c => c.AddMetadata(MetadataNames.PagedDocumentsDeclarationStatement, true))
-                            .AddStatement("Track(pagedDocuments.Items.Select(document => document.ToEntity()));")
-                            .AddStatement($"return new {this.GetRedisOmPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(pagedDocuments, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+
+                        method.AddStatements(
+                            """
+                            var query = _collection.Where(AdaptFilterPredicate(filterExpression));
+                            var count = await query.CountAsync().ConfigureAwait(false);
+                            var skip = ((pageNo - 1) * pageSize);
+                            """);
+
+                        method.AddMethodChainStatement("var pagedDocuments = await query", chain => chain
+                            .AddChainStatement("Skip(skip)")
+                            .AddChainStatement("Take(pageSize)")
+                            .AddChainStatement("ToListAsync()"));
+
+                        method.AddStatements(
+                            $$"""
+                              var results = pagedDocuments.Select(document => document.ToEntity()).ToList();
+                              Track(results);
+
+                              return new {{this.GetRedisOmPagedListName()}}<{{tDomain}}{{tDomainStateGenericTypeArgument}}, {{tDocument}}>(count, pageNo, pageSize, results);
+                              """);
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
                         .AddParameter("IEnumerable<string>", "ids")
                         .Async()
-                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                        .AddStatement(
-                            @"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
-                .WithParameter(""@ids"", ids);",
-                            c => c.AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true))
-                        .AddStatement(
-                            "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                        .AddStatement($"var results = documents.Select{selectGenericTypeArgument}(document => document.ToEntity()).ToList();")
-                        .AddStatement("Track(results);")
-                        .AddStatement("return results;", s => s.SeparatedFromPrevious())
+                        .AddOptionalCancellationTokenParameter(this)
+                        .AddStatement("var documents = await _collection.FindByIdsAsync(ids);")
+                        .AddMethodChainStatement("var results = documents", chain => chain
+                            .AddChainStatement("Where(p => p.Value is not null)")
+                            .AddChainStatement("Select(document => document.Value!.ToEntity())")
+                            .AddChainStatement("ToList()"))
                     );
+
+                    @class.AddMethod("string", "GetIdValue", method => method
+                        .Protected().Abstract()
+                        .AddParameter(tDomain, "entity"));
+
+                    @class.AddMethod("void", "SetIdValue", method => method
+                        .Protected().Abstract()
+                        .AddParameter(tDomain, "domainEntity")
+                        .AddParameter(tDocument, "document"));
 
                     @class.AddMethod($"Expression<Func<{tDocument}, bool>>", "AdaptFilterPredicate", method =>
                     {
@@ -255,7 +266,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         method.AddStatement($"var afterParameter = Expression.Parameter(typeof({tDocument}), beforeParameter.Name);");
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
                         method.AddStatement($"return Expression.Lambda<Func<{tDocument}, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
-
                     });
 
                     @class.AddMethod("void", "Track", method =>
@@ -263,7 +273,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         method.AddParameter($"IEnumerable<{tDomain}>", "items");
 
                         method.AddForEachStatement("item", "items", stmt => stmt.AddStatement("_unitOfWork.Track(item);"));
-
                     });
 
                     @class.AddMethod("void", "Track", method =>
@@ -300,18 +309,22 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
-            this.ApplyAppSetting("RepositoryOptions", new
-            {
-                CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-                DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-                ContainerId = "Container"
-            });
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.RedisOm.Name)
-                .WithProperty(Infrastructure.RedisOm.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
+            // this.ApplyAppSetting("RepositoryOptions", new
+            // {
+            //     CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+            //     DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+            //     ContainerId = "Container"
+            // });
+            // ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.RedisOm.Name)
+            //     .WithProperty(Infrastructure.RedisOm.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        private string GetNullablePostfix(bool isNullable)
+        {
+            return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
+        }
+
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

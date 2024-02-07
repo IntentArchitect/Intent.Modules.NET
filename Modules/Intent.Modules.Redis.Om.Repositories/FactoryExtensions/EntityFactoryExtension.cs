@@ -1,5 +1,7 @@
 using Intent.Engine;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.DocumentDB.Shared;
+using Intent.Modules.Redis.Om.Repositories.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -26,7 +28,11 @@ namespace Intent.Modules.Redis.Om.Repositories.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Your custom logic here.
+            EntityFactoryExtensionHelper.Execute(
+                application: application,
+                dbProviderApplies: RedisOmProvider.FilterDbProvider,
+                initializePrimaryKeyOnAggregateRoots: true,
+                makeNonPersistentPropertiesVirtual: false);
         }
 
         /// <summary>

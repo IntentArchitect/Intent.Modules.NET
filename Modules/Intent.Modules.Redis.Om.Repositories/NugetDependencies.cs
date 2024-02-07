@@ -4,6 +4,6 @@ namespace Intent.Modules.Redis.Om.Repositories
 {
     internal static class NugetDependencies
     {
-        //public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "3.7.0");
+        public static readonly INugetPackageInfo RedisOM = new NugetPackageInfo("Redis.OM", "0.6.1");
     }
 }

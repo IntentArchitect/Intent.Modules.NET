@@ -78,11 +78,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                     ctor.AddStatement("PageNo = pageNo;");
                     ctor.AddStatement("PageSize = pageSize;");
 
-                    ctor.AddForEachStatement("result", "results", stmt =>
-                    {
-                        stmt.AddStatement("Add(result);");
-                    });
-                    
+                    ctor.AddForEachStatement("result", "results", stmt => { stmt.AddStatement("Add(result);"); });
+
                     @class.AddProperty("int", "TotalCount", prop => prop.WithoutSetter());
                     @class.AddProperty("int", "PageCount", prop => prop.WithoutSetter());
                     @class.AddProperty("int", "PageNo", prop => prop.WithoutSetter());
@@ -93,19 +90,21 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                         method.Private().Static();
                         method.AddParameter("int", "pageSize");
                         method.AddParameter("int", "totalCount");
-                        method.AddStatements(@"
-            if (pageSize == 0)
-            {
-                return 0;
-            }
-            var remainder = totalCount % pageSize;
-            return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
+                        method.AddStatements(
+                            """
+                            if (pageSize == 0)
+                            {
+                                return 0;
+                            }
+
+                            var remainder = totalCount % pageSize;
+                            return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
+                            """);
                     });
                 });
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

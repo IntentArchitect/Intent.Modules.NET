@@ -160,7 +160,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
                 AddPropertyToClass(@class, entityProperty);
             }
         }
-        
+
         private bool IsValidPropertyForAdding(CSharpProperty property)
         {
             return property.ExplicitlyImplementing == null && property.TryGetMetadata<IMetadataModel>("model", out var metadataModel) &&
@@ -246,7 +246,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
         {
             return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
         }
-        
+
         private bool IsPrimaryKey(IMetadataModel metadataModel)
         {
             var primaryKey = Model.GetPrimaryKeyAttribute();
@@ -259,21 +259,21 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
             {
                 documentProperty.AddAttribute(UseType("Redis.OM.Modeling.RedisIdField"));
             }
-            
+
             switch (entityPropertyMetadata)
             {
                 case AttributeModel attributeModel:
-                {
-                    if (attributeModel.HasIndexed())
                     {
-                        documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Indexed"));
+                        if (attributeModel.HasIndexed())
+                        {
+                            documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Indexed"));
+                        }
+                        if (attributeModel.HasSearchable())
+                        {
+                            documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Searchable"));
+                        }
+                        break;
                     }
-                    if (attributeModel.HasSearchable())
-                    {
-                        documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Searchable"));
-                    }
-                    break;
-                }
                 case AssociationTargetEndModel associationTargetEndModel:
                     if (associationTargetEndModel.HasIndexed())
                     {
@@ -289,7 +289,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
 
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
