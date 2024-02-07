@@ -20,6 +20,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 
 public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyModel>, ICSharpFileBuilderTemplate
 {
+    private readonly string _pagedResultTemplateId;
+
     protected HttpClientTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
@@ -55,6 +57,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
         string pagedResultTemplateId)
         : base(templateId, outputTarget, model)
     {
+        _pagedResultTemplateId = pagedResultTemplateId;
+
         var endpoints = Model.GetMappedEndpoints().ToArray();
 
         AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
@@ -78,8 +82,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
-                PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
-
                 if (model.UnderlyingModel != null)
                 {
                     @class.AddMetadata("model", model.UnderlyingModel);
@@ -249,6 +251,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                 @class.AddMethod("void", "Dispose");
             });
+    }
+
+    public override void AfterTemplateRegistration()
+    {
+        base.AfterTemplateRegistration();
+        PagedResultTypeSource.ApplyTo(this, _pagedResultTemplateId);
     }
 
     private string GetReadToEndMethodCall()
