@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.CosmosDB.Api;
+using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 
@@ -114,6 +117,7 @@ namespace Intent.Modules.CosmosDB.Templates
             bool isAggregate,
             bool hasBaseType)
         {
+            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
             var genericTypeArguments = @class.GenericParameters.Any()
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
                 : string.Empty;
@@ -222,6 +226,11 @@ namespace Intent.Modules.CosmosDB.Templates
             {
                 method.AddParameter($"{entityInterfaceTypeName}{genericTypeArguments}", "entity");
 
+                if (useOptimisticConcurrency)
+                {
+                    method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
+                }
+
                 foreach (var attribute in attributes)
                 {
                     var suffix = string.Empty;
@@ -278,6 +287,11 @@ namespace Intent.Modules.CosmosDB.Templates
                     method.AddStatement($"{associationEnd.Name} = {documentTypeName}.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
                 }
 
+                if (useOptimisticConcurrency)
+                {
+                    method.AddStatement("this.etag = etag;", s => s.SeparatedFromPrevious());
+                }
+
                 if (hasBaseType)
                 {
                     method.AddStatement("base.PopulateFromEntity(entity);");
@@ -291,10 +305,16 @@ namespace Intent.Modules.CosmosDB.Templates
                 @class.AddMethod($"{@class.Name}{genericTypeArguments}?", "FromEntity", method =>
                 {
                     method.AddParameter($"{entityInterfaceTypeName}{genericTypeArguments}?", "entity");
+
                     method.Static();
 
                     method.AddIfStatement("entity is null", @if => @if.AddStatement("return null;"));
-                    method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
+
+                    if (useOptimisticConcurrency)
+                    {
+                        method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
+                        method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity, etag);", s => s.SeparatedFromPrevious());
+                    }
                 });
             }
         }

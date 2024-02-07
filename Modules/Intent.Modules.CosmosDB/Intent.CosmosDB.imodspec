@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.0.3</version>
+  <version>1.0.4-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -122,7 +122,16 @@
     <factoryExtension id="Intent.CosmosDB.EntityFactoryExtension" externalReference="5632e697-26b1-4a38-9e12-6ce3d768d878" />
     <factoryExtension id="Intent.CosmosDB.MultiTenancyFactoryExtension" externalReference="cc56c90e-b5fe-4fb3-8cfc-cb5b02526727" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="e9f6758c-f8db-4cad-af33-827b867be548" title="CosmosDb" externalReference="e9f6758c-f8db-4cad-af33-827b867be548">
+      <settings>
+        <setting id="fcb114f7-77b4-4c6a-96c0-41bb146f4166" title="Use Optimistic Concurrency Default" type="checkbox">
+          <isRequired>true</isRequired>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <interoperability>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.Application.Dtos.AutoMapper">

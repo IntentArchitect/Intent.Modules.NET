@@ -15,6 +15,7 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.Modelers.Domain.Settings;
@@ -181,6 +182,24 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.Setter.WithExpressionImplementation($"{partitionAttribute.Name.ToPascalCase()} = value!");
                     });
                 }
+            }
+
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
+            if (useOptimisticConcurrency)
+            {
+                // Etag implementation:
+                @class.AddField("string?", "etag", field =>
+                {
+                    field.Private();
+                    field.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"_etag\")");
+                });
+
+                @class.AddProperty("string?", "Etag", property =>
+                {
+                    property.ExplicitlyImplements("IItemWithEtag");
+                    property.Getter.WithExpressionImplementation("etag");
+                    property.WithoutSetter();
+                });
             }
 
             foreach (var entityProperty in entityProperties)

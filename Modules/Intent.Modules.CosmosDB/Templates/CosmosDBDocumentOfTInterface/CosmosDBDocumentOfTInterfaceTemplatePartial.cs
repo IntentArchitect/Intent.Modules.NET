@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,6 +25,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface
         public CosmosDBDocumentOfTInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -66,16 +69,31 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface
 
                     @interface.ImplementsInterfaces(UseType("ICosmosDBDocument"));
 
-                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                    if (useOptimisticConcurrency)
+                    {
+                        @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                            .AddParameter(tDocument, "entity")
+                            .AddParameter("string?", "etag", e => e.WithDefaultValue("null")));
+                    }
+                    else
+                    {
+                        @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
                         .AddParameter(tDomain, "entity"));
+                    }
 
                     @interface.AddMethod(tDomainState, "ToEntity", c => c
                         .AddParameter($"{tDomainState}?", "entity", p => p.WithDefaultValue("null")));
                 })
                 .AddInterface($"ICosmosDBDocument", @interface =>
                 {
+                    var implementsInterface = UseType("Microsoft.Azure.CosmosRepository.IItem");
+                    if (useOptimisticConcurrency)
+                    {
+                        implementsInterface = UseType("Microsoft.Azure.CosmosRepository.IItemWithEtag");
+                    }
+
                     @interface.Internal();
-                    @interface.ImplementsInterfaces(UseType("Microsoft.Azure.CosmosRepository.IItem"));
+                    @interface.ImplementsInterfaces(implementsInterface);
 
                     @interface.AddProperty("string", "PartitionKey", method => method
                         .ExplicitlyImplements(UseType("Microsoft.Azure.CosmosRepository.IItem"))
