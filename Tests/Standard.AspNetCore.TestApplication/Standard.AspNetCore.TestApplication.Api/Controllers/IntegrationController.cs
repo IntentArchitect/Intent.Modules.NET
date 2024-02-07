@@ -79,7 +79,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.HeaderParamOp(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -106,7 +106,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.FormParamOp(param1, param2, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -132,7 +132,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.RouteParamOp(param1, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -181,7 +181,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                            new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.ThrowsException(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
