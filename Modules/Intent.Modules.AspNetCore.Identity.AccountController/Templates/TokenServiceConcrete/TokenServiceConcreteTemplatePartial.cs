@@ -26,19 +26,27 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                 .AddUsing("System.IdentityModel.Tokens.Jwt")
                 .AddUsing("System.Security.Claims")
                 .AddUsing("System.Security.Cryptography")
+                .AddUsing("System.Text.Json")
+                .AddUsing("Microsoft.AspNetCore.DataProtection")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.IdentityModel.Tokens")
                 .AddClass($"TokenService", @class =>
                 {
                     @class.ImplementsInterface(this.GetTokenServiceInterfaceName());
+
+                    @class.AddField("IDataProtector", "_protector", f => f.PrivateReadOnly());
+
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddParameter("IDataProtectionProvider", "provider");
+                        ctor.AddStatement($"_protector = provider.CreateProtector(\"{CSharpFile!.Namespace}.{@class.Name}\");");
                     });
-                    @class.AddMethod("string", "GenerateAccessToken", method =>
+
+                    @class.AddMethod("(string Token, DateTime Expiry)", "GenerateAccessToken", method =>
                     {
                         method.AddParameter("string", "username");
                         method.AddParameter("IEnumerable<Claim>", "claims");
@@ -49,51 +57,68 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
 
                         method.AddStatement("tokenClaims.AddRange(claims);");
                         method.AddStatements($@"
-var signingKey = Convert.FromBase64String(_configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!);
-var issuer = _configuration.GetSection(""JwtToken:Issuer"").Get<string>()!;
-var audience = _configuration.GetSection(""JwtToken:Audience"").Get<string>()!;
-var expiration = TimeSpan.FromMinutes(_configuration.GetSection(""JwtToken:AuthTokenExpiryMinutes"").Get<int?>() ?? 120);");
+                            var signingKey = Convert.FromBase64String(_configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!);
+                            var issuer = _configuration.GetSection(""JwtToken:Issuer"").Get<string>()!;
+                            var audience = _configuration.GetSection(""JwtToken:Audience"").Get<string>()!;
+                            var expiration = TimeSpan.FromMinutes(_configuration.GetSection(""JwtToken:AuthTokenExpiryMinutes"").Get<int?>() ?? 120);
+                            var expires = DateTime.UtcNow.Add(expiration);");
                         method.AddStatement(new CSharpInvocationStatement("var token = new JwtSecurityToken")
                             .AddArgument("issuer: issuer")
                             .AddArgument("audience: audience")
-                            .AddArgument("expires: DateTime.UtcNow.Add(expiration)")
+                            .AddArgument("expires: expires")
                             .AddArgument("claims: tokenClaims")
                             .AddArgument(@"signingCredentials: new SigningCredentials(key: new SymmetricSecurityKey(signingKey), algorithm: SecurityAlgorithms.HmacSha256)")
                             .WithArgumentsOnNewLines());
-                        method.AddStatement($@"return new JwtSecurityTokenHandler().WriteToken(token);");
+                        method.AddStatement($@"return (new JwtSecurityTokenHandler().WriteToken(token), expires);");
                     });
+
                     @class.AddMethod("(string Token, DateTime Expiry)", "GenerateRefreshToken", method =>
                     {
-                        method.AddStatement("var randomNumber = new byte[32];");
-                        method.AddUsingBlock("var rng = RandomNumberGenerator.Create()", block => block
-                            .AddStatement("rng.GetBytes(randomNumber);")
-                            .AddStatement(@"return (Convert.ToBase64String(randomNumber), DateTime.UtcNow.AddDays(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3));"));
-                    });
-                    @class.AddMethod("ClaimsPrincipal", "GetPrincipalFromExpiredToken", method =>
-                    {
-                        method.AddParameter("string", "token");
-                        method.AddObjectInitializerBlock(
-                            "var tokenValidationParameters = new TokenValidationParameters", block => block
-                                .AddInitStatement("ValidateAudience", "true")
-                                .AddInitStatement("ValidAudience",
-                                    @"_configuration.GetSection(""JwtToken:Audience"").Get<string>()")
-                                .AddInitStatement("ValidateIssuer", "true")
-                                .AddInitStatement("ValidIssuer",
-                                    @"_configuration.GetSection(""JwtToken:Issuer"").Get<string>()")
-                                .AddInitStatement("ValidateIssuerSigningKey", "true")
-                                .AddInitStatement("IssuerSigningKey",
-                                    @"new SymmetricSecurityKey(Convert.FromBase64String(_configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
-                                .AddInitStatement("ValidateLifetime", "false")
-                                .AddInitStatement("NameClaimType", @"""sub""")
-                                .WithSemicolon());
+                        method.AddParameter("string", "username");
                         method.AddStatements(@"
-        var tokenHandler = new JwtSecurityTokenHandler();
-        SecurityToken securityToken;
-        var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
-        var jwtSecurityToken = securityToken as JwtSecurityToken;");
-                        method.AddIfStatement("jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase)", stmt => stmt
-                            .AddStatement(@"throw new SecurityTokenException(""Invalid token"");"));
-                        method.AddStatement("return principal;");
+                            var expiry = DateTime.UtcNow.AddDays(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3);
+                            var unprotected = JsonSerializer.Serialize(new RefreshToken { Username = username, Expiry = expiry });
+                            var token = _protector.Protect(unprotected);
+
+                            return (token, expiry);".ConvertToStatements());
+                    });
+
+                    @class.AddMethod("string?", "GetUsernameFromRefreshToken", method =>
+                    {
+                        method.AddParameter("string?", "token");
+                        method.AddStatements(@"
+                            if (token == null)
+                            {
+                                return null;
+                            }
+
+                            try
+                            {
+                                var unprotected = _protector.Unprotect(token);
+                                var decoded = JsonSerializer.Deserialize<RefreshToken>(unprotected);
+                                if (decoded == null)
+                                {
+                                    return null;
+                                }
+
+                                if (DateTime.UtcNow >= decoded.Expiry)
+                                {
+                                    return null;
+                                }
+
+                                return decoded.Username;
+                            }
+                            catch (CryptographicException)
+                            {
+                                return null;
+                            }".ConvertToStatements());
+                    });
+
+                    @class.AddNestedClass("RefreshToken", nestedClass =>
+                    {
+                        nestedClass.Private();
+                        nestedClass.AddProperty("string?", "Username");
+                        nestedClass.AddProperty("DateTime", "Expiry");
                     });
                 });
         }

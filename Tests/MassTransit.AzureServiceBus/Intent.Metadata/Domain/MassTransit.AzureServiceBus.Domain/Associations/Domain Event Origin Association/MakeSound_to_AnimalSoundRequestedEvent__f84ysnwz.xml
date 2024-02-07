@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6f55e8bf-7949-4bff-b445-8e19865183ac">
+  <sourceEnd id="abc3696a-dfe1-43cf-a48b-58b903865d37" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Animal.MakeSound</display>
+    <order>2</order>
+    <typeReference id="421d477f-5bfa-4831-95a9-0ae1201b1265">
+      <typeId>0ef96e4d-fc9e-414e-82a7-11f3b52a833f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Domain</typePackageName>
+      <typePackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6f55e8bf-7949-4bff-b445-8e19865183ac" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : AnimalSoundRequestedEvent</display>
+    <order>0</order>
+    <typeReference id="85bf0936-c16c-4b1f-921b-672777c82868">
+      <typeId>787afc0a-f6fc-4d08-84fd-82a1d61f2242</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Domain</typePackageName>
+      <typePackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source elementId="9e56fe57-c0ee-4096-8fbf-6a9170f35ca1" location="[MassTransit.AzureServiceBus].[Domain].[Animal]" />
+        <target elementId="787afc0a-f6fc-4d08-84fd-82a1d61f2242" location="[MassTransit.AzureServiceBus].[Domain].[AnimalSoundRequestedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="787afc0a-f6fc-4d08-84fd-82a1d61f2242" name="AnimalSoundRequestedEvent" type="element" specialization="Domain Event" />
+              <target id="9eb14e44-b12c-41a8-a445-76de3cde18d9" name="Name" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="9e56fe57-c0ee-4096-8fbf-6a9170f35ca1" name="Animal" type="element" specialization="Class" />
+                  <target id="31125519-83ff-48db-8548-2ce6cdd6ce3f" name="Name" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Type}</expression>
+            <path>
+              <target id="787afc0a-f6fc-4d08-84fd-82a1d61f2242" name="AnimalSoundRequestedEvent" type="element" specialization="Domain Event" />
+              <target id="552d82f3-07e1-486c-adbf-7d792c82aa06" name="Type" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Type" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="9e56fe57-c0ee-4096-8fbf-6a9170f35ca1" name="Animal" type="element" specialization="Class" />
+                  <target id="24d70288-f22c-4395-8790-ff8735960e2f" name="Type" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

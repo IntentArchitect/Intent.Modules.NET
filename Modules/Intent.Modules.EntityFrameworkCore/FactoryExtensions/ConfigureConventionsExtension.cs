@@ -54,7 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
             var conventions = new List<CSharpStatement>();
 
-            if ( dbContext.ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
+            if (dbContext.ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
             {
                 conventions.Add(GetStoreEnumsAsStringsConvention(dbContext));
             }
@@ -87,7 +87,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         }
 
         private bool HasConventions(IApplication application)
-        { 
+        {
             return application.Settings.GetDatabaseSettings().StoreEnumsAsStrings() ||
                 application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql();
         }

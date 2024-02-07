@@ -126,12 +126,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         private void SaveProject(string filePath, string content)
         {
             var change = _changeManager.FindChange(filePath);
+            content = content.ReplaceLineEndings();
 
             // Normalize the content of both by parsing with no whitespace and calling .ToString()
             var targetContent = XDocument.Parse(content).ToString();
             var existingContent = change != null
-                ? XDocument.Parse(change.Content).ToString()
-                : XDocument.Load(filePath).ToString();
+                ? XDocument.Parse(change.Content).ToString().ReplaceLineEndings()
+                : XDocument.Load(filePath).ToString().ReplaceLineEndings();
 
             if (existingContent == targetContent)
             {

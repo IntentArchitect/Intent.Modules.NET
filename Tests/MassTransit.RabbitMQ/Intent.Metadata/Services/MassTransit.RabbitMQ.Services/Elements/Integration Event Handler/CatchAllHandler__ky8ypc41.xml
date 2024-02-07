@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5d2c6008-6d5e-4892-a53f-4de2c4625916" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CatchAllHandler</name>
+  <display>CatchAllHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9808e5b7-a317-4040-a20c-195f8a8bda20</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

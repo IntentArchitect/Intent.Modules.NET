@@ -14,4 +14,10 @@ public class AccountEmailSender : IAccountEmailSender
     {
         throw new NotImplementedException();
     }
+
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    public async Task SendPasswordResetCode(string email, string userId, string resetCode)
+    {
+        throw new NotImplementedException();
+    }
 }

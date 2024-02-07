@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{51886537-DB4A-431C-A96D-566E2887BF2D}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFrameworkCore.Oracle.TestApplication.Api", "EntityFrameworkCore.Oracle.TestApplication.Api\EntityFrameworkCore.Oracle.TestApplication.Api.csproj", "{D110E403-24D4-43FA-B63A-F175475C915A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{209271D4-BC4B-422B-BBFB-DCF4BF112CE5}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Oracle.TestApplication.Application", "EntityFrameworkCore.Oracle.TestApplication.Application\EntityFrameworkCore.Oracle.TestApplication.Application.csproj", "{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{15A7C3D9-9BC9-4BD3-B255-0285379D2CE4}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Oracle.TestApplication.Domain", "EntityFrameworkCore.Oracle.TestApplication.Domain\EntityFrameworkCore.Oracle.TestApplication.Domain.csproj", "{E803E790-9C49-4CBB-9AD7-73BC0584B834}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0D96C121-B6B8-4614-8C92-EDE7593BA9E8}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Oracle.TestApplication.Infrastructure", "EntityFrameworkCore.Oracle.TestApplication.Infrastructure\EntityFrameworkCore.Oracle.TestApplication.Infrastructure.csproj", "{48D284C2-D41E-47EB-B2B1-09B8F16A2D51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D110E403-24D4-43FA-B63A-F175475C915A} = {51886537-DB4A-431C-A96D-566E2887BF2D}
+		{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A} = {209271D4-BC4B-422B-BBFB-DCF4BF112CE5}
+		{E803E790-9C49-4CBB-9AD7-73BC0584B834} = {15A7C3D9-9BC9-4BD3-B255-0285379D2CE4}
+		{48D284C2-D41E-47EB-B2B1-09B8F16A2D51} = {0D96C121-B6B8-4614-8C92-EDE7593BA9E8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D110E403-24D4-43FA-B63A-F175475C915A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D110E403-24D4-43FA-B63A-F175475C915A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D110E403-24D4-43FA-B63A-F175475C915A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D110E403-24D4-43FA-B63A-F175475C915A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F8BB0A-30A9-4464-ADA1-85A8F95AE87A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E803E790-9C49-4CBB-9AD7-73BC0584B834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E803E790-9C49-4CBB-9AD7-73BC0584B834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E803E790-9C49-4CBB-9AD7-73BC0584B834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E803E790-9C49-4CBB-9AD7-73BC0584B834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D284C2-D41E-47EB-B2B1-09B8F16A2D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D284C2-D41E-47EB-B2B1-09B8F16A2D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D284C2-D41E-47EB-B2B1-09B8F16A2D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D284C2-D41E-47EB-B2B1-09B8F16A2D51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

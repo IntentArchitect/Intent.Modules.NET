@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Blazor.Server.MinimalHosting", "Blazor.Server.MinimalHosting\Blazor.Server.MinimalHosting.csproj", "{AE91C763-47B3-4B3B-BA5C-BBA26D91122F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE91C763-47B3-4B3B-BA5C-BBA26D91122F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE91C763-47B3-4B3B-BA5C-BBA26D91122F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE91C763-47B3-4B3B-BA5C-BBA26D91122F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE91C763-47B3-4B3B-BA5C-BBA26D91122F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

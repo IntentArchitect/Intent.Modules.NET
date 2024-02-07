@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="930f7229-7b1b-40f3-b4e7-de49bc30c8c2" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Person</name>
+  <display>Person</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</parentFolderId>
+  <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+  <packageName>MassTransit.RabbitMQ.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ebcc6272-6720-42e1-ac15-fb19b2c0d2eb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1974a729-3e5e-4b54-8bb4-2541c0caa2e9">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>930f7229-7b1b-40f3-b4e7-de49bc30c8c2</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8d02f408-65ed-4c45-ac89-c266bcf0d322" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="df99e8ea-1c52-4b91-8e89-c5a6ab7dd63e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>930f7229-7b1b-40f3-b4e7-de49bc30c8c2</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e505d3ee-8369-4ba7-906e-94a95cbf6678" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e5fa0546-fb4a-46bd-a73b-fa226e7f6d23">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>930f7229-7b1b-40f3-b4e7-de49bc30c8c2</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="67fecfad-4e9f-4069-b131-d8e256e60f8e" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Talk</name>
+      <display>Talk(message: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="37adb2dd-035a-460e-a25e-f1cd4d7a227b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>930f7229-7b1b-40f3-b4e7-de49bc30c8c2</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="20e80ced-68df-41f8-8714-0feeab91ccf5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>message</name>
+          <display>in : message: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9a733080-8a28-4632-a588-4bec4db9637d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>67fecfad-4e9f-4069-b131-d8e256e60f8e</parentFolderId>
+          <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+          <packageName>MassTransit.RabbitMQ.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5b323623-7959-43db-a70e-03c0bfa85093">
+  <sourceEnd id="688b189f-f3ec-4cea-96e4-8d6f448989c2" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetInvoiceByIdQuery</display>
+    <order>0</order>
+    <typeReference id="1f17f121-733a-4546-aba2-1238e351522a">
+      <typeId>81395ff1-6ba6-48b4-9b34-b084ab483c3d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Services</typePackageName>
+      <typePackageId>f8a4e0d0-cf3a-4848-9f5a-43fca1e1dfdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5b323623-7959-43db-a70e-03c0bfa85093" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoice</name>
+    <display>[query] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="579da707-a9b6-4fee-86ac-3a2bdd400dc0">
+      <typeId>d294b302-812d-4a36-8a45-fb98f8d00a9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="81395ff1-6ba6-48b4-9b34-b084ab483c3d" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[GetInvoiceByIdQuery]" />
+        <target applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d294b302-812d-4a36-8a45-fb98f8d00a9e" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+              <target id="d9672584-8e91-4a9c-a3cb-8d90c40f539c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="81395ff1-6ba6-48b4-9b34-b084ab483c3d" name="GetInvoiceByIdQuery" type="element" specialization="Query" />
+                  <target id="7197d3fc-01dc-4bc8-9413-3029523273bd" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

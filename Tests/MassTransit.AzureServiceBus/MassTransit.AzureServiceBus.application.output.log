@@ -107,6 +107,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#12cdc727-98b7-45a3-810a-d93865cfb686</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Animals/CreateAnimalDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/CreateAnimalDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#12cdc727-98b7-45a3-810a-d93865cfb686</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Animals/CreateAnimalDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/CreateAnimalDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f0626388-bb8e-45fe-b366-c9d474371d59</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -284,10 +300,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>257b7e34-d0cd-423e-9408-0c4df543d6be</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>257b7e34-d0cd-423e-9408-0c4df543d6be</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>257b7e34-d0cd-423e-9408-0c4df543d6be</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -304,6 +336,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4ea1c6e4-4e8b-4812-a542-b5a13508922a</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#0633cc57-1655-4be9-a184-fdfdd45a4239</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/EventHandlers/Animals/AnimalSoundRequestedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/AnimalSoundRequestedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4ea1c6e4-4e8b-4812-a542-b5a13508922a</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#c96379a3-0189-44f0-8b0d-a568319c282d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/EventHandlers/People/TalkToPersonRequestedHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/TalkToPersonRequestedHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d1124a9-cf0d-4be3-824c-7e0af378fa34</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#8288be28-bece-4691-988b-1902c524287c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationCommands/Animals/MakeSoundCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/MakeSoundCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d1124a9-cf0d-4be3-824c-7e0af378fa34</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#cfefcaa5-cf3b-4306-ba46-adb1144d99d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationCommands/Animals/OrderAnimal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/OrderAnimal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d1124a9-cf0d-4be3-824c-7e0af378fa34</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#598e0a53-e3bf-4c6f-9287-bfc2942f2c89</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationCommands/People/CreatePersonIdentity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePersonIdentity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d1124a9-cf0d-4be3-824c-7e0af378fa34</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#9ac040bb-c3ee-4ddc-a0b6-082a0336c945</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationCommands/People/TalkToPersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/TalkToPersonCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -324,10 +404,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#aa975e05-5a14-4b44-b2c5-198e92fdb653</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CatchAllHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#df0cda32-18b9-4436-9c12-5d89f3ef2c4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestMessageHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/Test/TestMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/TestMessageHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -344,6 +432,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/MassTransit.AzureServiceBus.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.AzureServiceBus.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#801bea67-ee55-40c4-bb72-b9212cb3691b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/People/CreatePerson/CreatePersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#801bea67-ee55-40c4-bb72-b9212cb3691b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/People/CreatePerson/CreatePersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#801bea67-ee55-40c4-bb72-b9212cb3691b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/People/CreatePerson/CreatePersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -419,11 +531,51 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d65d765c-6bb1-4205-8e01-1cb77aa203a3</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#9e56fe57-c0ee-4096-8fbf-6a9170f35ca1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Entities/Animal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d65d765c-6bb1-4205-8e01-1cb77aa203a3</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb06f82b-1caf-4e54-95bf-808a812d5c05</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#787afc0a-f6fc-4d08-84fd-82a1d61f2242</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Events/AnimalSoundRequestedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalSoundRequestedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb06f82b-1caf-4e54-95bf-808a812d5c05</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#47ad9563-8a53-4ca2-b83c-62a1d846649d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Events/TalkToPersonRequested.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TalkToPersonRequested.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>87a84126-a3fe-4bf5-a534-856a50f85e21</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#87a84126-a3fe-4bf5-a534-856a50f85e21</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/MassTransit.AzureServiceBus.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.AzureServiceBus.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb09b0f2-bc30-4d63-ba7d-c90a8b92e756</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9e56fe57-c0ee-4096-8fbf-6a9170f35ca1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Repositories/IAnimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAnimalRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -440,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb09b0f2-bc30-4d63-ba7d-c90a8b92e756</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Domain/Repositories/IPersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -499,11 +659,43 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a7414a45-e22c-425f-a00e-4b49c076f67f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9e56fe57-c0ee-4096-8fbf-6a9170f35ca1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Persistence/Configurations/AnimalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a7414a45-e22c-425f-a00e-4b49c076f67f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>dd7b6221-ff55-44e0-8134-aa943e8f0a46</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b89025a2-c7c0-4a89-bc4b-3f54d5d09cd9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#9e56fe57-c0ee-4096-8fbf-6a9170f35ca1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Repositories/AnimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b89025a2-c7c0-4a89-bc4b-3f54d5d09cd9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#cd4b96a4-00c6-4c4e-94ce-2b2e04455eef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Repositories/PersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

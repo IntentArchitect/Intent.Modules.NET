@@ -1,20 +1,21 @@
+using System;
+using System.Linq;
+using System.Reflection;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
+using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Linq;
-using Intent.Modelers.Services.EventInteractions;
-using Intent.Modules.Constants;
-using System.Reflection;
-using Intent.Modelers.Services.Api;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -47,7 +48,24 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 foreach (var handler in template.CSharpFile.GetProcessingHandlers())
                 {
                     var method = handler.Method;
-                    var model = (SubscribeIntegrationEventTargetEndModel)handler.Model; // need to be careful of assumptions like this?
+                    var integrationData = handler.Model switch
+                    {
+                        SubscribeIntegrationEventTargetEndModel eventTargetEndModel => new
+                        {
+                            Model = (IMetadataModel)eventTargetEndModel,
+                            ElementModel = (IMetadataModel)eventTargetEndModel.Element,
+                            SentCommandDestinations = eventTargetEndModel.SentCommandDestinations(),
+                            CalledServiceOperations = eventTargetEndModel.CalledServiceOperations()
+                        },
+                        SubscribeIntegrationCommandTargetEndModel eventTargetEndModel => new
+                        {
+                            Model = (IMetadataModel)eventTargetEndModel,
+                            ElementModel = (IMetadataModel)eventTargetEndModel.Element,
+                            SentCommandDestinations = eventTargetEndModel.SentCommandDestinations(),
+                            CalledServiceOperations = eventTargetEndModel.CalledServiceOperations()
+                        },
+                        _ => throw new NotSupportedException($"{handler.Model.GetType().FullName} is not supported")
+                    };
 
                     // SEND COMMANDS FROM INTEGRATION EVENT HANDLER:
                     var ctor = @class.Constructors.First();
@@ -55,9 +73,10 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var mappingManager = new CSharpClassMappingManager(template);
                     mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
                     mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
-                    mappingManager.SetFromReplacement(model, "message");
-                    mappingManager.SetFromReplacement(model.Element, "message");
-                    foreach (var sendCommand in model.SentCommandDestinations().Where(x => x.Mappings.Any()))
+                    mappingManager.SetFromReplacement(integrationData.Model, "message");
+                    mappingManager.SetFromReplacement(integrationData.ElementModel, "message");
+
+                    foreach (var sendCommand in integrationData.SentCommandDestinations.Where(x => x.Mappings.Any()))
                     {
                         if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
                         {
@@ -72,7 +91,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
                     }
 
-                    foreach (var calledOperation in model.CalledServiceOperations().Where(x => x.Mappings.Any()))
+                    foreach (var calledOperation in integrationData.CalledServiceOperations.Where(x => x.Mappings.Any()))
                     {
                         var serviceInterfaceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
                         var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type == serviceInterfaceType)?.Name;
@@ -97,7 +116,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         }
     }
 
-
+    [IntentManaged(Mode.Ignore)]
     public class CreateCommandMappingResolver : IMappingTypeResolver
     {
         private readonly ICSharpFileBuilderTemplate _template;
@@ -126,6 +145,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         }
     }
 
+    [IntentManaged(Mode.Ignore)]
     public class CallServiceOperationMappingResolver : IMappingTypeResolver
     {
         private readonly ICSharpFileBuilderTemplate _template;

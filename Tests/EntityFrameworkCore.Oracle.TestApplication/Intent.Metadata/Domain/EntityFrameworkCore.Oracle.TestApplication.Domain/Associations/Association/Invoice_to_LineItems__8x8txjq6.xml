@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b981f480-ea9d-4bf7-b618-b9a0f8829edf">
+  <sourceEnd id="05e71105-5b17-40f0-934f-7d2c1b5df756" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="a2cc9da8-7195-4c0f-9c70-6fcc47f053a8">
+      <typeId>d294b302-812d-4a36-8a45-fb98f8d00a9e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b981f480-ea9d-4bf7-b618-b9a0f8829edf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>LineItems</name>
+    <display>LineItems: LineItem[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="e083682a-9351-455d-bde4-2364f0f67cd0">
+      <typeId>8c8cd870-835a-4ac7-ae16-0dbda7abbe65</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

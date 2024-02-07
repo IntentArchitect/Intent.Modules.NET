@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="ced769d7-12d7-4efc-b8e7-4fe013097613" version="3.1.0">
+  <name>Command Consumption</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="efa73bdb-69b7-4f52-aa10-15c19874b394">Subscribe Integration Command Target End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>on-create</applyMode>
+  <icon type="FontAwesome" source="sign-in-alt" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>if (QueueName) {
+    return `[${QueueName}]`;
+}
+
+return "";</displayFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b54febee-38bb-4993-86c0-b86f26e4a696</parentFolderId>
+  <order>0</order>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <properties>
+    <property id="219da315-395e-43d1-be25-205098fa8053">
+      <name>Queue Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(uses convention)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+      <isRequiredFunction />
+    </property>
+  </properties>
+</stereotypeDefinition>

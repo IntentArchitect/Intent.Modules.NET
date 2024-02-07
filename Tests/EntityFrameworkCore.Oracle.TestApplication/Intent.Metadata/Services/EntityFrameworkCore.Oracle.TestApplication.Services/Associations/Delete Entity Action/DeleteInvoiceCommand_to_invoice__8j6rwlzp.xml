@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2db3527b-eab6-4e4c-a9db-5a69c61a52b1">
+  <sourceEnd id="2f5c2580-53eb-48f8-9b44-9ba0e7f27399" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Invoices.DeleteInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="c9ea91fc-1e20-4774-96fc-d10e638f1920">
+      <typeId>08fdd31c-af13-4329-9122-1b4f327536fd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Services</typePackageName>
+      <typePackageId>f8a4e0d0-cf3a-4848-9f5a-43fca1e1dfdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2db3527b-eab6-4e4c-a9db-5a69c61a52b1" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>invoice</name>
+    <display>[delete] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="a399a62e-245c-42aa-9c8b-ef474d60816f">
+      <typeId>d294b302-812d-4a36-8a45-fb98f8d00a9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="08fdd31c-af13-4329-9122-1b4f327536fd" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[DeleteInvoiceCommand]" />
+        <target applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d294b302-812d-4a36-8a45-fb98f8d00a9e" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+              <target id="d9672584-8e91-4a9c-a3cb-8d90c40f539c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="08fdd31c-af13-4329-9122-1b4f327536fd" name="DeleteInvoiceCommand" type="element" specialization="Command" />
+                  <target id="6f6c771d-610a-45a0-b2eb-1c4a54ea8a11" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

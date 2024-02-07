@@ -5,6 +5,8 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Interfaces;
 using MassTransit.RabbitMQ.Domain.Common;
 using MassTransit.RabbitMQ.Domain.Common.Interfaces;
+using MassTransit.RabbitMQ.Domain.Entities;
+using MassTransit.RabbitMQ.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,6 +22,9 @@ namespace MassTransit.RabbitMQ.Infrastructure.Persistence
         {
             _domainEventService = domainEventService;
         }
+
+        public DbSet<Animal> Animals { get; set; }
+        public DbSet<Person> People { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -40,6 +45,8 @@ namespace MassTransit.RabbitMQ.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AnimalConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

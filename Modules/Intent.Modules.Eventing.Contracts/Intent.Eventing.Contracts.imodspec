@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
-  <version>5.0.2</version>
+  <version>5.0.3-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
@@ -17,6 +17,14 @@
       </config>
       <role>Application.Eventing.EventBusInterface</role>
       <location>Common/Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Contracts.IntegrationCommand" externalReference="550e70be-6702-44f9-84c1-841a195b7b36">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.Command</role>
+      <location>IntegrationCommands</location>
     </template>
     <template id="Intent.Eventing.Contracts.IntegrationEventDto" externalReference="dbd1b803-bd6e-4336-89ef-2901e3e70331">
       <config>
@@ -61,9 +69,9 @@
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Modelers.Eventing" version="5.0.1" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.Modelers.Eventing" version="5.0.2-pre.1" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.2-pre.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

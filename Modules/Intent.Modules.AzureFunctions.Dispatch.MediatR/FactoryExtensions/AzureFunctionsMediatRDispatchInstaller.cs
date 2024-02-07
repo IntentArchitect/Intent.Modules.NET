@@ -61,7 +61,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                             {
                                 p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                             });
-                        
+
                         var runMethod = FindServiceInvokePoint(@class)?
                             .AddStatements(GetValidations(template.Model))
                             .AddStatement(GetDispatchViaMediatorStatement(template, template.Model))
@@ -113,7 +113,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
         private static CSharpStatement GetReturnStatement(string statement)
         {
             return new CSharpStatement(statement).AddMetadata("return", true);
-        } 
+        }
 
         private static CSharpStatement GetReturnStatement(IAzureFunctionModel operationModel)
         {
@@ -150,11 +150,11 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 case HttpVerb.Patch:
                     return GetReturnStatement(operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);");
                 case HttpVerb.Delete:
-                    return GetReturnStatement( operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);");
+                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);");
                 case null:
                     if (operationModel.ReturnType != null)
                     {
-                        return GetReturnStatement( $"return result;");
+                        return GetReturnStatement($"return result;");
                     }
                     break;
                 default:

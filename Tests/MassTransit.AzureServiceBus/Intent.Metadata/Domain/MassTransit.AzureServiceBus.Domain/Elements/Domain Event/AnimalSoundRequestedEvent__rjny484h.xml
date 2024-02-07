@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="787afc0a-f6fc-4d08-84fd-82a1d61f2242" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>AnimalSoundRequestedEvent</name>
+  <display>AnimalSoundRequestedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</parentFolderId>
+  <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+  <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9eb14e44-b12c-41a8-a445-76de3cde18d9" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="24c4a8f7-4ec1-4cea-85ae-c6c9b18043e4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>787afc0a-f6fc-4d08-84fd-82a1d61f2242</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="552d82f3-07e1-486c-adbf-7d792c82aa06" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Type</name>
+      <display>Type: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c1445a8f-3e98-455b-b4b2-a526cb1df3b3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>787afc0a-f6fc-4d08-84fd-82a1d61f2242</parentFolderId>
+      <packageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</packageId>
+      <packageName>MassTransit.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

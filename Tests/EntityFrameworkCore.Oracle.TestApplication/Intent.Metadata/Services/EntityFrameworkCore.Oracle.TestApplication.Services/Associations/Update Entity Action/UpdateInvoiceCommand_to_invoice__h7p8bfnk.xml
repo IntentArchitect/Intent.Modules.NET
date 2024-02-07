@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e5e79fdc-7956-44c6-b97a-941f488238fa">
+  <sourceEnd id="b0851cf9-1b6a-4029-8808-7f763a7b38c9" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Invoices.UpdateInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="29ec569d-334c-45c9-ab9d-29d261d1693e">
+      <typeId>047d297c-ea98-48f0-a5cb-f1121bce969f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Services</typePackageName>
+      <typePackageId>f8a4e0d0-cf3a-4848-9f5a-43fca1e1dfdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e5e79fdc-7956-44c6-b97a-941f488238fa" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>invoice</name>
+    <display>[update] invoice: Invoice</display>
+    <order>2</order>
+    <typeReference id="6a7e91cc-1465-4433-9a3e-6283755422fd">
+      <typeId>d294b302-812d-4a36-8a45-fb98f8d00a9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Oracle.TestApplication.Domain</typePackageName>
+      <typePackageId>3614ce20-1661-4df6-b9a7-93a25270fa5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="047d297c-ea98-48f0-a5cb-f1121bce969f" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d294b302-812d-4a36-8a45-fb98f8d00a9e" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+              <target id="d9672584-8e91-4a9c-a3cb-8d90c40f539c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="047d297c-ea98-48f0-a5cb-f1121bce969f" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="c0150074-d26e-4e9c-8b5d-3623ca0d0805" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="047d297c-ea98-48f0-a5cb-f1121bce969f" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d294b302-812d-4a36-8a45-fb98f8d00a9e" location="[EntityFrameworkCore.Oracle.TestApplication].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Number}</expression>
+            <path>
+              <target id="d294b302-812d-4a36-8a45-fb98f8d00a9e" name="Invoice" type="element" specialization="Class" />
+              <target id="c94e0a29-7eae-4877-b43a-36da5beaed4a" name="Number" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Number" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047d297c-ea98-48f0-a5cb-f1121bce969f" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="4e6d615f-0e7b-4046-b78d-db4a6d95b594" name="Number" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

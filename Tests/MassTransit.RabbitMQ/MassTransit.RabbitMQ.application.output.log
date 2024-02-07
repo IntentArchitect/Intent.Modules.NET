@@ -43,6 +43,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e0f6067f-b87c-4c76-a190-ecb04b2bd707</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#3ef5f7c1-f1c2-4145-a746-13f29e8e0ab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>849d6a98-3051-47d5-9f3c-5577070c6611</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -96,6 +104,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3326489d-6028-42a2-a1bc-3016661c684b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Animals/CreateAnimalDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/CreateAnimalDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3326489d-6028-42a2-a1bc-3016661c684b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Animals/CreateAnimalDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/CreateAnimalDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -276,10 +300,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ff85714-634c-428c-99fe-3fa1cdac3eaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ff85714-634c-428c-99fe-3fa1cdac3eaf</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ff85714-634c-428c-99fe-3fa1cdac3eaf</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -296,6 +336,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19fc9d6c-d1e4-4462-9b4e-9731d8d0b146</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#7dde8913-9cbb-4f8e-8671-3a501be2619f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/EventHandlers/Animals/AnimalSoundRequestedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/AnimalSoundRequestedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>19fc9d6c-d1e4-4462-9b4e-9731d8d0b146</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#246e8e98-2c5b-4881-8765-f79ab761f1ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/EventHandlers/People/TalkToPersonRequestedHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/TalkToPersonRequestedHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c17aa1e1-48c4-4d78-af4b-b62845709213</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#55fd5346-5936-4b7f-bcea-cc4c70b4bd59</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationCommands/Animals/MakeSoundCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/MakeSoundCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c17aa1e1-48c4-4d78-af4b-b62845709213</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationCommands/Animals/OrderAnimal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animals/OrderAnimal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c17aa1e1-48c4-4d78-af4b-b62845709213</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#e10e82b7-174d-4d6e-8054-3891737bddf6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationCommands/People/CreatePersonIdentity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePersonIdentity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c17aa1e1-48c4-4d78-af4b-b62845709213</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#a328603f-6198-4260-9f91-dffe794a6cc0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationCommands/People/TalkToPersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/TalkToPersonCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -316,10 +404,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#5d2c6008-6d5e-4892-a53f-4de2c4625916</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CatchAllHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/Test/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -336,6 +432,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/MassTransit.RabbitMQ.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.RabbitMQ.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bc4f8f6d-f6d6-4ec3-b091-9869186afb1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/People/CreatePerson/CreatePersonCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bc4f8f6d-f6d6-4ec3-b091-9869186afb1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/People/CreatePerson/CreatePersonCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bc4f8f6d-f6d6-4ec3-b091-9869186afb1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/People/CreatePerson/CreatePersonCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/CreatePerson/CreatePersonCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -387,11 +531,51 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d18700ce-c614-44f7-8813-567819b65bf5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d98f67a2-2d52-47cf-b019-17d83244e9ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Entities/Animal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Animal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d18700ce-c614-44f7-8813-567819b65bf5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#930f7229-7b1b-40f3-b4e7-de49bc30c8c2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d0f146b3-d38c-45b4-93d0-c47d63435749</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#14880fed-ddf6-4029-a8de-17923a6c6a86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Events/AnimalSoundRequestedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalSoundRequestedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d0f146b3-d38c-45b4-93d0-c47d63435749</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#31b635b7-35bf-456b-acb1-bf0365d5993c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Events/TalkToPersonRequested.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TalkToPersonRequested.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cd7b8ba4-ce26-4019-93b1-32d487100f43</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#cd7b8ba4-ce26-4019-93b1-32d487100f43</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/MassTransit.RabbitMQ.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.RabbitMQ.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e6a4e62-69a4-48b5-8450-ae053a43c068</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d98f67a2-2d52-47cf-b019-17d83244e9ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Repositories/IAnimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAnimalRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -408,6 +592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e6a4e62-69a4-48b5-8450-ae053a43c068</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#930f7229-7b1b-40f3-b4e7-de49bc30c8c2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Domain/Repositories/IPersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -467,11 +659,43 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>429883fe-76bd-46f6-9c11-c833917436d1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d98f67a2-2d52-47cf-b019-17d83244e9ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Persistence/Configurations/AnimalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>429883fe-76bd-46f6-9c11-c833917436d1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#930f7229-7b1b-40f3-b4e7-de49bc30c8c2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ba68f901-9f13-433a-a83c-eefca6616033</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f844c42b-8e13-4781-a8c3-c3e0da3c1df3</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d98f67a2-2d52-47cf-b019-17d83244e9ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Repositories/AnimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnimalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f844c42b-8e13-4781-a8c3-c3e0da3c1df3</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#930f7229-7b1b-40f3-b4e7-de49bc30c8c2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Repositories/PersonRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

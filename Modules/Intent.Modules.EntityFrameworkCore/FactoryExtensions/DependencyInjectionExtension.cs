@@ -79,6 +79,15 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
                         .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringName, "DefaultConnection"));
                     break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle:
+                    dependencyInjection.AddNugetDependency(NugetPackages.OracleEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
+                    application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                        name: "DefaultConnection",
+                        connectionString: $"Data Source={dependencyInjection.OutputTarget.ApplicationName()};User Id=myUsername;Password=myPassword;Integrated Security=no;",
+                        providerName: ""));
+                    application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Oracle.Name)
+                        .WithProperty(Infrastructure.Oracle.Property.ConnectionStringName, "DefaultConnection"));
+                    break;
                 default:
                     break;
             }
@@ -153,6 +162,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument(@"configuration[""Cosmos:AccountEndpoint""]")
                         .AddArgument(@"configuration[""Cosmos:AccountKey""]")
                         .AddArgument(@"configuration[""Cosmos:DatabaseName""]", a => a.AddMetadata("is-connection-string", true)));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle:
+                    dependencyInjection.AddNugetDependency(NugetPackages.OracleEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
+
+                    statements.Add(new CSharpInvocationStatement("options.UseOracle")
+                        .WithArgumentsOnNewLines()
+                        .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
+                        .AddArgument(dbContextOptionsBuilderStatement));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");

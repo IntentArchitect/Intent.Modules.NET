@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.CosmosDb" Version="7.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.CosmosDb" Version="8.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.0" />
     <PackageReference Include="IdentityModel" Version="6.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />

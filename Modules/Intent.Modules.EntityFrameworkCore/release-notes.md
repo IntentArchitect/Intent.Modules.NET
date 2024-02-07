@@ -1,4 +1,8 @@
-﻿### Version 4.6.0
+﻿### Version 4.6.1
+
+- Improvement: Added support for Oracle databases.
+
+### Version 4.6.0
 
 - Improvement: Moved `PagedList<T>` type into this module from the `Intent.EntityFrameworkCore.Repositories 4.5.0` module since pagination is an separate concert to the repository pattern.
 - Improvement: For Postgres, added ValueConverter for `DateTimeOffset` to ensure these are persisted as UTC.

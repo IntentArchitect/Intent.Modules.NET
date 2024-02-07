@@ -51,8 +51,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
     public void UpdateContent(string content, ISoftwareFactoryEventDispatcher sfEventDispatcher)
     {
         // Normalize the content of both by parsing with no whitespace and calling .ToString()
-        var targetContent = XDocument.Parse(content).ToString();
-        var existingContent = LoadContent();
+        var targetContent = XDocument.Parse(content).ToString().ReplaceLineEndings();
+        var existingContent = LoadContent().ReplaceLineEndings();
 
         if (existingContent == targetContent)
         {
@@ -97,7 +97,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
 
         var content = hadExistingContent
             ? existingFileContent
-            : base.RunTemplate();
+            : base.RunTemplate().ReplaceLineEndings();
 
         content = ApplyAdditionalTransforms(content);
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="5cae1c25-cc30-4af8-8955-30af001c981d" version="3.1.0">
+  <hint />
+  <name>Command Distribution</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="35a14f76-71e0-45f2-a17f-f8d1483510f7">Send Integration Command Target End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>on-create</applyMode>
+  <icon type="FontAwesome" source="share-square" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>if (DestinationQueueName) {
+    return `[${DestinationQueueName}]`;
+}
+
+return "";</displayFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b54febee-38bb-4993-86c0-b86f26e4a696</parentFolderId>
+  <order>0</order>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <properties>
+    <property id="4126ee48-4a50-41a8-9419-504e7f677bea">
+      <hint />
+      <name>Destination Queue Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(uses convention)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+      <isRequiredFunction />
+    </property>
+  </properties>
+</stereotypeDefinition>

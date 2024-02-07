@@ -23,7 +23,7 @@ public class MessageCreationMappingTypeResolver : IMappingTypeResolver
         //}
 
         var model = mappingModel.Model;
-        if (model.IsMessageModel() || model.TypeReference?.Element?.IsEventingDTOModel() == true)
+        if (model.IsMessageModel() || model.IsIntegrationCommandModel() || model.TypeReference?.Element?.IsEventingDTOModel() == true)
         {
             return new ObjectInitializationMapping(mappingModel, _template);
         }

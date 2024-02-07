@@ -67,7 +67,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
             // Assert
             act.Should().ThrowAsync<ValidationException>().Result
-            .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
+                .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
         }
 
         private ValidationBehaviour<CreateAggregateRootLongCommand, long> GetValidationBehaviour()

@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -35,6 +36,9 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         AddNugetDependency(NuGetPackages.MassTransit);
 
+        AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
+        AddTypeSource(IntegrationCommandTemplate.TemplateId);
+
         var appModels = ExecutionContext.MetadataManager
             .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels();
 
@@ -46,9 +50,12 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Where(p => p.HasMessageTopologySettings() && !string.IsNullOrWhiteSpace(p.GetMessageTopologySettings().EntityName()))
             .ToList();
 
-        Subscriptions = GetApplicationSubscriptions(appModels)
-            .Concat(GetIntegrationEventHandlerSubscriptions())
+        EventSubscriptions = GetApplicationSubscriptions(appModels)
+            .Concat(GetIntegrationEventHandlerEventSubscriptions())
             .ToArray();
+
+        CommandSubscriptions = GetIntegrationEventHandlerCommandSubscriptions().ToArray();
+        CommandSendDispatches = GetIntegrationCommandSendDispatches().ToArray();
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -63,7 +70,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 @class.AddMethod("void", "AddMassTransitConfiguration", method =>
                 {
                     method.Static();
-                    method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
+                    method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");
                     method.AddStatements(GetContainerRegistrationStatements());
                     method.AddInvocationStatement("services.AddMassTransit", stmt => stmt
@@ -75,29 +82,49 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 @class.AddMethod("void", "AddConsumers", method =>
                 {
                     method.Private().Static();
-                    method.AddParameter("IRegistrationConfigurator", "cfg", parm => parm.WithThisModifier());
-                    foreach (var subscription in Subscriptions)
+                    method.AddParameter("IRegistrationConfigurator", "cfg", param => param.WithThisModifier());
+                    foreach (var subscription in EventSubscriptions)
                     {
-                        method.AddStatement(GetAddConsumerStatement("cfg", subscription.Message, HasMessageBrokerStereotype(subscription)));                        
+                        method.AddStatement(GetAddConsumerStatement("cfg", subscription.Message, HasMessageBrokerStereotype(subscription)));
+                    }
+
+                    foreach (var subscription in CommandSubscriptions)
+                    {
+                        method.AddStatement(GetAddConsumerStatement("cfg", subscription.TypeReference.Element.AsIntegrationCommandModel()));
                     }
                 });
+                AddReceivedEndpointsForCommandSubscriptions(@class);
+                AddEndpointConventionRegistrations(@class);
                 AddNonDefaultEndpointConfigurationMethods(@class);
             });
     }
 
-    private IEnumerable<MessageModel> MessagesWithSettings { get; }
-    private IEnumerable<Subscription> Subscriptions { get; }
-    
+    public IReadOnlyCollection<SendIntegrationCommandTargetEndModel> CommandSendDispatches { get; }
+    private IReadOnlyCollection<SubscribeIntegrationCommandTargetEndModel> CommandSubscriptions { get; }
+    private IReadOnlyCollection<MessageModel> MessagesWithSettings { get; }
+    private IReadOnlyCollection<Subscription> EventSubscriptions { get; }
+
     private record Subscription(
         MessageModel Message,
         IAzureServiceBusConsumerSettings? AzureConsumerSettings,
         IRabbitMQConsumerSettings? RabbitMqConsumerSettings);
 
-    private IEnumerable<Subscription> GetIntegrationEventHandlerSubscriptions()
+    private IEnumerable<Subscription> GetIntegrationEventHandlerEventSubscriptions()
     {
         return ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
             .SelectMany(x => x.IntegrationEventSubscriptions())
             .Select(s => new Subscription(s.TypeReference.Element.AsMessageModel(), s.GetAzureServiceBusConsumerSettings(), s.GetRabbitMQConsumerSettings()));
+    }
+
+    private IEnumerable<SubscribeIntegrationCommandTargetEndModel> GetIntegrationEventHandlerCommandSubscriptions()
+    {
+        return ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+            .SelectMany(x => x.IntegrationCommandSubscriptions());
+    }
+
+    private IEnumerable<SendIntegrationCommandTargetEndModel> GetIntegrationCommandSendDispatches()
+    {
+        return ExecutionContext.MetadataManager.GetExplicitlySentIntegrationCommandDispatches(ExecutionContext.GetApplicationConfig().Id);
     }
 
     private static IEnumerable<Subscription> GetApplicationSubscriptions(IList<ApplicationModel> appModels)
@@ -106,7 +133,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .SelectMany(x => x.SubscribedMessages())
             .Select(s => new Subscription(s.TypeReference.Element.AsMessageModel(), s.GetAzureServiceBusConsumerSettings(), s.GetRabbitMQConsumerSettings()));
     }
-    
+
     private bool HasMessageBrokerStereotype(Subscription subscription)
     {
         return (subscription.AzureConsumerSettings is not null &&
@@ -115,7 +142,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                (subscription.RabbitMqConsumerSettings is not null &&
                 ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsRabbitmq());
     }
-    
+
     private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
     {
         var statements = new List<CSharpStatement>();
@@ -198,7 +225,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
     {
         yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
-        if (Subscriptions.Any(HasMessageBrokerStereotype))
+        if (EventSubscriptions.Any(HasMessageBrokerStereotype))
         {
             yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
         }
@@ -217,6 +244,16 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
         }
+
+        if (CommandSubscriptions.Any())
+        {
+            yield return new CSharpStatement("cfg.AddReceiveEndpoints(context);");
+        }
+
+        if (CommandSendDispatches.Any())
+        {
+            yield return new CSharpStatement("EndpointConventionRegistration();");
+        }
     }
 
     private void AddMessageTopologyConfiguration(CSharpClass @class)
@@ -232,7 +269,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             foreach (var messageModel in MessagesWithSettings)
             {
-                method.AddStatement($@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));");
+                method.AddStatement(
+                    $@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));");
             }
         });
     }
@@ -264,6 +302,19 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return addConsumer;
     }
 
+    private CSharpStatement GetAddConsumerStatement(string configParamName, IntegrationCommandModel integrationCommandModel)
+    {
+        var commandName = this.GetIntegrationCommandName(integrationCommandModel);
+        var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace("_", "-").Replace(" ", "-")
+            .Replace(".", "-");
+        var consumerDefinitionType =
+            $@"{this.GetIntegrationEventHandlerInterfaceName()}<{commandName}>, {commandName}";
+        var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
+
+        return
+            $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
+    }
+
     private string GetMessageBrokerBusFactoryConfiguratorName()
     {
         return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum() switch
@@ -288,9 +339,78 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         };
     }
 
+    private void AddReceivedEndpointsForCommandSubscriptions(CSharpClass @class)
+    {
+        if (!CommandSubscriptions.Any())
+        {
+            return;
+        }
+
+        @class.AddMethod("void", "AddReceiveEndpoints", method =>
+        {
+            method.Private().Static();
+            method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
+            method.AddParameter("IBusRegistrationContext", "context");
+
+            foreach (var subscription in CommandSubscriptions.GroupBy(key =>
+                     {
+                         var model = key.TypeReference.Element.AsIntegrationCommandModel();
+                         var destinationAddress = key.GetCommandConsumption().QueueName();
+                         if (string.IsNullOrWhiteSpace(destinationAddress))
+                         {
+                             destinationAddress = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
+                         }
+
+                         return destinationAddress;
+                     }))
+            {
+                method.AddInvocationStatement("cfg.ReceiveEndpoint", caller =>
+                {
+                    caller.AddArgument($@"""{subscription.Key}""");
+                    var lambda = new CSharpLambdaBlock("e");
+                    caller.AddArgument(lambda);
+
+                    lambda.AddStatement("e.ConfigureConsumeTopology = false;");
+
+                    foreach (var subscriber in subscription)
+                    {
+                        var model = subscriber.TypeReference.Element.AsIntegrationCommandModel();
+                        lambda.AddStatement(
+                            $"e.Consumer<WrapperConsumer<IIntegrationEventHandler<{this.GetIntegrationCommandName(model)}>, {this.GetIntegrationCommandName(model)}>>(context);");
+                    }
+                });
+            }
+        });
+    }
+
+    private void AddEndpointConventionRegistrations(CSharpClass @class)
+    {
+        if (!CommandSendDispatches.Any())
+        {
+            return;
+        }
+
+        @class.AddMethod("void", "EndpointConventionRegistration", method =>
+        {
+            method.Private().Static();
+
+            foreach (var dispatchModel in CommandSendDispatches)
+            {
+                var model = dispatchModel.TypeReference.Element.AsIntegrationCommandModel();
+                var queueName = dispatchModel.GetCommandDistribution().DestinationQueueName();
+                if (string.IsNullOrWhiteSpace(queueName))
+                {
+                    queueName = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
+                }
+
+                method.AddStatement($@"EndpointConvention.Map<{GetTypeName(IntegrationCommandTemplate.TemplateId, model)}>(new Uri(""queue:{queueName}""));");
+            }
+        });
+    }
+
     private void AddNonDefaultEndpointConfigurationMethods(CSharpClass @class)
     {
-        if (!Subscriptions.Any(HasMessageBrokerStereotype))
+        if (!EventSubscriptions.Any(HasMessageBrokerStereotype))
         {
             return;
         }
@@ -301,7 +421,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.AddParameter(GetMessageBrokerBusFactoryConfiguratorName(), "cfg", parm => parm.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
-            foreach (var subscription in Subscriptions)
+            foreach (var subscription in EventSubscriptions)
             {
                 var messageName =
                     this.GetIntegrationEventMessageName(subscription.Message);

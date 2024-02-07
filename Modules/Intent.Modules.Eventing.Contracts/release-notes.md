@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- New Feature: Template and integration for adding support for Integration Commands.
+
 ### Version 5.0.2
 
 - Fixed: Ensure that handlers that receive Event Bus Publisher code will adjust the method to be fully managed without any `NotImplementedExceptions` being thrown.

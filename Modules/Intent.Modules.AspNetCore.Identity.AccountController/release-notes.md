@@ -1,4 +1,11 @@
-﻿### Version 3.0.1
+﻿### Version 3.1.0
+
+- Improvement: Added `POST /manage/info` endpoint for updating info including email address and/or password.
+- Improvement: Added `GET /manage/info` endpoint for retrieving user info (only email address at this time).
+- Improvement: Added `POST /forgotPassword` and `POST /resetPassword` endpoints.
+- Fixed: `Refresh` endpoint no longer requires a valid access token and instead decrypts the refresh token to determine the user account of it.
+
+### Version 3.0.1
 
 - Improvement: Updated to be compatible with .NET 8.
 - Fixed: Adding an Identity User will now receive the Refresh Token support in code.

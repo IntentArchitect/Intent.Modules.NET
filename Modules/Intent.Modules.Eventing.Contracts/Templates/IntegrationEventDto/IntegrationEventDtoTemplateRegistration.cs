@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto
 
         public override string TemplateId => IntegrationEventDtoTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EventingDTOModel model)
         {
             return new IntegrationEventDtoTemplate(outputTarget, model);

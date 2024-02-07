@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7da0fb50-a863-4977-a362-e8415e92d5b3">
+  <sourceEnd id="efceb673-6dc9-441d-abf0-12e81f467701" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Person.Talk</display>
+    <order>3</order>
+    <typeReference id="7f1bfd16-18ef-4714-9b8f-b590d69e8a97">
+      <typeId>67fecfad-4e9f-4069-b131-d8e256e60f8e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Domain</typePackageName>
+      <typePackageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7da0fb50-a863-4977-a362-e8415e92d5b3" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : TalkToPersonRequested</display>
+    <order>1</order>
+    <typeReference id="3fde733a-5bb0-4ad1-acfb-dbe4a87bd3df">
+      <typeId>31b635b7-35bf-456b-acb1-bf0365d5993c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Domain</typePackageName>
+      <typePackageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="930f7229-7b1b-40f3-b4e7-de49bc30c8c2" location="[MassTransit.RabbitMQ].[Domain].[Person]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="31b635b7-35bf-456b-acb1-bf0365d5993c" location="[MassTransit.RabbitMQ].[Domain].[TalkToPersonRequested]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Talk.message}</expression>
+            <path>
+              <target id="31b635b7-35bf-456b-acb1-bf0365d5993c" name="TalkToPersonRequested" type="element" specialization="Domain Event" />
+              <target id="ede82482-6486-412a-b069-0aca6a2bd992" name="Message" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Talk.message" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="930f7229-7b1b-40f3-b4e7-de49bc30c8c2" name="Person" type="element" specialization="Class" />
+                  <target id="67fecfad-4e9f-4069-b131-d8e256e60f8e" name="Talk" type="element" specialization="Operation" />
+                  <target id="20e80ced-68df-41f8-8714-0feeab91ccf5" name="message" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="31b635b7-35bf-456b-acb1-bf0365d5993c" name="TalkToPersonRequested" type="element" specialization="Domain Event" />
+              <target id="98a3fcea-2eb6-44e9-b027-e03a77d25ef3" name="FirstName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="930f7229-7b1b-40f3-b4e7-de49bc30c8c2" name="Person" type="element" specialization="Class" />
+                  <target id="8d02f408-65ed-4c45-ac89-c266bcf0d322" name="FirstName" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="31b635b7-35bf-456b-acb1-bf0365d5993c" name="TalkToPersonRequested" type="element" specialization="Domain Event" />
+              <target id="66e7baab-8cd7-4e93-98cb-ff3c37749cf7" name="LastName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="930f7229-7b1b-40f3-b4e7-de49bc30c8c2" name="Person" type="element" specialization="Class" />
+                  <target id="e505d3ee-8369-4ba7-906e-94a95cbf6678" name="LastName" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

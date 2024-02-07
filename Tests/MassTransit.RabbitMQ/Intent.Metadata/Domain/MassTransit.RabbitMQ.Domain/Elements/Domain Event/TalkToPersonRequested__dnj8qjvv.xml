@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="31b635b7-35bf-456b-acb1-bf0365d5993c" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>TalkToPersonRequested</name>
+  <display>TalkToPersonRequested</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</parentFolderId>
+  <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+  <packageName>MassTransit.RabbitMQ.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ede82482-6486-412a-b069-0aca6a2bd992" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a49e4906-3da9-4901-aad8-f30769410e79">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>31b635b7-35bf-456b-acb1-bf0365d5993c</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="98a3fcea-2eb6-44e9-b027-e03a77d25ef3" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0c3f0bc0-7d8f-439d-b4da-2d352ec84de9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>31b635b7-35bf-456b-acb1-bf0365d5993c</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="66e7baab-8cd7-4e93-98cb-ff3c37749cf7" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fa428062-4b1d-419d-85ef-8e82459c11de">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>31b635b7-35bf-456b-acb1-bf0365d5993c</parentFolderId>
+      <packageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</packageId>
+      <packageName>MassTransit.RabbitMQ.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

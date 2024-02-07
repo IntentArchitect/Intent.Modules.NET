@@ -3,6 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,7 +20,8 @@ namespace CleanArchitecture.SingleFiles.Api.Configuration
         {
             var hcBuilder = services.AddHealthChecks();
             hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDb", tags: new[] { "database" });
-            hcBuilder.AddCosmosDb(configuration["RepositoryOptions:CosmosConnectionString"]!, name: "CosmosDb", tags: new[] { "database" });
+            hcBuilder.Services.AddSingleton(_ => new CosmosClient(configuration["RepositoryOptions:CosmosConnectionString"]!));
+            hcBuilder.AddAzureCosmosDB(name: "CosmosDb", tags: new[] { "database" });
 
             return services;
         }

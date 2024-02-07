@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8288be28-bece-4691-988b-1902c524287c" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>MakeSoundCommand</name>
+  <display>MakeSoundCommand</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a022f73-f0f8-428e-b0ee-ba26971c0a0a</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="80434d96-0fef-43f5-9a29-00a76063da75" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e6a783df-5ddc-48f7-83e7-d336ee7300ff">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8288be28-bece-4691-988b-1902c524287c</parentFolderId>
+      <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+      <packageName>MassTransit.AzureServiceBus.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8fe66143-c7ca-471f-b47d-a742748073da" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Type</name>
+      <display>Type: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="21c83ebf-79a0-49ef-a7ca-5053c345016f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8288be28-bece-4691-988b-1902c524287c</parentFolderId>
+      <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+      <packageName>MassTransit.AzureServiceBus.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

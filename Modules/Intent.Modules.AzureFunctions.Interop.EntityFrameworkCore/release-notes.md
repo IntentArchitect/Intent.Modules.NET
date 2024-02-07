@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Improvement: Updated icon to SVG format.
+
 ### Version 4.2.0
 
 - Update: Passes through cancellation tokens where appropriate.

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79958835-e31c-435b-9749-8ed74bce6193" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Basic Test</name>
+  <display>Basic Test</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9de6131a-a450-4c42-a8b0-b2406b8dc0a1</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <diagram>
+    <targetPackageId>13f85863-e934-4433-8ce6-ff5b15c25868</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

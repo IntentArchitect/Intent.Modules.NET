@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -21,6 +22,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
         public EventBusInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IEventBus", @interface => @interface

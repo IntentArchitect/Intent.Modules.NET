@@ -66,7 +66,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.FactoryExten
                     transactionScope.AddMetadata("transaction-scope", true);
                     dispatchStatement.InsertAbove(transactionScope);
                     dispatchStatement.Remove();
-                    
+
                     transactionScope.InsertStatement(0, dispatchStatement);
                     if (returnStatement is not null)
                     {

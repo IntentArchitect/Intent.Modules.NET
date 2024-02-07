@@ -21,20 +21,23 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
         public TokenServiceInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Security.Claims")
-                .AddUsing("System")
                 .AddInterface("ITokenService", inter =>
                 {
-                    inter.AddMethod("string", "GenerateAccessToken", method =>
+                    inter.AddMethod("(string Token, DateTime Expiry)", "GenerateAccessToken", method =>
                     {
                         method.AddParameter("string", "username");
                         method.AddParameter("IEnumerable<Claim>", "claims");
                     });
-                    inter.AddMethod("(string Token, DateTime Expiry)", "GenerateRefreshToken");
-                    inter.AddMethod("ClaimsPrincipal", "GetPrincipalFromExpiredToken", method =>
+                    inter.AddMethod("(string Token, DateTime Expiry)", "GenerateRefreshToken", method =>
                     {
-                        method.AddParameter("string", "token");
+                        method.AddParameter("string", "username");
+                    });
+                    inter.AddMethod("string?", "GetUsernameFromRefreshToken", method =>
+                    {
+                        method.AddParameter("string?", "token");
                     });
                 });
         }
