@@ -22,14 +22,10 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
     {
         private readonly IInvoiceService _appService;
         private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
-        private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
-        public InvoiceController(IInvoiceService appService,
-            IMongoDbUnitOfWork mongoDbUnitOfWork,
-            IMongoDbUnitOfWork mongoDbUnitOfWork)
+        public InvoiceController(IInvoiceService appService, IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
@@ -47,7 +43,6 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         {
             await _appService.Create(dto, cancellationToken);
 
-            await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }
