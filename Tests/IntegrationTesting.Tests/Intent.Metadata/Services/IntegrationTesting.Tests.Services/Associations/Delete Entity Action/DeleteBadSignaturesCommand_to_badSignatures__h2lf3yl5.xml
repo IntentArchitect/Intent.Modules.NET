@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a8803fda-38e2-4a1f-b344-044ef4a27a4f">
+  <sourceEnd id="2097e0b3-33b4-48bd-a2ba-bb245f1cd7e5" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : BadSignatures.DeleteBadSignaturesCommand</display>
+    <order>0</order>
+    <typeReference id="ffd67452-2775-4e7c-bc6b-cbd23e71351d">
+      <typeId>286fc1d4-e2e6-4e5f-84e0-e17b41dcb4d8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a8803fda-38e2-4a1f-b344-044ef4a27a4f" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>badSignatures</name>
+    <display>[delete] badSignatures: BadSignatures</display>
+    <order>2</order>
+    <typeReference id="ff0378fb-ac23-4c12-a866-de8487327d9d">
+      <typeId>53cb7742-0fd9-472e-885a-4ece3ffd230c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="286fc1d4-e2e6-4e5f-84e0-e17b41dcb4d8" location="[IntegrationTesting.Tests].[Services].[DeleteBadSignaturesCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="53cb7742-0fd9-472e-885a-4ece3ffd230c" location="[IntegrationTesting.Tests].[Services].[BadSignatures]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="53cb7742-0fd9-472e-885a-4ece3ffd230c" name="BadSignatures" type="element" specialization="Class" />
+              <target id="84d3b647-6e03-4591-bfdc-47ac8b91d874" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="286fc1d4-e2e6-4e5f-84e0-e17b41dcb4d8" name="DeleteBadSignaturesCommand" type="element" specialization="Command" />
+                  <target id="5a454f6c-21d2-456b-9c94-4d4827bf5e12" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

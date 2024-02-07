@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ee638bbe-4d11-4877-90fe-d283e6caa8ae">
+  <sourceEnd id="ec706ff1-3e6d-409a-a7ea-4aa697af49c0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : BadSignatures.UpdateBadSignaturesCommand</display>
+    <order>0</order>
+    <typeReference id="70811dd8-622b-4a7d-8636-bc406986f47c">
+      <typeId>ed9ec8aa-4945-4bca-af64-0fa076bd967e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ee638bbe-4d11-4877-90fe-d283e6caa8ae" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>badSignatures</name>
+    <display>[update] badSignatures: BadSignatures</display>
+    <order>2</order>
+    <typeReference id="5d3b7b0c-3a35-44cd-a8a3-aeb42f5a926d">
+      <typeId>53cb7742-0fd9-472e-885a-4ece3ffd230c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ed9ec8aa-4945-4bca-af64-0fa076bd967e" location="[IntegrationTesting.Tests].[Services].[UpdateBadSignaturesCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="53cb7742-0fd9-472e-885a-4ece3ffd230c" location="[IntegrationTesting.Tests].[Services].[BadSignatures]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="53cb7742-0fd9-472e-885a-4ece3ffd230c" name="BadSignatures" type="element" specialization="Class" />
+              <target id="84d3b647-6e03-4591-bfdc-47ac8b91d874" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ed9ec8aa-4945-4bca-af64-0fa076bd967e" name="UpdateBadSignaturesCommand" type="element" specialization="Command" />
+                  <target id="3e75e97a-435b-4d1f-8ef3-9808d9fefac8" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ed9ec8aa-4945-4bca-af64-0fa076bd967e" location="[IntegrationTesting.Tests].[Services].[UpdateBadSignaturesCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="53cb7742-0fd9-472e-885a-4ece3ffd230c" location="[IntegrationTesting.Tests].[Services].[BadSignatures]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="53cb7742-0fd9-472e-885a-4ece3ffd230c" name="BadSignatures" type="element" specialization="Class" />
+              <target id="33372fc2-3a3f-464c-ba59-e62cdbc0cb69" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="ed9ec8aa-4945-4bca-af64-0fa076bd967e" name="UpdateBadSignaturesCommand" type="element" specialization="Command" />
+                  <target id="c11d84d1-d85c-4ea6-a26e-5562492c92bc" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

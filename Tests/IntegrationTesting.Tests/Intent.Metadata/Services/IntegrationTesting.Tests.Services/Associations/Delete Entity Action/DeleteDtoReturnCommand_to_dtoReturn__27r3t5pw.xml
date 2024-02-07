@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e5bc8d20-f2bd-4ae3-ad0d-d69cc4ef11b7">
+  <sourceEnd id="68aa333f-4b45-41dd-bb9a-c51d8bc5f8fa" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : DtoReturns.DeleteDtoReturnCommand</display>
+    <order>0</order>
+    <typeReference id="35ad7f8e-f2cd-4448-986e-7333d67fadb3">
+      <typeId>655ef573-3283-4dc1-bb64-c1db2f1de20c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e5bc8d20-f2bd-4ae3-ad0d-d69cc4ef11b7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>dtoReturn</name>
+    <display>[delete] dtoReturn: DtoReturn</display>
+    <order>1</order>
+    <typeReference id="9bba7425-fc41-4d99-a78b-e21f23c8333e">
+      <typeId>1bc4a45e-47a6-4211-99b7-7f53cee2c9b7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="655ef573-3283-4dc1-bb64-c1db2f1de20c" location="[IntegrationTesting.Tests].[Services].[DeleteDtoReturnCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" location="[IntegrationTesting.Tests].[Services].[DtoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" name="DtoReturn" type="element" specialization="Class" />
+              <target id="c879f6cc-673b-4214-9695-187978ec9062" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="655ef573-3283-4dc1-bb64-c1db2f1de20c" name="DeleteDtoReturnCommand" type="element" specialization="Command" />
+                  <target id="42b59f61-8c48-41da-b48c-bb027c001c19" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

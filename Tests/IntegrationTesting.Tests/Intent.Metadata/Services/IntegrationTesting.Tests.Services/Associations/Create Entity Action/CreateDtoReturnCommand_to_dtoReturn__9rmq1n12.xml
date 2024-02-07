@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0717418d-e1c6-4cb4-8071-32c7067f5e06">
+  <sourceEnd id="b1c38e87-31e5-4625-8d4d-7bb24199792a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : DtoReturns.CreateDtoReturnCommand</display>
+    <order>0</order>
+    <typeReference id="f09a60f8-eb63-4ecc-b3bb-991e2cb44d45">
+      <typeId>2bdcc321-df6f-4ae9-9b1b-3e0e7a688a23</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0717418d-e1c6-4cb4-8071-32c7067f5e06" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>dtoReturn</name>
+    <display>[create] dtoReturn: DtoReturn</display>
+    <order>1</order>
+    <typeReference id="a8e2adbf-1b3d-4d65-bac6-351b494347e7">
+      <typeId>1bc4a45e-47a6-4211-99b7-7f53cee2c9b7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2bdcc321-df6f-4ae9-9b1b-3e0e7a688a23" location="[IntegrationTesting.Tests].[Services].[CreateDtoReturnCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" location="[IntegrationTesting.Tests].[Services].[DtoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateDtoReturnCommand}</expression>
+            <path>
+              <target id="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" name="DtoReturn" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateDtoReturnCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="2bdcc321-df6f-4ae9-9b1b-3e0e7a688a23" name="CreateDtoReturnCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" name="DtoReturn" type="element" specialization="Class" />
+              <target id="2d7083d0-754a-41a0-bdec-6ebc1359cf36" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="2bdcc321-df6f-4ae9-9b1b-3e0e7a688a23" name="CreateDtoReturnCommand" type="element" specialization="Command" />
+                  <target id="f3a8df0a-0d81-4600-9603-f8d227e4dcfa" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

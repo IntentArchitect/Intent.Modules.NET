@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f5ade8ed-90cc-4ed4-b067-86836a59ddd1">
+  <sourceEnd id="7cc528f8-b65e-4cca-b7d4-a6c47fa364b0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Children.UpdateChildCommand</display>
+    <order>0</order>
+    <typeReference id="b8387649-9ae2-4755-85af-f276089f94cc">
+      <typeId>49d6034b-6e87-4a5b-adae-e2ab9c8c8dce</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f5ade8ed-90cc-4ed4-b067-86836a59ddd1" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>child</name>
+    <display>[update] child: Child</display>
+    <order>3</order>
+    <typeReference id="aaa481db-6856-4d74-95d9-ffcd14b4c4e6">
+      <typeId>a3f2f76d-0867-4325-a5d6-fb4f1c83a247</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="49d6034b-6e87-4a5b-adae-e2ab9c8c8dce" location="[IntegrationTesting.Tests].[Services].[UpdateChildCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" location="[IntegrationTesting.Tests].[Services].[Child]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" name="Child" type="element" specialization="Class" />
+              <target id="c5974ad7-221d-45ce-898c-fde347326342" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="49d6034b-6e87-4a5b-adae-e2ab9c8c8dce" name="UpdateChildCommand" type="element" specialization="Command" />
+                  <target id="e1860bf2-af8a-4bea-8cfc-9ae07999ee9c" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="49d6034b-6e87-4a5b-adae-e2ab9c8c8dce" location="[IntegrationTesting.Tests].[Services].[UpdateChildCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" location="[IntegrationTesting.Tests].[Services].[Child]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" name="Child" type="element" specialization="Class" />
+              <target id="cad0358e-ec4e-4ea4-80a6-f31994dca680" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="49d6034b-6e87-4a5b-adae-e2ab9c8c8dce" name="UpdateChildCommand" type="element" specialization="Command" />
+                  <target id="f37639e7-aec5-4944-bbd0-7beca6cf5d7e" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MyParentId}</expression>
+            <path>
+              <target id="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" name="Child" type="element" specialization="Class" />
+              <target id="1799c3f8-26fd-4a4c-a2f8-6d5be49145d4" name="MyParentId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="MyParentId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="49d6034b-6e87-4a5b-adae-e2ab9c8c8dce" name="UpdateChildCommand" type="element" specialization="Command" />
+                  <target id="e6183050-77de-4ace-80c1-425d8b8f31f9" name="MyParentId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

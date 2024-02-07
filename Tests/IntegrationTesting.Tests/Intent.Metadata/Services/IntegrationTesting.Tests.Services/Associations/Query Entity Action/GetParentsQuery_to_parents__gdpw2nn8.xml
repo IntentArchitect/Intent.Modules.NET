@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="55927fd0-8340-4f6a-a58c-2c8c4eb35750">
+  <sourceEnd id="f74ce783-a92f-4c6b-8ddf-ece0c2be1ab9" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetParentsQuery</display>
+    <order>0</order>
+    <typeReference id="dbf7a180-c729-4dfe-a0af-e17f41172fbc">
+      <typeId>d6f8c97e-450a-4941-b9df-a2ce4c6d5d06</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="55927fd0-8340-4f6a-a58c-2c8c4eb35750" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>parents</name>
+    <display>[query] parents: Parent[*]</display>
+    <order>0</order>
+    <typeReference id="3e969c3f-d387-450b-add3-12d245dafd65">
+      <typeId>63b14c5a-b7cf-4d3c-8107-6ea0d409e957</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d6f8c97e-450a-4941-b9df-a2ce4c6d5d06" location="[IntegrationTesting.Tests].[Services].[GetParentsQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63b14c5a-b7cf-4d3c-8107-6ea0d409e957" location="[IntegrationTesting.Tests].[Services].[Parent]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

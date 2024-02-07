@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d79f3176-0c26-4065-93f4-2cfa74efe764">
+  <sourceEnd id="fdd8cfc9-0658-4738-bff2-89ea59c12d59" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDtoReturnByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a757a93a-653f-4429-b9a2-d2125ac624f5">
+      <typeId>74683ec7-72ac-441c-af2c-22eb98f48029</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d79f3176-0c26-4065-93f4-2cfa74efe764" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>dtoReturn</name>
+    <display>[query] dtoReturn: DtoReturn</display>
+    <order>1</order>
+    <typeReference id="d0ba324f-0466-4347-8860-fe205e57a9d6">
+      <typeId>1bc4a45e-47a6-4211-99b7-7f53cee2c9b7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="74683ec7-72ac-441c-af2c-22eb98f48029" location="[IntegrationTesting.Tests].[Services].[GetDtoReturnByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" location="[IntegrationTesting.Tests].[Services].[DtoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="1bc4a45e-47a6-4211-99b7-7f53cee2c9b7" name="DtoReturn" type="element" specialization="Class" />
+              <target id="c879f6cc-673b-4214-9695-187978ec9062" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="74683ec7-72ac-441c-af2c-22eb98f48029" name="GetDtoReturnByIdQuery" type="element" specialization="Query" />
+                  <target id="19d7fe65-fe76-43c9-9c68-570a359fae6c" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

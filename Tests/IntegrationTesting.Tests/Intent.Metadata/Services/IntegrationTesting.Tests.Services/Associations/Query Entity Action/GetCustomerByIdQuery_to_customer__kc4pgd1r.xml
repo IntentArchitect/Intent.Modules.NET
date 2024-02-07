@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="df292efb-8ecc-42a6-995b-78b1b815c120">
+  <sourceEnd id="61a1ad57-cc06-46e1-a9b1-4cd9ecd3846e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="f65d327c-f08a-4ca0-8ab9-f9beea758ceb">
+      <typeId>9c3e8cbe-06e7-4c45-9efa-eaf60a12f5ba</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="df292efb-8ecc-42a6-995b-78b1b815c120" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>1</order>
+    <typeReference id="2e89aca5-e118-4e4d-830a-3563660e4bc6">
+      <typeId>7ec51383-c468-41fc-ac0a-1702683ce526</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c3e8cbe-06e7-4c45-9efa-eaf60a12f5ba" location="[IntegrationTesting.Tests].[Services].[GetCustomerByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7ec51383-c468-41fc-ac0a-1702683ce526" location="[IntegrationTesting.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7ec51383-c468-41fc-ac0a-1702683ce526" name="Customer" type="element" specialization="Class" />
+              <target id="9025a8ac-15ae-4123-a047-489e1d6cf156" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9c3e8cbe-06e7-4c45-9efa-eaf60a12f5ba" name="GetCustomerByIdQuery" type="element" specialization="Query" />
+                  <target id="86708f01-dbe3-476c-b397-a4be2065ba89" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

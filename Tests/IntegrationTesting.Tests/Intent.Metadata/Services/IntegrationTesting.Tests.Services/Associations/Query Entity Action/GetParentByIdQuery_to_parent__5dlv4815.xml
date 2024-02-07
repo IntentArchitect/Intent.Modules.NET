@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="03fb3a4e-0d7e-4b0f-b16a-5a2243bc13bd">
+  <sourceEnd id="04109dd9-8303-4522-8e73-985745da45da" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetParentByIdQuery</display>
+    <order>0</order>
+    <typeReference id="9c2a469a-7ae6-47a9-9181-0cbdd82713b8">
+      <typeId>d975140c-62f5-4c09-84d1-4b9cec91175d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="03fb3a4e-0d7e-4b0f-b16a-5a2243bc13bd" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>parent</name>
+    <display>[query] parent: Parent</display>
+    <order>1</order>
+    <typeReference id="6f9b8aaa-0935-4f64-8580-8f9937af55ff">
+      <typeId>63b14c5a-b7cf-4d3c-8107-6ea0d409e957</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d975140c-62f5-4c09-84d1-4b9cec91175d" location="[IntegrationTesting.Tests].[Services].[GetParentByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63b14c5a-b7cf-4d3c-8107-6ea0d409e957" location="[IntegrationTesting.Tests].[Services].[Parent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="63b14c5a-b7cf-4d3c-8107-6ea0d409e957" name="Parent" type="element" specialization="Class" />
+              <target id="6aeb5293-e94a-4088-85e7-f86cf2263743" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d975140c-62f5-4c09-84d1-4b9cec91175d" name="GetParentByIdQuery" type="element" specialization="Query" />
+                  <target id="d9a163fb-9d8f-4248-afaf-8401dc30f0fa" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

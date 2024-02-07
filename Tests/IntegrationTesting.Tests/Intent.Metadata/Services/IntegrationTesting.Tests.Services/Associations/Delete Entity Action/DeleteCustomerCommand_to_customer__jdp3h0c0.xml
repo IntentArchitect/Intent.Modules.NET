@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d9d66ced-de3c-4815-98c7-619ad527f7dd">
+  <sourceEnd id="817035bc-d9e0-4e3e-a46f-639f0073c454" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="4fe12f8a-0d67-40f4-aa26-5ffe936bf280">
+      <typeId>fef39042-8df6-4647-92b6-7396adf041d5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d9d66ced-de3c-4815-98c7-619ad527f7dd" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <typeReference id="bd85a2a9-dabd-460d-9e45-30fc5450c29b">
+      <typeId>7ec51383-c468-41fc-ac0a-1702683ce526</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fef39042-8df6-4647-92b6-7396adf041d5" location="[IntegrationTesting.Tests].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7ec51383-c468-41fc-ac0a-1702683ce526" location="[IntegrationTesting.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7ec51383-c468-41fc-ac0a-1702683ce526" name="Customer" type="element" specialization="Class" />
+              <target id="9025a8ac-15ae-4123-a047-489e1d6cf156" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="fef39042-8df6-4647-92b6-7396adf041d5" name="DeleteCustomerCommand" type="element" specialization="Command" />
+                  <target id="c1246750-321b-4889-b5ae-e4a87e90678f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f16d6d82-1ab0-4d98-b790-ca36c2d262eb">
+  <sourceEnd id="bb612697-831c-4d53-97a2-fc64dd8245b5" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Children.DeleteChildCommand</display>
+    <order>0</order>
+    <typeReference id="b987e10c-8325-42d9-9319-8095e54deaf6">
+      <typeId>b4ce3a09-acbd-4e1f-a8bf-21c95a33054c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f16d6d82-1ab0-4d98-b790-ca36c2d262eb" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>child</name>
+    <display>[delete] child: Child</display>
+    <order>1</order>
+    <typeReference id="75d5e98c-20b5-446a-99a3-170b65ad41f3">
+      <typeId>a3f2f76d-0867-4325-a5d6-fb4f1c83a247</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b4ce3a09-acbd-4e1f-a8bf-21c95a33054c" location="[IntegrationTesting.Tests].[Services].[DeleteChildCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" location="[IntegrationTesting.Tests].[Services].[Child]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a3f2f76d-0867-4325-a5d6-fb4f1c83a247" name="Child" type="element" specialization="Class" />
+              <target id="c5974ad7-221d-45ce-898c-fde347326342" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b4ce3a09-acbd-4e1f-a8bf-21c95a33054c" name="DeleteChildCommand" type="element" specialization="Command" />
+                  <target id="c293fc28-f2d4-489b-b20b-4b3eac1affba" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4eef80a8-38f8-4de5-93f7-b1bb814c7c6d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DtoReturns</name>
+  <display>DtoReturns</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fa6f57d5-82f6-4cb2-b53f-43d67685bc44</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>fa6f57d5-82f6-4cb2-b53f-43d67685bc44</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

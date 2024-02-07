@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4a6575c0-e136-4fd8-aa6b-3110311ab0d6">
+  <sourceEnd id="f5690c63-7de3-43ac-9c25-2b55ccf71b36" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindProductById</display>
+    <order>0</order>
+    <typeReference id="6a10a88b-116c-4eb6-b83d-49f662c3e785">
+      <typeId>5db82aab-22f4-4619-8377-2cf91311ad11</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4a6575c0-e136-4fd8-aa6b-3110311ab0d6" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <typeReference id="b13988e4-9850-4d06-962f-9687dbae6b8b">
+      <typeId>b68a5a90-4016-415c-84b7-3cbfddac93eb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5db82aab-22f4-4619-8377-2cf91311ad11" location="[IntegrationTesting.Tests].[Services].[FindProductById]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b68a5a90-4016-415c-84b7-3cbfddac93eb" location="[IntegrationTesting.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="b68a5a90-4016-415c-84b7-3cbfddac93eb" name="Product" type="element" specialization="Class" />
+              <target id="52aa5131-5106-40e5-9f88-c0377611fa52" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5db82aab-22f4-4619-8377-2cf91311ad11" name="FindProductById" type="element" specialization="Operation" />
+                  <target id="b28991a5-8b67-44a6-bd34-c62cfbf18fae" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
