@@ -34,7 +34,7 @@ When you run the Software Factory, it will now generate the selected endpoints.
 
 ### Configure the endpoint URL in your `appsettings.json` file
 
-You will need to ensure the endpoint URl is correctly updated.
+You will need to ensure the endpoint URL is correctly updated.
 
 For `Service Proxies`, the relevant section is:
 
