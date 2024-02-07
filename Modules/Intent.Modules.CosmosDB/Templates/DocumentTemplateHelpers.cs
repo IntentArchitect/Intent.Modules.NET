@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -314,6 +315,10 @@ namespace Intent.Modules.CosmosDB.Templates
                     {
                         method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
                         method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity, etag);", s => s.SeparatedFromPrevious());
+                    }
+                    else
+                    {
+                        method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
                     }
                 });
             }

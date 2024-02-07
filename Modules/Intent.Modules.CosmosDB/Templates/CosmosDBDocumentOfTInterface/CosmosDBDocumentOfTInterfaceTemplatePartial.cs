@@ -72,7 +72,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface
                     if (useOptimisticConcurrency)
                     {
                         @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
-                            .AddParameter(tDocument, "entity")
+                            .AddParameter(tDomain, "entity")
                             .AddParameter("string?", "etag", e => e.WithDefaultValue("null")));
                     }
                     else

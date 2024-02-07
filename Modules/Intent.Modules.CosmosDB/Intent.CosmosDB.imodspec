@@ -125,8 +125,9 @@
   <moduleSettings>
     <group id="e9f6758c-f8db-4cad-af33-827b867be548" title="CosmosDb" externalReference="e9f6758c-f8db-4cad-af33-827b867be548">
       <settings>
-        <setting id="fcb114f7-77b4-4c6a-96c0-41bb146f4166" title="Use Optimistic Concurrency Default" type="checkbox">
+        <setting id="fcb114f7-77b4-4c6a-96c0-41bb146f4166" title="Use Optimistic Concurrency Default" type="switch">
           <isRequired>true</isRequired>
+          <hint>Ensures updates are applied only when document etags match, for improved concurrency management</hint>
           <defaultValue>true</defaultValue>
         </setting>
       </settings>
