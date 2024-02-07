@@ -37,6 +37,30 @@ namespace Intent.Redis.Om.Repositories.Api
             return true;
         }
 
+        public static Indexed GetIndexed(this AssociationTargetEndModel model)
+        {
+            var stereotype = model.GetStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0");
+            return stereotype != null ? new Indexed(stereotype) : null;
+        }
+
+
+        public static bool HasIndexed(this AssociationTargetEndModel model)
+        {
+            return model.HasStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0");
+        }
+
+        public static bool TryGetIndexed(this AssociationTargetEndModel model, out Indexed stereotype)
+        {
+            if (!HasIndexed(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Indexed(model.GetStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0"));
+            return true;
+        }
+
         public class FieldSetting
         {
             private IStereotype _stereotype;
@@ -52,6 +76,19 @@ namespace Intent.Redis.Om.Repositories.Api
             {
                 return _stereotype.GetProperty<string>("Name");
             }
+
+        }
+
+        public class Indexed
+        {
+            private IStereotype _stereotype;
+
+            public Indexed(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
 
         }
 

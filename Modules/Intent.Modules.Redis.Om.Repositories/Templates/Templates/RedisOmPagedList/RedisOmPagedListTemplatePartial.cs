@@ -29,7 +29,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Microsoft.Azure.CosmosRepository")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Paging")
-                .AddClass("CosmosPagedList", @class =>
+                .AddClass("RedisOmPagedList", @class =>
                 {
                     @class
                         .Internal()

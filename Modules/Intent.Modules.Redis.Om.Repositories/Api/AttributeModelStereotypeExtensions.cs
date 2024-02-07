@@ -37,6 +37,54 @@ namespace Intent.Redis.Om.Repositories.Api
             return true;
         }
 
+        public static Indexed GetIndexed(this AttributeModel model)
+        {
+            var stereotype = model.GetStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0");
+            return stereotype != null ? new Indexed(stereotype) : null;
+        }
+
+
+        public static bool HasIndexed(this AttributeModel model)
+        {
+            return model.HasStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0");
+        }
+
+        public static bool TryGetIndexed(this AttributeModel model, out Indexed stereotype)
+        {
+            if (!HasIndexed(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Indexed(model.GetStereotype("e1fc703d-389d-4241-aee1-ee6ce385bbc0"));
+            return true;
+        }
+
+        public static Searchable GetSearchable(this AttributeModel model)
+        {
+            var stereotype = model.GetStereotype("0f333544-56ed-499e-8ba2-f856025de6ef");
+            return stereotype != null ? new Searchable(stereotype) : null;
+        }
+
+
+        public static bool HasSearchable(this AttributeModel model)
+        {
+            return model.HasStereotype("0f333544-56ed-499e-8ba2-f856025de6ef");
+        }
+
+        public static bool TryGetSearchable(this AttributeModel model, out Searchable stereotype)
+        {
+            if (!HasSearchable(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Searchable(model.GetStereotype("0f333544-56ed-499e-8ba2-f856025de6ef"));
+            return true;
+        }
+
         public class FieldSetting
         {
             private IStereotype _stereotype;
@@ -52,6 +100,32 @@ namespace Intent.Redis.Om.Repositories.Api
             {
                 return _stereotype.GetProperty<string>("Name");
             }
+
+        }
+
+        public class Indexed
+        {
+            private IStereotype _stereotype;
+
+            public Indexed(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+        }
+
+        public class Searchable
+        {
+            private IStereotype _stereotype;
+
+            public Searchable(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
 
         }
 

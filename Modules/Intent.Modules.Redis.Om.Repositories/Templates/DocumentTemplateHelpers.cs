@@ -25,17 +25,14 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
         {
             foreach (var attribute in attributes)
             {
-                @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), property =>
+                @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), documentProperty =>
                 {
                     if (template.IsNonNullableReferenceType(attribute.TypeReference))
                     {
-                        property.WithInitialValue("default!");
+                        documentProperty.WithInitialValue("default!");
                     }
-
-                    if (attribute.HasFieldSetting())
-                    {
-                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
-                    }
+                    
+                    AddAttributesBasedOnEntityAttributes(template, documentProperty, attribute);
                 });
 
                 if (attribute.TypeReference.IsCollection)
@@ -54,17 +51,14 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
 
             foreach (var associationEnd in associationEnds)
             {
-                @class.AddProperty(template.GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
+                @class.AddProperty(template.GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), documentProperty =>
                 {
                     if (!associationEnd.TypeReference.IsNullable)
                     {
-                        property.WithInitialValue("default!");
+                        documentProperty.WithInitialValue("default!");
                     }
 
-                    if (associationEnd is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
-                    {
-                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
-                    }
+                    AddAttributesBasedOnAssociations(template, documentProperty, associationEnd);
                 });
 
                 if (documentInterfaceTemplateId == null)
@@ -106,7 +100,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
             IReadOnlyList<AssociationEndModel> associationEnds,
-            AttributeModel partitionKeyAttribute,
             string entityInterfaceTypeName,
             string entityImplementationTypeName,
             bool entityRequiresReflectionConstruction,
@@ -150,21 +143,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
                     var assignmentValueExpression = attribute.Name.ToPascalCase();
 
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    // Partition keys must be strings
-                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
-                    {
-                        assignmentValueExpression = attributeTypeName switch
-                        {
-                            "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
-                            "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
-                            _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
-                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
-                        };
-
-                    }
                     // If this is the PK which is not a string, we need to convert it:
-                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         assignmentValueExpression = attributeTypeName switch
                         {
@@ -229,18 +209,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
                     // Partition keys must be strings
-                    if (isAggregate && partitionKeyAttribute != null && partitionKeyAttribute.Id == attribute.Id && !string.Equals(attributeTypeName, "string"))
-                    {
-                        suffix = attributeTypeName switch
-                        {
-                            "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
-                            "guid" => ".ToString()",
-                            _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
-                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
-                        };
-                    }
-                    else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
                     {
                         suffix = attributeTypeName switch
                         {
@@ -296,6 +265,41 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
                     method.AddIfStatement("entity is null", @if => @if.AddStatement("return null;"));
                     method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
                 });
+            }
+        }
+        
+        private static void AddAttributesBasedOnEntityAttributes<TModel>(CSharpTemplateBase<TModel> template, CSharpProperty documentProperty, AttributeModel attribute)
+        {
+            if (attribute.HasFieldSetting())
+            {
+                documentProperty.AddAttribute($"{template.UseType("Redis.OM.Modeling.RedisField")}(PropertyName = \"{attribute.GetFieldSetting().Name()}\")");
+            }
+
+            if (attribute.HasIndexed())
+            {
+                documentProperty.AddAttribute(template.UseType("Redis.OM.Modeling.Indexed"));
+            }
+            
+            if (attribute.HasSearchable())
+            {
+                documentProperty.AddAttribute(template.UseType("Redis.OM.Modeling.Searchable"));
+            }
+        }
+        
+        private static void AddAttributesBasedOnAssociations<TModel>(CSharpTemplateBase<TModel> template, CSharpProperty documentProperty, AssociationEndModel associationEnd) where TModel : IMetadataModel
+        {
+            if (associationEnd is not AssociationTargetEndModel targetEnd)
+            {
+                return;
+            }
+            
+            if (targetEnd.HasFieldSetting())
+            {
+                documentProperty.AddAttribute($"{template.UseType("Redis.OM.Modeling.RedisField")}(PropertyName = \"{targetEnd.GetFieldSetting().Name()}\")");
+            }
+            if (targetEnd.HasIndexed())
+            {
+                documentProperty.AddAttribute(template.UseType("Redis.OM.Modeling.Indexed"));
             }
         }
     }

@@ -92,28 +92,12 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
 
         internal string GetPKType(AttributeModelExtensionMethods.PrimaryKeyData pkAttribute)
         {
-            if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
-            {
-                return $"({GetTypeName(pkAttribute.IdAttribute)} {pkAttribute.IdAttribute.Name.ToPascalCase()},{GetTypeName(pkAttribute.PartitionKeyAttribute)} {pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()})";
-            }
-            else
-            {
-                return GetTypeName(pkAttribute.IdAttribute);
-            }
+            return GetTypeName(pkAttribute.IdAttribute);
         }
 
         private string GetPKUsage(AttributeModelExtensionMethods.PrimaryKeyData pkAttribute)
         {
-            if (pkAttribute.IdAttribute.Id != pkAttribute.PartitionKeyAttribute.Id)
-            {
-                string rowId = $"id.{pkAttribute.IdAttribute.Name.ToPascalCase()}{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
-                string partitionKeyId = $"id.{pkAttribute.PartitionKeyAttribute.Name.ToPascalCase()}{(pkAttribute.PartitionKeyAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.PartitionKeyAttribute.GetToString(this) : "")}";
-                return $"id: {rowId}, partitionKey: {partitionKeyId} ";
-            }
-            else
-            {
-                return $"id: id{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
-            }
+            return $"id: id{(pkAttribute.IdAttribute.TypeReference?.Element.Name != "string" ? pkAttribute.IdAttribute.GetToString(this) : "")}";
         }
 
 

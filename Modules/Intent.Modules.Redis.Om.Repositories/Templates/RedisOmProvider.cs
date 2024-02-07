@@ -6,7 +6,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
 {
     internal class RedisOmProvider
     {
-        public const string Id = "3e1a00f7-c6f1-4785-a544-bbcb17602b31";
+        public const string Id = "cdafe291-b62d-4014-9f94-5b8d733d85f3";
 
         internal static bool FilterDbProvider(ClassModel x)
         {

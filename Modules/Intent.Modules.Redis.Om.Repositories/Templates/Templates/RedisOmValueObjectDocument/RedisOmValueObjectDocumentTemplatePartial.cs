@@ -54,7 +54,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmValueO
                         @class: @class,
                         attributes: attributes,
                         associationEnds: Array.Empty<AssociationEndModel>(),
-                        partitionKeyAttribute: null,
                         entityInterfaceTypeName: valueObjectTypeName,
                         entityImplementationTypeName: valueObjectTypeName,
                         entityRequiresReflectionConstruction: true,

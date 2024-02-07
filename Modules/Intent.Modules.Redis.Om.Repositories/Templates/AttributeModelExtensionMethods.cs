@@ -28,13 +28,15 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
             };
         }
 
-        public record PrimaryKeyData(AttributeModel IdAttribute, AttributeModel PartitionKeyAttribute);
+        // Copied from CosmosDB module, removed partition key. Sharding in Redis works differently to Partitions in Document DBs.
+        // At time of writing it seems that the way it works is you take the field you wish to partition, use a hashing algorithm,
+        // MOD it by the number of available shard instances, pick that URL and connect to that shard instance. Could look at building
+        // this later IF necessary (provided someone uses Redis like CosmosDB/MongoDB).
+        public record PrimaryKeyData(AttributeModel IdAttribute);
 
         public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model)
         {
-            model.TryGetPartitionKeySettings(out var partitionKey);
             AttributeModel? idAttribute = null;
-            AttributeModel? partitionKeyAttribute = null;
             var @class = model;
             while (@class != null)
             {
@@ -43,24 +45,17 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
                 {
                     foreach (var pk in primaryKeyAttributes)
                     {
-                        if (partitionKey != null && pk.Name.Equals(partitionKey, StringComparison.OrdinalIgnoreCase))
-                        {
-                            partitionKeyAttribute = pk;
-                        }
-                        else
-                        {
-                            idAttribute = pk;
-                        }
+                        idAttribute = pk;
                     }
                 }
 
                 @class = @class.ParentClass;
             }
-            if (idAttribute is null && partitionKey is null)
+            if (idAttribute is null)
             {
                 return null;
             }
-            return new PrimaryKeyData(IdAttribute: idAttribute ?? partitionKeyAttribute, PartitionKeyAttribute: partitionKeyAttribute ?? idAttribute);
+            return new PrimaryKeyData(IdAttribute: idAttribute);
         }
 
         public static AttributeModel GetAttributeOrDerivedWithName(this ClassModel model, string name)
