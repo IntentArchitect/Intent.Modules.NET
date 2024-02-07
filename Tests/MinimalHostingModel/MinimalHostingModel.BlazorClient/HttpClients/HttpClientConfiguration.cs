@@ -1,6 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
-using MinimalHostingModel.BlazorClient.HttpClients.AccountService;
+using MinimalHostingModel.BlazorClient.HttpClients.Implementations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -15,13 +15,13 @@ namespace MinimalHostingModel.BlazorClient.HttpClients
             services
                 .AddHttpClient<IAccountService, AccountServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = GetUrl(configuration, "STSApplication");
+                    http.BaseAddress = GetUrl(configuration, "AspNetCoreIdentityAccountController");
                 })
                 .AddHttpMessageHandler(sp =>
                 {
                     return sp.GetRequiredService<AuthorizationMessageHandler>()
-                    .ConfigureHandler(
-                        authorizedUrls: new[] { GetUrl(configuration, "STSApplication").AbsoluteUri });
+                        .ConfigureHandler(
+                            authorizedUrls: new[] { GetUrl(configuration, "AspNetCoreIdentityAccountController").AbsoluteUri });
                 });
         }
 

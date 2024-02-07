@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
       <target id="f1fa010b-13eb-40ee-b935-9915eb7f58b1" name="UniqueIndexConstraint" type="element" specialization="Folder" />
     </mappedPath>
   </mappedClass>
@@ -43,7 +43,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="69d61e32-bf2d-46cf-a935-077fefc3f915" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="69d61e32-bf2d-46cf-a935-077fefc3f915" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -74,7 +74,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9ba8d096-3b46-417a-a5b7-7f95ff633b91" name="CreateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="9ba8d096-3b46-417a-a5b7-7f95ff633b91" name="CreateAggregateWithUniqueConstraintIndexStereotypeCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -102,7 +102,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e5283055-7005-406d-8855-f15199b473c7" name="DeleteAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="e5283055-7005-406d-8855-f15199b473c7" name="DeleteAggregateWithUniqueConstraintIndexElementCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -130,7 +130,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0c1b8a7b-da6d-4c29-861e-9ccaefdc8142" name="DeleteAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="0c1b8a7b-da6d-4c29-861e-9ccaefdc8142" name="DeleteAggregateWithUniqueConstraintIndexStereotypeCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -158,7 +158,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="dd47e7a2-128e-40ec-ba33-a766abf7d997" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="dd47e7a2-128e-40ec-ba33-a766abf7d997" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -186,7 +186,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="fbb88488-dde6-4690-ae31-708ca29e0409" name="UpdateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="fbb88488-dde6-4690-ae31-708ca29e0409" name="UpdateAggregateWithUniqueConstraintIndexStereotypeCommand" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -217,7 +217,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6c419e97-8e0b-4858-83e0-49fdba2f2eab" name="GetAggregateWithUniqueConstraintIndexElementByIdQuery" type="element" specialization="Query" />
+          <target id="6c419e97-8e0b-4858-83e0-49fdba2f2eab" name="GetAggregateWithUniqueConstraintIndexElementByIdQuery" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -248,7 +248,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cdd8812d-2745-4235-99e2-79dff68518e8" name="GetAggregateWithUniqueConstraintIndexElementsQuery" type="element" specialization="Query" />
+          <target id="cdd8812d-2745-4235-99e2-79dff68518e8" name="GetAggregateWithUniqueConstraintIndexElementsQuery" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -279,7 +279,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ccf16d4a-8840-44b7-bda0-ecac859e9c24" name="GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery" type="element" specialization="Query" />
+          <target id="ccf16d4a-8840-44b7-bda0-ecac859e9c24" name="GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
@@ -310,7 +310,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="be0703dc-25d8-4f01-8e0f-3056e10dc014" name="GetAggregateWithUniqueConstraintIndexStereotypesQuery" type="element" specialization="Query" />
+          <target id="be0703dc-25d8-4f01-8e0f-3056e10dc014" name="GetAggregateWithUniqueConstraintIndexStereotypesQuery" type="n/a" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
