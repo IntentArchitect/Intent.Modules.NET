@@ -17,6 +17,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class InvoiceDocument : IInvoiceDocument, ICosmosDBDocument<Invoice, InvoiceDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        private string? etag;
         public string Id { get; set; } = default!;
         public string ClientIdentifier { get; set; } = default!;
         public DateTime Date { get; set; }
@@ -53,8 +55,9 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => etag;
 
-        public InvoiceDocument PopulateFromEntity(Invoice entity)
+        public InvoiceDocument PopulateFromEntity(Invoice entity, string? etag = null)
         {
             Id = entity.Id;
             ClientIdentifier = entity.ClientIdentifier;
@@ -67,17 +70,19 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             LineItems = entity.LineItems.Select(x => LineItemDocument.FromEntity(x)!).ToList();
             InvoiceLogo = InvoiceLogoDocument.FromEntity(entity.InvoiceLogo)!;
 
+            this.etag = etag;
+
             return this;
         }
 
-        public static InvoiceDocument? FromEntity(Invoice? entity)
+        public static InvoiceDocument? FromEntity(Invoice? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new InvoiceDocument().PopulateFromEntity(entity);
+            return new InvoiceDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

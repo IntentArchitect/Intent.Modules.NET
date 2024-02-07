@@ -27,24 +27,26 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public AddressDocument PopulateFromEntity(Address entity)
+        public AddressDocument PopulateFromEntity(Address entity, string? etag = null)
         {
             Line1 = entity.Line1;
             Line2 = entity.Line2;
             City = entity.City;
             PostalAddress = entity.PostalAddress;
 
+            this.etag = etag;
+
             return this;
         }
 
-        public static AddressDocument? FromEntity(Address? entity)
+        public static AddressDocument? FromEntity(Address? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new AddressDocument().PopulateFromEntity(entity);
+            return new AddressDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

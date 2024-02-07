@@ -14,16 +14,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
-        public CosmosPagedList(IPageQueryResult<TDocument> pagedResult, int pageNo, int pageSize)
+        public CosmosPagedList(IEnumerable<TDomain> pagedResult, int totalCount, int pageCount, int pageNo, int pageSize)
         {
-            TotalCount = pagedResult.Total ?? 0;
-            PageCount = pagedResult.TotalPages ?? 0;
+            TotalCount = totalCount;
+            PageCount = pageCount;
             PageNo = pageNo;
             PageSize = pageSize;
 
-            foreach (var result in pagedResult.Items)
+            foreach (var result in pagedResult)
             {
-                Add(result.ToEntity());
+                Add(result);
             }
         }
 

@@ -32,7 +32,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public LineItemDocument PopulateFromEntity(LineItem entity)
+        public LineItemDocument PopulateFromEntity(LineItem entity, string? etag = null)
         {
             Id = entity.Id;
             Description = entity.Description;
@@ -40,17 +40,19 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             ProductId = entity.ProductId;
             Tags = entity.Tags.ToList();
 
+            this.etag = etag;
+
             return this;
         }
 
-        public static LineItemDocument? FromEntity(LineItem? entity)
+        public static LineItemDocument? FromEntity(LineItem? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new LineItemDocument().PopulateFromEntity(entity);
+            return new LineItemDocument().PopulateFromEntity(entity, etag);
         }
     }
 }
