@@ -124,14 +124,20 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
             var dependencies = DetermineDependencies(createOperation, mapping);
             if (entity.Attributes.Count(a => a.HasStereotype("Primary Key")) != 1) return null;
+
+            var createOperaion = operations.FirstOrDefault(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o));
+            if (createOperaion == null) return null;
+            var getByIdOperation = operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && ExpectedGetByIdParameters(o, entity, owningAggregate));
+            if (getByIdOperation == null) return null;
+
             return new CrudMap(
                 testableProxy,
                 entity,
                 dependencies,
-                operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o)),
+                createOperaion, 
                 operations.FirstOrDefault(o => string.Compare(o.Name, $"Update{entityName}", ignoreCase: true) == 0 && ExpectedUpdateParameters(o, entity)),
                 operations.FirstOrDefault(o => string.Compare(o.Name, $"Delete{entityName}", ignoreCase: true) == 0 && ExpectedDeleteParameters(o, entity, owningAggregate)),
-                operations.First(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && ExpectedGetByIdParameters(o, entity, owningAggregate)),
+                getByIdOperation,
                 operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName.Pluralize(false)}", ignoreCase: true) == 0 && ExpectedGetAllParameters(o, owningAggregate)),
                 responseDtoIdField,
                 owningAggregate

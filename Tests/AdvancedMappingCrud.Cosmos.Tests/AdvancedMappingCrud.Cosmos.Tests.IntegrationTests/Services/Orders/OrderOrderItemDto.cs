@@ -1,0 +1,36 @@
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.DtoContract", Version = "2.0")]
+
+namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Orders
+{
+    public class OrderOrderItemDto
+    {
+        public OrderOrderItemDto()
+        {
+            OrderId = null!;
+            Id = null!;
+            ProductId = null!;
+        }
+
+        public string OrderId { get; set; }
+        public string Id { get; set; }
+        public int Quantity { get; set; }
+        public decimal Amount { get; set; }
+        public string ProductId { get; set; }
+
+        public static OrderOrderItemDto Create(string orderId, string id, int quantity, decimal amount, string productId)
+        {
+            return new OrderOrderItemDto
+            {
+                OrderId = orderId,
+                Id = id,
+                Quantity = quantity,
+                Amount = amount,
+                ProductId = productId
+            };
+        }
+    }
+}

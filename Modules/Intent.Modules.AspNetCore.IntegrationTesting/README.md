@@ -42,12 +42,11 @@ The default isolation can be configured with the following implications :
 
 `Container per Test Class` is slower, but each Test Class runs against a newly created container.
 
-If you are running `Shared Container`, you can set up specific Test Class's to require a Clean Container. This hybrid model can give you the best of both worlds. To setup such a test ensure the Test Class implements `IClassFixture<IntegrationTestWebAppFactory>` and the Collection is changed to `Sequential` (from `SharedContainer`).
+If you are running `Shared Container`, you can set up specific Test Class's to require a Clean Container. This hybrid model can give you the best of both worlds. To setup such a test ensure the Test Class implements `IClassFixture<IntegrationTestWebAppFactory>` and remove the `Collection("SharedContainer")` attribute.
 
 ```csharp
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    [Collection("Sequential")]
     public class IsolatedTests : BaseIntegrationTest, IClassFixture<IntegrationTestWebAppFactory>
     {
         public CustomerServiceTests(IntegrationTestWebAppFactory factory) : base(factory)
