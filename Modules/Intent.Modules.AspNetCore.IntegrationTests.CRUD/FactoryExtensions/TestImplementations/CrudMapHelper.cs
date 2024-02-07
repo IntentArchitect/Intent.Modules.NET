@@ -34,7 +34,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             //This ensures that the Dependencies list is ordered e.g. Customer -> Order (depends on Customer) -> OrderItem (depends on Order)
             DependencySortingHelper.SortDependencies(crudtests);
 
-            //Removing implementations which can't work because they have dependancies on Enities which dont have CRUD Services.
+            //Removing implementations which can't work because they have dependencies on Enities which don't have CRUD Services.
             crudtests.RemoveAll(ct => ct.Dependencies.Any(d => d.CrudMap is null));
             return crudtests;
         }
@@ -42,7 +42,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
         private static IEnumerable<CrudMap> ExtractCrudMap(ICSharpFileBuilderTemplate template, IServiceProxyModel testableProxy)
         {
             var operations = testableProxy.GetMappedEndpoints();
-            var creates = operations.Where(o => o.Name.StartsWith("Create", StringComparison.OrdinalIgnoreCase) && o.ReturnType != null ).ToList();
+            var creates = operations.Where(o => o.Name.StartsWith("Create", StringComparison.OrdinalIgnoreCase) && o.ReturnType?.Element != null ).ToList();
             if (!creates.Any())
                 yield break;
 
@@ -52,9 +52,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                 var getById = operations.FirstOrDefault(o => o.Name.StartsWith($"Get{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase));
                 if (getById != null)
                 {
-                    if (ValidateCreateReturnType(template, create, potentialEntityName, out var idFieldOnDto))
+                    if (ValidateCreateReturnType(template, create, potentialEntityName, out var responseDtoIdField))
                     {
-                        var result = CreateCrudMap(testableProxy, potentialEntityName, "Get", idFieldOnDto);
+                        var result = CreateCrudMap(testableProxy, potentialEntityName, "Get", responseDtoIdField);
                         if (result != null)
                             yield return result;
                     }
@@ -64,9 +64,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                     var findById = operations.FirstOrDefault(o => o.Name.StartsWith($"Find{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase));
                     if (findById != null)
                     {
-                        if (ValidateCreateReturnType(template, create, potentialEntityName, out var idFieldOnDto))
+                        if (ValidateCreateReturnType(template, create, potentialEntityName, out var responseDtoIdField))
                         {
-                            var result = CreateCrudMap(testableProxy, potentialEntityName, "Find", idFieldOnDto);
+                            var result = CreateCrudMap(testableProxy, potentialEntityName, "Find", responseDtoIdField);
                             if (result != null)
                                 yield return result;
                         }
@@ -80,7 +80,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             idFieldOnDto = null;
             if (create.ReturnType?.Element == null)
                 return false;
-            if (template.GetTypeInfo(create.ReturnType).IsPrimitive)
+            if (template.GetTypeInfo(create.ReturnType).IsPrimitive || create.ReturnType?.Element?.Name == "string")
                 return true;
             var dto = create.ReturnType?.Element?.AsDTOModel();
             if (dto != null)
@@ -106,60 +106,121 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
         }
 
 
-        private static CrudMap? CreateCrudMap(IServiceProxyModel testableProxy, string entityName, string getPrefix, string? idField)
+        private static CrudMap? CreateCrudMap(IServiceProxyModel testableProxy, string entityName, string getPrefix, string? responseDtoIdField)
         {
             var operations = testableProxy.GetMappedEndpoints();
-            var dependencies = DetermineDependencies(operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0), out var entity);
+            var createOperation = operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0);
+
+            var mapping = GetCreateMapping(createOperation.InternalElement);
+            if (mapping == null) // We only doing Test for services on new mapping system
+            {
+                return null;
+            }
+
+            var entity = mapping.TargetElement.AsClassModel();
             if (entity == null) return null;
+
+            var owningAggregate = GetOwningAggregate(entity);
+
+            var dependencies = DetermineDependencies(createOperation, mapping);
             if (entity.Attributes.Count(a => a.HasStereotype("Primary Key")) != 1) return null;
             return new CrudMap(
                 testableProxy,
                 entity,
                 dependencies,
-                operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0),
-                operations.FirstOrDefault(o => string.Compare(o.Name, $"Update{entityName}", ignoreCase: true) == 0),
-                operations.FirstOrDefault(o => string.Compare(o.Name, $"Delete{entityName}", ignoreCase: true) == 0),
-                operations.First(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0),
-                operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName.Pluralize(false)}", ignoreCase: true) == 0),
-                idField
+                operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o)),
+                operations.FirstOrDefault(o => string.Compare(o.Name, $"Update{entityName}", ignoreCase: true) == 0 && ExpectedUpdateParameters(o, entity)),
+                operations.FirstOrDefault(o => string.Compare(o.Name, $"Delete{entityName}", ignoreCase: true) == 0 && ExpectedDeleteParameters(o, entity, owningAggregate)),
+                operations.First(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && ExpectedGetByIdParameters(o, entity, owningAggregate)),
+                operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName.Pluralize(false)}", ignoreCase: true) == 0 && ExpectedGetAllParameters(o, owningAggregate)),
+                responseDtoIdField,
+                owningAggregate
                 );
         }
 
-        private static List<Dependency> DetermineDependencies(IHttpEndpointModel createOperation, out ClassModel? entity)
+        private static bool ExpectedGetAllParameters(IHttpEndpointModel o, ClassModel? owningAggregate)
         {
-            entity = null;
-            var mapping = GetCreateMapping(createOperation.InternalElement);
-            if (mapping != null)
-            {
-                entity = mapping.TargetElement.AsClassModel();
-                var deDupe = new Dictionary<string, List<IElementToElementMappedEnd>>();
-                foreach (var mappedEnd in mapping.MappedEnds.Where(me => me.MappingType == "Data Mapping"))
-                {
-                    var attributeModel = (mappedEnd.TargetElement as IElement)?.AsAttributeModel();
-                    if (attributeModel is not null && attributeModel.HasStereotype("Foreign Key"))
-                    {
-                        var ae = attributeModel.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();
-                        if (ae != null)
-                        {
-                            var cm = ae.Class;
-                            if (ae.Class.Id == attributeModel.Class.Id)
-                            {
-                                cm = ae.OtherEnd().Class;
-                            }
-                            if (!deDupe.TryGetValue(cm.Name, out var mappings))
-                            {
-                                mappings = new List<IElementToElementMappedEnd>();
-                                deDupe.Add(cm.Name, mappings);
-                            }
-                            mappings.Add(mappedEnd);
-                        }
-                    }
-                }
-                return deDupe.Select(x => new Dependency(x.Key, x.Value)).OrderBy(d => d.EntityName).ToList();
-            }
-            return new List<Dependency>();
+            if (owningAggregate == null)
+                return !o.Inputs.Any();
+            return o.Inputs.Count == 1 && 
+                o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
         }
 
+        private static bool ExpectedGetByIdParameters(IHttpEndpointModel o, ClassModel entity, ClassModel? owningAggregate)
+        {
+            if (owningAggregate == null)
+                return o.Inputs.Count == 1 && 
+                    o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+            return o.Inputs.Count == 2 && 
+                o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id &&
+                o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id ;
+        }
 
+        private static bool ExpectedDeleteParameters(IHttpEndpointModel o, ClassModel entity, ClassModel? owningAggregate)
+        {
+            if (owningAggregate == null)
+                return o.Inputs.Count == 1 &&
+                    o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+            return o.Inputs.Count == 2 &&
+                o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id &&
+                o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+        }
+
+        private static bool ExpectedUpdateParameters(IHttpEndpointModel o, ClassModel entity)
+        {
+            return o.Inputs.Count == 2 &&                
+                o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+        }
+
+        private static bool ExpectedCreateParameters(IHttpEndpointModel o)
+        {
+            return o.Inputs.Count == 1;
+        }
+
+        private static ClassModel? GetOwningAggregate(ClassModel entity)
+        {
+            if (!entity.IsAggregateRoot())
+            {
+                var aggregateAssociations = entity.AssociatedClasses
+                    .Where(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
+                                p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
+                    .Distinct()
+                    .ToList();
+                if (aggregateAssociations.Count != 1)
+                {
+                    return null;
+                }
+                return aggregateAssociations.Single().Class;
+            }
+            return null;
+        }
+
+        private static List<Dependency> DetermineDependencies(IHttpEndpointModel createOperation, IElementToElementMapping mapping)
+        {
+            var deDupe = new Dictionary<string, List<IElementToElementMappedEnd>>();
+            foreach (var mappedEnd in mapping.MappedEnds.Where(me => me.MappingType == "Data Mapping"))
+            {
+                var attributeModel = (mappedEnd.TargetElement as IElement)?.AsAttributeModel();
+                if (attributeModel is not null && attributeModel.HasStereotype("Foreign Key"))
+                {
+                    var ae = attributeModel.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();
+                    if (ae != null)
+                    {
+                        var cm = ae.Class;
+                        if (ae.Class.Id == attributeModel.Class.Id)
+                        {
+                            cm = ae.OtherEnd().Class;
+                        }
+                        if (!deDupe.TryGetValue(cm.Name, out var mappings))
+                        {
+                            mappings = new List<IElementToElementMappedEnd>();
+                            deDupe.Add(cm.Name, mappings);
+                        }
+                        mappings.Add(mappedEnd);
+                    }
+                }
+            }
+            return deDupe.Select(x => new Dependency(x.Key, x.Value)).OrderBy(d => d.EntityName).ToList();
+        }
     }
 }

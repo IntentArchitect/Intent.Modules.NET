@@ -37,14 +37,25 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
                 foreach (var crudTest in crudTests)
                 {
-                    if (crudTest.Dependencies.Any())
+                    if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
                     {
                         @class.AddMethod("Task", $"Create{crudTest.Entity.Name}Dependencies", method =>
                         {
                             method.Async();
-                            foreach (var dependency in crudTest.Dependencies)
+                            var owningAggragateId = "";
+                            if (crudTest.OwningAggregate != null)
+                            {
+                                method.WithReturnType($"Task<{template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)}>");
+                                owningAggragateId = $"{crudTest.OwningAggregate.Name.ToParameterName()}Id";
+                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.Name}();");
+                            }
+                            foreach (var dependency in crudTest.Dependencies.Where(d => d.EntityName != crudTest.OwningAggregate?.Name))
                             {
                                 method.AddStatement($"await Create{dependency.EntityName}();");
+                            }
+                            if (crudTest.OwningAggregate != null)
+                            {
+                                method.AddStatement($"return {owningAggragateId};");
                             }
                         });
 
@@ -54,17 +65,19 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                     {
                         method.Async();
 
+                        var owningAggragateId = crudTest.OwningAggregate != null ? $"{crudTest.OwningAggregate?.Name.ToParameterName()}Id" : null;
                         var dtoModel = crudTest.Create.Inputs.First();
                         var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
-                        if (crudTest.Dependencies.Any())
+
+                        if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
                         {
-                            method.AddStatement($"await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
+                            method.AddStatement($"{(crudTest.OwningAggregate != null ? $"var {owningAggragateId} = " : "")}await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
                         }
 
                         method
                             .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
                             .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();")
-                            .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command){(crudTest.IdField != null ? $".{crudTest.IdField}" : "")};")
+                            .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command){(crudTest.ResponseDtoIdField != null ? $".{crudTest.ResponseDtoIdField}" : "")};")
                             .AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
                         if (keyAliases.TryGetValue(sutId.ToPascalCase(), out var aliases))
                         {
@@ -73,8 +86,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                                 method.AddStatement($"_idTracker[\"{alias}\"] = {sutId};");
                             }
                         }
-                        method
-                            .AddStatement($"return {sutId};");
+                        if (crudTest.OwningAggregate != null)
+                        {
+                            method.WithReturnType($"Task<({template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {owningAggragateId.ToPascalCase()}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
+                            method.AddStatement($"return ({owningAggragateId}, {sutId});");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return {sutId};");
+                        }
                     });
                 }
             });

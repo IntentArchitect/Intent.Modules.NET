@@ -61,7 +61,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-        PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
         AddTypeSource(serviceContractTemplateId);
         AddTypeSource(dtoContractTemplateId);
         AddTypeSource(enumContractTemplateId);
@@ -79,6 +78,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
+                PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
+
                 if (model.UnderlyingModel != null)
                 {
                     @class.AddMetadata("model", model.UnderlyingModel);

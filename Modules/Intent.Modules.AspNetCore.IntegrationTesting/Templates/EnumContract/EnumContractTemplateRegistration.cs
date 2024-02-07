@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -36,7 +37,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetEnumModels();
+            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(RegistrationHelper.GetReferencedEnumModels).Distinct()
+                .ToList();
         }
     }
 }

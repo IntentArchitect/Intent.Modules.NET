@@ -98,6 +98,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
                     var dtoModel = crudTest.Create.Inputs.First();
 
+                    var owningAgggregateId = crudTest.OwningAggregate is null ? null : $"{crudTest.OwningAggregate.Name.ToParameterName()}Id";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{owningAgggregateId}, {sutId}";
+
+
                     method
                         .Async()
                         .AddAttribute("Fact")
@@ -107,7 +111,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     if (crudTest.Dependencies.Any())
                     {
-                        method.AddStatement($"await dataFactory.Create{crudTest.Entity.Name}Dependencies();");
+                        if (crudTest.OwningAggregate is null) 
+                        {
+                            method.AddStatement($"await dataFactory.Create{crudTest.Entity.Name}Dependencies();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"var {owningAgggregateId} = await dataFactory.Create{crudTest.Entity.Name}Dependencies();");
+                        }
                     }
 
                     method
@@ -116,9 +127,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({sutId});")
-                        .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
-                        ;
+                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});");
                 });
 
             });
@@ -134,7 +144,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                 @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
                 {
                     template.AddUsing("AutoFixture");
-                    var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
+                    var sutId = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : $"ids.{crudTest.Entity.Name.ToPascalCase()}Id";
+                    var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
+                    var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{owningAggregateId}, {sutId}";
 
                     method
                         .Async()
@@ -143,10 +156,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {$"{crudTest.Entity.Name.ToParameterName()}Id"} = await dataFactory.Create{crudTest.Entity.Name}();")
+                        .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
 
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({sutId});")
+                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
@@ -166,6 +179,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                 {
                     template.AddUsing("AutoFixture");
                     var dtoModel = crudTest.Create.Inputs.First();
+                    var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
 
                     method
                         .Async()
@@ -174,10 +188,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
-                        .AddStatement($"await dataFactory.Create{crudTest.Entity.Name}();")
-
+                        .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = ":"")}await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll.Name}Async();")
+                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{owningAggregateId}" : "")});")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.True({crudTest.Entity.Name.ToParameterName().Pluralize()}.Count > 0);")
@@ -198,8 +211,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                 @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
                 {
-                    var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
+                    var sutId = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : $"ids.{crudTest.Entity.Name.ToPascalCase()}Id";
                     var dtoModel = crudTest.Create.Inputs.First();
+
+                    var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
+                    var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
+                    var deleteParams = crudTest.OwningAggregate is null ? sutId : $"{owningAggregateId}, {sutId}";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{owningAggregateId}, {sutId}";
 
                     method
                         .Async()
@@ -207,12 +225,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {$"{crudTest.Entity.Name.ToParameterName()}Id"} = await dataFactory.Create{crudTest.Entity.Name}();")
+                        .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"await client.{crudTest.Delete!.Name}Async({sutId});")
+                        .AddStatement($"await client.{crudTest.Delete!.Name}Async({deleteParams});")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.{crudTest.GetById.Name}Async({sutId}));")
+                        .AddStatement($"var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.{crudTest.GetById.Name}Async({getByIdParams}));")
                         .AddStatement($"Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);")
                         ;
                 });
@@ -229,9 +247,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                 @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
                 {
-                    var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
+                    var sutId = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : $"ids.{crudTest.Entity.Name.ToPascalCase()}Id";
                     var updateDtoModel = crudTest.Update!.Inputs.First(x => x.TypeReference?.Element.SpecializationTypeId == DtoSpecializationType || x.TypeReference?.Element.SpecializationTypeId == CommandSpecializationType);
                     var getDtoModel = crudTest.GetById.ReturnType!;
+                    var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
+                    var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{owningAggregateId}, {sutId}";
 
                     method
                         .Async()
@@ -240,7 +261,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {$"{sutId}"} = await dataFactory.Create{crudTest.Entity.Name}();")
+                        .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
                         .AddStatement($"command.Id = {sutId};")
 
@@ -248,7 +269,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"await client.{crudTest.Update!.Name}Async({sutId}, command);")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({sutId});")
+                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
                         ;
 
