@@ -133,7 +133,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Eventing", "Intent.Modules.Application.MediatR.CRUD.Eventing\Intent.Modules.Application.MediatR.CRUD.Eventing.csproj", "{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3}"
 EndProject
@@ -262,6 +262,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.IntegrationTesting", "Intent.Modules.AspNetCore.IntegrationTesting\Intent.Modules.AspNetCore.IntegrationTesting.csproj", "{677ABC38-C23B-4CA4-9117-F470DD3EA997}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.IntegrationTests.CRUD", "Intent.Modules.AspNetCore.IntegrationTests.CRUD\Intent.Modules.AspNetCore.IntegrationTests.CRUD.csproj", "{D70C5B2A-54FD-4551-825A-A38515DB04E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController.Metadata", "Intent.Modules.AspNetCore.Identity.AccountController.Metadata\Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj", "{37DF17B6-66FE-4810-82D0-1A964213E4EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -725,6 +727,10 @@ Global
 		{D70C5B2A-54FD-4551-825A-A38515DB04E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D70C5B2A-54FD-4551-825A-A38515DB04E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D70C5B2A-54FD-4551-825A-A38515DB04E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DF17B6-66FE-4810-82D0-1A964213E4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DF17B6-66FE-4810-82D0-1A964213E4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DF17B6-66FE-4810-82D0-1A964213E4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DF17B6-66FE-4810-82D0-1A964213E4EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -831,7 +837,7 @@ Global
 		{CF3D5129-6C5F-4D97-8BD3-B6F0C5F2D29C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{F2D877D3-CBE3-4165-853E-8DC4461B9B5D} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{E4CEE586-384A-4B39-A49E-D8E2F83F8E70} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
-		{307CC260-56C5-4F42-A719-812DF03D532E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{307CC260-56C5-4F42-A719-812DF03D532E} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{C0775E42-5F7D-46BC-AEAE-AF4CC9ACCE0C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{97C65F17-2BA8-42E5-B8C3-4678126A2F73} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{A81DFFDC-912E-42DA-980D-E386D8EDB684} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
@@ -854,6 +860,7 @@ Global
 		{6930CD87-E815-4614-B05E-7F10AA1B5F15} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{677ABC38-C23B-4CA4-9117-F470DD3EA997} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{D70C5B2A-54FD-4551-825A-A38515DB04E9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{37DF17B6-66FE-4810-82D0-1A964213E4EC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
