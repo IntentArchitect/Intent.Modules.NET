@@ -14,11 +14,12 @@ internal static class PersistenceUnitOfWork
     public static bool SystemUsesPersistenceUnitOfWork(this ICSharpFileBuilderTemplate template)
     {
         return
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDbUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
             template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _);
     }
 
     public static void ApplyUnitOfWorkImplementations(
@@ -37,15 +38,16 @@ internal static class PersistenceUnitOfWork
         var efParameterName = fieldSuffix;
         var mongoDbParameterName = $"mongoDb{fieldSuffix.ToPascalCase()}";
         var tableStorageParameterName = $"tableStorage{fieldSuffix.ToPascalCase()}";
+        var redisOmParameterName = $"redisOm{fieldSuffix.ToPascalCase()}";
 
         var useTransactionScope = false;
         var useOutsideTransactionScope = false;
 
-        var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _);
+        var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDbUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
             constructor.AddParameter(
-                template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface),
+                template.GetTypeName(TemplateIds.CosmosDbUnitOfWorkInterface),
                 cosmosDbParameterName,
                 c => c.IntroduceReadonlyField());
 
@@ -99,6 +101,16 @@ internal static class PersistenceUnitOfWork
             useOutsideTransactionScope = true;
         }
 
+        var requiresRedisOm = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _);
+        if (requiresRedisOm)
+        {
+            constructor.AddParameter(
+                template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface),
+                redisOmParameterName,
+                c => c.IntroduceReadonlyField());
+
+            useOutsideTransactionScope = true;
+        }
 
         var hasSeparateResultDeclaration = useTransactionScope && useOutsideTransactionScope;
         if (hasSeparateResultDeclaration && returnType != null)
@@ -204,6 +216,12 @@ internal static class PersistenceUnitOfWork
         if (requiresTableStorage)
         {
             hasCSharpStatements.AddStatement($"await _{tableStorageParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            separatedFromPrevious = null;
+        }
+        
+        if (requiresRedisOm)
+        {
+            hasCSharpStatements.AddStatement($"await _{redisOmParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 

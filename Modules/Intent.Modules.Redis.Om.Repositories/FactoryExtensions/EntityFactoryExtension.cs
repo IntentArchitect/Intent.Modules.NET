@@ -31,21 +31,9 @@ namespace Intent.Modules.Redis.Om.Repositories.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: RedisOmProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: true,
+                primaryKeyInitStrategy: new RedisOmPrimaryKeyInitStrategy(),
                 makeNonPersistentPropertiesVirtual: false);
         }
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
-        {
-            // Your custom logic here.
-        }
     }
 }

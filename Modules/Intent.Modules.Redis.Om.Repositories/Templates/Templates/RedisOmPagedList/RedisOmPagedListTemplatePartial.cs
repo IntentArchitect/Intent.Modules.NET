@@ -28,8 +28,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
-                .AddUsing("Microsoft.Azure.CosmosRepository")
-                .AddUsing("Microsoft.Azure.CosmosRepository.Paging")
                 .AddClass("RedisOmPagedList", @class =>
                 {
                     @class
@@ -104,7 +102,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmPagedL
                 });
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

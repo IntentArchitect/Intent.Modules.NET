@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Redis.Om.Repositories.Templates.Templates.IndexCreationService;
+using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmConfiguration;
 using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocument;
 using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocumentInterface;
 using Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocumentOfTInterface;
@@ -25,6 +27,14 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetIndexCreationServiceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IndexCreationServiceTemplate.TemplateId);
+        }
+        public static string GetRedisOmConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(RedisOmConfigurationTemplate.TemplateId);
+        }
         public static string GetRedisOmDocumentName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(RedisOmDocumentTemplate.TemplateId, template.Model);

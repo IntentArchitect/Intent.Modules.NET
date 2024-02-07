@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api.Extensions;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
@@ -37,7 +34,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: MongoDbProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: false,
+                primaryKeyInitStrategy: new MongoDbPrimaryKeyInitStrategy(),
                 makeNonPersistentPropertiesVirtual: false);
         }
     }

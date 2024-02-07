@@ -238,6 +238,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                             .AddChainStatement("Where(p => p.Value is not null)")
                             .AddChainStatement("Select(document => document.Value!.ToEntity())")
                             .AddChainStatement("ToList()"))
+                        .AddStatement("return results;")
                     );
 
                     @class.AddMethod("string", "GetIdValue", method => method
@@ -324,7 +325,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
             return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
