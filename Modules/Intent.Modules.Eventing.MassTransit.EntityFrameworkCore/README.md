@@ -10,7 +10,7 @@ The MassTransit Outbox pattern is a strategy used in distributed systems where m
 
 ## What's in this module?
 
-This modules enhances the `Intent.Eventing.MassTransit` module in the following ways:
+This module enhances the `Intent.Eventing.MassTransit` module in the following ways:
 
 * Configures Outbox infrastructure.
 * Configures the `DbContext` class for the Outbox pattern.

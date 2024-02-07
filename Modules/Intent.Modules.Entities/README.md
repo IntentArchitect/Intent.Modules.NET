@@ -18,12 +18,12 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 
 ### Intent.EntityFrameworkCore
 
-This modules provides persistence patterns based on Entity Framework Core.
+This module provides persistence patterns based on Entity Framework Core.
 
 ### Intent.CosmosDB
 
-This modules provides persistence patterns based on CosmosDB.
+This module provides persistence patterns based on CosmosDB.
 
 ### Intent.MongoDB
 
-This modules provides persistence patterns based on MongoDB.
+This module provides persistence patterns based on MongoDB.

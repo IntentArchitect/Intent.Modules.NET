@@ -1,6 +1,6 @@
 ﻿### Version 3.0.0
 
-> ⚠️ This modules is now obsolete. Use the [Intent.AspNetCore.Identity.AccountController.Metadata](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.Identity.AccountController.Metadata/README.md) module instead which would have already been installed. This module can be safely uninstalled.
+> ⚠️ This module is now obsolete. Use the [Intent.AspNetCore.Identity.AccountController.Metadata](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.Identity.AccountController.Metadata/README.md) module instead which would have already been installed. This module can be safely uninstalled.
 
 ### Version 2.0.0
 

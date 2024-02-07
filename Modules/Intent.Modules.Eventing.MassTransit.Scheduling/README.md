@@ -9,7 +9,7 @@ For more info on MassTransit scheduling, check out their [documentation](https:/
 
 ## What's in this module?
 
-This modules enhances the `Intent.Eventing.MassTransit` module in the following ways:
+This module enhances the `Intent.Eventing.MassTransit` module in the following ways:
 
 * Extends the `IEventBus` interface to have scheduling methods.
 * Configures scheduling infrastructure.

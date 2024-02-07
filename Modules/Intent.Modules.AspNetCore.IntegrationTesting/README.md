@@ -1,6 +1,6 @@
 ﻿# Intent.AspNetCore.IntegrationTesting
 
-This modules adds Integration Testing for ASP.NET core applications with container support for database (MS MSQL, PostGres, CosmosDB).
+This module adds Integration Testing for ASP.NET core applications with container support for database (MS MSQL, PostGres, CosmosDB).
 
 ## What is Integration Testing
 
@@ -14,7 +14,7 @@ For more information on Test.containers read the official [documentation](https:
 
 ## Module Settings
 
-This modules has the following settings.
+This module has the following settings.
 
 ![Integration Testing Settings](./docs/images/integration-test-settings.png)
 

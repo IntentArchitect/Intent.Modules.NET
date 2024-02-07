@@ -429,7 +429,7 @@ namespace {{Application Name}}.Infrastructure
 
 ### Intent.Metadata.RDBMS
 
-This modules provides RDBMS related stereotypes for extending the Domain Designer with RDBMS technology specific data.
+This module provides RDBMS related stereotypes for extending the Domain Designer with RDBMS technology specific data.
 
 ### Intent.Entities
 
