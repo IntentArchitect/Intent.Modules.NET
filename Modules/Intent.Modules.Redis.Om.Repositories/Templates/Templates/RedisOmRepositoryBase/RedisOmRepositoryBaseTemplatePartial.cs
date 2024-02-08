@@ -88,12 +88,12 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         ctor.Protected();
                         ctor.AddParameter(this.GetRedisOmUnitOfWorkName(), "unitOfWork", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(UseType($"Redis.OM.RedisConnectionProvider"), "connectionProvider", param => param.IntroduceReadonlyField());
-                        ctor.AddStatement($@"_collection = ({UseType($"Redis.OM.RedisCollection<{tDocument}>")})connectionProvider.RedisCollection<{tDocument}>(500);");
+                        ctor.AddStatement($@"_collection = ({UseType($"Redis.OM.Searching.RedisCollection<{tDocument}>")})connectionProvider.RedisCollection<{tDocument}>(500);");
                         ctor.AddStatement($@"_collectionName = _collection.StateManager.DocumentAttribute.Prefixes.FirstOrDefault()
                               ?? throw new Exception($""{{typeof({tDocument}).FullName}} does not have a Document Prefix assigned."");");
                     });
 
-                    @class.AddField(UseType($"Redis.OM.RedisCollection<{tDocument}>"), "_collection", field => field.PrivateReadOnly());
+                    @class.AddField(UseType($"Redis.OM.Searching.RedisCollection<{tDocument}>"), "_collection", field => field.PrivateReadOnly());
                     @class.AddField("string" + GetNullablePostfix(true), "_collectionName", field => field.PrivateReadOnly());
 
                     @class.AddProperty(this.GetRedisOmUnitOfWorkInterfaceName(), "UnitOfWork", p => p
@@ -145,6 +145,17 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         })
                     );
 
+                    @class.AddMethod($"Task<{tDomain}{GetNullablePostfix(true)}>", "FindAsync", m => m
+                        .Async()
+                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        .AddOptionalCancellationTokenParameter(this)
+                        .AddStatement("var document = await _collection.Where(AdaptFilterPredicate(filterExpression)).FirstOrDefaultAsync();")
+                        .AddIfStatement("document is null", stmt => { stmt.AddStatement("return null;"); })
+                        .AddStatement("var entity = document.ToEntity();")
+                        .AddStatement("Track(entity);")
+                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
+                    );
+
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
                         .Async()
                         .AddOptionalCancellationTokenParameter(this)
@@ -156,9 +167,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                     );
 
 
-                    @class.AddMethod($"Task<{tDomain}?>", "FindByIdAsync", m => m
+                    @class.AddMethod($"Task<{tDomain}{GetNullablePostfix(true)}>", "FindByIdAsync", m => m
                         .Async()
-                        .Protected()
                         .AddParameter("string", "id")
                         .AddOptionalCancellationTokenParameter(this)
                         .AddStatement("var document = await _collection.FindByIdAsync(id);")
@@ -301,7 +311,23 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                                 .Override()
                                 .AddParameter("Expression?", "node");
 
-                            method.AddStatement("return node == _before ? _after : base.Visit(node);");
+                            method.AddStatement(
+                                """
+                                if (node == _before)
+                                {
+                                    return _after;
+                                }
+
+                                if (node?.NodeType == ExpressionType.MemberAccess &&
+                                    node is MemberExpression mem &&
+                                    mem.Member.ReflectedType == _before.Type)
+                                {
+                                    var newExpression = Visit(mem.Expression);
+                                    return Expression.MakeMemberAccess(newExpression, _after.Type.GetMember(mem.Member.Name, BindingFlags.Instance | BindingFlags.Public).First());
+                                }
+
+                                return base.Visit(node);
+                                """);
                         });
                     });
                 });
@@ -320,8 +346,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
             return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

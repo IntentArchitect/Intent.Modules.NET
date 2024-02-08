@@ -6,6 +6,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
@@ -47,31 +48,30 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         .AddProperty(this.GetRedisOmUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                             .WithoutSetter()
                         )
+                        .AddMethod($"Task<{tDomain}{GetNullablePostfix(true)}>", "FindAsync", method=>method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddOptionalCancellationTokenParameter(this))
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter("CancellationToken", "cancellationToken",
-                                parameter => parameter.WithDefaultValue("default"))
+                            .AddOptionalCancellationTokenParameter(this)
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                            .AddOptionalCancellationTokenParameter(this)
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
-                            .AddParameter("CancellationToken", "cancellationToken",
-                                parameter => parameter.WithDefaultValue("default"))
+                            .AddOptionalCancellationTokenParameter(this)
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
-                            .AddParameter("CancellationToken", "cancellationToken",
-                                parameter => parameter.WithDefaultValue("default"))
+                            .AddOptionalCancellationTokenParameter(this)
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
                             .AddParameter($"IEnumerable<string>", "ids")
-                            .AddParameter("CancellationToken", "cancellationToken",
-                                parameter => parameter.WithDefaultValue("default"))
+                            .AddOptionalCancellationTokenParameter(this)
                         );
                 });
         }
@@ -107,6 +107,11 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                     }
                 }, 1000);
             }
+        }
+        
+        private string GetNullablePostfix(bool isNullable)
+        {
+            return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
         }
 
         [IntentManaged(Mode.Fully)]
