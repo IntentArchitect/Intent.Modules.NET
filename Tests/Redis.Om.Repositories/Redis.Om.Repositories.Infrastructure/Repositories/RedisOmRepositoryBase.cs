@@ -122,7 +122,18 @@ namespace Redis.Om.Repositories.Infrastructure.Repositories
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);
+            var query = _collection;
+            var count = await query.CountAsync().ConfigureAwait(false);
+            var skip = ((pageNo - 1) * pageSize);
+
+            var pagedDocuments = await query
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync();
+            var results = pagedDocuments.Select(document => document.ToEntity()).ToList();
+            Track(results);
+
+            return new RedisOmPagedList<TDomain, TDocument>(count, pageNo, pageSize, results);
         }
 
         public virtual async Task<IPagedList<TDomain>> FindAllAsync(

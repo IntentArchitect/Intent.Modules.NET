@@ -202,7 +202,29 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                             .AddParameter("int", "pageSize")
                             .AddOptionalCancellationTokenParameter(this);
 
-                        method.AddStatement("return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);");
+                        var tDomainStateGenericTypeArgument = createEntityInterfaces
+                            ? $", {tDomainState}"
+                            : string.Empty;
+                        
+                        method.AddStatements(
+                            """
+                            var query = _collection;
+                            var count = await query.CountAsync().ConfigureAwait(false);
+                            var skip = ((pageNo - 1) * pageSize);
+                            """);
+
+                        method.AddMethodChainStatement("var pagedDocuments = await query", chain => chain
+                            .AddChainStatement("Skip(skip)")
+                            .AddChainStatement("Take(pageSize)")
+                            .AddChainStatement("ToListAsync()"));
+
+                        method.AddStatements(
+                            $$"""
+                              var results = pagedDocuments.Select(document => document.ToEntity()).ToList();
+                              Track(results);
+
+                              return new {{this.GetRedisOmPagedListName()}}<{{tDomain}}{{tDomainStateGenericTypeArgument}}, {{tDocument}}>(count, pageNo, pageSize, results);
+                              """);
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedListInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
