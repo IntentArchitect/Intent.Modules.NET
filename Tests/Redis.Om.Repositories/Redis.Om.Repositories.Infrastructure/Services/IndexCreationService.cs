@@ -21,13 +21,11 @@ namespace Redis.Om.Repositories.Infrastructure.Services
 
         public async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            await _provider.Connection.CreateIndexAsync(typeof(BaseOfTDocument<>));
             await _provider.Connection.CreateIndexAsync(typeof(BaseTypeDocument));
             await _provider.Connection.CreateIndexAsync(typeof(ClientDocument));
             await _provider.Connection.CreateIndexAsync(typeof(CustomerDocument));
             await _provider.Connection.CreateIndexAsync(typeof(DerivedOfTDocument));
             await _provider.Connection.CreateIndexAsync(typeof(DerivedTypeDocument));
-            await _provider.Connection.CreateIndexAsync(typeof(EntityOfTDocument<>));
             await _provider.Connection.CreateIndexAsync(typeof(IdTestingDocument));
             await _provider.Connection.CreateIndexAsync(typeof(InvoiceDocument));
             await _provider.Connection.CreateIndexAsync(typeof(RegionDocument));

@@ -39,7 +39,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.IndexCreation
                     {
                         method.Async();
                         method.AddOptionalCancellationTokenParameter(this);
-                        foreach (var entity in Model.Where(p => p.IsAggregateRoot()))
+                        foreach (var entity in Model.Where(p => p.IsAggregateRoot() && !p.GenericTypes.Any()))
                         {
                             if (!TryGetTemplate<RedisOmDocumentTemplate>(RedisOmDocumentTemplate.TemplateId, entity, out var documentTemplate))
                             {

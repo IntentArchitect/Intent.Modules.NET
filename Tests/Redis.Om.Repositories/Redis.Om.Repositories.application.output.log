@@ -1200,7 +1200,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e403916a-90d5-4712-bff5-4bbb22d37721</ProjectId>
@@ -1480,7 +1480,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.Infrastructure/Services/IndexCreationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IndexCreationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#abf2f944-ff01-4ba4-aadd-386844042c82</CorrelationId>

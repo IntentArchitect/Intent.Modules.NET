@@ -52,7 +52,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                     var entityStateGenericTypeArgument = createEntityInterfaces
                         ? $", {EntityStateTypeName}"
                         : string.Empty;
-                    @class.ExtendsClass($"{this.GetRedisOmRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}>");
+                    @class.ExtendsClass(
+                        $"{this.GetRedisOmRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}>");
                     @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}{genericTypeParameters}");
 
                     @class.AddConstructor(ctor =>
@@ -76,15 +77,16 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
 
                     if (pkAttribute.IdAttribute.TypeReference?.Element.Name != "string")
                     {
-                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync", method =>
-                        {
-                            AddUsing("System.Linq");
-                            method
-                                .Async()
-                                .AddParameter($"{GetTypeName(pkAttribute.IdAttribute)}[]", "ids")
-                                .AddOptionalCancellationTokenParameter(this)
-                                .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
-                        });
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityStateTypeName}>>", "FindByIdsAsync",
+                            method =>
+                            {
+                                AddUsing("System.Linq");
+                                method
+                                    .Async()
+                                    .AddParameter($"{GetTypeName(pkAttribute.IdAttribute)}[]", "ids")
+                                    .AddOptionalCancellationTokenParameter(this)
+                                    .WithExpressionBody($"await FindByIdsAsync(ids.Select(id => id{pkAttribute.IdAttribute.GetToString(this)}).ToArray(), cancellationToken)");
+                            });
                     }
 
                     @class.AddMethod("string", "GetIdValue", method =>
@@ -133,15 +135,18 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
             }
 
             ((ICSharpFileBuilderTemplate)contractTemplate).CSharpFile.Interfaces[0].AddMetadata("requires-explicit-update", true);
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForConcern("Infrastructure")
-                .ForInterface(contractTemplate)
-                .WithPerServiceCallLifeTime()
-            );
+
+            if (!Model.GenericTypes.Any())
+            {
+                ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                    .ForConcern("Infrastructure")
+                    .ForInterface(contractTemplate)
+                    .WithPerServiceCallLifeTime()
+                );
+            }
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

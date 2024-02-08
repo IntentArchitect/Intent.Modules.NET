@@ -23,7 +23,6 @@ namespace Redis.Om.Repositories.Infrastructure
             services.AddScoped<ICustomerRepository, CustomerRedisOmRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTRedisOmRepository>();
             services.AddScoped<IDerivedTypeRepository, DerivedTypeRedisOmRepository>();
-            services.AddScoped(typeof(IEntityOfTRepository<>), typeof(EntityOfTRedisOmRepository<>));
             services.AddScoped<IIdTestingRepository, IdTestingRedisOmRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRedisOmRepository>();
             services.AddScoped<IRegionRepository, RegionRedisOmRepository>();
