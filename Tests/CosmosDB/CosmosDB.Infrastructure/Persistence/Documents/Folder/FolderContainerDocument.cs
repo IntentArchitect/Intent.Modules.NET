@@ -15,8 +15,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
     internal class FolderContainerDocument : IFolderContainerDocument, ICosmosDBDocument<FolderContainer, FolderContainerDocument>
     {
         private string? _type;
-        [JsonProperty("_etag")]
-        private string? etag;
         public string Id { get; set; } = default!;
         public string FolderPartitionKey { get; set; } = default!;
 
@@ -40,26 +38,23 @@ namespace CosmosDB.Infrastructure.Persistence.Documents.Folder
             get => FolderPartitionKey;
             set => FolderPartitionKey = value!;
         }
-        string? IItemWithEtag.Etag => etag;
 
-        public FolderContainerDocument PopulateFromEntity(FolderContainer entity, string? etag = null)
+        public FolderContainerDocument PopulateFromEntity(FolderContainer entity)
         {
             Id = entity.Id;
             FolderPartitionKey = entity.FolderPartitionKey;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static FolderContainerDocument? FromEntity(FolderContainer? entity, string? etag = null)
+        public static FolderContainerDocument? FromEntity(FolderContainer? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new FolderContainerDocument().PopulateFromEntity(entity, etag);
+            return new FolderContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

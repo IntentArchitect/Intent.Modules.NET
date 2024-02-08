@@ -12,9 +12,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 {
     internal class DerivedTypeDocument : BaseTypeDocument, IDerivedTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
     {
-        [JsonProperty("_etag")]
-        private string? etag;
-        string? IItemWithEtag.Etag => etag;
         public string DerivedTypeAggregateId { get; set; } = default!;
         public DerivedType ToEntity(DerivedType? entity = default)
         {
@@ -26,24 +23,22 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public DerivedTypeDocument PopulateFromEntity(DerivedType entity, string? etag = null)
+        public DerivedTypeDocument PopulateFromEntity(DerivedType entity)
         {
             DerivedTypeAggregateId = entity.DerivedTypeAggregateId;
-
-            this.etag = etag;
             base.PopulateFromEntity(entity);
 
             return this;
         }
 
-        public static DerivedTypeDocument? FromEntity(DerivedType? entity, string? etag = null)
+        public static DerivedTypeDocument? FromEntity(DerivedType? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new DerivedTypeDocument().PopulateFromEntity(entity, etag);
+            return new DerivedTypeDocument().PopulateFromEntity(entity);
         }
     }
 }

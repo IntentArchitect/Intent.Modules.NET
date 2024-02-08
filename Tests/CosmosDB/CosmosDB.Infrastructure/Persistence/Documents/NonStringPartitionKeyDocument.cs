@@ -14,8 +14,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class NonStringPartitionKeyDocument : INonStringPartitionKeyDocument, ICosmosDBDocument<NonStringPartitionKey, NonStringPartitionKeyDocument>
     {
         private string? _type;
-        [JsonProperty("_etag")]
-        private string? etag;
         [JsonProperty("type")]
         string IItem.Type
         {
@@ -27,7 +25,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => PartInt;
             set => PartInt = value!;
         }
-        string? IItemWithEtag.Etag => etag;
         public string Id { get; set; } = default!;
         public string PartInt { get; set; }
         public string Name { get; set; } = default!;
@@ -43,25 +40,23 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public NonStringPartitionKeyDocument PopulateFromEntity(NonStringPartitionKey entity, string? etag = null)
+        public NonStringPartitionKeyDocument PopulateFromEntity(NonStringPartitionKey entity)
         {
             Id = entity.Id;
             PartInt = entity.PartInt.ToString(CultureInfo.InvariantCulture);
             Name = entity.Name;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static NonStringPartitionKeyDocument? FromEntity(NonStringPartitionKey? entity, string? etag = null)
+        public static NonStringPartitionKeyDocument? FromEntity(NonStringPartitionKey? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new NonStringPartitionKeyDocument().PopulateFromEntity(entity, etag);
+            return new NonStringPartitionKeyDocument().PopulateFromEntity(entity);
         }
     }
 }

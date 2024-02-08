@@ -15,8 +15,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class ClassContainerDocument : IClassContainerDocument, ICosmosDBDocument<ClassContainer, ClassContainerDocument>
     {
         private string? _type;
-        [JsonProperty("_etag")]
-        private string? etag;
         public string Id { get; set; } = default!;
         public string ClassPartitionKey { get; set; } = default!;
 
@@ -40,26 +38,23 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => ClassPartitionKey;
             set => ClassPartitionKey = value!;
         }
-        string? IItemWithEtag.Etag => etag;
 
-        public ClassContainerDocument PopulateFromEntity(ClassContainer entity, string? etag = null)
+        public ClassContainerDocument PopulateFromEntity(ClassContainer entity)
         {
             Id = entity.Id;
             ClassPartitionKey = entity.ClassPartitionKey;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static ClassContainerDocument? FromEntity(ClassContainer? entity, string? etag = null)
+        public static ClassContainerDocument? FromEntity(ClassContainer? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ClassContainerDocument().PopulateFromEntity(entity, etag);
+            return new ClassContainerDocument().PopulateFromEntity(entity);
         }
     }
 }

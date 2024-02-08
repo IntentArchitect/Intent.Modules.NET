@@ -23,7 +23,6 @@ namespace CosmosDB.Infrastructure.Repositories
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>, TDocumentInterface, new()
     {
-        private Dictionary<string, string?> _etags;
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
@@ -38,14 +37,11 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
-            _etags = new Dictionary<string, string?>();
             _currentUserService = currentUserService;
             _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
-
-        public abstract string GetId(TDomain entity);
 
         public void Add(TDomain entity)
         {
@@ -63,7 +59,7 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork.Enqueue(async cancellationToken =>
             {
                 (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
-                var document = new TDocument().PopulateFromEntity(entity, _etags[GetId(entity)]);
+                var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -72,7 +68,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = new TDocument().PopulateFromEntity(entity, _etags[GetId(entity)]);
+                var document = new TDocument().PopulateFromEntity(entity);
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -163,7 +159,6 @@ namespace CosmosDB.Infrastructure.Repositories
             var entity = document.ToEntity();
 
             _unitOfWork.Track(entity);
-            _etags[document.Id] = document.Etag;
 
             return entity;
         }

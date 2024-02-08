@@ -21,23 +21,21 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public InvoiceLogoDocument PopulateFromEntity(InvoiceLogo entity, string? etag = null)
+        public InvoiceLogoDocument PopulateFromEntity(InvoiceLogo entity)
         {
             Url = entity.Url;
-
-            this.etag = etag;
 
             return this;
         }
 
-        public static InvoiceLogoDocument? FromEntity(InvoiceLogo? entity, string? etag = null)
+        public static InvoiceLogoDocument? FromEntity(InvoiceLogo? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new InvoiceLogoDocument().PopulateFromEntity(entity, etag);
+            return new InvoiceLogoDocument().PopulateFromEntity(entity);
         }
     }
 }

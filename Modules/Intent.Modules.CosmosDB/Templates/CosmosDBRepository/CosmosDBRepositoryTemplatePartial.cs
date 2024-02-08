@@ -81,7 +81,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                             .WithExpressionBody($"await base.FindByIdAsync({GetPKUsage(pkAttribute)}, cancellationToken: cancellationToken)");
                     });
 
-                    var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
+                    var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
                     if (useOptimisticConcurrency)
                     {
                         @class.AddMethod("string", "GetId", method =>

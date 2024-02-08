@@ -39,6 +39,6 @@ namespace Intent.Modules.CosmosDB.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
-        public bool UseOptimisticConcurrencyDefault() => bool.TryParse(_groupSettings.GetSetting("fcb114f7-77b4-4c6a-96c0-41bb146f4166")?.Value.ToPascalCase(), out var result) && result;
+        public bool UseOptimisticConcurrency() => bool.TryParse(_groupSettings.GetSetting("fcb114f7-77b4-4c6a-96c0-41bb146f4166")?.Value.ToPascalCase(), out var result) && result;
     }
 }

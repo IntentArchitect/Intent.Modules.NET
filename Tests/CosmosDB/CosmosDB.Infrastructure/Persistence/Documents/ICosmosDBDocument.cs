@@ -11,11 +11,11 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
-        TDocument PopulateFromEntity(TDomain entity, string? etag = null);
+        TDocument PopulateFromEntity(TDomain entity);
         TDomain ToEntity(TDomain? entity = null);
     }
 
-    internal interface ICosmosDBDocument : IItemWithEtag
+    internal interface ICosmosDBDocument : IItem
     {
         string IItem.PartitionKey => PartitionKey!;
         new string? PartitionKey

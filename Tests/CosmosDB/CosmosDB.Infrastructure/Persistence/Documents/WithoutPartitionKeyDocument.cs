@@ -15,8 +15,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class WithoutPartitionKeyDocument : IWithoutPartitionKeyDocument, ICosmosDBDocument<WithoutPartitionKey, WithoutPartitionKeyDocument>
     {
         private string? _type;
-        [JsonProperty("_etag")]
-        private string? etag;
         public string Id { get; set; } = default!;
 
         public WithoutPartitionKey ToEntity(WithoutPartitionKey? entity = default)
@@ -33,25 +31,22 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string? IItemWithEtag.Etag => etag;
 
-        public WithoutPartitionKeyDocument PopulateFromEntity(WithoutPartitionKey entity, string? etag = null)
+        public WithoutPartitionKeyDocument PopulateFromEntity(WithoutPartitionKey entity)
         {
             Id = entity.Id;
-
-            this.etag = etag;
 
             return this;
         }
 
-        public static WithoutPartitionKeyDocument? FromEntity(WithoutPartitionKey? entity, string? etag = null)
+        public static WithoutPartitionKeyDocument? FromEntity(WithoutPartitionKey? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new WithoutPartitionKeyDocument().PopulateFromEntity(entity, etag);
+            return new WithoutPartitionKeyDocument().PopulateFromEntity(entity);
         }
     }
 }

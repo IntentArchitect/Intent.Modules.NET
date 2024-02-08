@@ -118,7 +118,7 @@ namespace Intent.Modules.CosmosDB.Templates
             bool isAggregate,
             bool hasBaseType)
         {
-            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
+            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
             var genericTypeArguments = @class.GenericParameters.Any()
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
                 : string.Empty;
@@ -290,7 +290,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency)
                 {
-                    method.AddStatement("this.etag = etag;", s => s.SeparatedFromPrevious());
+                    method.AddStatement("_etag = etag;", s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)

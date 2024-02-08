@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="fcb114f7-77b4-4c6a-96c0-41bb146f4166" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Use Optimistic Concurrency Default</name>
-      <display>Use Optimistic Concurrency Default</display>
+      <name>Use Optimistic Concurrency</name>
+      <display>Use Optimistic Concurrency</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

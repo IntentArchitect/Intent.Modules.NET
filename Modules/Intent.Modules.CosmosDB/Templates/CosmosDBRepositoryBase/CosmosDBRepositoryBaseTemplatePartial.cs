@@ -31,7 +31,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrencyDefault();
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
             AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
             AddNugetDependency(NugetDependencies.NewtonsoftJson);
 
@@ -247,7 +247,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                                 "var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);",
                                 c => c.AddMetadata(MetadataNames.PagedDocumentsDeclarationStatement, true))
                             .AddStatement("var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();")
-                            .AddStatement("var totalCount = pagedDocuments.Total ?? 0;")
+                            .AddStatement("var totalCount = pagedDocuments.Total ?? 0;", s => s.SeparatedFromPrevious())
                             .AddStatement("var pageCount = pagedDocuments.TotalPages ?? 0;")
                             .AddStatement($"return new {this.GetCosmosPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(entities, totalCount, pageCount, pageNo, pageSize);", s => s.SeparatedFromPrevious());
                     });
@@ -308,6 +308,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddParameter($"IEnumerable<{tDocument}>", "documents");
 
                         method.AddForEachStatement("document", "documents", stmt => stmt.AddStatement("yield return LoadAndTrackDocument(document);"));
+                    });
+
+                    @class.AddMethod($"string?", "GetEtag", method =>
+                    {
+                        method.AddParameter(tDocument, "entity");
+
+                        method.AddIfStatement("_etags.TryGetValue(GetId(entity), out var etag)", @if => { 
+                            method.AddStatement("return etag;");
+                        });
+
+                        method.AddStatement("return default;", s => { s.SeparatedFromPrevious(); });
                     });
 
 

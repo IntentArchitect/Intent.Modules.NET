@@ -16,8 +16,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class ClientDocument : IClientDocument, ICosmosDBDocument<Client, ClientDocument>
     {
         private string? _type;
-        [JsonProperty("_etag")]
-        private string? etag;
         [JsonProperty("id")]
         string IItem.Id
         {
@@ -30,7 +28,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
-        string? IItemWithEtag.Etag => etag;
         public string Identifier { get; set; } = default!;
         [JsonProperty("@type")]
         public ClientType Type { get; set; }
@@ -47,25 +44,23 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public ClientDocument PopulateFromEntity(Client entity, string? etag = null)
+        public ClientDocument PopulateFromEntity(Client entity)
         {
             Identifier = entity.Identifier;
             Type = entity.Type;
             Name = entity.Name;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static ClientDocument? FromEntity(Client? entity, string? etag = null)
+        public static ClientDocument? FromEntity(Client? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ClientDocument().PopulateFromEntity(entity, etag);
+            return new ClientDocument().PopulateFromEntity(entity);
         }
     }
 }

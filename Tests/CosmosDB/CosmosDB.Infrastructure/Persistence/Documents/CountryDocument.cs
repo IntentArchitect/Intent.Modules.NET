@@ -23,24 +23,22 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public CountryDocument PopulateFromEntity(Country entity, string? etag = null)
+        public CountryDocument PopulateFromEntity(Country entity)
         {
             Id = entity.Id;
             Name = entity.Name;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static CountryDocument? FromEntity(Country? entity, string? etag = null)
+        public static CountryDocument? FromEntity(Country? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new CountryDocument().PopulateFromEntity(entity, etag);
+            return new CountryDocument().PopulateFromEntity(entity);
         }
     }
 }

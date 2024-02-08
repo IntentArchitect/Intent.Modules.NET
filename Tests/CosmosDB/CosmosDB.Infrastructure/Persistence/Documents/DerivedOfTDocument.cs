@@ -12,9 +12,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 {
     internal class DerivedOfTDocument : BaseOfTDocument<int>, IDerivedOfTDocument, ICosmosDBDocument<DerivedOfT, DerivedOfTDocument>
     {
-        [JsonProperty("_etag")]
-        private string? etag;
-        string? IItemWithEtag.Etag => etag;
         public string DerivedAttribute { get; set; } = default!;
 
         public DerivedOfT ToEntity(DerivedOfT? entity = default)
@@ -27,24 +24,22 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public DerivedOfTDocument PopulateFromEntity(DerivedOfT entity, string? etag = null)
+        public DerivedOfTDocument PopulateFromEntity(DerivedOfT entity)
         {
             DerivedAttribute = entity.DerivedAttribute;
-
-            this.etag = etag;
             base.PopulateFromEntity(entity);
 
             return this;
         }
 
-        public static DerivedOfTDocument? FromEntity(DerivedOfT? entity, string? etag = null)
+        public static DerivedOfTDocument? FromEntity(DerivedOfT? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new DerivedOfTDocument().PopulateFromEntity(entity, etag);
+            return new DerivedOfTDocument().PopulateFromEntity(entity);
         }
     }
 }

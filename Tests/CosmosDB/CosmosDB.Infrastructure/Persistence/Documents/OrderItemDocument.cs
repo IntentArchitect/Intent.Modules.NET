@@ -27,26 +27,24 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public OrderItemDocument PopulateFromEntity(OrderItem entity, string? etag = null)
+        public OrderItemDocument PopulateFromEntity(OrderItem entity)
         {
             Id = entity.Id;
             Quantity = entity.Quantity;
             Description = entity.Description;
             Amount = entity.Amount;
 
-            this.etag = etag;
-
             return this;
         }
 
-        public static OrderItemDocument? FromEntity(OrderItem? entity, string? etag = null)
+        public static OrderItemDocument? FromEntity(OrderItem? entity)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new OrderItemDocument().PopulateFromEntity(entity, etag);
+            return new OrderItemDocument().PopulateFromEntity(entity);
         }
     }
 }
