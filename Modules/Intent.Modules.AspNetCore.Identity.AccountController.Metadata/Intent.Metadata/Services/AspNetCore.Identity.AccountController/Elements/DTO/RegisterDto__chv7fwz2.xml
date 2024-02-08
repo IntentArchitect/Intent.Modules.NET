@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="678f8ea6-eecd-44df-9b35-ca0216311251" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>RegisterDto</name>
+  <display>RegisterDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>83443f65-0d69-4908-a7da-c786f8b51b74</parentFolderId>
+  <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+  <packageName>AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="83c16177-ee38-4294-9ab0-a449dbc16c1c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Email</name>
+      <display>Email: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="958b1f86-7c0e-4886-82c5-9fa53c3e3bd7">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>678f8ea6-eecd-44df-9b35-ca0216311251</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2f883e06-560b-44b3-960d-3e6c551df332" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>password</name>
+      <display>password: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="724fa858-bc5f-4089-a9fb-014b4953f16d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>678f8ea6-eecd-44df-9b35-ca0216311251</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

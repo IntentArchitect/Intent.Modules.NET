@@ -1,6 +1,6 @@
 ﻿# Intent.Dapr.AspNetCore.Secrets
 
-This modules implements patterns for working with Dapr (Distributed Application Runtime) Secrets component.
+This module implements patterns for working with Dapr (Distributed Application Runtime) Secrets component.
 
 ## What's is Dapr Secrets component?
 
@@ -16,7 +16,7 @@ Out the box this module will generate an Environment Variable secret store for e
 
 ## Module Limitations
 
-Because this modules is designed to work with `Man.Dapr.Sidekick.AspNetCore`, there are a few limitations
+Because this module is designed to work with `Man.Dapr.Sidekick.AspNetCore`, there are a few limitations
 
 - The fully configured `IConfiguration` is only available after `ConfigureServices` (Startup.cs), as this is when SideKick starts up the Sidecar, which is needed to fetch the secrets.
 - The local file secret store needs to be configured with an absolute path.

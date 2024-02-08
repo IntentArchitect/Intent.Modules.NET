@@ -42,6 +42,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _appService.Create(dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }

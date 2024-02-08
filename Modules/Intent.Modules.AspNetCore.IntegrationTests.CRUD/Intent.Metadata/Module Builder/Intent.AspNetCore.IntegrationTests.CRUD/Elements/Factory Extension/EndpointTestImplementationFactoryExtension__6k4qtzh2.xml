@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2725d25e-c4ab-4e42-8b63-83358d53d7ad" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EndpointTestImplementationFactoryExtension</name>
+  <display>EndpointTestImplementationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b3d7e817-5c2e-4175-a35e-ced8b5288fbb</parentFolderId>
+  <packageId>b3d7e817-5c2e-4175-a35e-ced8b5288fbb</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTests.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

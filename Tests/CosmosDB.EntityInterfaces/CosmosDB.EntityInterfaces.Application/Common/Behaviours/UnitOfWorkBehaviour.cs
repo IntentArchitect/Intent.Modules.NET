@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CosmosDB.EntityInterfaces.Application.Common.Interfaces;
@@ -23,7 +24,7 @@ namespace CosmosDB.EntityInterfaces.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(ICosmosDBUnitOfWork cosmosDBDataSource)
         {
-            _cosmosDBDataSource = cosmosDBDataSource;
+            _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
         }
 
         public async Task<TResponse> Handle(

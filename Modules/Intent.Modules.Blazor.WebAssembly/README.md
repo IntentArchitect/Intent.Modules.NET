@@ -10,7 +10,7 @@ For more information on Blazor WebAssembly read the official [documentation](htt
 
 ## What does this module do?
 
-This modules does the following:
+This module does the following:
 
 * Configures Visual Studio Designer for a Blazor WebAssembly project.
 * Adds Blazor WebAssembly sample HTML / razor content.

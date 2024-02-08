@@ -1,6 +1,6 @@
 ﻿# Intent.Modules.AspNetCore.MultiTenancy
 
-This modules brings in support for Multi Tenancy through the use of FinBuckle.
+This module brings in support for Multi Tenancy through the use of FinBuckle.
 
 ## What is Finbuckle?
 

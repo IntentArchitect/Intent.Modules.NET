@@ -49,6 +49,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             result = await _appService.CreateIdTypeGuid(dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(FindIdTypeGuidById), new { id = result }, result);
         }
@@ -102,6 +103,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             await _appService.UpdateIdTypeGuid(id, dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
@@ -121,6 +123,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _appService.DeleteIdTypeGuid(id, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
         }

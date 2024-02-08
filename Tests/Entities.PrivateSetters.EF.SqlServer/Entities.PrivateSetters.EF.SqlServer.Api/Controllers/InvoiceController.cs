@@ -43,7 +43,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Create(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);

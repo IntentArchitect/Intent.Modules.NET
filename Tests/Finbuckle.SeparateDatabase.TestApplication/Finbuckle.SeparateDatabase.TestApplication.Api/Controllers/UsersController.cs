@@ -51,7 +51,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.Create(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -109,7 +109,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Put(id, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -132,7 +132,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         {
             var result = default(UserDto);
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.Delete(id, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);

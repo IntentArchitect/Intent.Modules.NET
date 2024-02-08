@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0c678a64-8e31-4515-9140-16774d059516">
+  <sourceEnd id="c126cd13-fb18-43e4-9039-fa00ddd922ad" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : PartialCruds.UpdatePartialCrudCommand</display>
+    <order>0</order>
+    <typeReference id="c53a001b-1283-4d60-82ec-858f23462771">
+      <typeId>16f1e58c-50a2-4652-865b-b0aa32f032e7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0c678a64-8e31-4515-9140-16774d059516" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>partialCrud</name>
+    <display>[update] partialCrud: PartialCrud</display>
+    <order>2</order>
+    <typeReference id="d1889b00-aee6-4f22-8673-5105bf9afee8">
+      <typeId>64211065-b964-4f8d-aaca-f9ca95668b38</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="16f1e58c-50a2-4652-865b-b0aa32f032e7" location="[IntegrationTesting.Tests].[Services].[UpdatePartialCrudCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64211065-b964-4f8d-aaca-f9ca95668b38" location="[IntegrationTesting.Tests].[Services].[PartialCrud]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="64211065-b964-4f8d-aaca-f9ca95668b38" name="PartialCrud" type="element" specialization="Class" />
+              <target id="653f1c8e-d0f0-4f73-a4e7-350dce8c959f" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="16f1e58c-50a2-4652-865b-b0aa32f032e7" name="UpdatePartialCrudCommand" type="element" specialization="Command" />
+                  <target id="84a50729-4ab4-4203-9711-cedce7591455" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="16f1e58c-50a2-4652-865b-b0aa32f032e7" location="[IntegrationTesting.Tests].[Services].[UpdatePartialCrudCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64211065-b964-4f8d-aaca-f9ca95668b38" location="[IntegrationTesting.Tests].[Services].[PartialCrud]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="64211065-b964-4f8d-aaca-f9ca95668b38" name="PartialCrud" type="element" specialization="Class" />
+              <target id="43296710-2f11-4258-b895-ce21dfeb659e" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="16f1e58c-50a2-4652-865b-b0aa32f032e7" name="UpdatePartialCrudCommand" type="element" specialization="Command" />
+                  <target id="b9eec484-d7ac-41c9-900b-71d54d610348" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

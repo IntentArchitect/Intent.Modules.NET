@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e52a995f-2a26-431a-902a-de6d29e8c071" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
+  <name>StaticFiles</name>
+  <display>StaticFiles</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ece5953-d069-4257-9f0e-6c14afb2bb67</parentFolderId>
+  <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="1fd8fd68-ff20-437c-8c00-ac77920d7ff0" name="Template Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="static-content" isActive="true" />
+        <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
+        <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="IntegrationTests" isActive="true" />
+        <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

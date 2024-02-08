@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -25,8 +26,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(IDaprStateStoreUnitOfWork daprStateStoreDataSource, IUnitOfWork dataSource)
         {
-            _daprStateStoreDataSource = daprStateStoreDataSource;
-            _dataSource = dataSource;
+            _daprStateStoreDataSource = daprStateStoreDataSource ?? throw new ArgumentNullException(nameof(daprStateStoreDataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(

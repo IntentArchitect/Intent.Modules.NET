@@ -1,6 +1,6 @@
 ﻿# Intent.Dapr.AspNetCore.Configuration
 
-This modules implements patterns for working with Dapr (Distributed Application Runtime) Configuration component.
+This module implements patterns for working with Dapr (Distributed Application Runtime) Configuration component.
 
 ## What's is Dapr Configuration component?
 
@@ -15,7 +15,7 @@ Out the box this module will generate a local Configuration store for ease of us
 
 ## Module Limitations
 
-Because this modules is designed to work with `Man.Dapr.Sidekick.AspNetCore`, there are a few limitations
+Because this module is designed to work with `Man.Dapr.Sidekick.AspNetCore`, there are a few limitations
 
 - The fully configured `IConfiguration` is only available after `ConfigureServices` (Startup.cs), as this is when SideKick starts up the Sidecar, which is needed to fetch the secrets.
 

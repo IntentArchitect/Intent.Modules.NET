@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="577527ef-bad0-4cd6-9acc-723f753a1da9">
+  <sourceEnd id="6cf55a68-0a67-4431-b779-c1cdfe592fde" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductByIdQuery</display>
+    <order>0</order>
+    <typeReference id="b32ac1f9-43bc-44a4-a7be-960bafd73d09">
+      <typeId>7f6eb8c7-2479-4e67-b804-30fa3cdb6d96</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="577527ef-bad0-4cd6-9acc-723f753a1da9" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <typeReference id="39f6275b-3a75-4d56-b549-9f6c1d951e46">
+      <typeId>af9b5e7b-6122-4dc7-b0e9-412260df74b5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7f6eb8c7-2479-4e67-b804-30fa3cdb6d96" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[GetProductByIdQuery]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="af9b5e7b-6122-4dc7-b0e9-412260df74b5" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="af9b5e7b-6122-4dc7-b0e9-412260df74b5" name="Product" type="element" specialization="Class" />
+              <target id="552a9724-f490-4754-9379-6189dd26dc0b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7f6eb8c7-2479-4e67-b804-30fa3cdb6d96" name="GetProductByIdQuery" type="element" specialization="Query" />
+                  <target id="cd9296a5-94ea-450a-ab26-ededca19f7c5" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

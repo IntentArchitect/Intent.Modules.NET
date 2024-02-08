@@ -1,6 +1,7 @@
 ### Version 6.0.2
 
 - Feature: Support for Sending Commands.
+- Improvement: Added `ArgumentNullException` check on `IUnitOfWork` dependency injection.
 
 ### Version 6.0.0
 

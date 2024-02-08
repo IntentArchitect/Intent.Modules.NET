@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b8b0678d-f281-4d02-b099-771ab1010869">
+  <sourceEnd id="07d895de-8eca-4cba-b83c-5590fc4ed857" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBadSignaturesQuery</display>
+    <order>0</order>
+    <typeReference id="613e4a0a-ab30-40f6-af0e-7f04ca81ef31">
+      <typeId>f0e532e7-c3ab-4f7c-99ad-c9b864625a93</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b8b0678d-f281-4d02-b099-771ab1010869" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>badSignatures</name>
+    <display>[query] badSignatures: BadSignatures[*]</display>
+    <order>1</order>
+    <typeReference id="dddd31fb-ce33-44c5-bc09-610d01f4717d">
+      <typeId>53cb7742-0fd9-472e-885a-4ece3ffd230c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f0e532e7-c3ab-4f7c-99ad-c9b864625a93" location="[IntegrationTesting.Tests].[Services].[GetBadSignaturesQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="53cb7742-0fd9-472e-885a-4ece3ffd230c" location="[IntegrationTesting.Tests].[Services].[BadSignatures]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

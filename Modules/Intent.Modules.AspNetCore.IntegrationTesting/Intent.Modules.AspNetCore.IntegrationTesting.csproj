@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="resources\static-content\GlobalUsings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="resources\static-content\GlobalUsings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.1" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.5.9" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.3.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.0.1" />
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0-pre.6" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Templates\BaseIntegrationTest\" />
+    <Folder Include="Templates\CosmosContainerFixture\" />
+    <Folder Include="Templates\DtoContract\" />
+    <Folder Include="Templates\EnumContract\" />
+    <Folder Include="Templates\HttpClientRequestException\" />
+    <Folder Include="Templates\HttpClient\" />
+    <Folder Include="Templates\JsonResponse\" />
+    <Folder Include="Templates\PagedResult\" />
+    <Folder Include="Templates\ProxyServiceContract\" />
+    <Folder Include="Templates\SharedContainerFixture\" />
+    <Folder Include="Templates\StaticContentTemplateRegistrations\" />
+  </ItemGroup>
+    
+  <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
+
+</Project>

@@ -1,6 +1,6 @@
 ﻿# Intent.AspNetCore.ODataQuery
 
-This modules adds OData Query support to your CQRS paradigm service end points, specifically `Query`s.
+This module adds OData Query support to your CQRS paradigm service end points, specifically `Query`s.
 
 ## What is OData Query?
 
@@ -14,7 +14,7 @@ This module works in conjunction with `Intent.EntityFrameworkCore`
 
 ## Module Settings
 
-This modules has the following settings.
+This module has the following settings.
 
 ![OData Query Settings](./docs/images/odata-settings.png)
 

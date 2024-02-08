@@ -49,6 +49,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(string);
             result = await _appService.CreateDerived(dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(FindDerivedById), new { id = result }, result);
         }
@@ -102,6 +103,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             await _appService.UpdateDerived(id, dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
@@ -119,6 +121,7 @@ namespace MongoDb.TestApplication.Api.Controllers
         public async Task<ActionResult> DeleteDerived([FromRoute] string id, CancellationToken cancellationToken = default)
         {
             await _appService.DeleteDerived(id, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
         }

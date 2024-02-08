@@ -29,7 +29,7 @@ When designing domain models for MongoDB your domain package must be annotated w
 
 ### Intent.Metadata.DocumentDB
 
-This modules provides Document DB related stereotypes for extending the Domain Designer with Document DB technology specific data.
+This module provides Document DB related stereotypes for extending the Domain Designer with Document DB technology specific data.
 
 ### Intent.Entities
 

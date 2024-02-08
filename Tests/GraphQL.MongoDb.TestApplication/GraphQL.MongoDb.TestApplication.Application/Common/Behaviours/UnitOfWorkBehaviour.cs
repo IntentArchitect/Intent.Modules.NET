@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.MongoDb.TestApplication.Application.Common.Interfaces;
@@ -23,7 +24,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(IMongoDbUnitOfWork mongoDbDataSource)
         {
-            _mongoDbDataSource = mongoDbDataSource;
+            _mongoDbDataSource = mongoDbDataSource ?? throw new ArgumentNullException(nameof(mongoDbDataSource));
         }
 
         public async Task<TResponse> Handle(

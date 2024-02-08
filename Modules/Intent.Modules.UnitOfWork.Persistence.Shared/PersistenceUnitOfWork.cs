@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -30,7 +31,8 @@ internal static class PersistenceUnitOfWork
         string resultVariableName = "result",
         string cancellationTokenExpression = "cancellationToken",
         string fieldSuffix = "unitOfWork",
-        bool allowTransactionScope = true)
+        bool allowTransactionScope = true,
+        bool includeComments = true)
     {
         var cosmosDbParameterName = $"cosmosDB{fieldSuffix.ToPascalCase()}";
         var daprParameterName = $"daprStateStore{fieldSuffix.ToPascalCase()}";
@@ -41,13 +43,21 @@ internal static class PersistenceUnitOfWork
         var useTransactionScope = false;
         var useOutsideTransactionScope = false;
 
+        //This is for the ArgumentNullException
+        template.AddUsing("System");
         var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
                 cosmosDbParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+            }
 
             useOutsideTransactionScope = true;
         }
@@ -55,10 +65,16 @@ internal static class PersistenceUnitOfWork
         var requiresDapr = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _);
         if (requiresDapr)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
                 daprParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+            }
 
             useOutsideTransactionScope = true;
         }
@@ -66,13 +82,21 @@ internal static class PersistenceUnitOfWork
         var requiresEf = template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null;
         if (requiresEf)
         {
-            constructor.AddParameter(
-                template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
-                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out  unitOfWork) ? unitOfWork
+            string typeName = template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
+                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ? unitOfWork
                     : template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork) ? unitOfWork
-                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support."),
+                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support.");
+
+            if (!constructor.Parameters.Any(p => p.Type == typeName))
+            {
+                constructor.AddParameter(typeName,
                 efParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+
+            }
 
             useTransactionScope = allowTransactionScope;
         }
@@ -80,21 +104,32 @@ internal static class PersistenceUnitOfWork
         var requiresMongoDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _);
         if (requiresMongoDb)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
                 mongoDbParameterName,
-                c => c.IntroduceReadonlyField());
-
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+            }
             useOutsideTransactionScope = true;
         }
 
         var requiresTableStorage = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
         if (requiresTableStorage)
         {
-            constructor.AddParameter(
+            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
+            {
+                constructor.AddParameter(
                 template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
                 tableStorageParameterName,
-                c => c.IntroduceReadonlyField());
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+            }
 
             useOutsideTransactionScope = true;
         }
@@ -116,15 +151,18 @@ internal static class PersistenceUnitOfWork
             var transactionScopeAsyncFlowOption =
                 template.UseType("System.Transactions.TransactionScopeAsyncFlowOption");
 
-            method.AddStatements(new[]
-            {
-                new CSharpStatement("// The execution is wrapped in a transaction scope to ensure that if any other").SeparatedFromPrevious(),
-                "// SaveChanges calls to the data source (e.g. EF Core) are called, that they are",
-                "// transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-",
-                "// locks are released, while write-locks are maintained for the duration of the",
-                "// transaction). Learn more on this approach for EF Core:",
-                "// https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions"
-            });
+            if (includeComments)
+            { 
+                method.AddStatements(new[]
+                {
+                    new CSharpStatement("// The execution is wrapped in a transaction scope to ensure that if any other").SeparatedFromPrevious(),
+                    "// SaveChanges calls to the data source (e.g. EF Core) are called, that they are",
+                    "// transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-",
+                    "// locks are released, while write-locks are maintained for the duration of the",
+                    "// transaction). Learn more on this approach for EF Core:",
+                    "// https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions"
+                });
+            }
 
             method.AddUsingBlock(@$"var transaction = new {transactionScope}({transactionScopeOption}.Required,
                 new {transactionOptions} {{ IsolationLevel = {isolationLevel}.ReadCommitted }}, {transactionScopeAsyncFlowOption}.Enabled)",
@@ -147,7 +185,7 @@ internal static class PersistenceUnitOfWork
 
         hasCSharpStatements.AddStatement(invocationStatement);
 
-        if (useTransactionScope)
+        if (useTransactionScope && includeComments)
         {
             hasCSharpStatements.AddStatements(new[]
             {
@@ -166,11 +204,14 @@ internal static class PersistenceUnitOfWork
 
         if (useTransactionScope)
         {
-            hasCSharpStatements.AddStatements(new[]
+            if (includeComments)
             {
-                new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
-                "// disposed if anything failed."
-            });
+                hasCSharpStatements.AddStatements(new[]
+                {
+                    new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
+                    "// disposed if anything failed."
+                });
+            }
             hasCSharpStatements.AddStatement(
                 "transaction.Complete();",
                 s => s.AddMetadata("transaction", "complete"));

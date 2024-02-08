@@ -1,4 +1,3 @@
-using CleanArchitecture.TestApplication.BlazorClient.HttpClients.AccountService;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -13,6 +12,19 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
+
+            services
+                .AddHttpClient<IAccountService, AccountServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "AspNetCoreIdentityAccountController");
+                })
+                .AddHttpMessageHandler(sp =>
+                {
+                    return sp.GetRequiredService<AuthorizationMessageHandler>()
+                        .ConfigureHandler(
+                            authorizedUrls: new[] { GetUrl(configuration, "AspNetCoreIdentityAccountController").AbsoluteUri });
+                });
+
             services
                 .AddHttpClient<IAggregateRootsService, AggregateRootsServiceHttpClient>(http =>
                 {
@@ -47,18 +59,6 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
                 .AddHttpClient<IValidationService, ValidationServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "CleanArchitectureTestApplication");
-                });
-
-            services
-                .AddHttpClient<IAccountService, AccountServiceHttpClient>(http =>
-                {
-                    http.BaseAddress = GetUrl(configuration, "STSApplication");
-                })
-                .AddHttpMessageHandler(sp =>
-                {
-                    return sp.GetRequiredService<AuthorizationMessageHandler>()
-                    .ConfigureHandler(
-                        authorizedUrls: new[] { GetUrl(configuration, "STSApplication").AbsoluteUri });
                 });
         }
 
