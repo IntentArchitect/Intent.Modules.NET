@@ -15,9 +15,9 @@ namespace Intent.Modules.DocumentDB.Shared
 {
     internal interface IPrimaryKeyInitStrategy
     {
-        bool CanExecute(ClassModel model);
+        bool ShouldInsertPkInitializationCode(ClassModel targetClass);
 
-        string GetGetterInitExpression(ICSharpTemplate template, string fieldName, string fieldTypeName);
+        string GetGetterInitExpression(ICSharpTemplate template, ClassModel targetClass, string fieldName, string fieldTypeName);
     }
 
     internal static class EntityFactoryExtensionHelper
@@ -84,9 +84,9 @@ namespace Intent.Modules.DocumentDB.Shared
                                 .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
                             var fieldName = $"_{attribute.Name.ToCamelCase()}";
 
-                            if (primaryKeyInitStrategy.CanExecute(model))
+                            if (primaryKeyInitStrategy.ShouldInsertPkInitializationCode(model))
                             {
-                                InitializePrimaryKey(primaryKeyInitStrategy, template, @class, attribute, existingPk, fieldName);
+                                InitializePrimaryKey(primaryKeyInitStrategy, template, @class, model, attribute, existingPk, fieldName);
                             }
 
                             primaryKeyProperties.Add(existingPk);
@@ -180,6 +180,7 @@ namespace Intent.Modules.DocumentDB.Shared
             IPrimaryKeyInitStrategy initStrategy,
             ICSharpTemplate template,
             CSharpClass @class,
+            ClassModel targetClass,
             AttributeModel attributePk,
             CSharpProperty existingPk,
             string fieldName)
@@ -187,14 +188,7 @@ namespace Intent.Modules.DocumentDB.Shared
             var templateBase = (IntentTemplateBase)template;
             @class.AddField(templateBase.UseType(templateBase.GetTypeInfo(attributePk.TypeReference).WithIsNullable(true)), fieldName);
 
-            var getExpressionSuffix = initStrategy.GetGetterInitExpression(template, fieldName, attributePk.TypeReference.Element.Name);
-            // var getExpressionSuffix = attributePk.TypeReference.Element.Name switch
-            // {
-            //     "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
-            //     "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
-            //     "int" or "long" => $" ?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
-            //     _ => string.Empty
-            // };
+            var getExpressionSuffix = initStrategy.GetGetterInitExpression(template, targetClass, fieldName, attributePk.TypeReference.Element.Name);
 
             existingPk.Getter.WithExpressionImplementation(getExpressionSuffix);
             existingPk.Setter.WithExpressionImplementation($"{fieldName} = value");

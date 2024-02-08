@@ -12,7 +12,7 @@ namespace Redis.Om.Repositories.Domain.Entities
 
         public string Id
         {
-            get => _id;
+            get => _id ??= Guid.NewGuid().ToString();
             set => _id = value;
         }
 

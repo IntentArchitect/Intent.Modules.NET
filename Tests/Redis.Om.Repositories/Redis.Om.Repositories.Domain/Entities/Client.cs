@@ -9,6 +9,7 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class Client : IHasDomainEvent
     {
+        private string? _id;
         public Client()
         {
         }
@@ -19,7 +20,11 @@ namespace Redis.Om.Repositories.Domain.Entities
             Name = name;
         }
 
-        public string Id { get; set; }
+        public string Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         public ClientType Type { get; set; }
 

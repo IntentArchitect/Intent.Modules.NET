@@ -9,7 +9,12 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public abstract class BaseOfT<T> : IHasDomainEvent
     {
-        public string Id { get; set; }
+        private string? _id;
+        public string Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         public T GenericAttribute { get; set; }
 

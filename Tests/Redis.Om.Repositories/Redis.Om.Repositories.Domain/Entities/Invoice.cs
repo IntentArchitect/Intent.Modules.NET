@@ -9,6 +9,7 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
     {
+        private string? _id;
         public Invoice(string clientIdentifier, DateTime date, string number)
         {
             ClientIdentifier = clientIdentifier;
@@ -27,7 +28,11 @@ namespace Redis.Om.Repositories.Domain.Entities
             ClientIdentifier = null!;
         }
 
-        public string Id { get; set; }
+        public string Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         public DateTime Date { get; set; }
 

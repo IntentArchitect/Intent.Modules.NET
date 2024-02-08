@@ -1,5 +1,6 @@
 ﻿using System;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.DocumentDB.Shared;
 
@@ -7,12 +8,12 @@ namespace Intent.Modules.MongoDb.FactoryExtensions;
 
 public class MongoDbPrimaryKeyInitStrategy : IPrimaryKeyInitStrategy
 {
-    public bool CanExecute(ClassModel model)
+    public bool ShouldInsertPkInitializationCode(ClassModel targetClass)
     {
-        return !model.IsAggregateRoot();
+        return !targetClass.IsAggregateRoot();
     }
 
-    public string GetGetterInitExpression(ICSharpTemplate template, string fieldName, string fieldTypeName)
+    public string GetGetterInitExpression(ICSharpTemplate template, ClassModel targetClass, string fieldName, string fieldTypeName)
     {
         return fieldTypeName switch
         {

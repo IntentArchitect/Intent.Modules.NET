@@ -9,7 +9,12 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class IdTesting : IHasDomainEvent
     {
-        public string Identifier { get; set; }
+        private string? _identifier;
+        public string Identifier
+        {
+            get => _identifier;
+            set => _identifier = value;
+        }
 
         public string Id { get; set; }
 

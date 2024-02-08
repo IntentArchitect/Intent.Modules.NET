@@ -6,16 +6,16 @@ namespace Intent.Modules.Redis.Om.Repositories.FactoryExtensions;
 
 public class RedisOmPrimaryKeyInitStrategy : IPrimaryKeyInitStrategy
 {
-    public bool CanExecute(ClassModel model)
+    public bool ShouldInsertPkInitializationCode(ClassModel targetClass)
     {
-        return !model.IsAggregateRoot();
+        return true;
     }
 
-    public string GetGetterInitExpression(ICSharpTemplate template, string fieldName, string fieldTypeName)
+    public string GetGetterInitExpression(ICSharpTemplate template, ClassModel targetClass, string fieldName, string fieldTypeName)
     {
         return fieldTypeName switch
         {
-            "string" => fieldName,
+            "string" => targetClass.IsAggregateRoot() ? fieldName : $"{fieldName} ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
             "guid" => $"{fieldName} ??= {template.UseType("System.Guid")}.NewGuid()",
             "int" or "long" => $"{fieldName} ?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
             _ => fieldName

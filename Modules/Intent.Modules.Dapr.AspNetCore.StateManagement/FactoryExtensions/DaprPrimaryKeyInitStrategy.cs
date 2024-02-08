@@ -6,12 +6,12 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.FactoryExtensions;
 
 public class DaprPrimaryKeyInitStrategy : IPrimaryKeyInitStrategy
 {
-    public bool CanExecute(ClassModel model)
+    public bool ShouldInsertPkInitializationCode(ClassModel targetClass)
     {
         return true;
     }
 
-    public string GetGetterInitExpression(ICSharpTemplate template, string fieldName, string fieldTypeName)
+    public string GetGetterInitExpression(ICSharpTemplate template, ClassModel targetClass, string fieldName, string fieldTypeName)
     {
         return fieldTypeName switch
         {

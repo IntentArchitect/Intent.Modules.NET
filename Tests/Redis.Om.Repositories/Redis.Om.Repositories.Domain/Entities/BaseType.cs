@@ -9,7 +9,12 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class BaseType : IHasDomainEvent
     {
-        public string Id { get; set; }
+        private string? _id;
+        public string Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         public string BaseName { get; set; }
 
