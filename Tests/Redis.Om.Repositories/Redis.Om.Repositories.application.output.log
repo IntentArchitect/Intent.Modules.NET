@@ -67,6 +67,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cd28c053-dbc2-4064-9019-eb03b6742080</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#baf02a51-e693-418a-8666-36fb869461e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Api/Controllers/DerivedTypesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b0410484-c428-47bf-9f0b-1f869afdc88a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -500,10 +508,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>c98a8917-df5b-433f-992a-384a4b5d328c</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c98a8917-df5b-433f-992a-384a4b5d328c</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c98a8917-df5b-433f-992a-384a4b5d328c</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -520,6 +544,174 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#31e82c2a-a1f2-425b-980e-5a7ecea2b132</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/CreateDerivedType/CreateDerivedTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#31e82c2a-a1f2-425b-980e-5a7ecea2b132</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#31e82c2a-a1f2-425b-980e-5a7ecea2b132</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c7ffca99-f7ba-4664-a0d5-f6fbe59e4e8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c7ffca99-f7ba-4664-a0d5-f6fbe59e4e8e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c7b2317e-f4ab-41f3-9e07-cfc793cceb11</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/DerivedTypeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#c7b2317e-f4ab-41f3-9e07-cfc793cceb11</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/DerivedTypeDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#10b54646-30f9-4594-a5aa-eebe277c2c3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#10b54646-30f9-4594-a5aa-eebe277c2c3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#10b54646-30f9-4594-a5aa-eebe277c2c3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b14adf88-f990-407a-9b86-44d467f262b8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypes/GetDerivedTypesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b14adf88-f990-407a-9b86-44d467f262b8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b14adf88-f990-407a-9b86-44d467f262b8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#76c2ebb0-0e55-4277-8650-533dd8467303</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#76c2ebb0-0e55-4277-8650-533dd8467303</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#76c2ebb0-0e55-4277-8650-533dd8467303</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ef38492c-aff7-4a32-a3f6-a36708a38bb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>414e62df-f313-40c4-b6e2-1c8216c2628c</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ef38492c-aff7-4a32-a3f6-a36708a38bb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

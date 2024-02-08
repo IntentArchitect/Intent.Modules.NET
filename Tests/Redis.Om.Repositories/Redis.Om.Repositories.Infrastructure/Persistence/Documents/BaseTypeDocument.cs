@@ -15,12 +15,15 @@ namespace Redis.Om.Repositories.Infrastructure.Persistence.Documents
         [RedisIdField]
         [Indexed]
         public string Id { get; set; } = default!;
+        [Indexed]
+        public string BaseName { get; set; } = default!;
 
         public BaseType ToEntity(BaseType? entity = default)
         {
             entity ??= new BaseType();
 
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.BaseName = BaseName ?? throw new Exception($"{nameof(entity.BaseName)} is null");
 
             return entity;
         }
@@ -28,6 +31,7 @@ namespace Redis.Om.Repositories.Infrastructure.Persistence.Documents
         public BaseTypeDocument PopulateFromEntity(BaseType entity)
         {
             Id = entity.Id;
+            BaseName = entity.BaseName;
 
             return this;
         }

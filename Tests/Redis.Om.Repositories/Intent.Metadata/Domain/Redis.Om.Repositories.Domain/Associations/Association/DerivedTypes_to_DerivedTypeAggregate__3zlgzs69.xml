@@ -22,7 +22,7 @@
   <targetEnd id="3a29b039-9b46-4773-96ff-27959e274ffd" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedTypeAggregate</name>
     <display>DerivedTypeAggregate: DerivedTypeAggregate   [1 --&gt; 1]</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="1593bfb4-ce97-40ff-94ee-18e6c2c8ce09">
       <typeId>4bfd7203-1a56-40dd-9364-eb44108a18c8</typeId>
       <isNavigable>true</isNavigable>
@@ -34,11 +34,25 @@
       <stereotypes />
       <genericTypeParameters />
     </typeReference>
-    <stereotypes />
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="e1fc703d-389d-4241-aee1-ee6ce385bbc0" name="Indexed">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Redis.Om.Repositories</definitionPackageName>
+        <definitionPackageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</definitionPackageId>
+        <properties />
+      </stereotype>
+    </stereotypes>
     <metadata />
     <childElements />
   </targetEnd>
   <associationType>Association</associationType>
   <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="e1fc703d-389d-4241-aee1-ee6ce385bbc0" name="Indexed">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Redis.Om.Repositories</definitionPackageName>
+      <definitionPackageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
 </association>

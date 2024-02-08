@@ -19,6 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="243aac7a-111e-46ab-bd14-62228c1cda9c" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
     <display>extends BaseOfT&lt;int&gt;</display>
     <order>0</order>
     <typeReference id="31248e03-e4de-4121-b0f9-db2279d82f41">

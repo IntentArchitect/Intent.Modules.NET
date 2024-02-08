@@ -11,6 +11,8 @@ namespace Redis.Om.Repositories.Domain.Entities
     {
         public string Id { get; set; }
 
+        public string BaseName { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

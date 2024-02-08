@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e746a4c7-0aca-44cd-bdf8-f7fa2c6d5215">
+  <sourceEnd id="230e85a6-2350-4f89-848a-0f9e028c5ff7" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : DerivedTypes.DeleteDerivedTypeCommand</display>
+    <order>0</order>
+    <typeReference id="75be5051-54d4-4728-98da-210a96eaefa2">
+      <typeId>f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e746a4c7-0aca-44cd-bdf8-f7fa2c6d5215" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>derivedType</name>
+    <display>[delete] derivedType: DerivedType</display>
+    <order>1</order>
+    <typeReference id="fba54b3b-75c7-4f08-be8f-2d595ad439ed">
+      <typeId>2b440bac-9639-4ce2-966a-b7f810e9a2b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93" location="[Redis.Om.Repositories].[Services].[DeleteDerivedTypeCommand]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b440bac-9639-4ce2-966a-b7f810e9a2b1" location="[Redis.Om.Repositories].[Services].[DerivedType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="afe48fc0-de47-406f-84bf-5d6f31425f92" name="base" type="association" specialization="Generalization Target End" />
+              <target id="9dd907f5-768f-4646-9ae2-1c70e07f2967" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f0bf21bd-81e5-42e5-8dd4-ad08de6f0f93" name="DeleteDerivedTypeCommand" type="element" specialization="Command" />
+                  <target id="7a8f2a51-4530-4557-8bfc-0b00baef7ec6" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

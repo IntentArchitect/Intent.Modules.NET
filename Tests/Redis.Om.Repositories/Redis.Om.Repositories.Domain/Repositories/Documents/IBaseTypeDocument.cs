@@ -8,5 +8,6 @@ namespace Redis.Om.Repositories.Domain.Repositories.Documents
     public interface IBaseTypeDocument
     {
         string Id { get; }
+        string BaseName { get; }
     }
 }

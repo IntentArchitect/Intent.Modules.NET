@@ -7,6 +7,7 @@ namespace Redis.Om.Repositories.Domain.Repositories.Documents
 {
     public interface IDerivedTypeDocument : IBaseTypeDocument
     {
+        string DerivedName { get; }
         IDerivedTypeAggregateDocument DerivedTypeAggregate { get; }
     }
 }

@@ -12,12 +12,17 @@ namespace Redis.Om.Repositories.Infrastructure.Persistence.Documents
     [Document(StorageType = StorageType.Json, Prefixes = new[] { "DerivedType" })]
     internal class DerivedTypeDocument : BaseTypeDocument, IDerivedTypeDocument, IRedisOmDocument<DerivedType, DerivedTypeDocument>
     {
+        [Indexed]
+        public string DerivedName { get; set; } = default!;
+        [Indexed(CascadeDepth = 1)]
         public DerivedTypeAggregateDocument DerivedTypeAggregate { get; set; } = default!;
         IDerivedTypeAggregateDocument IDerivedTypeDocument.DerivedTypeAggregate => DerivedTypeAggregate;
 
         public DerivedType ToEntity(DerivedType? entity = default)
         {
             entity ??= new DerivedType();
+
+            entity.DerivedName = DerivedName ?? throw new Exception($"{nameof(entity.DerivedName)} is null");
             entity.DerivedTypeAggregate = DerivedTypeAggregate.ToEntity() ?? throw new Exception($"{nameof(entity.DerivedTypeAggregate)} is null");
             base.ToEntity(entity);
 
@@ -26,6 +31,7 @@ namespace Redis.Om.Repositories.Infrastructure.Persistence.Documents
 
         public DerivedTypeDocument PopulateFromEntity(DerivedType entity)
         {
+            DerivedName = entity.DerivedName;
             DerivedTypeAggregate = DerivedTypeAggregateDocument.FromEntity(entity.DerivedTypeAggregate)!;
             base.PopulateFromEntity(entity);
 

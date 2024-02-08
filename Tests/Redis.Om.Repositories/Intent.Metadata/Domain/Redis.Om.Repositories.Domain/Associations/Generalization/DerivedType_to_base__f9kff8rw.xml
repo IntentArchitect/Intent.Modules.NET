@@ -19,6 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="afe48fc0-de47-406f-84bf-5d6f31425f92" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
     <display>extends BaseType</display>
     <order>0</order>
     <typeReference id="50055d91-aa1e-4d8f-9685-d2f6b21bb156">
