@@ -147,7 +147,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
 
                 parentProject = relativeSolutionFolderPath
                     .Split(Path.DirectorySeparatorChar)
-                    .Where(x => x != ".")
+                    .Where(x => x is not "." and not "..")
                     .Aggregate(
                         seed: parentProject,
                         func: (current, path) => current?.GetOrCreateFolder(idProvider(), path) ??
