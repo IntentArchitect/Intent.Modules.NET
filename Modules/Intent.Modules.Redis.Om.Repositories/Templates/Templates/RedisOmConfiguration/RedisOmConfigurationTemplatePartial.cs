@@ -43,7 +43,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmConfig
 
         public override void BeforeTemplateExecution()
         {
-            
+
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureRedisOm", ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
