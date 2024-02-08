@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="749b6572-9d8b-4350-9034-19ff12cab84e">
+  <sourceEnd id="9629cf68-5ae0-42af-bb15-ba7bf4b6db32" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Region</name>
+    <display>Region: Region</display>
+    <order>0</order>
+    <typeReference id="49f5a50b-4e3d-4386-b777-03bb608642cf">
+      <typeId>fd1bf2a3-b09a-4d7c-86d9-4ad40dc03d5a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="749b6572-9d8b-4350-9034-19ff12cab84e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Countries</name>
+    <display>Countries: Country[*]   [1 --&gt; *]</display>
+    <order>2</order>
+    <typeReference id="4dbcaac3-3fe6-4c89-8cd4-37d91dc4915e">
+      <typeId>8b9ff37b-2e6e-44d3-99e9-2c3cec8aeb05</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

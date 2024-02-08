@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="577bed3a-6d1c-4373-8e5f-7de3c6017f33">
+  <sourceEnd id="08b258e9-042d-4ac6-9bd8-b27951c3878a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="2c8c2d71-1489-43de-849e-cabb3611b632">
+      <typeId>b08ab95a-e206-4688-b291-84306bef2945</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="577bed3a-6d1c-4373-8e5f-7de3c6017f33" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>LineItems</name>
+    <display>LineItems: LineItem[*]   [1 --&gt; *]</display>
+    <order>10</order>
+    <typeReference id="682e98e0-e4ad-4c8a-ae8e-db4b1dcd2640">
+      <typeId>b0d04c08-b934-46bc-b5f7-ac791b828c1c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
