@@ -58,6 +58,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#866c5d0e-7064-4d6d-a409-782cfbf89519</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#866c5d0e-7064-4d6d-a409-782cfbf89519</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContainerCosmosClientProvider/ContainerCosmosClientProviderTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0b99c31a-6949-440c-8cf7-174149011e11</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CosmosContainerFixture/CosmosContainerFixtureTemplatePartial.cs</ApplicationRelativeFilePath>

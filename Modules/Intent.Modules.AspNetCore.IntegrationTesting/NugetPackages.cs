@@ -14,7 +14,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
         public static readonly INugetPackageInfo TestcontainersCosmosDb = new NugetPackageInfo("Testcontainers.CosmosDb", "3.7.0");
         public static readonly INugetPackageInfo TestcontainersMsSql = new NugetPackageInfo("Testcontainers.MsSql", "3.7.0");
         public static readonly INugetPackageInfo TestcontainersPostgreSql = new NugetPackageInfo("Testcontainers.PostgreSql", "3.7.0");
-        
+        public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "8.1.3");
+
 
         public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => new(
             name: "Microsoft.AspNetCore.Mvc.Testing",

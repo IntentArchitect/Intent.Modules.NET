@@ -22,7 +22,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class KafkaProducerInterfaceTemplate : CSharpTemplateBase<object>
     {
@@ -35,14 +35,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface
             this.Write("using System.Collections.Concurrent;\r\nusing System.Threading;\r\nusing System.Threa" +
                     "ding.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

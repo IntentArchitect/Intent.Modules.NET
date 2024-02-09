@@ -42,8 +42,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                     @class.AddField("string", "_accountKey", f => f.PrivateReadOnly().WithAssignment("\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\""));
                     @class.AddField("CosmosDbContainer", "_dbContainer", f => f.PrivateReadOnly());
                     @class.AddField("int", "_portNumber", f => f.Private().WithAssignment("0"));
-                    @class.AddField("CosmosClient?", "_cosmosClient", f => f.Private());
-                    @class.AddField("Type?", "_cosmosProviderType", f => f.Private());
 
                     @class.AddConstructor(ctor =>
                     {
@@ -102,26 +100,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                 PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
             }});
 
-            _cosmosClient = cosmosClientBuilder.Build();
-            _cosmosProviderType = services.Single(s => s.ServiceType.Name == ""ICosmosClientProvider"").ServiceType;
+            services.AddSingleton<ICosmosClientProvider>(new ContainerCosmosClientProvider(cosmosClientBuilder.Build()));
 ".ConvertToStatements());
 
                         @class.AddMethod("void", "OnHostCreation", method =>
                         {
                             method
-                                .AddParameter("IServiceProvider", "services")
-                                .AddStatement("SwapCosmosClientToTestVersion(services);");
-                        });
-
-                        @class.AddMethod("void", "SwapCosmosClientToTestVersion", method =>
-                        {
-                            method
-                                .Private()
-                                .AddParameter("IServiceProvider", "services")
-                                .AddStatement("var cosmosClientProvider = services.GetRequiredService(_cosmosProviderType!);")
-                                .AddStatement("var privateField = cosmosClientProvider.GetType().GetField(\"_lazyCosmosClient\", BindingFlags.NonPublic | BindingFlags.Instance);")
-                                .AddStatement("if (privateField is null) throw new Exception(\"Unable to inject testing CosmosClient. Can't find _lazyCosmosClient\");")
-                                .AddStatement("privateField.SetValue(cosmosClientProvider, new Lazy<CosmosClient>(_cosmosClient!));");
+                                .AddParameter("IServiceProvider", "services");
                         });
 
                         @class.AddMethod("void", "InitializeAsync", method =>
