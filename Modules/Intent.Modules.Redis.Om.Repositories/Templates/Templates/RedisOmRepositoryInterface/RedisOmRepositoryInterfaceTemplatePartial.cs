@@ -48,7 +48,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         .AddProperty(this.GetRedisOmUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                             .WithoutSetter()
                         )
-                        .AddMethod($"Task<{tDomain}{GetNullablePostfix(true)}>", "FindAsync", method=>method
+                        .AddMethod($"Task<{tDomain}{GetNullablePostfix(true)}>", "FindAsync", method => method
                             .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
                             .AddOptionalCancellationTokenParameter(this))
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
@@ -108,7 +108,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                 }, 1000);
             }
         }
-        
+
         private string GetNullablePostfix(bool isNullable)
         {
             return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";

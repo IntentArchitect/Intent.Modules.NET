@@ -205,7 +205,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         var tDomainStateGenericTypeArgument = createEntityInterfaces
                             ? $", {tDomainState}"
                             : string.Empty;
-                        
+
                         method.AddStatements(
                             """
                             var query = _collection;
@@ -368,7 +368,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
             return isNullable && OutputTarget.GetProject().NullableEnabled ? "?" : "";
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

@@ -2,6 +2,7 @@
 
 - Feature: Support for Sending Commands.
 - Improvement: Added `ArgumentNullException` check on `IUnitOfWork` dependency injection.
+- Improvement: Allow support for Redis OM Unit of Work.
 
 ### Version 6.0.0
 
