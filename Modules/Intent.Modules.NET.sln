@@ -265,7 +265,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController.Metadata", "Intent.Modules.AspNetCore.Identity.AccountController.Metadata\Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj", "{37DF17B6-66FE-4810-82D0-1A964213E4EC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -882,6 +882,8 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{46039f50-4110-455c-8288-22dec8a0d340}*SharedItemsImports = 13
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{46ad781b-04fc-4d8d-9a46-4dbffe73628d}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{4faf05b4-370f-4929-9631-c0dd42a63c8b}*SharedItemsImports = 5
+		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{558f5562-d714-4264-a02d-350300a2c956}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{558f5562-d714-4264-a02d-350300a2c956}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5

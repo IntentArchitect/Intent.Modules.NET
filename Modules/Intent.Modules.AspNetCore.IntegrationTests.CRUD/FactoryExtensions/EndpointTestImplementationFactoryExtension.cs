@@ -271,9 +271,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")
-                        .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
-                        .AddStatement($"command.Id = {sutId};")
+                        .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious());
 
+
+                    method
+                        .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
+
+                    method
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"await client.{crudTest.Update!.Name}Async({sutId}, command);")
 
@@ -301,6 +305,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                 });
             });
+        }
+
+        private string GetDtoPkFieldName(IHttpEndpointModel operation)
+        {
+
+            var result = TestDataFactoryHelper.GetDtoPkFieldName(operation);
+            return result ?? "Id";
         }
 
         private void PopulateTestDataFactory(ICSharpFileBuilderTemplate template, List<CrudMap> crudTests)
