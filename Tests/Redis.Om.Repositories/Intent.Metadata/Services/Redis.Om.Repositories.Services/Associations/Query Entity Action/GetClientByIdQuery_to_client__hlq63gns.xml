@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="94d7c5e1-0f08-4534-8054-08d5031c424c">
+  <sourceEnd id="f08f2425-1eaf-45d9-9331-5f4ba5e48bf6" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientByIdQuery</display>
+    <order>0</order>
+    <typeReference id="241d56a1-c3ad-4bfa-beec-58a2a202fa73">
+      <typeId>85f32c0b-8e39-4641-8b14-c68a8b31fb67</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="94d7c5e1-0f08-4534-8054-08d5031c424c" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>client</name>
+    <display>[query] client: Client</display>
+    <order>1</order>
+    <typeReference id="987203de-7c16-4beb-ad07-745650f8e7ab">
+      <typeId>5ef489ab-9b9e-4767-86c2-7b646ca6b088</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="85f32c0b-8e39-4641-8b14-c68a8b31fb67" location="[Redis.Om.Repositories].[Services].[GetClientByIdQuery]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ef489ab-9b9e-4767-86c2-7b646ca6b088" location="[Redis.Om.Repositories].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="5ef489ab-9b9e-4767-86c2-7b646ca6b088" name="Client" type="element" specialization="Class" />
+              <target id="5699596c-f545-458e-87d3-567ac99e8219" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="85f32c0b-8e39-4641-8b14-c68a8b31fb67" name="GetClientByIdQuery" type="element" specialization="Query" />
+                  <target id="003491ca-2262-4605-8972-1246e20dafeb" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{FAD9A9BD-2CFC-4D6D-8976-AD1AEF5951D8}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Redis.Om.Repositories.Api", "Redis.Om.Repositories.Api\Redis.Om.Repositories.Api.csproj", "{E2803E62-4222-4512-AADC-0A8BBCF8C5E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8522E276-1CCB-40A3-AA37-04917C58E4DE}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Redis.Om.Repositories.Application", "Redis.Om.Repositories.Application\Redis.Om.Repositories.Application.csproj", "{414E62DF-F313-40C4-B6E2-1C8216C2628C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{990B68D4-8F1B-4919-9432-BF63DBBBC646}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Redis.Om.Repositories.Domain", "Redis.Om.Repositories.Domain\Redis.Om.Repositories.Domain.csproj", "{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E4393470-F396-4641-B798-3E5066923B78}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Redis.Om.Repositories.Infrastructure", "Redis.Om.Repositories.Infrastructure\Redis.Om.Repositories.Infrastructure.csproj", "{39D62B36-1757-473D-95ED-B9A19A7BFE21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2803E62-4222-4512-AADC-0A8BBCF8C5E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2803E62-4222-4512-AADC-0A8BBCF8C5E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2803E62-4222-4512-AADC-0A8BBCF8C5E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2803E62-4222-4512-AADC-0A8BBCF8C5E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414E62DF-F313-40C4-B6E2-1C8216C2628C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414E62DF-F313-40C4-B6E2-1C8216C2628C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414E62DF-F313-40C4-B6E2-1C8216C2628C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414E62DF-F313-40C4-B6E2-1C8216C2628C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D62B36-1757-473D-95ED-B9A19A7BFE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D62B36-1757-473D-95ED-B9A19A7BFE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D62B36-1757-473D-95ED-B9A19A7BFE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D62B36-1757-473D-95ED-B9A19A7BFE21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2803E62-4222-4512-AADC-0A8BBCF8C5E9} = {FAD9A9BD-2CFC-4D6D-8976-AD1AEF5951D8}
+		{414E62DF-F313-40C4-B6E2-1C8216C2628C} = {8522E276-1CCB-40A3-AA37-04917C58E4DE}
+		{4FD1C1C9-3829-4244-9DF5-8938F4F18E5B} = {990B68D4-8F1B-4919-9432-BF63DBBBC646}
+		{39D62B36-1757-473D-95ED-B9A19A7BFE21} = {E4393470-F396-4641-B798-3E5066923B78}
+	EndGlobalSection
+EndGlobal

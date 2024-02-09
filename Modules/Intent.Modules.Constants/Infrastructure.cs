@@ -71,4 +71,15 @@ public static class Infrastructure
             public const string ConnectionStringSettingPath = nameof(ConnectionStringSettingPath);
         }
     }
+
+    public static class Redis
+    {
+        public const string Name = nameof(Redis);
+
+        public static class Property
+        {
+            public const string ConnectionStringName = nameof(ConnectionStringName);
+            public const string ConnectionStringSettingPath = nameof(ConnectionStringSettingPath);
+        }
+    }
 }

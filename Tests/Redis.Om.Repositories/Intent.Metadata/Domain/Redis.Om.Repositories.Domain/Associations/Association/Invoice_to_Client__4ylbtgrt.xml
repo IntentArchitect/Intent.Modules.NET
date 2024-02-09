@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a241b047-92cd-4ce9-9b1d-caf70db260ac">
+  <sourceEnd id="d23e26cf-7e72-4638-8e87-0978c74793b1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice?</display>
+    <order>0</order>
+    <typeReference id="3ee217d2-900f-4740-a17f-2b72740c0ffa">
+      <typeId>b08ab95a-e206-4688-b291-84306bef2945</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a241b047-92cd-4ce9-9b1d-caf70db260ac" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Client</name>
+    <display>Client: Client   [0..1 --&gt; 1]</display>
+    <order>12</order>
+    <typeReference id="f2cd85e2-fbf1-4d52-bc07-597b73999652">
+      <typeId>5ef489ab-9b9e-4767-86c2-7b646ca6b088</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

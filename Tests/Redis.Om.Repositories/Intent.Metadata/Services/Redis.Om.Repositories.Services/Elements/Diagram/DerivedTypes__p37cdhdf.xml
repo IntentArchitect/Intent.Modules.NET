@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="89b5d909-c8f2-4f44-963c-0ffddb110708" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DerivedTypes</name>
+  <display>DerivedTypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>baf02a51-e693-418a-8666-36fb869461e7</parentFolderId>
+  <packageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</packageId>
+  <packageName>Redis.Om.Repositories.Services</packageName>
+  <diagram>
+    <targetPackageId>baf02a51-e693-418a-8666-36fb869461e7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

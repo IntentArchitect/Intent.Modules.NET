@@ -135,7 +135,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
             idProvider ??= () => Guid.NewGuid().ToString();
 
             var relativePath = slnFile.GetRelativePath(solutionItemAbsolutePath);
-            var relativePathDirectory = Path.GetDirectoryName(relativePath);
+            var relativePathDirectory = Path.GetDirectoryName(relativePath.Replace('\\', Path.DirectorySeparatorChar));
             var relativeSolutionFolderPath = relativePathDirectory;
 
             if (!string.IsNullOrWhiteSpace(relativePathDirectory))
@@ -147,7 +147,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
 
                 parentProject = relativeSolutionFolderPath
                     .Split(Path.DirectorySeparatorChar)
-                    .Where(x => x != ".")
+                    .Where(x => x is not "." and not "..")
                     .Aggregate(
                         seed: parentProject,
                         func: (current, path) => current?.GetOrCreateFolder(idProvider(), path) ??

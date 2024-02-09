@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c23d7657-e4d8-4b8c-a0b4-9fe1e7151d92">
+  <sourceEnd id="4a762764-38ba-4101-b1e3-05763fa6ac2f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="71ee38e7-148f-401b-8877-7408be7dd252">
+      <typeId>d26a4133-95de-42fe-9708-5abb669e1760</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c23d7657-e4d8-4b8c-a0b4-9fe1e7151d92" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BillingAddress</name>
+    <display>BillingAddress: Address?   [1 --&gt; 0..1]</display>
+    <order>4</order>
+    <typeReference id="a8b43291-5c0b-4578-ab91-caf8430c2dd5">
+      <typeId>f788318c-3f70-469f-96a0-c03c9cfbf878</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -32,7 +32,7 @@ This module consumes your `Exposed HTTP Endpoints`, in the `Service Designer` an
 - Adds Integration xUnit Testing project.
 - Generates service proxies for all service end points, to use to interact with the Application under test.
 - Add container support for `MS SQL Server`, `Postgres` and `CosmosDB`
-- Generates test classes for each service end point.
+- Generates test classes for each modelled service end point.
 
 ## Testing Isolation
 
@@ -53,5 +53,44 @@ If you are running `Shared Container`, you can set up specific Test Class's to r
         {
         }
         ...
+    }
+```
+
+## Testing against containerized data stores
+
+If your application is using our `Intent.EntityFrameworkCore` module, the following providers are currently supported for containerization
+
+- SQL Server
+- Postgres
+
+If your application is using our `Intent.CosmosDB` module, the tests will be run against a dockerized CosmosDB Emulator.
+
+## Adding Tests
+
+You can then simply add your integration tests to the test classes as required.
+Our `Intent.AspNetCore.IntegrationTesting.CRUD` module can be used to generate integration test implementations for CRUD orientated services.
+
+```csharp
+
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [Collection("SharedContainer")]
+    public class MyCustomEndpointTests : BaseIntegrationTest
+    {
+        public MyCustomEndpointTests(IntegrationTestWebAppFactory factory) : base(factory)
+        {
+        }
+
+        [Fact]
+        public async Task MyCustomEndpoint_ShouldDoX()
+        {
+            //Arrange
+            var client = new MyCustomServiceHttpClient(CreateClient());
+
+            //Act
+            client.InvokeMyCustomEndpoint();
+
+            //Assert
+            ...
+        }
     }
 ```

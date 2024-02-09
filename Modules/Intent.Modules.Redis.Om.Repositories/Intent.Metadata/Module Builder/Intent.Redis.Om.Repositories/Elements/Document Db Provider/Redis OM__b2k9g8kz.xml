@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cdafe291-b62d-4014-9f94-5b8d733d85f3" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
+  <name>Redis OM</name>
+  <display>Redis OM</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7b00cce1-f410-443a-a4fb-3a20cbbce9f4</parentFolderId>
+  <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+  <packageName>Intent.Redis.Om.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

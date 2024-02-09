@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="77791e8e-e120-47d9-b3de-ed94014e4601" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>RegionChangedDomainEvent</name>
+  <display>RegionChangedDomainEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47cbdc37-d612-4a46-aef9-100a17e980c4</parentFolderId>
+  <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+  <packageName>Redis.Om.Repositories.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="586bfa29-7bac-40ed-b66a-7dfd68dda7ea" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Region</name>
+      <display>Region: Region</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="44ae1b2b-9f63-4593-9afa-bcc9df0dd46b">
+        <typeId>fd1bf2a3-b09a-4d7c-86d9-4ad40dc03d5a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+        <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>77791e8e-e120-47d9-b3de-ed94014e4601</parentFolderId>
+      <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+      <packageName>Redis.Om.Repositories.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

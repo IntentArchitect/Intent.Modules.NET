@@ -92,5 +92,6 @@
     <application id="8b37790a-a116-40c4-b166-ca4a2da6df82" name="Blazor.Server.MinimalHosting.TopLevelStatements" relativePath="Blazor.Server.MinimalHosting.TopLevelStatements/Blazor.Server.MinimalHosting.TopLevelStatements.application.config" />
     <application id="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" name="EntityFrameworkCore.Oracle.TestApplication" relativePath="EntityFrameworkCore.Oracle.TestApplication/EntityFrameworkCore.Oracle.TestApplication.application.config" />
     <application id="2d1629af-eb4d-4434-b187-03ea5c1ca294" name="IntegrationTesting.Tests" relativePath="IntegrationTesting.Tests/IntegrationTesting.Tests.application.config" />
+    <application id="eb23fe9b-a294-4fa6-88ea-1f869a01910b" name="Redis.Om.Repositories" relativePath="Redis.Om.Repositories/Redis.Om.Repositories.application.config" />
   </applications>
 </solution>

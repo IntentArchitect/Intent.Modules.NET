@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="992744a2-e5c2-4f65-9d4f-176e4eefbe2b">
+  <sourceEnd id="f82b3215-e011-4fc2-8875-6f184355f08a" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDerivedTypeByIdQuery</display>
+    <order>0</order>
+    <typeReference id="62052e8b-9d30-45b2-8457-7bf1b8bbe946">
+      <typeId>10b54646-30f9-4594-a5aa-eebe277c2c3e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="992744a2-e5c2-4f65-9d4f-176e4eefbe2b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>derivedType</name>
+    <display>[query] derivedType: DerivedType</display>
+    <order>1</order>
+    <typeReference id="2421c1c2-f3fd-4853-b162-74a4be6f91cc">
+      <typeId>2b440bac-9639-4ce2-966a-b7f810e9a2b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="10b54646-30f9-4594-a5aa-eebe277c2c3e" location="[Redis.Om.Repositories].[Services].[GetDerivedTypeByIdQuery]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b440bac-9639-4ce2-966a-b7f810e9a2b1" location="[Redis.Om.Repositories].[Services].[DerivedType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="afe48fc0-de47-406f-84bf-5d6f31425f92" name="base" type="association" specialization="Generalization Target End" />
+              <target id="9dd907f5-768f-4646-9ae2-1c70e07f2967" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="10b54646-30f9-4594-a5aa-eebe277c2c3e" name="GetDerivedTypeByIdQuery" type="element" specialization="Query" />
+                  <target id="192a8c54-fe5f-4690-aede-844992a3f9c6" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

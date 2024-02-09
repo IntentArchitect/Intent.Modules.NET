@@ -13,14 +13,23 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.DocumentDB.Shared
 {
+    internal interface IPrimaryKeyInitStrategy
+    {
+        bool ShouldInsertPkInitializationCode(ClassModel targetClass);
+
+        string GetGetterInitExpression(ICSharpTemplate template, ClassModel targetClass, string fieldName, string fieldTypeName);
+    }
+
     internal static class EntityFactoryExtensionHelper
     {
         public static void Execute(
             IApplication application,
             Func<ClassModel, bool> dbProviderApplies,
-            bool initializePrimaryKeyOnAggregateRoots,
+            IPrimaryKeyInitStrategy primaryKeyInitStrategy,
             bool makeNonPersistentPropertiesVirtual)
         {
+            
+            
             // Implementation
             {
                 var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));
@@ -75,9 +84,9 @@ namespace Intent.Modules.DocumentDB.Shared
                                 .First(x => x.Name.Equals(attribute.Name, StringComparison.InvariantCultureIgnoreCase));
                             var fieldName = $"_{attribute.Name.ToCamelCase()}";
 
-                            if (!model.IsAggregateRoot() || initializePrimaryKeyOnAggregateRoots)
+                            if (primaryKeyInitStrategy.ShouldInsertPkInitializationCode(model))
                             {
-                                InitializePrimaryKey(template, @class, attribute, existingPk, fieldName);
+                                InitializePrimaryKey(primaryKeyInitStrategy, template, @class, model, attribute, existingPk, fieldName);
                             }
 
                             primaryKeyProperties.Add(existingPk);
@@ -167,26 +176,28 @@ namespace Intent.Modules.DocumentDB.Shared
             }
         }
 
-        private static void InitializePrimaryKey(ICSharpTemplate template, CSharpClass @class, AttributeModel attributePk, CSharpProperty existingPk, string fieldName)
+        private static void InitializePrimaryKey(
+            IPrimaryKeyInitStrategy initStrategy,
+            ICSharpTemplate template,
+            CSharpClass @class,
+            ClassModel targetClass,
+            AttributeModel attributePk,
+            CSharpProperty existingPk,
+            string fieldName)
         {
             var templateBase = (IntentTemplateBase)template;
             @class.AddField(templateBase.UseType(templateBase.GetTypeInfo(attributePk.TypeReference).WithIsNullable(true)), fieldName);
-            var getExpressionSuffix = attributePk.TypeReference.Element.Name switch
-            {
-                "string" => $" ??= {template.UseType("System.Guid")}.NewGuid().ToString()",
-                "guid" => $" ??= {template.UseType("System.Guid")}.NewGuid()",
-                "int" or "long" => $"?? throw new {template.UseType("System.NullReferenceException")}(\"{fieldName} has not been set\")",
-                _ => string.Empty
-            };
 
-            existingPk.Getter.WithExpressionImplementation($"{fieldName}{getExpressionSuffix}");
+            var getExpressionSuffix = initStrategy.GetGetterInitExpression(template, targetClass, fieldName, attributePk.TypeReference.Element.Name);
+
+            existingPk.Getter.WithExpressionImplementation(getExpressionSuffix);
             existingPk.Setter.WithExpressionImplementation($"{fieldName} = value");
         }
 
         private static bool HasNavigationProperty(ClassModel model, AssociationEndModel association)
         {
             return (association.Association.SourceEnd.Element.Id == model.Id && association.Association.TargetEnd.IsNavigable) ||
-                (association.Association.TargetEnd.Element.Id == model.Id && association.Association.SourceEnd.IsNavigable);
+                   (association.Association.TargetEnd.Element.Id == model.Id && association.Association.SourceEnd.IsNavigable);
         }
 
         private static IEnumerable<AssociationEndModel> GetNavigableAggregateAssociations(ClassModel model)

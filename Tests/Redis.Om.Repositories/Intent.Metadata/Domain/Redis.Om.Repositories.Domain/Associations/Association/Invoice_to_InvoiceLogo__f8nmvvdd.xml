@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="16c524c0-89b6-4492-830d-aeecec3d8a54">
+  <sourceEnd id="1797cec7-d02a-49db-b1da-1693f1163f76" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoice</name>
+    <display>Invoice: Invoice</display>
+    <order>0</order>
+    <typeReference id="d7757023-d407-45ef-ab77-930fc379b81e">
+      <typeId>b08ab95a-e206-4688-b291-84306bef2945</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="16c524c0-89b6-4492-830d-aeecec3d8a54" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InvoiceLogo</name>
+    <display>InvoiceLogo: InvoiceLogo   [1 --&gt; 1]</display>
+    <order>11</order>
+    <typeReference id="5f7df8a3-98ec-418f-8c6d-15541cada450">
+      <typeId>1a2f81c6-cf30-4afa-b502-2c796118ffa3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
