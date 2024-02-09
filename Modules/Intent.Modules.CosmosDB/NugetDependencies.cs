@@ -4,7 +4,7 @@ namespace Intent.Modules.CosmosDB
 {
     internal class NugetDependencies
     {
-        public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "3.7.0");
+        public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "8.1.3");
         /// <summary>
         /// This dependency is introduced to override the version installed by CosmosDB due to a possible security
         /// vulnerability. https://github.com/advisories/GHSA-5crp-9r3c-p9vr
