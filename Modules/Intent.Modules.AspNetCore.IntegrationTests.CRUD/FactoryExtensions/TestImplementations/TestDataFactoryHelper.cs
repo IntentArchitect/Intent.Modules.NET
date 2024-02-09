@@ -166,15 +166,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                 if (dtoFieldPkName != null)
                 {
                     string entityId = $"{crudTest.Entity.Name}Id";
-                    if (dtoFieldPkName == entityId)
-                        continue;
-                    if (!keyAliases.TryGetValue(entityId, out var aliases))
+                    if (dtoFieldPkName != entityId && string.Compare(dtoFieldPkName, "Id", true) != 0)
                     {
-                        aliases = new HashSet<string>();
-                        keyAliases[entityId] = aliases;
+                        if (!keyAliases.TryGetValue(entityId, out var aliases))
+                        {
+                            aliases = new HashSet<string>();
+                            keyAliases[entityId] = aliases;
+                        }
+                        aliases.Add(dtoFieldPkName);
                     }
-                    aliases.Add(dtoFieldPkName);
-
                 }
             }
 

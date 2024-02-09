@@ -311,7 +311,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         {
 
             var result = TestDataFactoryHelper.GetDtoPkFieldName(operation);
-            return result ?? "Id";
+            return result?.ToPascalCase() ?? "Id";
         }
 
         private void PopulateTestDataFactory(ICSharpFileBuilderTemplate template, List<CrudMap> crudTests)
