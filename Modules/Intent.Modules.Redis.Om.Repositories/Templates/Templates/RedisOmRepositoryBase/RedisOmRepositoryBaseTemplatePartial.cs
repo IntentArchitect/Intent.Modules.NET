@@ -38,6 +38,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Reflection")
                 .AddClass("RedisOmRepositoryBase", @class =>
                 {
                     @class
