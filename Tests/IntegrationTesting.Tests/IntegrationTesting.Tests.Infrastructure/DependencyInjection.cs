@@ -29,6 +29,7 @@ namespace IntegrationTesting.Tests.Infrastructure
             services.AddTransient<IBadSignaturesRepository, BadSignaturesRepository>();
             services.AddTransient<IChildRepository, ChildRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IDiffIdRepository, DiffIdRepository>();
             services.AddTransient<IDiffPkRepository, DiffPkRepository>();
             services.AddTransient<IDtoReturnRepository, DtoReturnRepository>();
             services.AddTransient<INoReturnRepository, NoReturnRepository>();

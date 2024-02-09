@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8bc42ad3-a792-4a6d-9eb7-db035d1f93ef">
+  <sourceEnd id="5404fdb7-66cd-4e8a-8877-a7475628b396" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDiffIdsQuery</display>
+    <order>0</order>
+    <typeReference id="16fda4dc-9fa0-4e4a-b3b5-b42da7eb8fa6">
+      <typeId>ee59ecae-170d-47a4-9a1f-07eba13d6eb4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8bc42ad3-a792-4a6d-9eb7-db035d1f93ef" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>diffIds</name>
+    <display>[query] diffIds: DiffId[*]</display>
+    <order>0</order>
+    <typeReference id="cf44caec-ea12-4287-9af5-3365706905a1">
+      <typeId>8b77b4cb-29ff-40ca-8a59-66de22b90cb3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ee59ecae-170d-47a4-9a1f-07eba13d6eb4" location="[IntegrationTesting.Tests].[Services].[GetDiffIdsQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" location="[IntegrationTesting.Tests].[Services].[DiffId]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
