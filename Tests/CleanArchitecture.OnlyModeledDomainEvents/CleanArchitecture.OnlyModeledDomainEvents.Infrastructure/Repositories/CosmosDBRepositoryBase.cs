@@ -164,16 +164,6 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.Repositories
             }
         }
 
-        public string? GetEtag(TDomain entity)
-        {
-            if (_etags.TryGetValue(GetId(entity), out var etag))
-            {
-                return etag;
-            }
-
-            return default;
-        }
-
         private class SubstitutionExpressionVisitor : ExpressionVisitor
         {
             private readonly Expression _before;

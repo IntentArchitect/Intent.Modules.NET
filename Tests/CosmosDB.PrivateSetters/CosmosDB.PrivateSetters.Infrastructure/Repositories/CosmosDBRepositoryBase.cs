@@ -172,16 +172,6 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             }
         }
 
-        public string? GetEtag(TDomain entity)
-        {
-            if (_etags.TryGetValue(GetId(entity), out var etag))
-            {
-                return etag;
-            }
-
-            return default;
-        }
-
         private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()
         {
             var userName = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");

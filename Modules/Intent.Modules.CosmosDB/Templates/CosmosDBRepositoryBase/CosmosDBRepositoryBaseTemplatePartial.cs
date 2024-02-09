@@ -310,17 +310,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddForEachStatement("document", "documents", stmt => stmt.AddStatement("yield return LoadAndTrackDocument(document);"));
                     });
 
-                    @class.AddMethod($"string?", "GetEtag", method =>
+                    if (useOptimisticConcurrency)
                     {
-                        method.AddParameter(tDomain, "entity");
+                        @class.AddMethod($"string?", "GetEtag", method =>
+                        {
+                            method.AddParameter(tDomain, "entity");
 
-                        method.AddIfStatement("_etags.TryGetValue(GetId(entity), out var etag)", @if => { 
-                            @if.AddStatement("return etag;");
+                            method.AddIfStatement("_etags.TryGetValue(GetId(entity), out var etag)", @if =>
+                            {
+                                @if.AddStatement("return etag;");
+                            });
+
+                            method.AddStatement("return default;", s => { s.SeparatedFromPrevious(); });
                         });
-
-                        method.AddStatement("return default;", s => { s.SeparatedFromPrevious(); });
-                    });
-
+                    }
 
                     @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
                     {
