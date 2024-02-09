@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="66ff6cf0-b7ec-4efa-a908-e56ab1f5b12a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>IdTesting</name>
+  <display>IdTesting</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47cbdc37-d612-4a46-aef9-100a17e980c4</parentFolderId>
+  <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+  <packageName>Redis.Om.Repositories.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="782d6cda-e397-4b03-bda1-c2a25e741de4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Identifier</name>
+      <display>Identifier: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4ff9692f-dc7a-4f64-907e-7585338aaceb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>66ff6cf0-b7ec-4efa-a908-e56ab1f5b12a</parentFolderId>
+      <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+      <packageName>Redis.Om.Repositories.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="48ed60ce-cfed-4b46-ae53-f78e11c757c4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="05e5d266-e6d6-4ff9-8e3d-5bd65b488bc8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>66ff6cf0-b7ec-4efa-a908-e56ab1f5b12a</parentFolderId>
+      <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+      <packageName>Redis.Om.Repositories.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e1fc703d-389d-4241-aee1-ee6ce385bbc0" name="Indexed">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Redis.Om.Repositories</definitionPackageName>
+          <definitionPackageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

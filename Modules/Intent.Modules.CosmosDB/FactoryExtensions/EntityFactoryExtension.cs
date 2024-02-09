@@ -34,10 +34,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             EntityFactoryExtensionHelper.Execute(
                 application: application,
                 dbProviderApplies: CosmosDbProvider.FilterDbProvider,
-                initializePrimaryKeyOnAggregateRoots: true,
+                primaryKeyInitStrategy: new CosmosDbPrimaryKeyInitStrategy(),
                 makeNonPersistentPropertiesVirtual: false);
             RegisterServices(application);
-
         }
 
         private static void RegisterServices(IApplication application)

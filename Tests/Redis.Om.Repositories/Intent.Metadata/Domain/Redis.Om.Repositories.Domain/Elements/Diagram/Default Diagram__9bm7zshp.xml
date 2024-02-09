@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="53022e87-cef5-4d08-8317-dd8ae35de4ee" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47cbdc37-d612-4a46-aef9-100a17e980c4</parentFolderId>
+  <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+  <packageName>Redis.Om.Repositories.Domain</packageName>
+  <diagram>
+    <targetPackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

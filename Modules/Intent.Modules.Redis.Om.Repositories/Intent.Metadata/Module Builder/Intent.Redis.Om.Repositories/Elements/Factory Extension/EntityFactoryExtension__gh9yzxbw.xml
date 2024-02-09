@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5324b8d1-8c75-46c9-8759-4c88908c7aa9" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityFactoryExtension</name>
+  <display>EntityFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>739f3162-d1f8-4609-86df-756c6ff6b7e3</parentFolderId>
+  <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+  <packageName>Intent.Redis.Om.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

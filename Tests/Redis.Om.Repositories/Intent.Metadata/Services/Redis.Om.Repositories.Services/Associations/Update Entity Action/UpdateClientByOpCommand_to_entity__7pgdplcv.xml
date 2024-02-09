@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5f7a4d6f-30f2-4a8d-8adc-b5bb772ca09b">
+  <sourceEnd id="2b421aa0-eb9f-4dfc-b51f-a034367fcf1f" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Clients.UpdateClientByOpCommand</display>
+    <order>0</order>
+    <typeReference id="4dc2350f-b7ee-4018-a039-b19cfad85f85">
+      <typeId>1fd137bf-0ba0-4f4b-ba85-12b28c7301cd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5f7a4d6f-30f2-4a8d-8adc-b5bb772ca09b" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>entity</name>
+    <display>[update] entity: Client</display>
+    <order>3</order>
+    <typeReference id="0e4da796-d553-417d-b989-90a00d4f3935">
+      <typeId>5ef489ab-9b9e-4767-86c2-7b646ca6b088</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" location="[Redis.Om.Repositories].[Services].[UpdateClientByOpCommand]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ef489ab-9b9e-4767-86c2-7b646ca6b088" location="[Redis.Om.Repositories].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="5ef489ab-9b9e-4767-86c2-7b646ca6b088" name="Client" type="element" specialization="Class" />
+              <target id="5699596c-f545-458e-87d3-567ac99e8219" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" name="UpdateClientByOpCommand" type="element" specialization="Command" />
+                  <target id="e6e8d95f-d6aa-447c-9617-b38305a5d515" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" location="[Redis.Om.Repositories].[Services].[UpdateClientByOpCommand]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ef489ab-9b9e-4767-86c2-7b646ca6b088" location="[Redis.Om.Repositories].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateClientByOpCommand}</expression>
+            <path>
+              <target id="5ef489ab-9b9e-4767-86c2-7b646ca6b088" name="Client" type="element" specialization="Class" />
+              <target id="7ef177b2-ed43-4d7b-8179-faa8a4540f4e" name="Update" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdateClientByOpCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" name="UpdateClientByOpCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{type}</expression>
+            <path>
+              <target id="5ef489ab-9b9e-4767-86c2-7b646ca6b088" name="Client" type="element" specialization="Class" />
+              <target id="7ef177b2-ed43-4d7b-8179-faa8a4540f4e" name="Update" type="element" specialization="Operation" />
+              <target id="943577e7-abfe-4a94-901c-e1fb84e5b916" name="type" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="type" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" name="UpdateClientByOpCommand" type="element" specialization="Command" />
+                  <target id="5f92ae61-9ae1-4a55-9834-4007249d6668" name="type" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{name}</expression>
+            <path>
+              <target id="5ef489ab-9b9e-4767-86c2-7b646ca6b088" name="Client" type="element" specialization="Class" />
+              <target id="7ef177b2-ed43-4d7b-8179-faa8a4540f4e" name="Update" type="element" specialization="Operation" />
+              <target id="15e39489-ed61-4369-b69e-3c8126859e31" name="name" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="1fd137bf-0ba0-4f4b-ba85-12b28c7301cd" name="UpdateClientByOpCommand" type="element" specialization="Command" />
+                  <target id="4b6abcdc-df4a-439a-85df-b4d432c91932" name="name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

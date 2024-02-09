@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="987af789-5bd9-4938-a871-c7e9b7537f11" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Clients</name>
+  <display>Clients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7dc1ea53-b427-4058-93e4-03deb386feef</parentFolderId>
+  <packageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</packageId>
+  <packageName>Redis.Om.Repositories.Services</packageName>
+  <diagram>
+    <targetPackageId>7dc1ea53-b427-4058-93e4-03deb386feef</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

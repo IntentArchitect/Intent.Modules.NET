@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="63d8ffee-b5fc-4d04-8c70-4156b8c42b35" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>ClientType</name>
+  <display>ClientType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47cbdc37-d612-4a46-aef9-100a17e980c4</parentFolderId>
+  <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+  <packageName>Redis.Om.Repositories.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c3b95019-48ca-4066-a7ca-873ab487082b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Individual</name>
+      <display>Individual</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>63d8ffee-b5fc-4d04-8c70-4156b8c42b35</parentFolderId>
+      <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+      <packageName>Redis.Om.Repositories.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7265c451-2692-4b86-ba55-2deba4727c6e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Business</name>
+      <display>Business</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>63d8ffee-b5fc-4d04-8c70-4156b8c42b35</parentFolderId>
+      <packageId>47cbdc37-d612-4a46-aef9-100a17e980c4</packageId>
+      <packageName>Redis.Om.Repositories.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

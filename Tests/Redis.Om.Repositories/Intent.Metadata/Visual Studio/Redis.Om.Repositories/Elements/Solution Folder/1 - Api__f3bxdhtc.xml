@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fad9a9bd-2cfc-4d6d-8976-ad1aef5951d8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>abf2f944-ff01-4ba4-aadd-386844042c82</parentFolderId>
+  <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+  <packageName>Redis.Om.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

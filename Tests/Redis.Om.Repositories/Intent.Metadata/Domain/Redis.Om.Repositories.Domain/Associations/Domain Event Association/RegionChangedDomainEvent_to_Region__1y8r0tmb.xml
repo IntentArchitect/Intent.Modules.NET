@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="26ed221c-226e-4c42-b45c-26ec384c574d">
+  <sourceEnd id="2cf241cb-4ab7-4446-8b8b-8718e4ea1fc2" type="Domain Event Association Source End" typeId="ad8998ec-ee85-4544-9267-8ec150a2f257">
+    <display>handles event : RegionChangedDomainEvent</display>
+    <order>3</order>
+    <typeReference id="e230fe26-34cc-4f54-9f7e-c5c90982e9f9">
+      <typeId>77791e8e-e120-47d9-b3de-ed94014e4601</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="26ed221c-226e-4c42-b45c-26ec384c574d" type="Domain Event Association Target End" typeId="fe0d0f78-fb7e-4685-ab2d-bae88054a78e">
+    <display>handled by : Region</display>
+    <order>1</order>
+    <typeReference id="5189d385-ec9b-4726-98ff-b2920ef9f4c4">
+      <typeId>fd1bf2a3-b09a-4d7c-86d9-4ad40dc03d5a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Association</associationType>
+  <associationTypeId>8014b71d-627b-4349-b6d7-5011dfa1bb09</associationTypeId>
+  <stereotypes />
+</association>

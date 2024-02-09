@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="763befed-b47a-4ebc-aa27-58ddf0345085">
+  <sourceEnd id="5b7c6b0f-f799-4426-b6f3-3516b804fb38" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDerivedTypesQuery</display>
+    <order>0</order>
+    <typeReference id="b4a8d61a-910b-4e15-829f-bd0ff861a4c2">
+      <typeId>b14adf88-f990-407a-9b86-44d467f262b8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="763befed-b47a-4ebc-aa27-58ddf0345085" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>derivedTypes</name>
+    <display>[query] derivedTypes: DerivedType[*]</display>
+    <order>0</order>
+    <typeReference id="5261a055-3eb5-4f8a-9b9a-433cbc68d6ff">
+      <typeId>2b440bac-9639-4ce2-966a-b7f810e9a2b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b14adf88-f990-407a-9b86-44d467f262b8" location="[Redis.Om.Repositories].[Services].[GetDerivedTypesQuery]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b440bac-9639-4ce2-966a-b7f810e9a2b1" location="[Redis.Om.Repositories].[Services].[DerivedType]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -129,5 +129,6 @@
     <application id="83e4ad01-be0c-40ea-953a-9a1acd26e2cd" name="Intent.Modules.AspNetCore.IntegrationTesting.Metadata" relativePath="Intent.Modules.AspNetCore.IntegrationTesting.Metadata/Intent.Modules.AspNetCore.IntegrationTesting.Metadata.application.config" />
     <application id="a36e2e3e-95ea-431b-890f-0225e14d0788" name="Intent.Modules.AspNetCore.IntegrationTests.CRUD" relativePath="Intent.Modules.AspNetCore.IntegrationTests.CRUD/Intent.Modules.AspNetCore.IntegrationTests.CRUD.application.config" />
     <application id="bf8f6060-e2f0-4326-9767-e3c546c7933c" name="Intent.Modules.AspNetCore.Identity.AccountController.Metadata" relativePath="Intent.Modules.AspNetCore.Identity.AccountController.Metadata/Intent.Modules.AspNetCore.Identity.AccountController.Metadata.application.config" />
+    <application id="410ada20-8799-4d36-94ba-540b6061fca5" name="Redis.OM.Repositories" relativePath="Intent.Modules.Redis.OM.Repositories/Intent.Modules.Redis.OM.Repositories.application.config" />
   </applications>
 </solution>

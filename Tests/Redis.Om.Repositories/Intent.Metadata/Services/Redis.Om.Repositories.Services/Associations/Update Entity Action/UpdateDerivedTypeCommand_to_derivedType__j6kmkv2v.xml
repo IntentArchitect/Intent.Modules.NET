@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="de7f92ea-9efc-4368-b86f-10757a831c0b">
+  <sourceEnd id="6c017546-c018-46b9-a798-4c5aa7cc6797" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DerivedTypes.UpdateDerivedTypeCommand</display>
+    <order>0</order>
+    <typeReference id="cae1b020-e192-4a8d-9910-0c89bb91eb56">
+      <typeId>76c2ebb0-0e55-4277-8650-533dd8467303</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Services</typePackageName>
+      <typePackageId>11c2d928-928b-42d9-a032-4cdc9ae4b7a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="de7f92ea-9efc-4368-b86f-10757a831c0b" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>derivedType</name>
+    <display>[update] derivedType: DerivedType</display>
+    <order>4</order>
+    <typeReference id="b2fc21c6-0c84-4c4e-8274-6421a6ba1d55">
+      <typeId>2b440bac-9639-4ce2-966a-b7f810e9a2b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="76c2ebb0-0e55-4277-8650-533dd8467303" location="[Redis.Om.Repositories].[Services].[UpdateDerivedTypeCommand]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b440bac-9639-4ce2-966a-b7f810e9a2b1" location="[Redis.Om.Repositories].[Services].[DerivedType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="afe48fc0-de47-406f-84bf-5d6f31425f92" name="base" type="association" specialization="Generalization Target End" />
+              <target id="9dd907f5-768f-4646-9ae2-1c70e07f2967" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="76c2ebb0-0e55-4277-8650-533dd8467303" name="UpdateDerivedTypeCommand" type="element" specialization="Command" />
+                  <target id="352c38f7-3da9-454f-b72e-167ecc1e6af8" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="76c2ebb0-0e55-4277-8650-533dd8467303" location="[Redis.Om.Repositories].[Services].[UpdateDerivedTypeCommand]" />
+        <target applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b440bac-9639-4ce2-966a-b7f810e9a2b1" location="[Redis.Om.Repositories].[Services].[DerivedType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{DerivedName}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="ac807bcd-d6d8-49c2-8cbe-bcd5ca4c62f1" name="DerivedName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="DerivedName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="76c2ebb0-0e55-4277-8650-533dd8467303" name="UpdateDerivedTypeCommand" type="element" specialization="Command" />
+                  <target id="7ac19b0b-05f2-4227-ae23-f9c682a23082" name="DerivedName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{DerivedTypeAggregate.AggregateName}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="3a29b039-9b46-4773-96ff-27959e274ffd" name="DerivedTypeAggregate" type="association" specialization="Association Target End" />
+              <target id="8d262300-ce8d-4be3-bc38-ceb30ad2e216" name="AggregateName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="DerivedTypeAggregate.AggregateName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="76c2ebb0-0e55-4277-8650-533dd8467303" name="UpdateDerivedTypeCommand" type="element" specialization="Command" />
+                  <target id="58e63c5e-d2f3-404d-ab5a-5eddb82d194b" name="DerivedTypeAggregate" type="element" specialization="DTO-Field" />
+                  <target id="07928038-cd25-4fcd-8ad0-cdee1bb90379" name="AggregateName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BaseName}</expression>
+            <path>
+              <target id="2b440bac-9639-4ce2-966a-b7f810e9a2b1" name="DerivedType" type="element" specialization="Class" />
+              <target id="afe48fc0-de47-406f-84bf-5d6f31425f92" name="base" type="association" specialization="Generalization Target End" />
+              <target id="43d0be44-5d93-40b0-9e63-cc6aa7a84445" name="BaseName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="BaseName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="76c2ebb0-0e55-4277-8650-533dd8467303" name="UpdateDerivedTypeCommand" type="element" specialization="Command" />
+                  <target id="e91cc59b-a4c4-4496-8722-78943882d8ae" name="BaseName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

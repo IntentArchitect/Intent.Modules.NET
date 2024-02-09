@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3a29b039-9b46-4773-96ff-27959e274ffd">
+  <sourceEnd id="da9684ea-8171-4ce7-9dd5-65714ae52a2b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DerivedTypes</name>
+    <display>DerivedTypes: DerivedType</display>
+    <order>0</order>
+    <typeReference id="9f6f7054-ded1-472f-9a3e-3ab55ce667d5">
+      <typeId>2b440bac-9639-4ce2-966a-b7f810e9a2b1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3a29b039-9b46-4773-96ff-27959e274ffd" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DerivedTypeAggregate</name>
+    <display>DerivedTypeAggregate: DerivedTypeAggregate   [1 --&gt; 1]</display>
+    <order>2</order>
+    <typeReference id="1593bfb4-ce97-40ff-94ee-18e6c2c8ce09">
+      <typeId>4bfd7203-1a56-40dd-9364-eb44108a18c8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Redis.Om.Repositories.Domain</typePackageName>
+      <typePackageId>47cbdc37-d612-4a46-aef9-100a17e980c4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="e1fc703d-389d-4241-aee1-ee6ce385bbc0" name="Indexed">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Redis.Om.Repositories</definitionPackageName>
+        <definitionPackageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</definitionPackageId>
+        <properties />
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="e1fc703d-389d-4241-aee1-ee6ce385bbc0" name="Indexed">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Redis.Om.Repositories</definitionPackageName>
+      <definitionPackageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+</association>

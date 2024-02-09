@@ -184,6 +184,13 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         expression: "hcBuilder.AddOracle",
                         connectionStringNameVar: Infrastructure.Oracle.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.Oracle.Property.ConnectionStringSettingPath);
+                case Infrastructure.Redis.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksRedis(OutputTarget));
+                    return GetDatabaseHealthCheckStatements(
+                        @event: @event,
+                        expression: "hcBuilder.AddRedis",
+                        connectionStringNameVar: Infrastructure.Redis.Property.ConnectionStringName,
+                        connectionStringSettingPathVar: Infrastructure.Redis.Property.ConnectionStringSettingPath);
                 default:
                     return Enumerable.Empty<CSharpInvocationStatement>();
             }
