@@ -11,10 +11,12 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.Templates;
 using System.Linq;
 using Intent.Modules.Metadata.WebApi.Models;
+using System.Net.Http.Headers;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration
 {
-    public abstract class HttpClientConfigurationBase : CSharpTemplateBase<IList<ServiceProxyModel>>, ICSharpFileBuilderTemplate
+    public abstract class HttpClientConfigurationBase : CSharpTemplateBase<IList<IServiceProxyModel>>, ICSharpFileBuilderTemplate
     {
         public HttpClientConfigurationBase(
             string templateId,
@@ -22,7 +24,25 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             IList<ServiceProxyModel> model,
             string serviceContractTemplateId,
             string httpClientTemplateId,
-            Action<CSharpLambdaBlock, ServiceProxyModel, ICSharpFileBuilderTemplate > configureHttpClient
+            Action<CSharpLambdaBlock, IServiceProxyModel, ICSharpFileBuilderTemplate> configureHttpClient
+            ) : this(
+                    templateId,
+                    outputTarget,
+                    model.Select(x => new ServiceProxyModelAdapter(x)).Cast<IServiceProxyModel>().ToList(),
+                    serviceContractTemplateId,
+                    httpClientTemplateId,
+                    configureHttpClient
+                )
+        {
+        }
+
+        private HttpClientConfigurationBase(
+            string templateId,
+            IOutputTarget outputTarget,
+            IList<IServiceProxyModel> model,
+            string serviceContractTemplateId,
+            string httpClientTemplateId,
+            Action<CSharpLambdaBlock, IServiceProxyModel, ICSharpFileBuilderTemplate > configureHttpClient
             ) : base(templateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
@@ -47,7 +67,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                             {
                                 statement
                                     .SeparatedFromPrevious()
-                                    .AddMetadata("model", proxy);
+                                    .AddMetadata("model", proxy.UnderlyingModel);
 
                                 statement
                                     .AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{GetTypeName(serviceContractTemplateId, proxy)}, {GetTypeName(httpClientTemplateId, proxy)}>")

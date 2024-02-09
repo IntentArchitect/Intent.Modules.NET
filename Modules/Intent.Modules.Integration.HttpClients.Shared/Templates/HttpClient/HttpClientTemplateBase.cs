@@ -12,13 +12,16 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 
-public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
+public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyModel>, ICSharpFileBuilderTemplate
 {
+    private readonly string _pagedResultTemplateId;
+
     protected HttpClientTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
@@ -29,15 +32,39 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
         string dtoContractTemplateId,
         string enumContractTemplateId,
         string pagedResultTemplateId)
+    : this(
+          templateId, 
+          outputTarget, 
+          new ServiceProxyModelAdapter(model), 
+          httpClientRequestExceptionTemplateId,
+            jsonResponseTemplateId,
+            serviceContractTemplateId,
+            dtoContractTemplateId,
+            enumContractTemplateId,
+            pagedResultTemplateId)
+    {
+    }
+
+    protected HttpClientTemplateBase(
+        string templateId,
+        IOutputTarget outputTarget,
+        IServiceProxyModel model,
+        string httpClientRequestExceptionTemplateId,
+        string jsonResponseTemplateId,
+        string serviceContractTemplateId,
+        string dtoContractTemplateId,
+        string enumContractTemplateId,
+        string pagedResultTemplateId)
         : base(templateId, outputTarget, model)
     {
+        _pagedResultTemplateId = pagedResultTemplateId;
+
         var endpoints = Model.GetMappedEndpoints().ToArray();
 
         AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-        PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
         AddTypeSource(serviceContractTemplateId);
         AddTypeSource(dtoContractTemplateId);
         AddTypeSource(enumContractTemplateId);
@@ -55,7 +82,10 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
-                @class.AddMetadata("model", model);
+                if (model.UnderlyingModel != null)
+                {
+                    @class.AddMetadata("model", model.UnderlyingModel);
+                }
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
@@ -221,6 +251,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<ServiceProxyMo
 
                 @class.AddMethod("void", "Dispose");
             });
+    }
+
+    public override void AfterTemplateRegistration()
+    {
+        base.AfterTemplateRegistration();
+        PagedResultTypeSource.ApplyTo(this, _pagedResultTemplateId);
     }
 
     private string GetReadToEndMethodCall()

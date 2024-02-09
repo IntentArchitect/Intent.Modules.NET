@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e1e11eb9-183b-41af-a49b-dc2ddbbfb83b">
+  <sourceEnd id="7f4d75ef-5eae-4888-9250-fc556ce315b9" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetNoReturnByIdQuery</display>
+    <order>0</order>
+    <typeReference id="d5f115cc-a224-4f4b-b148-55323f9afd44">
+      <typeId>70344b7d-0d8f-48e2-aba2-751c29d657c3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e1e11eb9-183b-41af-a49b-dc2ddbbfb83b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>noReturn</name>
+    <display>[query] noReturn: NoReturn</display>
+    <order>1</order>
+    <typeReference id="8d6a9dc3-6032-4653-b32d-cd8e708c0c0f">
+      <typeId>d41f3b20-b813-4c0b-8889-3f2712018361</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="70344b7d-0d8f-48e2-aba2-751c29d657c3" location="[IntegrationTesting.Tests].[Services].[GetNoReturnByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d41f3b20-b813-4c0b-8889-3f2712018361" location="[IntegrationTesting.Tests].[Services].[NoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d41f3b20-b813-4c0b-8889-3f2712018361" name="NoReturn" type="element" specialization="Class" />
+              <target id="1214a6ba-1020-4467-97de-0d629cbc0381" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="70344b7d-0d8f-48e2-aba2-751c29d657c3" name="GetNoReturnByIdQuery" type="element" specialization="Query" />
+                  <target id="1237585a-8a1e-4e48-ae07-5275d5d19917" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

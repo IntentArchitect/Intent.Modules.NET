@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="75d5d7bf-7b5e-4d46-aa34-ee552a5dcb76">
+  <sourceEnd id="81027de7-445b-49da-b5a3-9fdb478543eb" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBadSignaturesByIdQuery</display>
+    <order>0</order>
+    <typeReference id="4e17fc37-9c04-48db-a42f-8942825511bc">
+      <typeId>7ad16c44-21c7-4d41-9d47-a4f72482db55</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="75d5d7bf-7b5e-4d46-aa34-ee552a5dcb76" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>badSignatures</name>
+    <display>[query] badSignatures: BadSignatures</display>
+    <order>1</order>
+    <typeReference id="69a5d68f-1eb4-4944-83c0-290a7eceebf0">
+      <typeId>53cb7742-0fd9-472e-885a-4ece3ffd230c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7ad16c44-21c7-4d41-9d47-a4f72482db55" location="[IntegrationTesting.Tests].[Services].[GetBadSignaturesByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="53cb7742-0fd9-472e-885a-4ece3ffd230c" location="[IntegrationTesting.Tests].[Services].[BadSignatures]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="53cb7742-0fd9-472e-885a-4ece3ffd230c" name="BadSignatures" type="element" specialization="Class" />
+              <target id="84d3b647-6e03-4591-bfdc-47ac8b91d874" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7ad16c44-21c7-4d41-9d47-a4f72482db55" name="GetBadSignaturesByIdQuery" type="element" specialization="Query" />
+                  <target id="542cbb50-979a-40ef-bf18-8e21c4b34901" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

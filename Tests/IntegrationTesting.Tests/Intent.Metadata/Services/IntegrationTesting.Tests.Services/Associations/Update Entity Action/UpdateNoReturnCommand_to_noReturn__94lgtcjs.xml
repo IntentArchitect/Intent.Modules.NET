@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9b145e84-ca98-4972-a74a-4c45a334e6ef">
+  <sourceEnd id="7f72c526-57cc-4ea0-889c-df16f0d8d9ac" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : NoReturns.UpdateNoReturnCommand</display>
+    <order>0</order>
+    <typeReference id="850149d1-cbc4-4e7e-b0e1-6d57eca595de">
+      <typeId>183c567d-324d-43f2-bc2b-444ac6811716</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9b145e84-ca98-4972-a74a-4c45a334e6ef" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>noReturn</name>
+    <display>[update] noReturn: NoReturn</display>
+    <order>2</order>
+    <typeReference id="f0e60363-e4e6-4214-8bba-678a48682f89">
+      <typeId>d41f3b20-b813-4c0b-8889-3f2712018361</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="183c567d-324d-43f2-bc2b-444ac6811716" location="[IntegrationTesting.Tests].[Services].[UpdateNoReturnCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d41f3b20-b813-4c0b-8889-3f2712018361" location="[IntegrationTesting.Tests].[Services].[NoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d41f3b20-b813-4c0b-8889-3f2712018361" name="NoReturn" type="element" specialization="Class" />
+              <target id="1214a6ba-1020-4467-97de-0d629cbc0381" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="183c567d-324d-43f2-bc2b-444ac6811716" name="UpdateNoReturnCommand" type="element" specialization="Command" />
+                  <target id="a64541d2-3bb9-4a51-af2d-298f5e8ba675" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="183c567d-324d-43f2-bc2b-444ac6811716" location="[IntegrationTesting.Tests].[Services].[UpdateNoReturnCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d41f3b20-b813-4c0b-8889-3f2712018361" location="[IntegrationTesting.Tests].[Services].[NoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="d41f3b20-b813-4c0b-8889-3f2712018361" name="NoReturn" type="element" specialization="Class" />
+              <target id="b6d8ffbb-d2d1-4bd4-9008-0107c06d4c65" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="183c567d-324d-43f2-bc2b-444ac6811716" name="UpdateNoReturnCommand" type="element" specialization="Command" />
+                  <target id="2afec287-9b5c-45e6-b6ae-6ca4ff2c9da4" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.Infrastructure", "AdvancedMappingCrud.DbContext.Tests.Infrastructure\AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj", "{3042658D-5472-4C53-95DA-0E7A3BDE78E2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{46673BD1-4F10-4670-985A-05D7992BAE1F}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.IntegrationTests", "AdvancedMappingCrud.DbContext.Tests.IntegrationTests\AdvancedMappingCrud.DbContext.Tests.IntegrationTests.csproj", "{D2049E4C-EA02-43C8-9986-8749080E35EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,10 @@ Global
 		{3042658D-5472-4C53-95DA-0E7A3BDE78E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3042658D-5472-4C53-95DA-0E7A3BDE78E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3042658D-5472-4C53-95DA-0E7A3BDE78E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2049E4C-EA02-43C8-9986-8749080E35EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2049E4C-EA02-43C8-9986-8749080E35EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2049E4C-EA02-43C8-9986-8749080E35EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2049E4C-EA02-43C8-9986-8749080E35EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +57,6 @@ Global
 		{3C50F867-88D1-419E-8A2E-EED8D12E80F2} = {F3DBD691-7A70-40DE-B069-D36AF3F3F208}
 		{333EBC43-E65E-482F-9772-DB8F55CACFA2} = {838F9F24-08EA-4A6D-98BE-43CDE85D242A}
 		{3042658D-5472-4C53-95DA-0E7A3BDE78E2} = {CB80604B-F6C8-423E-AC09-AA585E4A8BBF}
+		{D2049E4C-EA02-43C8-9986-8749080E35EC} = {46673BD1-4F10-4670-985A-05D7992BAE1F}
 	EndGlobalSection
 EndGlobal

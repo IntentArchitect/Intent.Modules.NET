@@ -1,4 +1,12 @@
-﻿### Version 5.0.8
+﻿### Version 5.1.0
+
+- Improvement: Upgraded Microsoft.Extensions.Http NuGet package to version 8.0.0
+
+### Version 5.0.8
+
+- Improvement: Underlying proxy templates updated to support alternate Metadata models.
+
+### Version 5.0.8
 
 - Fixed: Bug in HttpClient where the query string was not correctly handling a collection type.
 - Improvement: Added support for configuring headers in HttpClient requests either through request header propagation or from the Session.

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -25,8 +26,8 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Application.Common.Behaviour
 
         public UnitOfWorkBehaviour(ICosmosDBUnitOfWork cosmosDBDataSource, IUnitOfWork dataSource)
         {
-            _cosmosDBDataSource = cosmosDBDataSource;
-            _dataSource = dataSource;
+            _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(

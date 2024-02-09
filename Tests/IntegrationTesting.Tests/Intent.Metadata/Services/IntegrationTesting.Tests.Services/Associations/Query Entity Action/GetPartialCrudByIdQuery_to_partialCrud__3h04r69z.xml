@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="60336932-b529-47e8-83eb-c1d5a1811dd7">
+  <sourceEnd id="9ef6c568-871a-4971-bd74-364ed42337e9" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPartialCrudByIdQuery</display>
+    <order>0</order>
+    <typeReference id="d8106911-1ccc-43a7-93b4-29a7169b8c65">
+      <typeId>12d1e7d2-7ec6-4e5b-887d-2e0b3fcfdd76</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="60336932-b529-47e8-83eb-c1d5a1811dd7" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>partialCrud</name>
+    <display>[query] partialCrud: PartialCrud</display>
+    <order>1</order>
+    <typeReference id="d3b9f83c-3b13-46dd-8863-17d87de79ec9">
+      <typeId>64211065-b964-4f8d-aaca-f9ca95668b38</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="12d1e7d2-7ec6-4e5b-887d-2e0b3fcfdd76" location="[IntegrationTesting.Tests].[Services].[GetPartialCrudByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64211065-b964-4f8d-aaca-f9ca95668b38" location="[IntegrationTesting.Tests].[Services].[PartialCrud]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="64211065-b964-4f8d-aaca-f9ca95668b38" name="PartialCrud" type="element" specialization="Class" />
+              <target id="653f1c8e-d0f0-4f73-a4e7-350dce8c959f" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="12d1e7d2-7ec6-4e5b-887d-2e0b3fcfdd76" name="GetPartialCrudByIdQuery" type="element" specialization="Query" />
+                  <target id="a742a9e0-e469-47f5-8c5b-187d34708502" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

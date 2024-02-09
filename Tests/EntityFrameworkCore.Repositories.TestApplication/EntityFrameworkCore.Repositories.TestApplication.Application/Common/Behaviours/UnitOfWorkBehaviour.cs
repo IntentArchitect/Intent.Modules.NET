@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -24,7 +25,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Be
 
         public UnitOfWorkBehaviour(IUnitOfWork dataSource)
         {
-            _dataSource = dataSource;
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(

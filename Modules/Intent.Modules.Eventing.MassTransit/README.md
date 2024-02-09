@@ -303,7 +303,7 @@ If you have the `Intent.OpenTelemetry` module installed, this module will regist
 
 ### Intent.Eventing.MassTransit.EntityFrameworkCore
 
-This modules provides patterns around using Entity Framework Core as the technology provider for the OutBox pattern.
+This module provides patterns around using Entity Framework Core as the technology provider for the OutBox pattern.
 
 ### Intent.Eventing.MassTransit.Scheduling
 

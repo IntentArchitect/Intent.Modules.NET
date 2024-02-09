@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c9c20044-8bb4-4cf7-add6-690fbdc04a7e" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>UpdateInfoDto</name>
+  <display>UpdateInfoDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>83443f65-0d69-4908-a7da-c786f8b51b74</parentFolderId>
+  <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+  <packageName>AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="565170d9-d84b-4098-be84-1f3ddf9e6b4b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>NewEmail</name>
+      <display>NewEmail: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1af462d1-808b-4199-bf86-d7a119e95d0a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c9c20044-8bb4-4cf7-add6-690fbdc04a7e</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b91659f7-5f6f-4d80-be6c-c2fe81bb1692" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>NewPassword</name>
+      <display>NewPassword: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ea73e2a1-9cd8-414e-9c5d-6b7413a79e59">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c9c20044-8bb4-4cf7-add6-690fbdc04a7e</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="76bc13f8-dffb-4f11-ba91-9c4b8f067ebc" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OldPassword</name>
+      <display>OldPassword: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="eeeedf4c-5a2c-4504-9eed-9c43eb9c222d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c9c20044-8bb4-4cf7-add6-690fbdc04a7e</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

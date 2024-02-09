@@ -40,6 +40,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Controllers
         public async Task<ActionResult> Create([FromBody] CreateTagDto dto, CancellationToken cancellationToken = default)
         {
             await _appService.Create(dto, cancellationToken);
+
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Created(string.Empty, null);
         }

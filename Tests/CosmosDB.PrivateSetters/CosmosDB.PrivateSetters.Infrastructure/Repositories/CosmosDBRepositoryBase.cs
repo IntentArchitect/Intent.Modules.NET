@@ -125,6 +125,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
         {
             var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
             var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();
+
             var totalCount = pagedDocuments.Total ?? 0;
             var pageCount = pagedDocuments.TotalPages ?? 0;
 
@@ -169,6 +170,16 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             {
                 yield return LoadAndTrackDocument(document);
             }
+        }
+
+        public string? GetEtag(TDomain entity)
+        {
+            if (_etags.TryGetValue(GetId(entity), out var etag))
+            {
+                return etag;
+            }
+
+            return default;
         }
 
         private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()

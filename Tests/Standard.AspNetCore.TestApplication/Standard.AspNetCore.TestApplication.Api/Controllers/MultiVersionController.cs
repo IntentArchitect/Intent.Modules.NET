@@ -43,7 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult> OperationForVersionOne(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.OperationForVersionOne(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -62,7 +62,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         public async Task<ActionResult> OperationForVersionTwo(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.OperationForVersionTwo(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);

@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Validation;
-using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -22,12 +21,10 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     public class ValidationTestingController : ControllerBase
     {
         private readonly IValidationTestingService _appService;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public ValidationTestingController(IValidationTestingService appService, IUnitOfWork unitOfWork)
+        public ValidationTestingController(IValidationTestingService appService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         /// <summary>

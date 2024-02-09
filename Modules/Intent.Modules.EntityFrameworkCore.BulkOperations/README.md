@@ -13,4 +13,4 @@ For more information on EFCore BulkExtensions, read their [official docs](https:
 
 ## What's in this module?
 
-This modules extends the Entity Framework Core Repository adding methods for bulk operation support.
+This module extends the Entity Framework Core Repository adding methods for bulk operation support.

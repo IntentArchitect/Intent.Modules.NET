@@ -191,12 +191,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 @class.AddField("string?", "_etag", field =>
                 {
                     field.Private();
+                    field.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"_etag\")");
                 });
 
                 @class.AddProperty("string?", "Etag", property =>
                 {
                     property.ExplicitlyImplements("IItemWithEtag");
-                    property.Getter.WithExpressionImplementation("etag");
+                    property.Getter.WithExpressionImplementation("_etag");
                     property.WithoutSetter();
                 });
             }

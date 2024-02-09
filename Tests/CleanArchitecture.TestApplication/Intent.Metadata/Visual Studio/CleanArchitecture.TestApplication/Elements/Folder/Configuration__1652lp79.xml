@@ -133,21 +133,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4f9d8111-c060-44c7-be05-7a9cd9f5cb2b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.Cors.CorsConfiguration</name>
-      <display>Intent.Modules.AspNetCore.Cors.CorsConfiguration</display>
-      <externalReference>Intent.Modules.AspNetCore.Cors</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
-      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
-      <packageName>CleanArchitecture.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

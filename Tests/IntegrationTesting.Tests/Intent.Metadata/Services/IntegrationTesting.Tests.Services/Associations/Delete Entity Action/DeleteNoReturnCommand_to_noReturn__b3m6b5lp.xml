@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="467e6192-0cb9-4a00-9cd7-c45f960b090c">
+  <sourceEnd id="45f5d1a6-1a72-4c6a-9211-98c2cf93809e" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : NoReturns.DeleteNoReturnCommand</display>
+    <order>0</order>
+    <typeReference id="7cd9c716-5428-4338-b773-f0eb1d291168">
+      <typeId>e7622776-4258-43db-a19e-61ada2e0a3f6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="467e6192-0cb9-4a00-9cd7-c45f960b090c" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>noReturn</name>
+    <display>[delete] noReturn: NoReturn</display>
+    <order>1</order>
+    <typeReference id="00ca008e-a974-411d-88de-f491098609b7">
+      <typeId>d41f3b20-b813-4c0b-8889-3f2712018361</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e7622776-4258-43db-a19e-61ada2e0a3f6" location="[IntegrationTesting.Tests].[Services].[DeleteNoReturnCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d41f3b20-b813-4c0b-8889-3f2712018361" location="[IntegrationTesting.Tests].[Services].[NoReturn]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d41f3b20-b813-4c0b-8889-3f2712018361" name="NoReturn" type="element" specialization="Class" />
+              <target id="1214a6ba-1020-4467-97de-0d629cbc0381" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e7622776-4258-43db-a19e-61ada2e0a3f6" name="DeleteNoReturnCommand" type="element" specialization="Command" />
+                  <target id="b771cf0a-5781-48c4-9788-9b705b3e3f39" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

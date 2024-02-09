@@ -43,7 +43,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api.Controllers
         public async Task<ActionResult> TestPublish(string message, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.TestPublish(message, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);

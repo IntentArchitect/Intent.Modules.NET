@@ -138,7 +138,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     );
 
                     var updatePopulateFromEntityStatement = useOptimisticConcurrency
-                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, _etags[GetId(entity)]);"
+                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, GetEtag(entity));"
                         : $"var document = new {tDocument}().PopulateFromEntity(entity);";
                     @class.AddMethod("void", "Update", m => m
                         .AddParameter(tDomain, "entity")
@@ -156,7 +156,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     );
 
                     var removePopulateFromEntityStatement = useOptimisticConcurrency
-                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, _etags[GetId(entity)]);"
+                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, GetEtag(entity));"
                         : $"var document = new {tDocument}().PopulateFromEntity(entity);";
                     @class.AddMethod("void", "Remove", m => m
                         .AddParameter(tDomain, "entity")
@@ -312,10 +312,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     @class.AddMethod($"string?", "GetEtag", method =>
                     {
-                        method.AddParameter(tDocument, "entity");
+                        method.AddParameter(tDomain, "entity");
 
                         method.AddIfStatement("_etags.TryGetValue(GetId(entity), out var etag)", @if => { 
-                            method.AddStatement("return etag;");
+                            @if.AddStatement("return etag;");
                         });
 
                         method.AddStatement("return default;", s => { s.SeparatedFromPrevious(); });

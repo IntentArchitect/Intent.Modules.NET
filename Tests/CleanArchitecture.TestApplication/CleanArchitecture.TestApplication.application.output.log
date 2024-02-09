@@ -5355,14 +5355,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5112de09-b5eb-4c2b-932c-c6ec1313abac</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.AccountController.AccountServiceHttpClientTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/AccountService/AccountServiceHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AccountService/AccountServiceHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>da3b096c-8d67-4925-b5f6-43178f945468</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -5392,6 +5384,150 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#9ac3d9a0-bcdc-4683-bc04-bb7bf7ecc964</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ConfirmEmailDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#9ac3d9a0-bcdc-4683-bc04-bb7bf7ecc964</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ConfirmEmailDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ConfirmEmailDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#de269ba0-c2b9-4e45-b375-b9513aa51d90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ForgotPasswordDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#de269ba0-c2b9-4e45-b375-b9513aa51d90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ForgotPasswordDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ForgotPasswordDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#167bb89a-b893-4a1a-8786-51930080613d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/InfoResponseDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#167bb89a-b893-4a1a-8786-51930080613d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/InfoResponseDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/InfoResponseDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#791b60ad-83a6-4a95-9c86-27714f5d07c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/LoginDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#791b60ad-83a6-4a95-9c86-27714f5d07c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/LoginDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/LoginDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#392d5963-ae56-4cda-bf30-c40bc611429e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/RefreshTokenDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#392d5963-ae56-4cda-bf30-c40bc611429e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RefreshTokenDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/RefreshTokenDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#678f8ea6-eecd-44df-9b35-ca0216311251</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/RegisterDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#678f8ea6-eecd-44df-9b35-ca0216311251</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/RegisterDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/RegisterDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#4bef076a-3939-43d4-82da-d6ae877b37f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ResetPasswordDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#4bef076a-3939-43d4-82da-d6ae877b37f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/ResetPasswordDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/ResetPasswordDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#f34dad62-e820-435e-bdb1-e85605aa6750</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/TokenResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#f34dad62-e820-435e-bdb1-e85605aa6750</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/TokenResultDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/TokenResultDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#c9c20044-8bb4-4cf7-add6-690fbdc04a7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/UpdateInfoDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6932f2e-b5fc-4146-9751-6bab13e0b150</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#c9c20044-8bb4-4cf7-add6-690fbdc04a7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Contracts/AspNetCore/Identity/AccountController/UpdateInfoDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCore/Identity/AccountController/UpdateInfoDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5892,7 +6028,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5112de09-b5eb-4c2b-932c-c6ec1313abac</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.AccountController.AccountServiceInterfaceTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#7a1876e0-095d-4ddd-a9d4-ee9b56022f82</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IAccountService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAccountService.cs</ProjectRelativeFilePath>
@@ -5904,6 +6040,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/IAggregateRootsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRootsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5ff50fc8-597d-4f8d-89eb-3d8bee9c7d39</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#7a1876e0-095d-4ddd-a9d4-ee9b56022f82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.BlazorClient/HttpClients/Implementations/AccountServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

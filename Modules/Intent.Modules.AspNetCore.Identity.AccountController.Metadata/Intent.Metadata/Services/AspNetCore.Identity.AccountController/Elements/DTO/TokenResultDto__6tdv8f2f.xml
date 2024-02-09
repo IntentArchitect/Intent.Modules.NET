@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f34dad62-e820-435e-bdb1-e85605aa6750" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>TokenResultDto</name>
+  <display>TokenResultDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>83443f65-0d69-4908-a7da-c786f8b51b74</parentFolderId>
+  <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+  <packageName>AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c34b4285-85b7-493b-a2d5-7771d6378fdd" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>TokenType</name>
+      <display>TokenType: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="192f3cc3-3dec-4861-8d68-483b6f1226c0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f34dad62-e820-435e-bdb1-e85605aa6750</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="71038e9f-a1f7-4a6c-9dd6-769ff1d4f792" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>AuthenticationToken</name>
+      <display>AuthenticationToken: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5455473a-9cd3-49aa-8457-2530bd8208fb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f34dad62-e820-435e-bdb1-e85605aa6750</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="76bac21f-f4ff-469d-9a5e-08c69f6fda3b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ExpiresIn</name>
+      <display>ExpiresIn: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="98e985db-9c2a-4077-b532-fdf71ad9d5e0">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f34dad62-e820-435e-bdb1-e85605aa6750</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="90dd3666-2876-4f40-b3a3-2f6eeda9473a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>RefreshToken</name>
+      <display>RefreshToken: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f7831707-5e72-4205-b519-e1e34e37fd6f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f34dad62-e820-435e-bdb1-e85605aa6750</parentFolderId>
+      <packageId>83443f65-0d69-4908-a7da-c786f8b51b74</packageId>
+      <packageName>AspNetCore.Identity.AccountController</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

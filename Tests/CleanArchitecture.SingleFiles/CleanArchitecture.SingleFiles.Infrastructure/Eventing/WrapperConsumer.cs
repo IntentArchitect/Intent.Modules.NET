@@ -29,10 +29,10 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
             IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _serviceProvider = serviceProvider;
-            _cosmosDBUnitOfWork = cosmosDBUnitOfWork;
-            _daprStateStoreUnitOfWork = daprStateStoreUnitOfWork;
-            _unitOfWork = unitOfWork;
-            _mongoDbUnitOfWork = mongoDbUnitOfWork;
+            _cosmosDBUnitOfWork = cosmosDBUnitOfWork ?? throw new ArgumentNullException(nameof(cosmosDBUnitOfWork));
+            _daprStateStoreUnitOfWork = daprStateStoreUnitOfWork ?? throw new ArgumentNullException(nameof(daprStateStoreUnitOfWork));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)

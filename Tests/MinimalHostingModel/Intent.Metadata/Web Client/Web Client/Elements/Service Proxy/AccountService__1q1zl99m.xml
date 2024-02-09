@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d579c418-d698-4b92-ac79-ac0f80745712" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>AccountService</name>
+  <display>AccountService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>bf8f6060-e2f0-4326-9767-e3c546c7933c</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="70f9157a-fc49-4755-b6bf-116db19fd9fc" name="Account" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>e4837021-7d17-4c35-9f11-c679b2c486cb</parentFolderId>
+  <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+  <packageName>Web Client</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="679709a2-2aa8-4bea-be43-10522e4d4641" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Register</name>
+      <display>Register(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ed6c77ab-2385-4943-bc98-1930bcf1bd0e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="217fa7ac-ca2e-4031-9244-8225163f1a16" name="Register" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7519c030-db2e-446b-b46d-22394a899418" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Login</name>
+      <display>Login(): TokenResultDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ac180e61-b7a2-4afa-8760-44c17681a506">
+        <typeId>f34dad62-e820-435e-bdb1-e85605aa6750</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+        <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="cfd723d4-8647-4168-b5ff-6dcdfda0fd7f" name="Login" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="967b0f87-4b3f-4af2-93c5-edb223f42c83" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Refresh</name>
+      <display>Refresh(): TokenResultDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="05903ee5-cd73-451f-8397-a5dccbb07f74">
+        <typeId>f34dad62-e820-435e-bdb1-e85605aa6750</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+        <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ceeda004-1c6d-4d05-bf1f-8273f655e4fa" name="Refresh" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fc415dab-ba81-4315-934d-9c396dd93fc9" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>ConfirmEmail</name>
+      <display>ConfirmEmail(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ccc4a117-2a04-42bc-bb50-47ee76a233db">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="738d2055-504a-46f0-bc09-a898d2dfbf9e" name="ConfirmEmail" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c54ed69a-55e0-4e55-9637-41eec7633be6" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>ForgotPassword</name>
+      <display>ForgotPassword(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9a7d27ed-6d6a-4344-8e1a-2a257acaa6bc">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b936f132-6e02-4eef-8439-e903d1833097" name="ForgotPassword" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="36db688d-eb80-41b6-8b29-6dd91cd2be83" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>ResetPassword</name>
+      <display>ResetPassword(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8a4cf899-d7bc-4123-8aac-3489e53804ce">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9a8774cf-44c4-4d39-8737-bea6a46e8efb" name="ResetPassword" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8f484c22-2755-4153-8259-3dce0cf9a849" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetInfo</name>
+      <display>GetInfo(): InfoResponseDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="de9d26ea-ac83-481d-94fa-af141b634cfa">
+        <typeId>167bb89a-b893-4a1a-8786-51930080613d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+        <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="4698007c-c7f7-41d3-9248-5bbb49da63d5" name="GetInfo" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a6d5bfdb-9e35-4078-82f1-991cd1df60d3" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>PostInfo</name>
+      <display>PostInfo(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c5d7123a-a7f4-4d6f-9374-264b03017783">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f066cf05-92b2-488c-b37e-d58e3cc0e66d" name="PostInfo" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1e96c22f-e227-4204-8590-5b26cffde910" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Logout</name>
+      <display>Logout(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3971a354-475e-4a06-80c7-d0fd8b79224e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="5998e520-4e8b-4a39-9ea8-f1d495809f1c" name="Logout" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
+      <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

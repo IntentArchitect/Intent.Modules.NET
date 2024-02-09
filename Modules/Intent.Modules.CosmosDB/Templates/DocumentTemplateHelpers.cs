@@ -12,8 +12,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
-using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
@@ -227,7 +227,7 @@ namespace Intent.Modules.CosmosDB.Templates
             {
                 method.AddParameter($"{entityInterfaceTypeName}{genericTypeArguments}", "entity");
 
-                if (useOptimisticConcurrency)
+                if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
                     method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
                 }
@@ -288,7 +288,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     method.AddStatement($"{associationEnd.Name} = {documentTypeName}.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
                 }
 
-                if (useOptimisticConcurrency)
+                if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
                     method.AddStatement("_etag = etag;", s => s.SeparatedFromPrevious());
                 }
@@ -311,7 +311,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     method.AddIfStatement("entity is null", @if => @if.AddStatement("return null;"));
 
-                    if (useOptimisticConcurrency)
+                    if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                     {
                         method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
                         method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity, etag);", s => s.SeparatedFromPrevious());
