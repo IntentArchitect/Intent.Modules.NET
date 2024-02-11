@@ -14,12 +14,12 @@ class ImodSpecInfo {
         $this.FilePath = $filePath
         $this.DirectoryPath = [System.IO.Path]::GetDirectoryName($filePath)
         $this.Id = $content.package.id
-        $this.Version = [VersionInfo]::new($content.package.version)
+        $this.Version = if (-not [System.String]::IsNullOrWhiteSpace($content.package.version)) { [VersionInfo]::new($content.package.version) } else { $null }
         $this.Authors = $content.package.authors
         $this.Summary = $content.package.summary
         $this.Description = $content.package.description
         $this.IsObsolete = $this.Description.ToLower().Contains("obsolete")
-        $this.Dependencies = $content.package.dependencies.dependency | ForEach-Object { [Dependency]::new($_.id, $_.version) }
+        $this.Dependencies = $content.package.dependencies.dependency | Where-Object { $null -ne $_.Id } | ForEach-Object { [Dependency]::new($_.id, $_.version) }
         $this.ReleaseNotes = $content.package.releaseNotes
     }
 }
@@ -33,7 +33,7 @@ class Dependency {
         [string]$Version
     ) {
         $this.Id = $Id
-        $this.Version = [VersionInfo]::new($Version)
+        $this.Version = if (-not [System.String]::IsNullOrWhiteSpace($Version)) { [VersionInfo]::new($Version) } else { $null }
     }
 }
 
@@ -60,7 +60,7 @@ class VersionInfo {
                 $this.Revision = $matches[4]
             }
         } else {
-            Write-Host "Version format not recognized."
+            Write-Host "Version format not recognized: $($versionString)."
         }
     }
 
@@ -119,7 +119,7 @@ $validationRules = @{
         } 
     }
     Obsolete = { 
-        param([ImodSpecInfo]$info)  
+        param([ImodSpecInfo]$info)
         $obsoleteDependencies = $info.Dependencies | Where-Object { 
             $imodSpecInfos.ContainsKey($_.Id) -and $imodSpecInfos[$_.Id].IsObsolete 
         }
@@ -127,9 +127,23 @@ $validationRules = @{
             return "Contains obsolete dependencies: $($obsoleteDependencies.Id -join ', ')"
         }
     }
+    HasVersion = {
+        param([ImodSpecInfo]$info)
+        if ($info.Version -eq $null) {
+            return "Does not have a version specified"
+        }
+        if ($info.Dependencies -ne $null) {
+            $missingVersions = @($info.Dependencies | Where-Object {
+                $_.Version -eq $null
+            })
+            if ($missingVersions.Count -gt 0) {
+                return "Dependencies with missing versions: $($missingVersions.Id -join ', ')"
+            }
+        }
+    }
     HasReleaseNotes = { 
         param([ImodSpecInfo]$info) 
-        if ([System.String]::IsNullOrWhiteSpace($info.ReleaseNotes)) { 
+        if ($info.ReleaseNotes -ne $null -and [System.String]::IsNullOrWhiteSpace($info.ReleaseNotes)) { 
             return "No release notes defined" 
         } 
     }
