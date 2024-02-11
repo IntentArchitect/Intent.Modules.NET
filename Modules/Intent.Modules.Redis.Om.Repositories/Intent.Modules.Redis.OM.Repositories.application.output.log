@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8faa0157-30e3-4806-9ebf-c8c68a4574a1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#2cf21aa0-73ac-41c2-ada8-209f450a7f10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AttributeExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AttributeExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8faa0157-30e3-4806-9ebf-c8c68a4574a1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0090fb93-483e-41af-a11d-5ad2dc796adf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/AttributeModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -54,6 +62,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Redis.Om.Repositories.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Redis.Om.Repositories.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c07d5ea-2bf9-46d3-9811-4a50b1c50e43</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#2c841f19-9f06-4814-abae-07d8cf4698e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Redis OM Key Automation.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Redis OM Key Automation.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

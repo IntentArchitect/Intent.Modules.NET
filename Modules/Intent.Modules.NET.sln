@@ -265,7 +265,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController.Metadata", "Intent.Modules.AspNetCore.Identity.AccountController.Metadata\Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj", "{37DF17B6-66FE-4810-82D0-1A964213E4EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

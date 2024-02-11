@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>2c841f19-9f06-4814-abae-07d8cf4698e3</id>
+  <name>Redis OM Key Automation</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>const IndexedStereotypeId = "e1fc703d-389d-4241-aee1-ee6ce385bbc0";
+const PrimaryKeyStereotypeId = "64f6a994-4909-4a9d-a0a9-afc5adf2ef74";
+
+if (element.hasStereotype(PrimaryKeyStereotypeId)) {
+    element.addStereotype(IndexedStereotypeId);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>
