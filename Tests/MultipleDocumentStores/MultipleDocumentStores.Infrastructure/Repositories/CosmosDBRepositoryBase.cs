@@ -117,6 +117,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
         {
             var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
             var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();
+
             var totalCount = pagedDocuments.Total ?? 0;
             var pageCount = pagedDocuments.TotalPages ?? 0;
 

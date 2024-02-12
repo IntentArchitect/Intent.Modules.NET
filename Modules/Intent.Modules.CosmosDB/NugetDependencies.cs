@@ -1,15 +1,20 @@
-﻿using Intent.Modules.Common.VisualStudio;
+﻿using Intent.Engine;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.CosmosDB
 {
     internal class NugetDependencies
     {
-        /// <summary>
-        /// I have not configured different output targets because version 3.7.0 of the repository does not support etags at all, and version 7.x.x 
-        /// supports .NET 7.0. However, version 8.1.2 supports .NET 7.0 and .NET 8.0, along with netstandard2.0. Version 3.7.0 only supports netstandard2.0.
-        /// This means that all support is encapsulated by this version.
-        /// </summary>
-        public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "8.1.2");
+        public static NugetPackageInfo IEvangelistAzureCosmosRepository(IOutputTarget outputTarget) => new(
+            name: "IEvangelist.Azure.CosmosRepository",
+            version: outputTarget.GetProject().GetMaxNetAppVersion() switch
+            {
+                (5, 0) => "3.7.0",
+                (6, 0) => "3.7.0",
+                (7, 0) => "7.1.0",
+                _ => "8.1.3"
+            });
         /// <summary>
         /// This dependency is introduced to override the version installed by CosmosDB due to a possible security
         /// vulnerability. https://github.com/advisories/GHSA-5crp-9r3c-p9vr
