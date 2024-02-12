@@ -16,7 +16,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         {
         }
 
-        [Fact]
+        [Fact(Skip = "The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.
         public async Task GetOrderOrderItemById_ShouldGetOrderOrderItemById()
         {
             //Arrange
