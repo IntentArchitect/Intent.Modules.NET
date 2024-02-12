@@ -1366,8 +1366,16 @@
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/CustomersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomersHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomersHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1380,30 +1388,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ICustomersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#c5c7590b-668d-4237-9ad4-a2df580080b2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/IOrdersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IOrdersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a8729734-3d09-4e83-86cb-220ac8910248</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/IProductsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IProductsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
@@ -1412,18 +1396,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#c5c7590b-668d-4237-9ad4-a2df580080b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Orders/IOrdersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/IOrdersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#c5c7590b-668d-4237-9ad4-a2df580080b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/OrdersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OrdersHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Orders/OrdersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrdersHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a8729734-3d09-4e83-86cb-220ac8910248</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Products/IProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/IProductsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#a8729734-3d09-4e83-86cb-220ac8910248</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ProductsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProductsHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Products/ProductsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

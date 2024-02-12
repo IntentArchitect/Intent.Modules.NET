@@ -1,5 +1,6 @@
 using System.Net;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 

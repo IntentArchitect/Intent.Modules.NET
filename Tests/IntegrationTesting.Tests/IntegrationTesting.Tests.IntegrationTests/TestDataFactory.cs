@@ -1,5 +1,13 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Parents;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;

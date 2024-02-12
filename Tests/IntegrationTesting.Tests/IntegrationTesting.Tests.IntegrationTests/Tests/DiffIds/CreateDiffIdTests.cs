@@ -1,5 +1,6 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
 using Intent.RoslynWeaver.Attributes;
 

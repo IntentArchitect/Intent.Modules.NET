@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 {
@@ -23,6 +24,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         public string Id => _model.Id;
 
         public IMetadataModel UnderlyingModel => _model;
+
+        public FolderModel Folder => _model.Folder;
 
         public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
         {

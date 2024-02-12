@@ -1,5 +1,6 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

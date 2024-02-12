@@ -1,4 +1,5 @@
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 
