@@ -1,4 +1,8 @@
-﻿### Version 5.0.8
+﻿### Version 5.1.0
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
+### Version 5.0.8
 
 - Improvement: Underlying proxy templates updated to support alternate Metadata models.
 

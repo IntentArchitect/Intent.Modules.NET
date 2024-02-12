@@ -1,3 +1,7 @@
+### Version 3.8.9
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 3.8.7
 
 - Improvement: Added CascadeMode option on Fluent Validations to specify this behaviour.

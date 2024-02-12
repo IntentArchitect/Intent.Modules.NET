@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 1.1.0
 
 - Improvement: Added Document DB Provider support, allowing this module to be used in conjunction with other Document DB technologies within the same application.

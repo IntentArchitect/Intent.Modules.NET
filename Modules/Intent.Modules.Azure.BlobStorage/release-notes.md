@@ -1,3 +1,7 @@
+### Version 3.4.0
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 3.3.2
 
 - Updated dependencies and supported client versions to prevent warnings when used with Intent Architect 4.x.

@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+ 
 ### Version 4.1.7
 
 - Improvement: Updated to be compatible with .NET 8.

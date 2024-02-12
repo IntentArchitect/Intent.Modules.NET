@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 4.1.1
 
 - Fixed: Protected Constructor added when parameter constructor is introduced for mapping libraries to instantiate using reflection.

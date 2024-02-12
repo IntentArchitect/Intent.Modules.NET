@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 5.0.1
 
 - Logic for saving changes to Entity Framework's unit of work has been moved to version 5.2.4 of the `Intent.Eventing.MassTransit` module which now also handles saving changes for other technologies.

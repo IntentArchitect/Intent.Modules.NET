@@ -1,4 +1,8 @@
-﻿### Version 6.0.0
+﻿### Version 6.0.1
+
+- Improvement: Dependent modules changed, version bumped.
+
+### Version 6.0.0
 
 > ⚠️ **NOTE**
 >
