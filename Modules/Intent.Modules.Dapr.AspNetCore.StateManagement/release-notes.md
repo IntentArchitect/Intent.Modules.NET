@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Improvement: Fixed small code formatting use around using blocks.
+
 ### Version 1.2.2
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
