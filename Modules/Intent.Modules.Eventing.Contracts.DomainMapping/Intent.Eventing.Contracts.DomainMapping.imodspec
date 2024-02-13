@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts.DomainMapping</id>
-  <version>4.1.5-pre.1</version>
+  <version>4.1.5</version>
   <supportedClientVersions>[4.0.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces mapping capability from Entities to Messages.</summary>
   <description>Introduces mapping capability from Entities to Messages.</description>
@@ -39,7 +39,7 @@
     <dependency id="Intent.Eventing.Contracts" version="4.0.6" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3" />
     <dependency id="Intent.Modelers.Domain.Events" version="3.5.0" />
-    <dependency id="Intent.Modelers.Eventing" version="5.0.2-pre.1" />
+    <dependency id="Intent.Modelers.Eventing" version="5.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
