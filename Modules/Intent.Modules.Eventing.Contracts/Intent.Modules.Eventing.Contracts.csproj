@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>5.0.3-pre.0</Version>
+    <Version>5.0.3</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -14,8 +14,8 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.0.2-pre.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.2-pre.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.0.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

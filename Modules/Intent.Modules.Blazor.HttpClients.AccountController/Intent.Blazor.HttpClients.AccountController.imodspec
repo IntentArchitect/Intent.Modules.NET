@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients.AccountController</id>
-  <version>3.0.0-pre.0</version>
+  <version>3.0.0</version>
   <supportedClientVersions>[3.4.0,5.0.0-a)</supportedClientVersions>
   <summary>Obsolete. Use the "Intent.AspNetCore.Identity.AccountController.Metadata" module instead which would have already been installed. This module can be safely uninstalled.</summary>
   <description>Obsolete. Use the "Intent.AspNetCore.Identity.AccountController.Metadata" module instead which would have already been installed. This module can be safely uninstalled.</description>
@@ -14,7 +14,7 @@
   <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Identity.AccountController.Metadata" version="1.0.0-pre.0" />
+    <dependency id="Intent.AspNetCore.Identity.AccountController.Metadata" version="1.0.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

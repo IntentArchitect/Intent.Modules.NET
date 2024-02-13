@@ -1,7 +1,10 @@
-﻿### Version 4.6.1
+﻿### Version 4.6.2
+
+- Fixed: Using CosmosDB on a one-to-one relationship will no longer generate an implicit PK field on the composite entity.
+
+### Version 4.6.1
 
 - Improvement: Added support for Oracle databases.
-- Fixed: Using CosmosDB on a one-to-one relationship will no longer generate an implicit PK field on the composite entity.
 
 ### Version 4.6.0
 
