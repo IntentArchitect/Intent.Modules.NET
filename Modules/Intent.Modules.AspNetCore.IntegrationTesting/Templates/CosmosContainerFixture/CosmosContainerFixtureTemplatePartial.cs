@@ -24,7 +24,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
-        {
+        {            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"CosmosContainerFixture", @class =>
                 {
@@ -35,6 +35,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                     AddUsing("Microsoft.Azure.Cosmos.Fluent");
                     AddUsing("Microsoft.Azure.CosmosRepository.Options");
                     AddUsing("Microsoft.Extensions.DependencyInjection");
+                    AddUsing("Microsoft.Azure.CosmosRepository.Providers");
                     AddUsing("Microsoft.Extensions.Options");
                     AddUsing("Testcontainers.CosmosDb");
                     AddNugetDependency(NugetPackages.TestcontainersCosmosDb);
@@ -45,6 +46,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
 
                     @class.AddConstructor(ctor =>
                     {
+                        //This should be simplified with the next release of the CosmosDB Container.
                         ctor.AddStatements(@"_dbContainer = new CosmosDbBuilder()
               .WithImage(""mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator"")
               .WithName(""azure-cosmos-emulator"")
