@@ -1,7 +1,6 @@
 ### Version 2.0.2
 
 - Improvement: Added support for Oracle databases.
-- Improvement: Added support for Redis Stack.
 
 ### Version 2.0.0
 

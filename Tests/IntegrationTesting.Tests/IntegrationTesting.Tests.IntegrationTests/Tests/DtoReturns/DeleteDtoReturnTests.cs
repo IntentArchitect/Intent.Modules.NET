@@ -1,7 +1,6 @@
 using System.Net;
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
-using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

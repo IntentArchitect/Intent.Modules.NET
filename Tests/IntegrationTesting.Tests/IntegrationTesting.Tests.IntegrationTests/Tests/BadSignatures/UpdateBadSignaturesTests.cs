@@ -1,6 +1,5 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
-using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
 using Intent.RoslynWeaver.Attributes;
 

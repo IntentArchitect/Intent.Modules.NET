@@ -1,7 +1,3 @@
-### Version 1.0.12
-
-- Improvement: Upgraded module to support new 4.1 SDK features.
-
 ### Version 1.0.6
 
 - Improvement: Domain Events being published now accepts cancellation token and code slightly reformatted.

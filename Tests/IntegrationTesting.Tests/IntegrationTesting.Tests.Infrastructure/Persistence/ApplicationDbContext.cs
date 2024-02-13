@@ -28,7 +28,6 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
         public DbSet<BadSignatures> BadSignatures { get; set; }
         public DbSet<Child> Children { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<DiffId> DiffIds { get; set; }
         public DbSet<DiffPk> DiffPks { get; set; }
         public DbSet<DtoReturn> DtoReturns { get; set; }
         public DbSet<NoReturn> NoReturns { get; set; }
@@ -59,7 +58,6 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new BadSignaturesConfiguration());
             modelBuilder.ApplyConfiguration(new ChildConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
-            modelBuilder.ApplyConfiguration(new DiffIdConfiguration());
             modelBuilder.ApplyConfiguration(new DiffPkConfiguration());
             modelBuilder.ApplyConfiguration(new DtoReturnConfiguration());
             modelBuilder.ApplyConfiguration(new NoReturnConfiguration());

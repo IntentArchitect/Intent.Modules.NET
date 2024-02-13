@@ -1,7 +1,3 @@
-### Version 4.1.2
-
-- Improvement: Dependent modules changed, version bumped.
-- 
 ### Version 4.1.1
 
 - Updated based on other Module changes.
