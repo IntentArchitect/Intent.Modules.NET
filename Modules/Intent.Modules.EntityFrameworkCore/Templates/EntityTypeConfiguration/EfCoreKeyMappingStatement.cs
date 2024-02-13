@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -14,20 +15,14 @@ public class EfCoreKeyMappingStatement : CSharpStatement
 
     public EfCoreKeyMappingStatement(ClassModel model) : base(null)
     {
-        if (!model.GetExplicitPrimaryKey().Any())
+        if (model.GetExplicitPrimaryKey().Any())
         {
-            //var rootEntity = model;
-            //while (rootEntity.ParentClass != null)
-            //{
-            //    rootEntity = rootEntity.ParentClass;
-            //}
+            KeyColumns = model.GetExplicitPrimaryKey()
+                .Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name.ToPascalCase(), Type: x.Type.Element)).ToArray();
+            return;
+        }
 
-            KeyColumns = new[] { new RequiredEntityProperty(Class: model.InternalElement, Name: "Id", Type: null) };
-        }
-        else
-        {
-            KeyColumns = model.GetExplicitPrimaryKey().Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name.ToPascalCase(), Type: x.Type.Element)).ToArray();
-        }
+        KeyColumns = new[] { new RequiredEntityProperty(Class: model.InternalElement, Name: "Id", Type: null) };
     }
 
     public override string GetText(string indentation)

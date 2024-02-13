@@ -3,10 +3,10 @@
   <sourceEnd id="9f3a73bd-7c44-440d-853b-325bd6631b69" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
     <name>Assigning Derived to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</name>
     <display>Assigning Derived to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy": Assigning Derived to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="87e07607-caf9-43c9-b001-bcfa06612c94">
       <typeId>4767f4df-22fa-48cd-92ed-4db991d9cb5c</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

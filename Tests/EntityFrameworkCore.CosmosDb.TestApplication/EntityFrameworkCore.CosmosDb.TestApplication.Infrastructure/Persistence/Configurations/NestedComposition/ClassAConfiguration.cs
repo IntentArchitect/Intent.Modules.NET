@@ -49,8 +49,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         public void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
         {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.HasKey(x => x.Id);
 
@@ -64,14 +63,16 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.ClassBId)
+                .IsRequired();
+
             builder.OwnsOne(x => x.ClassE, ConfigureClassE)
                 .Navigation(x => x.ClassE).IsRequired();
         }
 
         public void ConfigureClassE(OwnedNavigationBuilder<ClassD, ClassE> builder)
         {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.HasKey(x => x.Id);
         }

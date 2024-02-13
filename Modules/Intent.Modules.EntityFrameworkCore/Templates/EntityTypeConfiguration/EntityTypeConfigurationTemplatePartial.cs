@@ -64,7 +64,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddStatements(GetCosmosContainerMapping(Model));
                             }
 
-                            method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
+                            method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
                             method.AddStatements(GetCheckConstraints(Model));
                             method.Statements.SeparateAll();
 
@@ -200,7 +200,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos();
         }
 
-        private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
+        private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class, RelationshipType? ownedRelationship)
         {
             var statements = new List<CSharpStatement>();
 
@@ -213,7 +213,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.AddRange(GetTableMapping(classModel));
                 }
 
-                statements.AddRange(GetKeyMappings(classModel));
+                statements.AddRange(GetKeyMappings(classModel, ownedRelationship));
             }
 
             if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
@@ -226,7 +226,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             statements.AddRange(GetAttributes(targetType)
                 .Where(RequiresConfiguration)
-                .Select(x => GetAttributeMapping(x, @class)));
+                .Select(x => GetAttributeMapping(x, @class, ownedRelationship)));
 
             if (targetType.IsClassModel())
             {
@@ -421,7 +421,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return domainPackage.GetCosmosDBContainerSettings()?.ContainerName();
         }
 
-        private CSharpStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
+        private CSharpStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class, RelationshipType? ownedRelationship)
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
@@ -433,7 +433,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 method.AddMetadata("model", attribute.TypeReference.Element);
                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>",
                     "builder");
-                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
+                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, ownedRelationship).ToArray());
                 method.Statements.SeparateAll();
 
                 AddIgnoreForNonPersistent(method, isOwned: true);
@@ -464,8 +464,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                             method.AddMetadata("model", (IElement)associationEnd.Element);
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(field.CreateWithOwner().WithForeignKey(associationEnd.Element.IsClassModel()));
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToOne).ToArray());
                             method.Statements.SeparateAll();
 
                             AddIgnoreForNonPersistent(method, isOwned: true);
@@ -492,7 +492,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                                 method.AddStatement(field.CreateWithOwner().WithForeignKey((!ForCosmosDb() || !field.HasDefaultAssociationSourceName()) && associationEnd.Element.IsClassModel()));
-                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToMany).ToArray());
                                 method.Statements.SeparateAll();
 
                                 AddIgnoreForNonPersistent(method, isOwned: true);
@@ -627,15 +627,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : $"{prefix}{column.SourceType.Name.ToPascalCase()}";
         }
 
-        public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model)
+        public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model, RelationshipType? ownedRelationship)
         {
-            //if (IsInheriting(model) && ParentConfigurationExists(model))
             if (HasInheritanceTypeAbleToConfigureProperty(model))
             {
                 yield break;
             }
 
-            yield return new EfCoreKeyMappingStatement(model);
+            if (!(ForCosmosDb() && !model.IsAggregateRoot() && !model.GetExplicitPrimaryKey().Any() && ownedRelationship == RelationshipType.OneToOne))
+            {
+                yield return new EfCoreKeyMappingStatement(model);
+            }
 
             foreach (var attributeModel in model.GetExplicitPrimaryKey().Where(x =>
                          !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||

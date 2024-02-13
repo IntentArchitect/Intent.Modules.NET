@@ -40,6 +40,7 @@
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
             <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -124,12 +125,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="64b1fec6-f8d4-4ae9-b434-9abe947148f1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="11e5f5c4-5a73-4778-91da-3de84209c4f0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>MSelfreferencebinavassocationId</name>
       <display>MSelfreferencebinavassocationId: guid?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="6830d20d-c516-425a-9c30-ff1493ea2f90">
+      <typeReference id="36a425f0-c9d7-47a4-824e-374c5df84596">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>

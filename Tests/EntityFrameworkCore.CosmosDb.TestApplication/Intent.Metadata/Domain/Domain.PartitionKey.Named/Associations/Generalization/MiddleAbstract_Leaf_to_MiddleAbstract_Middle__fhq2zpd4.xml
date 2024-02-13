@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="a7da4a0e-72b3-4b5c-8eae-b5892dfe1625">
-  <sourceEnd id="16487757-5480-4236-9f9d-385d97e16be2" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <name>TPH_MiddleAbstract_Middle</name>
-    <display>TPH_MiddleAbstract_Middle: MiddleAbstract_Middle</display>
+<association id="53ca6ec3-3f07-4155-a164-e3084dcd2a9e">
+  <sourceEnd id="98578055-fba5-4864-85fe-88c4b5e09894" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: MiddleAbstract_Leaf</display>
     <order>0</order>
-    <typeReference id="ad164224-aaa4-47c3-aeda-4fc42808d7f1">
-      <typeId>5fbb6295-c7e6-4bbb-b52c-d26444cf6fbf</typeId>
+    <typeReference id="3a0d73a8-a51d-443c-89d5-d7f6d7c58bf7">
+      <typeId>c0bff7a0-7d2c-4fb6-99ca-04651e1531f8</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -19,12 +18,11 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="a7da4a0e-72b3-4b5c-8eae-b5892dfe1625" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <name>TPH_MiddleAbstract_Root</name>
-    <display>TPH_MiddleAbstract_Root: MiddleAbstract_Root</display>
-    <order>1</order>
-    <typeReference id="1f78007e-29c1-4387-a89d-165678cdb499">
-      <typeId>ccba0c79-df52-40dc-86d8-29c00d6efaf1</typeId>
+  <targetEnd id="53ca6ec3-3f07-4155-a164-e3084dcd2a9e" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <display>extends MiddleAbstract_Middle</display>
+    <order>0</order>
+    <typeReference id="2f1154c3-46ce-482c-9edc-9ea83b5c4a85">
+      <typeId>5fbb6295-c7e6-4bbb-b52c-d26444cf6fbf</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

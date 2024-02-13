@@ -31,8 +31,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
         {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.HasKey(x => x.Id);
 

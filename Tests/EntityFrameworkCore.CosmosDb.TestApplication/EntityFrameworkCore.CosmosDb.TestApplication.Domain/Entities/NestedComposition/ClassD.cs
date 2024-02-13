@@ -10,6 +10,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
     {
         public Guid Id { get; set; }
 
+        public Guid ClassBId { get; set; }
+
         public virtual ClassE ClassE { get; set; }
     }
 }

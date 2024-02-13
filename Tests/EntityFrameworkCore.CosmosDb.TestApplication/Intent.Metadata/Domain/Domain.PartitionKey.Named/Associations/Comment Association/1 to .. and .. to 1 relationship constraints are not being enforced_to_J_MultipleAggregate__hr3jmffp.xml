@@ -3,10 +3,10 @@
   <sourceEnd id="bbbb0604-6dce-4fd6-983f-2b174071e488" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
     <name>1 to .. and .. to 1 relationship constraints are not being enforced</name>
     <display>1 to .. and .. to 1 relationship constraints are not being enforced: 1 to .. and .. to 1 relationship constraints are not being enforced</display>
-    <order>5</order>
+    <order>0</order>
     <typeReference id="0a6ab6d3-463e-4489-97eb-69d507b1a177">
       <typeId>eefabb43-338e-43a1-8834-40ee31fb2214</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

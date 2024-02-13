@@ -1,6 +1,8 @@
 ﻿using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Associations;
+using FluentAssertions;
 using Intent.IntegrationTest.EfCore.CosmosDb.Helpers;
 using Xunit;
 
@@ -280,7 +282,7 @@ public class GeneralEFTests
 
         Assert.NotNull(DbContext.K_SelfReferences.SingleOrDefault(p => p.Id == root.Id));
         Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => children.Contains(p)));
-        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.K_SelfReferenceAssociationId == root.Id));
+        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.KSelfreferencesId == root.Id));
     }
 
     [IgnoreOnCiBuildFact]
@@ -334,5 +336,45 @@ public class GeneralEFTests
         Assert.NotNull(receivedExplicitKeyClass);
         Assert.NotEqual(Guid.Empty, receivedExplicitKeyClass.Id);
         Assert.Equal(explicitKeyClass.Attribute, receivedExplicitKeyClass.Attribute);
+    }
+
+    [IgnoreOnCiBuildFact]
+    public async Task Test_S_NoPkInComposite()
+    {
+        var root = new S_NoPkInComposite();
+        root.PartitionKey = "123";
+        root.Description = "Test description";
+        root.S_NoPkInCompositeDependent = new S_NoPkInCompositeDependent()
+        {
+            Description = "Nested description"
+        };
+        
+        var repo = new S_NoPkInCompositeRepository(DbContext, null);
+        repo.Add(root);
+        await repo.SaveChangesAsync();
+
+        var receivedRoot = await repo.FindByIdAsync(root.Id);
+        Assert.NotNull(receivedRoot);
+        receivedRoot.Should().BeEquivalentTo(root);
+    }
+    
+    [IgnoreOnCiBuildFact]
+    public async Task Test_T_NoPkInComposite()
+    {
+        var root = new T_NoPkInComposite();
+        root.PartitionKey = "123";
+        root.Description = "Test description";
+        root.T_NoPkInCompositeDependent = new T_NoPkInCompositeDependent()
+        {
+            Description = "Nested description"
+        };
+        
+        var repo = new T_NoPkInCompositeRepository(DbContext, null);
+        repo.Add(root);
+        await repo.SaveChangesAsync();
+
+        var receivedRoot = await repo.FindByIdAsync(root.Id);
+        Assert.NotNull(receivedRoot);
+        receivedRoot.Should().BeEquivalentTo(root);
     }
 }

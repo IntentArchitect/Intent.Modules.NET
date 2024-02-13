@@ -22,7 +22,7 @@
   <targetEnd id="b7dd362c-48c4-4b9c-83dc-4b52ba2dd647" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composites</name>
     <display>Composites: Composite[*]   [1 --&gt; *]</display>
-    <order>3</order>
+    <order>4</order>
     <typeReference id="f5454b1c-e4e2-4f3d-9ebe-7df00a2702d1">
       <typeId>aed0834e-a288-4014-988a-825b8ff62487</typeId>
       <isNavigable>true</isNavigable>

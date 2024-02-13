@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="35d97b24-bd53-456e-9565-840c11413aae">
+  <sourceEnd id="9c90d05f-f320-4843-88c4-72b81bdb384b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>T_NoPkInComposite</name>
+    <display>T_NoPkInComposite: T_NoPkInComposite</display>
+    <order>0</order>
+    <typeReference id="52865661-3fac-4659-88cb-f20a9319f760">
+      <typeId>a4688bf1-c92f-45a1-930b-bc321f255b72</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="35d97b24-bd53-456e-9565-840c11413aae" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>T_NoPkInCompositeDependent</name>
+    <display>T_NoPkInCompositeDependent: T_NoPkInCompositeDependent?   [1 --&gt; 0..1]</display>
+    <order>3</order>
+    <typeReference id="ed5ebddf-4b9c-4971-9572-dc82f482b5e6">
+      <typeId>c0e3cc07-3e2d-41c5-8e80-cd15dc571222</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

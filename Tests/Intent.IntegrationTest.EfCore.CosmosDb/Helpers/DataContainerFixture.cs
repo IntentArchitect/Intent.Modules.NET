@@ -42,7 +42,7 @@ public class DataContainerFixture : IAsyncLifetime
             .WithEnvironment("AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE", "false")
             .WithOutputConsumer(consumer)
             .WithWaitStrategy(Wait.ForUnixContainer()
-                .UntilMessageIsLogged(consumer.Stdout, "Started"))
+                .UntilPortIsAvailable(8081))
             .Build();
     }
 

@@ -2,4 +2,5 @@
 <classVisual id="e699c942-5964-46b6-b2a7-dd05b12d2a42" zIndex="21">
   <position x="1024" y="274" />
   <size width="200" height="100" />
+  <autoResizeEnabled>true</autoResizeEnabled>
 </classVisual>

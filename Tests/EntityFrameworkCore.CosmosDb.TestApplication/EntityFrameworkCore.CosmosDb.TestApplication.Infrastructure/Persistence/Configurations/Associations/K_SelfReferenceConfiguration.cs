@@ -24,9 +24,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.SelfRefAttr)
                 .IsRequired();
 
+            builder.Property(x => x.KSelfreferencesId);
+
             builder.HasOne(x => x.K_SelfReferenceAssociation)
                 .WithMany()
-                .HasForeignKey(x => x.K_SelfReferenceAssociationId)
+                .HasForeignKey(x => x.KSelfreferencesId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Ignore(e => e.DomainEvents);

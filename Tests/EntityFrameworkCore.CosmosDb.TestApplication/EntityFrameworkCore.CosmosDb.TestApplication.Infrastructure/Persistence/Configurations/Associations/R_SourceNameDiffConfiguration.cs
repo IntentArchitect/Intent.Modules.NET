@@ -29,8 +29,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         public void ConfigureR_SourceNameDiffDependent(OwnedNavigationBuilder<R_SourceNameDiff, R_SourceNameDiffDependent> builder)
         {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.HasKey(x => x.Id);
         }

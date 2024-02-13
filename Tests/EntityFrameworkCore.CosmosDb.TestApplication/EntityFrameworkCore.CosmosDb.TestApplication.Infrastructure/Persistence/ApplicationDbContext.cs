@@ -101,6 +101,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<P_SourceNameDiff> P_SourceNameDiffs { get; set; }
         public DbSet<Q_DestNameDiff> Q_DestNameDiffs { get; set; }
         public DbSet<R_SourceNameDiff> R_SourceNameDiffs { get; set; }
+        public DbSet<S_NoPkInComposite> S_NoPkInComposites { get; set; }
+        public DbSet<T_NoPkInComposite> T_NoPkInComposites { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<FolderEntity> FolderEntities { get; set; }
@@ -163,6 +165,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new P_SourceNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new Q_DestNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new R_SourceNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new S_NoPkInCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new T_NoPkInCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
             modelBuilder.ApplyConfiguration(new FolderEntityConfiguration());

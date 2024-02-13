@@ -604,6 +604,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#4ecdabd6-3c91-494a-a513-e3752071bfd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/Associations/S_NoPkInComposite.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/S_NoPkInComposite.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#88b4efac-20cb-471d-84ca-ac9a5b215f86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/Associations/S_NoPkInCompositeDependent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/S_NoPkInCompositeDependent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a4688bf1-c92f-45a1-930b-bc321f255b72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/Associations/T_NoPkInComposite.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/T_NoPkInComposite.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c0e3cc07-3e2d-41c5-8e80-cd15dc571222</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/Associations/T_NoPkInCompositeDependent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/T_NoPkInCompositeDependent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1f4260f8-af7a-4eaf-8b4d-76b5de5e4c8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/BasicAudit/Audit_BaseClass.cs</ApplicationRelativeFilePath>
@@ -1104,6 +1136,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/Associations/IR_SourceNameDiffRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/IR_SourceNameDiffRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#4ecdabd6-3c91-494a-a513-e3752071bfd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/Associations/IS_NoPkInCompositeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/IS_NoPkInCompositeRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a4688bf1-c92f-45a1-930b-bc321f255b72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/Associations/IT_NoPkInCompositeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/IT_NoPkInCompositeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1628,6 +1676,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4ecdabd6-3c91-494a-a513-e3752071bfd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/Associations/S_NoPkInCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/S_NoPkInCompositeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a4688bf1-c92f-45a1-930b-bc321f255b72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/Associations/T_NoPkInCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/T_NoPkInCompositeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#057fd3c4-df58-483f-866e-145aa9aff9c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/BasicAudit/Audit_DerivedClassConfiguration.cs</ApplicationRelativeFilePath>
@@ -2072,6 +2136,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/Associations/R_SourceNameDiffRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/R_SourceNameDiffRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#4ecdabd6-3c91-494a-a513-e3752071bfd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/Associations/S_NoPkInCompositeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/S_NoPkInCompositeRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a4688bf1-c92f-45a1-930b-bc321f255b72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/Associations/T_NoPkInCompositeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/T_NoPkInCompositeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

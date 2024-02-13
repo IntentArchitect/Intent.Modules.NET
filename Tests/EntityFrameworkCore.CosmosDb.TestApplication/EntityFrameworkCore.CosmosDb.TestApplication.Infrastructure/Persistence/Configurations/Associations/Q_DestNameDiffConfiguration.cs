@@ -29,8 +29,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         public void ConfigureDestNameDiff(OwnedNavigationBuilder<Q_DestNameDiff, Q_DestNameDiffDependent> builder)
         {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.HasKey(x => x.Id);
         }
