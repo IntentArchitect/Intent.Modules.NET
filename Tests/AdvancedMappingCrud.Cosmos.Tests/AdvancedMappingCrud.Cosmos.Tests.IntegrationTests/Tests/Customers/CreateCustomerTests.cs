@@ -22,7 +22,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         /// Filter this test out of your CI/CD if appropriate e.g. dotnet test --filter Category!=ExcludeOnCI
         /// </summary>
         [Fact]
-        [Trait(Category, ExcludeOnCI)]
+        [Trait("Category", "ExcludeOnCI")]
         public async Task CreateCustomer_ShouldCreateCustomer()
         {
             //Arrange

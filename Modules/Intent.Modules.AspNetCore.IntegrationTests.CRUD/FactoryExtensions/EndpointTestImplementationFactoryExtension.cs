@@ -324,8 +324,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                 method.AddAttribute("Trait", att =>
                 {
                     att
-                        .AddArgument("Category")
-                        .AddArgument("ExcludeOnCI")
+                        .AddArgument("\"Category\"")
+                        .AddArgument("\"ExcludeOnCI\"")
                         ;
                 });
                 method.WithComments(new[]
