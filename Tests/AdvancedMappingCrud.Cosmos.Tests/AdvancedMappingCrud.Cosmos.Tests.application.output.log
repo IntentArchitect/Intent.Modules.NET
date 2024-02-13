@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#eb7f7fa2-29f6-42b1-9b59-88375dd585ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/ConcurrencyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcurrencyController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -328,6 +336,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#15993c7a-81ca-444f-a754-70f5b6220ce9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#15993c7a-81ca-444f-a754-70f5b6220ce9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTestHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTestHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#15993c7a-81ca-444f-a754-70f5b6220ce9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTestValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTestValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1364,6 +1396,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#eb7f7fa2-29f6-42b1-9b59-88375dd585ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Concurrency/ConcurrencyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/ConcurrencyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#eb7f7fa2-29f6-42b1-9b59-88375dd585ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Concurrency/IConcurrencyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/IConcurrencyService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#a40b89e9-1e83-4f3a-8366-0068e9ea1958</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
@@ -1448,6 +1496,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/PopulateIdsSpecimenBuilder.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PopulateIdsSpecimenBuilder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#15993c7a-81ca-444f-a754-70f5b6220ce9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1704,6 +1760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/TestDataFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestDataFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#15993c7a-81ca-444f-a754-70f5b6220ce9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTestTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTestTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
