@@ -1,5 +1,4 @@
 ﻿using Intent.Metadata.Models;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using System;
@@ -15,15 +14,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         public CQRSModelAdapter(IElement folder)
         {
             _folder = folder;
-            Folder = folder.AsFolderModel();
         }
 
         public string Name => _folder.Name;
         public string Id => _folder.Id;
 
         public IMetadataModel UnderlyingModel => null;
-
-        public FolderModel Folder { get; }
 
         public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
         {

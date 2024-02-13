@@ -1,6 +1,5 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
-using IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders;
 using IntegrationTesting.Tests.IntegrationTests.Services.Orders;
 using Intent.RoslynWeaver.Attributes;
 

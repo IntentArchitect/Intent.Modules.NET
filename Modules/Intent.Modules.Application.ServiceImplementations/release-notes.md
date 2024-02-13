@@ -1,7 +1,3 @@
-### Version 4.5.1
-
-- Improvement: Upgraded module to support new 4.1 SDK features.
-
 ### Version 4.4.0
 
 - Update: Constructors will now be "Merge" by default. This will make user based injections and code-gen injections feasible.

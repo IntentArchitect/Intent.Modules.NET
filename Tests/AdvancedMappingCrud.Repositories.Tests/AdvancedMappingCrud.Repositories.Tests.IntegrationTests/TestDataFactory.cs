@@ -1,6 +1,4 @@
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
-using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
-using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Products;

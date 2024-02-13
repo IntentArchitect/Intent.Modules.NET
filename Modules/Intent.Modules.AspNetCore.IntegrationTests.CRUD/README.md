@@ -11,16 +11,6 @@ For a service to be eligible is must implement at least
 - Create{Entity} - returning either the `Primary Key` or a `DTO` with a mapped `Primary Key`.
 - Get{Entity}ById - returning an `Entity` based `DTO` taking a single parameter of the `Entitiy`s primary key.
 
-## Note on Cosmos DB Integration Test
-
-The CosmosDB Emulator for Linux does not run consistently using MS-hosted agents/runners (Azure DevOps or GitHub). Here (Azure/azure-cosmos-db-emulator-docker#45.) 
-Cosmos related tests have the following Trait applied `[Trait("Category", "ExcludeOnCI")]`, you can ignore these in your CI/CD pipeline as follows:-
-
-```
-dotnet test --filter Category!=ExcludeOnCI
-```
-
-
 ## Sample Tests
 
 ```csharp

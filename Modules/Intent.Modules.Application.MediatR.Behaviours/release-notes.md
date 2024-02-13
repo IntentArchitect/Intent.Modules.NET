@@ -1,7 +1,6 @@
 ### Version 4.2.10
 
 - Improvement: Added `ArgumentNullException` check on `IUnitOfWork` dependency injection.
-- Improvement: Allow support for Redis OM Unit of Work.
 
 ### Version 4.2.7
 
