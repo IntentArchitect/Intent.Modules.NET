@@ -23,5 +23,7 @@ namespace CosmosDB.Infrastructure.Repositories
         }
 
         public async Task<DerivedTypeAggregate?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
+
+        public override string GetId(DerivedTypeAggregate entity) => entity.Id;
     }
 }

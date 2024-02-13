@@ -13,12 +13,15 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
     internal class ProductDocument : IProductDocument, ICosmosDBDocument<Product, ProductDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        private string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
 
@@ -32,22 +35,24 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public ProductDocument PopulateFromEntity(Product entity)
+        public ProductDocument PopulateFromEntity(Product entity, string? etag = null)
         {
             Id = entity.Id;
             Name = entity.Name;
 
+            _etag = etag;
+
             return this;
         }
 
-        public static ProductDocument? FromEntity(Product? entity)
+        public static ProductDocument? FromEntity(Product? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ProductDocument().PopulateFromEntity(entity);
+            return new ProductDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

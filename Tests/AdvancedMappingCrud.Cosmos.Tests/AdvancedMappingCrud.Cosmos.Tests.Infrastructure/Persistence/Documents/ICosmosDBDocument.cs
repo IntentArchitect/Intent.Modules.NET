@@ -11,11 +11,11 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
-        TDocument PopulateFromEntity(TDomain entity);
+        TDocument PopulateFromEntity(TDomain entity, string? etag = null);
         TDomain ToEntity(TDomain? entity = null);
     }
 
-    internal interface ICosmosDBDocument : IItem
+    internal interface ICosmosDBDocument : IItemWithEtag
     {
         string IItem.PartitionKey => PartitionKey!;
         new string? PartitionKey
