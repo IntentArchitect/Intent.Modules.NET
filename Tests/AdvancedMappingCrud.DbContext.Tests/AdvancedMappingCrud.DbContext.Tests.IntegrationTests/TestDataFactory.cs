@@ -1,4 +1,7 @@
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Orders;
+using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Products;
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Services.Products;

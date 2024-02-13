@@ -11,6 +11,7 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
+  <releaseNotes>release-notes.md</releaseNotes>
   <dependencies>
     <dependency id="Intent.AspNetCore.Cors" version="3.3.11" />
   </dependencies>

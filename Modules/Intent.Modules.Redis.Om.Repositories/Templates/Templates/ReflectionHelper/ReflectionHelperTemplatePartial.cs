@@ -30,62 +30,37 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.ReflectionHel
                 {
                     @class.Internal().Static();
 
-                    if (ReflectionConstructionRequired())
+                    @class.AddMethod("T", "CreateNewInstanceOf", method =>
                     {
-                        @class.AddMethod("T", "CreateNewInstanceOf", method =>
+                        method.Static();
+                        method.AddGenericParameter("T", out var t);
+
+                        method.AddStatements(new[]
                         {
-                            method.Static();
-                            method.AddGenericParameter("T", out var t);
-
-                            method.AddStatements(new[]
-                            {
-                                $"var constructorInfo = typeof({t}).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Array.Empty<Type>(), null)!;",
-                                $"var instance = ({t})constructorInfo.Invoke({UseType("System.Array")}.Empty<object>());",
-                                "return instance;"
-                            });
+                            $"var constructorInfo = typeof({t}).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Array.Empty<Type>(), null)!;",
+                            $"var instance = ({t})constructorInfo.Invoke({UseType("System.Array")}.Empty<object>());",
+                            "return instance;"
                         });
-                    }
+                    });
 
-                    if (ReflectionPropertySettingRequired())
+                    @class.AddMethod("void", "ForceSetProperty", method =>
                     {
-                        @class.AddMethod("void", "ForceSetProperty", method =>
-                        {
-                            method.Static();
-                            method.AddGenericParameter("T", out var t);
-                            method.AddParameter(t, "instance");
-                            method.AddParameter("string", "propertyName");
-                            method.AddParameter("object?", "value");
+                        method.Static();
+                        method.AddGenericParameter("T", out var t);
+                        method.AddParameter(t, "instance");
+                        method.AddParameter("string", "propertyName");
+                        method.AddParameter("object?", "value");
 
-                            method.AddStatements(new[]
-                            {
-                                $"var propertyInfo = typeof({t}).GetProperty(propertyName)!;",
-                                "propertyInfo = propertyInfo.DeclaringType!.GetProperty(propertyName)!;",
-                                "propertyInfo.SetValue(instance, value, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, null, null);"
-                            });
+                        method.AddStatements(new[]
+                        {
+                            $"var propertyInfo = typeof({t}).GetProperty(propertyName)!;",
+                            "propertyInfo = propertyInfo.DeclaringType!.GetProperty(propertyName)!;",
+                            "propertyInfo.SetValue(instance, value, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, null, null);"
                         });
-                    }
+                    });
                 });
         }
 
-        private bool ReflectionConstructionRequired()
-        {
-            var domainDesigner = ExecutionContext.MetadataManager.Domain(ExecutionContext.GetApplicationConfig().Id);
-
-            return domainDesigner.GetValueObjects().Any() ||
-                   domainDesigner.GetClassModels().Any(x =>
-                       x.Constructors.Any() && x.Constructors.All(y => y.Parameters.Count != 0));
-        }
-
-        public bool ReflectionPropertySettingRequired()
-        {
-            return ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() ||
-                   ExecutionContext.MetadataManager.Domain(ExecutionContext.GetApplicationConfig().Id).GetValueObjects().Any();
-        }
-
-        public override bool CanRunTemplate()
-        {
-            return base.CanRunTemplate() && (ReflectionConstructionRequired() || ReflectionPropertySettingRequired());
-        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

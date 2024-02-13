@@ -1,3 +1,7 @@
+### Version 4.5.1
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 4.5.0
 
 - Improvement: Removed `// IntentMatch(...)` code management instructions from templates which are no longer needed since version `4.4.0` of the `Intent.OutputManager.RoslynWeaver` module.

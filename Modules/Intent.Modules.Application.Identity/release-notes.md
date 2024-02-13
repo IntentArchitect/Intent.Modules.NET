@@ -1,3 +1,4 @@
+
 ### Version 3.5.1
 
 - Improvement: The generated `AuthorizeAttribute` will no longer cause nullable warnings.

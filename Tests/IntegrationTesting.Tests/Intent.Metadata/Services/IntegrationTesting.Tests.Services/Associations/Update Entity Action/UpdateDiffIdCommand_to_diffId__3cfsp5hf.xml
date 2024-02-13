@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="98d6bf30-8346-4a1b-8d09-b203b0cddf6d">
+  <sourceEnd id="354a5d4d-35e3-440b-848a-cfcd69f460ef" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DiffIds.UpdateDiffIdCommand</display>
+    <order>0</order>
+    <typeReference id="0d8cf2e0-48ce-4fb0-bd70-e01cbff7f025">
+      <typeId>9c2c2065-397d-4992-9dd0-f69c9096d5b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="98d6bf30-8346-4a1b-8d09-b203b0cddf6d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>diffId</name>
+    <display>[update] diffId: DiffId</display>
+    <order>2</order>
+    <typeReference id="6d4e2354-c2ef-48e9-b455-662caab9da4d">
+      <typeId>8b77b4cb-29ff-40ca-8a59-66de22b90cb3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c2c2065-397d-4992-9dd0-f69c9096d5b1" location="[IntegrationTesting.Tests].[Services].[UpdateDiffIdCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" location="[IntegrationTesting.Tests].[Services].[DiffId]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MyId}</expression>
+            <path>
+              <target id="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" name="DiffId" type="element" specialization="Class" />
+              <target id="d2d0ba63-cd81-47ce-8421-3562b20df1ce" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="MyId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9c2c2065-397d-4992-9dd0-f69c9096d5b1" name="UpdateDiffIdCommand" type="element" specialization="Command" />
+                  <target id="13eac5bd-b4e2-41c2-916e-21c01d50d5da" name="MyId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c2c2065-397d-4992-9dd0-f69c9096d5b1" location="[IntegrationTesting.Tests].[Services].[UpdateDiffIdCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" location="[IntegrationTesting.Tests].[Services].[DiffId]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" name="DiffId" type="element" specialization="Class" />
+              <target id="b5d8624f-5cad-4ea9-9d66-020546b67e89" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9c2c2065-397d-4992-9dd0-f69c9096d5b1" name="UpdateDiffIdCommand" type="element" specialization="Command" />
+                  <target id="19a08203-0e45-4d4a-8992-4d275d4bceec" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

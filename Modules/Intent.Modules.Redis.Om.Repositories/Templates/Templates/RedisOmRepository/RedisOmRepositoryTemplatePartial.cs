@@ -146,7 +146,8 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
             }
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Obsolete: Please install `Intent.Entities.BasicAuditing` as this module is no longer in use. It can be safely removed. 
+
 ### Version 1.0.3
 
 - Fixed: Fails when Entity Interfaces are enabled.

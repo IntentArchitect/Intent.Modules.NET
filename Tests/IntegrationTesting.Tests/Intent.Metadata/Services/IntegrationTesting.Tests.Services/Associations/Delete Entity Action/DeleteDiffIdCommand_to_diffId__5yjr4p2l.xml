@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7d2e2256-b662-4fa2-b3a9-5e214e5c79ce">
+  <sourceEnd id="c27d28b8-c902-4400-8a28-ffb1561e91c7" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : DiffIds.DeleteDiffIdCommand</display>
+    <order>0</order>
+    <typeReference id="305dcece-67a6-4b6a-9217-c82b26a38435">
+      <typeId>e0d56959-e8ab-400e-bdda-797c71fb53ee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7d2e2256-b662-4fa2-b3a9-5e214e5c79ce" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>diffId</name>
+    <display>[delete] diffId: DiffId</display>
+    <order>1</order>
+    <typeReference id="a2967b2e-bdb9-460d-804f-da2d2f319491">
+      <typeId>8b77b4cb-29ff-40ca-8a59-66de22b90cb3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e0d56959-e8ab-400e-bdda-797c71fb53ee" location="[IntegrationTesting.Tests].[Services].[DeleteDiffIdCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" location="[IntegrationTesting.Tests].[Services].[DiffId]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MyId}</expression>
+            <path>
+              <target id="8b77b4cb-29ff-40ca-8a59-66de22b90cb3" name="DiffId" type="element" specialization="Class" />
+              <target id="d2d0ba63-cd81-47ce-8421-3562b20df1ce" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="MyId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e0d56959-e8ab-400e-bdda-797c71fb53ee" name="DeleteDiffIdCommand" type="element" specialization="Command" />
+                  <target id="506d8cac-bdee-43bf-bd46-1303acd57f0e" name="MyId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

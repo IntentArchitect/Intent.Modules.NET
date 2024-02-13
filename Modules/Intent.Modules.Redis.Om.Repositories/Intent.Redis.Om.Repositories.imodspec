@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Redis.Om.Repositories</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</summary>
   <description>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</description>
@@ -152,5 +152,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Redis.Om.Repositories/Intent.Redis.Om.Repositories.pkg.config" externalReference="739f3162-d1f8-4609-86df-756c6ff6b7e3" />
+    <install target="Domain" src="modelers/Redis OM Key Automation.designer.settings" externalReference="2c841f19-9f06-4814-abae-07d8cf4698e3" />
   </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
 </package>

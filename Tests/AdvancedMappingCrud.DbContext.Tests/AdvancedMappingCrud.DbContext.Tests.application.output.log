@@ -1142,8 +1142,16 @@
       <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#391bdd9e-55c1-4ccb-881c-981b364d8124</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/CustomersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomersHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomersHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#391bdd9e-55c1-4ccb-881c-981b364d8124</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1156,30 +1164,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#391bdd9e-55c1-4ccb-881c-981b364d8124</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ICustomersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#488aa1b9-6c0e-4b95-8618-784468d93831</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/IOrdersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IOrdersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#2262014b-21f6-451e-b3a8-e942df338cc8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/IProductsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IProductsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
@@ -1188,18 +1172,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#488aa1b9-6c0e-4b95-8618-784468d93831</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Orders/IOrdersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/IOrdersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#488aa1b9-6c0e-4b95-8618-784468d93831</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/OrdersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OrdersHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Orders/OrdersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrdersHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#2262014b-21f6-451e-b3a8-e942df338cc8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Products/IProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/IProductsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#2262014b-21f6-451e-b3a8-e942df338cc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ProductsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProductsHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/Products/ProductsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,6 +1,10 @@
+### Version 3.5.11
+
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 3.5.0
 
-- Deprecated: This functionality is now covered the `Intent.Application.MediatR` module itself.
+- Improvement: Updated MediatR version.
 
 ### Version 3.4.2
 

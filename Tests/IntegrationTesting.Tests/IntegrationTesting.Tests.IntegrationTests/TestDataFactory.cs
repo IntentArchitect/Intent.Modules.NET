@@ -1,8 +1,17 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Parents;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
+using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.Services.DtoReturns;
 using IntegrationTesting.Tests.IntegrationTests.Services.Orders;
 using IntegrationTesting.Tests.IntegrationTests.Services.Parents;
@@ -70,6 +79,17 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var customerId = await client.CreateCustomerAsync(command);
             _idTracker["CustomerId"] = customerId;
             return customerId;
+        }
+
+        public async Task<Guid> CreateDiffId()
+        {
+            var client = new DiffIdsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateDiffIdCommand>();
+            var diffIdId = await client.CreateDiffIdAsync(command);
+            _idTracker["DiffIdId"] = diffIdId;
+            _idTracker["MyId"] = diffIdId;
+            return diffIdId;
         }
 
         public async Task<Guid> CreateDtoReturn()

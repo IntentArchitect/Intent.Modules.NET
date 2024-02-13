@@ -110,6 +110,30 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         }
 
+        internal static string? GetDtoPkFieldName(IHttpEndpointModel operation)
+        {
+            var mapping = GetMapEntityQueryMapping(operation.InternalElement);
+            if (mapping != null) // We only doing Test for services on new mapping system
+            {
+                foreach (var mappedEnd in mapping.MappedEnds.Where(me => me.MappingType == "Filter Mapping"))
+                {
+                    var attributeModel = (mappedEnd.TargetElement as IElement)?.AsAttributeModel();
+                    if (attributeModel is not null && attributeModel.HasStereotype("Primary Key"))
+                    {
+                        return mappedEnd.SourceElement.Name;
+                    }
+
+                }
+            }
+            return null;
+        }
+        private static IElementToElementMapping? GetMapEntityQueryMapping(IElement mappedElement)
+        {
+            return mappedElement.AssociatedElements.FirstOrDefault(a => a.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226")//Update Entity Action
+                   ?.Mappings.FirstOrDefault(mappingModel => mappingModel.TypeId == "25f25af9-c38b-4053-9474-b0fabe9d7ea7");// Query Entity Mapping
+        }
+
+
         private static Dictionary<string, HashSet<string>> GetKeyAliases(List<CrudMap> crudTests)
         {
             var keyAliases = new Dictionary<string, HashSet<string>>();
@@ -136,6 +160,20 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                             }
                             aliases.Add(alias);
                         }
+                    }
+                }
+                var dtoFieldPkName = GetDtoPkFieldName(crudTest.Update);
+                if (dtoFieldPkName != null)
+                {
+                    string entityId = $"{crudTest.Entity.Name}Id";
+                    if (dtoFieldPkName != entityId && string.Compare(dtoFieldPkName, "Id", true) != 0)
+                    {
+                        if (!keyAliases.TryGetValue(entityId, out var aliases))
+                        {
+                            aliases = new HashSet<string>();
+                            keyAliases[entityId] = aliases;
+                        }
+                        aliases.Add(dtoFieldPkName);
                     }
                 }
             }

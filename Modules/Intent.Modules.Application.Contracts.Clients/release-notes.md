@@ -1,4 +1,8 @@
-﻿### Version 5.0.4
+﻿### Version 5.0.5
+
+- Improvement: Updating various modules to use the more sophisticated CSharp mapping resolution systems.
+
+### Version 5.0.4
 
 - Improvement: Updated version for `Intent.Metadata.WebApi` dependency.
 

@@ -1,4 +1,7 @@
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Products;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Products;
