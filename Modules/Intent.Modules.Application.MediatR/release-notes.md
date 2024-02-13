@@ -1,8 +1,4 @@
-﻿### Version 4.2.2
-
-- Improvement: Upgraded module to support new 4.1 SDK features.
-
-### Version 4.2.0
+﻿### Version 4.2.0
 
 - Improvement: Added Support for `+` in roles, to describe `and` relationships between roles e.g. `Admin,Manager` (or) vs `Admin+Manager` (and)
 

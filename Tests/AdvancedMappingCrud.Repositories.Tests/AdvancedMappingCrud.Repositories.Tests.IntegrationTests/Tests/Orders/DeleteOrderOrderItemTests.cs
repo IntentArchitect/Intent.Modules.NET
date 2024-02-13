@@ -1,6 +1,5 @@
 using System.Net;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
-using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 

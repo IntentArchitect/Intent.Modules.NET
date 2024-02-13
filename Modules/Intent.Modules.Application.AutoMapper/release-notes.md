@@ -1,8 +1,4 @@
-﻿### Version 5.1.0
-
-- Improvement: Refactoring the pagination patterns to better suit both Repository and EF DbContext approaches.
-
-### Version 5.0.0
+﻿### Version 5.0.0
 
 - Improvement: Updated the `AutoMapper.Extensions.Microsoft.DependencyInjection` NuGet package version to 12.0.1.
 

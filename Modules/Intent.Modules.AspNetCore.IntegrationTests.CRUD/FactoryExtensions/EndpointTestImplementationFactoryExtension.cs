@@ -104,9 +104,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .Async()
-                        .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
-                    method
+                        .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious());
@@ -162,9 +160,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .Async()
-                        .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
-                    method
+                        .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
@@ -196,9 +192,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .Async()
-                        .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
-                    method
+                        .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
@@ -236,9 +230,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .Async()
-                        .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
-                    method
+                        .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
@@ -273,21 +265,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .Async()
-                        .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
-                    method
+                        .AddAttribute("Fact")
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")
-                        .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious());
+                        .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(updateDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
+                        .AddStatement($"command.Id = {sutId};")
 
-
-                    method
-                        .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
-
-                    method
                         .AddStatement("//Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"await client.{crudTest.Update!.Name}Async({sutId}, command);")
 
@@ -315,46 +301,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                 });
             });
-        }
-
-        private void FixCosmosTests(CrudMap test, CSharpClassMethod method)
-        {
-            if (IsCosmosTest(test.Entity.InternalElement))
-            {
-                method.AddAttribute("Trait", att =>
-                {
-                    att
-                        .AddArgument("\"Category\"")
-                        .AddArgument("\"ExcludeOnCI\"")
-                        ;
-                });
-                method.WithComments(new[]
-                    {
-                        "/// <summary>",
-                        "/// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).\")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.",
-                        "/// Filter this test out of your CI/CD if appropriate e.g. dotnet test --filter Category!=ExcludeOnCI",
-                        "/// </summary>",
-                    });
-            }
-        }
-
-        private const string CosmosDbProviderId = "3e1a00f7-c6f1-4785-a544-bbcb17602b31";
-
-        private static bool IsCosmosTest(IElement sut)
-        {
-
-            if (!sut.Package.HasStereotype("Document Database"))
-                return false;
-
-            var setting = sut.Package.GetStereotypeProperty<IElement>("Document Database", "Provider");
-            return setting == null ||setting.Id == CosmosDbProviderId;
-        }
-
-        private string GetDtoPkFieldName(IHttpEndpointModel operation)
-        {
-
-            var result = TestDataFactoryHelper.GetDtoPkFieldName(operation);
-            return result?.ToPascalCase() ?? "Id";
         }
 
         private void PopulateTestDataFactory(ICSharpFileBuilderTemplate template, List<CrudMap> crudTests)

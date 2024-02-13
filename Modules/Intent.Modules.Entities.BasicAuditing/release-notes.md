@@ -1,7 +1,3 @@
-### Version 1.0.4
-
-- Improvement: Upgraded module to support new 4.1 SDK features.
-
 ### Version 1.0.2
 
 - Fixed: Any manually added attributes called `CreatedBy`, `CreatedDate`, `UpdatedBy` or `UpdatedDate` would be automatically removed on creation, regardless of whether or not auditing was ever applied to an entity.

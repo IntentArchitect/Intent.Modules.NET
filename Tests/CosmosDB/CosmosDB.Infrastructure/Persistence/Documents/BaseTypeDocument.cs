@@ -15,6 +15,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class BaseTypeDocument : IBaseTypeDocument, ICosmosDBDocument<BaseType, BaseTypeDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        private string? _etag;
         public string Id { get; set; } = default!;
 
         public BaseType ToEntity(BaseType? entity = default)
@@ -31,22 +33,25 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
 
-        public BaseTypeDocument PopulateFromEntity(BaseType entity)
+        public BaseTypeDocument PopulateFromEntity(BaseType entity, string? etag = null)
         {
             Id = entity.Id;
+
+            _etag = etag;
 
             return this;
         }
 
-        public static BaseTypeDocument? FromEntity(BaseType? entity)
+        public static BaseTypeDocument? FromEntity(BaseType? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new BaseTypeDocument().PopulateFromEntity(entity);
+            return new BaseTypeDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

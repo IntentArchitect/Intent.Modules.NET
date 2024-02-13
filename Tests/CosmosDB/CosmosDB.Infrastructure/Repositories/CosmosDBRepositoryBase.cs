@@ -23,6 +23,7 @@ namespace CosmosDB.Infrastructure.Repositories
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>, TDocumentInterface, new()
     {
+        private Dictionary<string, string?> _etags;
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
@@ -37,11 +38,14 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
+            _etags = new Dictionary<string, string?>();
             _currentUserService = currentUserService;
             _auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
+
+        public abstract string GetId(TDomain entity);
 
         public void Add(TDomain entity)
         {
@@ -59,7 +63,7 @@ namespace CosmosDB.Infrastructure.Repositories
             _unitOfWork.Enqueue(async cancellationToken =>
             {
                 (entity as IAuditable)?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);
-                var document = new TDocument().PopulateFromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity, GetEtag(entity));
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -68,7 +72,7 @@ namespace CosmosDB.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = new TDocument().PopulateFromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity, GetEtag(entity));
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -76,8 +80,7 @@ namespace CosmosDB.Infrastructure.Repositories
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -90,8 +93,7 @@ namespace CosmosDB.Infrastructure.Repositories
             try
             {
                 var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);
-                var entity = document.ToEntity();
-                Track(entity);
+                var entity = LoadAndTrackDocument(document);
 
                 return entity;
             }
@@ -106,8 +108,7 @@ namespace CosmosDB.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -127,9 +128,12 @@ namespace CosmosDB.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);
-            Track(pagedDocuments.Items.Select(document => document.ToEntity()));
+            var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();
 
-            return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
+            var totalCount = pagedDocuments.Total ?? 0;
+            var pageCount = pagedDocuments.TotalPages ?? 0;
+
+            return new CosmosPagedList<TDomain, TDocument>(entities, totalCount, pageCount, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -139,8 +143,7 @@ namespace CosmosDB.Infrastructure.Repositories
             var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                 .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -156,17 +159,32 @@ namespace CosmosDB.Infrastructure.Repositories
             return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
         }
 
-        public void Track(IEnumerable<TDomain> items)
+        public TDomain LoadAndTrackDocument(TDocument document)
         {
-            foreach (var item in items)
+            var entity = document.ToEntity();
+
+            _unitOfWork.Track(entity);
+            _etags[document.Id] = document.Etag;
+
+            return entity;
+        }
+
+        public IEnumerable<TDomain> LoadAndTrackDocuments(IEnumerable<TDocument> documents)
+        {
+            foreach (var document in documents)
             {
-                _unitOfWork.Track(item);
+                yield return LoadAndTrackDocument(document);
             }
         }
 
-        public void Track(TDomain item)
+        public string? GetEtag(TDomain entity)
         {
-            _unitOfWork.Track(item);
+            if (_etags.TryGetValue(GetId(entity), out var etag))
+            {
+                return etag;
+            }
+
+            return default;
         }
 
         private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()

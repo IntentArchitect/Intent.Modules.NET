@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.DocumentDB.Api.Extensions;
@@ -9,18 +11,16 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Common.Templates; 
 using static Intent.Modules.CosmosDB.Templates.AttributeModelExtensionMethods;
-using System.Security.Cryptography;
-using Intent.Modules.Common.CSharp.VisualStudio;
-using System.Runtime.CompilerServices;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -80,6 +80,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                             .AddOptionalCancellationTokenParameter(this)
                             .WithExpressionBody($"await base.FindByIdAsync({GetPKUsage(pkAttribute)}, cancellationToken: cancellationToken)");
                     });
+
+                    var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
+                    if (useOptimisticConcurrency)
+                    {
+                        @class.AddMethod("string", "GetId", method =>
+                        {
+                            method
+                                .Override()
+                                .AddParameter(EntityTypeName, "entity")
+                                .WithExpressionBody($"entity.{pkAttribute.IdAttribute.Name.ToPascalCase()}");
+                        });
+                    }
 
                     if (pkAttribute.IdAttribute.TypeReference?.Element.Name != "string")
                     {

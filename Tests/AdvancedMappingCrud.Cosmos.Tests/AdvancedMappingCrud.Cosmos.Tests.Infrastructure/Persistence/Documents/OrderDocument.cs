@@ -16,12 +16,15 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
     internal class OrderDocument : IOrderDocument, ICosmosDBDocument<Order, OrderDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        private string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string CustomerId { get; set; } = default!;
         public string RefNo { get; set; } = default!;
@@ -47,7 +50,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public OrderDocument PopulateFromEntity(Order entity)
+        public OrderDocument PopulateFromEntity(Order entity, string? etag = null)
         {
             Id = entity.Id;
             CustomerId = entity.CustomerId;
@@ -57,17 +60,19 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
             OrderTags = entity.OrderTags.Select(x => OrderTagsDocument.FromEntity(x)!).ToList();
 
+            _etag = etag;
+
             return this;
         }
 
-        public static OrderDocument? FromEntity(Order? entity)
+        public static OrderDocument? FromEntity(Order? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new OrderDocument().PopulateFromEntity(entity);
+            return new OrderDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿### Version 1.0.3
+﻿### Version 1.0.4
+
+- New Feature: Added support fo Optimistic Concurrency using `ETag` for `CosmosDB` module.
+
+### Version 1.0.3
 
 - Fixed: Fixed an issue around nullable collections not being realized correctly.
 

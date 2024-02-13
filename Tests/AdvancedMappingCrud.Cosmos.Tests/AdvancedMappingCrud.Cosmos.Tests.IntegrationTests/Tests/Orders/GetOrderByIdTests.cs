@@ -1,5 +1,4 @@
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
-using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 
@@ -16,12 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         {
         }
 
-        /// <summary>
-        /// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.
-        /// Filter this test out of your CI/CD if appropriate e.g. dotnet test --filter Category!=ExcludeOnCI
-        /// </summary>
         [Fact]
-        [Trait("Category", "ExcludeOnCI")]
         public async Task GetOrderById_ShouldGetOrderById()
         {
             //Arrange

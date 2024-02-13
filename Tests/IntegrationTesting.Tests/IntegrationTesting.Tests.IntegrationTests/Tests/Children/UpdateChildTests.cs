@@ -1,6 +1,5 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
-using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using Intent.RoslynWeaver.Attributes;
 

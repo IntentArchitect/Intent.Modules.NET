@@ -1,5 +1,4 @@
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients;
-using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Services.Customers;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;

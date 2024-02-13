@@ -181,7 +181,7 @@ internal static class PersistenceUnitOfWork
                 usingBlock =>
                 {
                     hasCSharpStatements = usingBlock;
-                    usingBlock.BeforeSeparator = includeComments ? CSharpCodeSeparatorType.None : CSharpCodeSeparatorType.EmptyLines;
+                    usingBlock.BeforeSeparator = CSharpCodeSeparatorType.None;
                     usingBlock.AddMetadata("transaction", "using-block");
                 });
         }

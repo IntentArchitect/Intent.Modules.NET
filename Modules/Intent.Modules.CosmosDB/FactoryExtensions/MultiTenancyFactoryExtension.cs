@@ -186,7 +186,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                 // FindByIdAsync
                 {
-                    var method = @class.FindMethod(m => m.Name =="FindByIdAsync" );
+                    var method = @class.FindMethod(m => m.Name == "FindByIdAsync");
                     var documentDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
                     documentDeclarationStatement.FindAndReplace("id, partitionKey, ", "id, partitionKey ?? _tenantId, ");
                 }

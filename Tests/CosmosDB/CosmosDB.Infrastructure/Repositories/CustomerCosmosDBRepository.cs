@@ -23,5 +23,7 @@ namespace CosmosDB.Infrastructure.Repositories
         }
 
         public async Task<Customer?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
+
+        public override string GetId(Customer entity) => entity.Id;
     }
 }

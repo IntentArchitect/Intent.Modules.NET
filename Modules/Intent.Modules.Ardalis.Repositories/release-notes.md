@@ -1,7 +1,3 @@
-### Version 4.0.4
-
-- Improvement: Fixed the optional filters for queries that access the data with the DbContext; Refactored the way the query filters are constructed.
-
 ### Version 4.0.3
 
 - Improvement: Resolve compiler warnings.

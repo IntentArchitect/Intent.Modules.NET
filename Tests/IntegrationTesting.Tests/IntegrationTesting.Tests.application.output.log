@@ -84,14 +84,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#931bc22f-a0d8-43cd-9bdc-55eb2014eca4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/DiffIdsController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIdsController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#fa6f57d5-82f6-4cb2-b53f-43d67685bc44</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/DtoReturnsController.cs</ApplicationRelativeFilePath>
@@ -800,142 +792,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#cc51fd39-3d3e-4344-8c01-9d8afa3c1d29</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/CreateDiffId/CreateDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/CreateDiffId/CreateDiffIdCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#cc51fd39-3d3e-4344-8c01-9d8afa3c1d29</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/CreateDiffId/CreateDiffIdCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/CreateDiffId/CreateDiffIdCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cc51fd39-3d3e-4344-8c01-9d8afa3c1d29</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/CreateDiffId/CreateDiffIdCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/CreateDiffId/CreateDiffIdCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#e0d56959-e8ab-400e-bdda-797c71fb53ee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/DeleteDiffId/DeleteDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DeleteDiffId/DeleteDiffIdCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#e0d56959-e8ab-400e-bdda-797c71fb53ee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/DeleteDiffId/DeleteDiffIdCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DeleteDiffId/DeleteDiffIdCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e0d56959-e8ab-400e-bdda-797c71fb53ee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/DeleteDiffId/DeleteDiffIdCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DeleteDiffId/DeleteDiffIdCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#73578a41-93f0-4ddb-b552-a7a035929378</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/DiffIdDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DiffIdDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#73578a41-93f0-4ddb-b552-a7a035929378</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/DiffIdDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DiffIdDtoMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#efc5dbf3-b7e7-4e08-a0cb-5c2caaa4da78</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIdById/GetDiffIdByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIdById/GetDiffIdByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#efc5dbf3-b7e7-4e08-a0cb-5c2caaa4da78</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIdById/GetDiffIdByIdQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIdById/GetDiffIdByIdQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#efc5dbf3-b7e7-4e08-a0cb-5c2caaa4da78</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIdById/GetDiffIdByIdQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIdById/GetDiffIdByIdQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#ee59ecae-170d-47a4-9a1f-07eba13d6eb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIds/GetDiffIdsQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIds/GetDiffIdsQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#ee59ecae-170d-47a4-9a1f-07eba13d6eb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIds/GetDiffIdsQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIds/GetDiffIdsQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ee59ecae-170d-47a4-9a1f-07eba13d6eb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/GetDiffIds/GetDiffIdsQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIds/GetDiffIdsQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#9c2c2065-397d-4992-9dd0-f69c9096d5b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/UpdateDiffId/UpdateDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/UpdateDiffId/UpdateDiffIdCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#9c2c2065-397d-4992-9dd0-f69c9096d5b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/UpdateDiffId/UpdateDiffIdCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/UpdateDiffId/UpdateDiffIdCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9c2c2065-397d-4992-9dd0-f69c9096d5b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DiffIds/UpdateDiffId/UpdateDiffIdCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/UpdateDiffId/UpdateDiffIdCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1892,14 +1748,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#8b77b4cb-29ff-40ca-8a59-66de22b90cb3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/DiffId.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffId.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5c0eec88-edb1-439b-b778-cf1f927268be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/DiffPk.cs</ApplicationRelativeFilePath>
@@ -1992,14 +1840,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomerRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#8b77b4cb-29ff-40ca-8a59-66de22b90cb3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IDiffIdRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IDiffIdRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2140,14 +1980,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8b77b4cb-29ff-40ca-8a59-66de22b90cb3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/DiffIdConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIdConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5c0eec88-edb1-439b-b778-cf1f927268be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/DiffPkConfiguration.cs</ApplicationRelativeFilePath>
@@ -2232,14 +2064,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8b77b4cb-29ff-40ca-8a59-66de22b90cb3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/DiffIdRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIdRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2342,80 +2166,32 @@
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#0a9a787f-e5d0-4789-83f2-3811a890ef8c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/BadSignatures/BadSignaturesHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BadSignatures/BadSignaturesHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#0a9a787f-e5d0-4789-83f2-3811a890ef8c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/BadSignatures/IBadSignaturesService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BadSignatures/IBadSignaturesService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/BadSignaturesHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BadSignaturesHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#17e4e577-b053-4c1c-a433-e552079175a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Children/ChildrenHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Children/ChildrenHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#17e4e577-b053-4c1c-a433-e552079175a7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Children/IChildrenService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Children/IChildrenService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/ChildrenHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildrenHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#0880fd7d-223d-4174-9365-e76d4320a242</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CustomersHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#0880fd7d-223d-4174-9365-e76d4320a242</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#931bc22f-a0d8-43cd-9bdc-55eb2014eca4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DiffIds/DiffIdsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DiffIdsHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#931bc22f-a0d8-43cd-9bdc-55eb2014eca4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DiffIds/IDiffIdsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/IDiffIdsService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/CustomersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomersHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#fa6f57d5-82f6-4cb2-b53f-43d67685bc44</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DtoReturns/DtoReturnsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DtoReturns/DtoReturnsHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#fa6f57d5-82f6-4cb2-b53f-43d67685bc44</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DtoReturns/IDtoReturnsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DtoReturns/IDtoReturnsService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DtoReturnsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoReturnsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2424,6 +2200,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#0a9a787f-e5d0-4789-83f2-3811a890ef8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IBadSignaturesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBadSignaturesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#17e4e577-b053-4c1c-a433-e552079175a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IChildrenService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IChildrenService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#0880fd7d-223d-4174-9365-e76d4320a242</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/ICustomersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#fa6f57d5-82f6-4cb2-b53f-43d67685bc44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IDtoReturnsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDtoReturnsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#00614199-0d6f-4d44-994a-092d7c1eb6c5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/INoReturnsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INoReturnsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#ed136759-e818-4087-ac19-25b040b6bd4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IOrdersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrdersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#083cd3b0-04d5-42e1-9818-09299dd30289</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IParentsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IParentsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#4086b854-1cf3-46b8-9ace-ca2c781e57ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/IPartialCrudsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPartialCrudsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2444,66 +2284,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#00614199-0d6f-4d44-994a-092d7c1eb6c5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/NoReturns/INoReturnsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NoReturns/INoReturnsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#00614199-0d6f-4d44-994a-092d7c1eb6c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/NoReturns/NoReturnsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NoReturns/NoReturnsHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#ed136759-e818-4087-ac19-25b040b6bd4f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Orders/IOrdersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/IOrdersService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/NoReturnsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NoReturnsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#ed136759-e818-4087-ac19-25b040b6bd4f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Orders/OrdersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrdersHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#083cd3b0-04d5-42e1-9818-09299dd30289</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Parents/IParentsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Parents/IParentsService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/OrdersHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrdersHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#083cd3b0-04d5-42e1-9818-09299dd30289</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Parents/ParentsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Parents/ParentsHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#4086b854-1cf3-46b8-9ace-ca2c781e57ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/PartialCruds/IPartialCrudsService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PartialCruds/IPartialCrudsService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/ParentsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#4086b854-1cf3-46b8-9ace-ca2c781e57ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/PartialCruds/PartialCrudsHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PartialCruds/PartialCrudsHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/PartialCrudsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PartialCrudsHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2680,54 +2488,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#cc51fd39-3d3e-4344-8c01-9d8afa3c1d29</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/CreateDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/CreateDiffIdCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e0d56959-e8ab-400e-bdda-797c71fb53ee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/DeleteDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/DeleteDiffIdCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#73578a41-93f0-4ddb-b552-a7a035929378</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/DiffIdDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/DiffIdDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#efc5dbf3-b7e7-4e08-a0cb-5c2caaa4da78</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/GetDiffIdByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/GetDiffIdByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ee59ecae-170d-47a4-9a1f-07eba13d6eb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/GetDiffIdsQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/GetDiffIdsQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#9c2c2065-397d-4992-9dd0-f69c9096d5b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DiffIds/UpdateDiffIdCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/DiffIds/UpdateDiffIdCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3184,46 +2944,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#cc51fd39-3d3e-4344-8c01-9d8afa3c1d29</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DiffIds/CreateDiffIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/CreateDiffIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e0d56959-e8ab-400e-bdda-797c71fb53ee</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DiffIds/DeleteDiffIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/DeleteDiffIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#efc5dbf3-b7e7-4e08-a0cb-5c2caaa4da78</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DiffIds/GetDiffIdByIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIdByIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#ee59ecae-170d-47a4-9a1f-07eba13d6eb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DiffIds/GetDiffIdsTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/GetDiffIdsTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#9c2c2065-397d-4992-9dd0-f69c9096d5b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DiffIds/UpdateDiffIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiffIds/UpdateDiffIdTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
