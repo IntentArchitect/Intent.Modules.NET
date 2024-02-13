@@ -15,6 +15,8 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     internal class OrderDocument : IOrderDocument, ICosmosDBDocument<Order, OrderDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        private string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
@@ -26,6 +28,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             get => WarehouseId;
             set => WarehouseId = value!;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string WarehouseId { get; set; } = default!;
         public string RefNo { get; set; } = default!;
@@ -46,7 +49,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public OrderDocument PopulateFromEntity(Order entity)
+        public OrderDocument PopulateFromEntity(Order entity, string? etag = null)
         {
             Id = entity.Id;
             WarehouseId = entity.WarehouseId;
@@ -54,17 +57,19 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             OrderDate = entity.OrderDate;
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
 
+            _etag = etag;
+
             return this;
         }
 
-        public static OrderDocument? FromEntity(Order? entity)
+        public static OrderDocument? FromEntity(Order? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new OrderDocument().PopulateFromEntity(entity);
+            return new OrderDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

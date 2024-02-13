@@ -96,8 +96,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(GetHasPartitionKeyExpression(_tenantId), cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -110,8 +109,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             try
             {
                 var document = await _cosmosRepository.GetAsync(id, partitionKey ?? _tenantId, cancellationToken: cancellationToken);
-                var entity = document.ToEntity();
-                Track(entity);
+                var entity = LoadAndTrackDocument(document);
 
                 return entity;
             }
@@ -129,8 +127,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             predicate = GetFilteredByTenantIdPredicate(predicate);
 
             var documents = await _cosmosRepository.GetAsync(predicate, cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -153,9 +150,12 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             predicate = GetFilteredByTenantIdPredicate(predicate);
 
             var pagedDocuments = await _cosmosRepository.PageAsync(predicate, pageNo, pageSize, true, cancellationToken);
-            Track(pagedDocuments.Items.Select(document => document.ToEntity()));
+            var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();
 
-            return new CosmosPagedList<TDomain, TDocument>(pagedDocuments, pageNo, pageSize);
+            var totalCount = pagedDocuments.Total ?? 0;
+            var pageCount = pagedDocuments.TotalPages ?? 0;
+
+            return new CosmosPagedList<TDomain, TDocument>(entities, totalCount, pageCount, pageNo, pageSize);
         }
 
         public async Task<List<TDomain>> FindByIdsAsync(
@@ -166,8 +166,7 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
                     .WithParameter("@tenantId", _tenantId)
                     .WithParameter("@ids", ids);
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
-            var results = documents.Select(document => document.ToEntity()).ToList();
-            Track(results);
+            var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
         }
@@ -213,17 +212,21 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
         }
 
-        public void Track(IEnumerable<TDomain> items)
+        public TDomain LoadAndTrackDocument(TDocument document)
         {
-            foreach (var item in items)
-            {
-                _unitOfWork.Track(item);
-            }
+            var entity = document.ToEntity();
+
+            _unitOfWork.Track(entity);
+
+            return entity;
         }
 
-        public void Track(TDomain item)
+        public IEnumerable<TDomain> LoadAndTrackDocuments(IEnumerable<TDocument> documents)
         {
-            _unitOfWork.Track(item);
+            foreach (var document in documents)
+            {
+                yield return LoadAndTrackDocument(document);
+            }
         }
 
         private (string UserName, DateTimeOffset TimeStamp) GetAuditDetails()
