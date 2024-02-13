@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Exceptions;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
-using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
