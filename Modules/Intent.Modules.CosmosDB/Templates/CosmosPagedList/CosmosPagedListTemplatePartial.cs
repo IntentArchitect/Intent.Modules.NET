@@ -41,7 +41,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
                         @class
                             .AddGenericParameter("TDomainState", out tDomainState);
                     }
-                    
+
                     @class
                         .AddGenericParameter("TDocument", out var tDocument)
                         .WithBaseType($"List<{tDomain}>")
@@ -71,18 +71,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosPagedList
                     @class.AddProperty("int", "PageSize", prop => prop.WithoutSetter());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"IPageQueryResult<{tDocument}>", "pagedResult")
+                        ctor.AddParameter($"IEnumerable<{tDomain}>", "pagedResult")
+                            .AddParameter("int", "totalCount")
+                            .AddParameter("int", "pageCount")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize");
 
-                        ctor.AddStatement("TotalCount = pagedResult.Total ?? 0;");
-                        ctor.AddStatement("PageCount = pagedResult.TotalPages ?? 0;");
+                        ctor.AddStatement("TotalCount = totalCount;");
+                        ctor.AddStatement("PageCount = pageCount;");
                         ctor.AddStatement("PageNo = pageNo;");
                         ctor.AddStatement("PageSize = pageSize;");
 
-                        ctor.AddForEachStatement("result", "pagedResult.Items", stmt =>
+                        ctor.AddForEachStatement("result", "pagedResult", stmt =>
                         {
-                            stmt.AddStatement("Add(result.ToEntity());");
+                            stmt.AddStatement("Add(result);");
                         });
                     });
                 });

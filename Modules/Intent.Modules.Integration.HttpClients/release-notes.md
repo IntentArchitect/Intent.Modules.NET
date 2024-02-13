@@ -1,6 +1,7 @@
 ﻿### Version 5.1.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
+- Improvement: Upgraded Microsoft.Extensions.Http NuGet package to version 8.0.0
 
 ### Version 5.0.8
 

@@ -61,7 +61,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
         var endpoints = Model.GetMappedEndpoints().ToArray();
 
-        AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
+        AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp(outputTarget));
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
 
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
