@@ -23,5 +23,3 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 When designing domain models for Dapr State Management your domain package must be annotated with the `Document Database` stereotype. If you have multiple Document DB technologies modules, you must explicitly indicate which Domain Packages contain CosmosDB domain models, by setting `Document Database`'s `Provider` property to Dapr.
 
 ![Configure Dapr provider](./docs/images/db-provider-dapr-db.png)
-
-hello
