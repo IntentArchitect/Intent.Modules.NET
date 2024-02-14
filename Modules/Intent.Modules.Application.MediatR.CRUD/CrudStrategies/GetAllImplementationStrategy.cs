@@ -35,6 +35,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return false;
             }
 
+            var foundEntity = _matchingElementDetails.Value.FoundEntity;
+            var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
+            if (nestedCompOwner != null)
+            {
+                return _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner).Any();
+            }
+
             return _matchingElementDetails.Value.IsMatch;
         }
 

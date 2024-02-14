@@ -1,3 +1,7 @@
+### Version 6.0.4
+
+- Fixed: If a nested compositional entity does not have an owner Id, it will no longer run the GetAllImplementationStrategy.
+
 ### Version 6.0.3
 
 - Improvement: Added support for `ValueObject` collections.
