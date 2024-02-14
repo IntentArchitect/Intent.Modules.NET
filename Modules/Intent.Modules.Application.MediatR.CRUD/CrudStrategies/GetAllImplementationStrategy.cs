@@ -35,11 +35,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return false;
             }
 
-            var foundEntity = _matchingElementDetails.Value.FoundEntity;
-            var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
-            if (nestedCompOwner != null)
+            var returnDto = _template.Model.TypeReference?.Element.AsDTOModel();
+            if (returnDto is not null)
             {
-                return _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner).Any();
+                var foundEntity = returnDto.Mapping.Element.AsClassModel();
+                var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
+                if (nestedCompOwner != null)
+                {
+                    return _template.Model.Properties.GetNestedCompositionalOwnerIdFields(nestedCompOwner).Any();
+                }
             }
 
             return _matchingElementDetails.Value.IsMatch;
