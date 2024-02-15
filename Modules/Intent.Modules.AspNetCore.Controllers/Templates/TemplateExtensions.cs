@@ -3,7 +3,6 @@ using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentAttribute;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.DownloadFile;
-using Intent.Modules.AspNetCore.Controllers.Templates.DownloadFileExtensions;
 using Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
 using Intent.Modules.AspNetCore.Controllers.Templates.UploadFile;
@@ -40,11 +39,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
         public static string GetDownloadFileName(this IIntentTemplate template)
         {
             return template.GetTypeName(DownloadFileTemplate.TemplateId);
-        }
-
-        public static string GetDownloadFileExtensionsName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(DownloadFileExtensionsTemplate.TemplateId);
         }
 
         public static string GetExceptionFilterName(this IIntentTemplate template)

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates.DownloadFile;
 using Intent.Modules.AspNetCore.Controllers.Templates.UploadFile;
@@ -7,8 +9,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -55,7 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.Application.MediatR.QueryHandler"))
                 .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.Application.ServiceImplementations.ServiceImplementation"))
                 .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.Application.Contracts.ServiceContract"))
-                .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.Application.Dtos.DtoModel"))                
+                .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.Application.Dtos.DtoModel"))
                 .Concat(executionContext.FindTemplateInstances<IntentTemplateBase>("Intent.AspNetCore.Controllers.Controller"));
         }
     }

@@ -38,23 +38,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.DownloadFile
                             .AddStatement("ContentType = contentType;")
                             ;
                     });
-                    @class.AddConstructor(ctor =>
-                    {
-                        ctor
-                            .AddParameter("byte[]", "content")
-                            .AddParameter("string?", "filename", p => p.WithDefaultValue("default"))
-                            .AddParameter("string", "contentType", p => p.WithDefaultValue("\"application/octet-stream\""))
-                            ;
-                        ctor
-                            .AddStatement("Content = content;")
-                            .AddStatement("Filename = filename;")
-                            .AddStatement("ContentType = contentType;")
-                            ;
-                    });
                     @class.AddProperty("string?", "Filename", p => p.ReadOnly());
                     @class.AddProperty("string", "ContentType", p => p.ReadOnly());
-                    @class.AddProperty("Stream?", "Stream", p => p.ReadOnly());
-                    @class.AddProperty("byte[]?", "Content", p => p.ReadOnly());
+                    @class.AddProperty("Stream", "Stream", p => p.ReadOnly());
                 });
         }
 

@@ -146,22 +146,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fddcffae-cdb4-4874-b758-35f05072a699</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DownloadFileExtensions/DownloadFileExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DownloadFileExtensions/DownloadFileExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fddcffae-cdb4-4874-b758-35f05072a699</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DownloadFileExtensions/DownloadFileExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DownloadFileExtensions/DownloadFileExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9675befd-6b2e-4ec3-afd1-4dc467bb9175</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ExceptionFilter/ExceptionFilterTemplatePartial.cs</ApplicationRelativeFilePath>

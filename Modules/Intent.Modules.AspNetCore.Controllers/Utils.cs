@@ -28,12 +28,11 @@ public static class Utils
     {
         if (FileTransferHelper.IsFileDownload( operationModel))
         {
-            template.UseType(template.GetDownloadFileExtensionsName());
             return @"if (result == null)
             {
                 return NotFound();
             }
-            return result.ToFile();";
+            return File(result.Stream, result.ContentType, result.Filename );";
         }
         var hasReturnType = operationModel.ReturnType != null;
 

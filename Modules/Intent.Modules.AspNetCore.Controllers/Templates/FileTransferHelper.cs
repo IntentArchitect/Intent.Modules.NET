@@ -16,8 +16,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
 {
     public class FileTransferHelper
     {
-        public const string UploadFileTypeId = "9758e896-f0d0-4339-ae71-ed0d1939831b";
-        public const string DownloadFileTypeId = "66c99837-a0ea-4422-842c-49ecffe29db4";
+        
+        public const string UploadFileTypeId = "bb8b4603-1e92-43cb-97ed-31ca0a8c374c";
+        //public const string UploadFileTypeId = "9758e896-f0d0-4339-ae71-ed0d1939831b";
+        public const string DownloadFileTypeId = "922c1803-671b-4412-8bc1-e743754e35d5";
+        //public const string DownloadFileTypeId = "66c99837-a0ea-4422-842c-49ecffe29db4";
 
 
         public static bool IsFileDownload(IControllerOperationModel operation)
