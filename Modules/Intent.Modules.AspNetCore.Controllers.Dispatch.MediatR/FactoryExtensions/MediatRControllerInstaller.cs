@@ -1,11 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Json;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControllers;
+using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -15,7 +20,9 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -59,6 +66,11 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                     if (!actionMethod.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
                         continue;
+                    
+                    }
+                    if (FileTransferHelper.IsFileUpoad(operationModel))
+                    {
+                        CreateUploadCommand(application, controllerTemplate, actionMethod, operationModel);
                     }
 
                     AddCqrsParameterToFieldAssignments(application, actionMethod, operationModel);
@@ -68,6 +80,27 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                 }
             }, 10);
         }
+    }
+
+    private void CreateUploadCommand(IApplication application, ControllerTemplate template, CSharpClassMethod method, IControllerOperationModel operation)
+    {
+        var parameters = new StringBuilder();
+        var commandType = operation.Parameters.First(p => p.Source == HttpInputSource.FromBody);
+        string filenameParameter = null;
+        foreach (var parameter in operation.Parameters.Where(p => p.MappedPayloadProperty != null))
+        {
+            parameters.Append(", ");
+            parameters.Append(((IElement)parameter.MappedPayloadProperty).Name.ToParameterName());
+            parameters.Append(": ");
+            parameters.Append(parameter.Name.ToParameterName());
+
+            if (string.Equals("filename", parameter.Name.ToLower()))
+            {
+                filenameParameter = parameter.Name.ToParameterName();
+            }
+        }
+        method.AddStatement($"var command = new {template.GetTypeName(commandType)}({FileTransferHelper.GetFileTransferFieldName(operation).ToParameterName()}: {template.UseType(template.GetUploadFileFactoryName())}.Create(Request {(filenameParameter != null ? $", {filenameParameter}" : "")}){parameters});");
+
     }
 
     private static void AddCqrsParameterToFieldAssignments(
@@ -80,7 +113,12 @@ public class MediatRControllerInstaller : FactoryExtensionBase
         {
             return;
         }
-        
+
+        if (FileTransferHelper.IsFileUpoad(operationModel))
+        {
+            return;
+        }
+
         var commandModelTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CommandModelsTemplate.TemplateId, operationModel.InternalElement.Id);
         if (commandModelTemplate is not null)
         {
@@ -147,6 +185,11 @@ public class MediatRControllerInstaller : FactoryExtensionBase
         var validations = new List<CSharpStatement>();
         var payloadParameter = GetPayloadParameter(operationModel);
         if (payloadParameter == null)
+        {
+            return validations;
+        }
+
+        if (FileTransferHelper.IsFileUpoad(operationModel))
         {
             return validations;
         }

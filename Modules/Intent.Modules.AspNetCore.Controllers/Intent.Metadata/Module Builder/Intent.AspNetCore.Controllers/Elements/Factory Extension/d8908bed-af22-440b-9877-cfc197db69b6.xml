@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d8908bed-af22-440b-9877-cfc197db69b6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>TypeSourceExtension</name>
+  <display>TypeSourceExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</parentFolderId>
+  <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
+  <packageName>Intent.AspNetCore.Controllers</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

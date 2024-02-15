@@ -9,19 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
+      <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#381a0b6c-688c-43f5-812e-c6b76c61b0a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RolesAuthorizationDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RolesAuthorizationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtentions/BinaryContentFilterExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentFilterExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -38,6 +30,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtentions/JsonOptionsExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonOptionsExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#d8908bed-af22-440b-9877-cfc197db69b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/TypeSourceExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSourceExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -74,6 +74,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#434135ea-acf2-40d9-a064-3f0cafa71b4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BinaryContentAttribute/BinaryContentAttributeTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentAttribute/BinaryContentAttributeTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#434135ea-acf2-40d9-a064-3f0cafa71b4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BinaryContentAttribute/BinaryContentAttributeTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentAttribute/BinaryContentAttributeTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71b073a5-1310-4b37-9f1b-0ffef5f6ce89</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BinaryContentFilter/BinaryContentFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentFilter/BinaryContentFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71b073a5-1310-4b37-9f1b-0ffef5f6ce89</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BinaryContentFilter/BinaryContentFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentFilter/BinaryContentFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerDecorator.cs</ApplicationRelativeFilePath>
@@ -95,6 +127,38 @@
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#018b0cab-c753-40ef-bc80-2f6de0726c18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DownloadFile/DownloadFileTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DownloadFile/DownloadFileTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#018b0cab-c753-40ef-bc80-2f6de0726c18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DownloadFile/DownloadFileTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DownloadFile/DownloadFileTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fddcffae-cdb4-4874-b758-35f05072a699</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DownloadFileExtensions/DownloadFileExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DownloadFileExtensions/DownloadFileExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fddcffae-cdb4-4874-b758-35f05072a699</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DownloadFileExtensions/DownloadFileExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DownloadFileExtensions/DownloadFileExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
@@ -150,6 +214,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a47064d1-1a42-4863-9c45-a71f67707496</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UploadFile/UploadFileTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadFile/UploadFileTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a47064d1-1a42-4863-9c45-a71f67707496</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UploadFile/UploadFileTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadFile/UploadFileTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d4184e3-ea1c-48df-bb0e-081af3614452</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UploadFileFactory/UploadFileFactoryTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadFileFactory/UploadFileFactoryTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4d4184e3-ea1c-48df-bb0e-081af3614452</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UploadFileFactory/UploadFileFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadFileFactory/UploadFileFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

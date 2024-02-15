@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="381a0b6c-688c-43f5-812e-c6b76c61b0a6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BinaryContentFilterExtension</name>
+  <display>BinaryContentFilterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</parentFolderId>
+  <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
+  <packageName>Intent.AspNetCore.Controllers</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

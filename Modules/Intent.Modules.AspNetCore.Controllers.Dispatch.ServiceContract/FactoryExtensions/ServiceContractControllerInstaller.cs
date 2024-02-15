@@ -102,6 +102,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                     {
                         var awaitModifier = string.Empty;
                         var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
+                        if (FileTransferHelper.IsFileUpoad(operationModel))
+                        {
+                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsUploadFileType(x.TypeReference) ? $"{template.UseType(template.GetUploadFileFactoryName())}.Create(Request)" : x.Name ?? ""));
+                        }
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                         {

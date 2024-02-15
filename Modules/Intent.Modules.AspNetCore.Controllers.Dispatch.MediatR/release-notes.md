@@ -1,3 +1,7 @@
+### Version 5.5.1
+
+- Improvement: File transfer ( upload / download ) support.
+
 ### Version 5.5.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

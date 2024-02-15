@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>6.0.2</version>
+  <version>6.0.3-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -10,6 +10,22 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet aspnetcore controllers</tags>
   <templates>
+    <template id="Intent.AspNetCore.Controllers.BinaryContentAttribute" externalReference="434135ea-acf2-40d9-a064-3f0cafa71b4f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.Controller.BinaryContentAttribute</role>
+      <location>Controllers/FileTransfer</location>
+    </template>
+    <template id="Intent.AspNetCore.Controllers.BinaryContentFilter" externalReference="71b073a5-1310-4b37-9f1b-0ffef5f6ce89">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.BinaryContentFilter</role>
+      <location>Filters</location>
+    </template>
     <template id="Intent.AspNetCore.Controllers.Controller" externalReference="e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -17,6 +33,22 @@
       </config>
       <role>Distribution.WebApi.Controller</role>
       <location>Controllers</location>
+    </template>
+    <template id="Intent.AspNetCore.Controllers.DownloadFile" externalReference="018b0cab-c753-40ef-bc80-2f6de0726c18">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.DownloadFile</role>
+      <location>Common/FileTransfer</location>
+    </template>
+    <template id="Intent.AspNetCore.Controllers.DownloadFileExtensions" externalReference="fddcffae-cdb4-4874-b758-35f05072a699">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.Controller.DownloadFileTransferExtensions</role>
+      <location>Controllers/FileTransfer</location>
     </template>
     <template id="Intent.AspNetCore.Controllers.ExceptionFilter" externalReference="9675befd-6b2e-4ec3-afd1-4dc467bb9175">
       <config>
@@ -34,13 +66,29 @@
       <role>Distribution.Controller.JsonResponse</role>
       <location>Controllers/ResponseTypes</location>
     </template>
+    <template id="Intent.AspNetCore.Controllers.UploadFile" externalReference="a47064d1-1a42-4863-9c45-a71f67707496">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.UploadFile</role>
+      <location>Common/FileTransfer</location>
+    </template>
+    <template id="Intent.AspNetCore.Controllers.UploadFileFactory" externalReference="4d4184e3-ea1c-48df-bb0e-081af3614452">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.Controller.UploadFileFactory</role>
+      <location>Controllers/FileTransfer</location>
+    </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.AspNetCore.Controllers.RolesAuthorizationDecorator" externalReference="e45547aa-aaf9-40a3-8709-d4e627b9a43e" />
-  </decorators>
+  <decorators />
   <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.Controllers.BinaryContentFilterExtension" externalReference="381a0b6c-688c-43f5-812e-c6b76c61b0a6" />
     <factoryExtension id="Intent.AspNetCore.Controllers.ExceptionFilterExtension" externalReference="6879086c-8477-4b0a-ae01-8b6dc49d1003" />
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonOptionsExtension" externalReference="3f12f92a-d670-4abe-b034-0123bfba10da" />
+    <factoryExtension id="Intent.AspNetCore.Controllers.TypeSourceExtension" externalReference="d8908bed-af22-440b-9877-cfc197db69b6" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.Application.Contracts">

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -52,6 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     }
                     foreach (var operation in Model.Operations)
                     {
+                        var isFileUpload = FileTransferHelper.IsFileUpoad(operation);
                         @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", operation);
@@ -59,13 +63,22 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             method.AddMetadata("route", operation.Route);
                             method.Async();
                             method.WithComments(GetOperationComments(operation));
+                            if (isFileUpload)
+                            {
+                                method.AddAttribute(this.GetBinaryContentAttributeName().RemoveSuffix("Attribute"));
+                            }
                             foreach (var attribute in GetOperationAttributes(operation))
                             {
                                 method.AddAttribute(attribute);
                             }
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                if (isFileUpload && parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsUploadFileType( parameter.TypeReference))
+                                {
+                                    continue;
+                                }
+
+                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(), param =>
                                 {
                                     param.AddMetadata("model", parameter);
                                     param.AddMetadata("modelId", parameter.Id);
@@ -85,6 +98,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     }
                 });
         }
+
+
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -137,11 +152,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     .Select(commentLine => $"/// {commentLine}"));
             }
 
+            string returnType = FileTransferHelper.IsFileDownload(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
             lines.Add("/// </summary>");
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    lines.Add($"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    lines.Add($"/// <response code=\"200\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
                     lines.Add("/// <response code=\"201\">Successfully created.</response>");
@@ -174,7 +190,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                    operation.ReturnType.HasStringType() ||
                                    GetTypeInfo(operation.ReturnType).IsPrimitive
                     ? "One or more entities could not be found with the provided parameters."
-                    : $"No {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} could be found with the provided parameters.";
+                    : $"No {returnType.Replace("<", "&lt;").Replace(">", "&gt;")} could be found with the provided parameters.";
 
                 lines.Add($"/// <response code=\"404\">{responseText}</response>");
             }
@@ -212,6 +228,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({UseType(GetTypeInfo(operation).WithIsNullable(false))}), " : string.Empty;
+            if (FileTransferHelper.IsFileDownload(operation))
+            {
+                apiResponse = "typeof(byte[]), ";
+            }
             if (operation.MediaType == HttpMediaType.ApplicationJson && operation.ReturnType != null)
             {
                 // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
@@ -352,6 +372,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetReturnType(IControllerOperationModel operation)
         {
+
+            if (FileTransferHelper.IsFileDownload(operation))
+            {
+                return "ActionResult<byte[]>";
+            }
+
             if (operation.ReturnType == null)
             {
                 return "ActionResult";

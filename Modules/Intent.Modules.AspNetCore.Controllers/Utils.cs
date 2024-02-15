@@ -26,6 +26,15 @@ public static class Utils
 
     public static CSharpStatement GetReturnStatement(this ControllerTemplate template, IControllerOperationModel operationModel)
     {
+        if (FileTransferHelper.IsFileDownload( operationModel))
+        {
+            template.UseType(template.GetDownloadFileExtensionsName());
+            return @"if (result == null)
+            {
+                return NotFound();
+            }
+            return result.ToFile();";
+        }
         var hasReturnType = operationModel.ReturnType != null;
 
         var resultExpression = default(string);
