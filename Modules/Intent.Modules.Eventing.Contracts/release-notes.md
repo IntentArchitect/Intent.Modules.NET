@@ -1,6 +1,6 @@
-### Version 5.0.5
+### Version 5.0.4
 
-- Fix: Fixed an issue where Integration Commands would not honour the folder structure to generate the correct namespace.
+- Fix: Fixed an issue where Integration Commands would not honor the folder structure to generate the correct namespace.
 
 ### Version 5.0.3
 
