@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
@@ -33,7 +34,21 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
 
-            CSharpFile = new CSharpFile(Model.InternalElement.Package.Name.ToPascalCase(), this.GetFolderPath())
+            var classNamespace = Model.InternalElement.Package.Name.ToPascalCase();
+            var extendedNamespace = Model.GetParentFolders().Where(x =>
+            {
+                if (string.IsNullOrWhiteSpace(x.Name))
+                {
+                    return false;
+                }
+
+                return !x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider();
+            })
+            .Select(x => x.Name);
+
+            var completeNamespace = string.Join(".", classNamespace.Split(".").Concat(extendedNamespace));
+
+            CSharpFile = new CSharpFile(completeNamespace, this.GetFolderPath())
                 .AddRecord($"{Model.Name}", record =>
                 {
                     // See this article on how to handle NRTs for DTOs
