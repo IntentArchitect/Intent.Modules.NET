@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Services;
+using MassTransit.RabbitMQ.Services.Animals;
+using MassTransit.RabbitMQ.Services.People;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]

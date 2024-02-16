@@ -10,6 +10,8 @@ using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers;
 using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers.Test;
 using MassTransit.AzureServiceBus.Eventing.Messages;
 using MassTransit.AzureServiceBus.Services;
+using MassTransit.AzureServiceBus.Services.Animals;
+using MassTransit.AzureServiceBus.Services.People;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

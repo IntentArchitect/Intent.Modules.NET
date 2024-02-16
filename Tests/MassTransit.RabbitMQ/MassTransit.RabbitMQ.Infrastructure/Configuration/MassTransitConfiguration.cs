@@ -7,6 +7,8 @@ using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Infrastructure.Eventing;
 using MassTransit.RabbitMQ.Services;
+using MassTransit.RabbitMQ.Services.Animals;
+using MassTransit.RabbitMQ.Services.People;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -59,12 +61,12 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void AddReceiveEndpoints(this IRabbitMqBusFactoryConfigurator cfg, IBusRegistrationContext context)
         {
-            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.order-animal", e =>
+            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.animals.order-animal", e =>
             {
                 e.ConfigureConsumeTopology = false;
                 e.Consumer<WrapperConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(context);
             });
-            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.make-sound-command", e =>
+            cfg.ReceiveEndpoint("mass-transit.rabbit-mq.services.animals.make-sound-command", e =>
             {
                 e.ConfigureConsumeTopology = false;
                 e.Consumer<WrapperConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(context);
@@ -80,8 +82,8 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
         private static void EndpointConventionRegistration()
         {
             EndpointConvention.Map<CreatePersonIdentity>(new Uri("queue:Person"));
-            EndpointConvention.Map<MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.make-sound-command"));
-            EndpointConvention.Map<OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.order-animal"));
+            EndpointConvention.Map<MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.animals.make-sound-command"));
+            EndpointConvention.Map<OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.animals.order-animal"));
             EndpointConvention.Map<TalkToPersonCommand>(new Uri("queue:Person"));
         }
 
