@@ -1,4 +1,8 @@
-﻿### Version 5.1.0
+﻿### Version 5.1.1
+
+- Improvement: Bumped AutoMapper to latest stable version `13.0.1`
+
+### Version 5.1.0
 
 - Improvement: Refactoring the pagination patterns to better suit both Repository and EF DbContext approaches.
 
