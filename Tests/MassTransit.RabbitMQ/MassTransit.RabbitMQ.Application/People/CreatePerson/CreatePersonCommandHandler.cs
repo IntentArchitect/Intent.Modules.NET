@@ -6,6 +6,7 @@ using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Domain.Entities;
 using MassTransit.RabbitMQ.Domain.Repositories;
 using MassTransit.RabbitMQ.Services;
+using MassTransit.RabbitMQ.Services.People;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

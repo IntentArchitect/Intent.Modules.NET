@@ -10,6 +10,8 @@ using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers;
 using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Test;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Services;
+using MassTransit.RabbitMQ.Services.Animals;
+using MassTransit.RabbitMQ.Services.People;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
