@@ -15,6 +15,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -102,9 +103,38 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                     {
                         var awaitModifier = string.Empty;
                         var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
-                        if (FileTransferHelper.IsFileUpoad(operationModel))
+                        if (FileTransferHelper.IsFileUploadOperation(operationModel))
                         {
-                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsUploadFileType(x.TypeReference) ? $"{template.UseType(template.GetUploadFileFactoryName())}.Create(Request)" : x.Name ?? ""));
+                            var fileInfo = FileTransferHelper.GetUploadTypeInfo(operationModel);
+
+                            template.AddUsing("System.IO");
+                            template.AddUsing("System.Linq");
+                            method.AddStatement("Stream stream;");
+                            method.AddIfStatement(@"(Request.ContentType != null &&
+            (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) &&
+            Request.Form.Files.Any())", stmt =>
+                            {
+                                stmt.AddStatements(@"var file = Request.Form.Files[0];
+
+            if (file == null || file.Length == 0)
+                throw new ArgumentException(""File is empty"");
+            stream = file.OpenReadStream();".ConvertToStatements());
+                                if (fileInfo.HasFilename())
+                                {
+                                    stmt.AddIfStatement($"{fileInfo.FileNameField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.FileNameField.ToParameterName()} = file.Name;"));
+                                }
+                                if (fileInfo.HasContentType())
+                                {
+                                    stmt.AddIfStatement($"{fileInfo.ContentTypeField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.ContentTypeField.ToParameterName()} = file.ContentType;"));
+                                }
+                            });
+                            method.AddElseStatement(stmt =>
+                            {
+                                stmt.AddStatement("stream = Request.Body;");
+                            });
+
+
+                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" : fileInfo.HasContentType() && x.MappedPayloadProperty?.Name == fileInfo.ContentTypeField ? "contentType ?? Request.ContentType" : x.Name ?? ""));
                         }
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))

@@ -55,7 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     }
                     foreach (var operation in Model.Operations)
                     {
-                        var isFileUpload = FileTransferHelper.IsFileUpoad(operation);
+                        var isFileUpload = FileTransferHelper.IsFileUploadOperation(operation);
                         @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", operation);
@@ -73,7 +73,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             }
                             foreach (var parameter in operation.Parameters)
                             {
-                                if (isFileUpload && parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsUploadFileType( parameter.TypeReference))
+                                if (isFileUpload && parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType( parameter.TypeReference))
                                 {
                                     continue;
                                 }
@@ -152,7 +152,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     .Select(commentLine => $"/// {commentLine}"));
             }
 
-            string returnType = FileTransferHelper.IsFileDownload(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
+            string returnType = FileTransferHelper.IsFileDownloadOperation(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
             lines.Add("/// </summary>");
             switch (operation.Verb)
             {
@@ -228,7 +228,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({UseType(GetTypeInfo(operation).WithIsNullable(false))}), " : string.Empty;
-            if (FileTransferHelper.IsFileDownload(operation))
+            if (FileTransferHelper.IsFileDownloadOperation(operation))
             {
                 apiResponse = "typeof(byte[]), ";
             }
@@ -373,7 +373,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetReturnType(IControllerOperationModel operation)
         {
 
-            if (FileTransferHelper.IsFileDownload(operation))
+            if (FileTransferHelper.IsFileDownloadOperation(operation))
             {
                 return "ActionResult<byte[]>";
             }

@@ -33,14 +33,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#d8908bed-af22-440b-9877-cfc197db69b6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/TypeSourceExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TypeSourceExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -130,22 +122,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#018b0cab-c753-40ef-bc80-2f6de0726c18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DownloadFile/DownloadFileTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DownloadFile/DownloadFileTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#018b0cab-c753-40ef-bc80-2f6de0726c18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DownloadFile/DownloadFileTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DownloadFile/DownloadFileTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9675befd-6b2e-4ec3-afd1-4dc467bb9175</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ExceptionFilter/ExceptionFilterTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -198,22 +174,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a47064d1-1a42-4863-9c45-a71f67707496</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UploadFile/UploadFileTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UploadFile/UploadFileTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a47064d1-1a42-4863-9c45-a71f67707496</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UploadFile/UploadFileTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UploadFile/UploadFileTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

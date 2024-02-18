@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentAttribute;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.AspNetCore.Controllers.Templates.DownloadFile;
 using Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
-using Intent.Modules.AspNetCore.Controllers.Templates.UploadFile;
 using Intent.Modules.AspNetCore.Controllers.Templates.UploadFileFactory;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -36,11 +34,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
         }
 
-        public static string GetDownloadFileName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(DownloadFileTemplate.TemplateId);
-        }
-
         public static string GetExceptionFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(ExceptionFilterTemplate.TemplateId);
@@ -52,11 +45,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
             var jsonResponseTemplate = template.GetTemplate<JsonResponseTemplate>(JsonResponseTemplate.TemplateId);
             jsonResponseTemplate.NotifyTemplateIsRequired(); // GCB - consider a way to track which templates resolve this one and can use that to determine if is required.
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
-        }
-
-        public static string GetUploadFileName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(UploadFileTemplate.TemplateId);
         }
 
         public static string GetUploadFileFactoryName(this IIntentTemplate template)

@@ -68,7 +68,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                         continue;
                     
                     }
-                    if (FileTransferHelper.IsFileUpoad(operationModel))
+                    if (FileTransferHelper.IsFileUploadOperation(operationModel))
                     {
                         CreateUploadCommand(application, controllerTemplate, actionMethod, operationModel);
                     }
@@ -84,22 +84,50 @@ public class MediatRControllerInstaller : FactoryExtensionBase
 
     private void CreateUploadCommand(IApplication application, ControllerTemplate template, CSharpClassMethod method, IControllerOperationModel operation)
     {
+        var fileInfo = FileTransferHelper.GetUploadTypeInfo(operation);
+
+        template.AddUsing("System.IO");
+        template.AddUsing("System.Linq");
+        method.AddStatement("Stream stream;");
+        method.AddIfStatement(@"(Request.ContentType != null &&
+            (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) &&
+            Request.Form.Files.Any())", stmt => 
+        {
+            stmt.AddStatements(@"var file = Request.Form.Files[0];
+
+            if (file == null || file.Length == 0)
+                throw new ArgumentException(""File is empty"");
+            stream = file.OpenReadStream();".ConvertToStatements());
+            if (fileInfo.HasFilename())
+            {
+                stmt.AddIfStatement($"{fileInfo.FileNameField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.FileNameField.ToParameterName()} = file.Name;"));
+            }
+            if (fileInfo.HasContentType())
+            {
+                stmt.AddIfStatement($"{fileInfo.ContentTypeField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.ContentTypeField.ToParameterName()} = file.ContentType;"));
+            }
+        });
+        method.AddElseStatement(stmt => 
+        {
+            stmt.AddStatement("stream = Request.Body;");
+        });
+
         var parameters = new StringBuilder();
         var commandType = operation.Parameters.First(p => p.Source == HttpInputSource.FromBody);
-        string filenameParameter = null;
         foreach (var parameter in operation.Parameters.Where(p => p.MappedPayloadProperty != null))
         {
+            if (fileInfo.HasContentType() && string.Equals(fileInfo.ContentTypeField, parameter.MappedPayloadProperty.Name))
+            {
+                continue;
+            }
+
             parameters.Append(", ");
             parameters.Append(((IElement)parameter.MappedPayloadProperty).Name.ToParameterName());
             parameters.Append(": ");
             parameters.Append(parameter.Name.ToParameterName());
 
-            if (string.Equals("filename", parameter.Name.ToLower()))
-            {
-                filenameParameter = parameter.Name.ToParameterName();
-            }
         }
-        method.AddStatement($"var command = new {template.GetTypeName(commandType)}({FileTransferHelper.GetFileTransferFieldName(operation).ToParameterName()}: {template.UseType(template.GetUploadFileFactoryName())}.Create(Request {(filenameParameter != null ? $", {filenameParameter}" : "")}){parameters});");
+        method.AddStatement($"var command = new {template.GetTypeName(commandType)}({fileInfo.StreamField.ToParameterName()}: stream{(fileInfo.HasContentType() ? $", {fileInfo.ContentTypeField.ToParameterName()}: Request.ContentType ?? \"application/octet-stream\"" : "")} {parameters});");
 
     }
 
@@ -114,7 +142,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
             return;
         }
 
-        if (FileTransferHelper.IsFileUpoad(operationModel))
+        if (FileTransferHelper.IsFileUploadOperation(operationModel))
         {
             return;
         }
@@ -189,7 +217,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
             return validations;
         }
 
-        if (FileTransferHelper.IsFileUpoad(operationModel))
+        if (FileTransferHelper.IsFileUploadOperation(operationModel))
         {
             return validations;
         }

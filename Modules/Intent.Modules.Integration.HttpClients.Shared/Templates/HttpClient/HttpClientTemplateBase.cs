@@ -163,7 +163,32 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
                         }
 
-                        if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
+                        if (FileTransferHelper.IsFileUploadOperation(endpoint))
+                        {
+                            var fieldInfo = FileTransferHelper.GetUploadTypeInfo(endpoint);
+                            string pathPrefix = fieldInfo.DtoPropertyName == null ? "" : $"{fieldInfo.DtoPropertyName}.";
+                            Func<string, string> fieldNameFormatter = (fieldName) => fieldName;
+                            if (fieldInfo.DtoPropertyName != null)
+                            {
+                                fieldNameFormatter = (fieldName) => $"{pathPrefix}{fieldName.ToPascalCase()}";
+                            }
+                            method.AddStatement($"httpRequest.Content = new StreamContent({fieldNameFormatter( fieldInfo.StreamField)});");
+                            if (fieldInfo.HasFilename())
+                            {
+                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.FileNameField)} != null", stmt =>
+                                {
+                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue({fieldNameFormatter(fieldInfo.FileNameField)});");
+                                });
+                            }
+                            if (fieldInfo.HasContentType())
+                            {
+                                method.AddIfStatement($"{fieldNameFormatter( fieldInfo.ContentTypeField)} != null", stmt =>
+                                {
+                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter( fieldInfo.ContentTypeField)});");
+                                });
+                            }
+                        }
+                        else if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
                         {
                             var bodyParam = bodyParams.Single();
 
@@ -205,46 +230,58 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 );
                             }
 
-                            usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
+                            if (FileTransferHelper.IsFileDownloadOperation(endpoint))
                             {
-                                var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
-                                var returnsCollection = endpoint.ReturnType.IsCollection;
-                                var returnsString = endpoint.ReturnType.HasStringType();
-                                var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
-                                                       !returnsCollection;
-
-                                string SuppressNullable(string expression) => endpoint.ReturnType.IsNullable ? expression : $"({expression})!";
-
-                                usingContentStreamBlock.SeparatedFromPrevious();
-
-                                if (isWrappedReturnType && (returnsPrimitive || returnsString))
+                                var fields = FileTransferHelper.GetDownloadTypeInfo(endpoint);
+                                usingResponseBlock.AddStatement(@$"return {GetTypeName(endpoint.ReturnType)}.Create(
+                    {fields.StreamField.ToParameterName()}: await response.Content.{GetReadAsStreamAsyncMethodCall()}
+                    , {(fields.HasFilename() ? $"{fields.FileNameField.ToParameterName()}: response.Content.Headers.ContentDisposition?.FileName" : "")}
+                    , {(fields.HasContentType() ? $"{fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"" : "")}
+                    );", s => s.SeparatedFromPrevious());
+                            }
+                            else
+                            {
+                                usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
                                 {
-                                    usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
-                                    usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
-                                }
-                                else if (!isWrappedReturnType && returnsString && !returnsCollection)
-                                {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
+                                    var returnsCollection = endpoint.ReturnType.IsCollection;
+                                    var returnsString = endpoint.ReturnType.HasStringType();
+                                    var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
+                                                           !returnsCollection;
+
+                                    string SuppressNullable(string expression) => endpoint.ReturnType.IsNullable ? expression : $"({expression})!";
+
+                                    usingContentStreamBlock.SeparatedFromPrevious();
+
+                                    if (isWrappedReturnType && (returnsPrimitive || returnsString))
                                     {
-                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
-                                    });
-                                    usingContentStreamBlock.AddStatement("return str;");
-                                }
-                                else if (!isWrappedReturnType && returnsPrimitive)
-                                {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                        usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
+                                        usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
+                                    }
+                                    else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                     {
-                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
-                                    });
-                                    usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
-                                }
-                                else
-                                {
-                                    usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
-                                }
-                            });
+                                        usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        {
+                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                        });
+                                        usingContentStreamBlock.AddStatement("return str;");
+                                    }
+                                    else if (!isWrappedReturnType && returnsPrimitive)
+                                    {
+                                        usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        {
+                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                        });
+                                        usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
+                                    }
+                                    else
+                                    {
+                                        usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
+                                    }
+                                });
+                            }
                         });
                     });
                 }

@@ -1,4 +1,8 @@
-﻿### Version 3.1.0
+﻿### Version 3.1.1
+
+- Improvement: File transfer ( upload / download ) support.
+
+### Version 3.1.0
 
 - Improvement: Underlying proxy templates updated to support alternate Metadata models.
 - Improvement: Upgraded Microsoft.Extensions.Http NuGet package to version 8.0.0

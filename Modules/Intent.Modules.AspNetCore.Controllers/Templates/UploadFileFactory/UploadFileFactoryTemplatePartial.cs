@@ -30,7 +30,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.UploadFileFactory
                     @class
                         .Internal()
                         .Static()
-                        .AddMethod(UseType(this.GetUploadFileName()), "Create", method =>
+                        .AddMethod("FileUpload", "Create", method =>
                         {
                             method
                                 .Static()
@@ -60,7 +60,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.UploadFileFactory
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && FileTransferHelper.NeedsFileUploadInfrastructure(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id);
+            return false;
         }
 
         [IntentManaged(Mode.Fully)]
