@@ -9,6 +9,6 @@ namespace CosmosDB.Domain.Repositories.Documents
     {
         string Id { get; }
         string Name { get; }
-        IGetAllImplementationOrderDocument GetAllImplementation.Order { get; }
+        IGetAllImplementationOrderDocument GetAllImplementationOrder { get; }
     }
 }

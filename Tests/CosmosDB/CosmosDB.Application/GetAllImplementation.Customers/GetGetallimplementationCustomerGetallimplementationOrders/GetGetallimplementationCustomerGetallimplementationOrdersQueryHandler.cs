@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using CosmosDB.Domain.Entities;
+using CosmosDB.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -13,9 +16,13 @@ namespace CosmosDB.Application.GetAllImplementation.Customers.GetGetallimplement
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetGetallimplementationCustomerGetallimplementationOrdersQueryHandler : IRequestHandler<GetGetallimplementationCustomerGetallimplementationOrdersQuery, List<GetallimplementationCustomerGetallimplementationOrderDto>>
     {
+        private readonly IGetAllImplementationCustomerRepository _getAllImplementationCustomerRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetGetallimplementationCustomerGetallimplementationOrdersQueryHandler()
+        public GetGetallimplementationCustomerGetallimplementationOrdersQueryHandler(IGetAllImplementationCustomerRepository getAllImplementationCustomerRepository, IMapper mapper)
         {
+            _getAllImplementationCustomerRepository = getAllImplementationCustomerRepository;
+            _mapper = mapper;
         }
 
         /// <summary>

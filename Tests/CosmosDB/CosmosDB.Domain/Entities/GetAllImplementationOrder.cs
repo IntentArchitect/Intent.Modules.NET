@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Domain.Entities
 {
-    public class GetAllImplementation.Order
+    public class GetAllImplementationOrder
     {
     }
 }
