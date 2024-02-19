@@ -176,21 +176,5 @@
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d4184e3-ea1c-48df-bb0e-081af3614452</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UploadFileFactory/UploadFileFactoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UploadFileFactory/UploadFileFactoryTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4d4184e3-ea1c-48df-bb0e-081af3614452</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UploadFileFactory/UploadFileFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UploadFileFactory/UploadFileFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>
