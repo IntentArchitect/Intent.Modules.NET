@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="6bde8a4c-61a9-4f72-b5aa-0093de81e234" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f51d760a-09eb-4635-972e-62706694321d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -50,6 +50,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                         {
                             stmt.AddStatement("return;");
                         });
+
+                        method.AddStatements(@"operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = ""Content-Disposition"",
+                In = ParameterLocation.Header,
+                Required = false,
+                Schema = new OpenApiSchema
+                {                    
+                    Type = ""string""
+                },
+                Description = ""e.g. form-data; name=\""file\""; filename=example.txt""
+            });
+".ConvertToStatements());
                         method.AddStatement("operation.RequestBody = new OpenApiRequestBody() {Required = true};");
                         method.AddStatement(@"operation.RequestBody.Content.Add(""application/octet-stream"", new OpenApiMediaType()
             {

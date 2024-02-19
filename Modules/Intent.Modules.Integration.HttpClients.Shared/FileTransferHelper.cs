@@ -63,6 +63,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 string streamFieldName = "Stream";
                 string? fileNameField = default;
                 string? contentTypeField = default;
+                string? contentLengthField = default;
                 foreach (var child in operation.Inputs)
                 {
                     if (IsStreamType(child.TypeReference))
@@ -77,8 +78,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                     {
                         contentTypeField = child.Name;
                     }
+                    else if (string.Equals("contentlength", child.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        contentLengthField = child.Name;
+                    }
                 }
-                return new FileInfo(streamFieldName, fileNameField, contentTypeField);
+                return new FileInfo(streamFieldName, fileNameField, contentTypeField, contentLengthField);
             }
 
             var dto = operation.Inputs.FirstOrDefault(d => d.Source == HttpInputSource.FromBody);
@@ -106,10 +111,11 @@ namespace Intent.Modules.Integration.HttpClients.Shared
             if (returnType == null) return false;
             return ((IElement)returnType.Element).ChildElements.Any(c => FileTransferHelper.IsStreamType(c.TypeReference));
         }
-        public record FileInfo(string StreamField, string? FileNameField, string? ContentTypeField, string? DtoPropertyName = null)
+        public record FileInfo(string StreamField, string? FileNameField, string? ContentTypeField, string? ContentLengthField, string? DtoPropertyName = null)
         {
             public bool HasFilename() => !string.IsNullOrEmpty(FileNameField);
             public bool HasContentType() => !string.IsNullOrEmpty(ContentTypeField);
+            public bool HasContentLength() => !string.IsNullOrEmpty(ContentLengthField);
         };
 
         private static FileInfo GetDtoFieldInfo(IElement dto, string? dtoPropertyName = null)
@@ -117,6 +123,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared
             string streamFieldName = "Stream";
             string? fileNameField = default;
             string? contentTypeField = default;
+            string? contentLengthField = default;
             foreach (var child in dto.ChildElements)
             {
                 if (IsStreamType(child.TypeReference))
@@ -131,8 +138,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 {
                     contentTypeField = child.Name;
                 }
+                else if (string.Equals("contentlength", child.Name, StringComparison.OrdinalIgnoreCase))
+                {
+                    contentLengthField = child.Name;
+                }
             }
-            return new FileInfo(streamFieldName, fileNameField, contentTypeField, dtoPropertyName);
+            return new FileInfo(streamFieldName, fileNameField, contentTypeField, contentLengthField, dtoPropertyName);
         }
 
 

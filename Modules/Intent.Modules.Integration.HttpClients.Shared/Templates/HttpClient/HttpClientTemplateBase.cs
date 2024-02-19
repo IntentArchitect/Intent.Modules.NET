@@ -160,7 +160,17 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
+                            if (headerParameter.TypeReference.IsNullable)
+                            {
+                                method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
+                                {
+                                    stmt.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                                });
+                            }
+                            else
+                            {
+                                method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                            }
                         }
 
                         if (FileTransferHelper.IsFileUploadOperation(endpoint))
@@ -180,6 +190,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue({fieldNameFormatter(fieldInfo.FileNameField)});");
                                 });
                             }
+                            /*
                             if (fieldInfo.HasContentType())
                             {
                                 method.AddIfStatement($"{fieldNameFormatter( fieldInfo.ContentTypeField)} != null", stmt =>
@@ -187,6 +198,14 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     stmt.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter( fieldInfo.ContentTypeField)});");
                                 });
                             }
+
+                            if (fieldInfo.HasContentLength())
+                            {
+                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.ContentLengthField)} != null", stmt =>
+                                {
+                                    stmt.AddStatement($"httpRequest.Headers.Add(\"Content-Length\", {fieldNameFormatter(fieldInfo.ContentLengthField)}.ToString());");
+                                });
+                            } */                           
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
                         {

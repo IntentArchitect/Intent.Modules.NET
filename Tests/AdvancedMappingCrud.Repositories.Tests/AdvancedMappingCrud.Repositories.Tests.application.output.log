@@ -75,6 +75,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f4063612-ec7e-4848-a272-25a420e6bb98</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentAttribute</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileTransfer/BinaryContentAttribute.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentAttribute.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#af09ce72-0371-4576-bdfc-fcf88a38582c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploadsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#7c027293-4dce-4d6d-9efa-1233565f5c1c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -112,6 +128,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/BinaryContentFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -248,6 +272,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6d1da9ea-e70b-4515-8053-5e824366546a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/FileDownloadDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Common/FileDownloadDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -776,6 +808,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EventHandlers/Customers/NewQuoteCreatedHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/NewQuoteCreatedHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#dffb0384-7359-4c03-856d-8a82fb8a8c0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFile.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/DownloadFile/DownloadFile.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#dffb0384-7359-4c03-856d-8a82fb8a8c0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFileHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/DownloadFile/DownloadFileHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#dffb0384-7359-4c03-856d-8a82fb8a8c0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFileValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/DownloadFile/DownloadFileValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#71b9b890-afd2-4de7-9a24-d0fd22fad551</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFile.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/UploadFile/UploadFile.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#71b9b890-afd2-4de7-9a24-d0fd22fad551</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/UploadFile/UploadFileHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#71b9b890-afd2-4de7-9a24-d0fd22fad551</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/UploadFile/UploadFileValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1636,6 +1716,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUpload.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#029a89c6-9b95-4c63-af26-7bcdfe92e78e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FuneralCoverQuote.cs</ApplicationRelativeFilePath>
@@ -1752,6 +1840,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IFileUploadRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFileUploadRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1972,6 +2068,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/FileUploadConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploadConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#029a89c6-9b95-4c63-af26-7bcdfe92e78e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/FuneralCoverQuoteConfiguration.cs</ApplicationRelativeFilePath>
@@ -2040,6 +2144,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/FileUploadRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploadRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2144,6 +2256,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#af09ce72-0371-4576-bdfc-fcf88a38582c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/FileUploads/FileUploadsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/FileUploadsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#af09ce72-0371-4576-bdfc-fcf88a38582c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/FileUploads/IFileUploadsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/IFileUploadsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2360,6 +2488,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#71b9b890-afd2-4de7-9a24-d0fd22fad551</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/FileUploads/UploadFile.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/FileUploads/UploadFile.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2744,6 +2880,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#71b9b890-afd2-4de7-9a24-d0fd22fad551</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/FileUploads/UploadFileTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/UploadFileTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

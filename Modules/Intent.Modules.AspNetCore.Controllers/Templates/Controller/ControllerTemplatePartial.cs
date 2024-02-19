@@ -73,7 +73,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             }
                             foreach (var parameter in operation.Parameters)
                             {
-                                if (isFileUpload && parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType( parameter.TypeReference))
+                                if (isFileUpload && (parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType( parameter.TypeReference) || string.Equals("filename", parameter.Name, StringComparison.OrdinalIgnoreCase)))
                                 {
                                     continue;
                                 }

@@ -89,22 +89,30 @@ public class MediatRControllerInstaller : FactoryExtensionBase
         template.AddUsing("System.IO");
         template.AddUsing("System.Linq");
         method.AddStatement("Stream stream;");
-        method.AddIfStatement(@"(Request.ContentType != null &&
-            (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) &&
-            Request.Form.Files.Any())", stmt => 
+        if (fileInfo.HasFilename())
+        {
+            template.AddUsing("System.Net.Http.Headers");
+            method.AddStatements($@"string? {fileInfo.FileNameField.ToParameterName()} = null;
+            if (Request.Headers.TryGetValue(""Content-Disposition"", out var headerValues))
+            {{
+                string? header = headerValues;
+                if (header != null)
+                {{
+                    var contentDisposition = ContentDispositionHeaderValue.Parse(header);
+                    {fileInfo.FileNameField.ToParameterName()} = contentDisposition?.FileName;
+                }}
+            }}".ConvertToStatements());
+
+        }
+        method.AddIfStatement(@"Request.ContentType != null && (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) && Request.Form.Files.Any()", stmt => 
         {
             stmt.AddStatements(@"var file = Request.Form.Files[0];
-
             if (file == null || file.Length == 0)
                 throw new ArgumentException(""File is empty"");
             stream = file.OpenReadStream();".ConvertToStatements());
             if (fileInfo.HasFilename())
             {
-                stmt.AddIfStatement($"{fileInfo.FileNameField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.FileNameField.ToParameterName()} = file.Name;"));
-            }
-            if (fileInfo.HasContentType())
-            {
-                stmt.AddIfStatement($"{fileInfo.ContentTypeField.ToParameterName()} == null", s => s.AddStatement($"{fileInfo.ContentTypeField.ToParameterName()} = file.ContentType;"));
+                stmt.AddStatement($"{fileInfo.FileNameField.ToParameterName()} ??= file.Name;");
             }
         });
         method.AddElseStatement(stmt => 
@@ -116,7 +124,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
         var commandType = operation.Parameters.First(p => p.Source == HttpInputSource.FromBody);
         foreach (var parameter in operation.Parameters.Where(p => p.MappedPayloadProperty != null))
         {
-            if (fileInfo.HasContentType() && string.Equals(fileInfo.ContentTypeField, parameter.MappedPayloadProperty.Name))
+            if (fileInfo.HasFilename() && string.Equals(fileInfo.FileNameField, parameter.MappedPayloadProperty.Name))
             {
                 continue;
             }
@@ -127,7 +135,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
             parameters.Append(parameter.Name.ToParameterName());
 
         }
-        method.AddStatement($"var command = new {template.GetTypeName(commandType)}({fileInfo.StreamField.ToParameterName()}: stream{(fileInfo.HasContentType() ? $", {fileInfo.ContentTypeField.ToParameterName()}: Request.ContentType ?? \"application/octet-stream\"" : "")} {parameters});");
+        method.AddStatement($"var command = new {template.GetTypeName(commandType)}({fileInfo.StreamField.ToParameterName()}: stream{(fileInfo.HasFilename() ? $", {fileInfo.FileNameField.ToParameterName()}: {fileInfo.FileNameField.ToParameterName()}" : "")} {parameters});");
 
     }
 

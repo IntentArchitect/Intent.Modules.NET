@@ -27,6 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICorporateFuneralCoverQuoteRepository, CorporateFuneralCoverQuoteRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IFileUploadRepository, FileUploadRepository>();
             services.AddTransient<IFuneralCoverQuoteRepository, FuneralCoverQuoteRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();

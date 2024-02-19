@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
@@ -18,6 +19,12 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
     public class BinaryContentFilterExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.AspNetCore.Controllers.BinaryContentFilterExtension";
+        private readonly IMetadataManager _metadataManager;
+
+        public BinaryContentFilterExtension(IMetadataManager metadataManager)
+        {
+            _metadataManager = metadataManager;
+        }
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -26,6 +33,11 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
         {
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
             if (template == null)
+            {
+                return;
+            }
+
+            if (!FileTransferHelper.NeedsFileUploadInfrastructure(_metadataManager, application.Id))
             {
                 return;
             }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f8aad086-9d39-44fd-9951-b3046452d622" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>FileTransfer</name>
+  <display>FileTransfer</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b2fc5c60-dac2-451b-b01e-9bda0ad5781e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c884cd2a-b0e7-403d-9229-107f1e571457" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentAttribute</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentAttribute</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f8aad086-9d39-44fd-9951-b3046452d622</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="403ddc7e-c1ca-4d88-bd1f-319e050222f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.UploadFileFactory</name>
+      <display>Intent.AspNetCore.Controllers.UploadFileFactory</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f8aad086-9d39-44fd-9951-b3046452d622</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
