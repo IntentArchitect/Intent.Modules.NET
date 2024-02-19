@@ -10,22 +10,21 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepository", Version = "1.0")]
 
 namespace CosmosDB.Infrastructure.Repositories
 {
-    internal class GetAllImplementation.CustomerCosmosDBRepository : CosmosDBRepositoryBase<GetAllImplementationCustomer, GetAllImplementationCustomerDocument, IGetAllImplementationCustomerDocument>, IGetAllImplementationCustomerRepository
+    internal class GetAllImplementationCustomerCosmosDBRepository : CosmosDBRepositoryBase<GetAllImplementationCustomer, GetAllImplementationCustomerDocument, IGetAllImplementationCustomerDocument>, IGetAllImplementationCustomerRepository
     {
-        public GetAllImplementation.CustomerCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
+        public GetAllImplementationCustomerCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<GetAllImplementationCustomerDocument> cosmosRepository,
             ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
         {
         }
 
-public async Task<GetAllImplementationCustomer?> FindByIdAsync(
-    string id,
-    CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
+        public async Task<GetAllImplementationCustomer?> FindByIdAsync(
+            string id,
+            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
 
-public override string GetId(GetAllImplementationCustomer entity) => entity.Id;
+        public override string GetId(GetAllImplementationCustomer entity) => entity.Id;
     }
 }
