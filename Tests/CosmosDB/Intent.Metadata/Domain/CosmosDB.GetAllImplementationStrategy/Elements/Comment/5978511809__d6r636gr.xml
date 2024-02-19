@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ed8bc7b0-293e-4527-957b-49bab0d4556e" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>GetAllImplementation strategy thinks it should apply even for unmapped queries</comment>
+  <name>5978511809</name>
+  <display>5978511809</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>831098b6-72cb-4c0e-9086-be92d765957f</parentFolderId>
+  <packageId>831098b6-72cb-4c0e-9086-be92d765957f</packageId>
+  <packageName>CosmosDB.GetAllImplementationStrategy</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

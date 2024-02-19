@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="266b74a9-84f3-4c03-b53e-4503d826bdf5" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>831098b6-72cb-4c0e-9086-be92d765957f</parentFolderId>
+  <packageId>831098b6-72cb-4c0e-9086-be92d765957f</packageId>
+  <packageName>CosmosDB.GetAllImplementationStrategy</packageName>
+  <diagram>
+    <targetPackageId>831098b6-72cb-4c0e-9086-be92d765957f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

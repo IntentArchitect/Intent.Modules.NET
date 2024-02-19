@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e2ac691c-4989-4e62-9a1b-da8c284ee952" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>GetAllImplementation.Order</name>
+  <display>GetAllImplementation.Order</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>831098b6-72cb-4c0e-9086-be92d765957f</parentFolderId>
+  <packageId>831098b6-72cb-4c0e-9086-be92d765957f</packageId>
+  <packageName>CosmosDB.GetAllImplementationStrategy</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
+  <childElements />
+</class>
