@@ -1,20 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
-using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
-using Intent.Modules.Eventing.MassTransit.Settings;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using OutboxPatternType = Intent.Modules.Eventing.MassTransit.Settings.EventingSettings.OutboxPatternOptionsEnum;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -30,11 +23,10 @@ public partial class IntegrationEventConsumerTemplate : CSharpTemplateBase<objec
     public IntegrationEventConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         var tHandler = new CSharpGenericParameter("THandler");
-        
+
         ConsumerHelper.AddConsumerDependencies(this);
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
         ConsumerHelper.AddConsumerClass(this,
-            file: CSharpFile,
             baseName: "IntegrationEvent",
             configureClass: (@class, tMessage) =>
             {
@@ -50,7 +42,6 @@ public partial class IntegrationEventConsumerTemplate : CSharpTemplateBase<objec
             },
             applyStandardUnitOfWorkLogic: true);
         ConsumerHelper.AddConsumerDefinitionClass(this,
-            file: CSharpFile,
             baseName: "IntegrationEvent");
     }
 

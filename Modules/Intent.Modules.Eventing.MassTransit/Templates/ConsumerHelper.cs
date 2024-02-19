@@ -25,15 +25,14 @@ internal static class ConsumerHelper
     
     public static void AddConsumerClass(
         ICSharpFileBuilderTemplate template,
-        CSharpFile file,
         string baseName,
         ConfigureClass configureClass,
         ConfigureConsumeMethod configureConsumeMethod,
         bool applyStandardUnitOfWorkLogic)
     {
-        file.AddUsing("Microsoft.Extensions.DependencyInjection");
+        template.CSharpFile.AddUsing("Microsoft.Extensions.DependencyInjection");
 
-        file.AddClass($"{baseName}Consumer", @class =>
+        template.CSharpFile.AddClass($"{baseName}Consumer", @class =>
         {
             @class.AddGenericParameter("TMessage", out var tMessage);
             @class.ImplementsInterface($"{template.UseType("MassTransit.IConsumer")}<{tMessage}>");
@@ -66,12 +65,11 @@ internal static class ConsumerHelper
 
     public static void AddConsumerDefinitionClass(
         ICSharpFileBuilderTemplate template,
-        CSharpFile file,
         string baseName)
     {
-        file.AddClass($"{baseName}ConsumerDefinition", @class =>
+        template.CSharpFile.AddClass($"{baseName}ConsumerDefinition", @class =>
         {
-            var consumerClass = file.Classes.FirstOrDefault(p => p.Name != @class.Name);
+            var consumerClass = template.CSharpFile.Classes.FirstOrDefault(p => p.Name != @class.Name);
             if (consumerClass is null)
             {
                 throw new Exception($"This should be invoked after {nameof(AddConsumerClass)}");

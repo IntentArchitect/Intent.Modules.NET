@@ -8,6 +8,8 @@ using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
+using Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponseMessage;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -66,5 +68,14 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(MassTransitEventBusTemplate.TemplateId);
         }
 
+        public static string GetMediatRConsumerName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(MediatRConsumerTemplate.TemplateId);
+        }
+
+        public static string GetRequestResponseMessageName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(RequestResponseMessageTemplate.TemplateId);
+        }
     }
 }

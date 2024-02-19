@@ -63,12 +63,17 @@ namespace Intent.Modules.Constants
             public const string Query = "Application.Query";
             public const string Command = "Application.Command";
 
+            public static class Handler
+            {
+                public const string Command = "Application.Command.Handler";
+                public const string Query = "Application.Query.Handler";
+            }
+            
             public static class Common
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
                 public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
                 public const string PagedList = "Application.Common.PagedList";
-
             }
 
             public static class Contracts

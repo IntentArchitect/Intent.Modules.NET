@@ -83,13 +83,21 @@
       <role>Infrastructure.Eventing.Consumer</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.MassTransit.RequestResponseMessage" externalReference="71581cb9-1c65-490a-bb7b-ef8c8dccedb4">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.RequestResponseMessage</role>
+      <location>Common/Eventing</location>
+    </template>
   </templates>
   <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInterfaceExtension" externalReference="448aa827-fca7-4c42-afd7-79afd12e292a" />
-    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
-    <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfigurator" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
-    <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfigurator" externalReference="75840da1-9946-4375-845b-78aad753a902" />
+    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropExtension" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
+    <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfiguratorExtension" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
+    <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfiguratorExtension" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">

@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
         {
             InstallMessageBusForDbContextForTransactionalOutboxPattern(application);
         }
-        
+
         private void InstallMessageBusForMediatRDispatch(IApplication application)
         {
             if (!IsTransactionalOutboxPatternSelected(application))
@@ -100,7 +100,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             {
                 return;
             }
-            
+
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
             if (template is null)
             {
