@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a16f5896-0def-4855-9a64-319f63859ae6" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>QueryNoInputDtoReturnCollection</name>
+  <display>QueryNoInputDtoReturnCollection: QueryResponseDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c42b3494-bed7-4e6f-b657-0e21431f28ce">
+    <typeId>dea34361-9f33-49b9-9354-3228ac2e711f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+    <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b52a4db9-27b0-44eb-9a99-a52ff2b0c2e1</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

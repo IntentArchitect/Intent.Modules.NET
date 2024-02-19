@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.Api
     {
         public static CommandDistribution GetCommandDistribution(this SendIntegrationCommandTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("Command Distribution");
+            var stereotype = model.GetStereotype("5cae1c25-cc30-4af8-8955-30af001c981d");
             return stereotype != null ? new CommandDistribution(stereotype) : null;
         }
 
 
         public static bool HasCommandDistribution(this SendIntegrationCommandTargetEndModel model)
         {
-            return model.HasStereotype("Command Distribution");
+            return model.HasStereotype("5cae1c25-cc30-4af8-8955-30af001c981d");
         }
 
         public static bool TryGetCommandDistribution(this SendIntegrationCommandTargetEndModel model, out CommandDistribution stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Eventing.MassTransit.Api
                 return false;
             }
 
-            stereotype = new CommandDistribution(model.GetStereotype("Command Distribution"));
+            stereotype = new CommandDistribution(model.GetStereotype("5cae1c25-cc30-4af8-8955-30af001c981d"));
             return true;
         }
 

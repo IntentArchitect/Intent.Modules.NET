@@ -3,11 +3,11 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventConsumer;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
-using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -30,6 +30,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetFinbucklePublishingFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(FinbucklePublishingFilterTemplate.TemplateId);
+        }
+
+        public static string GetIntegrationEventConsumerName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IntegrationEventConsumerTemplate.TemplateId);
         }
 
         public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.EventInteractions.IntegrationEventHandlerModel
@@ -59,11 +64,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetMassTransitEventBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(MassTransitEventBusTemplate.TemplateId);
-        }
-
-        public static string GetWrapperConsumerName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(WrapperConsumerTemplate.TemplateId);
         }
 
     }

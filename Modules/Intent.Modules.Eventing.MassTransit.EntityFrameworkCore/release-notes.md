@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Updates based on changes made in `Intent.Eventing.MassTransit`.
+
 ### Version 5.1.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

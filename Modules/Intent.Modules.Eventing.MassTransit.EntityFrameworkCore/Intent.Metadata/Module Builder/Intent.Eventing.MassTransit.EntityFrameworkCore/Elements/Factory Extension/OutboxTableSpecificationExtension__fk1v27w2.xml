@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14b10fc4-f039-4a85-a6b6-d802f9e3e692" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>OutboxTableSpecificationExtension</name>
+  <display>OutboxTableSpecificationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9247ee2e-371b-4a85-9f1a-be08221cbbb8</parentFolderId>
+  <packageId>9247ee2e-371b-4a85-9f1a-be08221cbbb8</packageId>
+  <packageName>Intent.Eventing.MassTransit.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -283,11 +283,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Replace(".", "-");
         var consumerDefinitionType =
             $@"{this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
-        var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
+        var consumerWrapperType = $@"{this.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>";
 
         // Until we can do single-line method chaining this will have to do for now...
         var addConsumer = $@"{configParamName}.AddConsumer<{consumerWrapperType}>"
-                          + $@"(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>))";
+                          + $@"(typeof({this.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>))";
 
         if (excludeFromConfigureEndpoints)
         {
@@ -309,10 +309,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Replace(".", "-");
         var consumerDefinitionType =
             $@"{this.GetIntegrationEventHandlerInterfaceName()}<{commandName}>, {commandName}";
-        var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
+        var consumerWrapperType = $@"{this.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>";
 
         return
-            $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetWrapperConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
+            $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
     }
 
     private string GetMessageBrokerBusFactoryConfiguratorName()
@@ -429,7 +429,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     .Replace(".", "-");
                 var consumerDefinitionType =
                     $@"{this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
-                var consumerWrapperType = $@"{this.GetWrapperConsumerName()}<{consumerDefinitionType}>";
+                var consumerWrapperType = $@"{this.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>";
 
                 method.AddInvocationStatement($"cfg.AddCustomConsumerEndpoint<{consumerWrapperType}>", inv => inv
                     .AddArgument("context")

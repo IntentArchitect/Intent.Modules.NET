@@ -68,9 +68,18 @@ namespace MassTransit.RabbitMQ.Infrastructure.Eventing
         }
 
         protected override void ConfigureConsumer(
+            IReceiveEndpointConfigurator endpointConfigurator, 
+            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator, 
+            IRegistrationContext context)
+        {
+            endpointConfigurator.UseInMemoryInboxOutbox(context);
+        }
+
+        protected override void ConfigureConsumer(
             IReceiveEndpointConfigurator endpointConfigurator,
             IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
         {
+            endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);
         }
     }
 }
