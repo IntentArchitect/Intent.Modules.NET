@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Services;
+using MassTransit.AzureServiceBus.Services.Animals;
+using MassTransit.AzureServiceBus.Services.People;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]

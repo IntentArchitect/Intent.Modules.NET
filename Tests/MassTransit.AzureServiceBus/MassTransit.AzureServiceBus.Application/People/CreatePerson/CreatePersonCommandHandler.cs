@@ -6,6 +6,7 @@ using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Domain.Entities;
 using MassTransit.AzureServiceBus.Domain.Repositories;
 using MassTransit.AzureServiceBus.Services;
+using MassTransit.AzureServiceBus.Services.People;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e184e843-2e7f-4af2-af67-751ce7df808c" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AutoMapperDependencyInjectionDecorator</name>
+  <display>AutoMapperDependencyInjectionDecorator: DependencyInjectionDecorator</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="8310f576-1070-4b70-b9b4-a5b46004a808">
+    <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.DependencyInjection</typePackageName>
+    <typePackageId>33084118-5d41-4965-a200-54aa73ba9021</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

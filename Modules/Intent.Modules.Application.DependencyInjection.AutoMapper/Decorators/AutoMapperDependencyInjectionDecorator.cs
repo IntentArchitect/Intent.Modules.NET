@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -25,7 +27,9 @@ namespace Intent.Modules.Application.DependencyInjection.AutoMapper.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddNugetDependency("AutoMapper.Extensions.Microsoft.DependencyInjection", "12.0.1");
+            _template.AddNugetDependency("AutoMapper", "13.0.1");
+
+            application.EventDispatcher.Publish(new RemoveNugetPackageEvent("AutoMapper.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
         }
 
         public override string ServiceRegistration()
