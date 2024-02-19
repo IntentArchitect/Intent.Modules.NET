@@ -18,9 +18,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class EventBusInteropInstaller : FactoryExtensionBase
+    public class EventBusInteropExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Eventing.MassTransit.EventBusInteropInstaller";
+        public override string Id => "Intent.Eventing.MassTransit.EventBusInteropExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -33,8 +33,9 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            InstallMessageBusForDBContext(application);
+            InstallMessageBusForDbContextForTransactionalOutboxPattern(application);
         }
+        
         private void InstallMessageBusForMediatRDispatch(IApplication application)
         {
             if (!IsTransactionalOutboxPatternSelected(application))
@@ -93,14 +94,15 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             }
         }
 
-        private void InstallMessageBusForDBContext(IApplication application)
+        private void InstallMessageBusForDbContextForTransactionalOutboxPattern(IApplication application)
         {
             if (!IsTransactionalOutboxPatternSelected(application))
             {
                 return;
             }
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.DbContext"); // Replace with Role later.
-            if (template == null)
+            
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
+            if (template is null)
             {
                 return;
             }
@@ -150,7 +152,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         }
 
-        private bool IsTransactionalOutboxPatternSelected(IApplication application)
+        private static bool IsTransactionalOutboxPatternSelected(IApplication application)
         {
             return application.Settings.GetEventingSettings()?.OutboxPattern()?.IsEntityFramework() == true;
         }

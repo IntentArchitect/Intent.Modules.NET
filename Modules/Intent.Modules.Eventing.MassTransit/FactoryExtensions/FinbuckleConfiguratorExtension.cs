@@ -16,9 +16,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class FinbuckleConfigurator : FactoryExtensionBase
+    public class FinbuckleConfiguratorExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Eventing.MassTransit.FinbuckleConfigurator";
+        public override string Id => "Intent.Eventing.MassTransit.FinbuckleConfiguratorExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

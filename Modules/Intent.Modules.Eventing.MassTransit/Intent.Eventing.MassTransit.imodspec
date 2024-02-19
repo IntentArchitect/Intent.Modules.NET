@@ -75,6 +75,14 @@
       <role>Infrastructure.Eventing.MassTransitEventBus</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.MassTransit.MediatRConsumer" externalReference="a9ebcb35-e07d-4d1e-bd58-330d9f2135dc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
   </templates>
   <decorators />
   <factoryExtensions>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="75840da1-9946-4375-845b-78aad753a902" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>TelemetryConfigurator</name>
-  <display>TelemetryConfigurator</display>
+  <name>TelemetryConfiguratorExtension</name>
+  <display>TelemetryConfiguratorExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
