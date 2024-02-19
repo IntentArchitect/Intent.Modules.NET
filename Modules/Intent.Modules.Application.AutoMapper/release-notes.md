@@ -1,10 +1,6 @@
-﻿### Version 5.1.1
+### Version 5.1.1
 
-<<<<<<< Updated upstream
 - Improvement: Bumped AutoMapper to latest stable version `13.0.1`
-=======
-- Improvement: Updated the `AutoMapper.Extensions.Microsoft.DependencyInjection` NuGet package version to 13.0.1.
->>>>>>> Stashed changes
 
 ### Version 5.1.0
 
