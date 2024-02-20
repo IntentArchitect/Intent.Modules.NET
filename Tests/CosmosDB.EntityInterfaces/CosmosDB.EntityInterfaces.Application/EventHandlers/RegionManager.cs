@@ -14,9 +14,6 @@ namespace CosmosDB.EntityInterfaces.Application.EventHandlers
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class RegionManager : INotificationHandler<DomainEventNotification<RegionChangedDomainEvent>>
     {
-        public RegionManager()
-        {
-        }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(DomainEventNotification<RegionChangedDomainEvent> notification, CancellationToken cancellationToken)

@@ -14,9 +14,6 @@ namespace CleanArchitecture.TestApplication.Application.EventHandlers.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AccountHolderManager : INotificationHandler<DomainEventNotification<AccountTransferStarted>>
     {
-        public AccountHolderManager()
-        {
-        }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(DomainEventNotification<AccountTransferStarted> notification, CancellationToken cancellationToken)
