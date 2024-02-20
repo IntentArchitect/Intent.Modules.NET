@@ -154,7 +154,7 @@ internal static class AssertionMethodHelper
                 field.Mapping?.Element == null &&
                 field.Name.Equals("id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{actualEntityVarName}.Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()});");
+                codeLines.Add($"{actualEntityVarName}.Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()}{IsFieldPrimitiveAndNullable(template, field)});"); // not sure about this one
                 continue;
             }
 
@@ -166,11 +166,11 @@ internal static class AssertionMethodHelper
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{actualEntityVarName}.{ownerEntity.Name}Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()});");
+                codeLines.Add($"{actualEntityVarName}.{ownerEntity.Name}Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()}{IsFieldPrimitiveAndNullable(template, field)});");
                 continue;
             }
 
-            if (field.Mapping?.Element == null && 
+            if (field.Mapping?.Element == null &&
                 domainModel is not null &&
                 domainModel.Attributes.All(p => p.Name != field.Name))
             {
@@ -191,63 +191,70 @@ internal static class AssertionMethodHelper
 
                     break;
                 case AssociationTargetEndModel.SpecializationTypeId:
-                {
-                    var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                    if (association.Association.AssociationType == AssociationType.Aggregation)
                     {
-                        codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
-                        break;
-                    }
+                        var association = field.Mapping.Element.AsAssociationTargetEndModel();
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
+                            break;
+                        }
 
-                    var targetType = (IElement)association.Element;
-                    
-                    var attributeName = association.Name.ToPascalCase();
-                    var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
+                        var targetType = (IElement)association.Element;
 
-                    codeLines.Add($"AssertEquivalent({expectedDtoVarName}.{field.Name.ToPascalCase()}, {actualEntityVarName}.{attributeName});");
+                        var attributeName = association.Name.ToPascalCase();
+                        var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
-                    var @class = template.CSharpFile.Classes.First();
+                        codeLines.Add($"AssertEquivalent({expectedDtoVarName}.{field.Name.ToPascalCase()}, {actualEntityVarName}.{attributeName});");
 
-                    var dtoParamType = template.GetTypeName(field.TypeReference);
-                    var entityParamType = template.GetTypeName(field.Mapping.Element.TypeReference);
-                    if (@class.FindMethod(stmt => stmt.Parameters.First().Type == dtoParamType && stmt.Parameters.Last().Type == entityParamType) != null)
-                    {
-                        continue;
-                    }
+                        var @class = template.CSharpFile.Classes.First();
 
-                    if (field.TypeReference.IsCollection)
-                    {
-                        @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
-                            method => method.Static()
-                                .AddParameter(dtoParamType, "expectedDtos")
-                                .AddParameter(entityParamType, "actualEntities")
-                                .AddStatementBlock($"if (expectedDtos == null)", block => block
-                                    .AddStatements($@"
+                        var dtoParamType = template.GetTypeName(field.TypeReference);
+                        var entityParamType = template.GetTypeName(field.Mapping.Element.TypeReference);
+                        if (@class.FindMethod(stmt => stmt.Parameters.First().Type == dtoParamType && stmt.Parameters.Last().Type == entityParamType) != null)
+                        {
+                            continue;
+                        }
+
+                        if (field.TypeReference.IsCollection)
+                        {
+                            @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
+                                method => method.Static()
+                                    .AddParameter(dtoParamType, "expectedDtos")
+                                    .AddParameter(entityParamType, "actualEntities")
+                                    .AddStatementBlock($"if (expectedDtos == null)", block => block
+                                        .AddStatements($@"
             actualEntities.Should().BeNullOrEmpty();
             return;"))
-                                .AddStatement(string.Empty)
-                                .AddStatement("actualEntities.Should().HaveSameCount(expectedDtos);")
-                                .AddStatementBlock("for (int i = 0; i < expectedDtos.Count(); i++)", block => block
-                                    .AddStatements($@"
+                                    .AddStatement(string.Empty)
+                                    .AddStatement("actualEntities.Should().HaveSameCount(expectedDtos);")
+                                    .AddStatementBlock("for (int i = 0; i < expectedDtos.Count(); i++)", block => block
+                                        .AddStatements($@"
             var dto = expectedDtos.ElementAt(i);
             var entity = actualEntities.ElementAt(i);")
-                                    .AddStatements(GetDtoToDomainPropertyAssignments(template, "entity", "dto", targetType, fieldDtoModel.Fields, skipIdFields, true)))
-                        );
+                                        .AddStatements(GetDtoToDomainPropertyAssignments(template, "entity", "dto", targetType, fieldDtoModel.Fields, skipIdFields, true)))
+                            );
+                        }
+                        else
+                        {
+                            @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
+                                method => method.Static()
+                                    .AddParameter(dtoParamType, "expectedDto")
+                                    .AddParameter(entityParamType, "actualEntity")
+                                    .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields, false)));
+                        }
                     }
-                    else
-                    {
-                        @class.AddMethod("void", GetAssertionMethodName(targetType, attributeName),
-                            method => method.Static()
-                                .AddParameter(dtoParamType, "expectedDto")
-                                .AddParameter(entityParamType, "actualEntity")
-                                .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields, false)));
-                    }
-                }
                     break;
             }
         }
 
         return codeLines;
+    }
+
+    private static string IsFieldPrimitiveAndNullable(ICSharpFileBuilderTemplate template, DTOFieldModel field)
+    {
+        var fieldTypeResolver = template.GetTypeInfo(field.TypeReference);
+        var isFieldPrimitiveAndNullable = fieldTypeResolver.IsPrimitive && fieldTypeResolver.IsNullable;
+        return isFieldPrimitiveAndNullable ? ".Value" : "";
     }
 
     private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
@@ -301,7 +308,7 @@ internal static class AssertionMethodHelper
                 case AttributeModel.SpecializationTypeId:
                     var attribute = field.Mapping?.Element?.AsAttributeModel()
                                     ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                    codeLines.Add($"{actualDtoVarName}.{field.Name.ToPascalCase()}.Should().{(field.TypeReference.IsCollection ? "BeEquivalentTo" : "Be")}({expectedEntityVarName}.{attribute.Name.ToPascalCase()});");
+                    codeLines.Add($"{actualDtoVarName}.{field.Name.ToPascalCase()}.Should().{(field.TypeReference.IsCollection ? "BeEquivalentTo" : "Be")}({expectedEntityVarName}.{attribute.Name.ToPascalCase()}{IsFieldPrimitiveAndNullable(template, field)});");
 
                     break;
                 case AssociationTargetEndModel.SpecializationTypeId:

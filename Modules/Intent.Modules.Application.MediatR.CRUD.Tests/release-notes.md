@@ -1,3 +1,7 @@
+### Version 1.3.5
+
+- Fixed: Correct handling of nullable values in generated tests.
+
 ### Version 1.3.4
 
 - Fixed: Having Entity Interfaces enabled would cause code compilation errors.
