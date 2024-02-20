@@ -13,11 +13,6 @@ internal class InMemoryMessageBroker : MessageBrokerBase
     {
     }
 
-    public override bool HasMessageBrokerStereotype(Subscription subscription)
-    {
-        return false;
-    }
-
     public override string GetMessageBrokerBusFactoryConfiguratorName()
     {
         return "IInMemoryBusFactoryConfigurator";
@@ -28,7 +23,7 @@ internal class InMemoryMessageBroker : MessageBrokerBase
         return "IInMemoryReceiveEndpointConfigurator";
     }
 
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Subscription subscription)
+    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
     {
         return Enumerable.Empty<CSharpStatement>();
     }

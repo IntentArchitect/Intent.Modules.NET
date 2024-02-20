@@ -12,11 +12,6 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
     {
     }
 
-    public override bool HasMessageBrokerStereotype(Subscription subscription)
-    {
-        return subscription.RabbitMqConsumerSettings is not null;
-    }
-
     public override string GetMessageBrokerBusFactoryConfiguratorName()
     {
         return "IRabbitMqBusFactoryConfigurator";
@@ -27,9 +22,9 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
         return "IRabbitMqReceiveEndpointConfigurator";
     }
 
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Subscription subscription)
+    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
     {
-        var busConsumerSettings = subscription.RabbitMqConsumerSettings!;
+        var busConsumerSettings = consumer.RabbitMqConsumerSettings!;
         
         if (busConsumerSettings.PrefetchCount().HasValue)
         {

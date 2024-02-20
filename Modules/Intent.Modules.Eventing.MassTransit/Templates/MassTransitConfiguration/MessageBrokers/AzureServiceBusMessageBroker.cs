@@ -13,11 +13,6 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
     {
     }
 
-    public override bool HasMessageBrokerStereotype(Subscription subscription)
-    {
-        return subscription.AzureConsumerSettings is not null;
-    }
-
     public override string GetMessageBrokerBusFactoryConfiguratorName()
     {
         return "IServiceBusBusFactoryConfigurator";
@@ -28,9 +23,9 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
         return "IServiceBusReceiveEndpointConfigurator";
     }
 
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Subscription subscription)
+    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
     {
-        var busConsumerSettings = subscription.AzureConsumerSettings!;
+        var busConsumerSettings = consumer.AzureConsumerSettings!;
         
         if (busConsumerSettings.PrefetchCount().HasValue)
         {

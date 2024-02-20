@@ -13,11 +13,6 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
     {
     }
 
-    public override bool HasMessageBrokerStereotype(Subscription subscription)
-    {
-        return false;
-    }
-
     public override string GetMessageBrokerBusFactoryConfiguratorName()
     {
         return "IAmazonSqsBusFactoryConfigurator";
@@ -28,7 +23,7 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
         return "IAmazonSqsReceiveEndpointConfigurator";
     }
 
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Subscription subscription)
+    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
     {
         return Enumerable.Empty<CSharpStatement>();
     }
