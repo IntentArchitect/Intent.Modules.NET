@@ -20,6 +20,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Property(x => x.Content)
                 .IsRequired();
 
+            builder.Property(x => x.ContentType)
+                .IsRequired();
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

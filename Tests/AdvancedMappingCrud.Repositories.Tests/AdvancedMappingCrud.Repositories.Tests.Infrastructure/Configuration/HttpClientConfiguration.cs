@@ -28,6 +28,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
                 });
 
             services
+                .AddHttpClient<IFileUploadsService, FileUploadsServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:FileUploadsService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:FileUploadsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
                 .AddHttpClient<IProductServiceProxy, ProductServiceProxyHttpClient>(http =>
                 {
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ProductServiceProxy:Uri");

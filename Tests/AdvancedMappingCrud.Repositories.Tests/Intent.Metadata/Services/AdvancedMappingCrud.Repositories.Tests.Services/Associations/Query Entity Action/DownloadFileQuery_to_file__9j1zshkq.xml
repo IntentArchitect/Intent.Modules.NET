@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="0363b889-d3a1-40da-bdbd-b57023ec480a">
   <sourceEnd id="181c5158-812e-486f-98cf-9a7acec4680c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
-    <display>: DownloadFile</display>
+    <display>: DownloadFileQuery</display>
     <order>0</order>
     <typeReference id="49834ae2-1720-4776-bb4f-62f99a2dc97a">
       <typeId>dffb0384-7359-4c03-856d-8a82fb8a8c0b</typeId>

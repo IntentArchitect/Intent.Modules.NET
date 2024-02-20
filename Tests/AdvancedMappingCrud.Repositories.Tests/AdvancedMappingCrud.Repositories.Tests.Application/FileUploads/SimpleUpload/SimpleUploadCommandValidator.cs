@@ -4,12 +4,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadFile
+namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleUpload
 {
-    public class UploadFileValidator : AbstractValidator<UploadFile>
+    public class SimpleUploadCommandValidator : AbstractValidator<SimpleUploadCommand>
     {
         [IntentManaged(Mode.Merge)]
-        public UploadFileValidator()
+        public SimpleUploadCommandValidator()
         {
             ConfigureValidationRules();
         }

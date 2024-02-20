@@ -23,19 +23,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="08975d8a-a1cf-4d88-9a54-92066de3d972" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.UploadFileFactory</name>
-      <display>Intent.AspNetCore.Controllers.UploadFileFactory</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b08c09ab-ad8c-4245-9523-f0e99b1e7602</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Common;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.FileUploads;
 using Intent.RoslynWeaver.Attributes;
 
@@ -9,6 +10,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
 {
     public interface IFileUploadsService : IDisposable
     {
-        Task<Guid> UploadFileAsync(string? filename, string? contentType, UploadFile command, CancellationToken cancellationToken = default);
+        Task<Guid> SimpleUploadAsync(SimpleUploadCommand command, CancellationToken cancellationToken = default);
+        Task<Guid> UploadFileAsync(string? contentType, long? contentLength, UploadFileCommand command, CancellationToken cancellationToken = default);
+        Task<FileDownloadDto> DownloadFileAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<SimpleFileDownloadDto> SimpleDownloadAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }

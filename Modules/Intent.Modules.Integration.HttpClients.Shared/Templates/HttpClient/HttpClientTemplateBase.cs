@@ -1,5 +1,11 @@
 using System;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -160,6 +166,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
+                            if (headerParameter.HeaderName.ToLower() == "content-type")
+                                continue;
                             if (headerParameter.TypeReference.IsNullable)
                             {
                                 method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
@@ -183,29 +191,23 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 fieldNameFormatter = (fieldName) => $"{pathPrefix}{fieldName.ToPascalCase()}";
                             }
                             method.AddStatement($"httpRequest.Content = new StreamContent({fieldNameFormatter( fieldInfo.StreamField)});");
+
+                            if (fieldInfo.HasContentType())
+                            {
+                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter(fieldInfo.ContentTypeField)} ?? \"application/octet-stream\");");
+                            }
+                            else
+                            {
+                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/octet-stream\");");
+                            }
+
                             if (fieldInfo.HasFilename())
                             {
                                 method.AddIfStatement($"{fieldNameFormatter(fieldInfo.FileNameField)} != null", stmt =>
                                 {
-                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue({fieldNameFormatter(fieldInfo.FileNameField)});");
+                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue(\"form-data\") {{FileName = {fieldNameFormatter(fieldInfo.FileNameField)} }};");
                                 });
                             }
-                            /*
-                            if (fieldInfo.HasContentType())
-                            {
-                                method.AddIfStatement($"{fieldNameFormatter( fieldInfo.ContentTypeField)} != null", stmt =>
-                                {
-                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter( fieldInfo.ContentTypeField)});");
-                                });
-                            }
-
-                            if (fieldInfo.HasContentLength())
-                            {
-                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.ContentLengthField)} != null", stmt =>
-                                {
-                                    stmt.AddStatement($"httpRequest.Headers.Add(\"Content-Length\", {fieldNameFormatter(fieldInfo.ContentLengthField)}.ToString());");
-                                });
-                            } */                           
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
                         {
@@ -252,11 +254,24 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             if (FileTransferHelper.IsFileDownloadOperation(endpoint))
                             {
                                 var fields = FileTransferHelper.GetDownloadTypeInfo(endpoint);
-                                usingResponseBlock.AddStatement(@$"return {GetTypeName(endpoint.ReturnType)}.Create(
-                    {fields.StreamField.ToParameterName()}: await response.Content.{GetReadAsStreamAsyncMethodCall()}
-                    , {(fields.HasFilename() ? $"{fields.FileNameField.ToParameterName()}: response.Content.Headers.ContentDisposition?.FileName" : "")}
-                    , {(fields.HasContentType() ? $"{fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"" : "")}
-                    );", s => s.SeparatedFromPrevious());
+
+                                usingResponseBlock.AddStatement($"var memoryStream = new {UseType( "System.IO.MemoryStream")}();");
+                                usingResponseBlock.AddStatement($"var responseStream  = await response.Content.{GetReadAsStreamAsyncMethodCall()};");
+                                usingResponseBlock.AddStatement("await responseStream.CopyToAsync(memoryStream);");
+                                usingResponseBlock.AddStatement("memoryStream.Seek(0, SeekOrigin.Begin);");
+
+
+                                var invocation = new CSharpInvocationStatement($"return {GetTypeName(endpoint.ReturnType)}", $"Create");
+                                invocation.AddArgument("memoryStream");
+                                if (fields.HasFilename())
+                                {
+                                    invocation.AddArgument($"{fields.FileNameField.ToParameterName()}: response.Content.Headers.ContentDisposition?.FileName");
+                                }
+                                if (fields.HasContentType())
+                                {
+                                    invocation.AddArgument($"{ fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"");
+                                }
+                                usingResponseBlock.AddStatement(invocation, s => s.SeparatedFromPrevious());
                             }
                             else
                             {

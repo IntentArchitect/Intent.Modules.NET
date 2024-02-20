@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="70a1503a-3507-47ef-8ee0-7b8020bc0618" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>FileUploadsService</name>
+  <display>FileUploadsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>090169cc-05b9-4267-81d7-81ad5bb954a2</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="767d2f86-de29-4abb-8816-180c4b6005b6" name="AdvancedMappingCrud.Repositories.Tests.Services" type="association" specialization="Services Package" />
+      <target id="af09ce72-0371-4576-bdfc-fcf88a38582c" name="FileUploads" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>05df0336-f0c0-46bf-bc9e-c369e322770b</parentFolderId>
+  <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="97dcc353-a68c-469d-af6e-af5705440742" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UploadFileCommand</name>
+      <display>UploadFileCommand(contentType: string?, contentLength: long?, command: UploadFileCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="b3f319a5-7495-40c3-937c-751e9c22c51a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="71b9b890-afd2-4de7-9a24-d0fd22fad551" name="UploadFileCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>70a1503a-3507-47ef-8ee0-7b8020bc0618</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ca171fe9-a2ad-4881-b47e-e204e5135536" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>contentType</name>
+          <display>contentType: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="93bcab41-9c24-46ab-8776-eacb03b85060">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>97dcc353-a68c-469d-af6e-af5705440742</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="f5613799-a274-42b2-a623-ba5e8bd3a69a" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="cb06aa61-f2bd-4874-838d-f94ba4eb599d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>contentLength</name>
+          <display>contentLength: long?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="57e9821b-6fc1-43ba-93e8-97f8e8404fd5">
+            <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>97dcc353-a68c-469d-af6e-af5705440742</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="911781d1-b232-4845-be73-7408209041fd" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="f5fa6acb-5155-48fd-a21b-14c5ad05eaed" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UploadFileCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="76bd9fe9-4398-4458-9c90-2fd3b3452639">
+            <typeId>71b9b890-afd2-4de7-9a24-d0fd22fad551</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+            <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>97dcc353-a68c-469d-af6e-af5705440742</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="71b9b890-afd2-4de7-9a24-d0fd22fad551" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="624343d4-87a0-4e41-822a-faac89096f9e" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DownloadFileQuery</name>
+      <display>DownloadFileQuery(id: guid): FileDownloadDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="060beab9-62a3-4481-ad26-87c5310718be">
+        <typeId>6d1da9ea-e70b-4515-8053-5e824366546a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+        <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="dffb0384-7359-4c03-856d-8a82fb8a8c0b" name="DownloadFileQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>70a1503a-3507-47ef-8ee0-7b8020bc0618</parentFolderId>
+      <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="697df8c6-9ab7-4e08-bf4a-93fe2249b002" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="13757198-ba80-487c-9307-0b5d5fe5f2fe">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>624343d4-87a0-4e41-822a-faac89096f9e</parentFolderId>
+          <packageId>05df0336-f0c0-46bf-bc9e-c369e322770b</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="dd8565ef-2018-4caa-82e9-4bf1028ef5a4" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

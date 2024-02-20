@@ -6,10 +6,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.DownloadFile
 {
-    public class DownloadFileValidator : AbstractValidator<DownloadFile>
+    public class DownloadFileQueryValidator : AbstractValidator<DownloadFileQuery>
     {
         [IntentManaged(Mode.Merge)]
-        public DownloadFileValidator()
+        public DownloadFileQueryValidator()
         {
             ConfigureValidationRules();
         }

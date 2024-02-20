@@ -6,24 +6,20 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.FileUploads
 {
-    public class UploadFile
+    public class SimpleUploadCommand
     {
-        public UploadFile()
+        public SimpleUploadCommand()
         {
             Content = null!;
         }
 
         public Stream Content { get; set; }
-        public string? Filename { get; set; }
-        public string? ContentType { get; set; }
 
-        public static UploadFile Create(Stream content, string? filename, string? contentType)
+        public static SimpleUploadCommand Create(Stream content)
         {
-            return new UploadFile
+            return new SimpleUploadCommand
             {
-                Content = content,
-                Filename = filename,
-                ContentType = contentType
+                Content = content
             };
         }
     }

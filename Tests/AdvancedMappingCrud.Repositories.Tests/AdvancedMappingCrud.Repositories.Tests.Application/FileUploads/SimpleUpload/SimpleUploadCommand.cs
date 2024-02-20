@@ -7,19 +7,15 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadFile
+namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleUpload
 {
-    public class UploadFile : IRequest<Guid>, ICommand
+    public class SimpleUploadCommand : IRequest<Guid>, ICommand
     {
-        public UploadFile(Stream content, string? filename, string? contentType)
+        public SimpleUploadCommand(Stream content)
         {
             Content = content;
-            Filename = filename;
-            ContentType = contentType;
         }
 
         public Stream Content { get; set; }
-        public string? Filename { get; set; }
-        public string? ContentType { get; set; }
     }
 }

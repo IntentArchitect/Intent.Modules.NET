@@ -24,6 +24,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Filters
             {
                 return;
             }
+            operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = "Content-Disposition",
+                In = ParameterLocation.Header,
+                Required = false,
+                Schema = new OpenApiSchema
+                {
+                    Type = "string"
+                },
+                Description = "e.g. form-data; name=\"file\"; filename=example.txt"
+            });
             operation.RequestBody = new OpenApiRequestBody() { Required = true };
             operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
             {
