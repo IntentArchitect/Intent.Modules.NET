@@ -105,42 +105,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
                         if (FileTransferHelper.IsFileUploadOperation(operationModel))
                         {
-                            var fileInfo = FileTransferHelper.GetUploadTypeInfo(operationModel);
 
-                            template.AddUsing("System.IO");
-                            template.AddUsing("System.Linq");
-                            method.AddStatement("Stream stream;");
-                            if (fileInfo.HasFilename())
-                            {
-                                template.AddUsing("System.Net.Http.Headers");
-                                method.AddStatements($@"string? {fileInfo.FileNameField.ToParameterName()} = null;
-            if (Request.Headers.TryGetValue(""Content-Disposition"", out var headerValues))
-            {{
-                string? header = headerValues;
-                if (header != null)
-                {{
-                    var contentDisposition = ContentDispositionHeaderValue.Parse(header);
-                    {fileInfo.FileNameField.ToParameterName()} = contentDisposition?.FileName;
-                }}
-            }}".ConvertToStatements());
-
-                            }
-                            method.AddIfStatement(@"Request.ContentType != null && (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) && Request.Form.Files.Any()", stmt =>
-                            {
-                                stmt.AddStatements(@"var file = Request.Form.Files[0];
-            if (file == null || file.Length == 0)
-                throw new ArgumentException(""File is empty"");
-            stream = file.OpenReadStream();".ConvertToStatements());
-                                if (fileInfo.HasFilename())
-                                {
-                                    stmt.AddStatement($"{fileInfo.FileNameField.ToParameterName()} ??= file.Name;");
-                                }
-                            });
-                            method.AddElseStatement(stmt =>
-                            {
-                                stmt.AddStatement("stream = Request.Body;");
-                            });
-
+                            FileTransferHelper.AddControllerStreamLogic(template, method, operationModel);
 
 
                             arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" :  x.Name ?? ""));

@@ -26,6 +26,37 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
             };
         }
 
+        public async Task RestrictedUploadAsync(
+            string? contentType,
+            long? contentLength,
+            RestrictedUploadCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/file-uploads/restricted-upload";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            if (contentLength != null)
+            {
+                httpRequest.Headers.Add("Content-Length", contentLength.ToString());
+            }
+            httpRequest.Content = new StreamContent(command.Content);
+            httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");
+
+            if (command.Filename != null)
+            {
+                httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data") { FileName = command.Filename };
+            }
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
         public async Task<Guid> SimpleUploadAsync(
             SimpleUploadCommand command,
             CancellationToken cancellationToken = default)

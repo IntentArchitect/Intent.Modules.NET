@@ -25,7 +25,10 @@
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-      <properties />
+      <properties>
+        <property name="920234c1-6edb-4ceb-b6af-76f459bfb348" display="Mime Type Filter" value="*/*" isActive="true" />
+        <property name="c0ea27fb-2e0b-4542-b294-da9d2b12565e" display="Maximum File Size (in bytes)" isActive="true" />
+      </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>

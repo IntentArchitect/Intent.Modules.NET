@@ -1,4 +1,5 @@
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.FileUploads;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.FileUploads;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -27,24 +28,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             //Assert
             var download = await client.SimpleDownloadAsync(uploadId);
             Assert.NotNull(download);
-            var result = ReadBytes(download.Content);
+            var result = ByteHelper.ReadBytes(download.Content);
             Assert.Equal(content, result);
         }
 
-        private static byte[] ReadBytes(Stream input)
-        {
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                byte[] buffer = new byte[4096]; // Adjust the buffer size as needed
-
-                int bytesRead;
-                while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    memoryStream.Write(buffer, 0, bytesRead);
-                }
-
-                return memoryStream.ToArray();
-            }
-        }
     }
 }

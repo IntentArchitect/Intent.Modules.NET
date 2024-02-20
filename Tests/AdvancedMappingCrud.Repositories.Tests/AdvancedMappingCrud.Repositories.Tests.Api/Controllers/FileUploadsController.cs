@@ -10,6 +10,7 @@ using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.FileTransfer;
 using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.ResponseTypes;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common;
 using AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.DownloadFile;
+using AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.RestrictedUpload;
 using AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleDownload;
 using AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleUpload;
 using AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadFile;
@@ -34,6 +35,60 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         public FileUploadsController(ISender mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [BinaryContent]
+        [HttpPost("api/file-uploads/restricted-upload")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> RestrictedUpload(
+            [FromHeader(Name = "Content-Type")] string? contentType,
+            [FromHeader(Name = "Content-Length")] long? contentLength,
+            CancellationToken cancellationToken = default)
+        {
+            if (Request.ContentLength != null && Request.ContentLength > 1000000)
+            {
+                return BadRequest(new { error = "File to large." });
+            }
+            var mimeTypeFilter = new HashSet<string>(@"text/plain,image/png".Split(','));
+
+            if (Request.ContentType == null || !mimeTypeFilter.Contains(Request.ContentType.ToLower()))
+            {
+                return BadRequest(new { error = $"Invalid file type. {Request.ContentType} not allowed." });
+            }
+            Stream stream;
+            string? filename = null;
+            if (Request.Headers.TryGetValue("Content-Disposition", out var headerValues))
+            {
+                string? header = headerValues;
+                if (header != null)
+                {
+                    var contentDisposition = ContentDispositionHeaderValue.Parse(header);
+                    filename = contentDisposition?.FileName;
+                }
+            }
+
+            if (Request.ContentType != null && (Request.ContentType == "application/x-www-form-urlencoded" || Request.ContentType.StartsWith("multipart/form-data")) && Request.Form.Files.Any())
+            {
+                var file = Request.Form.Files[0];
+                if (file == null || file.Length == 0)
+                    throw new ArgumentException("File is empty");
+                stream = file.OpenReadStream();
+                filename ??= file.Name;
+            }
+            else
+            {
+                stream = Request.Body;
+            }
+            var command = new RestrictedUploadCommand(content: stream, filename: filename, contentType: contentType, contentLength: contentLength);
+
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
 
         /// <summary>

@@ -116,6 +116,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UploadDownloadController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadDownloadController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#a428c4c6-01f2-4b72-8dc1-54bde6bad58c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs</ApplicationRelativeFilePath>
@@ -844,6 +852,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0c5dbce1-3e0f-43c0-ba38-c1b984d8d41a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/RestrictedUpload/RestrictedUploadCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/RestrictedUpload/RestrictedUploadCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0c5dbce1-3e0f-43c0-ba38-c1b984d8d41a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/RestrictedUpload/RestrictedUploadCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/RestrictedUpload/RestrictedUploadCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0c5dbce1-3e0f-43c0-ba38-c1b984d8d41a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/RestrictedUpload/RestrictedUploadCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/RestrictedUpload/RestrictedUploadCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#2f32dcc9-c245-43ee-9c2d-8c473f189e7f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/SimpleDownload/SimpleDownloadQuery.cs</ApplicationRelativeFilePath>
@@ -928,6 +960,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ProductsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/UploadDownloadService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadDownloadService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1056,6 +1096,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IProductsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IProductsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IUploadDownloadService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUploadDownloadService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2380,6 +2428,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/IUploadDownloadService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUploadDownloadService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
@@ -2408,6 +2464,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ProductsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/UploadDownloadServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadDownloadServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2600,6 +2664,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/FileUploads/DownloadFileQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/FileUploads/DownloadFileQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0c5dbce1-3e0f-43c0-ba38-c1b984d8d41a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/FileUploads/RestrictedUploadCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/FileUploads/RestrictedUploadCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3020,6 +3092,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#0c5dbce1-3e0f-43c0-ba38-c1b984d8d41a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/FileUploads/RestrictedUploadTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileUploads/RestrictedUploadTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#2f32dcc9-c245-43ee-9c2d-8c473f189e7f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/FileUploads/SimpleDownloadTests.cs</ApplicationRelativeFilePath>
@@ -3160,6 +3240,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ProductsService/UpdateProductTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsService/UpdateProductTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#496b6db5-4b7b-4865-8680-864cf723de0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/UploadDownloadService/DownloadTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadDownloadService/DownloadTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6763484f-660c-4f32-a425-0fd52973463e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/UploadDownloadService/UploadTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UploadDownloadService/UploadTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

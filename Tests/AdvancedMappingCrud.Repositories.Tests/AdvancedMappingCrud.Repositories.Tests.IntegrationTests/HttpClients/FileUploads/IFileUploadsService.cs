@@ -10,6 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
 {
     public interface IFileUploadsService : IDisposable
     {
+        Task RestrictedUploadAsync(string? contentType, long? contentLength, RestrictedUploadCommand command, CancellationToken cancellationToken = default);
         Task<Guid> SimpleUploadAsync(SimpleUploadCommand command, CancellationToken cancellationToken = default);
         Task<Guid> UploadFileAsync(string? contentType, long? contentLength, UploadFileCommand command, CancellationToken cancellationToken = default);
         Task<FileDownloadDto> DownloadFileAsync(Guid id, CancellationToken cancellationToken = default);

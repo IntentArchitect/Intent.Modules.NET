@@ -5,7 +5,9 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Templates;
 using Microsoft.Build.Evaluation;
 using System;
 using System.Collections.Generic;
@@ -17,10 +19,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
 {
     public class FileTransferHelper
     {
-        
+
         public const string FileTransferStereotypeId = "d30e48e8-389e-4b70-84fd-e3bac44cfe19";
         public const string StreamTypeId = "fd4ead8e-92e9-47c2-97a6-81d898525ea0";
-        
+
         public static bool IsFileDownloadOperation(IControllerOperationModel operation)
         {
             return operation.InternalElement.HasStereotype(FileTransferStereotypeId) &&
@@ -84,7 +86,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
                 return false;
             }
 
-            if (operation.Parameters.Any(p => IsStreamType( p.TypeReference)))
+            if (operation.Parameters.Any(p => IsStreamType(p.TypeReference)))
             {
                 return true;
             }
@@ -98,6 +100,70 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
                 return HasStreamField(dto.TypeReference);
             }
             return false;
+        }
+
+        public static void AddControllerStreamLogic(ICSharpFileBuilderTemplate template, CSharpClassMethod method, IControllerOperationModel operation)
+        {
+            var fileInfo = FileTransferHelper.GetUploadTypeInfo(operation);
+
+            template.AddUsing("System.IO");
+            template.AddUsing("System.Linq");
+            var stereoType = operation.InternalElement.GetStereotype(FileTransferHelper.FileTransferStereotypeId);
+            if (stereoType != null)
+            {
+                var maxFileSizeValue = stereoType.GetProperty("c0ea27fb-2e0b-4542-b294-da9d2b12565e")?.Value;//Maximum File Size (in bytes)
+                if (!string.IsNullOrEmpty(maxFileSizeValue))
+                {
+                    method.AddIfStatement($"Request.ContentLength != null && Request.ContentLength > {maxFileSizeValue}", stmt =>
+                    {
+                        stmt.AddStatement("return BadRequest(new { error = \"File to large.\" });");
+                    });
+                }
+
+                var mimeTypeFilterValue = stereoType.GetProperty("920234c1-6edb-4ceb-b6af-76f459bfb348")?.Value;//Mime Type Filter
+
+                if (!string.IsNullOrEmpty(mimeTypeFilterValue) && mimeTypeFilterValue.Trim() != "*/*")
+                {
+                    string mimetypes = string.Join(",", mimeTypeFilterValue.Replace(Environment.NewLine, "\n").Split("\n").Select(s => s.Trim().ToLower()));
+                    method.AddStatement($"var mimeTypeFilter = new HashSet<string>(@\"{mimetypes}\".Split(','));");
+                    method.AddIfStatement($"Request.ContentType == null || !mimeTypeFilter.Contains(Request.ContentType.ToLower())", stmt =>
+                    {
+                        stmt.AddStatement("return BadRequest(new { error = $\"Invalid file type. {Request.ContentType} not allowed.\" });");
+                    });
+                }
+            }
+
+            method.AddStatement("Stream stream;");
+            if (fileInfo.HasFilename())
+            {
+                template.AddUsing("System.Net.Http.Headers");
+                method.AddStatements($@"string? {fileInfo.FileNameField.ToParameterName()} = null;
+            if (Request.Headers.TryGetValue(""Content-Disposition"", out var headerValues))
+            {{
+                string? header = headerValues;
+                if (header != null)
+                {{
+                    var contentDisposition = ContentDispositionHeaderValue.Parse(header);
+                    {fileInfo.FileNameField.ToParameterName()} = contentDisposition?.FileName;
+                }}
+            }}".ConvertToStatements());
+
+            }
+            method.AddIfStatement(@"Request.ContentType != null && (Request.ContentType == ""application/x-www-form-urlencoded"" || Request.ContentType.StartsWith(""multipart/form-data"")) && Request.Form.Files.Any()", stmt =>
+            {
+                stmt.AddStatements(@"var file = Request.Form.Files[0];
+            if (file == null || file.Length == 0)
+                throw new ArgumentException(""File is empty"");
+            stream = file.OpenReadStream();".ConvertToStatements());
+                if (fileInfo.HasFilename())
+                {
+                    stmt.AddStatement($"{fileInfo.FileNameField.ToParameterName()} ??= file.Name;");
+                }
+            });
+            method.AddElseStatement(stmt =>
+            {
+                stmt.AddStatement("stream = Request.Body;");
+            });
         }
 
         public static bool IsStreamType(ITypeReference? typeReference)
