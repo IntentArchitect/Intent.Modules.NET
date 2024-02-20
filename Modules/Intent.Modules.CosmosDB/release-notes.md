@@ -1,6 +1,7 @@
 ﻿### Version 1.0.4
 
 - New Feature: Added support fo Optimistic Concurrency using `ETag` for `CosmosDB` module.
+- Improvement: Added `FindAsync` method to repository.
 
 ### Version 1.0.3
 

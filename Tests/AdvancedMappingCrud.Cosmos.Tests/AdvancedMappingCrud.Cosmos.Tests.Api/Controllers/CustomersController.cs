@@ -7,6 +7,7 @@ using AdvancedMappingCrud.Cosmos.Tests.Api.Controllers.ResponseTypes;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.CreateCustomer;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.DeleteCustomer;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByName;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomerById;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomers;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.UpdateCustomer;
@@ -95,6 +96,24 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
 
             await _mediator.Send(command, cancellationToken);
             return NoContent();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified CustomerDto.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
+        [HttpGet("api/customer-by-name")]
+        [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CustomerDto>> FindCustomerByName(
+            [FromQuery] string name,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new FindCustomerByNameQuery(name: name), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

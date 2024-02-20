@@ -173,6 +173,24 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         })
                     );
 
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method
+                            .AddStatement(
+                                "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
+                                , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
+                            .AddIfStatement("documents == null || !documents.Any()", stmt => 
+                            {
+                                stmt.AddStatement("return default;");
+                            })
+                            .AddStatement($"var entity = LoadAndTrackDocument(documents.First());")
+                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                    });
+
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
                         .Async()
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
@@ -206,7 +224,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
-                        method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -221,7 +238,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
-                        method.Virtual();
                         method.Async();
                         method.AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
@@ -232,7 +248,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
-                        method.Virtual();
                         method.Async();
                         method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")

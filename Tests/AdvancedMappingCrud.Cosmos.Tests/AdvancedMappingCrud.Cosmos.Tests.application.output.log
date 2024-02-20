@@ -444,6 +444,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByName/FindCustomerByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByName/FindCustomerByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByName/FindCustomerByNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByName/FindCustomerByNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByName/FindCustomerByNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByName/FindCustomerByNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#be81e3f5-693e-415e-8242-5c2812791579</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
@@ -1540,6 +1564,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/FindCustomerByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/FindCustomerByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#be81e3f5-693e-415e-8242-5c2812791579</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
@@ -1784,6 +1816,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/DeleteCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/DeleteCustomerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/FindCustomerByNameTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByNameTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

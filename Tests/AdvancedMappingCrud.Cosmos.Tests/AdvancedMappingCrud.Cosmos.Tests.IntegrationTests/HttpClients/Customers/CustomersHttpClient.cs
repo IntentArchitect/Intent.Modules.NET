@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -82,6 +83,30 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customer
                 if (!response.IsSuccessStatusCode)
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
+        public async Task<CustomerDto> FindCustomerByNameAsync(string name, CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customer-by-name";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("name", name);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<CustomerDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

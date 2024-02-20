@@ -14,6 +14,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories
     public interface ICosmosDBRepository<TDomain, TDocumentInterface> : IRepository<TDomain>
     {
         ICosmosDBUnitOfWork UnitOfWork { get; }
+        Task<TDomain?> FindAsync(Expression<Func<TDocumentInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Expression<Func<TDocumentInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);

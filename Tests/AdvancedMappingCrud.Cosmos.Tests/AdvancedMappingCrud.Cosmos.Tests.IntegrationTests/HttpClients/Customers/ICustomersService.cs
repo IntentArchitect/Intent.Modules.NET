@@ -12,6 +12,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customer
         Task<string> CreateCustomerAsync(CreateCustomerCommand command, CancellationToken cancellationToken = default);
         Task DeleteCustomerAsync(string id, CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(string id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
+        Task<CustomerDto> FindCustomerByNameAsync(string name, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(string id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
     }
