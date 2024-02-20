@@ -42,7 +42,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
                 dto.Str.Should().Be(entity.Str);
                 dto.Date.Should().Be(entity.Date);
                 dto.DateTime.Should().Be(entity.DateTime);
-                dto.NullableGuid.Should().Be(entity.NullableGuid);
+                dto.NullableGuid.Should().Be(entity.NullableGuid.Value);
                 dto.NullableEnum.Should().Be(entity.NullableEnum);
                 dto.NullabilityPeerId.Should().Be(entity.NullabilityPeerId);
             }
@@ -62,7 +62,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Nullability.TestNu
             actualDto.Str.Should().Be(expectedEntity.Str);
             actualDto.Date.Should().Be(expectedEntity.Date);
             actualDto.DateTime.Should().Be(expectedEntity.DateTime);
-            actualDto.NullableGuid.Should().Be(expectedEntity.NullableGuid);
+            actualDto.NullableGuid.Should().Be(expectedEntity.NullableGuid.Value);
             actualDto.NullableEnum.Should().Be(expectedEntity.NullableEnum);
             actualDto.NullabilityPeerId.Should().Be(expectedEntity.NullabilityPeerId);
         }
