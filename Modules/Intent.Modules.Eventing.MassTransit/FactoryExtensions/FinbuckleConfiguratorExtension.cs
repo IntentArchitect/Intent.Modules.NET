@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates;
+using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,12 +21,12 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
     {
         public override string Id => "Intent.Eventing.MassTransit.FinbuckleConfiguratorExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration"));
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateDependency.OnTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration"));
             bool finbuckleInstalled = template != null;
             if (!finbuckleInstalled) return;
 
@@ -35,14 +36,17 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         private void WireupMassTransitFilters(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.MassTransit.MassTransitConfiguration"));
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
             template?.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
 
                 var method = @class.FindMethod("AddMassTransitConfiguration");
 
-                if (method.FindStatement(p => p.HasMetadata("configure-masstransit")) is not CSharpInvocationStatement configMassTransit) { return; }
+                if (method.FindStatement(p => p.HasMetadata("configure-masstransit")) is not CSharpInvocationStatement configMassTransit)
+                {
+                    return;
+                }
 
                 var broker = ((IHasCSharpStatements)configMassTransit.Statements.First()).Statements.First(stmt => stmt.HasMetadata("message-broker")) as CSharpInvocationStatement;
                 if (broker == null) return;
@@ -55,7 +59,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         private void WireupFinbuckleTenancyStrategy(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration"));
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateDependency.OnTemplate("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration"));
 
             template?.CSharpFile.OnBuild(file =>
             {
@@ -63,11 +68,13 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
                 var method = @class.FindMethod("ConfigureMultiTenancy");
 
-                if (method.FindStatement(p => p.HasMetadata("add-multi-tenant")) is not CSharpMethodChainStatement configFinbuckle) { throw new Exception("Can't find add-multi-tenant meta data"); }
+                if (method.FindStatement(p => p.HasMetadata("add-multi-tenant")) is not CSharpMethodChainStatement configFinbuckle)
+                {
+                    throw new Exception("Can't find add-multi-tenant meta data");
+                }
 
                 var firstStrategy = configFinbuckle.Statements.First(stmt => stmt.GetText("").Contains("Strategy("));
                 firstStrategy.InsertAbove($"WithStrategy<{template.GetFinbuckleMessageHeaderStrategyName()}>(ServiceLifetime.Scoped)");
-
             });
         }
     }
