@@ -18,6 +18,7 @@ using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Consumers;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.MessageBrokers;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -276,13 +277,13 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             return;
         }
-    
+
         @class.AddMethod("void", "AddReceiveEndpoints", method =>
         {
             method.Private().Static();
             method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
-    
+
             foreach (var consumerGroup in _consumers.Where(ShouldAddReceiveEndpoints).GroupBy(key =>
                      {
                          var destinationAddress = key.DestinationAddress;
@@ -290,7 +291,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                          {
                              destinationAddress = $"{key.MessageTypeFullName.ToKebabCase()}";
                          }
-    
+
                          return destinationAddress;
                      }))
             {
@@ -299,7 +300,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     caller.AddArgument($@"""{consumerGroup.Key}""");
                     var lambda = new CSharpLambdaBlock("e");
                     caller.AddArgument(lambda);
-    
+
                     lambda.AddStatement("e.ConfigureConsumeTopology = false;");
 
                     lambda.AddStatements(consumerGroup.Select(consumer => $"e.Consumer<{consumer.ConsumerTypeName}>(context);"));
@@ -339,18 +340,18 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             return;
         }
-    
+
         @class.AddMethod("void", "ConfigureNonDefaultEndpoints", method =>
         {
             method.Private().Static();
             method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", parm => parm.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
-    
+
             foreach (var consumer in _consumers.Where(ShouldConfigureNonDefaultEndpoints))
             {
                 var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace("_", "-").Replace(" ", "-")
                     .Replace(".", "-");
-    
+
                 method.AddInvocationStatement($"cfg.AddCustomConsumerEndpoint<{consumer.ConsumerTypeName}>", inv => inv
                     .AddArgument("context")
                     .AddArgument($@"""{sanitizedAppName}""")
@@ -360,7 +361,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     .WithArgumentsOnNewLines());
             }
         });
-    
+
         @class.AddMethod("void", "AddCustomConsumerEndpoint", method =>
         {
             method.Private().Static();
@@ -370,7 +371,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.AddParameter("IBusRegistrationContext", "context");
             method.AddParameter("string", "instanceId");
             method.AddParameter($"Action<{_messageBroker.GetMessageBrokerReceiveEndpointConfiguratorName()}>", "configuration");
-    
+
             method.AddInvocationStatement($"cfg.ReceiveEndpoint", stmt => stmt
                 .AddArgument(new CSharpInvocationStatement($"new ConsumerEndpointDefinition<{tConsumer}>")
                     .WithoutSemicolon()
@@ -489,7 +490,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

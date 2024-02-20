@@ -20,9 +20,9 @@ internal class MediatRConsumerFactory : IConsumerFactory
     {
         var services = _template.ExecutionContext.MetadataManager.Services(_template.ExecutionContext.GetApplicationConfig().Id);
         var relevantCommands = services.GetElementsOfType("Command")
-            .Where(p => p.HasStereotype("MassTransit Consumer") && _template.ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Command, p.Id));
+            .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype) && _template.ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Command, p.Id));
         var relevantQueries = services.GetElementsOfType("Query")
-            .Where(p => p.HasStereotype("MassTransit Consumer") && _template.ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Query, p.Id));
+            .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype) && _template.ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Query, p.Id));
         var consumers = relevantCommands.Concat(relevantQueries)
             .Select(commandQuery =>
             {

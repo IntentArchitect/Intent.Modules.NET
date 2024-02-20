@@ -21,6 +21,8 @@
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.0.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.2" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="5.0.3-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.2.3-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -188,5 +190,9 @@
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
 
   <Import Project="..\Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems" Label="Shared" />
 
 </Project>

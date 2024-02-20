@@ -7,7 +7,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
-using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
 {
@@ -19,7 +18,8 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
             ServiceProxyModel model,
             string dtoContractTemplateId,
             string enumContractTemplateId,
-            string pagedResultTemplateId)
+            string pagedResultTemplateId,
+            IServiceProxyMappedService serviceProxyMappedService)
             : base(templateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
@@ -40,7 +40,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
                         @interface.RepresentsModel(Model);
                         @interface.ImplementsInterfaces("IDisposable");
 
-                        foreach (var endpoint in model.GetMappedEndpoints().ToArray())
+                        foreach (var endpoint in serviceProxyMappedService.GetMappedEndpoints(model))
                         {
                             @interface.AddMethod(GetTypeName(endpoint.ReturnType), GetOperationName(endpoint), method =>
                             {
@@ -62,14 +62,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
                     });
         }
 
-        //private string GetOperationReturnType(IHttpEndpointModel endpoint)
-        //{
-        //    return endpoint.ReturnType?.Element == null
-        //        ? "Task"
-        //        : $"Task<{GetTypeName(endpoint.ReturnType)}>";
-        //}
-
-        private static string GetOperationName(IHttpEndpointModel endpoint)
+        private static string GetOperationName(MappedEndpoint endpoint)
         {
             return endpoint.Name.ToPascalCase().EnsureSuffixedWith("Async");
         }

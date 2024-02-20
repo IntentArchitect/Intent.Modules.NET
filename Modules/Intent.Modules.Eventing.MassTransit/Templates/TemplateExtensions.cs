@@ -1,5 +1,14 @@
 using System.Collections.Generic;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContract;
+using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.EnumContract;
+using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.PagedResult;
+using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.ServiceContract;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
@@ -20,6 +29,41 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : DTOModel
+        {
+            return template.GetTypeName(DtoContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDtoContractName(this IIntentTemplate template, DTOModel model)
+        {
+            return template.GetTypeName(DtoContractTemplate.TemplateId, model);
+        }
+
+        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : EnumModel
+        {
+            return template.GetTypeName(EnumContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEnumContractName(this IIntentTemplate template, EnumModel model)
+        {
+            return template.GetTypeName(EnumContractTemplate.TemplateId, model);
+        }
+
+        public static string GetPagedResultName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(PagedResultTemplate.TemplateId);
+        }
+
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
+        {
+            return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
+        {
+            return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
+        }
+
         public static string GetFinbuckleConsumingFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(FinbuckleConsumingFilterTemplate.TemplateId);
@@ -39,21 +83,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(IntegrationEventConsumerTemplate.TemplateId);
         }
 
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.EventInteractions.IntegrationEventHandlerModel
+        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, Intent.Modelers.Services.EventInteractions.IntegrationEventHandlerModel model)
+        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
-        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
+        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : MessageSubscribeAssocationTargetEndModel
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
+        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
         }

@@ -11,9 +11,15 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
 {
     public const string TypeDefinitionElementId = "9204e067-bdc8-45e7-8970-8a833fdc5253";
+    
+    private readonly IServiceProxyMappedService _serviceProxyMappedService;
 
-    protected PagedResultTemplateBase(string templateId, IOutputTarget outputTarget) : base(templateId, outputTarget, null)
+    protected PagedResultTemplateBase(
+        string templateId, 
+        IOutputTarget outputTarget,
+        IServiceProxyMappedService serviceProxyMappedService) : base(templateId, outputTarget, null)
     {
+        _serviceProxyMappedService = serviceProxyMappedService;
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .IntentManagedFully()
             .AddUsing("System.Collections.Generic")
@@ -46,7 +52,7 @@ public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSh
     {
         return GetSourceDesigner(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
             .GetServiceProxyModels()
-            .SelectMany(s => s.GetMappedEndpoints())
+            .SelectMany(s => _serviceProxyMappedService.GetMappedEndpoints(s))
             .Any(x => x.TypeReference?.Element?.Id == TypeDefinitionElementId);
     }
 }

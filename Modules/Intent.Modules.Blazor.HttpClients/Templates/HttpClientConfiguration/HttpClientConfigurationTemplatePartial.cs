@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.RoslynWeaver.Attributes;

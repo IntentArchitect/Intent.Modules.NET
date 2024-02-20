@@ -267,6 +267,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Contracts.Clients.Http.Shared", "Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.shproj", "{27FDE92A-FE7D-4E94-A888-4758EBE227A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -868,6 +870,7 @@ Global
 		{D70C5B2A-54FD-4551-825A-A38515DB04E9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{37DF17B6-66FE-4810-82D0-1A964213E4EC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{558F5562-D714-4264-A02D-350300A2C956} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{27FDE92A-FE7D-4E94-A888-4758EBE227A6} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

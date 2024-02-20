@@ -41,9 +41,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponseMessage
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
-                .Where(p => p.HasStereotype("MassTransit Consumer"));
+                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
             var relevantQueries = services.GetElementsOfType("Query")
-                .Where(p => p.HasStereotype("MassTransit Consumer"));
+                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
             return relevantCommands.Concat(relevantQueries).Any();
         }
 

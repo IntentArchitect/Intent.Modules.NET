@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
@@ -6,7 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 
-namespace Intent.Modules.Contracts.Clients.Shared;
+namespace Intent.Modules.Contracts.Clients.Http.Shared;
 
 public static class ServiceProxyHelpers
 {

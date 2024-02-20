@@ -47,6 +47,7 @@
     
   <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
   <Import Project="..\Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.projitems" Label="Shared" />
   <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -11,6 +11,38 @@
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.MassTransit/README.md</projectUrl>
   <tags>csharp dotnet eventing masstransit pubsub integration</tags>
   <templates>
+    <template id="Intent.Eventing.MassTransit.ClientContracts.DtoContract" externalReference="0a87a028-0c15-4568-b5d5-a3451134e7e3">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts.Clients.Dto.MassTransit</role>
+      <location>IntegrationServices/Contracts</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.ClientContracts.EnumContract" externalReference="3dc14b13-67f3-4c4e-af98-fbddd9253740">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts.Clients.Enum.MassTransit</role>
+      <location>IntegrationServices/Contracts</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.ClientContracts.PagedResult" externalReference="40bfd79a-eddc-4324-b5c0-9a7ec219a59b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts.Clients.PagedResult.MassTransit</role>
+      <location>IntegrationServices/Contracts</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.ClientContracts.ServiceContract" externalReference="a065f0be-77ae-4712-98ca-c0eb92e91220">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts.Clients.MassTransit</role>
+      <location>IntegrationServices</location>
+    </template>
     <template id="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" externalReference="fc20086d-0bb2-4c9b-8f04-68d69d2adace">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -164,6 +196,7 @@
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="5.0.3-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -154,6 +154,78 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0a87a028-0c15-4568-b5d5-a3451134e7e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/DtoContract/DtoContractTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/DtoContract/DtoContractTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#0a87a028-0c15-4568-b5d5-a3451134e7e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/DtoContract/DtoContractTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/DtoContract/DtoContractTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#40bfd79a-eddc-4324-b5c0-9a7ec219a59b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/PagedResult/PagedResultTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#40bfd79a-eddc-4324-b5c0-9a7ec219a59b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/PagedResult/PagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/PagedResult/PagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a065f0be-77ae-4712-98ca-c0eb92e91220</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a065f0be-77ae-4712-98ca-c0eb92e91220</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientContracts/ServiceContract/ServiceContractTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientContracts/ServiceContract/ServiceContractTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fc20086d-0bb2-4c9b-8f04-68d69d2adace</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -334,7 +406,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>
