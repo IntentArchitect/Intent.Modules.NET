@@ -324,6 +324,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#8f48f018-053a-4942-8452-e68903ab87da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/BaseContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BaseContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#0c388142-4d87-4dad-b975-76a5314d4cf0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/InheritedContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritedContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/SpParameter.cs</ApplicationRelativeFilePath>
