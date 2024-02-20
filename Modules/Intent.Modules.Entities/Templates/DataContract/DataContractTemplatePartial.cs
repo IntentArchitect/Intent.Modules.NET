@@ -22,9 +22,14 @@ namespace Intent.Modules.Entities.Templates.DataContract
         public DataContractTemplate(IOutputTarget outputTarget, DataContractModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddRecord($"{Model.Name}", @class =>
+                .AddRecord($"{Model.Name}", record =>
                 {
-                    @class.AddConstructor(ctor =>
+                    if (Model.BaseType != null)
+                    {
+                        record.WithBaseType(Model.BaseType.Element.Name);
+                    }
+
+                    record.AddConstructor(ctor =>
                     {
                         foreach (var attribute in Model.Attributes)
                         {

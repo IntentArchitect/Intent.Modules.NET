@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8f48f018-053a-4942-8452-e68903ab87da" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <comment>6070899024 - (For Trade Shield) Domain Data Objects don't generate base type captured in the designer</comment>
+  <name>BaseContract</name>
+  <display>BaseContract</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="de82d87d-08fe-4983-a2e5-930dcfe9b3a9">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

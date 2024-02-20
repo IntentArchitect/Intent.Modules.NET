@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Fixed: Data Contract does not apply Base Type when it is set in the designer.
+
 ### Version 5.0.2
 
 - Improvement: Made small changes to UpdateHelper to make it more extensible.
