@@ -104,7 +104,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             {
                 new LegacyEventingConsumerFactory(this),
                 new ServiceIntegrationEventingConsumerFactory(this),
-                new ServiceIntegrationCommandConsumerFactory(this)
+                new ServiceIntegrationCommandConsumerFactory(this),
+                new MediatRConsumerFactory(this)
             }
             .SelectMany(factory => factory.CreateConsumers())
             .ToArray();
