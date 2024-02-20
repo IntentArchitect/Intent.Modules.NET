@@ -1,3 +1,7 @@
+### Version 6.0.3
+
+- Improvement: File transfer ( upload / download ) support.
+
 ### Version 6.0.2
 
 - Improvement: Dependent modules changed, version bumped.

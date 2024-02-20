@@ -1,3 +1,7 @@
+### Version 5.2.5
+
+- Improvement: File transfer ( upload / download ) support.
+
 ### Version 5.2.4
 
 - Fixed: Addressed an issue around UnitOfWork pattern for `ServiceModel` based services and CosmosDB.

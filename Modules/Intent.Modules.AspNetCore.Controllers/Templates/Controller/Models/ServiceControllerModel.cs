@@ -151,6 +151,7 @@ public class ControllerOperationModel : IControllerOperationModel
     public IAuthorizationModel AuthorizationModel { get; }
     public IList<IControllerParameterModel> Parameters { get; }
     public IList<IApiVersionModel> ApplicableVersions { get; }
+
 }
 
 public class ControllerParameterModel : IControllerParameterModel

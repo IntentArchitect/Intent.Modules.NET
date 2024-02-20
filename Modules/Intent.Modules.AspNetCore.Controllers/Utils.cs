@@ -26,6 +26,15 @@ public static class Utils
 
     public static CSharpStatement GetReturnStatement(this ControllerTemplate template, IControllerOperationModel operationModel)
     {
+        if (FileTransferHelper.IsFileDownloadOperation( operationModel))
+        {
+            var dtoInfo = FileTransferHelper.GetDownloadTypeInfo(operationModel);
+            return @$"if (result == null)
+            {{
+                return NotFound();
+            }}
+            return File(result.{dtoInfo.StreamField}{(string.IsNullOrEmpty(dtoInfo.ContentTypeField) ? ", \"application/octet-stream\"" : $", result.{dtoInfo.ContentTypeField} ?? \"application/octet-stream\"" )}{(string.IsNullOrEmpty(dtoInfo.FileNameField) ? "" : $", result.{dtoInfo.FileNameField}")});";
+        }
         var hasReturnType = operationModel.ReturnType != null;
 
         var resultExpression = default(string);

@@ -21,6 +21,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HttpClientDaprHandlerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.DaprClient);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq")
                 .AddUsing("System.Reflection")

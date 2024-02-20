@@ -1,5 +1,11 @@
 using System;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -160,10 +166,50 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()});");
+                            if (headerParameter.HeaderName.ToLower() == "content-type")
+                                continue;
+                            if (headerParameter.TypeReference.IsNullable)
+                            {
+                                method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
+                                {
+                                    stmt.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                                });
+                            }
+                            else
+                            {
+                                method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                            }
                         }
 
-                        if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
+                        if (FileTransferHelper.IsFileUploadOperation(endpoint))
+                        {
+                            var fieldInfo = FileTransferHelper.GetUploadTypeInfo(endpoint);
+                            string pathPrefix = fieldInfo.DtoPropertyName == null ? "" : $"{fieldInfo.DtoPropertyName}.";
+                            Func<string, string> fieldNameFormatter = (fieldName) => fieldName;
+                            if (fieldInfo.DtoPropertyName != null)
+                            {
+                                fieldNameFormatter = (fieldName) => $"{pathPrefix}{fieldName.ToPascalCase()}";
+                            }
+                            method.AddStatement($"httpRequest.Content = new StreamContent({fieldNameFormatter( fieldInfo.StreamField)});");
+
+                            if (fieldInfo.HasContentType())
+                            {
+                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter(fieldInfo.ContentTypeField)} ?? \"application/octet-stream\");");
+                            }
+                            else
+                            {
+                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/octet-stream\");");
+                            }
+
+                            if (fieldInfo.HasFilename())
+                            {
+                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.FileNameField)} != null", stmt =>
+                                {
+                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue(\"form-data\") {{FileName = {fieldNameFormatter(fieldInfo.FileNameField)} }};");
+                                });
+                            }
+                        }
+                        else if (inputsBySource.TryGetValue(HttpInputSource.FromBody, out var bodyParams))
                         {
                             var bodyParam = bodyParams.Single();
 
@@ -205,46 +251,71 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 );
                             }
 
-                            usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
+                            if (FileTransferHelper.IsFileDownloadOperation(endpoint))
                             {
-                                var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
-                                var returnsCollection = endpoint.ReturnType.IsCollection;
-                                var returnsString = endpoint.ReturnType.HasStringType();
-                                var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
-                                                       !returnsCollection;
+                                var fields = FileTransferHelper.GetDownloadTypeInfo(endpoint);
 
-                                string SuppressNullable(string expression) => endpoint.ReturnType.IsNullable ? expression : $"({expression})!";
+                                usingResponseBlock.AddStatement($"var memoryStream = new {UseType( "System.IO.MemoryStream")}();");
+                                usingResponseBlock.AddStatement($"var responseStream  = await response.Content.{GetReadAsStreamAsyncMethodCall()};");
+                                usingResponseBlock.AddStatement("await responseStream.CopyToAsync(memoryStream);");
+                                usingResponseBlock.AddStatement("memoryStream.Seek(0, SeekOrigin.Begin);");
 
-                                usingContentStreamBlock.SeparatedFromPrevious();
 
-                                if (isWrappedReturnType && (returnsPrimitive || returnsString))
+                                var invocation = new CSharpInvocationStatement($"return {GetTypeName(endpoint.ReturnType)}", $"Create");
+                                invocation.AddArgument("memoryStream");
+                                if (fields.HasFilename())
                                 {
-                                    usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
-                                    usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
+                                    invocation.AddArgument($"{fields.FileNameField.ToParameterName()}: response.Content.Headers.ContentDisposition?.FileName");
                                 }
-                                else if (!isWrappedReturnType && returnsString && !returnsCollection)
+                                if (fields.HasContentType())
                                 {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                    invocation.AddArgument($"{ fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"");
+                                }
+                                usingResponseBlock.AddStatement(invocation, s => s.SeparatedFromPrevious());
+                            }
+                            else
+                            {
+                                usingResponseBlock.AddStatementBlock($"using (var contentStream = await response.Content.{GetReadAsStreamAsyncMethodCall()}.ConfigureAwait(false))", usingContentStreamBlock =>
+                                {
+                                    var isWrappedReturnType = endpoint.MediaType == HttpMediaType.ApplicationJson;
+                                    var returnsCollection = endpoint.ReturnType.IsCollection;
+                                    var returnsString = endpoint.ReturnType.HasStringType();
+                                    var returnsPrimitive = GetTypeInfo(endpoint.ReturnType).IsPrimitive &&
+                                                           !returnsCollection;
+
+                                    string SuppressNullable(string expression) => endpoint.ReturnType.IsNullable ? expression : $"({expression})!";
+
+                                    usingContentStreamBlock.SeparatedFromPrevious();
+
+                                    if (isWrappedReturnType && (returnsPrimitive || returnsString))
                                     {
-                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
-                                    });
-                                    usingContentStreamBlock.AddStatement("return str;");
-                                }
-                                else if (!isWrappedReturnType && returnsPrimitive)
-                                {
-                                    usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                    usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt => 
+                                        usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
+                                        usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
+                                    }
+                                    else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                     {
-                                        stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
-                                    });
-                                    usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
-                                }
-                                else
-                                {
-                                    usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
-                                }
-                            });
+                                        usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        {
+                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                        });
+                                        usingContentStreamBlock.AddStatement("return str;");
+                                    }
+                                    else if (!isWrappedReturnType && returnsPrimitive)
+                                    {
+                                        usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        {
+                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                        });
+                                        usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
+                                    }
+                                    else
+                                    {
+                                        usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
+                                    }
+                                });
+                            }
                         });
                     });
                 }

@@ -42,6 +42,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<ICustomerManager, CustomerManager>();
             services.AddTransient<IPricingService, PricingService>();
             services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IUploadDownloadService, UploadDownloadService>();
             services.AddTransient<IPersonService, PersonService>();
             services.AddTransient<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEventHandler>();
             return services;

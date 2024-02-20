@@ -15,6 +15,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -102,6 +103,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                     {
                         var awaitModifier = string.Empty;
                         var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
+                        if (FileTransferHelper.IsFileUploadOperation(operationModel))
+                        {
+
+                            FileTransferHelper.AddControllerStreamLogic(template, method, operationModel);
+
+
+                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" :  x.Name ?? ""));
+                        }
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                         {

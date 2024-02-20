@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>0e3734cb-dd6e-4824-94b4-0596d33525be</applicationId>
     <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="b9c64131-4227-4b8a-9d95-8d5a5c97897f" name="AdvancedMappingCrud.DbContext.Tests.Services" type="association" specialization="Package Reference" />
+      <target id="b9c64131-4227-4b8a-9d95-8d5a5c97897f" name="AdvancedMappingCrud.DbContext.Tests.Services" type="association" specialization="Services Package" />
       <target id="2262014b-21f6-451e-b3a8-e942df338cc8" name="Products" type="element" specialization="Folder" />
     </mappedPath>
   </mappedClass>
