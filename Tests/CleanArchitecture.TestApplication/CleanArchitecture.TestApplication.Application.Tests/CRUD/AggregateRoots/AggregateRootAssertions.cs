@@ -102,7 +102,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
 
                 dto.Should().NotBeNull();
                 dto.CompositeAttr.Should().Be(entity.CompositeAttr);
-                dto.SomeDate.Should().Be(entity.SomeDate);
+                dto.SomeDate.Should().Be(entity.SomeDate.Value);
                 dto.AggregateRootId.Should().Be(entity.AggregateRootId);
                 dto.Id.Should().Be(entity.Id);
             }
@@ -118,7 +118,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.CRUD.AggregateRoot
 
             actualDto.Should().NotBeNull();
             actualDto.CompositeAttr.Should().Be(expectedEntity.CompositeAttr);
-            actualDto.SomeDate.Should().Be(expectedEntity.SomeDate);
+            actualDto.SomeDate.Should().Be(expectedEntity.SomeDate.Value);
             actualDto.AggregateRootId.Should().Be(expectedEntity.AggregateRootId);
             actualDto.Id.Should().Be(expectedEntity.Id);
         }
