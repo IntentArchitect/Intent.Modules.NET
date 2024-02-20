@@ -33,10 +33,10 @@ internal class InMemoryMessageBroker : MessageBrokerBase
         return Enumerable.Empty<CSharpStatement>();
     }
 
-    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, IEnumerable<CSharpStatement> moreConfiguration)
+    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingInMemory")
-            .AddArgument(new CSharpLambdaBlock("(context, cfg)")
+            .AddArgument(new CSharpLambdaBlock($"(context, {factoryConfigVarName})")
                 .AddStatements(moreConfiguration));
         stmt.AddMetadata("message-broker", "memory");
         return stmt;

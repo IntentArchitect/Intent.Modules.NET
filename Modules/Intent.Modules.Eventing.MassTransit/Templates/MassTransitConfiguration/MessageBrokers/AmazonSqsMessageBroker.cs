@@ -33,11 +33,11 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
         return Enumerable.Empty<CSharpStatement>();
     }
 
-    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, IEnumerable<CSharpStatement> moreConfiguration)
+    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingAmazonSqs")
-            .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                .AddInvocationStatement("cfg.Host", host => host
+            .AddArgument(new CSharpLambdaBlock($"(context, {factoryConfigVarName})")
+                .AddInvocationStatement($"{factoryConfigVarName}.Host", host => host
                     .AddArgument(@"configuration[""AmazonSqs:Host""]")
                     .AddArgument(new CSharpLambdaBlock("host")
                         .AddStatement(@"host.AccessKey(configuration[""AmazonSqs:AccessKey""]);")

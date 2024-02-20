@@ -142,7 +142,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         block.AddStatement(_messageBroker.AddMessageBrokerConfiguration(
             busRegistrationVarName: "x",
-            moreConfiguration: new[] { GetMessageRetryStatement("cfg", configurationVarName) }.Concat(GetPostHostConfigurationStatements())));
+            factoryConfigVarName: "cfg",
+            moreConfiguration: GetPostHostConfigurationStatements("cfg", configurationVarName)));
 
         if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
         {
@@ -152,17 +153,19 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return block;
     }
 
-    private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements()
+    private IEnumerable<CSharpStatement> GetPostHostConfigurationStatements(string factoryConfigVarName, string configurationVarName)
     {
-        yield return new CSharpStatement("cfg.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
+        yield return GetMessageRetryStatement(factoryConfigVarName, configurationVarName);
+        
+        yield return new CSharpStatement($"{factoryConfigVarName}.ConfigureEndpoints(context);").AddMetadata("configure-endpoints", true);
         if (_eventSubscriptions.Any(_messageBroker.HasMessageBrokerStereotype))
         {
-            yield return new CSharpStatement($@"cfg.ConfigureNonDefaultEndpoints(context);");
+            yield return new CSharpStatement($@"{factoryConfigVarName}.ConfigureNonDefaultEndpoints(context);");
         }
 
         if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
         {
-            yield return new CSharpStatement("cfg.UseInMemoryOutbox(context);");
+            yield return new CSharpStatement($"{factoryConfigVarName}.UseInMemoryOutbox(context);");
         }
         else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
                  ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
@@ -172,12 +175,12 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         if (_messagesWithSettings.Any())
         {
-            yield return new CSharpStatement("cfg.AddMessageTopologyConfiguration();");
+            yield return new CSharpStatement($"{factoryConfigVarName}.AddMessageTopologyConfiguration();");
         }
 
         if (_commandSubscriptions.Any())
         {
-            yield return new CSharpStatement("cfg.AddReceiveEndpoints(context);");
+            yield return new CSharpStatement($"{factoryConfigVarName}.AddReceiveEndpoints(context);");
         }
 
         if (_commandSendDispatches.Any())
@@ -254,10 +257,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Replace(".", "-");
         var consumerDefinitionType =
             $@"{this.GetIntegrationEventHandlerInterfaceName()}<{commandName}>, {commandName}";
-        var consumerWrapperType = $@"{this.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>";
+        var consumerType = $@"{this.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>";
 
         return
-            $@"{configParamName}.AddConsumer<{consumerWrapperType}>(typeof({this.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
+            $@"{configParamName}.AddConsumer<{consumerType}>(typeof({this.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>)).Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }});";
     }
 
     private void AddReceivedEndpointsForCommandSubscriptions(CSharpClass @class)
@@ -297,7 +300,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     {
                         var model = subscriber.TypeReference.Element.AsIntegrationCommandModel();
                         lambda.AddStatement(
-                            $"e.Consumer<WrapperConsumer<IIntegrationEventHandler<{this.GetIntegrationCommandName(model)}>, {this.GetIntegrationCommandName(model)}>>(context);");
+                            $"e.Consumer<{this.GetIntegrationEventConsumerName()}<IIntegrationEventHandler<{this.GetIntegrationCommandName(model)}>, {this.GetIntegrationCommandName(model)}>>(context);");
                     }
                 });
             }

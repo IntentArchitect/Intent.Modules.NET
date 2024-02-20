@@ -21,7 +21,7 @@ internal abstract class MessageBrokerBase
     public abstract string GetMessageBrokerBusFactoryConfiguratorName();
     public abstract string GetMessageBrokerReceiveEndpointConfiguratorName();
     public abstract IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Subscription subscription);
-    public abstract CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, IEnumerable<CSharpStatement> moreConfiguration);
+    public abstract CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration);
     public abstract AppSettingRegistrationRequest? GetAppSettings();
     public abstract INugetPackageInfo? GetNugetDependency();
 }

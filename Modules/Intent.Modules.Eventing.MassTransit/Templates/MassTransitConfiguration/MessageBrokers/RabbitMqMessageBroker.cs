@@ -42,11 +42,11 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
         yield return $@"{configVarName}.Exclusive = {busConsumerSettings.Exclusive().ToString().ToLower()};";
     }
 
-    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, IEnumerable<CSharpStatement> moreConfiguration)
+    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingRabbitMq")
-            .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                .AddInvocationStatement("cfg.Host", host => host
+            .AddArgument(new CSharpLambdaBlock($"(context, {factoryConfigVarName})")
+                .AddInvocationStatement($"{factoryConfigVarName}.Host", host => host
                     .AddArgument(@"configuration[""RabbitMq:Host""]")
                     .AddArgument(@"configuration[""RabbitMq:VirtualHost""]")
                     .AddArgument(new CSharpLambdaBlock("host")

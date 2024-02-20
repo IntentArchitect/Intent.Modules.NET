@@ -70,11 +70,11 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
         }
     }
 
-    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, IEnumerable<CSharpStatement> moreConfiguration)
+    public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingAzureServiceBus")
-            .AddArgument(new CSharpLambdaBlock("(context, cfg)")
-                .AddInvocationStatement("cfg.Host", host => host
+            .AddArgument(new CSharpLambdaBlock($"(context, {factoryConfigVarName})")
+                .AddInvocationStatement($"{factoryConfigVarName}.Host", host => host
                     .AddArgument(@"configuration[""AzureMessageBus:ConnectionString""]")
                     .SeparatedFromPrevious())
                 .AddStatements(moreConfiguration));
