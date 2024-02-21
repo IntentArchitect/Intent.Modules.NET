@@ -30,8 +30,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                 baseName: "MediatR",
                 configureClass: (@class, tMessage) =>
                 {
-                    @class.GenericTypeConstraints.First(p => p.GenericTypeParameter == tMessage).AddType(UseType("MediatR.IBaseRequest"));
-
                     @class.AddMethod("object", "RespondWithPayload", method =>
                     {
                         method.Private().Static();
@@ -40,7 +38,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                         method.AddStatement(
                             $$"""
                               var responseType = response.GetType();
-                              var genericType = typeof({{this.GetRequestResponseMessageName()}}<>).MakeGenericType(responseType);
+                              var genericType = typeof({{this.GetRequestCompletedMessageName()}}<>).MakeGenericType(responseType);
                               var responseInstance = Activator.CreateInstance(genericType, new[] { response });
                               return responseInstance!;
                               """);
@@ -64,7 +62,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                                   await context.RespondAsync(res);
                                   break;
                               case MediatR.Unit:
-                                  await context.RespondAsync({{this.GetRequestResponseMessageName()}}.Instance);
+                                  await context.RespondAsync({{this.GetRequestCompletedMessageName()}}.Instance);
                                   break;
                               case not MediatR.Unit:
                                   await context.RespondAsync(response);

@@ -17,6 +17,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Consumers;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.MessageBrokers;
+using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Producers;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -47,7 +48,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         AddTypeSource(IntegrationCommandTemplate.TemplateId);
 
         _messagesWithSettings = GetMessagesWithSettings();
-        _commandSendDispatches = GetIntegrationCommandSendDispatches();
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -56,7 +56,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .AddUsing("MassTransit.Configuration")
             .AddUsing("Microsoft.Extensions.Configuration")
             .AddUsing("Microsoft.Extensions.DependencyInjection")
-            .OnBuild(file => { _consumers = GetConsumers(); })
+            .OnBuild(file =>
+            {
+                _consumers = GetConsumers();
+                _producers = GetProducers();
+            })
             .AddClass($"MassTransitConfiguration", @class =>
             {
                 @class.Static();
@@ -79,11 +83,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             });
     }
 
-
     private readonly MessageBrokerBase _messageBroker;
     private IReadOnlyCollection<Consumer> _consumers;
+    private IReadOnlyCollection<Producer> _producers;
     private readonly IReadOnlyList<MessageModel> _messagesWithSettings;
-    private readonly IReadOnlyList<SendIntegrationCommandTargetEndModel> _commandSendDispatches;
 
     private MessageBrokerBase GetMessageBroker()
     {
@@ -112,6 +115,18 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .ToArray();
         return consumers;
     }
+    
+    private IReadOnlyCollection<Producer> GetProducers()
+    {
+        var producers = new IProducerFactory[]
+            {
+                new CommandQueryProducerFactory(this),
+                new ServiceIntegrationCommandSendProducerFactory(this)
+            }
+            .SelectMany(factory => factory.CreateProducers())
+            .ToArray();
+        return producers;
+    }
 
     private IReadOnlyList<MessageModel> GetMessagesWithSettings()
     {
@@ -122,11 +137,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 .Select(x => x.TypeReference.Element.AsMessageModel()))
             .Where(p => p.HasMessageTopologySettings() && !string.IsNullOrWhiteSpace(p.GetMessageTopologySettings().EntityName()))
             .ToList();
-    }
-
-    private IReadOnlyList<SendIntegrationCommandTargetEndModel> GetIntegrationCommandSendDispatches()
-    {
-        return ExecutionContext.MetadataManager.GetExplicitlySentIntegrationCommandDispatches(ExecutionContext.GetApplicationConfig().Id).ToList();
     }
 
     private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
@@ -188,7 +198,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return new CSharpStatement($"{factoryConfigVarName}.AddReceiveEndpoints(context);");
         }
 
-        if (_commandSendDispatches.Any())
+        if (_producers.Any())
         {
             yield return new CSharpStatement("EndpointConventionRegistration();");
         }
@@ -263,7 +273,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             }
             else
             {
-                addConsumer += $@".Endpoint(config => {{ config.InstanceId = ""{sanitizedAppName}""; config.ConfigureConsumeTopology = false; }})";
+                addConsumer += $@".ExcludeFromConfigureEndpoints()";
             }
         }
 
@@ -311,7 +321,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private void AddEndpointConventionRegistrations(CSharpClass @class)
     {
-        if (!_commandSendDispatches.Any())
+        if (!_producers.Any())
         {
             return;
         }
@@ -320,17 +330,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             method.Private().Static();
 
-            foreach (var dispatchModel in _commandSendDispatches)
-            {
-                var model = dispatchModel.TypeReference.Element.AsIntegrationCommandModel();
-                var queueName = dispatchModel.GetCommandDistribution().DestinationQueueName();
-                if (string.IsNullOrWhiteSpace(queueName))
-                {
-                    queueName = $"{this.GetFullyQualifiedTypeName(model.InternalElement).ToKebabCase()}";
-                }
-
-                method.AddStatement($@"EndpointConvention.Map<{GetTypeName(IntegrationCommandTemplate.TemplateId, model)}>(new Uri(""queue:{queueName}""));");
-            }
+            method.AddStatements(_producers.Select(producer =>
+                $@"EndpointConvention.Map<{producer.MessageTypeName}>(new Uri(""queue:{producer.Urn}""));"));
         });
     }
 
@@ -344,7 +345,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         @class.AddMethod("void", "ConfigureNonDefaultEndpoints", method =>
         {
             method.Private().Static();
-            method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", parm => parm.WithThisModifier());
+            method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
             foreach (var consumer in _consumers.Where(ShouldConfigureNonDefaultEndpoints))

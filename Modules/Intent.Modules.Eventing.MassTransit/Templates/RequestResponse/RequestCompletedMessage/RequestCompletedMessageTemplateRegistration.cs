@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponseMessage
+namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestCompletedMessage
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class RequestResponseMessageTemplateRegistration : SingleFileTemplateRegistration
+    public class RequestCompletedMessageTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => RequestResponseMessageTemplate.TemplateId;
+        public override string TemplateId => RequestCompletedMessageTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new RequestResponseMessageTemplate(outputTarget);
+            return new RequestCompletedMessageTemplate(outputTarget);
         }
     }
 }

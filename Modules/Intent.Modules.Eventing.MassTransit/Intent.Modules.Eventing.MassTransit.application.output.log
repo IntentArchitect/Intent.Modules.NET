@@ -226,6 +226,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a1662b1e-b020-4abe-b580-74fed2bdf9c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a1662b1e-b020-4abe-b580-74fed2bdf9c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fc20086d-0bb2-4c9b-8f04-68d69d2adace</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/FinbuckleConsumingFilter/FinbuckleConsumingFilterTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -386,18 +402,50 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e46d8062-ac79-401c-9f53-6c975cf73acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/MapperRequestMessage/MapperRequestMessageTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e46d8062-ac79-401c-9f53-6c975cf73acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/MapperRequestMessage/MapperRequestMessageTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71581cb9-1c65-490a-bb7b-ef8c8dccedb4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponseMessage/RequestResponseMessageTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponseMessage/RequestResponseMessageTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71581cb9-1c65-490a-bb7b-ef8c8dccedb4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponseMessage/RequestResponseMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponseMessage/RequestResponseMessageTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

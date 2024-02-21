@@ -11,3 +11,7 @@ internal record Consumer(
     string? DestinationAddress,
     IAzureServiceBusConsumerSettings? AzureConsumerSettings,
     IRabbitMQConsumerSettings? RabbitMqConsumerSettings);
+    
+internal record Producer(
+    string MessageTypeName,
+    string Urn);

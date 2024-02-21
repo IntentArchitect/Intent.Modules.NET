@@ -43,6 +43,14 @@
       <role>Application.Contracts.Clients.MassTransit</role>
       <location>IntegrationServices</location>
     </template>
+    <template id="Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient" externalReference="a1662b1e-b020-4abe-b580-74fed2bdf9c9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.RequestClient</role>
+      <location>Eventing</location>
+    </template>
     <template id="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" externalReference="fc20086d-0bb2-4c9b-8f04-68d69d2adace">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -115,7 +123,23 @@
       <role>Infrastructure.Eventing.Consumer</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponseMessage" externalReference="71581cb9-1c65-490a-bb7b-ef8c8dccedb4">
+    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface" externalReference="69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MapperRequestInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage" externalReference="e46d8062-ac79-401c-9f53-6c975cf73acd">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MapperRequestMessage</role>
+      <location>Eventing/Messages</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage" externalReference="71581cb9-1c65-490a-bb7b-ef8c8dccedb4">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -193,10 +217,10 @@
     <dependency id="Intent.Eventing.Contracts" version="5.0.3" />
     <dependency id="Intent.Modelers.Domain" version="3.5.0" />
     <dependency id="Intent.Modelers.Eventing" version="5.0.2" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="5.0.3-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
-    <dependency id="Intent.Modelers.ServiceProxies" version="5.0.3-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

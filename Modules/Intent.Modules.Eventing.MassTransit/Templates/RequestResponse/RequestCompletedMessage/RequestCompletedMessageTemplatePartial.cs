@@ -14,22 +14,22 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponseMessage
+namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestCompletedMessage
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class RequestResponseMessageTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class RequestCompletedMessageTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponseMessage";
+        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RequestResponseMessageTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public RequestCompletedMessageTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass("RequestResponseMessage", @class =>
+                .AddClass("RequestCompletedMessage", @class =>
                 {
                     @class.AddProperty(@class.Name, "Instance", prop => prop.Static().WithInitialValue($"new {@class.Name}()").WithoutSetter());
                 })
-                .AddClass("RequestResponseMessage", @class =>
+                .AddClass("RequestCompletedMessage", @class =>
                 {
                     @class.AddGenericParameter("T", out var typeT);
                     @class.AddConstructor(ctor => ctor.AddStatement("Payload = default!;"));

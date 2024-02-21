@@ -18,20 +18,23 @@ namespace Intent.Modules.Contracts.Clients.Shared
         ITypeReference? ReturnType,
         IReadOnlyCollection<MappedEndpointInput> Inputs) : IHasName;
 
-    public record MappedEndpointInput : IHasName, IHasTypeReference
+    public record MappedEndpointInput : IHasName, IHasTypeReference, IMetadataModel
     {
-        public MappedEndpointInput(string name, ITypeReference typeReference)
+        public MappedEndpointInput(string id, string name, ITypeReference typeReference)
         {
+            Id = id;
             Name = name;
             TypeReference = typeReference;
         }
 
         public MappedEndpointInput(string name, ICanBeReferencedType referencedType)
         {
+            Id = referencedType.Id;
             Name = name;
             TypeReference = new AdaptTypeReference(referencedType);
         }
 
+        public string Id { get; }
         public string Name { get; }
         public ITypeReference TypeReference { get; }
     };

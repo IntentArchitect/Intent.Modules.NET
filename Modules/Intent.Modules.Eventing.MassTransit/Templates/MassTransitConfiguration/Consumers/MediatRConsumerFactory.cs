@@ -4,6 +4,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Consumers;
 
@@ -18,6 +20,7 @@ internal class MediatRConsumerFactory : IConsumerFactory
 
     public IReadOnlyCollection<Consumer> CreateConsumers()
     {
+        var namespaceProvider = new SourcePackageFileNamespaceProvider();
         var services = _template.ExecutionContext.MetadataManager.Services(_template.ExecutionContext.GetApplicationConfig().Id);
         var relevantCommands = services.GetElementsOfType("Command")
             .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype) && _template.ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Command, p.Id));
@@ -26,15 +29,16 @@ internal class MediatRConsumerFactory : IConsumerFactory
         var consumers = relevantCommands.Concat(relevantQueries)
             .Select(commandQuery =>
             {
-                var messageType = _template.GetTypeName(TemplateRoles.Application.Command, commandQuery, new TemplateDiscoveryOptions() { ThrowIfNotFound = false })
-                                  ?? _template.GetTypeName(TemplateRoles.Application.Query, commandQuery, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+                string fullTypeName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, commandQuery);
+                var t = _template.GetTemplate<MapperRequestMessageTemplate>(MapperRequestMessageTemplate.TemplateId, commandQuery.Id);
+                string destinationAddress = $"{namespaceProvider.GetFileNamespace(t)}.{t.ClassName}".ToKebabCase();
 
                 return new Consumer(
-                    MessageTypeFullName: _template.GetFullyQualifiedTypeName(commandQuery),
-                    ConsumerTypeName: $@"{_template.GetMediatRConsumerName()}<{messageType}>",
-                    ConsumerDefinitionTypeName: $"{_template.GetMediatRConsumerName()}Definition<{messageType}>",
+                    MessageTypeFullName: fullTypeName,
+                    ConsumerTypeName: $@"{_template.GetMediatRConsumerName()}<{fullTypeName}>",
+                    ConsumerDefinitionTypeName: $"{_template.GetMediatRConsumerName()}Definition<{fullTypeName}>",
                     ConfigureConsumeTopology: false,
-                    DestinationAddress: null,
+                    DestinationAddress: destinationAddress,
                     AzureConsumerSettings: null,
                     RabbitMqConsumerSettings: null);
             })
