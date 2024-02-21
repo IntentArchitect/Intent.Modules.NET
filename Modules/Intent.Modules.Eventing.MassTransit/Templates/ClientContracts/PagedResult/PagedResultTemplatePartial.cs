@@ -21,7 +21,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.PagedRes
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.ClientContracts.PagedResult";
 
-        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget)
+        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new MassTransitServiceProxyMappedService())
         {
         }
 

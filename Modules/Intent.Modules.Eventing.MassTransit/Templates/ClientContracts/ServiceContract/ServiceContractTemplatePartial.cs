@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.ServiceC
                 dtoContractTemplateId: DtoContractTemplate.TemplateId,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
                 pagedResultTemplateId: PagedResultTemplate.TemplateId,
-                serviceProxyMappedService: )
+                serviceProxyMappedService: new MassTransitServiceProxyMappedService())
         {
             // So that this service (which is an application layer interface) is discoverable
             FulfillsRole(TemplateRoles.Application.Services.Interface);

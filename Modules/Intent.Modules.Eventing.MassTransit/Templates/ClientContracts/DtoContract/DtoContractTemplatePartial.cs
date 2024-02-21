@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.EnumContract;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.PagedResult;
@@ -28,7 +29,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContr
                 outputTarget: outputTarget,
                 model: model,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
-                pagedResultTemplateId: PagedResultTemplate.TemplateId)
+                pagedResultTemplateId: PagedResultTemplate.TemplateId,
+                fileNamespaceProvider: new SourcePackageFileNamespaceProvider())
         {
         }
     }

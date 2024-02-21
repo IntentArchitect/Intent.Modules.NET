@@ -8,6 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 {

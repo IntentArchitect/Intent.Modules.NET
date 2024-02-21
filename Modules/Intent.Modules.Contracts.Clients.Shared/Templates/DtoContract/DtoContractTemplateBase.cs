@@ -24,7 +24,8 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
             IOutputTarget outputTarget,
             DTOModel model,
             string enumContractTemplateId,
-            string pagedResultTemplateId)
+            string pagedResultTemplateId,
+            IFileNamespaceProvider fileNamespaceProvider)
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
@@ -35,8 +36,8 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
             AddTypeSource(enumContractTemplateId);
 
             CSharpFile = new CSharpFile(
-                    @namespace: this.GetPackageBasedNamespace(),
-                    relativeLocation: this.GetPackageBasedRelativeLocation())
+                    @namespace: fileNamespaceProvider.GetFileNamespace(this),
+                    relativeLocation: fileNamespaceProvider.GetFileLocation(this))
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"{Model.Name}", @class =>
                 {

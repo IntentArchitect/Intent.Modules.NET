@@ -53,7 +53,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
 
                                 foreach (var input in endpoint.Inputs)
                                 {
-                                    method.AddParameter(GetTypeName(input.TypeReference), input.Name.ToParameterName());
+                                    method.AddParameter(this.GetTypeName(input), input.Name.ToParameterName());
                                 }
 
                                 method.AddOptionalCancellationTokenParameter(this);

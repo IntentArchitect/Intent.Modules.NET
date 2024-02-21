@@ -37,8 +37,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.ServiceC
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
+            var service = new MassTransitServiceProxyMappedService();
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Where(proxyModel => proxyModel.HasMappedEndpoints() && proxyModel.MappedService.HasStereotype(Constants.MassTransitConsumerStereotype))
+                .Where(proxyModel => service.HasMappedEndpoints(proxyModel))
                 .ToArray();
         }
     }
