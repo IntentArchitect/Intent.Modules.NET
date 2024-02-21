@@ -48,7 +48,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                 {
                     method.AddStatement($"var sender = _serviceProvider.GetRequiredService<{UseType("MediatR.ISender")}>();",
                         stmt => stmt.AddMetadata("handler", "instantiate").SeparatedFromPrevious());
-                    method.AddStatement($"var response = await sender.Send(context.Message, context.CancellationToken);",
+
+                    method.AddStatement(
+                        $$"""
+                        object request;
+                        if (context.Message is {{this.GetMapperRequestInterfaceName()}} mapperRequest)
+                        {
+                            request = mapperRequest.CreateRequest();
+                        }
+                        else
+                        {
+                            request = context.Message;
+                        }
+                        """);
+
+                    method.AddStatement($"var response = await sender.Send(request, context.CancellationToken);",
                         stmt => stmt.AddMetadata("handler", "execute"));
 
                     method.AddStatement(
@@ -56,16 +70,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                           switch (response)
                           {
                               case null:
-                                  break;
-                              case int or float or double or decimal or long or bool or char or byte or sbyte or short or ushort or uint or ulong or string or System.Collections.IEnumerable:
-                                  var res = RespondWithPayload(response);
-                                  await context.RespondAsync(res);
-                                  break;
                               case MediatR.Unit:
                                   await context.RespondAsync({{this.GetRequestCompletedMessageName()}}.Instance);
                                   break;
                               case not MediatR.Unit:
-                                  await context.RespondAsync(response);
+                                  var res = RespondWithPayload(response);
+                                  await context.RespondAsync(res);
                                   break;
                           }
                           """, stmt => stmt.SeparatedFromPrevious());
@@ -85,8 +95,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
             return relevantCommands.Concat(relevantQueries).Any();
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
