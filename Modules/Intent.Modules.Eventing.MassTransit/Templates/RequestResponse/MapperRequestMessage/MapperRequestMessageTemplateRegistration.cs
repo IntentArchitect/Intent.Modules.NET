@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRe
         {
             return _metadataManager.Services(application)
                 .Elements
-                .Where(element => HybridDtoModel.IsHybridDtoModel(element) && element.HasStereotype(Constants.MassTransitConsumerStereotype))
+                .Where(element => HybridDtoModel.IsHybridDtoModel(element) && element.HasStereotype(Constants.MessageRequestEndpointStereotype))
                 .Select(element => new HybridDtoModel(element));
         }
     }

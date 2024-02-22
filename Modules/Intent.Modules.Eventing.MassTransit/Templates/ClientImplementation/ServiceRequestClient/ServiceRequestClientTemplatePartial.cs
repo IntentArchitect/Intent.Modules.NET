@@ -94,7 +94,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientImplementation.Ser
                     {
                         method.AddStatement($"using var scope = new {UseType("System.Transactions.TransactionScope")}({UseType("System.Transactions.TransactionScopeOption")}.Suppress, {UseType("System.Transactions.TransactionScopeAsyncFlowOption")}.Enabled);");
                     }
-                    
+
                     method.AddStatement(
                         $"var client = _serviceProvider.GetRequiredService<{UseType("MassTransit.IRequestClient")}<{mapperRequestType}>>();");
                     method.AddStatement($"var {mappedVar} = new {mapperRequestType}({primaryInput.Name});");

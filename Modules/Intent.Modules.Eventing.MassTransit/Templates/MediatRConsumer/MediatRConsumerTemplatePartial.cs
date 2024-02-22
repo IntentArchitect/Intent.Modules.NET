@@ -76,9 +76,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
-                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype) && ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Command, p.Id));
+                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype) && ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Command, p.Id));
             var relevantQueries = services.GetElementsOfType("Query")
-                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype) && ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Query, p.Id));
+                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype) && ExecutionContext.TemplateExists(TemplateRoles.Application.Handler.Query, p.Id));
             return relevantCommands.Concat(relevantQueries).Any();
         }
 

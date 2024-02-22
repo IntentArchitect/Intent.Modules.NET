@@ -2,5 +2,5 @@
 
 public static class Constants
 {
-    public const string MassTransitConsumerStereotype = "MassTransit Consumer";
+    public const string MessageRequestEndpointStereotype = "Message Request Endpoint";
 }

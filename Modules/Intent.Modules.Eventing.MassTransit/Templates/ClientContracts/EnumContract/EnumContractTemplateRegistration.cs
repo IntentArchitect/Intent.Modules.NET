@@ -37,7 +37,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.EnumCont
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetMappedServiceProxyEnumModels(Constants.MassTransitConsumerStereotype);
+            return _metadataManager.ServiceProxies(application).GetMappedServiceProxyEnumModels(Constants.MessageRequestEndpointStereotype);
         }
     }
 }

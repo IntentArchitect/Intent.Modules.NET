@@ -53,11 +53,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestC
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
             var proxies = ExecutionContext.MetadataManager.ServiceProxies(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
-                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
+                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
             var relevantQueries = services.GetElementsOfType("Query")
-                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
+                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
             var relevantDtos = proxies.GetElementsOfType("DTO")
-                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
+                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
             return relevantCommands.Concat(relevantQueries).Concat(relevantDtos).Select(element => new HybridDtoModel(element));
         }
 

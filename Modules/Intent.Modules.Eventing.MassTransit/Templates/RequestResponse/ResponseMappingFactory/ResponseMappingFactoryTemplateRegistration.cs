@@ -37,7 +37,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.Response
             return _metadataManager.Services(application)
                 .Elements
                 .Where(element => HybridDtoModel.IsHybridDtoModel(element) &&
-                                  element.HasStereotype(Constants.MassTransitConsumerStereotype) &&
+                                  element.HasStereotype(Constants.MessageRequestEndpointStereotype) &&
                                   element.TypeReference?.Element is not null &&
                                   element.TypeReference.Element.SpecializationType == DTOModel.SpecializationType)
                 .DistinctBy(k => k.TypeReference.Element.Id)
