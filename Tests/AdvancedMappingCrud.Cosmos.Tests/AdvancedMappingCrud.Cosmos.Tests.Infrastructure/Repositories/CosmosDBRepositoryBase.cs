@@ -69,6 +69,21 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             });
         }
 
+        public async Task<TDomain?> FindAsync(
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
+
+            if (documents == null || !documents.Any())
+            {
+                return default;
+            }
+            var entity = LoadAndTrackDocument(documents.First());
+
+            return entity;
+        }
+
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
@@ -95,7 +110,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             }
         }
 
-        public virtual async Task<List<TDomain>> FindAllAsync(
+        public async Task<List<TDomain>> FindAllAsync(
             Expression<Func<TDocumentInterface, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
@@ -105,7 +120,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             return results;
         }
 
-        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
+        public async Task<IPagedList<TDomain>> FindAllAsync(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -113,7 +128,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             return await FindAllAsync(_ => true, pageNo, pageSize, cancellationToken);
         }
 
-        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
+        public async Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TDocumentInterface, bool>> filterExpression,
             int pageNo,
             int pageSize,

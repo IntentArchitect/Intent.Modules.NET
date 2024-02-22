@@ -1,6 +1,7 @@
 ### Version 6.0.3
 
 - Improvement: File transfer ( upload / download ) support.
+- Improvement: Added Service Designer validation - `GET Operations do not support collections on complex objects`.
 
 ### Version 6.0.2
 

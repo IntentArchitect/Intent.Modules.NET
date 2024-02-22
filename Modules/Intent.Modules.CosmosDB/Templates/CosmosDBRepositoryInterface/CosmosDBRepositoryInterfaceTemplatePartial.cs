@@ -48,6 +48,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                         .AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                             .WithoutSetter()
                         )
+                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))

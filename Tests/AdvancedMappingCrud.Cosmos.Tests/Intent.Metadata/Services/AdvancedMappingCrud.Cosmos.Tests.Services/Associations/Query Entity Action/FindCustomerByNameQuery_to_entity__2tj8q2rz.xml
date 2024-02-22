@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7222da28-cec0-4a24-b152-fb6d65b4966a">
+  <sourceEnd id="b4d13cbd-ebc9-4b9e-aff1-bd83c1100017" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindCustomerByNameQuery</display>
+    <order>0</order>
+    <typeReference id="49f4d061-8ea2-4073-8599-58eb41c48baf">
+      <typeId>068f65de-3c4a-47b5-9adc-76946b204372</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7222da28-cec0-4a24-b152-fb6d65b4966a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entity</name>
+    <display>[query] entity: Customer</display>
+    <order>1</order>
+    <typeReference id="bdfe8c48-06a4-4ca3-88fe-13e1c36ffe24">
+      <typeId>41461520-9a59-4626-b0e9-2926ac9540a4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="068f65de-3c4a-47b5-9adc-76946b204372" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[FindCustomerByNameQuery]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="41461520-9a59-4626-b0e9-2926ac9540a4" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="41461520-9a59-4626-b0e9-2926ac9540a4" name="Customer" type="element" specialization="Class" />
+              <target id="6f9f6c2a-30ac-487d-87e3-876434784b93" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="068f65de-3c4a-47b5-9adc-76946b204372" name="FindCustomerByNameQuery" type="element" specialization="Query" />
+                  <target id="efec8d37-64fa-4f83-85a6-c6be1fe41648" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

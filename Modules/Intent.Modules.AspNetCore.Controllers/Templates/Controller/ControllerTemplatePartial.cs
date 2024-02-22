@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
@@ -73,6 +74,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             }
                             foreach (var parameter in operation.Parameters)
                             {
+                                if (operation.Verb == HttpVerb.Get && parameter.TypeReference != null && parameter.TypeReference.IsCollection && parameter.TypeReference.Element.IsDTOModel())
+                                {
+                                    throw new ElementException(parameter.MappedPayloadProperty as IElement ?? operation.InternalElement, "GET Operations do not support collections on complex objects.");
+                                }
                                 if (isFileUpload && (parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType( parameter.TypeReference) || string.Equals("filename", parameter.Name, StringComparison.OrdinalIgnoreCase)))
                                 {
                                     continue;
