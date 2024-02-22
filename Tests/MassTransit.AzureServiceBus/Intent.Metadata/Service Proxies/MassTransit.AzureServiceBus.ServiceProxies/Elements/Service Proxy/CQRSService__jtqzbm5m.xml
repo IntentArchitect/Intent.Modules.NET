@@ -50,7 +50,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -81,7 +88,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -109,7 +123,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -137,7 +158,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -168,7 +196,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -199,7 +234,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -230,7 +272,14 @@
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
