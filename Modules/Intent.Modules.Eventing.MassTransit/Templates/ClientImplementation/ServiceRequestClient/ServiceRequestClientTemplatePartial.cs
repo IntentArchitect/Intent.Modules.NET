@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContract;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.EnumContract;
@@ -88,6 +89,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientImplementation.Ser
                         stmt => stmt.AddStatement($"throw new {UseType("System.ArgumentNullException")}(nameof({primaryInput.Name}));"));
 
                     var mappedVar = $"mapped{primaryInput.Name.ToPascalCase()}";
+
+                    if (ServiceBusRequiresOwnTransaction())
+                    {
+                        method.AddStatement($"using var scope = new {UseType("System.Transactions.TransactionScope")}({UseType("System.Transactions.TransactionScopeOption")}.Suppress, {UseType("System.Transactions.TransactionScopeAsyncFlowOption")}.Enabled);");
+                    }
+                    
                     method.AddStatement(
                         $"var client = _serviceProvider.GetRequiredService<{UseType("MassTransit.IRequestClient")}<{mapperRequestType}>>();");
                     method.AddStatement($"var {mappedVar} = new {mapperRequestType}({primaryInput.Name});");
@@ -109,10 +116,26 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientImplementation.Ser
                             _ => ".ToDto()"
                         };
                         method.AddStatement($"var mappedResponse = response.Message.Payload{responsePayloadExpression};");
+                        if (ServiceBusRequiresOwnTransaction())
+                        {
+                            method.AddStatement("scope.Complete();");
+                        }
                         method.AddStatement("return mappedResponse;");
+                    }
+                    else if (ServiceBusRequiresOwnTransaction())
+                    {
+                        method.AddStatement("scope.Complete();");
                     }
                 });
             }
+        }
+
+        private bool ServiceBusRequiresOwnTransaction()
+        {
+            // Azure Service Bus requires a Transaction that is of type Serializable which is not how the
+            // current transaction scope is setup, plus since the Request/Response is transient in nature
+            // the risk of inconsistency is low since the messages are short lived as well as the receiver queues.
+            return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsAzureServiceBus();
         }
 
         private string GetFullyQualifiedTypeExpression(string templateId, MappedEndpoint mappedEndpoint)

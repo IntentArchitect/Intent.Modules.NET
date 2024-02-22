@@ -51,12 +51,15 @@ internal static class ConsumerHelper
                 method.AddStatement($"eventBus.ConsumeContext = context;");
 
                 configureConsumeMethod(@class, method, tMessage);
-
-                method.AddStatement($"await eventBus.FlushAllAsync(context.CancellationToken);",
-                    stmt => stmt.AddMetadata("event-bus-flush", true));
                 
+                // This assumes two modes of implementation:
+                // 1. The Consumer will handle everything.
+                // 2. The Consumer uses a dispatcher with its own middleware that will do everything.
                 if (applyStandardUnitOfWorkLogic && template.SystemUsesPersistenceUnitOfWork())
                 {
+                    method.AddStatement($"await eventBus.FlushAllAsync(context.CancellationToken);",
+                        stmt => stmt.AddMetadata("event-bus-flush", true));
+                    
                     ApplyUnitOfWorkSaves(template, @class, method);
                 }
             });
