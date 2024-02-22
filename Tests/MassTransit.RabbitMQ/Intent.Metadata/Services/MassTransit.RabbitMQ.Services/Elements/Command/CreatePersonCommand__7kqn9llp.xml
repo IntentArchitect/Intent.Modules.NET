@@ -17,7 +17,18 @@
   <parentFolderId>62ed4c1c-0df7-4e5e-9191-c8efb7a5d90c</parentFolderId>
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/person" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="5e62fc5c-e2a1-461f-b05b-78d6f0f7ef54" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">

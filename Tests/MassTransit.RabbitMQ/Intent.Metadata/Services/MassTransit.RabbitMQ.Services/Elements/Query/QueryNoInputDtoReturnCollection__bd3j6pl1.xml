@@ -19,7 +19,14 @@
   <parentFolderId>b52a4db9-27b0-44eb-9a99-a52ff2b0c2e1</parentFolderId>
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements />
 </class>

@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="b3410afe-2509-49fd-9047-7e497712bf0a" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
-  <name>QueryResponseDto</name>
-  <display>QueryResponseDto: QueryResponseDto</display>
+<class id="b45cd451-ddb8-49ba-aad7-68c277e715ce" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CommandGuidReturn</name>
+  <display>CommandGuidReturn: guid</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="0e221f04-d429-4f7d-814a-6a78427f9fc0">
-    <typeId>dea34361-9f33-49b9-9354-3228ac2e711f</typeId>
+  <typeReference id="56b128c9-552d-4b73-be0f-061ea9d0d89f">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
-    <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>b52a4db9-27b0-44eb-9a99-a52ff2b0c2e1</parentFolderId>
-  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
-  <packageName>MassTransit.RabbitMQ.Services</packageName>
-  <stereotypes />
+  <parentFolderId>ac781ec5-5afd-4bf1-8943-33063dbf59a1</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5a17ca1b-66d2-4c61-a275-a488f2a6ac8c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="5afcd823-54de-4c0f-8f73-985bb30adf20" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Input</name>
       <display>Input: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="78956efb-0bbe-4f1e-85f2-11803023b3d1">
+      <typeReference id="c035f2c7-f0d7-4657-b5f8-83f4b6ec55ab">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -40,9 +47,9 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>b3410afe-2509-49fd-9047-7e497712bf0a</parentFolderId>
-      <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
-      <packageName>MassTransit.RabbitMQ.Services</packageName>
+      <parentFolderId>b45cd451-ddb8-49ba-aad7-68c277e715ce</parentFolderId>
+      <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+      <packageName>MassTransit.AzureServiceBus.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

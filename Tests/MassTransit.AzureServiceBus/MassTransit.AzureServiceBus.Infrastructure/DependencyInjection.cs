@@ -4,6 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Application.Common.Interfaces;
+using MassTransit.AzureServiceBus.Application.IntegrationServices;
 using MassTransit.AzureServiceBus.Domain.Common.Interfaces;
 using MassTransit.AzureServiceBus.Domain.Repositories;
 using MassTransit.AzureServiceBus.Infrastructure.Configuration;
@@ -32,6 +33,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<ICQRSService, CQRSService>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             return services;

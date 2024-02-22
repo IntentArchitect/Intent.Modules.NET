@@ -1,26 +1,24 @@
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Intent.RoslynWeaver.Attributes;
-using MassTransit;
-using MassTransit.RabbitMQ.Application.Common.Eventing;
-using MassTransit.RabbitMQ.Domain.Common.Interfaces;
+using MassTransit.AzureServiceBus.Application.Common.Eventing;
+using MassTransit.AzureServiceBus.Domain.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.WrapperConsumer", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventConsumer", Version = "1.0")]
 
-namespace MassTransit.RabbitMQ.Infrastructure.Eventing
+namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
 {
-    public class WrapperConsumer<THandler, TMessage> : IConsumer<TMessage>
+    public class IntegrationEventConsumer<THandler, TMessage> : IConsumer<TMessage>
         where TMessage : class
         where THandler : IIntegrationEventHandler<TMessage>
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly IUnitOfWork _unitOfWork;
 
-        public WrapperConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
+        public IntegrationEventConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
         {
             _serviceProvider = serviceProvider;
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
@@ -28,9 +26,9 @@ namespace MassTransit.RabbitMQ.Infrastructure.Eventing
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetService<MassTransitEventBus>()!;
+            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
             eventBus.ConsumeContext = context;
-            var handler = _serviceProvider.GetService<THandler>()!;
+            var handler = _serviceProvider.GetRequiredService<THandler>();
 
             // The execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
@@ -56,30 +54,15 @@ namespace MassTransit.RabbitMQ.Infrastructure.Eventing
         }
     }
 
-    public class WrapperConsumerDefinition<THandler, TMessage> : ConsumerDefinition<WrapperConsumer<THandler, TMessage>>
+    public class IntegrationEventConsumerDefinition<THandler, TMessage> : ConsumerDefinition<IntegrationEventConsumer<THandler, TMessage>>
         where TMessage : class
         where THandler : IIntegrationEventHandler<TMessage>
     {
-        private readonly IServiceProvider _serviceProvider;
-
-        public WrapperConsumerDefinition(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
-
-        protected override void ConfigureConsumer(
-            IReceiveEndpointConfigurator endpointConfigurator, 
-            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator, 
-            IRegistrationContext context)
-        {
-            endpointConfigurator.UseInMemoryInboxOutbox(context);
-        }
-
         protected override void ConfigureConsumer(
             IReceiveEndpointConfigurator endpointConfigurator,
-            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
+            IConsumerConfigurator<IntegrationEventConsumer<THandler, TMessage>> consumerConfigurator,
+            IRegistrationContext context)
         {
-            endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);
         }
     }
 }

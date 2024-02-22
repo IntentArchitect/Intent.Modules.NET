@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a5da127-c1e1-4ded-9266-aca7317629c4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationServices</name>
+  <display>IntegrationServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eee6378a-6323-4705-8a5a-f59bfe340e11</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8f085624-cf61-4f10-b2fe-8308d3f393ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.ClientContracts.ServiceContract</name>
+      <display>Intent.Eventing.MassTransit.ClientContracts.ServiceContract</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5a5da127-c1e1-4ded-9266-aca7317629c4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

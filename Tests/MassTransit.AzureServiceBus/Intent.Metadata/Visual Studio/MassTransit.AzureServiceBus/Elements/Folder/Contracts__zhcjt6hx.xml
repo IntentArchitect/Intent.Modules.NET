@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8edd3b0e-7b56-417d-affc-27b1ecf90d01" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Contracts</name>
+  <display>Contracts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c553a807-0a33-43e3-bcdf-812723677477</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5101fa3f-7177-4da5-8d32-baf6db5804b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.ClientContracts.DtoContract</name>
+      <display>Intent.Eventing.MassTransit.ClientContracts.DtoContract</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e4eaf719-1736-4add-a178-ec79ffa55392" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.ClientContracts.EnumContract</name>
+      <display>Intent.Eventing.MassTransit.ClientContracts.EnumContract</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="089e2de1-b9c8-4320-a0c4-e384f39346c4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.ClientContracts.PagedResult</name>
+      <display>Intent.Eventing.MassTransit.ClientContracts.PagedResult</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
