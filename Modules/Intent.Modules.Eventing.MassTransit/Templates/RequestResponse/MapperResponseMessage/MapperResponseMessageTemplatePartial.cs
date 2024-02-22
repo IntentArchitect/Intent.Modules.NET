@@ -41,7 +41,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRe
                             ctor.AddStatement($"{property.Name} = dto.{property.Name};");
                         }
                     });
-                    
+
                     foreach (var property in Model.Fields)
                     {
                         @class.AddProperty(GetTypeName(property), property.Name);
@@ -63,7 +63,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRe
         private readonly SourcePackageFileNamespaceProvider _namespaceProvider = new();
 
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

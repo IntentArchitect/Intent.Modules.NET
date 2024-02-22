@@ -474,7 +474,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#dc60377e-e6ac-45bc-a966-ac1ba4da5092</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#dc60377e-e6ac-45bc-a966-ac1ba4da5092</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
