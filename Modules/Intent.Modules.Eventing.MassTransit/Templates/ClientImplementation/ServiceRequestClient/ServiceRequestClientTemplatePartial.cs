@@ -71,7 +71,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientImplementation.Ser
                         : GetTypeName(mappedEndpoint.ReturnType);
 
                 var primaryInput = mappedEndpoint.Inputs.First();
-                var clientPrimaryInputType = GetTypeName(DtoContractTemplate.TemplateId, primaryInput.TypeReference.Element);
+                var clientPrimaryInputType = GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, primaryInput.TypeReference.Element);
                 var mapperRequestType = GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, primaryInput);
 
                 var returnType = mappedEndpoint.ReturnType?.Element is null
