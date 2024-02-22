@@ -59,9 +59,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Enums.ClassWithEnu
                 dto.EnumWithDefaultLiteral.Should().Be(entity.EnumWithDefaultLiteral);
                 dto.EnumWithoutDefaultLiteral.Should().Be(entity.EnumWithoutDefaultLiteral);
                 dto.EnumWithoutValues.Should().Be(entity.EnumWithoutValues);
-                dto.NullibleEnumWithDefaultLiteral.Should().Be(entity.NullibleEnumWithDefaultLiteral);
-                dto.NullibleEnumWithoutDefaultLiteral.Should().Be(entity.NullibleEnumWithoutDefaultLiteral);
-                dto.NullibleEnumWithoutValues.Should().Be(entity.NullibleEnumWithoutValues);
+                dto.NullibleEnumWithDefaultLiteral.Should().Be(entity.NullibleEnumWithDefaultLiteral.Value);
+                dto.NullibleEnumWithoutDefaultLiteral.Should().Be(entity.NullibleEnumWithoutDefaultLiteral.Value);
+                dto.NullibleEnumWithoutValues.Should().Be(entity.NullibleEnumWithoutValues.Value);
             }
         }
 
@@ -80,9 +80,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Enums.ClassWithEnu
             actualDto.EnumWithDefaultLiteral.Should().Be(expectedEntity.EnumWithDefaultLiteral);
             actualDto.EnumWithoutDefaultLiteral.Should().Be(expectedEntity.EnumWithoutDefaultLiteral);
             actualDto.EnumWithoutValues.Should().Be(expectedEntity.EnumWithoutValues);
-            actualDto.NullibleEnumWithDefaultLiteral.Should().Be(expectedEntity.NullibleEnumWithDefaultLiteral);
-            actualDto.NullibleEnumWithoutDefaultLiteral.Should().Be(expectedEntity.NullibleEnumWithoutDefaultLiteral);
-            actualDto.NullibleEnumWithoutValues.Should().Be(expectedEntity.NullibleEnumWithoutValues);
+            actualDto.NullibleEnumWithDefaultLiteral.Should().Be(expectedEntity.NullibleEnumWithDefaultLiteral.Value);
+            actualDto.NullibleEnumWithoutDefaultLiteral.Should().Be(expectedEntity.NullibleEnumWithoutDefaultLiteral.Value);
+            actualDto.NullibleEnumWithoutValues.Should().Be(expectedEntity.NullibleEnumWithoutValues.Value);
         }
 
         public static void AssertEquivalent(
