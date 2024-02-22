@@ -30,7 +30,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContr
                 model: model,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
                 pagedResultTemplateId: PagedResultTemplate.TemplateId,
-                fileNamespaceProvider: new SourcePackageFileNamespaceProvider())
+                fileNamespaceProvider: new OutputTargetFileNamespaceProvider())
         {
         }
     }

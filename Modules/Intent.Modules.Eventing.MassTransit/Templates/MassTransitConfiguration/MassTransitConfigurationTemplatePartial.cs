@@ -115,7 +115,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .ToArray();
         return consumers;
     }
-    
+
     private IReadOnlyCollection<Producer> GetProducers()
     {
         var producers = new IProducerFactory[]

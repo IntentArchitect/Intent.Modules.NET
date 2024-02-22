@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
+using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,7 +27,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestC
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RequestCompletedMessageTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            var relevantElement = GetRelevantElements().FirstOrDefault();
+            var @namespace = relevantElement is null ? string.Empty : ExtensionMethods.GetPackageOnlyNamespace(relevantElement);
+            CSharpFile = new CSharpFile(@namespace, this.GetFolderPath())
                 .AddClass("RequestCompletedMessage", @class =>
                 {
                     @class.AddProperty(@class.Name, "Instance", prop => prop.Static().WithInitialValue($"new {@class.Name}()").WithoutSetter());
@@ -39,12 +44,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestC
 
         public override bool CanRunTemplate()
         {
+            var relevantCommands = GetRelevantElements();
+            return relevantCommands.Any();
+        }
+
+        private IEnumerable<HybridDtoModel> GetRelevantElements()
+        {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
+            var proxies = ExecutionContext.MetadataManager.ServiceProxies(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
                 .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
             var relevantQueries = services.GetElementsOfType("Query")
                 .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
-            return relevantCommands.Concat(relevantQueries).Any();
+            var relevantDtos = proxies.GetElementsOfType("DTO")
+                .Where(p => p.HasStereotype(Constants.MassTransitConsumerStereotype));
+            return relevantCommands.Concat(relevantQueries).Concat(relevantDtos).Select(element => new HybridDtoModel(element));
         }
 
         [IntentManaged(Mode.Fully)]

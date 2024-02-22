@@ -30,19 +30,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                 baseName: "MediatR",
                 configureClass: (@class, tMessage) =>
                 {
-                    @class.AddMethod("object", "RespondWithPayload", method =>
-                    {
-                        method.Private().Static();
-                        method.AddParameter("object", "response");
-
-                        method.AddStatement(
-                            $$"""
-                              var responseType = response.GetType();
-                              var genericType = typeof({{this.GetRequestCompletedMessageName()}}<>).MakeGenericType(responseType);
-                              var responseInstance = Activator.CreateInstance(genericType, new[] { response });
-                              return responseInstance!;
-                              """);
-                    });
                 },
                 configureConsumeMethod: (@class, method, tMessage) =>
                 {
@@ -74,8 +61,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
                                   await context.RespondAsync({{this.GetRequestCompletedMessageName()}}.Instance);
                                   break;
                               case not MediatR.Unit:
-                                  var res = RespondWithPayload(response);
-                                  await context.RespondAsync(res);
+                                  var mappedResponse = {{this.GetResponseMappingFactoryName()}}.CreateResponseMessage(response);
+                                  await context.RespondAsync(mappedResponse);
                                   break;
                           }
                           """, stmt => stmt.SeparatedFromPrevious());
@@ -95,7 +82,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer
             return relevantCommands.Concat(relevantQueries).Any();
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

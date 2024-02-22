@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -8,54 +9,51 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContract;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperResponseMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage
+namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperResponseMessage
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class MapperRequestMessageTemplate : CSharpTemplateBase<HybridDtoModel>, ICSharpFileBuilderTemplate
+    public partial class MapperResponseMessageTemplate : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage";
+        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public MapperRequestMessageTemplate(IOutputTarget outputTarget, HybridDtoModel model) : base(TemplateId, outputTarget, model)
+        public MapperResponseMessageTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateRoles.Application.Command);
-            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
             CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), this.GetFolderPath())
-                .AddClass(model.Name, @class =>
+                .AddClass($"{Model.Name}", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMapperRequestInterfaceName());
-
                     @class.AddConstructor();
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(GetTypeName(DtoContractTemplate.TemplateId, Model), "dto");
-                        foreach (var property in Model.Properties)
+                        ctor.AddParameter(GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, Model), "dto");
+                        foreach (var property in Model.Fields)
                         {
                             ctor.AddStatement($"{property.Name} = dto.{property.Name};");
                         }
                     });
-
-                    foreach (var property in Model.Properties)
+                    
+                    foreach (var property in Model.Fields)
                     {
                         @class.AddProperty(GetTypeName(property), property.Name);
                     }
 
-                    @class.AddMethod("object", "CreateRequest", method =>
+                    @class.AddMethod(GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model), "ToDto", method =>
                     {
-                        method.AddInvocationStatement($"return new {GetTypeName(model.InternalElement)}", stmt =>
+                        method.AddInvocationStatement($"return {GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model)}.Create", invoke =>
                         {
-                            foreach (var property in Model.Properties)
+                            foreach (var property in Model.Fields)
                             {
-                                stmt.AddArgument(property.Name);
+                                invoke.AddArgument(property.Name);
                             }
                         });
                     });
@@ -64,8 +62,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRe
 
         private readonly SourcePackageFileNamespaceProvider _namespaceProvider = new();
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

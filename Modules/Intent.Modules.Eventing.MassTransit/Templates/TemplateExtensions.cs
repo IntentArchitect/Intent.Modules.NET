@@ -19,9 +19,12 @@ using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImple
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
 using Intent.Modules.Eventing.MassTransit.Templates.MediatRConsumer;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperResponseMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.RequestCompletedMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.ResponseMappingFactory;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -135,20 +138,34 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(MapperRequestInterfaceTemplate.TemplateId);
         }
 
-        public static string GetMapperRequestMessageName<T>(this IIntentTemplate<T> template)
-where T : CommandQueryModel
+        public static string GetMapperRequestMessageName<T>(this IIntentTemplate<T> template) where T : HybridDtoModel
         {
             return template.GetTypeName(MapperRequestMessageTemplate.TemplateId, template.Model);
         }
 
-        public static string GetMapperRequestMessageName(this IIntentTemplate template, CommandQueryModel model)
+        public static string GetMapperRequestMessageName(this IIntentTemplate template, HybridDtoModel model)
         {
             return template.GetTypeName(MapperRequestMessageTemplate.TemplateId, model);
+        }
+
+        public static string GetMapperResponseMessageName<T>(this IIntentTemplate<T> template) where T : DTOModel
+        {
+            return template.GetTypeName(MapperResponseMessageTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetMapperResponseMessageName(this IIntentTemplate template, DTOModel model)
+        {
+            return template.GetTypeName(MapperResponseMessageTemplate.TemplateId, model);
         }
 
         public static string GetRequestCompletedMessageName(this IIntentTemplate template)
         {
             return template.GetTypeName(RequestCompletedMessageTemplate.TemplateId);
+        }
+
+        public static string GetResponseMappingFactoryName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ResponseMappingFactoryTemplate.TemplateId);
         }
     }
 }

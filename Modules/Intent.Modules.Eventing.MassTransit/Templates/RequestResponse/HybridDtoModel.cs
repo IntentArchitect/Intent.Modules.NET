@@ -6,20 +6,20 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage;
+namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 
-public class CommandQueryModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IElementWrapper
+public class HybridDtoModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IElementWrapper
 {
-    public CommandQueryModel(IElement element)
+    public HybridDtoModel(IElement element)
     {
         if (element is null)
         {
             throw new ArgumentNullException(nameof(element));
         }
 
-        if (!IsCommandQueryElement(element))
+        if (!IsHybridDtoModel(element))
         {
-            throw new ArgumentException("Element is not a Command or a Query", nameof(element));
+            throw new ArgumentException("Element is not a Command / Query / DTO", nameof(element));
         }
         
         Id = element.Id;
@@ -30,9 +30,9 @@ public class CommandQueryModel : IMetadataModel, IHasStereotypes, IHasName, IHas
         Stereotypes = element.Stereotypes;
     }
 
-    public static bool IsCommandQueryElement(IElement element)
+    public static bool IsHybridDtoModel(IElement element)
     {
-        return element.SpecializationType is "Command" or "Query";
+        return element.SpecializationType is "Command" or "Query" or "DTO";
     }
 
     public string Id { get; }

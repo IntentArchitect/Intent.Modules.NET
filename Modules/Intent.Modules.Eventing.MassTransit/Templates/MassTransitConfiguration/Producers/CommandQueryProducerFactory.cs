@@ -5,6 +5,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
 using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts.DtoContract;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Producers;
 
@@ -27,7 +28,7 @@ internal class CommandQueryProducerFactory : IProducerFactory
         var results = serviceProxies.SelectMany(proxyModel => proxyMappedService.GetMappedEndpoints(proxyModel))
             .Select(endpoint =>
             {
-                var dtoFullName = _template.GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, endpoint.Id);
+                var dtoFullName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, endpoint.Id);
                 return new Producer(dtoFullName, dtoFullName.ToKebabCase());
             })
             .ToArray();

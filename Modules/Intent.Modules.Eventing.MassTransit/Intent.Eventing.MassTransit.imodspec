@@ -139,13 +139,29 @@
       <role>Infrastructure.Eventing.MapperRequestMessage</role>
       <location>Eventing/Messages</location>
     </template>
+    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage" externalReference="9ca4f319-86a2-4340-9d98-9fbd9623f795">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MapperResponseMessage</role>
+      <location>Eventing/Messages</location>
+    </template>
     <template id="Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage" externalReference="71581cb9-1c65-490a-bb7b-ef8c8dccedb4">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.RequestResponseMessage</role>
-      <location>Common/Eventing</location>
+      <role>Infrastructure.Eventing.RequestResponseMessage</role>
+      <location>Eventing/Messages</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.RequestResponse.ResponseMappingFactory" externalReference="dc60377e-e6ac-45bc-a966-ac1ba4da5092">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.ResponseMappingFactory</role>
+      <location>Eventing/Messages</location>
     </template>
   </templates>
   <decorators />

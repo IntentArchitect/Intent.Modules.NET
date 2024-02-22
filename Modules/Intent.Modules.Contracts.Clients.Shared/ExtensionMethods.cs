@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
@@ -11,6 +12,17 @@ namespace Intent.Modules.Contracts.Clients.Shared;
 
 public static class ExtensionMethods
 {
+    public static string GetPackageOnlyNamespace<T>(T model)
+        where T : IHasFolder, IElementWrapper
+    {
+        var parts = model.InternalElement.Package.Name
+            .Split('.')
+            .Concat(GetParentFolders(model))
+            .ToArray();
+        var result = string.Join(".", parts);
+        return result;
+    }
+    
     public static string GetPackageBasedRelativeLocation(this CSharpTemplateBase<EnumModel> template)
     {
         return GetPackageBasedRelativeLocation(template.Model, template.OutputTarget);

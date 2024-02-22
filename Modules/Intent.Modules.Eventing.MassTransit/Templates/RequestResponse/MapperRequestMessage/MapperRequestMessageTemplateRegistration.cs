@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRequestMessage
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MapperRequestMessageTemplateRegistration : FilePerModelTemplateRegistration<CommandQueryModel>
+    public class MapperRequestMessageTemplateRegistration : FilePerModelTemplateRegistration<HybridDtoModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -28,18 +28,18 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse.MapperRe
         public override string TemplateId => MapperRequestMessageTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandQueryModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, HybridDtoModel model)
         {
             return new MapperRequestMessageTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<CommandQueryModel> GetModels(IApplication application)
+        public override IEnumerable<HybridDtoModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application)
                 .Elements
-                .Where(element => CommandQueryModel.IsCommandQueryElement(element) && element.HasStereotype(Constants.MassTransitConsumerStereotype))
-                .Select(element => new CommandQueryModel(element));
+                .Where(element => HybridDtoModel.IsHybridDtoModel(element) && element.HasStereotype(Constants.MassTransitConsumerStereotype))
+                .Select(element => new HybridDtoModel(element));
         }
     }
 }
