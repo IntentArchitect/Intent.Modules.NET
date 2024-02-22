@@ -42,6 +42,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ae02815f-100c-46af-8a59-fc9e5b3d7cbd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#aee6811e-b2f6-4562-a8eb-502029f63bc8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#d0afe56c-dc76-422a-920e-a4d0c3d4e282</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
@@ -127,6 +143,14 @@
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d0e0572f-3c45-4c02-9969-b5d531c8d871</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#2e9f35da-2065-448d-9e7c-916bffd00aa7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/MassTransit Service Proxy Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransit Service Proxy Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d0e0572f-3c45-4c02-9969-b5d531c8d871</ProjectId>

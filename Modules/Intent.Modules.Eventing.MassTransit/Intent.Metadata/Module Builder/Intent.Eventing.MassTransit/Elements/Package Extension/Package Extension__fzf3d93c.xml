@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="42754cca-fbd5-46e3-b34f-0c33b6e625c7" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Package Extension</name>
+  <display>Package Extension: Service Proxies Package</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="7b68f1b3-7211-4e22-a398-d486f282c23b">
+    <typeId>46ef9b5e-e38c-48f2-8516-ea48c310ce23</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.ServiceProxies</typePackageName>
+    <typePackageId>f4710958-060a-42e9-a987-48af8f90324a</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>2e9f35da-2065-448d-9e7c-916bffd00aa7</parentFolderId>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4b483108-d939-4c50-8989-beabfcffa601" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>42754cca-fbd5-46e3-b34f-0c33b6e625c7</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7d41a835-a37d-4f8b-ae32-d3fe71fb7343" type="Package Event Settings" typeId="48bcdd5f-690c-425b-8f5e-99097a7188dc">
+      <name>NewPackageEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>42754cca-fbd5-46e3-b34f-0c33b6e625c7</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="663fd51c-d50b-4b97-98a1-85adadb18d64" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Loaded</name>
+          <display>On Loaded: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0d50dafd-848f-493f-9653-e3a39ce44f32">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7d41a835-a37d-4f8b-ae32-d3fe71fb7343</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const messageRequestEndpointStereotype = &quot;b37b2302-97f4-4bc0-b3ad-bc04894c305a&quot;;&#xD;&#xA;&#xD;&#xA;lookupTypesOf(&quot;Operation&quot;).forEach(op =&gt; {&#xD;&#xA;    if (op.getMapping()?.getElement()?.hasStereotype(messageRequestEndpointStereotype) &amp;&amp; !op.hasStereotype(messageRequestEndpointStereotype)) {&#xD;&#xA;        op.addStereotype(messageRequestEndpointStereotype);&#xD;&#xA;    } else if (op.hasStereotype(messageRequestEndpointStereotype)) {&#xD;&#xA;        op.removeStereotype(messageRequestEndpointStereotype);&#xD;&#xA;    }&#xD;&#xA;});" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -244,8 +244,9 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Module Builder;Eventing;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.MassTransit/Intent.Eventing.MassTransit.pkg.config" externalReference="6502ee82-f515-4007-9635-bade3eb88e72" />
+    <install target="Module Builder;Eventing;Services;Service Proxies" src="Intent.Metadata/Module Builder/Intent.Eventing.MassTransit/Intent.Eventing.MassTransit.pkg.config" externalReference="6502ee82-f515-4007-9635-bade3eb88e72" />
     <install target="Services" src="modelers/MassTransit Service Settings.designer.settings" externalReference="949420c6-ec00-4f44-b95d-15bec6c94695" />
+    <install src="modelers/MassTransit Service Proxy Settings.designer.settings" externalReference="2e9f35da-2065-448d-9e7c-916bffd00aa7" target="Service Proxies" />
   </metadata>
   <tags />
 </package>
