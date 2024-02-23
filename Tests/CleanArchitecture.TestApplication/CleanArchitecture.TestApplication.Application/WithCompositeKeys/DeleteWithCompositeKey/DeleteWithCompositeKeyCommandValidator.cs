@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.DeleteWithCompositeKey
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteWithCompositeKeyCommandValidator : AbstractValidator<DeleteWithCompositeKeyCommand>
     {
         [IntentManaged(Mode.Merge)]

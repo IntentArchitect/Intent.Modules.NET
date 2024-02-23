@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.EntityInterfaces.Application.DerivedOfTS.DeleteDerivedOfT
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDerivedOfTCommandValidator : AbstractValidator<DeleteDerivedOfTCommand>
     {
         [IntentManaged(Mode.Merge)]

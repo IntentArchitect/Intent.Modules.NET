@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAggregateRootCompositeManyBCommandValidator : AbstractValidator<CreateAggregateRootCompositeManyBCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Scheduled.PublishDelayedNotification
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class PublishDelayedNotificationCommandValidator : AbstractValidator<PublishDelayedNotificationCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

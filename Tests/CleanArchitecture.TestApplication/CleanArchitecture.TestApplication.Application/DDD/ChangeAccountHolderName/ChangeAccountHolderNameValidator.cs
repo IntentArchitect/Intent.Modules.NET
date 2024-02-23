@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.ChangeAccountHolderName
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ChangeAccountHolderNameValidator : AbstractValidator<ChangeAccountHolderName>
     {
         [IntentManaged(Mode.Merge)]

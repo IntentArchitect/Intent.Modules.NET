@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.PrivateSetters.Application.DerivedOfTS.GetDerivedOfTById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDerivedOfTByIdQueryValidator : AbstractValidator<GetDerivedOfTByIdQuery>
     {
         [IntentManaged(Mode.Merge)]

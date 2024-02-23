@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.TestNullablities.GetTestNullabilityWithNullReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetTestNullabilityWithNullReturnValidator : AbstractValidator<GetTestNullabilityWithNullReturn>
     {
         [IntentManaged(Mode.Merge)]

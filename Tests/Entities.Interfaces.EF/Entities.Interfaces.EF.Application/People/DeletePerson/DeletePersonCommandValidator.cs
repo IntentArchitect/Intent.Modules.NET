@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.People.DeletePerson
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeletePersonCommandValidator : AbstractValidator<DeletePersonCommand>
     {
         [IntentManaged(Mode.Merge)]

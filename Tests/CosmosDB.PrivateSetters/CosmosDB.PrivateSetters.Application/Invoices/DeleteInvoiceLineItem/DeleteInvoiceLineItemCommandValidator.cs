@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.PrivateSetters.Application.Invoices.DeleteInvoiceLineItem
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteInvoiceLineItemCommandValidator : AbstractValidator<DeleteInvoiceLineItemCommand>
     {
         [IntentManaged(Mode.Merge)]

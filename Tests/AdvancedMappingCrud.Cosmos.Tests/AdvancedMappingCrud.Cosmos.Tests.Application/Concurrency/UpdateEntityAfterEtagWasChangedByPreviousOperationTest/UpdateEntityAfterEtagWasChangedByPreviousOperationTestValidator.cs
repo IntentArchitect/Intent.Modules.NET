@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Cosmos.Tests.Application.Concurrency.UpdateEntityAfterEtagWasChangedByPreviousOperationTest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateEntityAfterEtagWasChangedByPreviousOperationTestValidator : AbstractValidator<UpdateEntityAfterEtagWasChangedByPreviousOperationTest>
     {
         [IntentManaged(Mode.Merge)]

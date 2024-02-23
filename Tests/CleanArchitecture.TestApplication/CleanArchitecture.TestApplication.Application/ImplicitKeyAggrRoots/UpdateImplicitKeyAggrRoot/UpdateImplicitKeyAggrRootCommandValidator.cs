@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.UpdateImplicitKeyAggrRoot
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateImplicitKeyAggrRootCommandValidator : AbstractValidator<UpdateImplicitKeyAggrRootCommand>
     {
         [IntentManaged(Mode.Merge)]

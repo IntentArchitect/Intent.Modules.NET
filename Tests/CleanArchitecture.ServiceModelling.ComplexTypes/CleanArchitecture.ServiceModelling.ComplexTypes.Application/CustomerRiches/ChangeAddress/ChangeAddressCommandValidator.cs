@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.ChangeAddress
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ChangeAddressCommandValidator : AbstractValidator<ChangeAddressCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

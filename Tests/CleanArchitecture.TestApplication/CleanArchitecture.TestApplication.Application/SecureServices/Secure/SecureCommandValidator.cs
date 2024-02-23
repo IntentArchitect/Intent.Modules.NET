@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.SecureServices.Secure
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SecureCommandValidator : AbstractValidator<SecureCommand>
     {
         [IntentManaged(Mode.Merge)]

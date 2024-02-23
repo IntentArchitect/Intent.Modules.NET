@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.DeleteUserAddress
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteUserAddressCommandValidator : AbstractValidator<DeleteUserAddressCommand>
     {
         [IntentManaged(Mode.Merge)]

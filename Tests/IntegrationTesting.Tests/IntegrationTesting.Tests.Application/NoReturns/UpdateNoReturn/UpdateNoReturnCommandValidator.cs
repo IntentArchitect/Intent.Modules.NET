@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.NoReturns.UpdateNoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateNoReturnCommandValidator : AbstractValidator<UpdateNoReturnCommand>
     {
         [IntentManaged(Mode.Merge)]

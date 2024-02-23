@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.DeactivateCustomer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeactivateCustomerCommandValidator : AbstractValidator<DeactivateCustomerCommand>
     {
         [IntentManaged(Mode.Merge)]

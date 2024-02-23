@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OptionalToOneSources.GetOptionalToOneSourceById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetOptionalToOneSourceByIdQueryValidator : AbstractValidator<GetOptionalToOneSourceByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

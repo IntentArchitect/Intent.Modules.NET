@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAnemics.GetCustomerAnemicById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCustomerAnemicByIdQueryValidator : AbstractValidator<GetCustomerAnemicByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

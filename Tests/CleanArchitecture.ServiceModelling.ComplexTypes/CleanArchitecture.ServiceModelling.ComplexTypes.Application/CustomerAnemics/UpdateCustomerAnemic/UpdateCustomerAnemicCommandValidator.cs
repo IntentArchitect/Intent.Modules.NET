@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAnemics.UpdateCustomerAnemic
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerAnemicCommandValidator : AbstractValidator<UpdateCustomerAnemicCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

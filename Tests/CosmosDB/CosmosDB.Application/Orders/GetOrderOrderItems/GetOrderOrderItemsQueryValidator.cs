@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Orders.GetOrderOrderItems
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetOrderOrderItemsQueryValidator : AbstractValidator<GetOrderOrderItemsQuery>
     {
         [IntentManaged(Mode.Merge)]

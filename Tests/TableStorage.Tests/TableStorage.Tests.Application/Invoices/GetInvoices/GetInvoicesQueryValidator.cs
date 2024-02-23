@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace TableStorage.Tests.Application.Invoices.GetInvoices
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetInvoicesQueryValidator : AbstractValidator<GetInvoicesQuery>
     {
         [IntentManaged(Mode.Merge)]

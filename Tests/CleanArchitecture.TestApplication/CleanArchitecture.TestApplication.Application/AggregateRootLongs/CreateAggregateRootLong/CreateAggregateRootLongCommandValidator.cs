@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAggregateRootLongCommandValidator : AbstractValidator<CreateAggregateRootLongCommand>
     {
         [IntentManaged(Mode.Merge)]

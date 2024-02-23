@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.Customers.GetCustomers
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCustomersQueryValidator : AbstractValidator<GetCustomersQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

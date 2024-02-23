@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Pagination.GetLogEntries
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetLogEntriesQueryValidator : AbstractValidator<GetLogEntriesQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

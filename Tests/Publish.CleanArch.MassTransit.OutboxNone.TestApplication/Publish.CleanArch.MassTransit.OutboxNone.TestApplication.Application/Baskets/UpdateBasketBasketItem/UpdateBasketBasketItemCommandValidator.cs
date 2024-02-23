@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.UpdateBasketBasketItem
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateBasketBasketItemCommandValidator : AbstractValidator<UpdateBasketBasketItemCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

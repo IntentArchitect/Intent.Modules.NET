@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Scheduled.Hourly
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class HourlyCommandValidator : AbstractValidator<HourlyCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

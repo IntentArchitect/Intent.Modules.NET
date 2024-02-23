@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.GetCustomerRiches
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCustomerRichesQueryValidator : AbstractValidator<GetCustomerRichesQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

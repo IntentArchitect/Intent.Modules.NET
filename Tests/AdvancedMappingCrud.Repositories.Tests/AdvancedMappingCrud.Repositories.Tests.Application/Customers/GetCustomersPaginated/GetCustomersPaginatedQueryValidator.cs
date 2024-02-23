@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginated
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCustomersPaginatedQueryValidator : AbstractValidator<GetCustomersPaginatedQuery>
     {
         [IntentManaged(Mode.Merge)]

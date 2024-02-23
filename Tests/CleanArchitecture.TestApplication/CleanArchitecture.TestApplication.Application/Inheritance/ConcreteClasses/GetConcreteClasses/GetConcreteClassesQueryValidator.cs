@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Inheritance.ConcreteClasses.GetConcreteClasses
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetConcreteClassesQueryValidator : AbstractValidator<GetConcreteClassesQuery>
     {
         [IntentManaged(Mode.Merge)]

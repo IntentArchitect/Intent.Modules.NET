@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.ClassicMapping.GetAggregateWithUniqueConstraintIndexElementById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator : AbstractValidator<GetAggregateWithUniqueConstraintIndexElementByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

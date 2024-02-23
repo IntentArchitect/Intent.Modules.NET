@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Customers.DeleteCustomer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteCustomerCommandValidator : AbstractValidator<DeleteCustomerCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Inheritance.ConcreteClasses.DeleteConcreteClass
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteConcreteClassCommandValidator : AbstractValidator<DeleteConcreteClassCommand>
     {
         [IntentManaged(Mode.Merge)]

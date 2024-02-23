@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.GetPurchaseById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetPurchaseByIdQueryValidator : AbstractValidator<GetPurchaseByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

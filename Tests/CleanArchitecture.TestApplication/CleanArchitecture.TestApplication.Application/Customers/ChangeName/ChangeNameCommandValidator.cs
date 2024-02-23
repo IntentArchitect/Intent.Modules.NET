@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Customers.ChangeName
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ChangeNameCommandValidator : AbstractValidator<ChangeNameCommand>
     {
         [IntentManaged(Mode.Merge)]

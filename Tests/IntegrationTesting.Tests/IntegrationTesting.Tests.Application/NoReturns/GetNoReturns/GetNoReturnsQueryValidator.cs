@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.NoReturns.GetNoReturns
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetNoReturnsQueryValidator : AbstractValidator<GetNoReturnsQuery>
     {
         [IntentManaged(Mode.Merge)]

@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.Customers.GetPagedWithParameters
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetPagedWithParametersValidator : AbstractValidator<Application.Customers.GetPagedWithParameters.GetPagedWithParameters>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

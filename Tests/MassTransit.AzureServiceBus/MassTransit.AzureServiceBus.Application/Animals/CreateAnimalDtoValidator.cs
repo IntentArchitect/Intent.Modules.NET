@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.Animals
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAnimalDtoValidator : AbstractValidator<CreateAnimalDto>
     {
         [IntentManaged(Mode.Merge)]

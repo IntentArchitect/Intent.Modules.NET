@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDests.OperationAsync
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OperationAsyncCommandValidator : AbstractValidator<OperationAsyncCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

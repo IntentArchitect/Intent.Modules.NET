@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace SignalR.Application.TestSendMessage
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestSendMessageCommandValidator : AbstractValidator<TestSendMessageCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

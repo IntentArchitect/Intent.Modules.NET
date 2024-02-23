@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.NoReturns.DeleteNoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteNoReturnCommandValidator : AbstractValidator<DeleteNoReturnCommand>
     {
         [IntentManaged(Mode.Merge)]

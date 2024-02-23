@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.GetUserAddressById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetUserAddressByIdQueryValidator : AbstractValidator<GetUserAddressByIdQuery>
     {
         [IntentManaged(Mode.Merge)]

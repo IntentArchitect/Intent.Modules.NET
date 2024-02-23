@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.DeletePurchase
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeletePurchaseCommandValidator : AbstractValidator<DeletePurchaseCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

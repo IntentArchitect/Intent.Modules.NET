@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.GetOneToOneSources
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetOneToOneSourcesQueryValidator : AbstractValidator<GetOneToOneSourcesQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

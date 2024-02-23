@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.GetWithCompositeKeyById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetWithCompositeKeyByIdQueryValidator : AbstractValidator<GetWithCompositeKeyByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

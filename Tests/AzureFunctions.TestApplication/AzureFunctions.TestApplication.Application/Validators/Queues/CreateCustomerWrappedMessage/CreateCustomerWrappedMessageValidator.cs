@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.Queues.CreateCustomerWrappedMessage
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateCustomerWrappedMessageValidator : AbstractValidator<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

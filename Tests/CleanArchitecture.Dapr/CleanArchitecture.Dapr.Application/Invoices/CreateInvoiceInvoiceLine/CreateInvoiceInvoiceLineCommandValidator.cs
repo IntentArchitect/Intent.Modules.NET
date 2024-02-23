@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Invoices.CreateInvoiceInvoiceLine
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateInvoiceInvoiceLineCommandValidator : AbstractValidator<CreateInvoiceInvoiceLineCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

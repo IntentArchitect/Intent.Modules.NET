@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.RequestSuffixQueriesWithType.MyQueryRequest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class MyQueryRequestValidator : AbstractValidator<MyQueryRequest>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

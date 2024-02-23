@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.EntityInterfaces.Application.Regions.DeleteRegion
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteRegionCommandValidator : AbstractValidator<DeleteRegionCommand>
     {
         [IntentManaged(Mode.Merge)]

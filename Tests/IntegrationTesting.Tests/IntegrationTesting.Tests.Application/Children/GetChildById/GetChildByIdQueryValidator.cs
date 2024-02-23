@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Children.GetChildById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetChildByIdQueryValidator : AbstractValidator<GetChildByIdQuery>
     {
         [IntentManaged(Mode.Merge)]

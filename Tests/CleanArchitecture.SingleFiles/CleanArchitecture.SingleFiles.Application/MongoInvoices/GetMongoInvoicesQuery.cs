@@ -42,6 +42,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetMongoInvoicesQueryValidator : AbstractValidator<GetMongoInvoicesQuery>
     {
         [IntentManaged(Mode.Merge)]

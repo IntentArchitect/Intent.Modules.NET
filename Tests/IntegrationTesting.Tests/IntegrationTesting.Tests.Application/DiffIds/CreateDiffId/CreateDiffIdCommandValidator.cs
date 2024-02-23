@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DiffIds.CreateDiffId
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDiffIdCommandValidator : AbstractValidator<CreateDiffIdCommand>
     {
         [IntentManaged(Mode.Merge)]

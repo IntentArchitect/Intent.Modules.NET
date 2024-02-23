@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Redis.Om.Repositories.Application.Clients.DeleteClient
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteClientCommandValidator : AbstractValidator<DeleteClientCommand>
     {
         [IntentManaged(Mode.Merge)]

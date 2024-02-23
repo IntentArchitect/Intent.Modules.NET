@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.RabbitMQTrigger.CommandForRabbitMQTrigger
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CommandForRabbitMQTriggerValidator : AbstractValidator<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>
     {
         [IntentManaged(Mode.Merge)]

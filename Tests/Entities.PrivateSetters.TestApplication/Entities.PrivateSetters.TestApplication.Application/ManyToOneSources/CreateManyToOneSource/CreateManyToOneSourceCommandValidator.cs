@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneSources.CreateManyToOneSource
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateManyToOneSourceCommandValidator : AbstractValidator<CreateManyToOneSourceCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Invoices.GetInvoiceLineItemById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetInvoiceLineItemByIdQueryValidator : AbstractValidator<GetInvoiceLineItemByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

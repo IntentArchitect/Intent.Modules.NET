@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Clients.GetClientByName
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClientByNameQueryValidator : AbstractValidator<GetClientByNameQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

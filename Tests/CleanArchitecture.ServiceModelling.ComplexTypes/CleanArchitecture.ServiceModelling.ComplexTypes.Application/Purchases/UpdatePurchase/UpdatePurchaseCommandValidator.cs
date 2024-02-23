@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.UpdatePurchase
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdatePurchaseCommandValidator : AbstractValidator<UpdatePurchaseCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

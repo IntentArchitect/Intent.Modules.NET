@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Orders.GetOrders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetOrdersQueryValidator : AbstractValidator<GetOrdersQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

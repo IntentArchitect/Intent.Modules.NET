@@ -7,6 +7,7 @@ using Redis.Om.Repositories.Application.Common.Validation;
 
 namespace Redis.Om.Repositories.Application.DerivedTypes.UpdateDerivedType
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateDerivedTypeCommandValidator : AbstractValidator<UpdateDerivedTypeCommand>
     {
         [IntentManaged(Mode.Merge)]

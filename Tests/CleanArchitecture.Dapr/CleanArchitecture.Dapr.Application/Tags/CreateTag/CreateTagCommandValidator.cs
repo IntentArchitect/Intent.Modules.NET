@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Tags.CreateTag
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateTagCommandValidator : AbstractValidator<CreateTagCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

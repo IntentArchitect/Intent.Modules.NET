@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.NonStringPartitionKeys.GetNonStringPartitionKeys
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetNonStringPartitionKeysQueryValidator : AbstractValidator<GetNonStringPartitionKeysQuery>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Regions.UpdateRegion
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateRegionCommandValidator : AbstractValidator<UpdateRegionCommand>
     {
         [IntentManaged(Mode.Merge)]

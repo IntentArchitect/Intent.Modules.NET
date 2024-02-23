@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.SecuredProxy.GetSecuredValue
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetSecuredValueQueryValidator : AbstractValidator<GetSecuredValueQuery>
     {
         [IntentManaged(Mode.Merge)]

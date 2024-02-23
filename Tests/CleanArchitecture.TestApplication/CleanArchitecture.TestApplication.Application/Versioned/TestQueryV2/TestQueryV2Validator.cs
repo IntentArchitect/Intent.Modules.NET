@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Versioned.TestQueryV2
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestQueryV2Validator : AbstractValidator<TestQueryV2>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

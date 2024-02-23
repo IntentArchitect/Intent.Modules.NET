@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AsyncOperationsClasses.ImplicitAsyncWithReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ImplicitAsyncWithReturnCommandValidator : AbstractValidator<ImplicitAsyncWithReturnCommand>
     {
         [IntentManaged(Mode.Merge)]

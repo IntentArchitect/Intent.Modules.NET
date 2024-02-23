@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.AspNetCore.Identity.AccountController
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ConfirmEmailDtoValidator : AbstractValidator<ConfirmEmailDto>
     {
         [IntentManaged(Mode.Merge)]

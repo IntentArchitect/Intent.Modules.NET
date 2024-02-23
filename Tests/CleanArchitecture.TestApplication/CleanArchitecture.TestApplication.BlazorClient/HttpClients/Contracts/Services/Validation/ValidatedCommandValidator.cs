@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.Validation
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ValidatedCommandValidator : AbstractValidator<ValidatedCommand>
     {
         [IntentManaged(Mode.Merge)]

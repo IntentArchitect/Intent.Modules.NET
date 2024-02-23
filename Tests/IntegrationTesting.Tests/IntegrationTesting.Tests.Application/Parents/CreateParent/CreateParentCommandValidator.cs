@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Parents.CreateParent
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateParentCommandValidator : AbstractValidator<CreateParentCommand>
     {
         [IntentManaged(Mode.Merge)]

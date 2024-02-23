@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Regions
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateRegionCountryDtoValidator : AbstractValidator<CreateRegionCountryDto>
     {
         [IntentManaged(Mode.Merge)]

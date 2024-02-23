@@ -47,6 +47,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteMongoInvoiceCommandValidator : AbstractValidator<DeleteMongoInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

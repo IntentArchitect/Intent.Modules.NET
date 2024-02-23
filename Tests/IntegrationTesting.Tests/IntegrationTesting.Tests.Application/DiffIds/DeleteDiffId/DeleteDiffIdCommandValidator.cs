@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DiffIds.DeleteDiffId
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDiffIdCommandValidator : AbstractValidator<DeleteDiffIdCommand>
     {
         [IntentManaged(Mode.Merge)]

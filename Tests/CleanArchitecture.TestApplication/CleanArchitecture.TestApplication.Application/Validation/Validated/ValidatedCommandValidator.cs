@@ -9,6 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Validation.Validated
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ValidatedCommandValidator : AbstractValidator<ValidatedCommand>
     {
         [IntentManaged(Mode.Merge)]

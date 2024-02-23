@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.GetBasketById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetBasketByIdQueryValidator : AbstractValidator<GetBasketByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

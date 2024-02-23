@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.WithCompositeKeys.UpdateWithCompositeKey
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateWithCompositeKeyCommandValidator : AbstractValidator<UpdateWithCompositeKeyCommand>
     {
         [IntentManaged(Mode.Merge)]

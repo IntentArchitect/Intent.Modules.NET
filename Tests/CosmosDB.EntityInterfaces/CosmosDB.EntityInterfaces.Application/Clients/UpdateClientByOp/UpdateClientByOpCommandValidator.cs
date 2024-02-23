@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.EntityInterfaces.Application.Clients.UpdateClientByOp
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateClientByOpCommandValidator : AbstractValidator<UpdateClientByOpCommand>
     {
         [IntentManaged(Mode.Merge)]

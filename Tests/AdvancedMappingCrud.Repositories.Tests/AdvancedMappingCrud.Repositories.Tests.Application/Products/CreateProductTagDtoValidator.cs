@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Products
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateProductTagDtoValidator : AbstractValidator<CreateProductTagDto>
     {
         [IntentManaged(Mode.Merge)]

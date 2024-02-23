@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Clients.GetClients
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClientsQueryValidator : AbstractValidator<GetClientsQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

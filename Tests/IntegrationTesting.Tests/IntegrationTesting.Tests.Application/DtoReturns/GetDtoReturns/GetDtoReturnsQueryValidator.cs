@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DtoReturns.GetDtoReturns
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDtoReturnsQueryValidator : AbstractValidator<GetDtoReturnsQuery>
     {
         [IntentManaged(Mode.Merge)]

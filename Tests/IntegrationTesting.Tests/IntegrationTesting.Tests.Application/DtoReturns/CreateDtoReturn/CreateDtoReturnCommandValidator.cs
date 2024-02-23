@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DtoReturns.CreateDtoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDtoReturnCommandValidator : AbstractValidator<CreateDtoReturnCommand>
     {
         [IntentManaged(Mode.Merge)]

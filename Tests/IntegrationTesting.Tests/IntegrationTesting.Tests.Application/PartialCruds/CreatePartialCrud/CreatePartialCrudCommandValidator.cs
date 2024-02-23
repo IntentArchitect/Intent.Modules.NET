@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.PartialCruds.CreatePartialCrud
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreatePartialCrudCommandValidator : AbstractValidator<CreatePartialCrudCommand>
     {
         [IntentManaged(Mode.Merge)]

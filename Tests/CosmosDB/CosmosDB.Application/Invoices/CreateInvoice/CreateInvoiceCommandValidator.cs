@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Invoices.CreateInvoice
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

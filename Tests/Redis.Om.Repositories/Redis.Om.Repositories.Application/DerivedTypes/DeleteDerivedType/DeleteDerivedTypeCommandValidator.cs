@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Redis.Om.Repositories.Application.DerivedTypes.DeleteDerivedType
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDerivedTypeCommandValidator : AbstractValidator<DeleteDerivedTypeCommand>
     {
         [IntentManaged(Mode.Merge)]

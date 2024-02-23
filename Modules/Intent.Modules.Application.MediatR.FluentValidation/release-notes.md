@@ -1,3 +1,7 @@
+### Version 4.5.2
+
+- Improvement: Added IntentManaged Body Merge attribute to the `ConfigureValidationRules` method to prevent it from being updated when the Software Factory is re-executed.
+
 ### Version 4.5.1
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

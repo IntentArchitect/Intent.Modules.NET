@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OneToOptionalSources.Operation
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OperationCommandValidator : AbstractValidator<OperationCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

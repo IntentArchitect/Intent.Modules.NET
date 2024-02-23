@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.EntityInterfaces.Application.Clients.GetClientsPaged
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClientsPagedQueryValidator : AbstractValidator<GetClientsPagedQuery>
     {
         [IntentManaged(Mode.Merge)]

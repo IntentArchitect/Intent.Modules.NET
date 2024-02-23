@@ -47,6 +47,7 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDaprInvoiceCommandValidator : AbstractValidator<DeleteDaprInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

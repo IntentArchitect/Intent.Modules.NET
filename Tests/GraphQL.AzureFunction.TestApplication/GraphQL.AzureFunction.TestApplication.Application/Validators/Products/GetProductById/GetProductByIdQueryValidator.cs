@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Products.GetProductById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetProductByIdQueryValidator : AbstractValidator<GetProductByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

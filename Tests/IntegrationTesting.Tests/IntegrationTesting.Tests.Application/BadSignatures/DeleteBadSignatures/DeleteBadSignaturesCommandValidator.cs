@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.BadSignatures.DeleteBadSignatures
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteBadSignaturesCommandValidator : AbstractValidator<DeleteBadSignaturesCommand>
     {
         [IntentManaged(Mode.Merge)]

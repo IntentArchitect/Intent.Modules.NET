@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ODataAggs.GetODataAggs
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetODataAggsQueryValidator : AbstractValidator<GetODataAggsQuery>
     {
         [IntentManaged(Mode.Merge)]

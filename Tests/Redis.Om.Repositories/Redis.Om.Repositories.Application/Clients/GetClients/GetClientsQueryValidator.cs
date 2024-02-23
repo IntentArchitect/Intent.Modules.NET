@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Redis.Om.Repositories.Application.Clients.GetClients
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClientsQueryValidator : AbstractValidator<GetClientsQuery>
     {
         [IntentManaged(Mode.Merge)]

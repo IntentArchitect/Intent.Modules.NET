@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace TableStorage.Tests.Application.Orders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOrderCustomerDtoValidator : AbstractValidator<CreateOrderCustomerDto>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Tags.GetTagById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetTagByIdQueryValidator : AbstractValidator<GetTagByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

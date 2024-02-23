@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.CreateCustomer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
         [IntentManaged(Mode.Merge)]

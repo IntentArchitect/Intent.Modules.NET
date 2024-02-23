@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.GetManyToManyDests
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetManyToManyDestsQueryValidator : AbstractValidator<GetManyToManyDestsQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

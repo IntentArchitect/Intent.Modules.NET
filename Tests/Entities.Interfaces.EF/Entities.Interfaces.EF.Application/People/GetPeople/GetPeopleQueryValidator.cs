@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.People.GetPeople
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetPeopleQueryValidator : AbstractValidator<GetPeopleQuery>
     {
         [IntentManaged(Mode.Merge)]

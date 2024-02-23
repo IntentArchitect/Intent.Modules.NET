@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAggregateRootLongById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetAggregateRootLongByIdQueryValidator : AbstractValidator<GetAggregateRootLongByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

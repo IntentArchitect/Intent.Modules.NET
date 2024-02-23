@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.Orders.GetOrders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetOrdersQueryValidator : AbstractValidator<GetOrdersQuery>
     {
         [IntentManaged(Mode.Merge)]

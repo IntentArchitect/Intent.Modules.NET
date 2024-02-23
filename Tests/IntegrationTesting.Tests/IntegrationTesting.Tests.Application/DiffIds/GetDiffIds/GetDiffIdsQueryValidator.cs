@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DiffIds.GetDiffIds
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDiffIdsQueryValidator : AbstractValidator<GetDiffIdsQuery>
     {
         [IntentManaged(Mode.Merge)]

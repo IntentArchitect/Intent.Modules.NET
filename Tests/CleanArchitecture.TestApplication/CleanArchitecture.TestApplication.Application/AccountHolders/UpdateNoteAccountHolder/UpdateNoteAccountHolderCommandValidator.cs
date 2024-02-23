@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AccountHolders.UpdateNoteAccountHolder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateNoteAccountHolderCommandValidator : AbstractValidator<UpdateNoteAccountHolderCommand>
     {
         [IntentManaged(Mode.Merge)]

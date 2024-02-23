@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.ManyToManySources.GetManyToManySourceById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetManyToManySourceByIdQueryValidator : AbstractValidator<GetManyToManySourceByIdQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.PaginationForProxies.PaginatedResult
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class PaginatedResultQueryValidator : AbstractValidator<PaginatedResultQuery>
     {
         [IntentManaged(Mode.Merge)]

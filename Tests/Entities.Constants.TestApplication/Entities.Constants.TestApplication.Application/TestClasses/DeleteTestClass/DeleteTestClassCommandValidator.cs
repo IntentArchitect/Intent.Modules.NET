@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestClass
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteTestClassCommandValidator : AbstractValidator<DeleteTestClassCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

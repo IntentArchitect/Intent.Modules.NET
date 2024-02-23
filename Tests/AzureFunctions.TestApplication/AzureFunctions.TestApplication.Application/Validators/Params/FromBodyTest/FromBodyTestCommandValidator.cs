@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.Params.FromBodyTest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class FromBodyTestCommandValidator : AbstractValidator<FromBodyTestCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

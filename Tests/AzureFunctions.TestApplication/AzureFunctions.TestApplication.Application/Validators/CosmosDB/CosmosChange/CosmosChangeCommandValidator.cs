@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.CosmosDB.CosmosChange
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CosmosChangeCommandValidator : AbstractValidator<CosmosChangeCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

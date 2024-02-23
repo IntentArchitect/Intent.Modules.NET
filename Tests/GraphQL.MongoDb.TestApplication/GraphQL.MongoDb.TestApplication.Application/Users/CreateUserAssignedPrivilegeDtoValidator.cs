@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.MongoDb.TestApplication.Application.Users
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateUserAssignedPrivilegeDtoValidator : AbstractValidator<CreateUserAssignedPrivilegeDto>
     {
         [IntentManaged(Mode.Merge)]

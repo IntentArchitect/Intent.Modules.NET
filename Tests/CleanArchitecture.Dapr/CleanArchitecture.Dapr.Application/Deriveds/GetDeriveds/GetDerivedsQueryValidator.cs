@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Deriveds.GetDeriveds
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDerivedsQueryValidator : AbstractValidator<GetDerivedsQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

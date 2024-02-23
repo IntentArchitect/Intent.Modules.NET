@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOrderCommandOrderTagsDtoValidator : AbstractValidator<CreateOrderCommandOrderTagsDto>
     {
         [IntentManaged(Mode.Merge)]

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.UpdateCustomerRich
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerRichCommandValidator : AbstractValidator<UpdateCustomerRichCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

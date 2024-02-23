@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ODataAggs.CreateODataAgg
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateODataAggCommandValidator : AbstractValidator<CreateODataAggCommand>
     {
         [IntentManaged(Mode.Merge)]

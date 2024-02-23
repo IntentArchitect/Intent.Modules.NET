@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.Queues.Bindings.Bind
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class BindCommandValidator : AbstractValidator<BindCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

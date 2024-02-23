@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Products
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ProductCreateDtoValidator : AbstractValidator<ProductCreateDto>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.DerivedOfTS.CreateDerivedOfT
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDerivedOfTCommandValidator : AbstractValidator<CreateDerivedOfTCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

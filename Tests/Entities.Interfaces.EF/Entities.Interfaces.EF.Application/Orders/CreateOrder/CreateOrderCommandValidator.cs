@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.Orders.CreateOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]

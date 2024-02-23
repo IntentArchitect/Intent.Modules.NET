@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.CheckResult
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CheckResultCommandValidator : AbstractValidator<CheckResultCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

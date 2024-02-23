@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.Oracle.TestApplication.Application.Invoices.UpdateInvoice
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateInvoiceCommandValidator : AbstractValidator<UpdateInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

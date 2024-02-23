@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Clients.CreateClient
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateClientCommandValidator : AbstractValidator<CreateClientCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.UpdateUser
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Invoices.UpdateInvoice
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateInvoiceCommandValidator : AbstractValidator<UpdateInvoiceCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

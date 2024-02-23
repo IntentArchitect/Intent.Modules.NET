@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.DeleteImplicitKeyAggrRootImplicitKeyNestedComposition
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidator : AbstractValidator<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>
     {
         [IntentManaged(Mode.Merge)]

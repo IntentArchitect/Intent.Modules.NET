@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneDests.CreateManyToOneDest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateManyToOneDestCommandValidator : AbstractValidator<CreateManyToOneDestCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

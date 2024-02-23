@@ -54,6 +54,7 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateCosmosInvoiceCommandValidator : AbstractValidator<CreateCosmosInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

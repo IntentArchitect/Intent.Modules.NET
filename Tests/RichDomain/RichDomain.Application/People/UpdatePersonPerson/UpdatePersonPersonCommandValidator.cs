@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace RichDomain.Application.People.UpdatePersonPerson
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdatePersonPersonCommandValidator : AbstractValidator<UpdatePersonPersonCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

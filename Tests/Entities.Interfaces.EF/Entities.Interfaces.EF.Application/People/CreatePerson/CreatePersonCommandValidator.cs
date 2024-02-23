@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.People.CreatePerson
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreatePersonCommandValidator : AbstractValidator<CreatePersonCommand>
     {
         [IntentManaged(Mode.Merge)]

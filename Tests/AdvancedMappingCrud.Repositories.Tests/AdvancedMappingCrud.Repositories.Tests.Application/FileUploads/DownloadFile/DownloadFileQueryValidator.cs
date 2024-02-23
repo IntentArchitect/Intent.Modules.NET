@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.DownloadFile
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DownloadFileQueryValidator : AbstractValidator<DownloadFileQuery>
     {
         [IntentManaged(Mode.Merge)]

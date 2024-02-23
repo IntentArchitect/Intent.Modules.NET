@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Orders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateOrderCommandOrderItemsDtoValidator : AbstractValidator<UpdateOrderCommandOrderItemsDto>
     {
         [IntentManaged(Mode.Merge)]

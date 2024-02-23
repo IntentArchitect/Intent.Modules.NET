@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Customers
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerAddressDtoValidator : AbstractValidator<UpdateCustomerAddressDto>
     {
         [IntentManaged(Mode.Merge)]

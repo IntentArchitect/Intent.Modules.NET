@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AspNetCore.Controllers.Secured.Application.Products.CreateProduct
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
     {
         [IntentManaged(Mode.Merge)]

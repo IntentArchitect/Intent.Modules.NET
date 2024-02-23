@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.GetCameraByIdemiaId
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCameraByIdemiaIdValidator : AbstractValidator<GetCameraByIdemiaId>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

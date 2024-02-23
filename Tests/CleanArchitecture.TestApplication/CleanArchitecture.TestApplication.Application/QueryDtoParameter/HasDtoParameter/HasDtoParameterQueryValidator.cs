@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.QueryDtoParameter.HasDtoParameter
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class HasDtoParameterQueryValidator : AbstractValidator<HasDtoParameterQuery>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

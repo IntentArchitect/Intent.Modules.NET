@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Baskets.DeleteBasket
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteBasketCommandValidator : AbstractValidator<DeleteBasketCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

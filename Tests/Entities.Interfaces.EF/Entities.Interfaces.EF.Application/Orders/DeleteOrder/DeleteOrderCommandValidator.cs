@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.Orders.DeleteOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteOrderCommandValidator : AbstractValidator<DeleteOrderCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ClassWithEnums.CreateClassWithEnums
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateClassWithEnumsCommandValidator : AbstractValidator<CreateClassWithEnumsCommand>
     {
         [IntentManaged(Mode.Merge)]

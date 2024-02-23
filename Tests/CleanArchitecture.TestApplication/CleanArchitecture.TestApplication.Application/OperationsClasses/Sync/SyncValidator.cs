@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.OperationsClasses.Sync
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SyncValidator : AbstractValidator<Sync>
     {
         [IntentManaged(Mode.Merge)]

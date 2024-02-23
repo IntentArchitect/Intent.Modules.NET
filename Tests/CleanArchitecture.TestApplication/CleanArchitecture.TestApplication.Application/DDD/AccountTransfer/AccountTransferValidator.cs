@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.AccountTransfer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class AccountTransferValidator : AbstractValidator<AccountTransfer>
     {
         [IntentManaged(Mode.Merge)]

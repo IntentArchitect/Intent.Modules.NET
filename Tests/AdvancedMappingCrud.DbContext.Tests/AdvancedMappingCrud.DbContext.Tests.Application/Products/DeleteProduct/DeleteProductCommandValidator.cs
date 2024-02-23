@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.DeleteProduct
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Interfaces.EF.Application.People.UpdatePerson
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdatePersonCommandValidator : AbstractValidator<UpdatePersonCommand>
     {
         [IntentManaged(Mode.Merge)]

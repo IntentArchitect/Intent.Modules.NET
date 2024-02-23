@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.TestNullablities.UpdateTestNullablity
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateTestNullablityCommandValidator : AbstractValidator<UpdateTestNullablityCommand>
     {
         [IntentManaged(Mode.Merge)]

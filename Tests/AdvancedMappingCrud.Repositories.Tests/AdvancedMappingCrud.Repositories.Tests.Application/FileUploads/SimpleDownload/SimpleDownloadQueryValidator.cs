@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleDownload
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SimpleDownloadQueryValidator : AbstractValidator<SimpleDownloadQuery>
     {
         [IntentManaged(Mode.Merge)]

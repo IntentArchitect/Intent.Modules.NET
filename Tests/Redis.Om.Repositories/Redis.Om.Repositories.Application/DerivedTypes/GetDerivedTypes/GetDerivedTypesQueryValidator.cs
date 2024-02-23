@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Redis.Om.Repositories.Application.DerivedTypes.GetDerivedTypes
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDerivedTypesQueryValidator : AbstractValidator<GetDerivedTypesQuery>
     {
         [IntentManaged(Mode.Merge)]

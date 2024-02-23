@@ -57,6 +57,7 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateDaprInvoiceCommandValidator : AbstractValidator<UpdateDaprInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRoot
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateAggregateRootCommandValidator : AbstractValidator<UpdateAggregateRootCommand>
     {
         [IntentManaged(Mode.Merge)]

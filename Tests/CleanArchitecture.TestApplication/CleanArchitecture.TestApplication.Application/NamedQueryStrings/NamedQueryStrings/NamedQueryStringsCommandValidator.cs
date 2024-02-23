@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.NamedQueryStrings.NamedQueryStrings
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class NamedQueryStringsCommandValidator : AbstractValidator<NamedQueryStringsCommand>
     {
         [IntentManaged(Mode.Merge)]

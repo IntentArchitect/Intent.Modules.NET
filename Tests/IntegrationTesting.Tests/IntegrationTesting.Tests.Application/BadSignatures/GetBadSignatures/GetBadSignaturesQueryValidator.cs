@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.BadSignatures.GetBadSignatures
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetBadSignaturesQueryValidator : AbstractValidator<GetBadSignaturesQuery>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Inheritance.ConcreteClasses.UpdateConcreteClass
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateConcreteClassCommandValidator : AbstractValidator<UpdateConcreteClassCommand>
     {
         [IntentManaged(Mode.Merge)]

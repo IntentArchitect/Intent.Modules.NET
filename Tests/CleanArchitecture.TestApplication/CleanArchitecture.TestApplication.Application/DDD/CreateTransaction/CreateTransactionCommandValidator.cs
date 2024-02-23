@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.CreateTransaction
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateTransactionCommandValidator : AbstractValidator<CreateTransactionCommand>
     {
         [IntentManaged(Mode.Merge)]

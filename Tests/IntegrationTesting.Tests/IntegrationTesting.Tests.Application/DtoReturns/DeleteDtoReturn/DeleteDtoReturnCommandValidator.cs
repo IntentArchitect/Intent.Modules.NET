@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.DtoReturns.DeleteDtoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDtoReturnCommandValidator : AbstractValidator<DeleteDtoReturnCommand>
     {
         [IntentManaged(Mode.Merge)]

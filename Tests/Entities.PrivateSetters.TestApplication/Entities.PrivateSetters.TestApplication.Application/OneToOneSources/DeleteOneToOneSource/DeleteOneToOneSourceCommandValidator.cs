@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.DeleteOneToOneSource
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteOneToOneSourceCommandValidator : AbstractValidator<DeleteOneToOneSourceCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

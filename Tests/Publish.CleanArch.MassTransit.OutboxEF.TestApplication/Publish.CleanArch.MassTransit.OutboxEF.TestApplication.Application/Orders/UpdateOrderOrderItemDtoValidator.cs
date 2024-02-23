@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Orders
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateOrderOrderItemDtoValidator : AbstractValidator<UpdateOrderOrderItemDto>
     {
         [IntentManaged(Mode.Merge)]

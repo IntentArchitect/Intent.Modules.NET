@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Standard.AspNetCore.ServiceCallHandlers.Application.People
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class PersonCreateDtoValidator : AbstractValidator<PersonCreateDto>
     {
         [IntentManaged(Mode.Merge)]

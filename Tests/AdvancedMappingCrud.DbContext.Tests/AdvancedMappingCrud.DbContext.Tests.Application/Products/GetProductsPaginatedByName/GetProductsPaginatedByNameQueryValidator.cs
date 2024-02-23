@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginatedByName
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetProductsPaginatedByNameQueryValidator : AbstractValidator<GetProductsPaginatedByNameQuery>
     {
         [IntentManaged(Mode.Merge)]

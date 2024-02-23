@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace TableStorage.Tests.Application.Invoices.DeleteInvoice
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteInvoiceCommandValidator : AbstractValidator<DeleteInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

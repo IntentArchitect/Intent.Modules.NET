@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDests.DeleteOptionalToManyDest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteOptionalToManyDestCommandValidator : AbstractValidator<DeleteOptionalToManyDestCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

@@ -7,6 +7,7 @@ using TableStorage.Tests.Application.Common.Validation;
 
 namespace TableStorage.Tests.Application.Orders.UpdateOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]

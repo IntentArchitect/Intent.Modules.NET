@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRiches.DeleteCustomerRich
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteCustomerRichCommandValidator : AbstractValidator<DeleteCustomerRichCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

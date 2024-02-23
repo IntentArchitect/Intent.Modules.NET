@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadFile
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UploadFileCommandValidator : AbstractValidator<UploadFileCommand>
     {
         [IntentManaged(Mode.Merge)]

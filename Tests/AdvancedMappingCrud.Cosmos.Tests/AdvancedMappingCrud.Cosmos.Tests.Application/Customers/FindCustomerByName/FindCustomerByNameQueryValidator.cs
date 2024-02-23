@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByName
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class FindCustomerByNameQueryValidator : AbstractValidator<FindCustomerByNameQuery>
     {
         [IntentManaged(Mode.Merge)]

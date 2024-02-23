@@ -8,6 +8,7 @@ using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Orders.UpdateOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

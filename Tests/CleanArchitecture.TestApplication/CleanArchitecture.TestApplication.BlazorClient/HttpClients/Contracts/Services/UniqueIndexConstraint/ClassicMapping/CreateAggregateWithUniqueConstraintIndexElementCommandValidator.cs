@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.UniqueIndexConstraint.ClassicMapping
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAggregateWithUniqueConstraintIndexElementCommand>
     {
         [IntentManaged(Mode.Merge)]

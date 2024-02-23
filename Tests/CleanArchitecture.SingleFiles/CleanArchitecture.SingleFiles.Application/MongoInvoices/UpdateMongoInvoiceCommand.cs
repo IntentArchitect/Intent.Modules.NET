@@ -57,6 +57,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateMongoInvoiceCommandValidator : AbstractValidator<UpdateMongoInvoiceCommand>
     {
         [IntentManaged(Mode.Merge)]

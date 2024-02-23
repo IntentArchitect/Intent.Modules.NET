@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateFuneralCoverQuote
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateFuneralCoverQuoteCommandValidator : AbstractValidator<CreateFuneralCoverQuoteCommand>
     {
         [IntentManaged(Mode.Merge)]

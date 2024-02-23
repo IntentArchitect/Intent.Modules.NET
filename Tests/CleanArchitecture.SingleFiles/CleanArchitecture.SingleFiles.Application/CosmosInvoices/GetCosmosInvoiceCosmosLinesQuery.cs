@@ -52,6 +52,7 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
         }
     }
 
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCosmosInvoiceCosmosLinesQueryValidator : AbstractValidator<GetCosmosInvoiceCosmosLinesQuery>
     {
         [IntentManaged(Mode.Merge)]

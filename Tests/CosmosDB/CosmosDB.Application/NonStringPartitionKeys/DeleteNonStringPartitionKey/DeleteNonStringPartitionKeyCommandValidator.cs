@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.NonStringPartitionKeys.DeleteNonStringPartitionKey
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteNonStringPartitionKeyCommandValidator : AbstractValidator<DeleteNonStringPartitionKeyCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.TestApplication.Application.Validators.NullableResult.GetCustomerNullable
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCustomerNullableValidator : AbstractValidator<Application.NullableResult.GetCustomerNullable.GetCustomerNullable>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

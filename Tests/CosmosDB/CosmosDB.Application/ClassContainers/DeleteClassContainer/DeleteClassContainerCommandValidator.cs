@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.ClassContainers.DeleteClassContainer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteClassContainerCommandValidator : AbstractValidator<DeleteClassContainerCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

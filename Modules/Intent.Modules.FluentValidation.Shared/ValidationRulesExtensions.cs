@@ -56,6 +56,8 @@ public static class ValidationRulesExtensions
                 @class.AddMetadata("validator", true);
                 @class.WithBaseType($"AbstractValidator<{toValidateTypeName}>");
 
+                @class.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+
                 @class.AddConstructor(ctor =>
                 {
                     ctor.AddStatement(new CSharpStatement("ConfigureValidationRules();")

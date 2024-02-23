@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.EntityInterfaces.Application.DerivedOfTS.GetDerivedOfTS
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDerivedOfTSQueryValidator : AbstractValidator<GetDerivedOfTSQuery>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Orders.DeleteOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteOrderCommandValidator : AbstractValidator<DeleteOrderCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

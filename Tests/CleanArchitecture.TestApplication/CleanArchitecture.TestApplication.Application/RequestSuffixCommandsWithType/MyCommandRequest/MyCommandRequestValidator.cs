@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.RequestSuffixCommandsWithType.MyCommandRequest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class MyCommandRequestValidator : AbstractValidator<MyCommandRequest>
     {
         [IntentManaged(Mode.Merge)]

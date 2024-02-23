@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.RabbitMQ.Application.Test.SendTest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SendTestCommandValidator : AbstractValidator<SendTestCommand>
     {
         [IntentManaged(Mode.Merge)]

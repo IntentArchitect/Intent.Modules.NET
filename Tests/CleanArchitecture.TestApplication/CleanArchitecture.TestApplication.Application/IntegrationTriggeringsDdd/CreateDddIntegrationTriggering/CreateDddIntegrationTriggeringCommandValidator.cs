@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsDdd.CreateDddIntegrationTriggering
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDddIntegrationTriggeringCommandValidator : AbstractValidator<CreateDddIntegrationTriggeringCommand>
     {
         [IntentManaged(Mode.Merge)]

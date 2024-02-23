@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.ApproveQuote
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ApproveQuoteCommandValidator : AbstractValidator<ApproveQuoteCommand>
     {
         [IntentManaged(Mode.Merge)]

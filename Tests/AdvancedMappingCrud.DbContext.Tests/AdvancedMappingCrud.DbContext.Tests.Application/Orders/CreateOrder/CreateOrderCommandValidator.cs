@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.DbContext.Tests.Application.Orders.CreateOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]

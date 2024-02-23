@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Products.UpdateProduct
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

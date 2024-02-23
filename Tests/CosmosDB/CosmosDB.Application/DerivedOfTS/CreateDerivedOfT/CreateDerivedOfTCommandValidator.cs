@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.DerivedOfTS.CreateDerivedOfT
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDerivedOfTCommandValidator : AbstractValidator<CreateDerivedOfTCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

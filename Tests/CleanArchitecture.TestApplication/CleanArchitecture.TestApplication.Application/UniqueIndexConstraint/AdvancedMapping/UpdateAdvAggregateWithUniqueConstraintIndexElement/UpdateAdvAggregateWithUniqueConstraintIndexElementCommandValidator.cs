@@ -9,6 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.UniqueIndexConstraint.AdvancedMapping.UpdateAdvAggregateWithUniqueConstraintIndexElement
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateAdvAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<UpdateAdvAggregateWithUniqueConstraintIndexElementCommand>
     {
         private readonly IAggregateWithUniqueConstraintIndexElementRepository _aggregateWithUniqueConstraintIndexElementRepository;

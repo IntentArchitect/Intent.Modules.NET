@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Tags.DeleteTag
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteTagCommandValidator : AbstractValidator<DeleteTagCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

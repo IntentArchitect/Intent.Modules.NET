@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.ScalarCollectionReturnType.QueryWithCollectionReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class QueryWithCollectionReturnValidator : AbstractValidator<QueryWithCollectionReturn>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

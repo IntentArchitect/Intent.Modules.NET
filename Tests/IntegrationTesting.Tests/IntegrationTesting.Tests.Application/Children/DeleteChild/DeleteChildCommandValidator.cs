@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Children.DeleteChild
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteChildCommandValidator : AbstractValidator<DeleteChildCommand>
     {
         [IntentManaged(Mode.Merge)]

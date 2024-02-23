@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.QueryDtoParameter
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class QueryDtoParameterCriteriaValidator : AbstractValidator<QueryDtoParameterCriteria>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

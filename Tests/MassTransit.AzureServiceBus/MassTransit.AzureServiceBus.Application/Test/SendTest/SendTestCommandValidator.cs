@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.Test.SendTest
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SendTestCommandValidator : AbstractValidator<SendTestCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

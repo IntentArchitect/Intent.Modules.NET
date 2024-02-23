@@ -8,6 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Constants.TestApplication.Application.TestClasses.CreateTestClass
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateTestClassCommandValidator : AbstractValidator<CreateTestClassCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

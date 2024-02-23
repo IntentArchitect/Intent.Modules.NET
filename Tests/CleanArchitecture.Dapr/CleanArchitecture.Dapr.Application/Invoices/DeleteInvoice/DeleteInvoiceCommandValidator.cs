@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Invoices.DeleteInvoice
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteInvoiceCommandValidator : AbstractValidator<DeleteInvoiceCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

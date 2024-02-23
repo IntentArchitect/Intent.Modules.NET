@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.Customers.UpdateCustomer
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {
         [IntentManaged(Mode.Merge)]

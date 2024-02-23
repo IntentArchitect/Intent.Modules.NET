@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AspNetCore.Controllers.Secured.Application.Products.UpdateProduct
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
         [IntentManaged(Mode.Merge)]

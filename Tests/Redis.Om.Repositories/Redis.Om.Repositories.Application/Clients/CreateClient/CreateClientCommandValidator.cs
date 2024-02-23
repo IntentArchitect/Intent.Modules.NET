@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Redis.Om.Repositories.Application.Clients.CreateClient
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateClientCommandValidator : AbstractValidator<CreateClientCommand>
     {
         [IntentManaged(Mode.Merge)]

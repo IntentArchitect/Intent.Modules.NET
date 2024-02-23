@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MinimalHostingModel.BlazorClient.HttpClients.Contracts.AspNetCore.Identity.AccountController
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ResetPasswordDtoValidator : AbstractValidator<ResetPasswordDto>
     {
         [IntentManaged(Mode.Merge)]

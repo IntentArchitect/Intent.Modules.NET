@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Deriveds.DeleteDerived
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDerivedCommandValidator : AbstractValidator<DeleteDerivedCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

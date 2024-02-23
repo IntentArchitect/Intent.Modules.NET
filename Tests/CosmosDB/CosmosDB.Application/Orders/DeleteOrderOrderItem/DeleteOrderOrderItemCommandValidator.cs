@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Application.Orders.DeleteOrderOrderItem
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteOrderOrderItemCommandValidator : AbstractValidator<DeleteOrderOrderItemCommand>
     {
         [IntentManaged(Mode.Merge)]

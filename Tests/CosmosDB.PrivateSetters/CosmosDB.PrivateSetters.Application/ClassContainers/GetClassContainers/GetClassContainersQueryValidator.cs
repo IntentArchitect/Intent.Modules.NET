@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.PrivateSetters.Application.ClassContainers.GetClassContainers
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClassContainersQueryValidator : AbstractValidator<GetClassContainersQuery>
     {
         [IntentManaged(Mode.Merge)]

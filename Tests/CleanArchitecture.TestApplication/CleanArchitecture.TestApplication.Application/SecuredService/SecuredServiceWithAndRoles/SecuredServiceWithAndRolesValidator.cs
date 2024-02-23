@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.SecuredService.SecuredServiceWithAndRoles
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SecuredServiceWithAndRolesValidator : AbstractValidator<SecuredServiceWithAndRoles>
     {
         [IntentManaged(Mode.Merge)]

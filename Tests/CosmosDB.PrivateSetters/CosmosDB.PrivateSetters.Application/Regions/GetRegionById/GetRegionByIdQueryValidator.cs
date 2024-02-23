@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.PrivateSetters.Application.Regions.GetRegionById
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetRegionByIdQueryValidator : AbstractValidator<GetRegionByIdQuery>
     {
         [IntentManaged(Mode.Merge)]

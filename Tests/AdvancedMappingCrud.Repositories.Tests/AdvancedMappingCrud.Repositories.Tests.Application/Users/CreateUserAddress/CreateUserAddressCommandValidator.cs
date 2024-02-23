@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.CreateUserAddress
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateUserAddressCommandValidator : AbstractValidator<CreateUserAddressCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace RichDomain.Application.People.DeletePerson
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeletePersonCommandValidator : AbstractValidator<DeletePersonCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

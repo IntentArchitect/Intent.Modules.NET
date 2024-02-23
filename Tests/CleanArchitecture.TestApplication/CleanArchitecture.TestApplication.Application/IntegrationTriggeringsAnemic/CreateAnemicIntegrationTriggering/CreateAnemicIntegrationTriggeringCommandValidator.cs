@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.IntegrationTriggeringsAnemic.CreateAnemicIntegrationTriggering
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAnemicIntegrationTriggeringCommandValidator : AbstractValidator<CreateAnemicIntegrationTriggeringCommand>
     {
         [IntentManaged(Mode.Merge)]

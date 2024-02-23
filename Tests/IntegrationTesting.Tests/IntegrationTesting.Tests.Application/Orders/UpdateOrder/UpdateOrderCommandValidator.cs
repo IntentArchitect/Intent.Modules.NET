@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace IntegrationTesting.Tests.Application.Orders.UpdateOrder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]

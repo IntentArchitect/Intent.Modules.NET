@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAnemics.DeleteCustomerAnemic
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteCustomerAnemicCommandValidator : AbstractValidator<DeleteCustomerAnemicCommand>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]

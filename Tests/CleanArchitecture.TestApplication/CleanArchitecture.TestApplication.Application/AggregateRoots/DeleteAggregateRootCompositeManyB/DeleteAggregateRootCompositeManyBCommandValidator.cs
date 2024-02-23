@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.AggregateRoots.DeleteAggregateRootCompositeManyB
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteAggregateRootCompositeManyBCommandValidator : AbstractValidator<DeleteAggregateRootCompositeManyBCommand>
     {
         [IntentManaged(Mode.Merge)]

@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.TestApplication.Application.DDD.CreateAccountHolder
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAccountHolderValidator : AbstractValidator<CreateAccountHolder>
     {
         [IntentManaged(Mode.Merge)]
