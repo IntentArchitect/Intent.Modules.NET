@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CommandDtoReturn = MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient", Version = "1.0")]
 
 namespace MassTransit.RabbitMQ.Infrastructure.Eventing
 {

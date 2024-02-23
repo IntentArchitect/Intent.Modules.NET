@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a82d11e6-82b0-4756-b618-7742cadd7555</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

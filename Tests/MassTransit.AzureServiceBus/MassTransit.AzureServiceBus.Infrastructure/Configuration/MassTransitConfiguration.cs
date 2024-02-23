@@ -123,6 +123,10 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
         private static void EndpointConventionRegistration()
         {
+            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.People.TalkToPersonCommand>(new Uri("queue:Person"));
+            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.azure-service-bus.services.animals.make-sound-command"));
+            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
+            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.azure-service-bus.services.animals.order-animal"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandDtoReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-dto-return"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandGuidReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-guid-return"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandNoParam>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-no-param"));
@@ -130,10 +134,6 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryGuidReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-guid-return"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-no-input-dto-return-collection"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-response-dto-return"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.People.TalkToPersonCommand>(new Uri("queue:Person"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.azure-service-bus.services.animals.make-sound-command"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.azure-service-bus.services.animals.order-animal"));
         }
 
         private static void ConfigureNonDefaultEndpoints(

@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Services.RequestResponse.CQRS;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ResponseMappingFactory", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory", Version = "1.0")]
 
 namespace MassTransit.AzureServiceBus.Infrastructure.Eventing.Messages
 {

@@ -51,10 +51,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -89,10 +89,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -124,10 +124,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -159,10 +159,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -197,10 +197,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -235,10 +235,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>
@@ -273,10 +273,10 @@
       <packageId>93a5c8a6-f414-4893-b50c-a2484ac108cd</packageId>
       <packageName>MassTransit.RabbitMQ.ServiceProxies</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
           <properties />
         </stereotype>
       </stereotypes>

@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>365e4ad1-dc6c-47ed-ac80-8b0f8998030c</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

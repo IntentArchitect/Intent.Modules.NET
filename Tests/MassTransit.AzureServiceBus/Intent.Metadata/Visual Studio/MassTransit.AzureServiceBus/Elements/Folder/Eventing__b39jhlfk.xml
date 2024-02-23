@@ -69,6 +69,38 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="8413c93b-3396-483a-9fb4-74752be3575c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b85d8656-a41e-4bba-96bb-5dbff1a9e2d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="87498d25-c732-48a3-ad01-9c8899fcd1a3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
       <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
@@ -85,70 +117,48 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2bc144cd-278e-4adb-8981-25f25df2253a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient</name>
-      <display>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="f6115e21-23ec-491c-abfc-af6b2c6db59b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b85d8656-a41e-4bba-96bb-5dbff1a9e2d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="ac6a6f16-cdf5-4b00-aaca-5e2de86aa589" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9bba7a62-6d23-42c3-bd2d-ff0612ccf4f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MediatRConsumer</name>
-      <display>Intent.Eventing.MassTransit.MediatRConsumer</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="9c72fccb-04d1-402a-bf92-3f249e880d0b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="276cc010-937e-45ff-9c51-1de49df71a2c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</name>
-      <display>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="8413c93b-3396-483a-9fb4-74752be3575c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
-      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

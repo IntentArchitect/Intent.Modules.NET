@@ -69,9 +69,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1d2419f7-1e81-4ce8-92da-eb601ca1d37b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
-      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
+    <childElement id="9dc0a67f-72c0-4e0b-beb9-caefad7530c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
       <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -93,62 +93,72 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d130a2e1-47b0-4609-8271-8d25d503e09f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MediatRConsumer</name>
-      <display>Intent.Eventing.MassTransit.MediatRConsumer</display>
+    <childElement id="1d2419f7-1e81-4ce8-92da-eb601ca1d37b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
       <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="db91fce2-ba69-4f38-a411-167cd0960a81" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient</name>
-      <display>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="9396db54-c89d-42a2-9ce9-f85856fd8243" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b522bf08-0e13-48a1-81a3-fc2c40de7942" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</name>
-      <display>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="7d4f1b60-5ec8-493b-bedb-f26e7f64ff8e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9dc0a67f-72c0-4e0b-beb9-caefad7530c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
-      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="bf150ee0-9f41-48f0-9cc0-8bf48a2ca442" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

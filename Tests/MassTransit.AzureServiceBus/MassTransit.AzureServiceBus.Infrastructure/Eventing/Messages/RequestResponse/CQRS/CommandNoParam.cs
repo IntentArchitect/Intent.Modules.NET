@@ -4,7 +4,7 @@ using MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandNoPara
 using MassTransit.AzureServiceBus.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage", Version = "1.0")]
 
 namespace MassTransit.AzureServiceBus.Services.RequestResponse.CQRS
 {

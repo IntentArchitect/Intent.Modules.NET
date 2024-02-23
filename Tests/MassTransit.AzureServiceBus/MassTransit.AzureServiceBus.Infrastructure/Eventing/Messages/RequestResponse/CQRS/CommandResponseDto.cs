@@ -1,7 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage", Version = "1.0")]
 
 namespace MassTransit.AzureServiceBus.Services.RequestResponse.CQRS
 {

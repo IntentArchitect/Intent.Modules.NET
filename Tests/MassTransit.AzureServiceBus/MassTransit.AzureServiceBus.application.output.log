@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#6ec6529d-f2f0-459e-9eef-2d685935900f</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#6ec6529d-f2f0-459e-9eef-2d685935900f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandDtoReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandDtoReturn.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#b45cd451-ddb8-49ba-aad7-68c277e715ce</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#b45cd451-ddb8-49ba-aad7-68c277e715ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandGuidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandGuidReturn.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#0b87328f-07bb-4578-9b9a-14242f38be3b</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#0b87328f-07bb-4578-9b9a-14242f38be3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandNoParam.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandNoParam.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#8ffc28b8-26a2-425a-981f-9958e03e44c6</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#8ffc28b8-26a2-425a-981f-9958e03e44c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandResponseDto.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#71a3299e-ff2b-4bde-880b-55b29a1f2cf3</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#71a3299e-ff2b-4bde-880b-55b29a1f2cf3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandVoidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandVoidReturn.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#57a6b2fd-38ba-4d1b-8f61-e030fe037806</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#57a6b2fd-38ba-4d1b-8f61-e030fe037806</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryGuidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryGuidReturn.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#9331aba3-7a48-4d97-87ae-3860ba4a1830</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#9331aba3-7a48-4d97-87ae-3860ba4a1830</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#81995174-4e6f-48e6-a6c1-6c31c8337b39</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#81995174-4e6f-48e6-a6c1-6c31c8337b39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDto.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8edd3b0e-7b56-417d-affc-27b1ecf90d01</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#2afa8b99-da5e-44a4-a65a-b4ff0cf70e59</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#2afa8b99-da5e-44a4-a65a-b4ff0cf70e59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c553a807-0a33-43e3-bcdf-812723677477</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.ServiceContract#a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract#a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationServices/ICQRSService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICQRSService.cs</ProjectRelativeFilePath>
@@ -900,7 +900,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient#a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient#a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/CQRSService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CQRSService.cs</ProjectRelativeFilePath>
@@ -908,7 +908,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/IMapperRequest.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapperRequest.cs</ProjectRelativeFilePath>
@@ -932,7 +932,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MediatRConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/MediatRConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatRConsumer.cs</ProjectRelativeFilePath>
@@ -940,7 +940,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestCompletedMessage.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestCompletedMessage.cs</ProjectRelativeFilePath>
@@ -948,7 +948,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#6ec6529d-f2f0-459e-9eef-2d685935900f</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#6ec6529d-f2f0-459e-9eef-2d685935900f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandDtoReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/CommandDtoReturn.cs</ProjectRelativeFilePath>
@@ -956,7 +956,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#b45cd451-ddb8-49ba-aad7-68c277e715ce</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#b45cd451-ddb8-49ba-aad7-68c277e715ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandGuidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/CommandGuidReturn.cs</ProjectRelativeFilePath>
@@ -964,7 +964,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#0b87328f-07bb-4578-9b9a-14242f38be3b</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#0b87328f-07bb-4578-9b9a-14242f38be3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandNoParam.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/CommandNoParam.cs</ProjectRelativeFilePath>
@@ -972,7 +972,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage#8ffc28b8-26a2-425a-981f-9958e03e44c6</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage#8ffc28b8-26a2-425a-981f-9958e03e44c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/CommandResponseDto.cs</ProjectRelativeFilePath>
@@ -980,7 +980,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#71a3299e-ff2b-4bde-880b-55b29a1f2cf3</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#71a3299e-ff2b-4bde-880b-55b29a1f2cf3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandVoidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/CommandVoidReturn.cs</ProjectRelativeFilePath>
@@ -988,7 +988,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#57a6b2fd-38ba-4d1b-8f61-e030fe037806</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#57a6b2fd-38ba-4d1b-8f61-e030fe037806</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryGuidReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/QueryGuidReturn.cs</ProjectRelativeFilePath>
@@ -996,7 +996,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#9331aba3-7a48-4d97-87ae-3860ba4a1830</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#9331aba3-7a48-4d97-87ae-3860ba4a1830</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ProjectRelativeFilePath>
@@ -1004,7 +1004,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage#81995174-4e6f-48e6-a6c1-6c31c8337b39</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage#81995174-4e6f-48e6-a6c1-6c31c8337b39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/QueryResponseDto.cs</ProjectRelativeFilePath>
@@ -1012,7 +1012,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#2afa8b99-da5e-44a4-a65a-b4ff0cf70e59</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#2afa8b99-da5e-44a4-a65a-b4ff0cf70e59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/CQRS/QueryResponseDtoReturn.cs</ProjectRelativeFilePath>
@@ -1020,7 +1020,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>512b3efc-9c32-4143-8c08-8aabb879a19b</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ResponseMappingFactory</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>

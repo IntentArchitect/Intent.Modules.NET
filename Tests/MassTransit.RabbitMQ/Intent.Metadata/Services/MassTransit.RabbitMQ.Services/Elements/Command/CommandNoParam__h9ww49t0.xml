@@ -17,11 +17,13 @@
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="b37b2302-97f4-4bc0-b3ad-bc04894c305a" name="Message Request Endpoint">
+    <stereotype stereotypeDefinitionId="5150384d-18a3-4c7e-a716-599e6658abde" name="Message Triggered">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
-      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
-      <properties />
+      <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+      <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+      <properties>
+        <property name="9c5844cf-9688-4d44-85a2-acce9feadb7d" display="Queue Name" isActive="true" />
+      </properties>
     </stereotype>
   </stereotypes>
   <metadata />

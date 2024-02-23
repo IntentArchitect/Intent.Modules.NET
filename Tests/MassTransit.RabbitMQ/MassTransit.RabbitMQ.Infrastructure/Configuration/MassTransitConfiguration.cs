@@ -124,6 +124,10 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void EndpointConventionRegistration()
         {
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.animals.make-sound-command"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.animals.order-animal"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.TalkToPersonCommand>(new Uri("queue:Person"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-dto-return"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-guid-return"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-no-param"));
@@ -131,10 +135,6 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-guid-return"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-no-input-dto-return-collection"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-response-dto-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.animals.make-sound-command"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.animals.order-animal"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.TalkToPersonCommand>(new Uri("queue:Person"));
         }
 
         private static void ConfigureNonDefaultEndpoints(

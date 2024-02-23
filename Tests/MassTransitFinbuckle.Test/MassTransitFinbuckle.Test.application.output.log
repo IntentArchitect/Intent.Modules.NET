@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>820bb1f8-e7d1-4a92-9829-5bdfd535b77f</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.DtoContract#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/IntegrationServices/Contracts/Services/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>25e3d335-a6e5-4f09-9d14-90c22f85a917</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientContracts.ServiceContract#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/IntegrationServices/IRequestResponseService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRequestResponseService.cs</ProjectRelativeFilePath>
@@ -548,7 +548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/IMapperRequest.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapperRequest.cs</ProjectRelativeFilePath>
@@ -572,7 +572,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MediatRConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/MediatRConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatRConsumer.cs</ProjectRelativeFilePath>
@@ -580,7 +580,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/RequestCompletedMessage.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestCompletedMessage.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
@@ -596,7 +596,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ResponseMappingFactory</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>
@@ -604,7 +604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/RequestResponseService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestResponseService.cs</ProjectRelativeFilePath>

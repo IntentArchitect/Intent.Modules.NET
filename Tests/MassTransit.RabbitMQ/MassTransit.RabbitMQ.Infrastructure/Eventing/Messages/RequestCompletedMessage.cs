@@ -1,7 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage", Version = "1.0")]
 
 namespace MassTransit.RabbitMQ.Services.RequestResponse.CQRS
 {

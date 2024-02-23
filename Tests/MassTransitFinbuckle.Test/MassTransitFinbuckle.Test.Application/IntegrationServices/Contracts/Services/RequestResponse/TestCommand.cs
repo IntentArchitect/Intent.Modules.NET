@@ -2,7 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.ClientContracts.DtoContract", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract", Version = "2.0")]
 
 namespace MassTransitFinbuckle.Test.Application.IntegrationServices.Contracts.Services.RequestResponse
 {

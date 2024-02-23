@@ -4,7 +4,7 @@
   <display>MassTransit.RabbitMQ.Application</display>
   <externalReference>09ef8fd4-6e2c-4344-8918-b9b43bd24d5f</externalReference>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fb951517-f59a-46a7-bef7-6afe371fe879</parentFolderId>
@@ -17,6 +17,8 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
@@ -64,6 +66,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="42bedd81-c8e4-4e4a-a2d0-e4b95438cd29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
+      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eee6378a-6323-4705-8a5a-f59bfe340e11</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="d4a80d0d-c332-4fd8-beb2-1f94ee8419c3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.ContractEnumModel</name>
       <display>Intent.Application.Dtos.ContractEnumModel</display>
@@ -96,10 +114,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="42bedd81-c8e4-4e4a-a2d0-e4b95438cd29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
-      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
-      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+    <childElement id="78ff79a0-df6a-4fac-846b-e9c19a894553" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
+      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -131,38 +149,6 @@
     <childElement id="aedd13d2-8435-466a-9223-5112a79e6cf7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.CommandModels</name>
       <display>Intent.Application.MediatR.CommandModels</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>eee6378a-6323-4705-8a5a-f59bfe340e11</parentFolderId>
-      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
-      <packageName>MassTransit.RabbitMQ</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="765dfcb8-1415-4b00-a304-46272b772600" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryHandler</name>
-      <display>Intent.Application.MediatR.QueryHandler</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>eee6378a-6323-4705-8a5a-f59bfe340e11</parentFolderId>
-      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
-      <packageName>MassTransit.RabbitMQ</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="2bb040b6-36c3-49b8-a2e9-b84d4ac3c96e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryModels</name>
-      <display>Intent.Application.MediatR.QueryModels</display>
       <externalReference>Intent.Application.MediatR</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -208,10 +194,26 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="78ff79a0-df6a-4fac-846b-e9c19a894553" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
-      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="765dfcb8-1415-4b00-a304-46272b772600" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryHandler</name>
+      <display>Intent.Application.MediatR.QueryHandler</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eee6378a-6323-4705-8a5a-f59bfe340e11</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2bb040b6-36c3-49b8-a2e9-b84d4ac3c96e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryModels</name>
+      <display>Intent.Application.MediatR.QueryModels</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

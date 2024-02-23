@@ -11,7 +11,7 @@ using MassTransit.AzureServiceBus.Services.RequestResponse.CQRS;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient", Version = "1.0")]
 
 namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
 {

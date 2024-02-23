@@ -4,7 +4,7 @@ using MassTransitFinbuckle.Test.Application.RequestResponse.Test;
 using MassTransitFinbuckle.Test.Infrastructure.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage", Version = "1.0")]
 
 namespace MassTransitFinbuckle.Test.Services.RequestResponse
 {

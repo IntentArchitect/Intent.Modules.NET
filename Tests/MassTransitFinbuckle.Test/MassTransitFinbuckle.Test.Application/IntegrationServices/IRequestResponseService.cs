@@ -6,7 +6,7 @@ using MassTransitFinbuckle.Test.Application.IntegrationServices.Contracts.Servic
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.ClientContracts.ServiceContract", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract", Version = "2.0")]
 
 namespace MassTransitFinbuckle.Test.Application.IntegrationServices
 {

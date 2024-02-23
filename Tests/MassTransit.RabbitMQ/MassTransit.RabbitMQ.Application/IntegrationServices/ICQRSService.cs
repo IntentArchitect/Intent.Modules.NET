@@ -7,7 +7,7 @@ using MassTransit.RabbitMQ.Application.IntegrationServices.Contracts.Services.Re
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.ClientContracts.ServiceContract", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract", Version = "2.0")]
 
 namespace MassTransit.RabbitMQ.Application.IntegrationServices
 {

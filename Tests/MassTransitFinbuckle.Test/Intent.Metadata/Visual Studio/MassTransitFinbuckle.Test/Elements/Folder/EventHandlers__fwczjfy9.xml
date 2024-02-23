@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5ba9e1c8-59ac-4226-a694-75c81f635e28</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
