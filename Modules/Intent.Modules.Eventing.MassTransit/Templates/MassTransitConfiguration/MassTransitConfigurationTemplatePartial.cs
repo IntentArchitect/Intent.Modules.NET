@@ -109,7 +109,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 new LegacyEventingConsumerFactory(this),
                 new ServiceIntegrationEventingConsumerFactory(this),
                 new ServiceIntegrationCommandConsumerFactory(this),
-                new MediatRConsumerFactory(this)
+                //new MediatRConsumerFactory(this)
             }
             .SelectMany(factory => factory.CreateConsumers())
             .ToArray();
@@ -120,7 +120,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         var producers = new IProducerFactory[]
             {
-                new CommandQueryProducerFactory(this),
+                //new CommandQueryProducerFactory(this),
                 new ServiceIntegrationCommandSendProducerFactory(this)
             }
             .SelectMany(factory => factory.CreateProducers())

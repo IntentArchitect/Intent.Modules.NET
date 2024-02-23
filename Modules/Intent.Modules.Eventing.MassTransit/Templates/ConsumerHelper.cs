@@ -7,11 +7,12 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
+
 using OutboxPatternType = Intent.Modules.Eventing.MassTransit.Settings.EventingSettings.OutboxPatternOptionsEnum;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates;
 
-internal static class ConsumerHelper
+public static class ConsumerHelper
 {
     public static void AddConsumerDependencies<TModel>(CSharpTemplateBase<TModel> template)
     {

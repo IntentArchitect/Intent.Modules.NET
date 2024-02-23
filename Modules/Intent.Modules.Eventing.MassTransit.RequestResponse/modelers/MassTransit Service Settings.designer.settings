@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>18f48485-6e51-421e-8394-975a1d1bb132</id>
+  <name>MassTransit Service Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose as Message Request Endpoint</text>
+          <icon type="FontAwesome" source="paper-plane" />
+          <script>const MassTransitConsumerStereotypeId = "b37b2302-97f4-4bc0-b3ad-bc04894c305a";
+if (!element.hasStereotype(MassTransitConsumerStereotypeId)) {
+    element.addStereotype(MassTransitConsumerStereotypeId);
+}</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+    <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose as Message Request Endpoint</text>
+          <icon type="FontAwesome" source="paper-plane" />
+          <script>const MassTransitConsumerStereotypeId = "b37b2302-97f4-4bc0-b3ad-bc04894c305a";
+if (!element.hasStereotype(MassTransitConsumerStereotypeId)) {
+    element.addStereotype(MassTransitConsumerStereotypeId);
+}</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

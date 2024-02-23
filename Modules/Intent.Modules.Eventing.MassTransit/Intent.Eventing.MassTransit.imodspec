@@ -11,46 +11,6 @@
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.MassTransit/README.md</projectUrl>
   <tags>csharp dotnet eventing masstransit pubsub integration</tags>
   <templates>
-    <template id="Intent.Eventing.MassTransit.ClientContracts.DtoContract" externalReference="0a87a028-0c15-4568-b5d5-a3451134e7e3">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Contracts.Clients.Dto.MassTransit</role>
-      <location>IntegrationServices/Contracts</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.ClientContracts.EnumContract" externalReference="3dc14b13-67f3-4c4e-af98-fbddd9253740">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Contracts.Clients.Enum.MassTransit</role>
-      <location>IntegrationServices/Contracts</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.ClientContracts.PagedResult" externalReference="40bfd79a-eddc-4324-b5c0-9a7ec219a59b">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Contracts.Clients.PagedResult.MassTransit</role>
-      <location>IntegrationServices/Contracts</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.ClientContracts.ServiceContract" externalReference="a065f0be-77ae-4712-98ca-c0eb92e91220">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Contracts.Clients.MassTransit</role>
-      <location>IntegrationServices</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.ClientImplementation.ServiceRequestClient" externalReference="a1662b1e-b020-4abe-b580-74fed2bdf9c9">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.RequestClient</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" externalReference="fc20086d-0bb2-4c9b-8f04-68d69d2adace">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -122,54 +82,6 @@
       </config>
       <role>Infrastructure.Eventing.MassTransitEventBus</role>
       <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.MediatRConsumer" externalReference="a9ebcb35-e07d-4d1e-bd58-330d9f2135dc">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.Consumer</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperRequestInterface" externalReference="69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.MapperRequestInterface</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperRequestMessage" externalReference="e46d8062-ac79-401c-9f53-6c975cf73acd">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.MapperRequestMessage</role>
-      <location>Eventing/Messages</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponse.MapperResponseMessage" externalReference="9ca4f319-86a2-4340-9d98-9fbd9623f795">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.MapperResponseMessage</role>
-      <location>Eventing/Messages</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponse.RequestCompletedMessage" externalReference="71581cb9-1c65-490a-bb7b-ef8c8dccedb4">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.RequestResponseMessage</role>
-      <location>Eventing/Messages</location>
-    </template>
-    <template id="Intent.Eventing.MassTransit.RequestResponse.ResponseMappingFactory" externalReference="dc60377e-e6ac-45bc-a966-ac1ba4da5092">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.ResponseMappingFactory</role>
-      <location>Eventing/Messages</location>
     </template>
   </templates>
   <decorators />
@@ -252,9 +164,7 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Module Builder;Eventing;Services;Service Proxies" src="Intent.Metadata/Module Builder/Intent.Eventing.MassTransit/Intent.Eventing.MassTransit.pkg.config" externalReference="6502ee82-f515-4007-9635-bade3eb88e72" />
-    <install target="Services" src="modelers/MassTransit Service Settings.designer.settings" externalReference="949420c6-ec00-4f44-b95d-15bec6c94695" />
-    <install src="modelers/MassTransit Service Proxy Settings.designer.settings" externalReference="2e9f35da-2065-448d-9e7c-916bffd00aa7" target="Service Proxies" />
+    <install target="Module Builder;Eventing;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.MassTransit/Intent.Eventing.MassTransit.pkg.config" externalReference="6502ee82-f515-4007-9635-bade3eb88e72" />
   </metadata>
   <tags />
 </package>

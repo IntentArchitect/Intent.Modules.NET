@@ -55,7 +55,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
                 var inMemoryOutboxStmt = ((IHasCSharpStatements)broker.Statements.First()).Statements.FirstOrDefault(p => p.HasMetadata("in-memory-outbox"));
                 inMemoryOutboxStmt?.InsertAbove("cfg.UseMessageScope(context);");
-                
+
                 var brokerConfig = (IHasCSharpStatements)broker.Statements.First();
                 brokerConfig.AddStatement($"cfg.UsePublishFilter(typeof({template.GetFinbucklePublishingFilterName()}<>), context);");
                 brokerConfig.AddStatement($"cfg.UseConsumeFilter(typeof({template.GetFinbuckleConsumingFilterName()}<>), context);");

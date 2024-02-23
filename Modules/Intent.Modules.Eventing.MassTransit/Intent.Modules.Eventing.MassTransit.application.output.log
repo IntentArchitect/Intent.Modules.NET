@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#1cb38684-87b4-4148-9f59-d1804f7f948c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/CommandExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/CommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -39,38 +23,6 @@
       <ApplicationRelativeFilePath>Api/MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MessageSubscribeAssocationTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ae02815f-100c-46af-8a59-fc9e5b3d7cbd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/OperationExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#aee6811e-b2f6-4562-a8eb-502029f63bc8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/OperationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#d0afe56c-dc76-422a-920e-a4d0c3d4e282</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e71b0662-e29d-4db2-868b-8a12464b25d0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/QueryModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>afcd1a54-eda3-4b16-81fa-9b9e2265d846</ProjectId>
@@ -134,7 +86,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Eventing.MassTransit.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Eventing.MassTransit.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
@@ -143,22 +95,6 @@
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e0572f-3c45-4c02-9969-b5d531c8d871</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#2e9f35da-2065-448d-9e7c-916bffd00aa7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>modelers/MassTransit Service Proxy Settings.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransit Service Proxy Settings.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e0572f-3c45-4c02-9969-b5d531c8d871</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#949420c6-ec00-4f44-b95d-15bec6c94695</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>modelers/MassTransit Service Settings.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransit Service Settings.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
@@ -174,94 +110,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0a87a028-0c15-4568-b5d5-a3451134e7e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/DtoContract/DtoContractTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/DtoContract/DtoContractTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#0a87a028-0c15-4568-b5d5-a3451134e7e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/DtoContract/DtoContractTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/DtoContract/DtoContractTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3dc14b13-67f3-4c4e-af98-fbddd9253740</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/EnumContract/EnumContractTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/EnumContract/EnumContractTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#40bfd79a-eddc-4324-b5c0-9a7ec219a59b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/PagedResult/PagedResultTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#40bfd79a-eddc-4324-b5c0-9a7ec219a59b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/PagedResult/PagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/PagedResult/PagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a065f0be-77ae-4712-98ca-c0eb92e91220</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a065f0be-77ae-4712-98ca-c0eb92e91220</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientContracts/ServiceContract/ServiceContractTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientContracts/ServiceContract/ServiceContractTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a1662b1e-b020-4abe-b580-74fed2bdf9c9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a1662b1e-b020-4abe-b580-74fed2bdf9c9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientImplementation/ServiceRequestClient/ServiceRequestClientTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -422,102 +270,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MassTransitEventBus/MassTransitEventBusTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitEventBus/MassTransitEventBusTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a9ebcb35-e07d-4d1e-bd58-330d9f2135dc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MediatRConsumer/MediatRConsumerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRConsumer/MediatRConsumerTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a9ebcb35-e07d-4d1e-bd58-330d9f2135dc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MediatRConsumer/MediatRConsumerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRConsumer/MediatRConsumerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#69adc8ce-83eb-4d8b-9c5c-29ef2a4d3230</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperRequestInterface/MapperRequestInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e46d8062-ac79-401c-9f53-6c975cf73acd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperRequestMessage/MapperRequestMessageTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e46d8062-ac79-401c-9f53-6c975cf73acd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperRequestMessage/MapperRequestMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperRequestMessage/MapperRequestMessageTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9ca4f319-86a2-4340-9d98-9fbd9623f795</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperResponseMessage/MapperResponseMessageTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperResponseMessage/MapperResponseMessageTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#9ca4f319-86a2-4340-9d98-9fbd9623f795</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/MapperResponseMessage/MapperResponseMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/MapperResponseMessage/MapperResponseMessageTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71581cb9-1c65-490a-bb7b-ef8c8dccedb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71581cb9-1c65-490a-bb7b-ef8c8dccedb4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/RequestCompletedMessage/RequestCompletedMessageTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dc60377e-e6ac-45bc-a966-ac1ba4da5092</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#dc60377e-e6ac-45bc-a966-ac1ba4da5092</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/ResponseMappingFactory/ResponseMappingFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

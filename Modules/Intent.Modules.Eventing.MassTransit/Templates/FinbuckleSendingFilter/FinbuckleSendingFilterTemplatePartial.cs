@@ -51,7 +51,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter
                         });
                 });
         }
-        
+
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&

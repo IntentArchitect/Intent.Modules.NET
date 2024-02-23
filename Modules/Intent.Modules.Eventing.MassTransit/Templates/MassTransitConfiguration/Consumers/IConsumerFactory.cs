@@ -2,7 +2,7 @@
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Consumers;
 
-internal interface IConsumerFactory
+public interface IConsumerFactory
 {
     IReadOnlyCollection<Consumer> CreateConsumers();
 }

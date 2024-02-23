@@ -2,7 +2,7 @@
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Producers;
 
-internal interface IProducerFactory
+public interface IProducerFactory
 {
     IReadOnlyCollection<Producer> CreateProducers();
 }

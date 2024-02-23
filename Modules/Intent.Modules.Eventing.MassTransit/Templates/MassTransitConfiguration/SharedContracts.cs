@@ -3,7 +3,7 @@ using Intent.Modelers.Eventing.Api;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
   
-internal record Consumer(
+public record Consumer(
     string MessageTypeFullName,
     string ConsumerTypeName,
     string ConsumerDefinitionTypeName,
@@ -12,6 +12,6 @@ internal record Consumer(
     IAzureServiceBusConsumerSettings? AzureConsumerSettings,
     IRabbitMQConsumerSettings? RabbitMqConsumerSettings);
     
-internal record Producer(
+public record Producer(
     string MessageTypeName,
     string Urn);

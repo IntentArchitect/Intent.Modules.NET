@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.55" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.57" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -130,5 +130,6 @@
     <application id="a36e2e3e-95ea-431b-890f-0225e14d0788" name="Intent.Modules.AspNetCore.IntegrationTests.CRUD" relativePath="Intent.Modules.AspNetCore.IntegrationTests.CRUD/Intent.Modules.AspNetCore.IntegrationTests.CRUD.application.config" />
     <application id="bf8f6060-e2f0-4326-9767-e3c546c7933c" name="Intent.Modules.AspNetCore.Identity.AccountController.Metadata" relativePath="Intent.Modules.AspNetCore.Identity.AccountController.Metadata/Intent.Modules.AspNetCore.Identity.AccountController.Metadata.application.config" />
     <application id="410ada20-8799-4d36-94ba-540b6061fca5" name="Redis.OM.Repositories" relativePath="Intent.Modules.Redis.OM.Repositories/Intent.Modules.Redis.OM.Repositories.application.config" />
+    <application id="2241a76c-3847-48b0-932b-385092a325d2" name="Intent.Modules.Eventing.MassTransit.RequestResponse" relativePath="Intent.Modules.Eventing.MassTransit.RequestResponse/Intent.Modules.Eventing.MassTransit.RequestResponse.application.config" />
   </applications>
 </solution>
