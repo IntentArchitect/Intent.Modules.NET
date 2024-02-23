@@ -10,7 +10,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting;
-using Intent.Modules.AspNetCore.IntegrationTesting.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.TestDataFactory;
@@ -105,7 +104,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     method
                         .Async()
                         .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
+                    AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
@@ -163,7 +162,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     method
                         .Async()
                         .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
+                    AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
@@ -197,7 +196,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     method
                         .Async()
                         .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
+                    AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
@@ -237,7 +236,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     method
                         .Async()
                         .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
+                    AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
@@ -274,7 +273,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     method
                         .Async()
                         .AddAttribute("Fact");
-                    FixCosmosTests(crudTest, method);
+                    AddRequirementTraits(crudTest, method, template);
                     method
                         .AddStatement("//Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
@@ -317,37 +316,28 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             });
         }
 
-        private void FixCosmosTests(CrudMap test, CSharpClassMethod method)
+        private void AddRequirementTraits(CrudMap test, CSharpClassMethod method, ICSharpFileBuilderTemplate template)
         {
-            if (IsCosmosTest(test.Entity.InternalElement))
+            if (test.Entity.InternalElement.RequiresCosmosDb((IntentTemplateBase)template))
             {
-                method.AddAttribute("Trait", att =>
-                {
-                    att
-                        .AddArgument("\"Category\"")
-                        .AddArgument("\"ExcludeOnCI\"")
-                        ;
-                });
-                method.WithComments(new[]
-                    {
-                        "/// <summary>",
-                        "/// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).\")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.",
-                        "/// Filter this test out of your CI/CD if appropriate e.g. dotnet test --filter Category!=ExcludeOnCI",
-                        "/// </summary>",
-                    });
+                AddRequirementTrait(method, "CosmosDB");
             }
         }
 
-        private const string CosmosDbProviderId = "3e1a00f7-c6f1-4785-a544-bbcb17602b31";
-
-        private static bool IsCosmosTest(IElement sut)
+        private static void AddRequirementTrait(CSharpClassMethod method, string requirement)
         {
-
-            if (!sut.Package.HasStereotype("Document Database"))
-                return false;
-
-            var setting = sut.Package.GetStereotypeProperty<IElement>("Document Database", "Provider");
-            return setting == null ||setting.Id == CosmosDbProviderId;
+            method.AddAttribute("Trait", attribute =>
+            {
+                attribute
+                    .AddArgument("\"Requirement\"")
+                    .AddArgument($"\"{requirement}\"");
+            });
+            method.WithComments(new[]
+                {
+                    "/// <summary>",
+                    $"/// You can use this trait to filter this test out of your CI/CD if appropriate e.g. dotnet test --filter Requirement!=\"{requirement}\"",
+                    "/// </summary>",
+                });
         }
 
         private string GetDtoPkFieldName(IHttpEndpointModel operation)
