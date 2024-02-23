@@ -32,30 +32,37 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.AddConstructor();
-                    @class.AddConstructor(ctor =>
+
+                    if (TryGetTemplate<ITemplate>(TemplateRoles.Application.Contracts.Dto, Model, out _))
                     {
-                        ctor.AddParameter(GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, Model), "dto");
-                        foreach (var property in Model.Fields)
+                        @class.AddConstructor(ctor =>
                         {
-                            ctor.AddStatement($"{property.Name} = dto.{property.Name};");
-                        }
-                    });
+                            ctor.AddParameter(GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, Model), "dto");
+                            foreach (var property in Model.Fields)
+                            {
+                                ctor.AddStatement($"{property.Name} = dto.{property.Name};");
+                            }
+                        });
+                    }
 
                     foreach (var property in Model.Fields)
                     {
                         @class.AddProperty(GetTypeName(property), property.Name);
                     }
 
-                    @class.AddMethod(GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model), "ToDto", method =>
+                    if (TryGetTemplate<ITemplate>(DtoContractTemplate.TemplateId, Model, out _))
                     {
-                        method.AddInvocationStatement($"return {GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model)}.Create", invoke =>
+                        @class.AddMethod(GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model), "ToDto", method =>
                         {
-                            foreach (var property in Model.Fields)
+                            method.AddInvocationStatement($"return {GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model)}.Create", invoke =>
                             {
-                                invoke.AddArgument(property.Name);
-                            }
+                                foreach (var property in Model.Fields)
+                                {
+                                    invoke.AddArgument(property.Name);
+                                }
+                            });
                         });
-                    });
+                    }
                 });
         }
 

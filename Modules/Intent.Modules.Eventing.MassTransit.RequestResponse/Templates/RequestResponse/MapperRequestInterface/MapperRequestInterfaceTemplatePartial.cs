@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.RequestCompletedMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +32,16 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                     {
                     });
                 });
+        }
+        
+        public override bool CanRunTemplate()
+        {
+            var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
+            var relevantCommands = services.GetElementsOfType("Command")
+                .Where(p => p.HasStereotype(Constants.MessageTriggered));
+            var relevantQueries = services.GetElementsOfType("Query")
+                .Where(p => p.HasStereotype(Constants.MessageTriggered));
+            return relevantCommands.Concat(relevantQueries).Select(element => new HybridDtoModel(element)).Any();
         }
 
         [IntentManaged(Mode.Fully)]

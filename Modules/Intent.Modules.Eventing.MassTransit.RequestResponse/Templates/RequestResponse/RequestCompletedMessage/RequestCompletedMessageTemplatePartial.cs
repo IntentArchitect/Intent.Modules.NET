@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
 using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -54,7 +57,16 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                 .Where(p => p.HasStereotype(Constants.MessageTriggered));
             var relevantQueries = services.GetElementsOfType("Query")
                 .Where(p => p.HasStereotype(Constants.MessageTriggered));
-            return relevantCommands.Concat(relevantQueries).Select(element => new HybridDtoModel(element));
+            
+            var proxyMappedService = new MassTransitServiceProxyMappedService();
+        
+            var serviceProxies = this.ExecutionContext.MetadataManager
+                .ServiceProxies(this.ExecutionContext.GetApplicationConfig().Id)
+                .GetServiceProxyModels();
+            var relevantProxyElements = serviceProxies.SelectMany(proxyModel => proxyMappedService.GetMappedEndpoints(proxyModel))
+                .SelectMany(s => s.Inputs).Select(s => s.TypeReference?.Element).Where(p => p is not null).Cast<IElement>();
+            
+            return relevantCommands.Concat(relevantQueries).Concat(relevantProxyElements).Select(element => new HybridDtoModel(element));
         }
 
         [IntentManaged(Mode.Fully)]

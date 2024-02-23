@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -38,6 +39,11 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
         {
             return _metadataManager.Services(application)
                 .Elements
+                .Concat(_metadataManager.ServiceProxies(application)
+                    .Elements
+                    .Where(p => p.MappedElement is not null)
+                    .Select(s => s.MappedElement.Element)
+                    .Cast<IElement>())
                 .Where(element => HybridDtoModel.IsHybridDtoModel(element) &&
                                   element.HasStereotype(Constants.MessageTriggered) &&
                                   element.TypeReference?.Element is not null &&

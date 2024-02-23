@@ -8,6 +8,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.DtoContract;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -31,33 +32,44 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), this.GetFolderPath())
                 .AddClass(model.Name, @class =>
                 {
-                    @class.ImplementsInterface(this.GetMapperRequestInterfaceName());
+                    var hasMapperRequestInterface = TryGetTemplate<ITemplate>(MapperRequestInterfaceTemplate.TemplateId, out var requestTemplate) && requestTemplate.CanRunTemplate();
+                    if (hasMapperRequestInterface)
+                    {
+                        @class.ImplementsInterface(this.GetMapperRequestInterfaceName());
+                    }
 
                     @class.AddConstructor();
-                    @class.AddConstructor(ctor =>
+
+                    if (TryGetTypeName(DtoContractTemplate.TemplateId, Model, out var dtoContractType))
                     {
-                        ctor.AddParameter(GetTypeName(DtoContractTemplate.TemplateId, Model), "dto");
-                        foreach (var property in Model.Properties)
+                        @class.AddConstructor(ctor =>
                         {
-                            ctor.AddStatement($"{property.Name} = dto.{property.Name};");
-                        }
-                    });
+                            ctor.AddParameter(dtoContractType, "dto");
+                            foreach (var property in Model.Properties)
+                            {
+                                ctor.AddStatement($"{property.Name} = dto.{property.Name};");
+                            }
+                        });
+                    }
 
                     foreach (var property in Model.Properties)
                     {
                         @class.AddProperty(GetTypeName(property), property.Name);
                     }
 
-                    @class.AddMethod("object", "CreateRequest", method =>
+                    if (hasMapperRequestInterface)
                     {
-                        method.AddInvocationStatement($"return new {GetTypeName(model.InternalElement)}", stmt =>
+                        @class.AddMethod("object", "CreateRequest", method =>
                         {
-                            foreach (var property in Model.Properties)
+                            method.AddInvocationStatement($"return new {GetTypeName(model.InternalElement)}", stmt =>
                             {
-                                stmt.AddArgument(property.Name);
-                            }
+                                foreach (var property in Model.Properties)
+                                {
+                                    stmt.AddArgument(property.Name);
+                                }
+                            });
                         });
-                    });
+                    }
                 });
         }
 

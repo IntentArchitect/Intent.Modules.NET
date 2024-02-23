@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestInterface;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperResponseMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.RequestCompletedMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -93,7 +94,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
 
         public override bool CanRunTemplate()
         {
-            return TryGetTemplate<ITemplate>(RequestCompletedMessageTemplate.TemplateId, out var template) && template.CanRunTemplate();
+            return TryGetTemplate<ITemplate>(MapperRequestInterfaceTemplate.TemplateId, out var requestTemplate) && requestTemplate.CanRunTemplate();
         }
 
         [IntentManaged(Mode.Fully)]
