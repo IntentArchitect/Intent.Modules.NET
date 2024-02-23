@@ -15,9 +15,10 @@
           <script>const messageRequestEndpointStereotype = "b37b2302-97f4-4bc0-b3ad-bc04894c305a";
 
 lookupTypesOf("Operation").forEach(op =&gt; {
-    if (op.getMapping()?.getElement()?.hasStereotype(messageRequestEndpointStereotype) &amp;&amp; !op.hasStereotype(messageRequestEndpointStereotype)) {
+    let mappedServiceIsMessageRequestEndpoint = op.getMapping()?.getElement()?.hasStereotype(messageRequestEndpointStereotype);
+    if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !op.hasStereotype(messageRequestEndpointStereotype)) {
         op.addStereotype(messageRequestEndpointStereotype);
-    } else if (op.hasStereotype(messageRequestEndpointStereotype)) {
+    } else if (!mappedServiceIsMessageRequestEndpoint &amp;&amp; op.hasStereotype(messageRequestEndpointStereotype)) {
         op.removeStereotype(messageRequestEndpointStereotype);
     }
 });</script>
@@ -32,9 +33,11 @@ lookupTypesOf("Operation").forEach(op =&gt; {
       <macros>
         <macro trigger="on-changed">
           <script>const messageRequestEndpointStereotype = "b37b2302-97f4-4bc0-b3ad-bc04894c305a";
-if (element.getMapping()?.getElement()?.hasStereotype(messageRequestEndpointStereotype) &amp;&amp; !element.hasStereotype(messageRequestEndpointStereotype)) {
+
+let mappedServiceIsMessageRequestEndpoint = element.getMapping()?.getElement()?.hasStereotype(messageRequestEndpointStereotype);
+if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !element.hasStereotype(messageRequestEndpointStereotype)) {
     element.addStereotype(messageRequestEndpointStereotype);
-} else if (element.hasStereotype(messageRequestEndpointStereotype)) {
+} else if (!mappedServiceIsMessageRequestEndpoint &amp;&amp; element.hasStereotype(messageRequestEndpointStereotype)) {
     element.removeStereotype(messageRequestEndpointStereotype);
 }</script>
         </macro>

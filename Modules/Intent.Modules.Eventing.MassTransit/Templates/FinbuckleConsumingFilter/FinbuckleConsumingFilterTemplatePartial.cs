@@ -32,37 +32,37 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
                 .AddClass($"FinbuckleConsumingFilter", @class =>
                 {
                     @class.AddGenericParameter("T", out var t)
-                    .ImplementsInterface($"IFilter<ConsumeContext<{t}>>")
-                    .AddGenericTypeConstraint(t, c => c
-                        .AddType("class"))
-                    .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
-                    .AddField(this.GetFinbuckleMessageHeaderStrategyName(), "messageHeaderStrategy".ToPrivateMemberName(), f => f.PrivateReadOnly())
-                    .AddConstructor(ctor =>
-                    {
-                        ctor.AddParameter("IServiceProvider", "serviceProvider")
-                            .AddParameter("IMultiTenantContextAccessor", "accessor", p => p.IntroduceField())
-                            .AddParameter("ITenantResolver", "tenantResolver", p => p.IntroduceField())
-                            .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
-                        .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";")
-                        .AddStatement($@"_messageHeaderStrategy = ({this.GetFinbuckleMessageHeaderStrategyName()})serviceProvider.GetRequiredService<IEnumerable<IMultiTenantStrategy>>()
-                              .Where(s => s.GetType() == typeof({this.GetFinbuckleMessageHeaderStrategyName()}))
-                              .Single();");
-                    })
-                    .AddMethod("Task", "Send", method =>
-                    {
-                        method.Async()
-                            .AddParameter($"ConsumeContext<{t}>", "context")
-                            .AddParameter($"IPipe<ConsumeContext<{t}>>", "next")
-                            .AddIfStatement("context.TryGetHeader<string>(_headerName, out var tenantIdentifier)", stmt =>
-                            {
-                                stmt.AddStatement("_messageHeaderStrategy.SetTenantIdentifier(tenantIdentifier);");
-                                stmt.AddStatement("var multiTenantContext = await _tenantResolver.ResolveAsync(context);");
-                                stmt.AddStatement("_accessor.MultiTenantContext = multiTenantContext;");
-                            })
-                            .AddStatement("await next.Send(context);")
-                            ;
-                    })
-                    .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); });
+                        .ImplementsInterface($"IFilter<ConsumeContext<{t}>>")
+                        .AddGenericTypeConstraint(t, c => c
+                            .AddType("class"))
+                        .AddField("string", "headerName".ToPrivateMemberName(), f => f.PrivateReadOnly())
+                        .AddField(this.GetFinbuckleMessageHeaderStrategyName(), "messageHeaderStrategy".ToPrivateMemberName(), f => f.PrivateReadOnly())
+                        .AddConstructor(ctor =>
+                        {
+                            ctor.AddParameter("IServiceProvider", "serviceProvider")
+                                .AddParameter("IMultiTenantContextAccessor", "accessor", p => p.IntroduceReadonlyField())
+                                .AddParameter("ITenantResolver", "tenantResolver", p => p.IntroduceReadonlyField())
+                                .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
+                                .AddStatement("_headerName = configuration.GetValue<string?>(\"MassTransit:TenantHeader\") ?? \"Tenant-Identifier\";")
+                                .AddMethodChainStatement($"_messageHeaderStrategy = ({this.GetFinbuckleMessageHeaderStrategyName()})serviceProvider", chain => chain
+                                    .AddChainStatement("GetRequiredService<IEnumerable<IMultiTenantStrategy>>()")
+                                    .AddChainStatement($"Single(s => s.GetType() == typeof({this.GetFinbuckleMessageHeaderStrategyName()}))"));
+                        })
+                        .AddMethod("Task", "Send", method =>
+                        {
+                            method.Async()
+                                .AddParameter($"ConsumeContext<{t}>", "context")
+                                .AddParameter($"IPipe<ConsumeContext<{t}>>", "next")
+                                .AddIfStatement("context.TryGetHeader<string>(_headerName, out var tenantIdentifier)", stmt =>
+                                {
+                                    stmt.AddStatement("_messageHeaderStrategy.SetTenantIdentifier(tenantIdentifier);");
+                                    stmt.AddStatement("var multiTenantContext = await _tenantResolver.ResolveAsync(context);");
+                                    stmt.AddStatement("_accessor.MultiTenantContext = multiTenantContext;");
+                                })
+                                .AddStatement("await next.Send(context);")
+                                ;
+                        })
+                        .AddMethod("void", "Probe", m => { m.AddParameter("ProbeContext", "context"); });
                 });
         }
 
@@ -84,7 +84,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration", new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
+                   GetTemplate<object>("Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration",
+                       new TemplateDiscoveryOptions() { ThrowIfNotFound = false, TrackDependency = false }) != null;
         }
     }
 }

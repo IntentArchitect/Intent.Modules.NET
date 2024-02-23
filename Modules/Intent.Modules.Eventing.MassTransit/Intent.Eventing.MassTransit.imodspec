@@ -75,6 +75,14 @@
       <role>Infrastructure.Eventing.FinbucklePublishingFilter</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.MassTransit.FinbuckleSendingFilter" externalReference="056e50e9-e7f3-49e2-9b03-c47d9953ac3e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.FinbuckleSendingFilter</role>
+      <location>Eventing</location>
+    </template>
     <template id="Intent.Eventing.MassTransit.IntegrationEventConsumer" externalReference="44bdbb4b-004d-410f-87e7-f4b39206879f">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

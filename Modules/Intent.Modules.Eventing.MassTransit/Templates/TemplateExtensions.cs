@@ -13,6 +13,7 @@ using Intent.Modules.Eventing.MassTransit.Templates.ClientImplementation.Service
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleConsumingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderStrategy;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
+using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventConsumer;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
@@ -92,6 +93,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetFinbucklePublishingFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(FinbucklePublishingFilterTemplate.TemplateId);
+        }
+
+        public static string GetFinbuckleSendingFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(FinbuckleSendingFilterTemplate.TemplateId);
         }
 
         public static string GetIntegrationEventConsumerName(this IIntentTemplate template)

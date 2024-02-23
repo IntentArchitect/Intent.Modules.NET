@@ -180,7 +180,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
         {
-            yield return new CSharpStatement($"{factoryConfigVarName}.UseInMemoryOutbox(context);");
+            yield return new CSharpStatement($"{factoryConfigVarName}.UseInMemoryOutbox(context);").AddMetadata("in-memory-outbox", true);
         }
         else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
                  ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
