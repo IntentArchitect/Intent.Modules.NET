@@ -1,4 +1,7 @@
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurrency;
 using Intent.RoslynWeaver.Attributes;
+using System.Net;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]

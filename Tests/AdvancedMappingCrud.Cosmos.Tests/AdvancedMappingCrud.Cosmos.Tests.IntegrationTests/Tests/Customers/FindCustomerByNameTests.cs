@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
