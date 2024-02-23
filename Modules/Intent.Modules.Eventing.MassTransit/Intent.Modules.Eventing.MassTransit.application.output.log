@@ -242,6 +242,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#385f9f6d-cf4f-4e49-a247-2b5012a8c5d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96d30d6d-4c0b-470f-9586-2cd3f0984dd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>

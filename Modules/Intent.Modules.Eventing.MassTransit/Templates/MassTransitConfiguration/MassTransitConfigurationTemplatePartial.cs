@@ -28,7 +28,7 @@ using Intent.Utils;
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<object, MassTransitConfigurationDecoratorContract>, ICSharpFileBuilderTemplate
 {
     public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitConfiguration";
 
@@ -109,8 +109,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 new LegacyEventingConsumerFactory(this),
                 new ServiceIntegrationEventingConsumerFactory(this),
                 new ServiceIntegrationCommandConsumerFactory(this),
-                //new MediatRConsumerFactory(this)
             }
+            .Concat(GetDecorators().SelectMany(decorator => decorator.GetConsumerFactories() ?? Enumerable.Empty<IConsumerFactory>()))
             .SelectMany(factory => factory.CreateConsumers())
             .ToArray();
         return consumers;
@@ -120,9 +120,9 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         var producers = new IProducerFactory[]
             {
-                //new CommandQueryProducerFactory(this),
                 new ServiceIntegrationCommandSendProducerFactory(this)
             }
+            .Concat(GetDecorators().SelectMany(decorator => decorator.GetProducerFactories() ?? Enumerable.Empty<IProducerFactory>()))
             .SelectMany(factory => factory.CreateProducers())
             .ToArray();
         return producers;

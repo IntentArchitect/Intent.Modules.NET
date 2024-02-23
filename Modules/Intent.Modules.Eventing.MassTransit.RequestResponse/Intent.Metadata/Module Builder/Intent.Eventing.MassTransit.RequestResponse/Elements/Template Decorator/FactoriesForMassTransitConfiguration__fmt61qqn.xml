@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eeae58c5-52e2-48c8-888e-9981b82a72e8" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>FactoriesForMassTransitConfiguration</name>
+  <display>FactoriesForMassTransitConfiguration: MassTransitConfigurationDecoratorContract</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="17e5b9cb-2ce3-4283-ab88-3a343da269cc">
+    <typeId>385f9f6d-cf4f-4e49-a247-2b5012a8c5d1</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Eventing.MassTransit</typePackageName>
+    <typePackageId>6502ee82-f515-4007-9635-bade3eb88e72</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9eff564b-5c0b-461d-a2ce-44696e445a8f</parentFolderId>
+  <packageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</packageId>
+  <packageName>Intent.Eventing.MassTransit.RequestResponse</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

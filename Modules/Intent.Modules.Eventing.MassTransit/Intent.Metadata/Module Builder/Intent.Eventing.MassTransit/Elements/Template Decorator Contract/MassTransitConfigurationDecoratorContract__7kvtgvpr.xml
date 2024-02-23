@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="385f9f6d-cf4f-4e49-a247-2b5012a8c5d1" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>MassTransitConfigurationDecoratorContract</name>
+  <display>MassTransitConfigurationDecoratorContract</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>96d30d6d-4c0b-470f-9586-2cd3f0984dd1</parentFolderId>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

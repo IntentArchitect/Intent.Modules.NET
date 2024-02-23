@@ -57,6 +57,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f60b6daa-228a-4361-afe5-da1e873d101c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#eeae58c5-52e2-48c8-888e-9981b82a72e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/FactoriesForMassTransitConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FactoriesForMassTransitConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f60b6daa-228a-4361-afe5-da1e873d101c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#eeae58c5-52e2-48c8-888e-9981b82a72e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/FactoriesForMassTransitConfigurationRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FactoriesForMassTransitConfigurationRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b5a0abb8-fdf9-4b1a-a8b7-9f362738e38d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -86,6 +102,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/MassTransit Service Settings.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit Service Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5a0abb8-fdf9-4b1a-a8b7-9f362738e38d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
