@@ -37,7 +37,7 @@ public class MassTransitServiceProxyMappedService : IServiceProxyMappedService
     {
         return p is not null &&
                p.SpecializationType is Command or Query &&
-               p.HasStereotype(MassTransit.RequestResponse.Constants.MessageRequestEndpointStereotype);
+               p.HasStereotype(MassTransit.RequestResponse.Constants.MessageTriggered);
     }
 
     private static MappedEndpoint GetMappedEndpoint(IElement element)

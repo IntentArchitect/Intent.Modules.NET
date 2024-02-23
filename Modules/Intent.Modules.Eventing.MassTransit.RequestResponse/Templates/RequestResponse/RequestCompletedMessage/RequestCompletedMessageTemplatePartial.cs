@@ -50,14 +50,11 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
         private IEnumerable<HybridDtoModel> GetRelevantElements()
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
-            var proxies = ExecutionContext.MetadataManager.ServiceProxies(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
-                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
+                .Where(p => p.HasStereotype(Constants.MessageTriggered));
             var relevantQueries = services.GetElementsOfType("Query")
-                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
-            var relevantDtos = proxies.GetElementsOfType("DTO")
-                .Where(p => p.HasStereotype(Constants.MessageRequestEndpointStereotype));
-            return relevantCommands.Concat(relevantQueries).Concat(relevantDtos).Select(element => new HybridDtoModel(element));
+                .Where(p => p.HasStereotype(Constants.MessageTriggered));
+            return relevantCommands.Concat(relevantQueries).Select(element => new HybridDtoModel(element));
         }
 
         [IntentManaged(Mode.Fully)]

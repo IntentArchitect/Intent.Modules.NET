@@ -23,7 +23,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
     [IntentManaged(Mode.Ignore)]
     public partial class ServiceContractTemplate : ServiceContractTemplateBase
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.ClientContracts.ServiceContract";
+        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract";
 
         public ServiceContractTemplate(IOutputTarget outputTarget, ServiceProxyModel model)
             : base(

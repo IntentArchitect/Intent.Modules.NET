@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.RequestResponse.Api
     {
         public static MessageRequestEndpoint GetMessageRequestEndpoint(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("5150384d-18a3-4c7e-a716-599e6658abde");
+            var stereotype = model.GetStereotype("e8eaf275-8da4-4dde-8cc1-79bb1c6936c4");
             return stereotype != null ? new MessageRequestEndpoint(stereotype) : null;
         }
 
 
         public static bool HasMessageRequestEndpoint(this OperationModel model)
         {
-            return model.HasStereotype("5150384d-18a3-4c7e-a716-599e6658abde");
+            return model.HasStereotype("e8eaf275-8da4-4dde-8cc1-79bb1c6936c4");
         }
 
         public static bool TryGetMessageRequestEndpoint(this OperationModel model, out MessageRequestEndpoint stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Eventing.MassTransit.RequestResponse.Api
                 return false;
             }
 
-            stereotype = new MessageRequestEndpoint(model.GetStereotype("5150384d-18a3-4c7e-a716-599e6658abde"));
+            stereotype = new MessageRequestEndpoint(model.GetStereotype("e8eaf275-8da4-4dde-8cc1-79bb1c6936c4"));
             return true;
         }
 

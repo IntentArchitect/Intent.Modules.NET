@@ -2,5 +2,5 @@
 
 public static class Constants
 {
-    public const string MessageRequestEndpointStereotype = "Message Request Endpoint";
+    public const string MessageTriggered = "Message Triggered";
 }

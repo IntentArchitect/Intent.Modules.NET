@@ -37,7 +37,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetMappedServiceProxyDTOModels(Constants.MessageRequestEndpointStereotype)
+            return _metadataManager.ServiceProxies(application).GetMappedServiceProxyDTOModels(Constants.MessageTriggered)
                 .ToList();
         }
     }

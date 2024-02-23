@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="5150384d-18a3-4c7e-a716-599e6658abde" version="3.1.0">
+<stereotypeDefinition id="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" version="3.1.0">
   <name>Message Request Endpoint</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
-    <type id="e71b0662-e29d-4db2-868b-8a12464b25d0">Query</type>
     <type id="aee6811e-b2f6-4562-a8eb-502029f63bc8">Operation</type>
   </targetTypes>
   <targetReferenceTypes />

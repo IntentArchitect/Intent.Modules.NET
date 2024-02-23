@@ -20,7 +20,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
     [IntentManaged(Mode.Ignore)]
     public partial class PagedResultTemplate : PagedResultTemplateBase, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.ClientContracts.PagedResult";
+        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.ClientContracts.PagedResult";
 
         public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new MassTransitServiceProxyMappedService())
         {

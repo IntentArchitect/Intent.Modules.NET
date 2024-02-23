@@ -21,7 +21,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
     [IntentManaged(Mode.Ignore)]
     public partial class DtoContractTemplate : DtoContractTemplateBase
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.ClientContracts.DtoContract";
+        public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract";
 
         public DtoContractTemplate(IOutputTarget outputTarget, DTOModel model)
             : base(

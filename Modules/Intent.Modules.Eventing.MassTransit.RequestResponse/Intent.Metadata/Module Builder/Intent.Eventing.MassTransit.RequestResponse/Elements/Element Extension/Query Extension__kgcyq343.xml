@@ -61,8 +61,8 @@
       <metadata />
       <childElements>
         <childElement id="4d9c56ea-93ab-4414-943d-2e6cee025843" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
-          <name>Expose as Message Request Endpoint</name>
-          <display>Expose as Message Request Endpoint: Script</display>
+          <name>Expose as Message Triggered</name>
+          <display>Expose as Message Triggered: Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="f942829f-d712-4f32-a9e8-dd46dd3d877d">
@@ -86,7 +86,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const MassTransitConsumerStereotypeId = &quot;b37b2302-97f4-4bc0-b3ad-bc04894c305a&quot;;&#xD;&#xA;if (!element.hasStereotype(MassTransitConsumerStereotypeId)) {&#xD;&#xA;    element.addStereotype(MassTransitConsumerStereotypeId);&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const messageTriggeredStereotype = &quot;5150384d-18a3-4c7e-a716-599e6658abde&quot;;&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(messageTriggeredStereotype)) {&#xD;&#xA;    element.addStereotype(messageTriggeredStereotype);&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
             <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
