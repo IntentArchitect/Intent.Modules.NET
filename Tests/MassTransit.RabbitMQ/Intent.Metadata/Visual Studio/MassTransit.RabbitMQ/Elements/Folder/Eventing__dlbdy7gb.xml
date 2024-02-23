@@ -141,5 +141,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="9dc0a67f-72c0-4e0b-beb9-caefad7530c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>952230b6-1093-4174-8f48-57fb6a6a87dc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

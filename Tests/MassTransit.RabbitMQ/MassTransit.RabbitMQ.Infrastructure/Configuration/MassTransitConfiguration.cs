@@ -42,8 +42,6 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
                         configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
 
-                    
-
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
                     cfg.AddReceiveEndpoints(context);
@@ -54,32 +52,19 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(
-                typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>)).ExcludeFromConfigureEndpoints();
-            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>>(
-                typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TalkToPersonCommand>, TalkToPersonCommand>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<MediatRConsumer<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>>(typeof(MediatRConsumerDefinition<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>)).ExcludeFromConfigureEndpoints();
         }
 
         private static void AddReceiveEndpoints(this IRabbitMqBusFactoryConfigurator cfg, IBusRegistrationContext context)
@@ -139,20 +124,13 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void EndpointConventionRegistration()
         {
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-dto-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-guid-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-no-param"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-void-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-guid-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-no-input-dto-return-collection"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(
-                new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-response-dto-return"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-dto-return"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-guid-return"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-no-param"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-void-return"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-guid-return"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-no-input-dto-return-collection"));
+            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-response-dto-return"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.animals.make-sound-command"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.animals.order-animal"));
