@@ -7,7 +7,6 @@ using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

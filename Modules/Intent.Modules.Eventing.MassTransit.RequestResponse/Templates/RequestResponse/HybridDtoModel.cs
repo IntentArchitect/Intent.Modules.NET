@@ -6,7 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
+namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse;
 
 public class HybridDtoModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IElementWrapper
 {

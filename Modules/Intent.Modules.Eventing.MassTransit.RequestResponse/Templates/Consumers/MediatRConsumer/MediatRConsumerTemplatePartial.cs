@@ -34,38 +34,24 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.Consumer
                 },
                 configureConsumeMethod: (@class, method, tMessage) =>
                 {
-                    method.AddStatement($"var sender = _serviceProvider.GetRequiredService<{UseType("MediatR.ISender")}>();",
-                        stmt => stmt.AddMetadata("handler", "instantiate").SeparatedFromPrevious());
-
                     method.AddStatement(
                         $$"""
-                        object request;
-                        if (context.Message is {{this.GetMapperRequestInterfaceName()}} mapperRequest)
+                        if (context.Message is not {{this.GetMapperRequestInterfaceName()}} mapperRequest)
                         {
-                            request = mapperRequest.CreateRequest();
+                            throw new Exception("Message type must inherit from IMapperRequest in order to proceed");
                         }
-                        else
-                        {
-                            request = context.Message;
-                        }
+                        var request = mapperRequest.CreateRequest();
                         """);
 
+                    method.AddStatement($"var sender = _serviceProvider.GetRequiredService<{UseType("MediatR.ISender")}>();",
+                        stmt => stmt.AddMetadata("handler", "instantiate").SeparatedFromPrevious());
                     method.AddStatement($"var response = await sender.Send(request, context.CancellationToken);",
                         stmt => stmt.AddMetadata("handler", "execute"));
 
                     method.AddStatement(
                         $$"""
-                          switch (response)
-                          {
-                              case null:
-                              case MediatR.Unit:
-                                  await context.RespondAsync({{this.GetRequestCompletedMessageName()}}.Instance);
-                                  break;
-                              case not MediatR.Unit:
-                                  var mappedResponse = {{this.GetResponseMappingFactoryName()}}.CreateResponseMessage(response);
-                                  await context.RespondAsync(mappedResponse);
-                                  break;
-                          }
+                          var mappedResponse = {{this.GetResponseMappingFactoryName()}}.CreateResponseMessage(request, response);
+                          await context.RespondAsync(mappedResponse);
                           """, stmt => stmt.SeparatedFromPrevious());
                 },
                 applyStandardUnitOfWorkLogic: false);

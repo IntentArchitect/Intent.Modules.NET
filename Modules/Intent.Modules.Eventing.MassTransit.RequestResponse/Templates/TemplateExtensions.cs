@@ -9,12 +9,12 @@ using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContra
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.ServiceContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientImplementations.ServiceRequestClient;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.Consumers.MediatRConsumer;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestInterface;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperResponseMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.RequestCompletedMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.ResponseMappingFactory;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

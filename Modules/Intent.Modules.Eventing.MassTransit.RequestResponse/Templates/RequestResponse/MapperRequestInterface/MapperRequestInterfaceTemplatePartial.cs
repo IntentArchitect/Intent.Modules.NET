@@ -8,7 +8,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.RequestCompletedMessage;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -33,7 +32,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                     });
                 });
         }
-        
+
         public override bool CanRunTemplate()
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);

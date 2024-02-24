@@ -4,12 +4,13 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.DtoContract;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestInterface;
-using Intent.Modules.Eventing.MassTransit.Templates.RequestResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,8 +27,10 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MapperRequestMessageTemplate(IOutputTarget outputTarget, HybridDtoModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Application.Command);
             AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
             CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), this.GetFolderPath())
                 .AddClass(model.Name, @class =>

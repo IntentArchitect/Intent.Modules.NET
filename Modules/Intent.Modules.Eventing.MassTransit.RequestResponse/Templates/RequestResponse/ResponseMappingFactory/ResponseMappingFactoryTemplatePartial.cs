@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestInterface;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperResponseMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.RequestCompletedMessage;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.ResponseMappingFactory;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,77 +23,66 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.ResponseMappingFactory
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class ResponseMappingFactoryTemplate : CSharpTemplateBase<IList<DTOModel>>, ICSharpFileBuilderTemplate
+    public partial class ResponseMappingFactoryTemplate : CSharpTemplateBase<IList<HybridDtoModel>>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ResponseMappingFactoryTemplate(IOutputTarget outputTarget, IList<DTOModel> model) : base(TemplateId, outputTarget, model)
+        public ResponseMappingFactoryTemplate(IOutputTarget outputTarget, IList<HybridDtoModel> model) : base(TemplateId, outputTarget, model)
         {
-            const string dictReturnType = "Dictionary<Type, Func<object, object>>";
-            const string createRequestCompletedMessage = "CreateRequestCompletedMessage";
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
-                .AddClass($"ResponseMappingFactory", @class =>
+                .AddUsing("System.Linq")
+                .AddClass("ResponseMappingFactory", @class =>
                 {
                     @class.Static();
-                    @class.AddField(dictReturnType, "MappingLookup", field =>
-                    {
-                        field.PrivateReadOnly().Static();
-                        field.WithAssignment(new CSharpStatement("CreateLookup()"));
-                    });
                     @class.AddMethod("object", "CreateResponseMessage", method =>
                     {
-                        method.AddParameter("object", "originalResponse");
                         method.Static();
-                        method.AddStatement(
-                            $$"""
-                              var responseType = originalResponse.GetType();
-                              if (MappingLookup.TryGetValue(responseType, out var predefinedMappingFunc))
-                              {
-                                  return predefinedMappingFunc(originalResponse);
-                              }
-
-                              return {{createRequestCompletedMessage}}(originalResponse);
-                              """);
-                    });
-                    @class.AddMethod(dictReturnType, "CreateLookup", method =>
-                    {
-                        method.Private().Static();
-                        method.AddStatement($"var mappingLookup = new {dictReturnType}();");
-                        foreach (var dtoModel in Model)
+                        method.AddParameter("object", "originalRequest");
+                        method.AddParameter($"object{NullableEnabled}", "originalResponse");
+                        method.AddSwitchStatement("originalRequest", switchStmt =>
                         {
-                            var sourceType = GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, dtoModel);
-                            var destType = GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, dtoModel);
-                            method.AddStatement($"AddMapping<{sourceType}, {destType}>(mappingLookup);");
-                        }
-                        method.AddStatement("return mappingLookup;");
-                    });
-                    @class.AddMethod("void", "AddMapping", method =>
-                    {
-                        method.Private().Static();
-                        method.AddGenericParameter("TSource", out var tSource);
-                        method.AddGenericParameter("TDest", out var tDest);
-                        method.AddParameter(dictReturnType, "mappingLookup");
-                        method.AddGenericTypeConstraint(tDest, c => c.AddType("class"));
-                        method.AddStatement(
-                            $"mappingLookup.Add(typeof({tSource}), originalResponse => {createRequestCompletedMessage}(Activator.CreateInstance(typeof({tDest}), new[] {{ originalResponse }})!));");
-                    });
-                    @class.AddMethod("object", createRequestCompletedMessage, method =>
-                    {
-                        method.Private().Static();
-                        method.AddParameter("object", "response");
-                        method.AddStatement(
-                            $$"""
-                              var responseType = response.GetType();
-                              var genericType = typeof({{this.GetRequestCompletedMessageName()}}<>).MakeGenericType(responseType);
-                              var responseInstance = Activator.CreateInstance(genericType, new[] { response })!;
-                              return responseInstance;
-                              """);
+                            switchStmt.AddCase("null", block => block.AddStatement("throw new ArgumentNullException(nameof(originalRequest));"));
+
+                            foreach (var dtoModel in Model)
+                            {
+                                switchStmt.AddCase(GetFullyQualifiedTypeName(GetRelevantTemplateId(dtoModel), dtoModel.InternalElement), block =>
+                                {
+                                    switch (dtoModel.TypeReference?.Element)
+                                    {
+                                        case null:
+                                            block.WithReturn($"{this.GetRequestCompletedMessageName()}.Instance");
+                                            break;
+                                        case var element when element.SpecializationType == "DTO" && !dtoModel.TypeReference.IsCollection:
+                                            block.WithReturn($"new {this.GetRequestCompletedMessageName()}<{GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, element)}>(new {GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, element)}(({GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, element)})originalResponse))");
+                                            break;
+                                        case var element when element.SpecializationType == "DTO" && dtoModel.TypeReference.IsCollection:
+                                            block.WithReturn($"new {this.GetRequestCompletedMessageName()}<List<{GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, element)}>>(new List<{GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, element)}>(((List<{GetFullyQualifiedTypeName(TemplateRoles.Application.Contracts.Dto, element)}>)originalResponse).Select(s => new {GetFullyQualifiedTypeName(MapperResponseMessageTemplate.TemplateId, element)}(s)).ToList()))");
+                                            break;
+                                        case IElement element:
+                                            block.WithReturn($"new {this.GetRequestCompletedMessageName()}<{GetTypeName(element)}>(({GetTypeName(element)})originalResponse)");
+                                            break;
+                                    }
+                                });
+                            }
+
+                            switchStmt.AddDefault(block =>
+                                block.AddStatement(@"throw new ArgumentOutOfRangeException(originalRequest.GetType().Name, ""Unexpected request type"");"));
+                        });
                     });
                 });
+        }
+
+        private static string GetRelevantTemplateId(IElementWrapper dtoModel)
+        {
+            return dtoModel.InternalElement.SpecializationType switch
+            {
+                "Command" => TemplateRoles.Application.Command,
+                "Query" => TemplateRoles.Application.Query,
+                _ => TemplateRoles.Application.Contracts.Dto
+            };
         }
 
         public override bool CanRunTemplate()
@@ -97,8 +90,9 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             return TryGetTemplate<ITemplate>(MapperRequestInterfaceTemplate.TemplateId, out var requestTemplate) && requestTemplate.CanRunTemplate();
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        private string NullableEnabled => OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
+
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
