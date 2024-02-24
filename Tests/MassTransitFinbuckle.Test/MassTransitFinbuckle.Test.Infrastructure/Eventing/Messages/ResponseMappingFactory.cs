@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using MassTransitFinbuckle.Test.Services.RequestResponse;
 
@@ -10,37 +11,18 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing.Messages
 {
     public static class ResponseMappingFactory
     {
-        private static readonly Dictionary<Type, Func<object, object>> MappingLookup = CreateLookup();
 
-        public static object CreateResponseMessage(object originalResponse)
+        public static object CreateResponseMessage(object originalRequest, object? originalResponse)
         {
-            var responseType = originalResponse.GetType();
-            if (MappingLookup.TryGetValue(responseType, out var predefinedMappingFunc))
+            switch (originalRequest)
             {
-                return predefinedMappingFunc(originalResponse);
+                case null:
+                    throw new ArgumentNullException(nameof(originalRequest));
+                case MassTransitFinbuckle.Test.Application.RequestResponse.Test.TestCommand:
+                    return RequestCompletedMessage.Instance;
+                default:
+                    throw new ArgumentOutOfRangeException(originalRequest.GetType().Name, "Unexpected request type");
             }
-
-            return CreateRequestCompletedMessage(originalResponse);
-        }
-
-        private static Dictionary<Type, Func<object, object>> CreateLookup()
-        {
-            var mappingLookup = new Dictionary<Type, Func<object, object>>();
-            return mappingLookup;
-        }
-
-        private static void AddMapping<TSource, TDest>(Dictionary<Type, Func<object, object>> mappingLookup)
-            where TDest : class
-        {
-            mappingLookup.Add(typeof(TSource), originalResponse => CreateRequestCompletedMessage(Activator.CreateInstance(typeof(TDest), new[] { originalResponse })!));
-        }
-
-        private static object CreateRequestCompletedMessage(object response)
-        {
-            var responseType = response.GetType();
-            var genericType = typeof(RequestCompletedMessage<>).MakeGenericType(responseType);
-            var responseInstance = Activator.CreateInstance(genericType, new[] { response })!;
-            return responseInstance;
         }
     }
 }

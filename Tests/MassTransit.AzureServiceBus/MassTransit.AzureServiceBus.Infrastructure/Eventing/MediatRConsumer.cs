@@ -25,30 +25,17 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
         {
             var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
             eventBus.ConsumeContext = context;
+            if (context.Message is not IMapperRequest mapperRequest)
+            {
+                throw new Exception("Message type must inherit from IMapperRequest in order to proceed");
+            }
+            var request = mapperRequest.CreateRequest();
 
             var sender = _serviceProvider.GetRequiredService<ISender>();
-            object request;
-            if (context.Message is IMapperRequest mapperRequest)
-            {
-                request = mapperRequest.CreateRequest();
-            }
-            else
-            {
-                request = context.Message;
-            }
             var response = await sender.Send(request, context.CancellationToken);
 
-            switch (response)
-            {
-                case null:
-                case MediatR.Unit:
-                    await context.RespondAsync(RequestCompletedMessage.Instance);
-                    break;
-                case not MediatR.Unit:
-                    var mappedResponse = ResponseMappingFactory.CreateResponseMessage(response);
-                    await context.RespondAsync(mappedResponse);
-                    break;
-            }
+            var mappedResponse = ResponseMappingFactory.CreateResponseMessage(request, response);
+            await context.RespondAsync(mappedResponse);
         }
     }
 
