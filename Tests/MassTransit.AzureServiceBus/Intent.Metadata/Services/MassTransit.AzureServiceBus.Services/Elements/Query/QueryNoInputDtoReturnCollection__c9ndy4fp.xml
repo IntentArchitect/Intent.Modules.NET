@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9331aba3-7a48-4d97-87ae-3860ba4a1830" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>QueryNoInputDtoReturnCollection</name>
+  <display>QueryNoInputDtoReturnCollection: QueryResponseDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c375ccc5-bf1b-49c1-9cee-5b276474ab55">
+    <typeId>81995174-4e6f-48e6-a6c1-6c31c8337b39</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+    <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ac781ec5-5afd-4bf1-8943-33063dbf59a1</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5150384d-18a3-4c7e-a716-599e6658abde" name="Message Triggered">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+      <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+      <properties>
+        <property name="9c5844cf-9688-4d44-85a2-acce9feadb7d" display="Queue Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

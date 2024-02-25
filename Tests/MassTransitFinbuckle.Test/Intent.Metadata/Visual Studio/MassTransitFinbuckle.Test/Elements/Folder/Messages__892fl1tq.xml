@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3297fd77-c0a1-42de-841f-3475ef067814" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Messages</name>
+  <display>Messages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</parentFolderId>
+  <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+  <packageName>MassTransitFinbuckle.Test</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="a2d5a14a-7a93-44c5-814a-723c23e75e62" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3297fd77-c0a1-42de-841f-3475ef067814</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="23f7110d-5f3b-4c03-91fc-4b8b659cdcd1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3297fd77-c0a1-42de-841f-3475ef067814</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a195a32c-389c-4cfc-9b49-7150ac77a770" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3297fd77-c0a1-42de-841f-3475ef067814</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5cc7e236-e732-41b5-81ac-c03829b7ea63" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3297fd77-c0a1-42de-841f-3475ef067814</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

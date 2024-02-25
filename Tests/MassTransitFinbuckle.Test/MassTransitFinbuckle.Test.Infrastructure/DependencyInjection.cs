@@ -2,6 +2,7 @@ using Finbuckle.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using MassTransitFinbuckle.Test.Application.Common.Eventing;
 using MassTransitFinbuckle.Test.Application.Common.Interfaces;
+using MassTransitFinbuckle.Test.Application.IntegrationServices;
 using MassTransitFinbuckle.Test.Domain.Common.Interfaces;
 using MassTransitFinbuckle.Test.Infrastructure.Configuration;
 using MassTransitFinbuckle.Test.Infrastructure.Eventing;
@@ -27,6 +28,7 @@ namespace MassTransitFinbuckle.Test.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IRequestResponseService, RequestResponseService>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             return services;

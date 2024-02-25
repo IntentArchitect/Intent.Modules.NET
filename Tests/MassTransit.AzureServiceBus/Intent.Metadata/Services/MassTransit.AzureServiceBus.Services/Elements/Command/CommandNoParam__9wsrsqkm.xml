@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0b87328f-07bb-4578-9b9a-14242f38be3b" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CommandNoParam</name>
+  <display>CommandNoParam: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="efe4cad3-413e-4588-b9e2-be29a826509a">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ac781ec5-5afd-4bf1-8943-33063dbf59a1</parentFolderId>
+  <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
+  <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5150384d-18a3-4c7e-a716-599e6658abde" name="Message Triggered">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+      <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+      <properties>
+        <property name="9c5844cf-9688-4d44-85a2-acce9feadb7d" display="Queue Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

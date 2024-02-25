@@ -67,6 +67,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>382548a0-6b19-45a2-97e5-a9798283b423</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d9a708f8-4ce9-488d-aa6a-173ee30b185b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Api/Controllers/RequestResponseController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponseController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -331,11 +339,75 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>820bb1f8-e7d1-4a92-9829-5bdfd535b77f</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/IntegrationServices/Contracts/Services/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>25e3d335-a6e5-4f09-9d14-90c22f85a917</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/IntegrationServices/IRequestResponseService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRequestResponseService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2204336b-62f6-4ab7-9e95-ec6134ca1d62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/MassTransitFinbuckle.Test.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitFinbuckle.Test.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#51087972-d88d-4eb7-97d4-3360b97ea019</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Initial/InitialCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#51087972-d88d-4eb7-97d4-3360b97ea019</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Initial/InitialCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#51087972-d88d-4eb7-97d4-3360b97ea019</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Initial/InitialCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Test/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Test/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Test/TestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Test/TestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2204336b-62f6-4ab7-9e95-ec6134ca1d62</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Application/RequestResponse/Test/TestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/Test/TestCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -468,6 +540,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleSendingFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/FinbuckleSendingFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleSendingFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/IMapperRequest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMapperRequest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
@@ -476,10 +572,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.WrapperConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.Consumers.MediatRConsumer</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/MediatRConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/RequestCompletedMessage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestCompletedMessage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae70b2aa-38e8-4cac-a6df-d9ceef25be55</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient#53f040d7-de99-4d5b-a00c-8eeab5e06c71</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/RequestResponseService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestResponseService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

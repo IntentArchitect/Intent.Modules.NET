@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using System.Buffers;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 
 
 namespace Intent.Modules.Integration.HttpClients.Shared

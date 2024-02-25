@@ -44,6 +44,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
                     {
+                        // Only generates DTOs that are used by services
                         return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
                     }
 

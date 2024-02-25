@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>6.0.2</version>
+  <version>6.1.0-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -33,6 +33,22 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.Eventing.FinbucklePublishingFilter</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.FinbuckleSendingFilter" externalReference="056e50e9-e7f3-49e2-9b03-c47d9953ac3e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.FinbuckleSendingFilter</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.MassTransit.IntegrationEventConsumer" externalReference="44bdbb4b-004d-410f-87e7-f4b39206879f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
       <location>Eventing</location>
     </template>
     <template id="Intent.Eventing.MassTransit.IntegrationEventHandler" externalReference="f91a3b67-c1e4-4d0a-a64d-134a96b9a09a">
@@ -67,26 +83,18 @@
       <role>Infrastructure.Eventing.MassTransitEventBus</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.MassTransit.WrapperConsumer" externalReference="44bdbb4b-004d-410f-87e7-f4b39206879f">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.Consumer</role>
-      <location>Eventing</location>
-    </template>
   </templates>
   <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInterfaceExtension" externalReference="448aa827-fca7-4c42-afd7-79afd12e292a" />
-    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
-    <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfigurator" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
-    <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfigurator" externalReference="75840da1-9946-4375-845b-78aad753a902" />
+    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropExtension" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
+    <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfiguratorExtension" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
+    <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfiguratorExtension" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.1.0" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.2.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
@@ -96,7 +104,7 @@
     </detect>
     <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
       <install>
-        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.9" />
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.10" />
       </install>
     </detect>
   </interoperability>
@@ -145,6 +153,7 @@
     <dependency id="Intent.Eventing.Contracts" version="5.0.3" />
     <dependency id="Intent.Modelers.Domain" version="3.5.0" />
     <dependency id="Intent.Modelers.Eventing" version="5.0.2" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="5.0.3-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

@@ -9,6 +9,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

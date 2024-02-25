@@ -4,6 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Application.Common.Interfaces;
+using MassTransit.RabbitMQ.Application.IntegrationServices;
 using MassTransit.RabbitMQ.Domain.Common.Interfaces;
 using MassTransit.RabbitMQ.Domain.Repositories;
 using MassTransit.RabbitMQ.Infrastructure.Configuration;
@@ -32,6 +33,7 @@ namespace MassTransit.RabbitMQ.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<ICQRSService, CQRSService>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             return services;

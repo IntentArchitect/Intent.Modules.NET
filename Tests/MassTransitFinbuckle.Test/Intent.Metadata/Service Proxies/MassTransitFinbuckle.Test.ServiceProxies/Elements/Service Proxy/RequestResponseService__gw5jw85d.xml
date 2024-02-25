@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="53f040d7-de99-4d5b-a00c-8eeab5e06c71" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>RequestResponseService</name>
+  <display>RequestResponseService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>99d9853b-ec11-46cc-aa5c-f9341252f75f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="bd31e07e-3555-4558-b617-0462cc33b2f4" name="MassTransitFinbuckle.Test.Services" type="association" specialization="Services Package" />
+      <target id="d9a708f8-4ce9-488d-aa6a-173ee30b185b" name="RequestResponse" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>0246fdb7-5836-4c27-a6d9-4d516e72c36c</parentFolderId>
+  <packageId>0246fdb7-5836-4c27-a6d9-4d516e72c36c</packageId>
+  <packageName>MassTransitFinbuckle.Test.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="83cd95b2-6a15-47ee-af03-017a899011ac" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>TestCommand</name>
+      <display>TestCommand(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2726dc01-39b2-4255-a72e-017a573d2026">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="af742b22-8708-48c2-92c4-3971a8d95e6e" name="TestCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>53f040d7-de99-4d5b-a00c-8eeab5e06c71</parentFolderId>
+      <packageId>0246fdb7-5836-4c27-a6d9-4d516e72c36c</packageId>
+      <packageName>MassTransitFinbuckle.Test.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

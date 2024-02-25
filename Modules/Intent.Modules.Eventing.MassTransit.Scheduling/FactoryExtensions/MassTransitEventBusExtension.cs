@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -29,7 +30,7 @@ public class MassTransitEventBusExtension : FactoryExtensionBase
             priClass.AddField("List<ScheduleEntry>", "_messagesToSchedule", field => field
                 .PrivateReadOnly()
                 .WithAssignment("new List<ScheduleEntry>()"));
-            
+
             priClass.AddMethod("void", "SchedulePublish", method =>
             {
                 method.AddGenericParameter("T", out var T)
@@ -67,7 +68,7 @@ public class MassTransitEventBusExtension : FactoryExtensionBase
                     loop.AddStatement(
                         "await messageScheduler.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);");
                 });
-            
+
             @priClass.AddNestedClass("ScheduleEntry", nested =>
             {
                 nested.Private();

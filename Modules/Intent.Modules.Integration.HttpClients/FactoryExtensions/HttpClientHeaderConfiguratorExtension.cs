@@ -8,7 +8,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using System.Buffers;
 using System.Reflection;

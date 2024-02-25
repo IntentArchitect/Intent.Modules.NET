@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>9ca196f5-f72c-4eec-b2bd-30fceb91e158</id>
+  <name>MassTransit Service Proxy Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Service Proxies Package" typeId="46ef9b5e-e38c-48f2-8516-ea48c310ce23">
+      <requiredPackages />
+      <creationOptions />
+      <scriptOptions />
+      <typeOrder />
+      <macros>
+        <macro trigger="on-loaded">
+          <script>const messageRequestEndpointStereotype = "e8eaf275-8da4-4dde-8cc1-79bb1c6936c4";
+const messageTriggered = "5150384d-18a3-4c7e-a716-599e6658abde";
+
+lookupTypesOf("Operation").forEach(op =&gt; {
+    let mappedServiceIsMessageRequestEndpoint = op.getMapping()?.getElement()?.hasStereotype(messageTriggered);
+    if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !op.hasStereotype(messageRequestEndpointStereotype)) {
+        op.addStereotype(messageRequestEndpointStereotype);
+    } else if (!mappedServiceIsMessageRequestEndpoint &amp;&amp; op.hasStereotype(messageRequestEndpointStereotype)) {
+        op.removeStereotype(messageRequestEndpointStereotype);
+    }
+});</script>
+        </macro>
+      </macros>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>const messageRequestEndpointStereotype = "e8eaf275-8da4-4dde-8cc1-79bb1c6936c4";
+const messageTriggered = "5150384d-18a3-4c7e-a716-599e6658abde";
+
+let mappedServiceIsMessageRequestEndpoint = element.getMapping()?.getElement()?.hasStereotype(messageTriggered);
+if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !element.hasStereotype(messageRequestEndpointStereotype)) {
+    element.addStereotype(messageRequestEndpointStereotype);
+} else if (!mappedServiceIsMessageRequestEndpoint &amp;&amp; element.hasStereotype(messageRequestEndpointStereotype)) {
+    element.removeStereotype(messageRequestEndpointStereotype);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

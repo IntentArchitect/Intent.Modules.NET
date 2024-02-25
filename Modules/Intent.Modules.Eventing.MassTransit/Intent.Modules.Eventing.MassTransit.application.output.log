@@ -3,7 +3,7 @@
   <ApplicationId>8c05ab5b-e166-4c12-8c8c-5c230905057a</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#bcce5b02-db20-4e46-ad4d-112a36fb2f34</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#bcce5b02-db20-4e46-ad4d-112a36fb2f34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -60,24 +60,24 @@
       <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef3ae01c-196b-4529-95d2-cb9d5375b3e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/EventBusInteropInstaller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusInteropInstaller.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/EventBusInteropExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusInteropExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#869c1e00-4970-45e5-95c4-4641448ceeb1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/FinbuckleConfigurator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FinbuckleConfigurator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/FinbuckleConfiguratorExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleConfiguratorExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#75840da1-9946-4375-845b-78aad753a902</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/TelemetryConfigurator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TelemetryConfigurator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/TelemetryConfiguratorExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TelemetryConfiguratorExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -94,7 +94,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
@@ -162,6 +162,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#056e50e9-e7f3-49e2-9b03-c47d9953ac3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleSendingFilter/FinbuckleSendingFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#056e50e9-e7f3-49e2-9b03-c47d9953ac3e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FinbuckleSendingFilter/FinbuckleSendingFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleSendingFilter/FinbuckleSendingFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventConsumer/IntegrationEventConsumerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventConsumer/IntegrationEventConsumerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventConsumer/IntegrationEventConsumerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f91a3b67-c1e4-4d0a-a64d-134a96b9a09a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -210,6 +242,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#385f9f6d-cf4f-4e49-a247-2b5012a8c5d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitConfiguration/MassTransitConfigurationDecoratorContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96d30d6d-4c0b-470f-9586-2cd3f0984dd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MassTransitConfiguration/MassTransitConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -246,30 +286,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#dcbc9d8c-3261-4c3b-b6c6-f3da2dc7632c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/WrapperConsumer/ConsumerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer/ConsumerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

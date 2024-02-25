@@ -1,3 +1,8 @@
+### Version 6.1.0
+
+- Improvement: Renamed `ConsumerWrapper` to `IntegrationEventConsumer`.
+- Improvement: Bumped MassTransit nuget versions from `8.0.16` to `8.1.3`.
+
 ### Version 6.0.2
 
 - Feature: Support for Sending Commands.

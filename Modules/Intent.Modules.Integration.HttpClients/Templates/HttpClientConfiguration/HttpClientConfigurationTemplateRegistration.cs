@@ -11,6 +11,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;

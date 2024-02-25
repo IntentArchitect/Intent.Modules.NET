@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -22,7 +23,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.PagedResult
     {
         public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.PagedResult";
 
-        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget)
+        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new HttpServiceProxyMappedService())
         {
         }
 

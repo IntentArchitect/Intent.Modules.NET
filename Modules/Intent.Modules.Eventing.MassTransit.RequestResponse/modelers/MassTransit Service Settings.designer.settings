@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>18f48485-6e51-421e-8394-975a1d1bb132</id>
+  <name>MassTransit Service Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose as Message Triggered</text>
+          <icon type="FontAwesome" source="paper-plane" />
+          <script>const messageTriggeredStereotype = "5150384d-18a3-4c7e-a716-599e6658abde";
+
+if (!element.hasStereotype(messageTriggeredStereotype)) {
+    element.addStereotype(messageTriggeredStereotype);
+}</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+    <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose as Message Triggered</text>
+          <icon type="FontAwesome" source="paper-plane" />
+          <script>const messageTriggeredStereotype = "5150384d-18a3-4c7e-a716-599e6658abde";
+
+if (!element.hasStereotype(messageTriggeredStereotype)) {
+    element.addStereotype(messageTriggeredStereotype);
+}</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

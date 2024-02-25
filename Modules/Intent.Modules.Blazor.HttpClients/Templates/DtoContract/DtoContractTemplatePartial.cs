@@ -2,6 +2,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.EnumContract;
 using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
+using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
 using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.RoslynWeaver.Attributes;
 
@@ -23,7 +24,8 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 outputTarget: outputTarget,
                 model: model,
                 enumContractTemplateId: EnumContractTemplate.TemplateId,
-                pagedResultTemplateId: PagedResultTemplate.TemplateId)
+                pagedResultTemplateId: PagedResultTemplate.TemplateId,
+                fileNamespaceProvider: new OutputTargetFileNamespaceProvider())
         {
         }
     }

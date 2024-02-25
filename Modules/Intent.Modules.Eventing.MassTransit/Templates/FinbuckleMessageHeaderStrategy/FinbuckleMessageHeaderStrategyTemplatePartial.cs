@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -27,8 +28,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
                 .AddClass($"FinbuckleMessageHeaderStrategy", @class =>
                 {
                     @class.ImplementsInterface("IMultiTenantStrategy")
-                        .AddField("string", "tenantIdentifier".ToPrivateMemberName(), f => f.Private().WithAssignment("null!"))
-                        .AddMethod("Task<string>", "GetIdentifierAsync", method =>
+                        .AddField($"string{NullableSymbol}", "tenantIdentifier".ToPrivateMemberName(), f => f.Private())
+                        .AddMethod($"Task<string{NullableSymbol}>", "GetIdentifierAsync", method =>
                         {
                             method.AddParameter("object", "context")
                                 .AddStatement("return Task.FromResult(_tenantIdentifier);");
@@ -41,6 +42,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.FinbuckleMessageHeaderSt
                         ;
                 });
         }
+
+        private string NullableSymbol => OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransitFinbuckle.Test.Application.Common.Exceptions;
 using MassTransitFinbuckle.Test.Domain.Common.Exceptions;
@@ -17,6 +18,15 @@ namespace MassTransitFinbuckle.Test.Api.Filters
         {
             switch (context.Exception)
             {
+                case ValidationException exception:
+                    foreach (var error in exception.Errors)
+                    {
+                        context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                    }
+                    context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
+                    .AddContextInformation(context);
+                    context.ExceptionHandled = true;
+                    break;
                 case ForbiddenAccessException:
                     context.Result = new ForbidResult();
                     context.ExceptionHandled = true;

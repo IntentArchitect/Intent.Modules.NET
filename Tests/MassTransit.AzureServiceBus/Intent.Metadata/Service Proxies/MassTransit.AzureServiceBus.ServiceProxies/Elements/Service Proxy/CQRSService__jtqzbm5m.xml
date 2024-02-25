@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a85d85f3-da9c-42c1-85bb-94a5ae2baeb5" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>CQRSService</name>
+  <display>CQRSService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>947683f4-e363-421d-b7dc-387173a9aaea</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="13f85863-e934-4433-8ce6-ff5b15c25868" name="MassTransit.AzureServiceBus.Services" type="association" specialization="Services Package" />
+      <target id="0ab078c4-355c-444c-a62b-321c7db0cd31" name="RequestResponse" type="element" specialization="Folder" />
+      <target id="ac781ec5-5afd-4bf1-8943-33063dbf59a1" name="CQRS" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</parentFolderId>
+  <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+  <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="28f4d896-79a9-4c02-8741-acd74b202d38" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CommandDtoReturn</name>
+      <display>CommandDtoReturn(): CommandResponseDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4283d5e5-3726-45e8-a1d5-ee4058010529">
+        <typeId>8ffc28b8-26a2-425a-981f-9958e03e44c6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+        <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="6ec6529d-f2f0-459e-9eef-2d685935900f" name="CommandDtoReturn" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fb6e8ce0-ac76-4ea3-aa65-d35b20611391" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CommandGuidReturn</name>
+      <display>CommandGuidReturn(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5b1a847a-e2b9-4900-8908-2344bf111454">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b45cd451-ddb8-49ba-aad7-68c277e715ce" name="CommandGuidReturn" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3cf375fd-03e8-4fa1-a512-771a2a2a5cf4" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CommandNoParam</name>
+      <display>CommandNoParam(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="81dc78cc-eeb7-4cea-89ea-4fe0fdcc490a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="0b87328f-07bb-4578-9b9a-14242f38be3b" name="CommandNoParam" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="22126735-fe56-45cd-b895-7aceae4b5ffd" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CommandVoidReturn</name>
+      <display>CommandVoidReturn(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d9bad012-871e-4461-9075-3f557ff3b4a8">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="71a3299e-ff2b-4bde-880b-55b29a1f2cf3" name="CommandVoidReturn" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="df58e74d-5c07-47c5-9735-ae1fc8ff7937" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>QueryGuidReturn</name>
+      <display>QueryGuidReturn(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5f3b030d-3623-4e3c-a233-01e34be0f4b5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="57a6b2fd-38ba-4d1b-8f61-e030fe037806" name="QueryGuidReturn" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="99943b0a-54c1-44f5-b41d-0b2e141b307f" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>QueryNoInputDtoReturnCollection</name>
+      <display>QueryNoInputDtoReturnCollection(): QueryResponseDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2931c8d0-b4bd-40c1-96df-b44d03c3f676">
+        <typeId>81995174-4e6f-48e6-a6c1-6c31c8337b39</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+        <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9331aba3-7a48-4d97-87ae-3860ba4a1830" name="QueryNoInputDtoReturnCollection" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="478582eb-17d4-4530-88f2-6bd693ed58c5" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>QueryResponseDtoReturn</name>
+      <display>QueryResponseDtoReturn(): QueryResponseDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d95fef86-7782-4911-94f4-a0ea7cd97cd9">
+        <typeId>81995174-4e6f-48e6-a6c1-6c31c8337b39</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+        <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="2afa8b99-da5e-44a4-a65a-b4ff0cf70e59" name="QueryResponseDtoReturn" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -3,33 +3,25 @@
   <ApplicationId>b989913b-9bcd-478b-9134-e53553efd5f8</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#391b81be-0ee8-469f-835b-f3c5b2abfa6d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#391b81be-0ee8-469f-835b-f3c5b2abfa6d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#58f6ca28-016d-40b3-8d9a-16ad7e8ec3a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/OutboxTableSpecification.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OutboxTableSpecification.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#58f6ca28-016d-40b3-8d9a-16ad7e8ec3a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/OutboxTableSpecificationRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OutboxTableSpecificationRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>bb6301fb-7541-46b2-854d-8f95bea37d24</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef7c0f8f-14aa-4c0f-b0ea-3c1e876f4f8b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/EFOutboxPatternConfigurator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EFOutboxPatternConfigurator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/EFOutboxPatternConfiguratorExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EFOutboxPatternConfiguratorExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bb6301fb-7541-46b2-854d-8f95bea37d24</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#14b10fc4-f039-4a85-a6b6-d802f9e3e692</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/OutboxTableSpecificationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OutboxTableSpecificationExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -9,16 +9,18 @@
     <Import_RootNamespace>Intent.Modules.Contracts.Clients.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FileNamespaceProviders\OutputTargetFileNamespaceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileNamespaceProviders\SourcePackageFileNamespaceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IFileNamespaceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IServiceProxyMappedService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\DtoContract\DtoContractTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\PagedResult\PagedResultTypeSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceContract\ServiceContractTemplateBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\PagedResult\PagedResultTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ToFullyManagedUsingsMigration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Templates\DtoContract\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Templates\ServiceContract\" />
   </ItemGroup>
 </Project>

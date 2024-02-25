@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.Api
     {
         public static AzureServiceBusConsumerSettings GetAzureServiceBusConsumerSettings(this SubscribeIntegrationEventTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("Azure Service Bus Consumer Settings");
+            var stereotype = model.GetStereotype("a592112c-5f85-4755-b07c-cfa293fce8df");
             return stereotype != null ? new AzureServiceBusConsumerSettings(stereotype) : null;
         }
 
 
         public static bool HasAzureServiceBusConsumerSettings(this SubscribeIntegrationEventTargetEndModel model)
         {
-            return model.HasStereotype("Azure Service Bus Consumer Settings");
+            return model.HasStereotype("a592112c-5f85-4755-b07c-cfa293fce8df");
         }
 
         public static bool TryGetAzureServiceBusConsumerSettings(this SubscribeIntegrationEventTargetEndModel model, out AzureServiceBusConsumerSettings stereotype)
@@ -33,20 +33,20 @@ namespace Intent.Eventing.MassTransit.Api
                 return false;
             }
 
-            stereotype = new AzureServiceBusConsumerSettings(model.GetStereotype("Azure Service Bus Consumer Settings"));
+            stereotype = new AzureServiceBusConsumerSettings(model.GetStereotype("a592112c-5f85-4755-b07c-cfa293fce8df"));
             return true;
         }
 
         public static RabbitMQConsumerSettings GetRabbitMQConsumerSettings(this SubscribeIntegrationEventTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("Rabbit MQ Consumer Settings");
+            var stereotype = model.GetStereotype("43ff81bf-7e41-40c9-a1cd-041b4195cade");
             return stereotype != null ? new RabbitMQConsumerSettings(stereotype) : null;
         }
 
 
         public static bool HasRabbitMQConsumerSettings(this SubscribeIntegrationEventTargetEndModel model)
         {
-            return model.HasStereotype("Rabbit MQ Consumer Settings");
+            return model.HasStereotype("43ff81bf-7e41-40c9-a1cd-041b4195cade");
         }
 
         public static bool TryGetRabbitMQConsumerSettings(this SubscribeIntegrationEventTargetEndModel model, out RabbitMQConsumerSettings stereotype)
@@ -57,7 +57,7 @@ namespace Intent.Eventing.MassTransit.Api
                 return false;
             }
 
-            stereotype = new RabbitMQConsumerSettings(model.GetStereotype("Rabbit MQ Consumer Settings"));
+            stereotype = new RabbitMQConsumerSettings(model.GetStereotype("43ff81bf-7e41-40c9-a1cd-041b4195cade"));
             return true;
         }
 

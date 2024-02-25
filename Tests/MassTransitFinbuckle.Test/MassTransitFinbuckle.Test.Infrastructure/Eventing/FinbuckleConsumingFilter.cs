@@ -18,8 +18,8 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
     {
         private readonly string _headerName;
         private readonly FinbuckleMessageHeaderStrategy _messageHeaderStrategy;
-        private IMultiTenantContextAccessor _accessor;
-        private ITenantResolver _tenantResolver;
+        private readonly IMultiTenantContextAccessor _accessor;
+        private readonly ITenantResolver _tenantResolver;
 
         public FinbuckleConsumingFilter(IServiceProvider serviceProvider,
             IMultiTenantContextAccessor accessor,
@@ -29,9 +29,10 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
             _accessor = accessor;
             _tenantResolver = tenantResolver;
             _headerName = configuration.GetValue<string?>("MassTransit:TenantHeader") ?? "Tenant-Identifier";
-            _messageHeaderStrategy = (FinbuckleMessageHeaderStrategy)serviceProvider.GetRequiredService<IEnumerable<IMultiTenantStrategy>>()
-                              .Where(s => s.GetType() == typeof(FinbuckleMessageHeaderStrategy))
-                              .Single();
+
+            _messageHeaderStrategy = (FinbuckleMessageHeaderStrategy)serviceProvider
+                .GetRequiredService<IEnumerable<IMultiTenantStrategy>>()
+                .Single(s => s.GetType() == typeof(FinbuckleMessageHeaderStrategy));
         }
 
         public async Task Send(ConsumeContext<T> context, IPipe<ConsumeContext<T>> next)

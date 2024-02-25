@@ -15,7 +15,6 @@ using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Templates;
-using ServiceProxyHelpers = Intent.Modules.Application.Contracts.Clients.ServiceProxyHelpers;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
