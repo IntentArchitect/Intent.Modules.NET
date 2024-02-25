@@ -22,7 +22,8 @@ public class HttpServiceProxyMappedService : IServiceProxyMappedService
                 ReturnType: endpoint.ReturnType,
                 Inputs: endpoint.Inputs
                     .Select(input => new MappedEndpointInput(input.Id, input.Name, input.TypeReference))
-                    .ToArray()))
+                    .ToArray(),
+                InternalElement: endpoint.InternalElement))
             .ToArray();
     }
 }

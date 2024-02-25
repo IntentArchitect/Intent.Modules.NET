@@ -15,8 +15,9 @@ namespace Intent.Modules.Contracts.Clients.Shared
         string Id,
         string Name,
         ITypeReference TypeReference,
-        ITypeReference? ReturnType,
-        IReadOnlyCollection<MappedEndpointInput> Inputs) : IHasName;
+        ITypeReference ReturnType,
+        IReadOnlyCollection<MappedEndpointInput> Inputs,
+        IElement InternalElement) : IHasName;
 
     public record MappedEndpointInput : IHasName, IHasTypeReference, IMetadataModel
     {

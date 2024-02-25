@@ -29,6 +29,12 @@ internal class ServiceIntegrationCommandSendProducerFactory : IProducerFactory
                 {
                     queueName = $"{_template.GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model).ToKebabCase()}";
                 }
+
+                if (!queueName.StartsWith("queue:"))
+                {
+                    queueName = "queue:" + queueName;
+                }
+                
                 return new Producer(
                     MessageTypeName: _template.GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
                     Urn: queueName);

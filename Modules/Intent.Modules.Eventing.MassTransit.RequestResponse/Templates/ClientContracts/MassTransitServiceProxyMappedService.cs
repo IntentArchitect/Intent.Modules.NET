@@ -47,7 +47,8 @@ public class MassTransitServiceProxyMappedService : IServiceProxyMappedService
             Name: element.Name.RemoveSuffix(Command, Query),
             TypeReference: element.TypeReference,
             ReturnType: element.TypeReference,
-            Inputs: GetMappedEndpointInputs(element));
+            Inputs: GetMappedEndpointInputs(element),
+            InternalElement: element);
 
         static IReadOnlyCollection<MappedEndpointInput> GetMappedEndpointInputs(ICanBeReferencedType element)
         {

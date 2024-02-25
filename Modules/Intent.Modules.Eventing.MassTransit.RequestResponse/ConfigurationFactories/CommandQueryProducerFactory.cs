@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Eventing.MassTransit.RequestResponse.Api;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestMessage;
@@ -30,7 +32,27 @@ internal class CommandQueryProducerFactory : IProducerFactory
             .Select(endpoint =>
             {
                 var dtoFullName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, endpoint.Id);
-                return new Producer(dtoFullName, dtoFullName.ToKebabCase());
+                
+                var queueName = endpoint switch
+                {
+                    var element when endpoint.InternalElement.SpecializationType == CommandModel.SpecializationType => new CommandModel(endpoint.InternalElement)
+                        .GetMessageTriggered()?.QueueName(),
+                    var element when endpoint.InternalElement.SpecializationType == QueryModel.SpecializationType => new QueryModel(endpoint.InternalElement).GetMessageTriggered()
+                        ?.QueueName(),
+                    _ => null
+                };
+                
+                if (string.IsNullOrWhiteSpace(queueName))
+                {
+                    queueName = $"{dtoFullName.ToKebabCase()}";
+                }
+                
+                if (!queueName.StartsWith("queue:"))
+                {
+                    queueName = "queue:" + queueName;
+                }
+                
+                return new Producer(dtoFullName, queueName);
             })
             .ToArray();
         return results;

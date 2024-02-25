@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Eventing.MassTransit.RequestResponse.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -32,9 +34,19 @@ internal class MediatRConsumerFactory : IConsumerFactory
         var consumers = relevantCommands.Concat(relevantQueries)
             .Select(commandQuery =>
             {
-                string fullTypeName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, commandQuery);
+                var fullTypeName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, commandQuery);
                 var t = _template.GetTemplate<MapperRequestMessageTemplate>(MapperRequestMessageTemplate.TemplateId, commandQuery.Id);
-                string destinationAddress = $"{namespaceProvider.GetFileNamespace(t)}.{t.ClassName}".ToKebabCase();
+
+                var destinationAddress = commandQuery switch
+                {
+                    _ when commandQuery.SpecializationType == CommandModel.SpecializationType => new CommandModel(commandQuery).GetMessageTriggered()?.QueueName(),
+                    _ when commandQuery.SpecializationType == QueryModel.SpecializationType => new QueryModel(commandQuery).GetMessageTriggered()?.QueueName(),
+                    _ => null
+                };
+                if (string.IsNullOrWhiteSpace(destinationAddress))
+                {
+                    destinationAddress = $"{namespaceProvider.GetFileNamespace(t)}.{t.ClassName}".ToKebabCase();
+                }
 
                 return new Consumer(
                     MessageTypeFullName: fullTypeName,

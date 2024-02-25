@@ -331,7 +331,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.Private().Static();
 
             method.AddStatements(_producers.Select(producer =>
-                $@"EndpointConvention.Map<{producer.MessageTypeName}>(new Uri(""queue:{producer.Urn}""));"));
+                $@"EndpointConvention.Map<{producer.MessageTypeName}>(new Uri(""{producer.Urn}""));"));
         });
     }
 
