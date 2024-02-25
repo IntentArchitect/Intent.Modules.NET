@@ -5,6 +5,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared.FileNamespaceProviders;
@@ -25,6 +26,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MapperResponseMessageTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
@@ -33,7 +35,10 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                 {
                     @class.AddConstructor();
 
-                    if (TryGetTemplate<ITemplate>(TemplateRoles.Application.Contracts.Dto, Model, out _))
+                    var hasAppDto = TryGetTemplate<ITemplate>(TemplateRoles.Application.Contracts.Dto, Model, out _);
+                    var hasProxyDto = TryGetTemplate<ITemplate>(DtoContractTemplate.TemplateId, Model, out _);
+
+                    if (hasAppDto)
                     {
                         @class.AddConstructor(ctor =>
                         {
@@ -47,10 +52,20 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
 
                     foreach (var property in Model.Fields)
                     {
-                        @class.AddProperty(GetTypeName(property), property.Name);
+                        string typeToUse;
+                        if (property.TypeReference?.Element?.SpecializationType == "DTO")
+                        {
+                            typeToUse = GetFullyQualifiedTypeExpression(hasAppDto ? TemplateRoles.Application.Contracts.Dto : DtoContractTemplate.TemplateId, property);
+                        }
+                        else
+                        {
+                            typeToUse = GetTypeName(property);
+                        }
+
+                        @class.AddProperty(typeToUse, property.Name);
                     }
 
-                    if (TryGetTemplate<ITemplate>(DtoContractTemplate.TemplateId, Model, out _))
+                    if (hasProxyDto)
                     {
                         @class.AddMethod(GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, Model), "ToDto", method =>
                         {
@@ -68,6 +83,17 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
 
         private readonly SourcePackageFileNamespaceProvider _namespaceProvider = new();
 
+        private string GetFullyQualifiedTypeExpression(string templateId, DTOFieldModel fieldModel)
+        {
+            var type = GetFullyQualifiedTypeName(templateId, fieldModel.TypeReference.Element);
+            return fieldModel.TypeReference switch
+            {
+                var returnType when returnType.IsCollection => $"{UseType("System.Collections.Generic.List")}<{type}>",
+                var returnType when returnType.IsNullable => $"{type}?",
+                _ => type
+            };
+        }
+        
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
