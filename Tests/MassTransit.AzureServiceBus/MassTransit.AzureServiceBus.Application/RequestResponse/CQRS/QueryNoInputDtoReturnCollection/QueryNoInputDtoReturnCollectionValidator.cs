@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.QueryNoInputDtoReturnCollection
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class QueryNoInputDtoReturnCollectionValidator : AbstractValidator<QueryNoInputDtoReturnCollection>
     {
         [IntentManaged(Mode.Merge)]

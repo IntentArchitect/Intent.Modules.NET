@@ -31,8 +31,9 @@ namespace MassTransit.RetryPolicy.Incremental.Infrastructure.Configuration
                         configuration.GetValue<int?>("MassTransit:RetryIncremental:RetryLimit") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryIncremental:InitialInterval") ?? TimeSpan.FromSeconds(5),
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryIncremental:IntervalIncrement") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseInMemoryOutbox(context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

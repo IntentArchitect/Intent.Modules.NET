@@ -1,35 +1,45 @@
 using System;
 using System.Threading.Tasks;
 using System.Transactions;
+using CleanArchitecture.SingleFiles.Application.Common.Eventing;
+using CleanArchitecture.SingleFiles.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
-using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
-using Subscribe.MassTransit.OutboxMemory.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.WrapperConsumer", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventConsumer", Version = "1.0")]
 
-namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Eventing
+namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
 {
-    public class WrapperConsumer<THandler, TMessage> : IConsumer<TMessage>
+    public class IntegrationEventConsumer<THandler, TMessage> : IConsumer<TMessage>
         where TMessage : class
         where THandler : IIntegrationEventHandler<TMessage>
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly ICosmosDBUnitOfWork _cosmosDBUnitOfWork;
+        private readonly IDaprStateStoreUnitOfWork _daprStateStoreUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMongoDbUnitOfWork _mongoDbUnitOfWork;
 
-        public WrapperConsumer(IServiceProvider serviceProvider, IUnitOfWork unitOfWork)
+        public IntegrationEventConsumer(IServiceProvider serviceProvider,
+            ICosmosDBUnitOfWork cosmosDBUnitOfWork,
+            IDaprStateStoreUnitOfWork daprStateStoreUnitOfWork,
+            IUnitOfWork unitOfWork,
+            IMongoDbUnitOfWork mongoDbUnitOfWork)
         {
             _serviceProvider = serviceProvider;
+            _cosmosDBUnitOfWork = cosmosDBUnitOfWork ?? throw new ArgumentNullException(nameof(cosmosDBUnitOfWork));
+            _daprStateStoreUnitOfWork = daprStateStoreUnitOfWork ?? throw new ArgumentNullException(nameof(daprStateStoreUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetService<MassTransitEventBus>()!;
+            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
             eventBus.ConsumeContext = context;
-            var handler = _serviceProvider.GetService<THandler>()!;
+            var handler = _serviceProvider.GetRequiredService<THandler>();
 
             // The execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
@@ -51,26 +61,24 @@ namespace Subscribe.MassTransit.OutboxMemory.Infrastructure.Eventing
                 // disposed if anything failed.
                 transaction.Complete();
             }
+
+            await _cosmosDBUnitOfWork.SaveChangesAsync(context.CancellationToken);
+            await _daprStateStoreUnitOfWork.SaveChangesAsync(context.CancellationToken);
+            await _mongoDbUnitOfWork.SaveChangesAsync(context.CancellationToken);
             await eventBus.FlushAllAsync(context.CancellationToken);
         }
     }
 
-    public class WrapperConsumerDefinition<THandler, TMessage> : ConsumerDefinition<WrapperConsumer<THandler, TMessage>>
+    public class IntegrationEventConsumerDefinition<THandler, TMessage> : ConsumerDefinition<IntegrationEventConsumer<THandler, TMessage>>
         where TMessage : class
         where THandler : IIntegrationEventHandler<TMessage>
     {
-        private readonly IServiceProvider _serviceProvider;
-
-        public WrapperConsumerDefinition(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
-
         protected override void ConfigureConsumer(
             IReceiveEndpointConfigurator endpointConfigurator,
-            IConsumerConfigurator<WrapperConsumer<THandler, TMessage>> consumerConfigurator)
+            IConsumerConfigurator<IntegrationEventConsumer<THandler, TMessage>> consumerConfigurator,
+            IRegistrationContext context)
         {
-            endpointConfigurator.UseInMemoryInboxOutbox(_serviceProvider);
+            endpointConfigurator.UseInMemoryInboxOutbox(context);
         }
     }
 }

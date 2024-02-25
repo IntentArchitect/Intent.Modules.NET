@@ -100,18 +100,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>7182266d-2b3f-4c5e-972f-ff635ef3a589</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7182266d-2b3f-4c5e-972f-ff635ef3a589</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.WrapperConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

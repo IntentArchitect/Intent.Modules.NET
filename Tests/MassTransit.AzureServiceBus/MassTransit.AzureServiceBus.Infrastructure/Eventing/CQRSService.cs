@@ -36,7 +36,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandDtoReturn>>();
             var mappedCommand = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandDtoReturn(command);
-            var response = await client.GetResponse<RequestCompletedMessage<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandResponseDto>>(mappedCommand, cancellationToken);
+            var response = await client.GetResponse<RequestCompletedMessage<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandResponseDto>>(mappedCommand, ConfigureClient, cancellationToken);
             var mappedResponse = response.Message.Payload.ToDto();
             scope.Complete();
             return mappedResponse;
@@ -53,7 +53,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandGuidReturn>>();
             var mappedCommand = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandGuidReturn(command);
-            var response = await client.GetResponse<RequestCompletedMessage<Guid>>(mappedCommand, cancellationToken);
+            var response = await client.GetResponse<RequestCompletedMessage<Guid>>(mappedCommand, ConfigureClient, cancellationToken);
             var mappedResponse = response.Message.Payload;
             scope.Complete();
             return mappedResponse;
@@ -70,7 +70,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandNoParam>>();
             var mappedCommand = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandNoParam(command);
-            await client.GetResponse<RequestCompletedMessage>(mappedCommand, cancellationToken);
+            await client.GetResponse<RequestCompletedMessage>(mappedCommand, ConfigureClient, cancellationToken);
             scope.Complete();
         }
 
@@ -85,7 +85,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandVoidReturn>>();
             var mappedCommand = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandVoidReturn(command);
-            await client.GetResponse<RequestCompletedMessage>(mappedCommand, cancellationToken);
+            await client.GetResponse<RequestCompletedMessage>(mappedCommand, ConfigureClient, cancellationToken);
             scope.Complete();
         }
 
@@ -100,7 +100,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryGuidReturn>>();
             var mappedQuery = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryGuidReturn(query);
-            var response = await client.GetResponse<RequestCompletedMessage<Guid>>(mappedQuery, cancellationToken);
+            var response = await client.GetResponse<RequestCompletedMessage<Guid>>(mappedQuery, ConfigureClient, cancellationToken);
             var mappedResponse = response.Message.Payload;
             scope.Complete();
             return mappedResponse;
@@ -117,7 +117,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>>();
             var mappedQuery = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection(query);
-            var response = await client.GetResponse<RequestCompletedMessage<List<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDto>>>(mappedQuery, cancellationToken);
+            var response = await client.GetResponse<RequestCompletedMessage<List<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDto>>>(mappedQuery, ConfigureClient, cancellationToken);
             var mappedResponse = response.Message.Payload.Select(x => x.ToDto()).ToList();
             scope.Complete();
             return mappedResponse;
@@ -134,10 +134,16 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDtoReturn>>();
             var mappedQuery = new MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDtoReturn(query);
-            var response = await client.GetResponse<RequestCompletedMessage<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDto>>(mappedQuery, cancellationToken);
+            var response = await client.GetResponse<RequestCompletedMessage<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDto>>(mappedQuery, ConfigureClient, cancellationToken);
             var mappedResponse = response.Message.Payload.ToDto();
             scope.Complete();
             return mappedResponse;
+        }
+
+        private static void ConfigureClient<T>(IRequestPipeConfigurator<T> config)
+            where T : class
+        {
+            config.UseRetry(retry => retry.None());
         }
 
         public void Dispose()

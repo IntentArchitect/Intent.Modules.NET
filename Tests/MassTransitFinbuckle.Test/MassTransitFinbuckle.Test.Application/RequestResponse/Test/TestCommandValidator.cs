@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransitFinbuckle.Test.Application.RequestResponse.Test
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestCommandValidator : AbstractValidator<TestCommand>
     {
         [IntentManaged(Mode.Merge)]

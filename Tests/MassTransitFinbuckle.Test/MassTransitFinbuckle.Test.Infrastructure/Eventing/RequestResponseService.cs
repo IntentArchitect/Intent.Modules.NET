@@ -33,7 +33,13 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
             }
             var client = _serviceProvider.GetRequiredService<IRequestClient<MassTransitFinbuckle.Test.Services.RequestResponse.TestCommand>>();
             var mappedCommand = new MassTransitFinbuckle.Test.Services.RequestResponse.TestCommand(command);
-            await client.GetResponse<RequestCompletedMessage>(mappedCommand, cancellationToken);
+            await client.GetResponse<RequestCompletedMessage>(mappedCommand, ConfigureClient, cancellationToken);
+        }
+
+        private static void ConfigureClient<T>(IRequestPipeConfigurator<T> config)
+            where T : class
+        {
+            config.UseRetry(retry => retry.None());
         }
 
         public void Dispose()

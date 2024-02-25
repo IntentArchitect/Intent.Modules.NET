@@ -31,8 +31,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
                     cfg.UseMessageRetry(r => r.Interval(
                         configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseInMemoryOutbox(context);
                 });
                 x.AddInMemoryInboxOutbox();
             });
@@ -40,7 +41,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<WrapperConsumer<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>>(typeof(WrapperConsumerDefinition<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>)).Endpoint(config => config.InstanceId = "AdvancedMappingCrud-Repositories-Tests");
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>)).Endpoint(config => config.InstanceId = "AdvancedMappingCrud-Repositories-Tests");
         }
     }
 }

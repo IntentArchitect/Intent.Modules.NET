@@ -85,16 +85,28 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8bdeb4ed-626b-498e-83ba-c7ef47688d7b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.WrapperConsumer</name>
-      <display>Intent.Eventing.MassTransit.WrapperConsumer</display>
+    <childElement id="08a4b344-1a5d-4584-a674-e665cdbaf625" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
       <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc8a6b91-c147-470c-b9ea-b64aea5b07aa</parentFolderId>
-      <packageId>3fe47d94-1efe-4443-b2c9-0a13a61875b6</packageId>
-      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cc6bf50a-62d0-4c00-848d-af94a862f0ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc8a6b91-c147-470c-b9ea-b64aea5b07aa</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

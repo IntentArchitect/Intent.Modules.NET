@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandVoidReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CommandVoidReturnValidator : AbstractValidator<CommandVoidReturn>
     {
         [IntentManaged(Mode.Merge)]

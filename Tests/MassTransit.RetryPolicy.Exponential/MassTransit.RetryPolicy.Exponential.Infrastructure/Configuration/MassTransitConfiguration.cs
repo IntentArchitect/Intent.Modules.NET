@@ -32,8 +32,9 @@ namespace MassTransit.RetryPolicy.Exponential.Infrastructure.Configuration
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryExponential:MinInterval") ?? TimeSpan.FromSeconds(5),
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryExponential:MaxInterval") ?? TimeSpan.FromMinutes(30),
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryExponential:IntervalDelta") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseInMemoryOutbox(context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.QueryResponseDtoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class QueryResponseDtoReturnValidator : AbstractValidator<QueryResponseDtoReturn>
     {
         [IntentManaged(Mode.Merge)]

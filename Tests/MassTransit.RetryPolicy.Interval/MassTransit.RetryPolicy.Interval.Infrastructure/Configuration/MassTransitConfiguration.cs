@@ -30,8 +30,9 @@ namespace MassTransit.RetryPolicy.Interval.Infrastructure.Configuration
                     cfg.UseMessageRetry(r => r.Interval(
                         configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseInMemoryOutbox(context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

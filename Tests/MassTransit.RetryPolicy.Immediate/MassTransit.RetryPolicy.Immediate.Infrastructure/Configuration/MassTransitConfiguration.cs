@@ -29,8 +29,9 @@ namespace MassTransit.RetryPolicy.Immediate.Infrastructure.Configuration
                 {
                     cfg.UseMessageRetry(r => r.Immediate(
                         configuration.GetValue<int?>("MassTransit:RetryImmediate:RetryLimit") ?? 5));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseInMemoryOutbox(context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

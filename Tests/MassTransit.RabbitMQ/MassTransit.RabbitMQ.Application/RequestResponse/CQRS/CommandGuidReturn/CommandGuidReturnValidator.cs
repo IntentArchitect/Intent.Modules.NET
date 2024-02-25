@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandGuidReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CommandGuidReturnValidator : AbstractValidator<CommandGuidReturn>
     {
         [IntentManaged(Mode.Merge)]

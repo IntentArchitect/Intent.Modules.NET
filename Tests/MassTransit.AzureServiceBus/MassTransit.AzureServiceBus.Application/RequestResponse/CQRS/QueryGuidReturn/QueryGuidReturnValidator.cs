@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.QueryGuidReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class QueryGuidReturnValidator : AbstractValidator<QueryGuidReturn>
     {
         [IntentManaged(Mode.Merge)]

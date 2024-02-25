@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandNoParam
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CommandNoParamValidator : AbstractValidator<CommandNoParam>
     {
         [IntentManaged(Mode.Merge)]

@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandDtoReturn
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CommandDtoReturnValidator : AbstractValidator<CommandDtoReturn>
     {
         [IntentManaged(Mode.Merge)]
