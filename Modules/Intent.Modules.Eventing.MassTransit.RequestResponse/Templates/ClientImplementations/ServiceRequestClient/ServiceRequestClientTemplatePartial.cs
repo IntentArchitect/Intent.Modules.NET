@@ -33,8 +33,6 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
         public ServiceRequestClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            // AddTypeSource(DtoContractTemplate.TemplateId);
-            // AddTypeSource(EnumContractTemplate.TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
@@ -46,6 +44,15 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
                     @class.AddConstructor(ctor => ctor.AddParameter(UseType("System.IServiceProvider"), "serviceProvider", param => param.IntroduceReadonlyField()));
 
                     AddOperations(@class);
+
+                    @class.AddMethod("void", "ConfigureClient", method =>
+                    {
+                        method.Private().Static();
+                        method.AddGenericParameter("T", out var t);
+                        method.AddGenericTypeConstraint(t, cfg => cfg.AddType("class"));
+                        method.AddParameter($"IRequestPipeConfigurator<{t}>", "config");
+                        method.AddStatement("config.UseRetry(retry => retry.None());");
+                    });
 
                     @class.AddMethod("void", "Dispose");
                 });
@@ -102,6 +109,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
                     var type = mappedReturnType is not null ? $"{this.GetRequestCompletedMessageName()}<{mappedReturnType}>" : this.GetRequestCompletedMessageName();
                     var invoke = new CSharpInvocationStatement($"{prefix}await client.GetResponse<{type}>")
                         .AddArgument(mappedVar)
+                        .AddArgument("ConfigureClient")
                         .AddArgument("cancellationToken");
                     method.AddStatement(invoke);
 
