@@ -1,6 +1,7 @@
 ### Version 6.0.4
 
 - Fixed: If a nested compositional entity does not have an owner Id, it will no longer run the GetAllImplementationStrategy.
+- Fixed: GetAllImplementationStrategy will only execute when it can find a mapped Entity for compositional owner.
 
 ### Version 6.0.3
 
