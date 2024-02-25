@@ -30,10 +30,13 @@ namespace MinimalHostingModel.Infrastructure.Configuration
                     cfg.UseMessageRetry(r => r.Interval(
                         configuration.GetValue<int?>("MassTransit:RetryInterval:RetryCount") ?? 10,
                         configuration.GetValue<TimeSpan?>("MassTransit:RetryInterval:Interval") ?? TimeSpan.FromSeconds(5)));
+
                     cfg.ConfigureEndpoints(context);
-                    cfg.UseInMemoryOutbox();
+                    cfg.UseMessageScope(context);
+                    cfg.UseInMemoryOutbox(context);
                     cfg.UsePublishFilter(typeof(FinbucklePublishingFilter<>), context);
                     cfg.UseConsumeFilter(typeof(FinbuckleConsumingFilter<>), context);
+                    cfg.UseSendFilter(typeof(FinbuckleSendingFilter<>), context);
                 });
                 x.AddInMemoryInboxOutbox();
             });

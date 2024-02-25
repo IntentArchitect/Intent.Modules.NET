@@ -9,9 +9,9 @@ namespace MinimalHostingModel.Infrastructure.Eventing
 {
     public class FinbuckleMessageHeaderStrategy : IMultiTenantStrategy
     {
-        private string _tenantIdentifier = null!;
+        private string? _tenantIdentifier;
 
-        public Task<string> GetIdentifierAsync(object context)
+        public Task<string?> GetIdentifierAsync(object context)
         {
             return Task.FromResult(_tenantIdentifier);
         }

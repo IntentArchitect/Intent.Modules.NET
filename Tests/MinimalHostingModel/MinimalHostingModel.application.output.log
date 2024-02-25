@@ -932,18 +932,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleSendingFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleSendingFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinbuckleSendingFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.WrapperConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/WrapperConsumer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>WrapperConsumer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
