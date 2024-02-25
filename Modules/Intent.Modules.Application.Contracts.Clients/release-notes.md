@@ -1,4 +1,8 @@
-﻿### Version 5.0.5
+﻿### Version 5.0.6
+
+- Improvement: Improved internal processes for working with Service Proxies.
+
+### Version 5.0.5
 
 - Improvement: Updating various modules to use the more sophisticated CSharp mapping resolution systems.
 

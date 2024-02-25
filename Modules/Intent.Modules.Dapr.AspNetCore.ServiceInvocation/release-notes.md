@@ -1,6 +1,7 @@
 ﻿### Version 2.2.1
 
 - Improvement: File transfer ( upload / download ) support.
+- Improvement: Improved internal processes for working with Service Proxies.
  
 ### Version 2.2.0
 

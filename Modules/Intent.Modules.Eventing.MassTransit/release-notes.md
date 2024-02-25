@@ -2,6 +2,7 @@
 
 - Improvement: Renamed `ConsumerWrapper` to `IntegrationEventConsumer`.
 - Improvement: Bumped MassTransit nuget versions from `8.0.16` to `8.1.3`.
+- Improvement: `MassTransitConfigurationTemplate` has been revamped to allow for `Consumers` and `Producers` to be registered through `Decorators` to simplify config setup.
 
 ### Version 6.0.2
 

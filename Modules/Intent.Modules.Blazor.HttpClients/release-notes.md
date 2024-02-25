@@ -1,6 +1,7 @@
 ﻿### Version 3.1.1
 
 - Improvement: File transfer ( upload / download ) support.
+- Improvement: Improved internal processes for working with Service Proxies.
 
 ### Version 3.1.0
 
