@@ -20,3 +20,12 @@ Please visit this [Github Repository](https://github.com/IntentSoftware/Support/
 ## How to contribute?
 
 We appreciate your contributions! If you have improvements or new features you'd like to suggest for our modules, feel free to submit pull requests. To get started, please refer to our [Pull Request Process Guide](docs/external-prs.md) for detailed instructions on how to contribute effectively. We look forward to your valuable input!
+
+## Contribution guide-lines
+
+When submitting contributions to this repository ensure that the following has been done:
+
+- The Module version has been updated according to the Semantic Versioning scheme.
+- The Module compiles and installs successfully.
+- Test cases have been added to the Tests Intent Architect solution.
+- Run the `run-validations.bat` to ensure that it passes our pre-build validation checks.
