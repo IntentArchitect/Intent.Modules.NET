@@ -1,3 +1,7 @@
+### Version 3.6.2
+
+- Fixed: Modified default logging behavior from warning to Information to align with Serilog's default behavior.
+
 ### Version 3.6.1
 
 - Improvement: Modernized the Visual Studio icon to the 2022 version.

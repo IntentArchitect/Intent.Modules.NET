@@ -34,8 +34,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         {
             this.Write(" \r\n");
             this.Write(" \r\n");
-            this.Write("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  " +
-                    "\"AllowedHosts\": \"*\"\r\n}\r\n");
+            this.Write("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\"\r\n    }\r\n  }," +
+                    "\r\n  \"AllowedHosts\": \"*\"\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

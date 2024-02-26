@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4d920a6b-8adf-4ea1-a9f4-2131f8316ce3" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ConfigurationSettingsSerilogLoggingDecorator</name>
+  <display>ConfigurationSettingsSerilogLoggingDecorator: AppSettingsDecorator</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="10b4d483-c887-40f8-b57e-421774558154">
+    <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+    <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>8b0c1ac1-fec4-498c-8f04-76519c498003</parentFolderId>
+  <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+  <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
