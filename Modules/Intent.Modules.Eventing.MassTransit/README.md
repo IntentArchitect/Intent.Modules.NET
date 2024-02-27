@@ -23,9 +23,27 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 From version `6.0.0` of this Module, modeling Integration Events can be achieved from within the Services designer.
 
+### Create Eventing Package
+
+In order to start modeling Integration Events and Commands, it is recommended to start with creating a new Eventing package.
+
+![Create New Package](docs/images/create-new-package.png)
+
+Give it a name that will become the base Namespace for all Events and Commands that will be modeled and placed inside it.
+
+![Create New Package Dialog](docs/images/create-new-eventing-package-dialog.png)
+
+Once its created, you will need to reference this package from your Services package.
+
+![Add Package Reference](docs/images/add-package-reference.png)
+
+Now select your Eventing Package from the list.
+
+![Add Package Reference Dialog](docs/images/add-package-reference-dialog.png)
+
 ### Publishing Integration Events
 
-Create an Integration Event by right-clicking on a Folder and selecting `New Message`.
+Create an Integration Event by right-clicking on the Eventing Package or Folder and selecting `New Message`.
 
 ![New Message](docs/images/new-message.png)
 
@@ -62,7 +80,7 @@ Drag the line to the Event message and will then add a handler operation to work
 
 ### Sending Integration Commands
 
-Create an Integration Command by right-clicking on a Folder and selecting `New Integration Command`.
+Create an Integration Command by right-clicking on the Eventing Package or Folder and selecting `New Integration Command`.
 
 ![New Integration Command](docs/images/new-integration-command.png)
 
