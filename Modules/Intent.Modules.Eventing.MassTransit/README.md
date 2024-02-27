@@ -32,6 +32,7 @@ In order to start modeling Integration Events and Commands, it is recommended to
 Give it a name that will become the `base Namespace` for all Events and Commands that will be modeled and placed inside it.
 
 > ⚠️ **IMPORTANT**
+> 
 > MassTransit requires that both the Publisher and Subscriber have Messages with the exact same Names and Namespaces.
 
 ![Create New Package Dialog](docs/images/create-new-eventing-package-dialog.png)
@@ -142,6 +143,7 @@ Configure what your underlying message broker is, the supported options are:
 * Amazon SQS
 
 > ⚠️ **NOTE**
+> 
 > The in-memory transport is a great tool for testing, as it doesn't require a message broker to be installed or running. It's also very fast. But it isn't durable, and messages are gone if the bus is stopped or the process terminates. So, it's generally not a smart option for a production system
 
 ### Outbox Pattern Setting
@@ -153,6 +155,7 @@ Configure your Outbox pattern implementation, the supported options are:
 * [Entity Framework](https://masstransit.io/documentation/patterns/transactional-outbox)
 
 > ⚠️ **NOTE**
+> 
 > Using an Outbox pattern for Consumers will also introduce idempotency to ensure that the same messages doesn't get processed more than once.
 
 ### Retry Policy Setting
