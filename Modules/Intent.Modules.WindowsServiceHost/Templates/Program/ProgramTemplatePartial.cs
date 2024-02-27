@@ -26,7 +26,6 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddApplicationLoggingConfig();
 			var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
             CSharpFile = useTopLevelStatements
@@ -54,7 +53,8 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
 
                             .AddClass("Program", @class =>
                             {
-                                @class.AddMethod("void", "Main", method =>
+								AddApplicationLoggingConfig();
+								@class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
                                     method.AddParameter("string[]", "args");
@@ -88,7 +88,8 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddTopLevelStatements(tls =>
                             {
-                                AddGenericModelMainStatements(tls);
+								AddApplicationLoggingConfig();
+								AddGenericModelMainStatements(tls);
                                 tls.AddLocalMethod("IHostBuilder", "CreateHostBuilder", method =>
                                 {
                                     method.Static();
@@ -109,7 +110,8 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
 							.AddUsing("Microsoft.Extensions.DependencyInjection")
 							.AddClass("Program", @class =>
                             {
-                                @class.AddMethod("void", "Main", method =>
+								AddApplicationLoggingConfig();
+								@class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
                                     method.AddParameter("string[]", "args");
@@ -197,7 +199,6 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
 			this.ApplyAppSetting("Logging:EventLog:LogLevel:Microsoft", "Warning");
 			this.ApplyAppSetting("Logging:EventLog:LogLevel:Microsoft.Hosting.Lifetime", "Information");
 		}
-
 
 		private bool UseMinimalHostingModel => OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseMinimalHostingModel() == true;
 

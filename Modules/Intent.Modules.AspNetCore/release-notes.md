@@ -1,4 +1,8 @@
-﻿### Version 6.0.1
+﻿### Version 6.0.2
+
+- Improvement: Set the `Microsoft.AspNetCore` default logging level to be `Warning` in-line with VS Templates.
+
+### Version 6.0.1
 
 - Improvement: Dependent modules changed, version bumped.
 
