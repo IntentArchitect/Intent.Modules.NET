@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" version="3.1.0">
+  <name>Scheduling</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="57b933b6-cec8-4fd5-8060-948f5e39d45e">Scheduled Job</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="clock" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>94259f24-45e8-4ab6-9ae6-49407bc8b985</parentFolderId>
+  <order>0</order>
+  <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+  <packageName>Intent.QuartzScheduler</packageName>
+  <properties>
+    <property id="454e03bf-a9f4-41c2-af94-66e384085a90">
+      <name>Enabled</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2">
+      <hint>Cron expression for interval. [Quatz documentation](https://www.quartz-scheduler.net/documentation/quartz-3.x/how-tos/crontrigger.html)</hint>
+      <name>Cron Schedule</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

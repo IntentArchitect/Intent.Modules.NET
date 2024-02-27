@@ -15,6 +15,7 @@
       "Default": "Information",
       "Microsoft.AspNetCore": "Warning"
     }
-  },
+  }<#if (IncludeAllowHosts()) {#>, 
   "AllowedHosts": "*"
+<# }#>
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="38a308d3-3986-4a6a-9943-dc0d916cdcc3" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DependencyInjectionExtension</name>
+  <display>DependencyInjectionExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</parentFolderId>
+  <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+  <packageName>Intent.QuartzScheduler</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

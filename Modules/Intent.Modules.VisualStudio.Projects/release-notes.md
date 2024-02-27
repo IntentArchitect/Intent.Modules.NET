@@ -1,5 +1,6 @@
 ### Version 3.6.2
 
+- Improvement: `appsettings.json` added for `CSProject` using the `Microsoft.NET.Sdk.Worker` SDK e.g. Windows Services.
 - Fixed: Modified default logging behavior from Warning to Information to align with Serilog's default behavior.
 
 ### Version 3.6.1

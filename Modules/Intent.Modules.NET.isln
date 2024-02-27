@@ -131,5 +131,8 @@
     <application id="bf8f6060-e2f0-4326-9767-e3c546c7933c" name="Intent.Modules.AspNetCore.Identity.AccountController.Metadata" relativePath="Intent.Modules.AspNetCore.Identity.AccountController.Metadata/Intent.Modules.AspNetCore.Identity.AccountController.Metadata.application.config" />
     <application id="410ada20-8799-4d36-94ba-540b6061fca5" name="Redis.OM.Repositories" relativePath="Intent.Modules.Redis.OM.Repositories/Intent.Modules.Redis.OM.Repositories.application.config" />
     <application id="2241a76c-3847-48b0-932b-385092a325d2" name="Intent.Modules.Eventing.MassTransit.RequestResponse" relativePath="Intent.Modules.Eventing.MassTransit.RequestResponse/Intent.Modules.Eventing.MassTransit.RequestResponse.application.config" />
+    <application id="dfab424d-aea2-4c5e-9a49-d0e3cc7215e8" name="Intent.Modules.WindowsServiceHost" relativePath="Intent.Modules.WindowsServiceHost/Intent.Modules.WindowsServiceHost.application.config" />
+    <application id="2290890c-a17b-4ab3-a978-dc65f1c862a8" name="Intent.Modules.QuartzScheduler" relativePath="Intent.Modules.QuartzScheduler/Intent.Modules.QuartzScheduler.application.config" />
+    <application id="6c0933d2-4779-46ed-9096-135f2a0b10fc" name="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost" relativePath="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost/Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost.application.config" />
   </applications>
 </solution>

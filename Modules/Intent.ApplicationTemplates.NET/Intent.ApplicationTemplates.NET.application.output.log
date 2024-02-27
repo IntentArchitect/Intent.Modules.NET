@@ -42,6 +42,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#ca894a4c-ca0c-4d31-a058-1336c12bb71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.WindowsServiceHost/metadata.iatspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.WindowsServiceHost/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#61f239a7-101b-4b4d-bacc-19a6cc318a71</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ApplicationRelativeFilePath>

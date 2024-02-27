@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="57b933b6-cec8-4fd5-8060-948f5e39d45e" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
+  <name>Scheduled Job</name>
+  <display>Scheduled Job</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>02e13e2c-d86e-4cb8-9bc8-61d83c1b5447</parentFolderId>
+  <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+  <packageName>Intent.QuartzScheduler</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="d8f6f331-d4f0-4c75-aa91-f2e715cd9591" name="Type Reference Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8da796ff-e5b8-4a53-9c18-9176bfff8fbc" display="Mode" value="Disabled" isActive="true" />
+        <property name="07613cf6-d1bf-411c-96db-65daad7d07f4" display="Display Name" isActive="false" />
+        <property name="3941cc0b-503e-495a-bef3-9923a6554cee" display="Hint" isActive="false" />
+        <property name="b94f760c-0ce7-4176-bbae-97e26914b39c" display="Target Types" isActive="false" />
+        <property name="eedd06e4-e2b8-42f2-b882-c8ae9cecabb8" display="Represents" value="Reference" isActive="false" />
+        <property name="ff4b18c5-397b-4639-ba79-89939deb9834" display="Default Type Id" isActive="false" />
+        <property name="229dcbe7-f000-4ee9-a06a-febad727f7e1" display="Allow Nullable" value="true" isActive="false" />
+        <property name="d04ec558-6f6a-462b-b16a-9da1d7b4e9db" display="Allow Collection" value="true" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f406222b-31a8-435e-80f6-6a08f9108649" name="Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="5a9277a9-b808-4ade-bb57-840b51b0da3a" display="Save Mode" value="Default" isActive="true" />
+        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+        <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
+        <property name="b966a8e9-f298-4741-8397-fe49f29c248b" display="Icon Function" isActive="true" />
+        <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
+        <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
+        <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
+        <property name="ad2bbaa1-becc-477b-83d2-97179678e4bb" display="Allow Static" value="false" isActive="true" />
+        <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
+        <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
+        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="true" isActive="true" />
+        <property name="3a68e3cb-8014-4c43-9965-f6fc35589d37" display="Sort Children" value="By type then name" isActive="true" />
+        <property name="46180320-9a7e-4fe3-8351-f7524612a52c" display="Allow Find in View" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="c10cd3bc-3d4c-4b3b-b1f7-3b5797cbfa1a" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>57b933b6-cec8-4fd5-8060-948f5e39d45e</parentFolderId>
+      <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+      <packageName>Intent.QuartzScheduler</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="32c474b9-919b-498e-be7f-6391294a17b9" type="Association Creation Option" typeId="3dcfa78b-17ee-45b6-be03-8407d089ce76">
+          <name>Publishes scheduled command</name>
+          <display>Publishes scheduled command: Scheduled Command Publish Target End</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c135bab2-b087-4497-a2a3-d72f0209e11a">
+            <typeId>6c92ad1e-8353-4703-894f-12dc1db00acc</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.QuartzScheduler</typePackageName>
+            <typePackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c10cd3bc-3d4c-4b3b-b1f7-3b5797cbfa1a</parentFolderId>
+          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+          <packageName>Intent.QuartzScheduler</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="9682fe8b-bf51-4c87-b198-5fcfe8983852" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="46678a0e-dbb3-479a-a434-092390ec23ec" display="Shortcut" isActive="true" />
+                <property name="78e777be-eeac-4959-8196-8377fe677cc2" display="Shortcut (macOS)" isActive="true" />
+                <property name="10f05e81-2da2-403f-9c7d-b712c7d202ba" display="Default Name" isActive="true" />
+                <property name="eb46bd10-e8b6-4852-8e6b-659f42c82797" display="Type Order" isActive="true" />
+                <property name="aa9aed36-437b-4f74-896d-5cffef1817a2" display="Allow Multiple" value="true" isActive="true" />
+                <property name="f0268cd4-f075-4743-9d04-9dd4e7752c73" display="Is Option Visible Function" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ccac04d1-677c-4797-ade0-20299da88cfb" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>57b933b6-cec8-4fd5-8060-948f5e39d45e</parentFolderId>
+      <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+      <packageName>Intent.QuartzScheduler</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7d925c4e-7803-4f34-90db-fa344a80f74f" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Created</name>
+          <display>On Created: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="45f23b04-11f0-4029-a46c-bcaf1d58b324">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ccac04d1-677c-4797-ade0-20299da88cfb</parentFolderId>
+          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+          <packageName>Intent.QuartzScheduler</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let schedulingStereoTypeId = &quot;b7a34ab9-8f7f-415f-92bd-c85cfe02f29d&quot;;&#xD;&#xA;element.addStereotype(schedulingStereoTypeId);" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
