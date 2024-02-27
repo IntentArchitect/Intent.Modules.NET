@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Fixed: Added support for Serilog logging configuration in the `appsettings.json` file.
+
 ### Version 5.0.1
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

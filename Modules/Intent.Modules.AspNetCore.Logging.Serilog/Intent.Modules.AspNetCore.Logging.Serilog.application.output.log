@@ -3,9 +3,25 @@
   <ApplicationId>cf054ca4-89ca-4c22-8bbe-3f15409ae0ec</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#2abb7d45-6d56-4c7e-9d2f-bf32071b778e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2abb7d45-6d56-4c7e-9d2f-bf32071b778e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d04f578-7419-4575-b963-45826518d490</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4d920a6b-8adf-4ea1-a9f4-2131f8316ce3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsSerilogLoggingDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsSerilogLoggingDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d04f578-7419-4575-b963-45826518d490</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4d920a6b-8adf-4ea1-a9f4-2131f8316ce3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsSerilogLoggingDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsSerilogLoggingDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -19,7 +35,7 @@
     <FileLog>
       <ProjectId>a58a2fc1-5444-4388-8be7-0231516ce1d2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a58a2fc1-5444-4388-8be7-0231516ce1d2</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,14 +46,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a58a2fc1-5444-4388-8be7-0231516ce1d2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
