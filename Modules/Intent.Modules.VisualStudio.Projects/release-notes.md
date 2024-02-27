@@ -1,6 +1,6 @@
 ### Version 3.6.2
 
-- Fixed: Modified default logging behavior from warning to Information to align with Serilog's default behavior.
+- Fixed: Modified default logging behavior from Warning to Information to align with Serilog's default behavior.
 
 ### Version 3.6.1
 
