@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Api\" />
+    <Folder Include="docs\images\" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />

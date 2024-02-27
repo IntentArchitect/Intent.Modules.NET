@@ -29,7 +29,10 @@ In order to start modeling Integration Events and Commands, it is recommended to
 
 ![Create New Package](docs/images/create-new-package.png)
 
-Give it a name that will become the base Namespace for all Events and Commands that will be modeled and placed inside it.
+Give it a name that will become the `base Namespace` for all Events and Commands that will be modeled and placed inside it.
+
+> ⚠️ **IMPORTANT**
+> MassTransit requires that both the Publisher and Subscriber have Messages with the exact same Names and Namespaces.
 
 ![Create New Package Dialog](docs/images/create-new-eventing-package-dialog.png)
 
