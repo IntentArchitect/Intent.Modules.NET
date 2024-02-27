@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="285a5c4a-203e-47ae-8c8a-fddc15c7b1c9" type="Scheduled Job" typeId="57b933b6-cec8-4fd5-8060-948f5e39d45e">
+  <name>RunEvery15Seconds</name>
+  <display>RunEvery15Seconds</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82a423be-aa73-4ae7-acec-0eb4a420739a</parentFolderId>
+  <packageId>82a423be-aa73-4ae7-acec-0eb4a420739a</packageId>
+  <packageName>WindowsServiceHost.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" name="Scheduling">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.QuartzScheduler</definitionPackageName>
+      <definitionPackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</definitionPackageId>
+      <properties>
+        <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" isActive="true" />
+        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="*/15 * * * * ?" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

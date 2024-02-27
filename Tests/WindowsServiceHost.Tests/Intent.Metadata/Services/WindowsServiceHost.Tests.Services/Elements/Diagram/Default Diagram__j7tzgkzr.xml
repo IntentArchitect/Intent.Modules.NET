@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="372d2aeb-f5fb-495f-a3e9-6feb0e987d29" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>2aada1c6-c15a-4051-bab2-77d5e680493d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82a423be-aa73-4ae7-acec-0eb4a420739a</parentFolderId>
+  <packageId>82a423be-aa73-4ae7-acec-0eb4a420739a</packageId>
+  <packageName>WindowsServiceHost.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>82a423be-aa73-4ae7-acec-0eb4a420739a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

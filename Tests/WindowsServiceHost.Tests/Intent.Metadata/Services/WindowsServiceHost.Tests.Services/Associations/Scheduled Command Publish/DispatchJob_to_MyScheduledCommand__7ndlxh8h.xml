@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="440ecf6e-c6de-4260-86cf-82c4aefabd11">
+  <sourceEnd id="2eff1b2b-568e-40a7-9189-d77749c9dfc6" type="Scheduled Command Publish Source End" typeId="cdc46a25-9f81-4ea8-9a5d-d9e9a283652b">
+    <display>publishes: WindowsServiceHost.Tests.Services.DispatchJob</display>
+    <order>0</order>
+    <typeReference id="cf570ac3-094a-433f-bb0f-25b6baa47990">
+      <typeId>73d82674-483c-4ae8-a313-a1d45365abb8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WindowsServiceHost.Tests.Services</typePackageName>
+      <typePackageId>82a423be-aa73-4ae7-acec-0eb4a420739a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="440ecf6e-c6de-4260-86cf-82c4aefabd11" type="Scheduled Command Publish Target End" typeId="6c92ad1e-8353-4703-894f-12dc1db00acc">
+    <display>publishes: MyScheduledCommand</display>
+    <order>0</order>
+    <typeReference id="1687764f-89f8-4bcb-9cee-8c9d2eaebd31">
+      <typeId>bb6f5d37-756f-4127-8c9a-a832472aa945</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>WindowsServiceHost.Tests.Services</typePackageName>
+      <typePackageId>82a423be-aa73-4ae7-acec-0eb4a420739a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>411881c2-8521-4d56-91a3-54bb48bce507</associationTypeId>
+  <stereotypes />
+</association>

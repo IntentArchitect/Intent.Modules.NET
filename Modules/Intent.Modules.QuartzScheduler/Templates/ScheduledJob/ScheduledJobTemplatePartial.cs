@@ -44,8 +44,8 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                     });
                     @class.AddMethod("Task", "Execute", async method =>
                     {
-						method.AddAttribute("IntentManaged(Mode.Fully, Signature = Mode.Fully)");
-						method.AddParameter("IJobExecutionContext", "context");
+                        method.AddAttribute("IntentManaged(Mode.Fully, Signature = Mode.Fully)");
+                        method.AddParameter("IJobExecutionContext", "context");
                         if (model.PublishedCommand() != null)
                         {
                             method.Async();
