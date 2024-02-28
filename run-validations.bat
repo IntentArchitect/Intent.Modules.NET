@@ -1,3 +1,3 @@
 @ECHO OFF
-powershell ./PipelineScripts/pre-build-validation.ps1 "Intent.Modules.NET"
+powershell ./PipelineScripts/pre-build-validation.ps1
 PAUSE
