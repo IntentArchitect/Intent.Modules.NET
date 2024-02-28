@@ -15,7 +15,7 @@
   <childElements>
     <childElement id="d3a2ea52-1370-436e-8c72-1bda67147dd4" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
       <name>Target Framework</name>
-      <display>Target Framework = target-framework</display>
+      <display>Target Framework</display>
       <isAbstract>false</isAbstract>
       <value>target-framework</value>
       <sort-children>manually</sort-children>
@@ -41,7 +41,7 @@
       <childElements>
         <childElement id="2dc5a56a-65f6-4234-80f7-8dec7e93747f" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 8.0</name>
-          <display>.NET 8.0 = f8b1618d-1e64-4c2c-9787-e0725c3633a1</display>
+          <display>.NET 8.0</display>
           <isAbstract>false</isAbstract>
           <value>f8b1618d-1e64-4c2c-9787-e0725c3633a1</value>
           <genericTypes />
@@ -55,7 +55,7 @@
         </childElement>
         <childElement id="a05186e8-7c95-407e-8d4f-7c16508bfe58" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 7.0</name>
-          <display>.NET 7.0 = 0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</display>
+          <display>.NET 7.0</display>
           <isAbstract>false</isAbstract>
           <value>0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</value>
           <genericTypes />
@@ -69,7 +69,7 @@
         </childElement>
         <childElement id="8009a547-26f2-4c85-91b8-2b65f6ade9a2" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 6.0</name>
-          <display>.NET 6.0 = 16d99e3e-7b91-42f8-ae3b-2686edde94b7</display>
+          <display>.NET 6.0</display>
           <isAbstract>false</isAbstract>
           <value>16d99e3e-7b91-42f8-ae3b-2686edde94b7</value>
           <genericTypes />
@@ -83,7 +83,7 @@
         </childElement>
         <childElement id="eeec0c27-c0ac-4484-a69e-75039f12c963" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 5.0</name>
-          <display>.NET 5.0 = 9880b776-9b13-4ff6-87b3-2219cfa66652</display>
+          <display>.NET 5.0</display>
           <isAbstract>false</isAbstract>
           <value>9880b776-9b13-4ff6-87b3-2219cfa66652</value>
           <genericTypes />
@@ -97,7 +97,7 @@
         </childElement>
         <childElement id="99e95504-0934-4e20-bc7f-a81da5248c14" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET Core 3.1</name>
-          <display>.NET Core 3.1 = d603dbfd-3361-4406-b5c0-efc2ac6f33fc</display>
+          <display>.NET Core 3.1</display>
           <isAbstract>false</isAbstract>
           <value>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</value>
           <genericTypes />
