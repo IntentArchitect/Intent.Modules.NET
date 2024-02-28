@@ -184,13 +184,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 }
             }
 
-            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
+
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency() && Model.ParentClass == null;
             if (useOptimisticConcurrency)
             {
                 // Etag implementation:
                 @class.AddField("string?", "_etag", field =>
                 {
-                    field.Private();
+                    field.Protected(); 
                     field.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"_etag\")");
                 });
 

@@ -13,6 +13,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal class IdTestingDocument : IIdTestingDocument, ICosmosDBDocument<IIdTesting, IdTesting, IdTestingDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("id")]
         string IItem.Id
         {
@@ -25,6 +27,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Identifier { get; set; } = default!;
         [JsonProperty("@id")]
         public string Id { get; set; } = default!;
@@ -39,22 +42,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public IdTestingDocument PopulateFromEntity(IIdTesting entity)
+        public IdTestingDocument PopulateFromEntity(IIdTesting entity, string? etag = null)
         {
             Identifier = entity.Identifier;
             Id = entity.Id;
 
+            _etag = etag;
+
             return this;
         }
 
-        public static IdTestingDocument? FromEntity(IIdTesting? entity)
+        public static IdTestingDocument? FromEntity(IIdTesting? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new IdTestingDocument().PopulateFromEntity(entity);
+            return new IdTestingDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

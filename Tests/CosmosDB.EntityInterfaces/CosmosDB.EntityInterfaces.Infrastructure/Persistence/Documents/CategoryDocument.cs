@@ -13,12 +13,15 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal class CategoryDocument : ICategoryDocument, ICosmosDBDocument<ICategory, Category, CategoryDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
 
@@ -32,22 +35,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public CategoryDocument PopulateFromEntity(ICategory entity)
+        public CategoryDocument PopulateFromEntity(ICategory entity, string? etag = null)
         {
             Id = entity.Id;
             Name = entity.Name;
 
+            _etag = etag;
+
             return this;
         }
 
-        public static CategoryDocument? FromEntity(ICategory? entity)
+        public static CategoryDocument? FromEntity(ICategory? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new CategoryDocument().PopulateFromEntity(entity);
+            return new CategoryDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

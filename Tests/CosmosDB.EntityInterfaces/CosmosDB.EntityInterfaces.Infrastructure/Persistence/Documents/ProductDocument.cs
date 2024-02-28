@@ -15,12 +15,15 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal class ProductDocument : IProductDocument, ICosmosDBDocument<IProduct, Product, ProductDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
         public List<string> CategoriesIds { get; set; } = default!;
@@ -37,23 +40,25 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public ProductDocument PopulateFromEntity(IProduct entity)
+        public ProductDocument PopulateFromEntity(IProduct entity, string? etag = null)
         {
             Id = entity.Id;
             Name = entity.Name;
             CategoriesIds = entity.CategoriesIds.ToList();
 
+            _etag = etag;
+
             return this;
         }
 
-        public static ProductDocument? FromEntity(IProduct? entity)
+        public static ProductDocument? FromEntity(IProduct? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ProductDocument().PopulateFromEntity(entity);
+            return new ProductDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

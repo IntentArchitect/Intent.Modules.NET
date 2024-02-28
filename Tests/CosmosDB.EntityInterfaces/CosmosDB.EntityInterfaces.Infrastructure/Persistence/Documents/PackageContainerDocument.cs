@@ -13,6 +13,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal class PackageContainerDocument : IPackageContainerDocument, ICosmosDBDocument<IPackageContainer, PackageContainer, PackageContainerDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
@@ -24,6 +26,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             get => PackagePartitionKey;
             set => PackagePartitionKey = value!;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string PackagePartitionKey { get; set; } = default!;
 
@@ -37,22 +40,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public PackageContainerDocument PopulateFromEntity(IPackageContainer entity)
+        public PackageContainerDocument PopulateFromEntity(IPackageContainer entity, string? etag = null)
         {
             Id = entity.Id;
             PackagePartitionKey = entity.PackagePartitionKey;
 
+            _etag = etag;
+
             return this;
         }
 
-        public static PackageContainerDocument? FromEntity(IPackageContainer? entity)
+        public static PackageContainerDocument? FromEntity(IPackageContainer? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new PackageContainerDocument().PopulateFromEntity(entity);
+            return new PackageContainerDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

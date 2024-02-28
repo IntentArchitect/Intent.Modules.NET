@@ -16,7 +16,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     {
         private string? _type;
         [JsonProperty("_etag")]
-        private string? _etag;
+        protected string? _etag;
         public string Id { get; set; } = default!;
 
         public BaseType ToEntity(BaseType? entity = default)

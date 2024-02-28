@@ -183,7 +183,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .AddStatement(
                                 "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
                                 , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                            .AddIfStatement("documents == null || !documents.Any()", stmt => 
+                            .AddIfStatement("documents == null || !documents.Any()", stmt =>
                             {
                                 stmt.AddStatement("return default;");
                             })

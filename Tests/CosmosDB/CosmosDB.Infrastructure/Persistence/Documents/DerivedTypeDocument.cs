@@ -12,9 +12,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 {
     internal class DerivedTypeDocument : BaseTypeDocument, IDerivedTypeDocument, ICosmosDBDocument<DerivedType, DerivedTypeDocument>
     {
-        [JsonProperty("_etag")]
-        private string? _etag;
-        string? IItemWithEtag.Etag => _etag;
         public string DerivedTypeAggregateId { get; set; } = default!;
         public DerivedType ToEntity(DerivedType? entity = default)
         {
