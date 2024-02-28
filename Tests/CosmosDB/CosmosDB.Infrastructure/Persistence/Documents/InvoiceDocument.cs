@@ -18,7 +18,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     {
         private string? _type;
         [JsonProperty("_etag")]
-        private string? _etag;
+        protected string? _etag;
         public string Id { get; set; } = default!;
         public string ClientIdentifier { get; set; } = default!;
         public DateTime Date { get; set; }

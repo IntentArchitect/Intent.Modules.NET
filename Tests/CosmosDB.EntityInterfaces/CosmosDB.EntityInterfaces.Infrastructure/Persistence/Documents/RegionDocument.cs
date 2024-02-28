@@ -15,12 +15,15 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal class RegionDocument : IRegionDocument, ICosmosDBDocument<IRegion, Region, RegionDocument>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
         public List<CountryDocument> Countries { get; set; } = default!;
@@ -37,23 +40,25 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public RegionDocument PopulateFromEntity(IRegion entity)
+        public RegionDocument PopulateFromEntity(IRegion entity, string? etag = null)
         {
             Id = entity.Id;
             Name = entity.Name;
             Countries = entity.Countries.Select(x => CountryDocument.FromEntity(x)!).ToList();
 
+            _etag = etag;
+
             return this;
         }
 
-        public static RegionDocument? FromEntity(IRegion? entity)
+        public static RegionDocument? FromEntity(IRegion? entity, string? etag = null)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new RegionDocument().PopulateFromEntity(entity);
+            return new RegionDocument().PopulateFromEntity(entity, etag);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
     {
         private string? _type;
         [JsonProperty("_etag")]
-        private string? _etag;
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {

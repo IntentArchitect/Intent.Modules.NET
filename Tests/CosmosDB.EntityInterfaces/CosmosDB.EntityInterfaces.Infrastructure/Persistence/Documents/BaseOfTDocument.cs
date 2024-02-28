@@ -13,12 +13,15 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
     internal abstract class BaseOfTDocument<T> : IBaseOfTDocument<T>, ICosmosDBDocument<IBaseOfT<T>, BaseOfT<T>, BaseOfTDocument<T>>
     {
         private string? _type;
+        [JsonProperty("_etag")]
+        protected string? _etag;
         [JsonProperty("type")]
         string IItem.Type
         {
             get => _type ??= GetType().GetNameForDocument();
             set => _type = value;
         }
+        string? IItemWithEtag.Etag => _etag;
         public string Id { get; set; } = default!;
         public T GenericAttribute { get; set; } = default!;
 
@@ -35,10 +38,12 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public BaseOfTDocument<T> PopulateFromEntity(IBaseOfT<T> entity)
+        public BaseOfTDocument<T> PopulateFromEntity(IBaseOfT<T> entity, string? etag = null)
         {
             Id = entity.Id;
             GenericAttribute = entity.GenericAttribute;
+
+            _etag = etag;
 
             return this;
         }

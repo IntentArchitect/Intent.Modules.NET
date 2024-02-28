@@ -22,7 +22,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
                     {
                         q.ScheduleJob<CommandDelegateJob>(trigger =>
                         {
-                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:CommandDelegateJob:CronSchedule") ?? "* * * * ? *");
+                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:CommandDelegateJob:CronSchedule") ?? "* * * * * ?");
                             trigger.WithIdentity("CommandDelegateJob");
                         });
                     }
@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
                     {
                         q.ScheduleJob<NewScheduledJob>(trigger =>
                         {
-                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:NewScheduledJob:CronSchedule") ?? "* * * * ? *");
+                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:NewScheduledJob:CronSchedule") ?? "* * * * * ?");
                             trigger.WithIdentity("NewScheduledJob");
                         });
                     }
