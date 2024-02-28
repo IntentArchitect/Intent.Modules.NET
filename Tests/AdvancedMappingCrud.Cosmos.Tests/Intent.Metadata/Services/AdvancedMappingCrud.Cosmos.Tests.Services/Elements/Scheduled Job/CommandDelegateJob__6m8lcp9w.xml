@@ -15,7 +15,7 @@
       <definitionPackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</definitionPackageId>
       <properties>
         <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" isActive="true" />
-        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="0 0 0 * *" isActive="true" />
+        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="* * * * * ?" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
