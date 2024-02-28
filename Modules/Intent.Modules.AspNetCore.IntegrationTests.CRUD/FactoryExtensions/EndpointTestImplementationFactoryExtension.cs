@@ -320,9 +320,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         {
             if (test.Entity.InternalElement.RequiresCosmosDb((IntentTemplateBase)template))
             {
-                AddRequirementTrait(method, "CosmosDB");
-            }
-        }
+                AddRequirementTrait(method, "CosmosDB" );
+                method.WithComments("/// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).\")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.");				
+			}
+		}
 
         private static void AddRequirementTrait(CSharpClassMethod method, string requirement)
         {
