@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.IntegrationTesting;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
@@ -24,6 +25,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.TestDataFact
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TestDataFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AutoFixture);
+            
             AddTypeSource(ProxyServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId);
 
