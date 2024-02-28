@@ -1,3 +1,7 @@
+### Version 4.2.11
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 4.2.10
 
 - Improvement: Added `ArgumentNullException` check on `IUnitOfWork` dependency injection.

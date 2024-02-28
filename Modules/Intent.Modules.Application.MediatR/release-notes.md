@@ -1,4 +1,8 @@
-﻿### Version 4.2.2
+﻿### Version 4.2.3
+
+- Improvement: Updated Interoperable dependency versions.
+
+### Version 4.2.2
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
 

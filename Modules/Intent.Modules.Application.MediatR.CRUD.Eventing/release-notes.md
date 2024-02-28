@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Improvement: Updated dependency versions.
+
 ### Version 5.0.1
 
 - Improvement: Module dependency versions updated.

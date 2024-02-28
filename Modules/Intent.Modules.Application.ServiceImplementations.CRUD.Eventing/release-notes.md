@@ -1,3 +1,7 @@
+### Version 1.0.11
+
+- Improvement: Updated dependency versions.
+
 ### Version 1.0.10
 
 - Improvement: Few small fixes on using directives.

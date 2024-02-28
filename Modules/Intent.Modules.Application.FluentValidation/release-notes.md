@@ -1,3 +1,7 @@
+### Version 3.8.10
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 3.8.9
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb</id>
-  <version>1.0.13-pre.0</version>
+  <version>1.0.13</version>
   <supportedClientVersions>[4.0.0-beta.10, 5.0.0-a)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</summary>
   <description>Core MongoDB Database Provider using the MongoDB.Data.UnitOfWork library.</description>
@@ -45,7 +45,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.2.11-pre.0" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.11" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

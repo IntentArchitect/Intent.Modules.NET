@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.2-pre.2</version>
+  <version>6.0.2</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -46,52 +46,52 @@
     </detect>
     <detect id="Intent.AspNetCore.HealthChecks">
       <install>
-        <package id="Intent.AspNetCore.HealthChecks" version="2.0.3-pre.0" />
+        <package id="Intent.AspNetCore.HealthChecks" version="2.0.3" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Interop.Angular">
       <install>
-        <package id="Intent.AspNetCore.Interop.Angular" version="4.0.2-pre.0" />
+        <package id="Intent.AspNetCore.Interop.Angular" version="4.0.2" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.Logging.Serilog">
       <install>
-        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.0.2-pre.3" />
+        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.0.2" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">
       <install>
-        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.2-pre.0" />
+        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.2" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.SignalR">
       <install>
-        <package id="Intent.AspNetCore.SignalR" version="1.0.2-pre.0" />
+        <package id="Intent.AspNetCore.SignalR" version="1.0.2" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle" version="5.0.2-pre.0" />
+        <package id="Intent.AspNetCore.Swashbuckle" version="5.0.2" />
       </install>
     </detect>
     <detect id="Intent.Azure.KeyVault">
       <install>
-        <package id="Intent.Azure.KeyVault" version="2.0.2-pre.0" />
+        <package id="Intent.Azure.KeyVault" version="2.0.2" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.Configuration">
       <install>
-        <package id="Intent.Dapr.AspNetCore.Configuration" version="1.1.3-pre.0" />
+        <package id="Intent.Dapr.AspNetCore.Configuration" version="1.1.3" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.Pubsub">
       <install>
-        <package id="Intent.Dapr.AspNetCore.Pubsub" version="2.0.4-pre.0" />
+        <package id="Intent.Dapr.AspNetCore.Pubsub" version="2.0.4" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.Secrets">
       <install>
-        <package id="Intent.Dapr.AspNetCore.Secrets" version="1.1.3-pre.0" />
+        <package id="Intent.Dapr.AspNetCore.Secrets" version="1.1.3" />
       </install>
     </detect>
     <detect id="Intent.Dapr.AspNetCore.AspNetCore">
@@ -101,17 +101,17 @@
     </detect>
     <detect id="Intent.HotChocolate.GraphQL.AspNetCore">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.AspNetCore" version="5.0.2-pre.0" />
+        <package id="Intent.HotChocolate.GraphQL.AspNetCore" version="5.0.2" />
       </install>
     </detect>
     <detect id="Intent.OpenTelemetry">
       <install>
-        <package id="Intent.OpenTelemetry" version="2.0.2-pre.0" />
+        <package id="Intent.OpenTelemetry" version="2.0.2" />
       </install>
     </detect>
     <detect id="Intent.VisualStudio.Projects">
       <install>
-        <package id="Intent.VisualStudio.Projects" version="3.6.2-pre.5" />
+        <package id="Intent.VisualStudio.Projects" version="3.6.2" />
       </install>
     </detect>
     <detect id="Intent.OutputManager.RoslynWeaver">

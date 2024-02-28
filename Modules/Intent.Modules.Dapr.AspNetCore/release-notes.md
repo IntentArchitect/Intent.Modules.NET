@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 2.0.2
 
 - Improvement: Updated to use latest Intent.Common module and corresponding NuGet package to make use of latest `StaticContentTemplateRegistration`.

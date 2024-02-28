@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 1.0.12
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

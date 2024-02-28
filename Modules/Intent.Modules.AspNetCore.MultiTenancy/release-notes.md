@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 5.1.1
 
 - Fixed: Various hosting registration issues for minimal hosting model.

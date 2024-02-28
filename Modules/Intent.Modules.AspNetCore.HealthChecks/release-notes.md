@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 2.0.2
 
 - Improvement: Added support for Oracle databases.

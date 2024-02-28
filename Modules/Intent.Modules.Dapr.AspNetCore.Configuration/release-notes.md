@@ -1,4 +1,8 @@
-﻿### Version 1.1.2
+﻿### Version 1.1.3
+
+- Improvement: Updated Interoperable dependency versions.
+
+### Version 1.1.2
 
 - Fixed: Superfluous Solution Folders were being generated for .yml files.
 

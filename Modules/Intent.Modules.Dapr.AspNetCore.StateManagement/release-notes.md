@@ -1,3 +1,7 @@
+### Version 1.2.4
+
+- Improvement: Updated Interoperable dependency versions.
+
 ### Version 1.2.3
 
 - Improvement: Fixed small code formatting use around using blocks.

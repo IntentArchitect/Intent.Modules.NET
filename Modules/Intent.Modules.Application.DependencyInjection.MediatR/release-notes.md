@@ -1,3 +1,7 @@
+### Version 3.5.12
+
+- Improvement: Updated Interoperable dependency version.
+
 ### Version 3.5.11
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
