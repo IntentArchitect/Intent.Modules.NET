@@ -10,7 +10,7 @@ For more information on Azure Table Storage, check out their [official docs](htt
 
 ## What's in this module?
 
-This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding Azure Table Storage implementation:-
+This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding Azure Table Storage implementation:
 
 * Unit of Work and associated artifacts.
 * Azure Table Storage table entities and associated artifacts.

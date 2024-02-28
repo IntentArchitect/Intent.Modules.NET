@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3a5b1070-c560-4eb5-94a0-b05abbdb3ff7">
+  <sourceEnd id="87b57a38-b18e-43e9-8621-cbb155f71bc8" type="Scheduled Command Publish Source End" typeId="cdc46a25-9f81-4ea8-9a5d-d9e9a283652b">
+    <display>publishes: AdvancedMappingCrud.Cosmos.Tests.Services.CommandDelegateJob</display>
+    <order>0</order>
+    <typeReference id="3e5f5ac8-37e5-4c70-a20b-d508aa397f70">
+      <typeId>7ffbcf5f-6361-4f26-8dd4-ec39b739ba45</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3a5b1070-c560-4eb5-94a0-b05abbdb3ff7" type="Scheduled Command Publish Target End" typeId="6c92ad1e-8353-4703-894f-12dc1db00acc">
+    <display>publishes: MyTimedJobCommand</display>
+    <order>0</order>
+    <typeReference id="d0a175a0-3708-4607-9cc2-8e0b3f4ce21d">
+      <typeId>d2b4bece-d699-4e2e-88d8-ccab8ce507bd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>411881c2-8521-4d56-91a3-54bb48bce507</associationTypeId>
+  <stereotypes />
+</association>

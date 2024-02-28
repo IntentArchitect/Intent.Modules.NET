@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4ed2eac1-67c2-472a-8666-be1254d7c6b6" type="Scheduled Job" typeId="57b933b6-cec8-4fd5-8060-948f5e39d45e">
+  <name>NewScheduledJob</name>
+  <display>NewScheduledJob</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d4ef5a60-8502-49fd-810c-bacd2efcf605</parentFolderId>
+  <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" name="Scheduling">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.QuartzScheduler</definitionPackageName>
+      <definitionPackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</definitionPackageId>
+      <properties>
+        <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" isActive="true" />
+        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="* * * * ? *" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

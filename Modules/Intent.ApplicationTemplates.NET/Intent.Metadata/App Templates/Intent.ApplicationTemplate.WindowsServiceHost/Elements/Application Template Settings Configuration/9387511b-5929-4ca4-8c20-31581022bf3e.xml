@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9387511b-5929-4ca4-8c20-31581022bf3e" type="Application Template Settings Configuration" typeId="69000b7e-8bc8-49d0-80f5-eb65a6f7653a">
+  <name>Domain Settings</name>
+  <display>Domain Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
+  <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+  <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="346f2d3f-ae50-4aac-a762-2cc514321c03" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Attribute Naming Convention</name>
+      <display>Attribute Naming Convention = c3789138-6649-47e4-901b-5f6469583cb7</display>
+      <isAbstract>false</isAbstract>
+      <value>c3789138-6649-47e4-901b-5f6469583cb7</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9387511b-5929-4ca4-8c20-31581022bf3e</parentFolderId>
+      <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+      <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Hidden" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="true" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="pascal-case" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="dd10ee3b-d928-458b-8584-355a821fa6d5" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Default Mapping Mode</name>
+      <display>Default Mapping Mode = 14bc1e98-930b-494c-97a9-5da4e1f3a5fa</display>
+      <isAbstract>false</isAbstract>
+      <value>14bc1e98-930b-494c-97a9-5da4e1f3a5fa</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9387511b-5929-4ca4-8c20-31581022bf3e</parentFolderId>
+      <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+      <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Hidden" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="false" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="advanced" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

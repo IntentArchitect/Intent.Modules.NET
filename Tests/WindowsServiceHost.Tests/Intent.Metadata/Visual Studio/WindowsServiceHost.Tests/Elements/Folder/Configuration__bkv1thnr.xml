@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="debb0499-35a8-49c0-b28f-327431d8db87" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0da1c5db-f98c-4823-b467-1708a6b3ce35</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="814838ed-6f14-4ea6-9e08-7d2ad43ed851" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientConfiguration</name>
+      <display>Intent.Integration.HttpClients.HttpClientConfiguration</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>debb0499-35a8-49c0-b28f-327431d8db87</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="90b88498-e54e-441b-bfff-f6cdbd64deaf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.QuartzConfiguation</name>
+      <display>Intent.QuartzScheduler.QuartzConfiguation</display>
+      <externalReference>Intent.QuartzScheduler</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>debb0499-35a8-49c0-b28f-327431d8db87</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

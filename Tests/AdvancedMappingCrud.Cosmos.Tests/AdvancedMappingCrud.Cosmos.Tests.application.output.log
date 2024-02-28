@@ -60,6 +60,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>257af555-85e6-42b4-ac92-bd84458b4e01</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguation</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>257af555-85e6-42b4-ac92-bd84458b4e01</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
@@ -120,6 +128,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b9107dcc-4408-43e6-899e-e4202e502f62</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#7ffbcf5f-6361-4f26-8dd4-ec39b739ba45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Jobs/CommandDelegateJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CommandDelegateJob.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b9107dcc-4408-43e6-899e-e4202e502f62</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#4ed2eac1-67c2-472a-8666-be1254d7c6b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Jobs/NewScheduledJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewScheduledJob.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -544,6 +568,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d2b4bece-d699-4e2e-88d8-ccab8ce507bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Jobs/MyTimedJob/MyTimedJobCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Jobs/MyTimedJob/MyTimedJobCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d2b4bece-d699-4e2e-88d8-ccab8ce507bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Jobs/MyTimedJob/MyTimedJobCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Jobs/MyTimedJob/MyTimedJobCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d2b4bece-d699-4e2e-88d8-ccab8ce507bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Jobs/MyTimedJob/MyTimedJobCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Jobs/MyTimedJob/MyTimedJobCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

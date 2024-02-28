@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb6f5d37-756f-4127-8c9a-a832472aa945" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>MyScheduledCommand</name>
+  <display>MyScheduledCommand: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="b00a3064-433e-40cb-9119-7e209e568581">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>82a423be-aa73-4ae7-acec-0eb4a420739a</parentFolderId>
+  <packageId>82a423be-aa73-4ae7-acec-0eb4a420739a</packageId>
+  <packageName>WindowsServiceHost.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

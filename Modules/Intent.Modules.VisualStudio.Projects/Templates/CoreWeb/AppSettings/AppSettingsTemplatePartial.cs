@@ -38,7 +38,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return $"{TemplateId}-{Model.RuntimeEnvironment?.Name ?? "Default"}#{OutputTarget.Id}";
         }
 
-        public override string RunTemplate()
+        public bool IncludeAllowHosts()
+        {
+            return Model.IncludeAllowHosts;
+        }
+
+		public override string RunTemplate()
         {
             if (!TryGetExistingFileContent(out var content))
             {

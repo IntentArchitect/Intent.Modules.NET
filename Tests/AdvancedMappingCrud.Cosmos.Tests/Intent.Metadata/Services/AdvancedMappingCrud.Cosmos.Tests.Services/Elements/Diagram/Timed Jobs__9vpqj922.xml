@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a651af8e-49b2-4117-bfaf-5d624cf14714" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Timed Jobs</name>
+  <display>Timed Jobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d001fa4b-fbd8-42e7-9f58-d89c0d3a52bd</parentFolderId>
+  <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

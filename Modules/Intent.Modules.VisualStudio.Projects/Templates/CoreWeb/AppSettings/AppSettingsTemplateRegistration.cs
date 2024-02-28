@@ -36,6 +36,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                     x.RuntimeEnvironments,
                     Location = "",
                     RequiresSpecifiedRole = false,
+                    IncludeAllowHosts = true,
                 })
                 .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb())
@@ -45,8 +46,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         x.RuntimeEnvironments,
                         Location = "",
                         RequiresSpecifiedRole = false,
-                    }))
-                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+						IncludeAllowHosts = true,
+					}))
+				.Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+					.Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker())
+					.Select(x => new
+					{
+						x.Id,
+						x.RuntimeEnvironments,
+						Location = "",
+						RequiresSpecifiedRole = false,
+						IncludeAllowHosts = false,
+					}))
+				.Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly())
                     .Select(x => new
                     {
@@ -54,17 +66,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         x.RuntimeEnvironments,
                         Location = "wwwroot",
                         RequiresSpecifiedRole = true,
-                    }));
+						IncludeAllowHosts = true,
+					}));
 
             foreach (var aspProject in projects)
             {
                 var outputTarget = applicationManager.OutputTargets.Single(x => x.Id == aspProject.Id);
 
-                registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(null, aspProject.Location, aspProject.RequiresSpecifiedRole)));
+                registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(null, aspProject.Location, aspProject.RequiresSpecifiedRole, aspProject.IncludeAllowHosts)));
 
                 foreach (var runtimeEnvironment in aspProject.RuntimeEnvironments)
                 {
-                    registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(runtimeEnvironment, aspProject.Location, aspProject.RequiresSpecifiedRole)));
+                    registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(runtimeEnvironment, aspProject.Location, aspProject.RequiresSpecifiedRole, aspProject.IncludeAllowHosts)));
                 }
             }
         }

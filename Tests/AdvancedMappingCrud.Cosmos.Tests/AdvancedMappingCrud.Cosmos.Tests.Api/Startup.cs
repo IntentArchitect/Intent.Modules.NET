@@ -44,6 +44,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
+            services.ConfigureQuartz(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c3a99ea4-54a2-4ee0-a178-ae5970ff5ad7" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</parentFolderId>
+  <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+  <packageName>Intent.QuartzScheduler</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

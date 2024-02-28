@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="94259f24-45e8-4ab6-9ae6-49407bc8b985" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>StereoTypes</name>
+  <display>StereoTypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</parentFolderId>
+  <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
+  <packageName>Intent.QuartzScheduler</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

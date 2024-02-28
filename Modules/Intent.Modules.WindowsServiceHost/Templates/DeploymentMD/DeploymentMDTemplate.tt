@@ -1,0 +1,50 @@
+<#@ template language="C#" inherits="IntentTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+
+
+# Deployment
+
+## Publish the application
+
+```cmd
+dotnet publish --output "C:\custom\publish\directory"
+```
+
+## Windows Service Installation
+
+From a command console (Terminal) running as an administrator.
+
+### Install Windows Service
+
+```cmd
+sc.exe create "<#= ApplicationName()#>" binpath="C:\custom\publish\directory\\<#= ExecutableName()#>.exe"
+```
+
+### Remove Windows Service
+
+```cmd
+sc.exe delete "<#= ApplicationName()#>"
+```
+
+### Start Windows Service
+
+```cmd
+sc.exe start "<#= ApplicationName()#>"
+```
+
+### Stop Windows Service
+
+```cmd
+sc.exe stop "<#= ApplicationName()#>"
+```
+
+## Check you service in Windows
+
+- Press `Windows Key` + 'R'
+- Type `Services`
+- Look for your service by name "<#= ApplicationName()#>"
