@@ -1,8 +1,9 @@
 ### Version 3.6.2
 
 - Improvement: `appsettings.json` added for `CSProject` using the `Microsoft.NET.Sdk.Worker` SDK e.g. Windows Services.
+- Improvement: Added the `Microsoft.AspNetCore`  logging level to be `Warning` in-line with VS Templates for Asp.Net projects.
 - Fixed: Modified default logging behavior from Warning to Information to align with Serilog's default behavior.
-
+ 
 ### Version 3.6.1
 
 - Improvement: Modernized the Visual Studio icon to the 2022 version.

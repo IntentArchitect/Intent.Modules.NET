@@ -12,7 +12,9 @@
 {
   "Logging": {
     "LogLevel": {
-      "Default": "Information"
+      "Default": "Information" <#if (IncludeAspNetCoreLoggingLevel()) {#>, 
+      "Microsoft.AspNetCore": "Warning"
+<# }#>
     }
   }<#if (IncludeAllowHosts()) {#>, 
   "AllowedHosts": "*"

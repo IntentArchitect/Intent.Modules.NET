@@ -43,6 +43,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return Model.IncludeAllowHosts;
         }
 
+		public bool IncludeAspNetCoreLoggingLevel()
+		{
+			return Model.IncludeAspNetCoreLoggingLevel;
+		}
+
 		public override string RunTemplate()
         {
             if (!TryGetExistingFileContent(out var content))

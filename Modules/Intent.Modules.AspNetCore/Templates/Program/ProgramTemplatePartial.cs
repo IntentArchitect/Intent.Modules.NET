@@ -49,7 +49,6 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-								AddApplicationLoggingConfig();
 								@class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
@@ -73,7 +72,6 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddTopLevelStatements(tls =>
                             {
-								AddApplicationLoggingConfig();
 								AddGenericModelMainStatements(tls);
                                 tls.AddLocalMethod("IHostBuilder", "CreateHostBuilder", method =>
                                 {
@@ -93,7 +91,6 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-								AddApplicationLoggingConfig();
 								@class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
@@ -115,11 +112,6 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                     }
             }
         }
-
-		private void AddApplicationLoggingConfig()
-		{
-			this.ApplyAppSetting("Logging:LogLevel:Microsoft.AspNetCore", "Warning");
-		}
 
 		public IAppStartupFile StartupFile =>
             _startupFile ?? throw new InvalidOperationException(

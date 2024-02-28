@@ -34,16 +34,30 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         {
             this.Write(" \r\n");
             this.Write(" \r\n");
-            this.Write("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\"\r\n    }\r\n  }");
+            this.Write("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\" ");
+            
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt"
+if (IncludeAspNetCoreLoggingLevel()) {
+            
+            #line default
+            #line hidden
+            this.Write(", \r\n      \"Microsoft.AspNetCore\": \"Warning\"\r\n");
             
             #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt"
+ }
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n  }");
+            
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt"
 if (IncludeAllowHosts()) {
             
             #line default
             #line hidden
             this.Write(", \r\n  \"AllowedHosts\": \"*\"\r\n");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt"
  }
             
             #line default
