@@ -271,6 +271,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.QuartzSchedu
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Bugsnag", "Intent.Modules.Bugsnag\Intent.Modules.Bugsnag.csproj", "{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.RdbmsImporter", "Intent.Modules.RdbmsImporter\Intent.Modules.RdbmsImporter.csproj", "{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -745,6 +747,10 @@ Global
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -878,6 +884,7 @@ Global
 		{EAA223B1-DE69-45BA-8877-516C26E65C2B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ec3eabc0-ab49-4c3a-bca6-14c9e7503196" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Package Extension</name>
+  <display>Package Extension: Domain Package</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="5c58218b-f933-4075-a334-a1618391c995">
+    <typeId>1a824508-4623-45d9-accc-f572091ade5a</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>eff0c63a-8e7c-4ee9-96f4-cfa04076299f</parentFolderId>
+  <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
+  <packageName>Intent.Modules.RdbmsImporter</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="254ab665-2ce7-485c-84d2-6dd694ce5608" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ec3eabc0-ab49-4c3a-bca6-14c9e7503196</parentFolderId>
+      <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
+      <packageName>Intent.Modules.RdbmsImporter</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b00e9c15-6ada-4195-8a23-9fa2bd43a83d" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Database Import</name>
+          <display>Database Import: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c84b443e-01d1-4d19-8898-b205d8fb41f1">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>254ab665-2ce7-485c-84d2-6dd694ce5608</parentFolderId>
+          <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
+          <packageName>Intent.Modules.RdbmsImporter</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="console.warn(&quot;running&quot;);&#xD;&#xA;let x = await executeModuleTask(&quot;Intent.Modules.RdbmsImporter.Tasks.DatabaseImport&quot;, &quot;test&quot;);&#xD;&#xA;console.warn(x);" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

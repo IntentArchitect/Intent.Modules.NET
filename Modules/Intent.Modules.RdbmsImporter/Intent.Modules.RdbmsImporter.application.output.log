@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>6e00a575-a873-4cf4-ab2a-b62721a8bc24</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f26a082d-9708-449d-96d4-797c3a4c7b37</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1c5e20a7-ea37-4fda-9472-c1ea8260c383</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.RdbmsImporter.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.RdbmsImporter.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.RdbmsImporter.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.RdbmsImporter.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e5797d25-2faa-48f9-8a82-b8eae39681c3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#eff0c63a-8e7c-4ee9-96f4-cfa04076299f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Domain Designer Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Domain Designer Extensions.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

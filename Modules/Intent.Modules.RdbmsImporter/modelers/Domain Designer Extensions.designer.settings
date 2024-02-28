@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>eff0c63a-8e7c-4ee9-96f4-cfa04076299f</id>
+  <name>Domain Designer Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Domain Package" typeId="1a824508-4623-45d9-accc-f572091ade5a">
+      <requiredPackages />
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Database Import</text>
+          <icon type="FontAwesome" source="code" />
+          <script>console.warn("running");
+let x = await executeModuleTask("Intent.Modules.RdbmsImporter.Tasks.DatabaseImport", "test");
+console.warn(x);</script>
+        </option>
+      </scriptOptions>
+      <typeOrder />
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings />
+  <elementExtensions />
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>
