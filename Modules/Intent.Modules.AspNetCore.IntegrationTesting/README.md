@@ -6,7 +6,7 @@ This module adds Integration Testing for ASP.NET core applications with containe
 
 Integration testing is a phase in the software development life cycle where individual software modules are combined and tested as a group. The purpose of integration testing is to ensure that the different components of a software application work together as expected when integrated. This is done to identify and address any issues that may arise when multiple modules interact with each other.
 
-This module adds an xUnit testing project to you ASP.NET Core application which contains Integrations Tests which can be run to validate your application is working end-to-end against containerized infrastructure like databases e.g. `MS SQL Server`, `Postgres` or `CosmosDB Emulator`. These tests do not replace Unit testing but rather compliment it ensure the individually tested pieces work together correctly.
+This module adds an xUnit testing project to you ASP.NET Core application which contains Integrations Tests which can be run to validate your application is working end-to-end against containerized infrastructure like databases e.g. `MS SQL Server`, `Postgres` or `CosmosDB Emulator`. These tests do not replace Unit testing but rather compliment it ensuring the individually tested pieces work together correctly.
 
 This module uses `Test.containers` to spin up and host infrastructure in docker containers.
 
