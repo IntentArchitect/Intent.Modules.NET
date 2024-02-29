@@ -21,7 +21,7 @@ namespace BugSnagTest.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task TestError(RequestDto dto, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException("Write your implementation for this service here...");
+            throw new Exception("Breaking the application on purpose for testing purposes");
         }
 
         public void Dispose()

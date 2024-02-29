@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Bugsnag;
 using Intent.RoslynWeaver.Attributes;
@@ -12,6 +13,23 @@ namespace BugSnagTest.Api.Filters
 {
     public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
+        public ExceptionFilter(Bugsnag.IClient client)
+        {
+            client.BeforeNotify(report =>
+            {
+                var activityId = System.Diagnostics.Activity.Current?.Id;
+                if (!string.IsNullOrEmpty(activityId))
+                {
+                    // Add the Activity ID to the report's metadata under a 'Trace' tab
+                    report.Event.Metadata.Add(
+                        "Trace", new Dictionary<string, object>
+                        {
+                            { "ActivityId", activityId }
+                        });
+                }
+            });
+        }
+
         public void OnException(ExceptionContext context)
         {
             switch (context.Exception)

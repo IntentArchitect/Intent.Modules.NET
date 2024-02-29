@@ -23,7 +23,7 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
         public BugsnagConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.BugsnagAspNetCore);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -39,7 +39,7 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
                         method.AddInvocationStatement("services.AddBugsnag", inv => inv
                             .AddArgument(new CSharpLambdaBlock("cfg")
                                 .AddStatement(@"cfg.ApiKey = configuration[""Bugsnag:ApiKey""];")));
-                        
+
                         method.AddStatement("return services;");
                     });
                 });
@@ -56,7 +56,7 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
                 .ToRegister("ConfigureBugsnag", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
         }
-        
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

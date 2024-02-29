@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="72fadaca-79ee-48d6-9ca8-bbc43d2a7da3" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ExceptionFilterExtension</name>
+  <display>ExceptionFilterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>519716a0-7fda-470a-b8f2-28248a51130e</parentFolderId>
+  <packageId>519716a0-7fda-470a-b8f2-28248a51130e</packageId>
+  <packageName>Intent.Bugsnag</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -18,7 +18,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Bugsnag.ExceptionFilterExtension" externalReference="72fadaca-79ee-48d6-9ca8-bbc43d2a7da3" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
