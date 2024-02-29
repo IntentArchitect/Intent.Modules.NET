@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Bugsnag</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <summary>Bugsnag is a cloud-based error monitoring and reporting tool for web and mobile apps.</summary>
+  <description>Bugsnag is a cloud-based error monitoring and reporting tool for web and mobile apps.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates>
+    <template id="Intent.Bugsnag.BugsnagConfiguration" externalReference="3200ab5a-0cac-4fe3-b5f6-0e72865cce97">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.BugsnagConfiguration</role>
+      <location>Configuration</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>csharp dotnet bugs bugsnag monitoring</tags>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata />
+</package>

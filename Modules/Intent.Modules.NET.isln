@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.57" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.59" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -133,5 +133,6 @@
     <application id="dfab424d-aea2-4c5e-9a49-d0e3cc7215e8" name="Intent.Modules.WindowsServiceHost" relativePath="Intent.Modules.WindowsServiceHost/Intent.Modules.WindowsServiceHost.application.config" />
     <application id="2290890c-a17b-4ab3-a978-dc65f1c862a8" name="Intent.Modules.QuartzScheduler" relativePath="Intent.Modules.QuartzScheduler/Intent.Modules.QuartzScheduler.application.config" />
     <application id="6c0933d2-4779-46ed-9096-135f2a0b10fc" name="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost" relativePath="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost/Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost.application.config" />
+    <application id="b5fc2084-b1b4-49d0-bae3-af9b5256b54a" name="Intent.Modules.Bugsnag" relativePath="Intent.Modules.Bugsnag/Intent.Modules.Bugsnag.application.config" />
   </applications>
 </solution>

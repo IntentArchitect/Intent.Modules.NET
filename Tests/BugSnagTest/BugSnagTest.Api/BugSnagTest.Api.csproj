@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>536631e4-b421-48b6-9f74-6e51ef3763b2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BugSnagTest.Application\BugSnagTest.Application.csproj" />
+    <ProjectReference Include="..\BugSnagTest.Infrastructure\BugSnagTest.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="7.0.0" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.0.0" />
+    <PackageReference Include="Bugsnag.AspNet.Core" Version="3.1.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+  </Project>

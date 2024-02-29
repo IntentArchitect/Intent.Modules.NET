@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="731ffab9-72e7-4d5a-8416-8f58a59973b7" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>TestService</name>
+  <display>TestService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</parentFolderId>
+  <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+  <packageName>BugSnagTest.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/test" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3e098cd2-a42c-4234-940e-c87f403cc37e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>TestError</name>
+      <display>TestError(dto: RequestDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1749c0d7-7bad-43f8-88bc-f8a0e857befd">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>731ffab9-72e7-4d5a-8416-8f58a59973b7</parentFolderId>
+      <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+      <packageName>BugSnagTest.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="test-error" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b3d4f3f5-bb23-4dda-9842-5403bc55c4f3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: RequestDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9fb2ed01-878f-48da-9b90-5afac6d366b0">
+            <typeId>c3b02ef3-ffe9-479e-8a08-f78e2bbe6f39</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>BugSnagTest.Services</typePackageName>
+            <typePackageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3e098cd2-a42c-4234-940e-c87f403cc37e</parentFolderId>
+          <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+          <packageName>BugSnagTest.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

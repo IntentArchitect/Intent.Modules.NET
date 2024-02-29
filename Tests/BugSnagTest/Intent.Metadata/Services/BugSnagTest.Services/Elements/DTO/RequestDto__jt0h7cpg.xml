@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c3b02ef3-ffe9-479e-8a08-f78e2bbe6f39" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>RequestDto</name>
+  <display>RequestDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</parentFolderId>
+  <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+  <packageName>BugSnagTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8aab8ff4-2a30-4461-b7b5-df3f0dd6a9fe" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Value</name>
+      <display>Value: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7e25818e-afd3-4f93-9f60-7265b3f4c8f0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c3b02ef3-ffe9-479e-8a08-f78e2bbe6f39</parentFolderId>
+      <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+      <packageName>BugSnagTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
