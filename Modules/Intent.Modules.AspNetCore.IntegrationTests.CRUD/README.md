@@ -6,18 +6,18 @@ This module provides Integration Test implementation for Services which are CRUD
 
 This module consumes your `Services` both `ServiceModel` and `CQRS`, in the `Service Designer` and generates an Integration test for each Endpoint.
 
-For a service to be eligible is must implement at least
+For a service to be eligible is must implement at least:
 
 - Create{Entity} - returning either the `Primary Key` or a `DTO` with a mapped `Primary Key`.
 - Get{Entity}ById - returning an `Entity` based `DTO` taking a single parameter of the `Entitiy`s primary key.
 
-## Note on Cosmos DB Integration Test
+## Note on Cosmos DB Integration Testing
 
 The CosmosDB Emulator for Linux does not run consistently using MS-hosted agents/runners (Azure DevOps or GitHub). Here (Azure/azure-cosmos-db-emulator-docker#45.) 
-Cosmos related tests have the following Trait applied `[Trait("Category", "ExcludeOnCI")]`, you can ignore these in your CI/CD pipeline as follows:-
+Cosmos related tests have the following Trait applied `[Trait("Requirement", "CosmosDB")]`, you can ignore these in your CI/CD pipeline as follows:-
 
 ```
-dotnet test --filter Category!=ExcludeOnCI
+dotnet test --filter Category!=CosmosDB
 ```
 
 
