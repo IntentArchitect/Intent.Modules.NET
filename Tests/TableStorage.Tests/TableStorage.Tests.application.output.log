@@ -500,6 +500,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c3ec31b5-df4d-4e92-8fc3-d2f80e592f3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/CreateOrderOrderLineDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderLineDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c3ec31b5-df4d-4e92-8fc3-d2f80e592f3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/CreateOrderOrderLineDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderLineDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#4bb150ad-938c-415d-a92d-1029210387a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs</ApplicationRelativeFilePath>
@@ -628,6 +644,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2a44f496-4940-46b9-a5c4-cbfcf5982fd0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/OrderOrderLineDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderLineDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#2a44f496-4940-46b9-a5c4-cbfcf5982fd0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/OrderOrderLineDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderOrderLineDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#7b5944c6-09a8-4652-a20d-d6a6c931e729</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommand.cs</ApplicationRelativeFilePath>
@@ -752,6 +784,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Order.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>403dc399-eac5-4cd2-b614-81f24dbb7655</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#29b97a89-24da-4432-ac2a-35a5ed012e54</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Domain/Entities/OrderLine.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderLine.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

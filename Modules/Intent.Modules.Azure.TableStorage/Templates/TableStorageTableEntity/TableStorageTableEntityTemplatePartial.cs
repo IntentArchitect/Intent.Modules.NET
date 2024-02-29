@@ -159,7 +159,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                 //Only Compositions
                 foreach (var associationEnd in associationEnds.Where(a => IsCompositional(a)))
                 {
-                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetTypeName(TemplateRoles.Domain.Entity.Primary, associationEnd.Class)}>({associationEnd.Name.ToPascalCase()});");
+                    method.AddStatement($"entity.{associationEnd.Name.ToPascalCase()} = {template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetAssociationTypeNameExpression(TemplateRoles.Domain.Entity.Primary, associationEnd)}>({associationEnd.Name.ToPascalCase()});");
                 }
 
 
@@ -203,6 +203,17 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
 
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
+        private string GetAssociationTypeNameExpression(string templateId, AssociationEndModel associationEndModel)
+        {
+            var type = GetTypeName(templateId, associationEndModel.TypeReference.Element);
+            return associationEndModel.TypeReference switch
+            {
+                var returnType when returnType.IsCollection => $"{UseType("System.Collections.Generic.ICollection")}<{type}>",
+                var returnType when returnType.IsNullable => $"{type}?",
+                _ => type
+            };
+        }
+        
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

@@ -37,7 +37,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata />
@@ -68,7 +70,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata />

@@ -14,13 +14,15 @@ namespace TableStorage.Tests.Application.Orders.CreateOrder
             string rowKey,
             string orderNo,
             decimal amount,
-            CreateOrderCustomerDto customer)
+            CreateOrderCustomerDto customer,
+            List<CreateOrderOrderLineDto> orderLines)
         {
             PartitionKey = partitionKey;
             RowKey = rowKey;
             OrderNo = orderNo;
             Amount = amount;
             Customer = customer;
+            OrderLines = orderLines;
         }
 
         public string PartitionKey { get; set; }
@@ -28,5 +30,6 @@ namespace TableStorage.Tests.Application.Orders.CreateOrder
         public string OrderNo { get; set; }
         public decimal Amount { get; set; }
         public CreateOrderCustomerDto Customer { get; set; }
+        public List<CreateOrderOrderLineDto> OrderLines { get; set; }
     }
 }

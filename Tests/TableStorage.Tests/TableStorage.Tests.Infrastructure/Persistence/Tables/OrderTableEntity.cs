@@ -18,6 +18,7 @@ namespace TableStorage.Tests.Infrastructure.Persistence.Tables
         public string OrderNo { get; set; } = default!;
         public decimal Amount { get; set; }
         public string Customer { get; set; } = default!;
+        public string OrderLines { get; set; } = default!;
         public DateTimeOffset? Timestamp { get; set; }
         public ETag ETag { get; set; } = ETag.All;
 
@@ -30,6 +31,7 @@ namespace TableStorage.Tests.Infrastructure.Persistence.Tables
             entity.OrderNo = OrderNo;
             entity.Amount = Amount;
             entity.Customer = JsonSerializer.Deserialize<Customer>(Customer);
+            entity.OrderLines = JsonSerializer.Deserialize<ICollection<OrderLine>>(OrderLines);
 
             return entity;
         }
@@ -41,6 +43,7 @@ namespace TableStorage.Tests.Infrastructure.Persistence.Tables
             OrderNo = entity.OrderNo;
             Amount = entity.Amount;
             Customer = JsonSerializer.Serialize(entity.Customer);
+            OrderLines = JsonSerializer.Serialize(entity.OrderLines);
 
             return this;
         }

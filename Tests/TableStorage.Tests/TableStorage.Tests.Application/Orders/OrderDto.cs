@@ -17,6 +17,7 @@ namespace TableStorage.Tests.Application.Orders
             RowKey = null!;
             OrderNo = null!;
             Customer = null!;
+            OrderLines = null!;
         }
 
         public string PartitionKey { get; set; }
@@ -24,13 +25,15 @@ namespace TableStorage.Tests.Application.Orders
         public string OrderNo { get; set; }
         public decimal Amount { get; set; }
         public OrderCustomerDto Customer { get; set; }
+        public List<OrderOrderLineDto> OrderLines { get; set; }
 
         public static OrderDto Create(
             string partitionKey,
             string rowKey,
             string orderNo,
             decimal amount,
-            OrderCustomerDto customer)
+            OrderCustomerDto customer,
+            List<OrderOrderLineDto> orderLines)
         {
             return new OrderDto
             {
@@ -38,13 +41,15 @@ namespace TableStorage.Tests.Application.Orders
                 RowKey = rowKey,
                 OrderNo = orderNo,
                 Amount = amount,
-                Customer = customer
+                Customer = customer,
+                OrderLines = orderLines
             };
         }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Order, OrderDto>();
+            profile.CreateMap<Order, OrderDto>()
+                .ForMember(d => d.OrderLines, opt => opt.MapFrom(src => src.OrderLines));
         }
     }
 }

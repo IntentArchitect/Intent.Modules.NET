@@ -33,6 +33,7 @@ namespace TableStorage.Tests.Application.Orders.CreateOrder
                 OrderNo = request.OrderNo,
                 Amount = request.Amount,
                 Customer = CreateCustomer(request.Customer),
+                OrderLines = request.OrderLines.Select(CreateOrderLine).ToList(),
             };
 
             _orderRepository.Add(newOrder);
@@ -44,6 +45,16 @@ namespace TableStorage.Tests.Application.Orders.CreateOrder
             return new Customer
             {
                 Name = dto.Name,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static OrderLine CreateOrderLine(CreateOrderOrderLineDto dto)
+        {
+            return new OrderLine
+            {
+                Description = dto.Description,
+                Amount = dto.Amount,
             };
         }
     }
