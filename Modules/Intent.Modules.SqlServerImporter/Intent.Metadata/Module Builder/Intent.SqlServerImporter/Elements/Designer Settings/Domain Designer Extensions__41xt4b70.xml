@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>6f4ec817-cf1c-4d42-aada-ad28ab73bd38</parentFolderId>
   <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
-  <packageName>Intent.Modules.RdbmsImporter</packageName>
+  <packageName>Intent.SqlServerImporter</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="81e5637b-05d7-43a4-9619-6ef873be9f47" name="Designer Settings">
       <addedByDefault>true</addedByDefault>

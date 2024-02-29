@@ -12,16 +12,16 @@
       <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1c5e20a7-ea37-4fda-9472-c1ea8260c383</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.RdbmsImporter.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.RdbmsImporter.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.SqlServerImporter.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.SqlServerImporter.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.RdbmsImporter.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.RdbmsImporter.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.SqlServerImporter.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.SqlServerImporter.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

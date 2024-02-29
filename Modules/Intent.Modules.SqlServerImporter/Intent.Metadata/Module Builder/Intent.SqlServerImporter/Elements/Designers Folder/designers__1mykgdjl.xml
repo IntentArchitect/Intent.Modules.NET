@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>72f14602-6d23-429e-952f-ef5e501deed4</parentFolderId>
   <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
-  <packageName>Intent.Modules.RdbmsImporter</packageName>
+  <packageName>Intent.SqlServerImporter</packageName>
   <stereotypes />
   <metadata />
   <childElements />

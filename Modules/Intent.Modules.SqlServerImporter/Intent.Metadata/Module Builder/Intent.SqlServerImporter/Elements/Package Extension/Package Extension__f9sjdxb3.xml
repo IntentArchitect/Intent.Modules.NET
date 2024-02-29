@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>eff0c63a-8e7c-4ee9-96f4-cfa04076299f</parentFolderId>
   <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
-  <packageName>Intent.Modules.RdbmsImporter</packageName>
+  <packageName>Intent.SqlServerImporter</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -32,7 +32,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>ec3eabc0-ab49-4c3a-bca6-14c9e7503196</parentFolderId>
       <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
-      <packageName>Intent.Modules.RdbmsImporter</packageName>
+      <packageName>Intent.SqlServerImporter</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -55,14 +55,14 @@
           <isMapped>false</isMapped>
           <parentFolderId>254ab665-2ce7-485c-84d2-6dd694ce5608</parentFolderId>
           <packageId>72f14602-6d23-429e-952f-ef5e501deed4</packageId>
-          <packageName>Intent.Modules.RdbmsImporter</packageName>
+          <packageName>Intent.SqlServerImporter</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="console.warn(&quot;running&quot;);&#xD;&#xA;let x = await executeModuleTask(&quot;Intent.Modules.RdbmsImporter.Tasks.DatabaseImport&quot;, &quot;test&quot;);&#xD;&#xA;console.warn(x);" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="console.warn(&quot;running&quot;);&#xD;&#xA;let x = await executeModuleTask(&quot;Intent.Modules.SqlServerImporter.Tasks.DatabaseImport&quot;, &quot;test&quot;);&#xD;&#xA;console.warn(x);" isActive="true" />
               </properties>
             </stereotype>
             <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">

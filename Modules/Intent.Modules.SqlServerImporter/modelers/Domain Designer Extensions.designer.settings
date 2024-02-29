@@ -13,7 +13,7 @@
           <text>Database Import</text>
           <icon type="FontAwesome" source="code" />
           <script>console.warn("running");
-let x = await executeModuleTask("Intent.Modules.RdbmsImporter.Tasks.DatabaseImport", "test");
+let x = await executeModuleTask("Intent.Modules.SqlServerImporter.Tasks.DatabaseImport", "test");
 console.warn(x);</script>
         </option>
       </scriptOptions>

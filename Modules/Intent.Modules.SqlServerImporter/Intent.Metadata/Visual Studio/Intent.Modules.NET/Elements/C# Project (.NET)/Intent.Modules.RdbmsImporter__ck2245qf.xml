@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1c5e20a7-ea37-4fda-9472-c1ea8260c383" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
-  <name>Intent.Modules.RdbmsImporter</name>
-  <display>Intent.Modules.RdbmsImporter</display>
+  <name>Intent.Modules.SqlServerImporter</name>
+  <display>Intent.Modules.SqlServerImporter</display>
   <externalReference>94aa2e08-4e5a-4a55-82ab-2fd94bb470c5</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>

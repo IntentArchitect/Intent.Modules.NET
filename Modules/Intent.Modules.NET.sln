@@ -270,8 +270,7 @@ EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.QuartzScheduler", "Intent.Modules.QuartzScheduler\Intent.Modules.QuartzScheduler.csproj", "{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Bugsnag", "Intent.Modules.Bugsnag\Intent.Modules.Bugsnag.csproj", "{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}"
-EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.RdbmsImporter", "Intent.Modules.RdbmsImporter\Intent.Modules.RdbmsImporter.csproj", "{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.SqlServerImporter", "Intent.Modules.SqlServerImporter\Intent.Modules.SqlServerImporter.csproj", "{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
