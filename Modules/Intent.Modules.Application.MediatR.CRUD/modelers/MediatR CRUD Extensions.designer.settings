@@ -35,18 +35,6 @@ function getSurrogateKeyType() {
 }
 /// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 /// &lt;reference path="../../common/getSurrogateKeyType.ts" /&gt;
-const constants = {
-    PKSpecialization: {
-        Implicit: "implicit",
-        Explicit: "explicit",
-        ExplicitComposite: "explicit_composite",
-        Unknown: "unknown"
-    },
-    FKSpecialization: {
-        Implicit: "implicit",
-        Explicit: "explicit",
-    }
-};
 function getFieldFormat(str) {
     return toPascalCase(str);
 }
@@ -232,7 +220,7 @@ function legacyPartitionKey(attribute) {
 /// &lt;reference path="getSurrogateKeyType.ts"/&gt;
 class DomainHelper {
     static async openSelectEntityDialog(options) {
-        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.isAggregateRoot(x) || ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(x)) || x.hasStereotype("Repository"));
+        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.isAggregateRoot(x) || ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(x) &amp;&amp; DomainHelper.hasPrimaryKey(x)) || x.hasStereotype("Repository"));
         if (classes.length == 0) {
             await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package and that at least one class exists in it.");
             return null;
@@ -259,6 +247,13 @@ class DomainHelper {
     }
     static getOwningAggregate(entity) {
         var _a;
+        let invalidAssociations = entity.getAssociations("Association").filter(x =&gt; x.typeReference.getType() == null);
+        if (invalidAssociations.length &gt; 0) {
+            console.warn("Invalid associations found:");
+            invalidAssociations.forEach(x =&gt; {
+                console.warn("Invalid associations: " + x.getName());
+            });
+        }
         let result = (_a = entity.getAssociations("Association")
             .filter(x =&gt; this.isAggregateRoot(x.typeReference.getType()) &amp;&amp; isOwnedBy(x) &amp;&amp;
             // Let's only target collections for now as part of the nested compositional crud support
@@ -276,24 +271,27 @@ class DomainHelper {
         let result = DomainHelper.getOwningAggregate(entity);
         return result ? true : false;
     }
+    static hasPrimaryKey(entity) {
+        let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        return keys.length &gt; 0;
+    }
     static getPrimaryKeys(entity) {
         if (!entity) {
             throw new Error("entity not specified");
         }
         let primaryKeys = DomainHelper.getPrimaryKeysMap(entity);
-        if (Object.keys(primaryKeys).length == 0) {
-            return [
-                {
-                    id: null,
-                    name: DomainHelper.getAttributeNameFormat("Id"),
-                    typeId: DomainHelper.getSurrogateKeyType(),
-                    mapPath: null,
-                    isNullable: false,
-                    isCollection: false
-                }
-            ];
-        }
         return Object.values(primaryKeys);
+    }
+    static isUserSuppliedPrimaryKey(pk) {
+        if (pk == null)
+            return false;
+        if (!pk.hasStereotype("Primary Key"))
+            return false;
+        var pkStereotype = pk.getStereotype("Primary Key");
+        if (!pkStereotype.hasProperty("Data source")) {
+            return false;
+        }
+        return pkStereotype.getProperty("Data source").value == "User supplied";
     }
     static getPrimaryKeysMap(entity) {
         let keydict = Object.create(null);
@@ -357,25 +355,15 @@ class DomainHelper {
                 foreignKeys.push(foundFk);
             }
         }
-        if (foreignKeys.length &gt; 0) {
-            return foreignKeys.map(x =&gt; ({
-                name: DomainHelper.getAttributeNameFormat(x.getName()),
-                typeId: x.typeReference.typeId,
-                id: x.id,
-                mapPath: [x.id],
-                isCollection: x.typeReference.isCollection,
-                isNullable: x.typeReference.isNullable
-            }));
-        }
-        // Implicit FKs:
-        return [{
-                name: DomainHelper.getAttributeNameFormat(`${owningAggregate.getName()}Id`),
-                typeId: DomainHelper.getPrimaryKeys(owningAggregate)[0].typeId,
-                id: null,
-                mapPath: null,
-                isCollection: false,
-                isNullable: false
-            }];
+        return foreignKeys.map(x =&gt; ({
+            name: DomainHelper.getAttributeNameFormat(x.getName()),
+            typeId: x.typeReference.typeId,
+            id: x.id,
+            mapPath: [x.id],
+            isCollection: x.typeReference.isCollection,
+            isNullable: x.typeReference.isNullable,
+            element: x
+        }));
     }
     static getChildrenOfType(entity, type) {
         let attrDict = Object.create(null);
@@ -496,6 +484,17 @@ class ServicesHelper {
     static getFieldFormat(str) {
         return toPascalCase(str);
     }
+    static formatName(str, type) {
+        switch (type) {
+            case "property":
+            case "class":
+                return toPascalCase(str);
+            case "parameter":
+                return toCamelCase(str);
+            default:
+                return str;
+        }
+    }
 }
 class ElementManager {
     constructor(command, settings) {
@@ -514,7 +513,8 @@ class ElementManager {
         return this;
     }
     addChild(name, type) {
-        let field = createElement(this.settings.childSpecialization, ServicesHelper.getFieldFormat(name), this.command.id);
+        var _a;
+        let field = createElement(this.settings.childSpecialization, ServicesHelper.formatName(name, (_a = this.settings.childType) !== null &amp;&amp; _a !== void 0 ? _a : "property"), this.command.id);
         const typeReferenceDetails = type == null
             ? null
             : typeof (type) === "string"
@@ -538,7 +538,7 @@ class ElementManager {
             else if (this.command.getChildren(this.settings.childSpecialization).some(x =&gt; x.getName().toLowerCase() === e.name.toLowerCase())) {
                 return;
             }
-            let field = this.addChild(ServicesHelper.getFieldFormat(e.name), e.typeId);
+            let field = this.addChild(e.name, e.typeId);
             field.typeReference.setIsCollection(e.isCollection);
             field.typeReference.setIsNullable(e.isNullable);
             if (options === null || options === void 0 ? void 0 : options.addToTop) {
@@ -592,7 +592,7 @@ function getParent(element, parentSpecializationType) {
 /// &lt;reference path="../common/getParent.ts" /&gt;
 /**
  * Gets select details of a mapped Command/Query. Intended for centralized logic of working out
- * things like keys (including implicit ones) for both the entity and owning entity if applicable.
+ * things like keys for both the entity and owning entity if applicable.
  *
  * If the Command is for entity creation (either due to being mapped to a constructor or being
  * prefixed with "Create"), then primary keys for the entity are not populated.
@@ -600,7 +600,21 @@ function getParent(element, parentSpecializationType) {
  */
 function getMappedRequestDetails(request) {
     var _a;
-    const mappedElement = (_a = request.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement();
+    const queryEntityMappingTypeId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
+    const createEntityMappingTypeId = "5f172141-fdba-426b-980e-163e782ff53e";
+    // Basic mapping:
+    let mappedElement = (_a = request.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement();
+    // Advanced mapping:
+    if (mappedElement == null) {
+        const advancedMappings = request.getAssociations()
+            .filter(x =&gt; x.hasMappings(queryEntityMappingTypeId) ||
+            x.hasMappings(createEntityMappingTypeId))
+            .map(x =&gt; x.getMapping(queryEntityMappingTypeId) ||
+            x.getMapping(createEntityMappingTypeId));
+        if (advancedMappings.length === 1) {
+            mappedElement = advancedMappings[0].getTargetElement();
+        }
+    }
     if (mappedElement == null) {
         return null;
     }
@@ -812,18 +826,6 @@ function getSurrogateKeyType() {
 }
 /// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 /// &lt;reference path="../../common/getSurrogateKeyType.ts" /&gt;
-const constants = {
-    PKSpecialization: {
-        Implicit: "implicit",
-        Explicit: "explicit",
-        ExplicitComposite: "explicit_composite",
-        Unknown: "unknown"
-    },
-    FKSpecialization: {
-        Implicit: "implicit",
-        Explicit: "explicit",
-    }
-};
 function getFieldFormat(str) {
     return toPascalCase(str);
 }
@@ -881,7 +883,7 @@ function ensureDtoFields(autoAddPrimaryKey, mappedElement, dto) {
     }
 }
 function isOwnerForeignKey(attributeName, domainElement) {
-    for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
+    for (let association of domainElement.getAssociations().filter(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
         if (attributeName.toLowerCase().indexOf(association.getName().toLowerCase()) &gt;= 0) {
             return true;
         }
@@ -1076,4 +1078,6 @@ onMapQuery(element);
   <associationSettings />
   <associationExtensions />
   <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

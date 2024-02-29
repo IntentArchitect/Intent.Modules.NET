@@ -215,27 +215,14 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         if (associationEnd.Association.IsOneToOne() &&
             associationEnd.Association.AssociationType == AssociationType.Aggregation)
         {
-            var keys = associationEnd.OtherEnd().Class.Attributes
-                .Where(p => p.GetForeignKey()?.Association()?.Id == associationEnd.Id)
+            var keys = associationEnd.Class.Attributes
+                .Where(p => p.GetForeignKey()?.Association()?.Id == associationEnd.OtherEnd().Id)
                 .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
                     Name: x.Name,
                     Type: x.Type.Element,
-                    IsNullable: associationEnd.OtherEnd().IsNullable))
+                    IsNullable: associationEnd.IsNullable))
                 .ToArray();
-
-            // implicit keys
-            if (!keys.Any())
-            {
-                keys = new[]
-                {
-                    new RequiredEntityProperty(
-                        Class: associationEnd.Element,
-                        Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
-                        Type: null,
-                        IsNullable: associationEnd.OtherEnd().IsNullable)
-                };
-            }
 
             return keys;
         }
@@ -251,59 +238,31 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                     IsNullable: associationEnd.IsNullable))
                 .ToArray();
 
-            // implicit keys
-            if (!keys.Any())
-            {
-                keys = new[]
-                {
-                    new RequiredEntityProperty(
-                        Class: associationEnd.Element,
-                        Name: "Id",
-                        Type: null,
-                        IsNullable: false)
-                };
-            }
-
             return keys;
         }
 
-        // Explicit keys
-        if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
-        {
-            var fkAttributeWithAssociations = associationEnd.Class.Attributes
+        // explicit keys:
+        var fkAttributeWithAssociations = associationEnd.Class.Attributes
                 .Where(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId)
                 .ToArray();
-            if (foreignKeyAssociationId != null && fkAttributeWithAssociations.Any())
-            {
-                return fkAttributeWithAssociations
-                    .Select(x => new RequiredEntityProperty(
-                        Class: associationEnd.Element,
-                        Name: x.Name,
-                        Type: x.Type.Element,
-                        IsNullable: associationEnd.IsNullable))
-                    .ToArray();
-            }
+        if (foreignKeyAssociationId != null && fkAttributeWithAssociations.Any())
+        {
+            return fkAttributeWithAssociations
+                .Select(x => new RequiredEntityProperty(
+                    Class: associationEnd.Element,
+                    Name: x.Name,
+                    Type: x.Type.Element,
+                    IsNullable: associationEnd.IsNullable))
+                .ToArray();
+        }
 
-            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+        return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
                     Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
                     IsNullable: associationEnd.IsNullable))
                 .ToArray();
-        }
-
-        // Implicit key
-        {
-            return new[]
-            {
-                new RequiredEntityProperty(
-                    Class: associationEnd.Element,
-                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
-                    Type: null,
-                    IsNullable: associationEnd.OtherEnd().IsNullable)
-            };
-        }
     }
 
     public override string GetText(string indentation)

@@ -77,13 +77,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             statement.KeyColumns.First().Class,
                             statement.KeyColumns);
                     }
-
-                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreAssociationConfigStatement>().Where(x => x.RequiredProperties.Any())))
-                    {
-                        EnsureForeignKeysOnEntity(
-                            statement.RequiredProperties.First().Class,
-                            statement.RequiredProperties);
-                    }
                 });
         }
 
@@ -511,11 +504,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private bool RequiresConfiguration(AttributeModel attribute)
+        private static bool RequiresConfiguration(AttributeModel attribute)
         {
             return !attribute.InternalElement.ParentElement.IsClassModel() ||
-                   (attribute.Class.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) &&
-                    !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase));
+                   attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => !keyAttribute.Equals(attribute));
         }
 
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
@@ -679,62 +671,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     foreach (var column in columns)
                     {
                         entityClass.TryGetMetadata<ClassModel>("model", out var model);
-                        var existingPk = model is not null
-                            ? GetAllBuilderProperties(model).FirstOrDefault(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase))
-                            : null;
-                        if (existingPk == null)
-                        {
-                            var typeName = column.Type != null
-                                ? template.GetTypeName(column.Type.AsTypeReference(isNullable: column.IsNullable, isCollection: column.IsCollection))
-                                : this.GetDefaultSurrogateKeyType() + (column.IsNullable ? "?" : string.Empty);
-
-                            entityClass.InsertProperty(0, template.UseType(typeName), column.Name, property =>
-                            {
-                                column.ConfigureProperty?.Invoke(property);
-                                primaryKeyProperties.Add(property);
-                            });
-                        }
-                        else
-                        {
-                            primaryKeyProperties.Add(existingPk);
-                        }
-                    }
-
-                    if (!entityClass.TryGetMetadata("primary-keys", out var pks))
-                    {
-                        entityClass.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
-                    }
-                });
-            }
-        }
-
-        public void EnsureForeignKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
-        {
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entityModel.Id, out var template))
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var entityClass = file.Classes.First();
-                    foreach (var column in columns)
-                    {
-                        if (entityClass.GetAllProperties().Any(prop => prop.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
+                        if (model is null)
                         {
                             continue;
                         }
 
-                        var typeName = column.Type != null
-                            ? template.GetTypeName(column.Type.AsTypeReference(isNullable: column.IsNullable, isCollection: column.IsCollection))
-                            : this.GetDefaultSurrogateKeyType() + (column.IsNullable ? "?" : string.Empty);
+                        var existingPk = GetAllBuilderProperties(model)
+                            .FirstOrDefault(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase));
 
-                        var associationProperty = entityClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
-                        if (associationProperty != null)
+                        if (existingPk is null)
                         {
-                            entityClass.InsertProperty(entityClass.Properties.IndexOf(associationProperty), template.UseType(typeName), column.Name, column.ConfigureProperty);
+                            continue;
                         }
-                        else
-                        {
-                            entityClass.AddProperty(template.UseType(typeName), column.Name, column.ConfigureProperty);
-                        }
+
+                        primaryKeyProperties.Add(existingPk);
+                    }
+
+                    if (!entityClass.TryGetMetadata("primary-keys", out _))
+                    {
+                        entityClass.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
                 });
             }

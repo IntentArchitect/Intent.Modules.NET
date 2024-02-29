@@ -1,3 +1,7 @@
+### Version 6.0.5
+
+- Improvement: Removed support for implicit keys, allowing keyless entities to now be modelled.
+
 ### Version 6.0.4
 
 - Fixed: If a nested compositional entity does not have an owner Id, it will no longer run the GetAllImplementationStrategy.

@@ -1,4 +1,19 @@
-﻿### Version 4.6.2
+﻿### Version 5.0.0
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This version removes generation of "implicit" primary and foreign keys (for cases where they weren't explicitly modelled in the Domain designer) which means that in rare cases minor changes will need to be manually applied in the Domain designer if you wish to avoid requiring any changes to your actual database schema.
+>
+> Before accepting changes by the Software Factory, carefully review any proposed changes to generated Entity Framework type configuration classes and use them to show you which changes may need to be applied in the Domain designer.
+>
+> A quick way to have the Domain designer apply "default" primary and foreign keys to a Class is to right-click it and select the "Auto Manage Keys" option.
+>
+> Should you have any questions or require any assistance, please do not hesitate to [reach out to Intent Architect support](https://github.com/IntentArchitect/Support).
+
+
+- Improvement: Removed support for implicit keys, allowing keyless entities to now be modelled.
+
+### Version 4.6.2
 
 - Fixed: Using CosmosDB on a one-to-one relationship will no longer generate an implicit PK field on the composite entity.
 
