@@ -106,7 +106,6 @@
     <application id="889131be-3f2c-4eb9-8a3a-a10260093907" name="Intent.Modules.ObsoleteModule" relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.application.config" />
     <application id="3c870573-3449-4986-82f0-1bf3299ab1d1" name="Intent.Modules.AspNetCore.SignalR" relativePath="Intent.Modules.AspNetCore.SignalR/Intent.Modules.AspNetCore.SignalR.application.config" />
     <application id="f51fb36a-8aba-46a5-8c18-b9f9c8c496da" name="Intent.Modules.Blazor.HttpClients" relativePath="Intent.Modules.Blazor.HttpClients/Intent.Modules.Blazor.HttpClients.application.config" />
-    <application id="aa397c5c-7cbc-421d-8671-596b0a2cd970" name="Intent.Modules.EntityFrameworkCore.BasicAuditing" relativePath="Intent.Modules.EntityFrameworkCore.BasicAuditing/Intent.Modules.EntityFrameworkCore.BasicAuditing.application.config" />
     <application id="c432a6b5-0208-4aa7-aa55-006c90cb04d5" name="Intent.Modules.AspNetCore.HealthChecks" relativePath="Intent.Modules.AspNetCore.HealthChecks/Intent.Modules.AspNetCore.HealthChecks.application.config" />
     <application id="c7fa9e37-74f9-4737-826f-71bb2f1389e8" name="Intent.Modules.Dapr.AspNetCore.Metadata" relativePath="Intent.Modules.Dapr.AspNetCore.Metadata/Intent.Modules.Dapr.AspNetCore.Metadata.application.config" />
     <application id="ec005aa8-56ab-4bbd-b50c-0a0dd619504f" name="Intent.Modules.Dapr.AspNetCore.Secrets" relativePath="Intent.Modules.Dapr.AspNetCore.Secrets/Intent.Modules.Dapr.AspNetCore.Secrets.application.config" />
