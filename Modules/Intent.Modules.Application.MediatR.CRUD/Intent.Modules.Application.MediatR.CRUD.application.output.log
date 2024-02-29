@@ -3,10 +3,16 @@
   <ApplicationId>e3a56af9-4953-4fde-a283-50674146b91e</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c7d63772-5802-40a6-bc1b-cae31b8faec2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#04a16b10-1a83-4e5a-aad8-ca86b9638847</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/CommandExtensionModel.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/CommandExtensionModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -14,7 +20,7 @@
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#3e83b75d-9dff-4393-85fb-80801d1b6e22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -22,7 +28,7 @@
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa5d716-3bc4-4a74-828d-d9b7c966ae17</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Decorators/CommandHandlerCrudDecorator.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/CommandHandlerCrudDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandlerCrudDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -30,7 +36,7 @@
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2fa5d716-3bc4-4a74-828d-d9b7c966ae17</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Decorators/CommandHandlerCrudDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/CommandHandlerCrudDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandlerCrudDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -38,7 +44,7 @@
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#c09b329c-dd0a-4d7f-858c-a012ae180b32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Decorators/QueryHandlerCrudDecorator.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/QueryHandlerCrudDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandlerCrudDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -46,7 +52,7 @@
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#c09b329c-dd0a-4d7f-858c-a012ae180b32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Decorators/QueryHandlerCrudDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/QueryHandlerCrudDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandlerCrudDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -54,7 +60,7 @@
       <ProjectId>22c128eb-bd36-42ea-ac33-d0de655e876b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#6c06fe9e-d240-49c9-b664-cca3bbabad1a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/FactoryExtensions/MongoDbRepositoryUpdateExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/MongoDbRepositoryUpdateExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoDbRepositoryUpdateExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -62,7 +68,7 @@
       <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Intent.Application.MediatR.CRUD.imodspec</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Application.MediatR.CRUD.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.MediatR.CRUD.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -70,7 +76,7 @@
       <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3f0ab5fe-e9ef-4069-b690-195694fc1ce5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Intent.Modules.Application.MediatR.CRUD.csproj</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -78,7 +84,7 @@
       <ProjectId>76922bdc-3562-407e-baa4-e77437a5e6d7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.DesignerSettings#46410048-55e6-4cc9-8ee0-dcd0e24a8ee2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/modelers/MediatR CRUD Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>modelers/MediatR CRUD Extensions.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatR CRUD Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -86,14 +92,8 @@
       <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/README.txt</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c7d63772-5802-40a6-bc1b-cae31b8faec2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

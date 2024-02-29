@@ -38,7 +38,7 @@
     <application id="8d97d581-efbb-47bd-b460-05a3293a5afa" name="Security.JWT" relativePath="Intent.Modules.Security.JWT/Security.JWT.application.config" />
     <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="Security.BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Security.BearerToken.Interop.IdentityServer4.application.config" />
     <application id="24057b1c-2a88-4c71-b21a-74baaa302412" name="AspNetCore.Swashbuckle" relativePath="Intent.Modules.AspNetCore.Swashbuckle/AspNetCore.Swashbuckle.application.config" />
-    <application id="e3a56af9-4953-4fde-a283-50674146b91e" name="Intent.Application.MediatR.CRUD" relativePath="Intent.Application.MediatR.CRUD/Intent.Application.MediatR.CRUD.application.config" />
+    <application id="e3a56af9-4953-4fde-a283-50674146b91e" name="MediatR.CRUD" relativePath="Intent.Modules.Application.MediatR.CRUD/Intent.Modules.Application.MediatR.CRUD.application.config" />
     <application id="8467c2d6-6442-4d8b-9ebe-353556099f59" name="Intent.Modules.AspNetCore.Cors" relativePath="Intent.Modules.AspNetCore.Cors/Intent.Modules.AspNetCore.Cors.application.config" />
     <application id="e4d9754f-9a44-441e-bc46-454f4441b184" name="Intent.Modules.Application.ServiceImplementations.Conventions.CRUD" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD/Intent.Application.ServiceImplementations.Conventions.CRUD.application.config" />
     <application id="ac11ad1e-604e-4dbc-81dc-9e56ed1abd30" name="Intent.Modules.Entities" relativePath="Intent.Modules.Entities/Intent.Modules.Entities.application.config" />
