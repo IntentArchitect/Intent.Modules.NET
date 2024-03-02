@@ -10,7 +10,7 @@
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.1.0" />
     <PackageReference Include="Intent.Modules.Metadata.DocumentDB" Version="1.1.4" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.6" />
-    <PackageReference Include="Intent.Packager" Version="3.4.1">
+    <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
