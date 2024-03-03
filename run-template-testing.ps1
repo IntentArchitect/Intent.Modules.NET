@@ -27,7 +27,7 @@ $startTime = Get-Date
 
 # Remove all jobs
 Get-Job | Remove-Job
-$MaxThreads = 6
+$MaxThreads = [Math]::Ceiling(([int]$Env:NUMBER_OF_PROCESSORS) * 0.75)
 $count = 0
 
 Write-Host "Starting test projects:"
