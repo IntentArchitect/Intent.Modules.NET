@@ -41,6 +41,7 @@ return `${name}${genericTypes}(${parameters}): ${returnType}`;
         <targetTypes>
           <type>Class</type>
           <type>Data Contract</type>
+          <type>Type-Definition</type>
         </targetTypes>
         <allowIsNavigable>true</allowIsNavigable>
         <allowIsNullable>true</allowIsNullable>

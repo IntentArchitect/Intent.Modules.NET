@@ -64,7 +64,7 @@ internal static class StoredProcedureHelpers
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
-        _ = template.CSharpFile
+        template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
             .AfterBuild(file =>
@@ -77,6 +77,7 @@ internal static class StoredProcedureHelpers
                     {
                         ClassModel model => model.Id,
                         DataContractModel model => model.Id,
+                        TypeDefinitionModel model => model.Id,
                         _ => throw new Exception($"Unknown type: {x.GetMetadata("model").GetType()}")
                     });
 
