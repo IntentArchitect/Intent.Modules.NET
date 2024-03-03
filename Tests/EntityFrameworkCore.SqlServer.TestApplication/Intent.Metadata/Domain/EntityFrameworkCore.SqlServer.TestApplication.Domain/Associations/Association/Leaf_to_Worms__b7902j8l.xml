@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="ef1e1894-031b-4cda-b900-be10dd2d0ad0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Worms</name>
-    <display>Worms: Worm[*]   [0..1 --&gt; *]</display>
-    <order>2</order>
+    <display>Worms: Worm[*]</display>
+    <order>4</order>
     <typeReference id="a1c19850-b441-424f-9586-3c0320e437ae">
       <typeId>6e6b2ad6-9f01-4c08-bd2f-d4ffe67169fe</typeId>
       <isNavigable>true</isNavigable>

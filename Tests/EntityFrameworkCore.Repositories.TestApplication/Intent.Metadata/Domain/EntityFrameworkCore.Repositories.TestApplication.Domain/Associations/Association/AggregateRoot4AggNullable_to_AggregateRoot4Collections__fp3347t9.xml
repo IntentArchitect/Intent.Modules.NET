@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="537ff2c5-8fbc-47d9-9b9b-30abb1bd0468" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateRoot4Collections</name>
-    <display>AggregateRoot4Collections: AggregateRoot4Collection[*]   [0..1 --&gt; *]</display>
-    <order>1</order>
+    <display>AggregateRoot4Collections: AggregateRoot4Collection[*]</display>
+    <order>4</order>
     <typeReference id="5ea8faf7-906d-47fd-8674-2f293eda5e6a">
       <typeId>30c3c4cc-0e99-4a05-9272-cf8ebd81351c</typeId>
       <isNavigable>true</isNavigable>

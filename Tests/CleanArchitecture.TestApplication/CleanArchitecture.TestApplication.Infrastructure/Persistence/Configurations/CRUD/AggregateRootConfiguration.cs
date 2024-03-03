@@ -34,6 +34,8 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence.Configura
             builder.Property(x => x.EnumType3)
                 .IsRequired();
 
+            builder.Property(x => x.AggregateId);
+
             builder.HasMany(x => x.Composites)
                 .WithOne()
                 .HasForeignKey(x => x.AggregateRootId)

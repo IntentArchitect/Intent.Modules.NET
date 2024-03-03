@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="0dd969fb-a932-4e42-8791-17cb69214c03" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>FkBaseClass</name>
-    <display>FkBaseClass: TPT_FkBaseClass   [* --&gt; 1]</display>
-    <order>3</order>
+    <display>FkBaseClass: TPT_FkBaseClass</display>
+    <order>4</order>
     <typeReference id="7ea51a86-ad70-4960-8afa-59f5c19c8fb7">
       <typeId>bd1f8d92-5764-424d-b52d-625691839562</typeId>
       <isNavigable>true</isNavigable>

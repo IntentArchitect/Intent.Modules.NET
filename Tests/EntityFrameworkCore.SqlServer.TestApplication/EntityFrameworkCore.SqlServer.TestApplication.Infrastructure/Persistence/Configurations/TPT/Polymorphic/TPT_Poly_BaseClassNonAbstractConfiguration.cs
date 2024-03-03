@@ -16,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
             builder.Property(x => x.BaseField)
                 .IsRequired();
+
+            builder.Property(x => x.Poly_SecondLevelId);
         }
     }
 }

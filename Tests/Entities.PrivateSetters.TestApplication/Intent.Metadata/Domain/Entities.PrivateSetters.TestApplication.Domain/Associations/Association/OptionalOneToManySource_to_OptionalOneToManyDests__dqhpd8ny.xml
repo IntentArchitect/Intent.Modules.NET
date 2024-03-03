@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="206822b8-8d23-4130-be60-73081a52fbf8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OptionalOneToManyDests</name>
-    <display>OptionalOneToManyDests: OptionalToManyDest[*]   [0..1 --&gt; *]</display>
+    <display>OptionalOneToManyDests: OptionalToManyDest[*]</display>
     <order>4</order>
     <typeReference id="c445f247-8a91-4139-9a83-951978175c84">
       <typeId>444974c4-23e1-4131-ac23-40bf77e88ebc</typeId>

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="025885ca-599d-4420-8cbb-6f069e920670" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Owneds</name>
-    <display>Owneds: OneToManyDest[*]   [1 --&gt; *]</display>
+    <display>Owneds: OneToManyDest[*]</display>
     <order>4</order>
     <typeReference id="ea77dfc6-3c55-4a6e-8b5a-28dc59e33dbd">
       <typeId>94645af4-348f-4908-bf99-326b5bd63938</typeId>

@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="5e38f263-c358-449a-9388-2e133027da28" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Leaves</name>
-    <display>Leaves: Leaf[*]   [1 --&gt; *]</display>
-    <order>4</order>
+    <display>Leaves: Leaf[*]</display>
+    <order>7</order>
     <typeReference id="516c9bf4-7483-4922-8033-8b11c482b4d8">
       <typeId>0b3016ef-51e4-4770-b39e-93213b4d55b2</typeId>
       <isNavigable>true</isNavigable>

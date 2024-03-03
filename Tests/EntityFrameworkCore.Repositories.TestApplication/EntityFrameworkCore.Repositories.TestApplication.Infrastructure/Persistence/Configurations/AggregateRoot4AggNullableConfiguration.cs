@@ -14,6 +14,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.AggregateRoot4SingleId)
+                .IsRequired();
+
+            builder.Property(x => x.AggregateRoot4NullableId);
+
             builder.HasOne(x => x.AggregateRoot4Single)
                 .WithOne()
                 .HasForeignKey<AggregateRoot4AggNullable>(x => x.AggregateRoot4SingleId)

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="a9b3fdd7-19a0-411d-98cb-a36ea1ad09fc" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DestNameDiff</name>
-    <display>DestNameDiff: Q_DestNameDiffDependent   [1 --&gt; 1]</display>
+    <display>DestNameDiff: Q_DestNameDiffDependent</display>
     <order>1</order>
     <typeReference id="ed0c6a05-3efc-4632-a0b0-35f52abaa337">
       <typeId>8ac5fc86-5194-4ad1-a5b3-3f89a502cb0f</typeId>

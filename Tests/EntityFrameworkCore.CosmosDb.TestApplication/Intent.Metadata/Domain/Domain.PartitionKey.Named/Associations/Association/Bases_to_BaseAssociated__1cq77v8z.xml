@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="a028f013-0ca9-49d3-9804-e5f55e68b95e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>BaseAssociated</name>
-    <display>BaseAssociated: BaseAssociated?   [* --&gt; 0..1]</display>
+    <display>BaseAssociated: BaseAssociated?</display>
     <order>4</order>
     <typeReference id="add44da1-f086-4f2d-9fc1-532addfd5ac8">
       <typeId>b489e216-b18b-4a29-a961-c6d6d6aaa49a</typeId>

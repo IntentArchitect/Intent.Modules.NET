@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.SelfRefAttr)
                 .IsRequired();
 
+            builder.Property(x => x.K_SelfReferenceAssociationId);
+
             builder.HasOne(x => x.K_SelfReferenceAssociation)
                 .WithMany()
                 .HasForeignKey(x => x.K_SelfReferenceAssociationId)

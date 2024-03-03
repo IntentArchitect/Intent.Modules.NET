@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="91e2c674-1227-4bbb-a263-c3a30d2f60db" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Accounts</name>
-    <display>Accounts: Account[*]   [1 --&gt; *]</display>
+    <display>Accounts: Account[*]</display>
     <order>5</order>
     <typeReference id="22d28daa-53da-4430-9392-d7935dce4e53">
       <typeId>43071d5b-3c4b-4a6a-9e21-4094f37d9a48</typeId>

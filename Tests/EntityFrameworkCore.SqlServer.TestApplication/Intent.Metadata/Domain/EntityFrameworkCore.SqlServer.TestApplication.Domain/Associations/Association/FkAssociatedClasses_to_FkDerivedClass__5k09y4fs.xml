@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="cc054950-e440-4e8a-b320-04b4c35a9783" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>FkDerivedClass</name>
-    <display>FkDerivedClass: TPH_FkDerivedClass   [* --&gt; 1]</display>
-    <order>3</order>
+    <display>FkDerivedClass: TPH_FkDerivedClass</display>
+    <order>4</order>
     <typeReference id="8ceac620-5da8-44a6-98d9-d16fcb93f458">
       <typeId>9f52144c-5b09-43d1-ba93-71f89dd9ec4e</typeId>
       <isNavigable>true</isNavigable>

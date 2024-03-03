@@ -49,7 +49,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IExplicitKeyClassRepository, ExplicitKeyClassRepository>();
-            services.AddTransient<IImplicitKeyClassRepository, ImplicitKeyClassRepository>();
             services.AddTransient<INormalEntityRepository, NormalEntityRepository>();
             services.AddTransient<ISelfContainedEntityRepository, SelfContainedEntityRepository>();
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeRepository>();

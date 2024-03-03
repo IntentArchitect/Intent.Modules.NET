@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="60275aa1-2066-4620-8b27-0724a7930bf1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>J_RequiredDependent</name>
-    <display>J_RequiredDependent: J_RequiredDependent   [* --&gt; 1]</display>
+    <display>J_RequiredDependent: J_RequiredDependent</display>
     <order>4</order>
     <typeReference id="e2f46ff3-0b48-454d-9238-66aad757ca96">
       <typeId>3651dd31-d980-4fb2-81ba-bd42539a7949</typeId>

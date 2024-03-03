@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="ff15dbb3-3bc2-4c72-b38f-e9b755d4a9f7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OpAndCtorMapping3</name>
-    <display>OpAndCtorMapping3: OpAndCtorMapping3   [* --&gt; 1]</display>
+    <display>OpAndCtorMapping3: OpAndCtorMapping3</display>
     <order>4</order>
     <typeReference id="2a5a3fcf-5351-4255-90a9-fed5d8e7c366">
       <typeId>2562baa7-f014-4afe-937b-e6d338c0c3be</typeId>

@@ -20,6 +20,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.SunId)
                 .IsRequired();
 
+            builder.Property(x => x.BranchId)
+                .IsRequired();
+
             builder.HasMany(x => x.Worms)
                 .WithOne()
                 .HasForeignKey(x => x.LeafId);

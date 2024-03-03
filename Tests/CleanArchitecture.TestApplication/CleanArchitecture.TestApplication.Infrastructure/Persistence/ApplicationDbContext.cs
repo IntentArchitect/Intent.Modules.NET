@@ -79,7 +79,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
         public DbSet<DataContractClass> DataContractClasses { get; set; }
-        public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
         public DbSet<NullabilityPeer> NullabilityPeers { get; set; }
         public DbSet<TestNullablity> TestNullablities { get; set; }
         public DbSet<ODataAgg> ODataAggs { get; set; }
@@ -121,7 +120,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
-            modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
             modelBuilder.ApplyConfiguration(new CameraConfiguration());

@@ -3,7 +3,7 @@
   <sourceEnd id="a135cd18-f8e1-49a6-8c46-1d0242b32072" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Tree</name>
     <display>Tree: Tree</display>
-    <order>5</order>
+    <order>8</order>
     <typeReference id="9fdaa49d-1bcf-4983-8fd5-b1d5ff9133bc">
       <typeId>c9e9e39c-be7a-45a0-a094-3d9258eafbc4</typeId>
       <isNavigable>true</isNavigable>
@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="13ced773-1439-4a69-bbea-df2eae189684" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Branches</name>
-    <display>Branches: Branch[*]   [1 --&gt; *]</display>
-    <order>1</order>
+    <display>Branches: Branch[*]</display>
+    <order>2</order>
     <typeReference id="0a23604e-5729-48bf-86b5-daacabc450f0">
       <typeId>c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</typeId>
       <isNavigable>true</isNavigable>

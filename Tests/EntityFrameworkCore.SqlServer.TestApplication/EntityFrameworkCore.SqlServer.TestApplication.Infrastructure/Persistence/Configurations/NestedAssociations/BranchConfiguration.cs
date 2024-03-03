@@ -17,6 +17,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.BranchAttribute)
                 .IsRequired();
 
+            builder.Property(x => x.TextureId)
+                .IsRequired();
+
+            builder.Property(x => x.TreeId)
+                .IsRequired();
+
             builder.HasOne(x => x.Texture)
                 .WithMany()
                 .HasForeignKey(x => x.TextureId)

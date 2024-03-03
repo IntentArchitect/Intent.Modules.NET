@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="c05c6e51-b10e-439f-ade0-51b5aa2dc143" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Inhabitants</name>
-    <display>Inhabitants: Inhabitant[*]   [* --&gt; *]</display>
-    <order>3</order>
+    <display>Inhabitants: Inhabitant[*]</display>
+    <order>6</order>
     <typeReference id="47b21803-e797-48ad-926a-ce48f9e525c0">
       <typeId>c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</typeId>
       <isNavigable>true</isNavigable>

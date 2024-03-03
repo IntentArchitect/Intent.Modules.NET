@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="54c1431a-12de-435a-8a0e-0fba0ae8c791" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>R_SourceNameDiffDependent</name>
-    <display>R_SourceNameDiffDependent: R_SourceNameDiffDependent   [1 --&gt; 1]</display>
+    <display>R_SourceNameDiffDependent: R_SourceNameDiffDependent</display>
     <order>2</order>
     <typeReference id="7c6ec946-0d78-4f90-a649-edc542573a23">
       <typeId>7d322d2e-9a85-4d7e-8038-ce7b595b4ad1</typeId>

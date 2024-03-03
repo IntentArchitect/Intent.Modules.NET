@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.AggregateRoot4AggNullableId);
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

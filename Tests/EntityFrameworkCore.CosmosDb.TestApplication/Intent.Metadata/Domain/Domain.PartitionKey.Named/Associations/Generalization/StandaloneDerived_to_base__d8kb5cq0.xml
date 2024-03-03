@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7de69fb1-a7ae-489c-9f70-8f2d54f3b6f7">
+  <sourceEnd id="7568cf07-563f-4e37-900d-3fbeffdc588b" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: StandaloneDerived</display>
+    <order>0</order>
+    <typeReference id="1d36d3b1-0803-4907-8815-b2fa4b5ab95f">
+      <typeId>c36c18bd-29c2-4e8d-88ad-a9cf9a2a8711</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7de69fb1-a7ae-489c-9f70-8f2d54f3b6f7" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends StandaloneAbstract</display>
+    <order>0</order>
+    <typeReference id="2ec5ebc5-cc46-451d-a31d-15fde8214ca9">
+      <typeId>78ce90a1-c453-443f-85e7-31cb3c9e8c1c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

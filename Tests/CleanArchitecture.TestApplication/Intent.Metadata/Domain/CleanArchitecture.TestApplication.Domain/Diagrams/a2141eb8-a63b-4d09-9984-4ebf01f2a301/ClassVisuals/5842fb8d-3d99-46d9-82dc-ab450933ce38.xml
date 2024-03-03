@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<classVisual id="5842fb8d-3d99-46d9-82dc-ab450933ce38" zIndex="21">
+<classVisual id="5842fb8d-3d99-46d9-82dc-ab450933ce38" zIndex="18">
   <position x="870" y="1510" />
   <size width="200" height="100" />
+  <autoResizeEnabled>true</autoResizeEnabled>
 </classVisual>

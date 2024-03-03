@@ -17,7 +17,5 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
         public virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; } = new List<L_SelfReferenceMultiple>();
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
-        protected virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesSrc { get; set; }
     }
 }

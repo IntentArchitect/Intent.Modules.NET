@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="003eae52-6bc2-4231-806f-78e3be5b0da2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateRoot2Collections</name>
-    <display>AggregateRoot2Collections: AggregateRoot2Collection[*]   [1 --&gt; *]</display>
-    <order>2</order>
+    <display>AggregateRoot2Collections: AggregateRoot2Collection[*]</display>
+    <order>3</order>
     <typeReference id="fcac51d6-5db3-44e8-a2b4-13278a9b8f25">
       <typeId>59b15a46-fa0e-45f6-bd4e-d69aba488be6</typeId>
       <isNavigable>true</isNavigable>

@@ -67,7 +67,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             services.AddTransient<IAggregateTestNoIdReturnRepository, AggregateTestNoIdReturnRepository>();
-            services.AddTransient<IImplicitKeyAggrRootRepository, ImplicitKeyAggrRootRepository>();
             services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<ICameraRepository, CameraRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();

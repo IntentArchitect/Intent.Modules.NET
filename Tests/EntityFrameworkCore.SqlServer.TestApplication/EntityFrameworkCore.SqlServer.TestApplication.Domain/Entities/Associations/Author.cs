@@ -14,7 +14,5 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associat
         public string Name { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
-        protected virtual ICollection<Book> Books { get; set; }
     }
 }

@@ -10,7 +10,9 @@
   <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
   <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
   <stereotypes />
-  <metadata />
+  <metadata>
+    <entry key="auto-manage-keys" value="false" />
+  </metadata>
   <childElements>
     <childElement id="8000c0d5-4486-4d68-a69e-93443fee198e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>baseAttribute</name>

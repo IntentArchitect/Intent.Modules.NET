@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="7abc6dff-286c-4738-9bab-35cc82c9896d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateRoot3Nullable</name>
-    <display>AggregateRoot3Nullable: AggregateRoot3Nullable?   [* --&gt; 0..1]</display>
-    <order>1</order>
+    <display>AggregateRoot3Nullable: AggregateRoot3Nullable?</display>
+    <order>5</order>
     <typeReference id="21183571-1b2d-47b5-a620-2df558614088">
       <typeId>cacad91c-8fd2-4a89-a168-4052b522a8b2</typeId>
       <isNavigable>true</isNavigable>

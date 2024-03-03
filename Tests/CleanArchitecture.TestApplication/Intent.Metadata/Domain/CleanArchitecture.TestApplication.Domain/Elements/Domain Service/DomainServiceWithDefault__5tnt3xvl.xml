@@ -35,7 +35,7 @@
       <childElements>
         <childElement id="4c8907ab-ab8a-42b5-a590-c5d2c65e1288" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>param1</name>
-          <display>in : param1: string = "Operation Param 1 Value"</display>
+          <display>in : param1: string</display>
           <isAbstract>false</isAbstract>
           <value>"Operation Param 1 Value"</value>
           <genericTypes />

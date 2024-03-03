@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="67778fda-a0ca-49e3-9bbe-8e6ebb2af3e9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateRoot5EntityWithRepo</name>
-    <display>AggregateRoot5EntityWithRepo: AggregateRoot5EntityWithRepo   [1 --&gt; 1]</display>
-    <order>0</order>
+    <display>AggregateRoot5EntityWithRepo: AggregateRoot5EntityWithRepo</display>
+    <order>1</order>
     <typeReference id="4c450adb-4979-4dd8-98f5-9c25e4d4ffb8">
       <typeId>02c58a57-19d5-4182-97b8-9f7315d2430c</typeId>
       <isNavigable>true</isNavigable>

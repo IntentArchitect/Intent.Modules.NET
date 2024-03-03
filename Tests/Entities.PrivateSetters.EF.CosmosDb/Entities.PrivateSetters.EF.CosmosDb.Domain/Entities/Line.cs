@@ -22,7 +22,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
             Description = null!;
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public Guid InvoiceId { get; private set; }
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e04fcc33-b1a4-43d1-bc1b-6d8771c320a1">
+  <sourceEnd id="d4207642-780f-4034-bf68-c4971b037ea5" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: Audit_DerivedClass</display>
+    <order>0</order>
+    <typeReference id="fc7b36b5-2ee4-41ec-a350-1c3a25a642a4">
+      <typeId>057fd3c4-df58-483f-866e-145aa9aff9c8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e04fcc33-b1a4-43d1-bc1b-6d8771c320a1" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends Audit_BaseClass</display>
+    <order>0</order>
+    <typeReference id="d64cd13a-cef8-46eb-bbcd-bc7c46d5bf87">
+      <typeId>1f4260f8-af7a-4eaf-8b4d-76b5de5e4c8f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

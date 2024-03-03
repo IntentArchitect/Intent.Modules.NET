@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="f40c718b-9f68-46d0-b3cb-e30513c56dc4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MappingCompositeSingle</name>
-    <display>MappingCompositeSingle: MappingCompositeSingle   [1 --&gt; 1]</display>
+    <display>MappingCompositeSingle: MappingCompositeSingle</display>
     <order>5</order>
     <typeReference id="f8f086dc-14f8-445f-94a6-c5b558b74c3d">
       <typeId>4069f996-2a63-4a7d-b8ca-378c997753a0</typeId>

@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="5a3e0eee-bfb2-4fb1-a7cc-3da2cbfbc9eb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateRoot4Single</name>
-    <display>AggregateRoot4Single: AggregateRoot4Single   [0..1 --&gt; 1]</display>
-    <order>0</order>
+    <display>AggregateRoot4Single: AggregateRoot4Single</display>
+    <order>3</order>
     <typeReference id="7c70db7c-202f-42f1-b1f7-fd2e496207db">
       <typeId>071950e9-2567-478b-afa7-e4edc3c96c6d</typeId>
       <isNavigable>true</isNavigable>

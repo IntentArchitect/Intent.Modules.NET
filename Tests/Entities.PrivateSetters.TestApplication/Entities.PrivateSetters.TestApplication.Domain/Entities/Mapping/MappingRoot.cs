@@ -13,8 +13,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
         public MappingRoot(IEnumerable<MappingCompositeMultiple> mappingCompositeMultiples,
             MappingCompositeSingle mappingCompositeSingle)
         {
-            _mappingCompositeMultiples.Clear();
-            _mappingCompositeMultiples.AddRange(mappingCompositeMultiples);
+            _mappingCompositeMultiples = new List<MappingCompositeMultiple>(mappingCompositeMultiples);
             MappingCompositeSingle = mappingCompositeSingle;
         }
 

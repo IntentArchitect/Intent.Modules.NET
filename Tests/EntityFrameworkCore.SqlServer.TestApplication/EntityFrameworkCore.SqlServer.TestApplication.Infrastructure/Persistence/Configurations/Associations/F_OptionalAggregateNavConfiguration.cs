@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.OptionalAggrNavAttr)
                 .IsRequired();
 
+            builder.Property(x => x.F_OptionalDependentId);
+
             builder.HasOne(x => x.F_OptionalDependent)
                 .WithOne(x => x.F_OptionalAggregateNav)
                 .HasForeignKey<F_OptionalAggregateNav>(x => x.F_OptionalDependentId)

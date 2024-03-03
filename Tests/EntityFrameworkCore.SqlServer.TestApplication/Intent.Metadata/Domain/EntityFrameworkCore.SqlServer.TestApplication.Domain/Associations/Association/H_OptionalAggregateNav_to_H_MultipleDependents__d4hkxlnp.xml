@@ -3,7 +3,7 @@
   <sourceEnd id="895ba6f7-95f9-499c-a4b0-a49f06b1f350" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>H_OptionalAggregateNav</name>
     <display>H_OptionalAggregateNav: H_OptionalAggregateNav?</display>
-    <order>1</order>
+    <order>3</order>
     <typeReference id="3f28c4a9-48bf-4d77-a2bc-318e04e0b2b5">
       <typeId>9e9a2017-c3f9-409d-82e6-5aba9d64842f</typeId>
       <isNavigable>true</isNavigable>
@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="dc34bbaf-5f0d-4b7e-a5fd-308524fd7df0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>H_MultipleDependents</name>
-    <display>H_MultipleDependents: H_MultipleDependent[*]   [0..1 --&gt; *]</display>
-    <order>1</order>
+    <display>H_MultipleDependents: H_MultipleDependent[*]</display>
+    <order>2</order>
     <typeReference id="7f17d368-7bb3-4527-9a4b-31ee5c1728c7">
       <typeId>ac148e9c-6f1f-44e0-9268-5053c13cd511</typeId>
       <isNavigable>true</isNavigable>

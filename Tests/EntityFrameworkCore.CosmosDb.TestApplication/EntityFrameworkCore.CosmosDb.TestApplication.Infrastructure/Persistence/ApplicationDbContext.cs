@@ -87,7 +87,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
-        public DbSet<ImplicitKeyClass> ImplicitKeyClasses { get; set; }
         public DbSet<NormalEntity> NormalEntities { get; set; }
         public DbSet<SelfContainedEntity> SelfContainedEntities { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
@@ -139,7 +138,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new ExplicitKeyClassConfiguration());
-            modelBuilder.ApplyConfiguration(new ImplicitKeyClassConfiguration());
             modelBuilder.ApplyConfiguration(new NormalEntityConfiguration());
             modelBuilder.ApplyConfiguration(new SelfContainedEntityConfiguration());
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());

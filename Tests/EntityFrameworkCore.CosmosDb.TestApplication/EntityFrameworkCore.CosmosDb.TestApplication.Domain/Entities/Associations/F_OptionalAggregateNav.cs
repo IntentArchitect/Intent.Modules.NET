@@ -16,8 +16,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string OptionalAggrNavAttr { get; set; }
 
-        public Guid? FOptionaldependentId { get; set; }
-
         public Guid? F_OptionalDependentId { get; set; }
 
         public virtual F_OptionalDependent? F_OptionalDependent { get; set; }

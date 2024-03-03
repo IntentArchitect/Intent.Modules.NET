@@ -50,7 +50,7 @@
     </childElement>
     <childElement id="d7c2a6a8-90b7-4e7e-8a6d-9acaa27b0c7e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Name</name>
-      <display>Name: string = "John"</display>
+      <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <value>"John"</value>
       <genericTypes />
@@ -99,7 +99,7 @@
       <childElements>
         <childElement id="330e99d7-c14b-4679-a472-9e02be7ac1c1" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>param1</name>
-          <display>in : param1: string = "Constructor Param 1 Value"</display>
+          <display>in : param1: string</display>
           <isAbstract>false</isAbstract>
           <value>"Constructor Param 1 Value"</value>
           <genericTypes />
@@ -147,7 +147,7 @@
       <childElements>
         <childElement id="fd548638-e79a-423a-ad39-1ea0aefd36b4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>param1</name>
-          <display>in : param1: string = "Operation Param 1 Value"</display>
+          <display>in : param1: string</display>
           <isAbstract>false</isAbstract>
           <value>"Operation Param 1 Value"</value>
           <genericTypes />

@@ -24,7 +24,7 @@
   <targetEnd id="0a58fdbe-ed72-493c-a848-53c84ff72c50" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <comment />
     <name>Tags</name>
-    <display>Tags: Tag[*]   [* --&gt; *]</display>
+    <display>Tags: Tag[*]</display>
     <order>4</order>
     <typeReference id="08a309e9-778f-4986-b913-e51a200bf52a">
       <typeId>63933d11-eec8-48b2-b105-e4d8895665c8</typeId>

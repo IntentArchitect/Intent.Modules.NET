@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="d0572cce-4f44-418f-8805-d2d86ae37245" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ConcreteBaseClass</name>
-    <display>ConcreteBaseClass: ConcreteBaseClass   [* --&gt; 1]</display>
+    <display>ConcreteBaseClass: ConcreteBaseClass</display>
     <order>4</order>
     <typeReference id="a2526300-decd-4351-a213-f4a550e07381">
       <typeId>f384b5a3-a91f-4487-9637-d1ae8cb103d2</typeId>

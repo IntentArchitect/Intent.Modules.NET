@@ -1,4 +1,3 @@
-using System;
 using Entities.PrivateSetters.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

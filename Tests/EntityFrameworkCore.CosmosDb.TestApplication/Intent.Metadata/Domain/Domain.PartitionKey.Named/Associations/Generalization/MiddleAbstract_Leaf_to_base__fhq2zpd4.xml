@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="53ca6ec3-3f07-4155-a164-e3084dcd2a9e">
+  <sourceEnd id="98578055-fba5-4864-85fe-88c4b5e09894" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: MiddleAbstract_Leaf</display>
+    <order>0</order>
+    <typeReference id="3a0d73a8-a51d-443c-89d5-d7f6d7c58bf7">
+      <typeId>c0bff7a0-7d2c-4fb6-99ca-04651e1531f8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="53ca6ec3-3f07-4155-a164-e3084dcd2a9e" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends MiddleAbstract_Middle</display>
+    <order>0</order>
+    <typeReference id="2f1154c3-46ce-482c-9edc-9ea83b5c4a85">
+      <typeId>5fbb6295-c7e6-4bbb-b52c-d26444cf6fbf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

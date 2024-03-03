@@ -15,7 +15,5 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAs
         public string InhabitantAttribute { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
-        protected virtual ICollection<Branch> Branches { get; set; }
     }
 }

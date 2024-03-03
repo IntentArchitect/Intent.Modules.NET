@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.MultipleDepAttr)
                 .IsRequired();
 
+            builder.Property(x => x.D_OptionalAggregateId);
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

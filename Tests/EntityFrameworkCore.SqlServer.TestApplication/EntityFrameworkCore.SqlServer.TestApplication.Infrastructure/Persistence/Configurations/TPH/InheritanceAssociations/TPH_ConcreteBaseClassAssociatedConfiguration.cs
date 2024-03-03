@@ -17,6 +17,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
+            builder.Property(x => x.ConcreteBaseClassId)
+                .IsRequired();
+
             builder.HasOne(x => x.ConcreteBaseClass)
                 .WithMany()
                 .HasForeignKey(x => x.ConcreteBaseClassId)

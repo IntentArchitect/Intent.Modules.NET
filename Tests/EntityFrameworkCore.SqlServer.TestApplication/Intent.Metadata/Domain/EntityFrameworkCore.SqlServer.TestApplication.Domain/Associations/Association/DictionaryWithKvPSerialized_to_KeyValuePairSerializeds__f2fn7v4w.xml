@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="0aea3cbd-3935-4560-9ab5-b72f3e69ccbe" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>KeyValuePairSerializeds</name>
-    <display>KeyValuePairSerializeds: KeyValuePairSerialized[*]   [1 --&gt; *]</display>
+    <display>KeyValuePairSerializeds: KeyValuePairSerialized[*]</display>
     <order>2</order>
     <typeReference id="a6b72b09-4367-4d97-b86f-b6e10dc5cff4">
       <typeId>1c0461dc-98d9-43ef-8f73-4e73938dedea</typeId>

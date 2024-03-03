@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.Color)
                 .IsRequired();
 
+            builder.Property(x => x.LeafId);
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

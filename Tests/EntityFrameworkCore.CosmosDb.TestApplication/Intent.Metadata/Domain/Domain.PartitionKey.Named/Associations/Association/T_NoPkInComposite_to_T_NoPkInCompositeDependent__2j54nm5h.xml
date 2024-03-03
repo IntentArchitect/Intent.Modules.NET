@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="35d97b24-bd53-456e-9565-840c11413aae" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>T_NoPkInCompositeDependent</name>
-    <display>T_NoPkInCompositeDependent: T_NoPkInCompositeDependent?   [1 --&gt; 0..1]</display>
+    <display>T_NoPkInCompositeDependent: T_NoPkInCompositeDependent?</display>
     <order>3</order>
     <typeReference id="ed5ebddf-4b9c-4971-9572-dc82f482b5e6">
       <typeId>c0e3cc07-3e2d-41c5-8e80-cd15dc571222</typeId>

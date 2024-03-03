@@ -25,7 +25,5 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
         public Guid Id { get; private set; }
 
         public string Name { get; private set; }
-
-        protected virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

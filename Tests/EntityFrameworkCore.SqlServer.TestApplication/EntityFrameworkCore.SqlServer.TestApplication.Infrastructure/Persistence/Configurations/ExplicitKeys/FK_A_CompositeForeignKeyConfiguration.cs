@@ -14,6 +14,12 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.PK_A_CompositeKeyCompositeKeyA)
+                .IsRequired();
+
+            builder.Property(x => x.PK_A_CompositeKeyCompositeKeyB)
+                .IsRequired();
+
             builder.HasOne(x => x.PK_A_CompositeKey)
                 .WithMany()
                 .HasForeignKey(x => new { x.PK_A_CompositeKeyCompositeKeyA, x.PK_A_CompositeKeyCompositeKeyB })

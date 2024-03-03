@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="2b3e6d57-c1b9-40bc-aa50-6910e80d48f0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>N_CompositeTwo</name>
-    <display>N_CompositeTwo: N_CompositeTwo   [1 --&gt; 1]</display>
+    <display>N_CompositeTwo: N_CompositeTwo</display>
     <order>4</order>
     <typeReference id="8c7f07c7-3be1-4b97-93f5-504910e09f2a">
       <typeId>176572fd-a365-4f1d-85e3-0ddd4dea98de</typeId>

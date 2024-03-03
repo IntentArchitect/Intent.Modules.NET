@@ -125,8 +125,8 @@
       <childElements />
     </childElement>
     <childElement id="31530ba1-bf8c-4b84-8a39-f981969313f7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>BOptionaldependentId</name>
-      <display>BOptionaldependentId: guid?</display>
+      <name>B_OptionalDependentId</name>
+      <display>B_OptionalDependentId: guid?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="9fc4b555-09d9-4651-b29b-6e15dd567fc9">

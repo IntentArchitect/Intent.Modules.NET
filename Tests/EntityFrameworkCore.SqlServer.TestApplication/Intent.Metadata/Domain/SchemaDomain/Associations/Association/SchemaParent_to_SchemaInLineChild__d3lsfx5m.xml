@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="131850af-e83a-49de-9786-e4f6242d1cbb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>SchemaInLineChild</name>
-    <display>SchemaInLineChild: SchemaInLineChild   [1 --&gt; 1]</display>
+    <display>SchemaInLineChild: SchemaInLineChild</display>
     <order>2</order>
     <typeReference id="318307b9-284c-4f7b-a18d-3901915fab07">
       <typeId>ee31a830-1e39-46aa-b20c-89a44ba2e770</typeId>

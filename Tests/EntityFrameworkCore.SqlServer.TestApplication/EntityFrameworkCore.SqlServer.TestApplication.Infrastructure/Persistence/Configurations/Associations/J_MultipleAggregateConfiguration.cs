@@ -17,6 +17,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.MultipleAggrAttr)
                 .IsRequired();
 
+            builder.Property(x => x.J_RequiredDependentId)
+                .IsRequired();
+
             builder.HasOne(x => x.J_RequiredDependent)
                 .WithMany()
                 .HasForeignKey(x => x.J_RequiredDependentId)

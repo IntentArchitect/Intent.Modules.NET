@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="5562aaa0-1609-42da-aaf6-ea5d305d0abd" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForAbstract</name>
-    <display>DerivedClassForAbstract: DerivedClassForAbstract   [* --&gt; 1]</display>
+    <display>DerivedClassForAbstract: DerivedClassForAbstract</display>
     <order>4</order>
     <typeReference id="ebecb3fe-3906-4738-af95-2d62413d504e">
       <typeId>0bb39066-0c07-47f0-805e-a01a548c91fa</typeId>

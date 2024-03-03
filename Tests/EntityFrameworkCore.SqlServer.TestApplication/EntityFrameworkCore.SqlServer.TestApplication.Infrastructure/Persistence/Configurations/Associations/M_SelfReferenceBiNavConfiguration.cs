@@ -17,6 +17,8 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.SelfRefBiNavAttr)
                 .IsRequired();
 
+            builder.Property(x => x.M_SelfReferenceBiNavDstId);
+
             builder.HasOne(x => x.M_SelfReferenceBiNavDst)
                 .WithMany(x => x.M_SelfReferenceBiNavs)
                 .HasForeignKey(x => x.M_SelfReferenceBiNavDstId)

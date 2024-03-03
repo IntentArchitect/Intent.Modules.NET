@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="3c374558-f1fb-4f37-ac7a-92cfa12e9c14" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Authors</name>
-    <display>Authors: Author[*]   [* --&gt; *]</display>
+    <display>Authors: Author[*]</display>
     <order>2</order>
     <typeReference id="f243c727-f5ea-46d8-af3d-a27cbba927a1">
       <typeId>e2afe59a-1513-4603-9701-f068751f49b2</typeId>

@@ -676,14 +676,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#36849772-cacd-412e-b9a5-dba4fba17d18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/ImplicitKeyClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplicitKeyClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>94078df7-a960-4952-b92d-9463ea342912</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a0c675c6-e1ae-4a62-a8e3-d6ce771a8e1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Entities/Inheritance/Associated.cs</ApplicationRelativeFilePath>
@@ -1192,14 +1184,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/IExplicitKeyClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IExplicitKeyClassRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#36849772-cacd-412e-b9a5-dba4fba17d18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Domain/Repositories/IImplicitKeyClassRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IImplicitKeyClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1724,14 +1708,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#36849772-cacd-412e-b9a5-dba4fba17d18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/ImplicitKeyClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplicitKeyClassConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f701a27b-e8ec-4cba-b8f2-e80d0d11d367</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a0c675c6-e1ae-4a62-a8e3-d6ce771a8e1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/Inheritance/AssociatedConfiguration.cs</ApplicationRelativeFilePath>
@@ -2184,14 +2160,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/FolderContainer/FolderEntityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FolderContainer/FolderEntityRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>01064d95-323f-4588-9e03-c8c417922829</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#36849772-cacd-412e-b9a5-dba4fba17d18</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Repositories/ImplicitKeyClassRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplicitKeyClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

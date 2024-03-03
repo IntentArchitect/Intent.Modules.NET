@@ -3,7 +3,7 @@
   <sourceEnd id="2ad9e954-9d49-4e4c-987a-c1f78c6ecaf2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>M_SelfReferenceBiNavs</name>
     <display>M_SelfReferenceBiNavs: M_SelfReferenceBiNav[*]</display>
-    <order>2</order>
+    <order>4</order>
     <typeReference id="c1078b7c-23e7-46e4-b2f8-e65f78b1cdec">
       <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
       <isNavigable>true</isNavigable>
@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="76a3e8df-508f-4b65-8eee-7f5aee398546" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>M_SelfReferenceBiNavDst</name>
-    <display>M_SelfReferenceBiNavDst: M_SelfReferenceBiNav?   [* --&gt; 0..1]</display>
-    <order>1</order>
+    <display>M_SelfReferenceBiNavDst: M_SelfReferenceBiNav?</display>
+    <order>3</order>
     <typeReference id="8f979be8-6e2e-4ec6-b36f-3df3cced8337">
       <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
       <isNavigable>true</isNavigable>

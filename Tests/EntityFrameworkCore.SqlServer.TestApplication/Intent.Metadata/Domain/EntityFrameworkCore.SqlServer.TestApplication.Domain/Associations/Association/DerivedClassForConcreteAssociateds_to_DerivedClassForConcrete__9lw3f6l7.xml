@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="772c088b-1b1a-4eb0-a530-398afff20482" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForConcrete</name>
-    <display>DerivedClassForConcrete: TPC_DerivedClassForConcrete   [* --&gt; 1]</display>
-    <order>1</order>
+    <display>DerivedClassForConcrete: TPC_DerivedClassForConcrete</display>
+    <order>3</order>
     <typeReference id="feca889b-6719-4ae5-9902-2cf30e122a1e">
       <typeId>1b712c85-c882-42ab-aec7-d687d3a74035</typeId>
       <isNavigable>true</isNavigable>

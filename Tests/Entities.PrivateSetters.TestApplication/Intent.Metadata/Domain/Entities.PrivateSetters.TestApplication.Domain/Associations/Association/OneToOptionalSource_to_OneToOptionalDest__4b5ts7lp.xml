@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="e3c0a13e-54f1-45a6-9fdd-5bba1f95fec6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OneToOptionalDest</name>
-    <display>OneToOptionalDest: OneToOptionalDest?   [1 --&gt; 0..1]</display>
+    <display>OneToOptionalDest: OneToOptionalDest?</display>
     <order>4</order>
     <typeReference id="800e0675-eb21-4c7e-bc46-5b30f74236ca">
       <typeId>8e151d0f-079f-4170-83f9-6c320e3ce186</typeId>

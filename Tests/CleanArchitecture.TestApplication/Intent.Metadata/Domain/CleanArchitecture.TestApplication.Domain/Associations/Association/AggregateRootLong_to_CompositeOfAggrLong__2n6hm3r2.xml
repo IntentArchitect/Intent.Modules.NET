@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="5b035f26-2664-4cad-93d7-ddd7aca5d0f7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>CompositeOfAggrLong</name>
-    <display>CompositeOfAggrLong: CompositeOfAggrLong?   [1 --&gt; 0..1]</display>
+    <display>CompositeOfAggrLong: CompositeOfAggrLong?</display>
     <order>2</order>
     <typeReference id="fab30f2f-8d5c-4555-b17c-37727d5fedff">
       <typeId>4d6e639d-9521-4ee3-a805-7c1f84208030</typeId>

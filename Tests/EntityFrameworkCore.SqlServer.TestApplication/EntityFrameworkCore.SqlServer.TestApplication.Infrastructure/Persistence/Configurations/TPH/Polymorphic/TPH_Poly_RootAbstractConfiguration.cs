@@ -19,6 +19,10 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
             builder.Property(x => x.AbstractField)
                 .IsRequired();
 
+            builder.Property(x => x.Poly_TopLevelId);
+
+            builder.Property(x => x.Poly_RootAbstract_AggrId);
+
             builder.HasOne(x => x.Poly_RootAbstract_Aggr)
                 .WithMany()
                 .HasForeignKey(x => x.Poly_RootAbstract_AggrId)

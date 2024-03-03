@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="13558b5b-89b4-4f6c-a7f0-8d7d7304fc7d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AbstractBaseClass</name>
-    <display>AbstractBaseClass: AbstractBaseClass   [* --&gt; 1]</display>
+    <display>AbstractBaseClass: AbstractBaseClass</display>
     <order>4</order>
     <typeReference id="427846d9-7761-4547-a4ba-c462832b366a">
       <typeId>e7d3cc13-b5d3-4012-82ef-45cf74e7f384</typeId>

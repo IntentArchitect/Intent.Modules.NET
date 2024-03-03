@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="a5fcf039-4bd7-430d-9306-248f235a4e77" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Sun</name>
-    <display>Sun: Sun   [* --&gt; 1]</display>
-    <order>3</order>
+    <display>Sun: Sun</display>
+    <order>5</order>
     <typeReference id="68c0f3ca-7721-4d7d-a4c1-c9a4287af02d">
       <typeId>c9e12fc8-154f-4f0a-98db-a1faacfd9a10</typeId>
       <isNavigable>true</isNavigable>

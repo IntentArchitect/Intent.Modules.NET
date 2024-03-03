@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="19ac9667-37d4-44e2-9a77-da3a75fbc536" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>M_SelfReferenceBiNavAssocation</name>
-    <display>M_SelfReferenceBiNavAssocation: M_SelfReferenceBiNav?   [* --&gt; 0..1]</display>
+    <display>M_SelfReferenceBiNavAssocation: M_SelfReferenceBiNav?</display>
     <order>4</order>
     <typeReference id="239a47f5-9a80-4c35-809d-81a81f69ed90">
       <typeId>f737d9c0-ba76-4389-b74a-847489b5be2f</typeId>

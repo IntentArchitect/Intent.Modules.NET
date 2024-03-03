@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="92de0425-945c-4b0e-807d-5884265a0c99" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MappingCompositeMultiples</name>
-    <display>MappingCompositeMultiples: MappingCompositeMultiple[*]   [1 --&gt; *]</display>
+    <display>MappingCompositeMultiples: MappingCompositeMultiple[*]</display>
     <order>4</order>
     <typeReference id="366bcf5d-51ef-42cc-b9e1-eb27df9984fc">
       <typeId>c086c389-b35d-41dc-839a-2b855207ec11</typeId>

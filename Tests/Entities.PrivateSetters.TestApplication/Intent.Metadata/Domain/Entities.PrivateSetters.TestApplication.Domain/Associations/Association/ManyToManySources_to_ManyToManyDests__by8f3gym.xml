@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="819a5a9e-b800-40cd-95e2-b06a7aa02052" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ManyToManyDests</name>
-    <display>ManyToManyDests: ManyToManyDest[*]   [* --&gt; *]</display>
+    <display>ManyToManyDests: ManyToManyDest[*]</display>
     <order>4</order>
     <typeReference id="bcc0f4a8-4c6d-4b05-aad1-7f50644295ad">
       <typeId>81a10ab6-65ec-4bf5-b50f-81aae303498d</typeId>

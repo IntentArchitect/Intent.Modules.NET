@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.OptionalAggrNavAttr)
                 .IsRequired();
 
-            builder.Property(x => x.FOptionaldependentId);
+            builder.Property(x => x.F_OptionalDependentId);
 
             builder.HasOne(x => x.F_OptionalDependent)
                 .WithOne(x => x.F_OptionalAggregateNav)

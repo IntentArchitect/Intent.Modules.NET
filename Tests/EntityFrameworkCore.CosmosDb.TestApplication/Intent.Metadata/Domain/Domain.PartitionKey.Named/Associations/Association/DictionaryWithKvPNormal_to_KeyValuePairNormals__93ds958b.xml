@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="2ba5d083-9cff-403a-975f-ee12758d6a25" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>KeyValuePairNormals</name>
-    <display>KeyValuePairNormals: KeyValuePairNormal[*]   [1 --&gt; *]</display>
+    <display>KeyValuePairNormals: KeyValuePairNormal[*]</display>
     <order>3</order>
     <typeReference id="1e473889-fdf7-4227-96de-bfca40e7203b">
       <typeId>7f444f44-1f1b-4bb5-aa75-f102a68ef091</typeId>

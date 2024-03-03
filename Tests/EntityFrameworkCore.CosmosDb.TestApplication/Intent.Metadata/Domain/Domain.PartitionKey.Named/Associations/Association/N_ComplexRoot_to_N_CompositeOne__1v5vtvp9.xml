@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="0760b11a-a3b7-4fcb-b50a-a1fdce63ea2c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>N_CompositeOne</name>
-    <display>N_CompositeOne: N_CompositeOne   [1 --&gt; 1]</display>
+    <display>N_CompositeOne: N_CompositeOne</display>
     <order>3</order>
     <typeReference id="285ca692-63e8-4aaa-b5cb-e76f8086a284">
       <typeId>ead963ba-747b-4028-a936-fa0ec38a1d4e</typeId>

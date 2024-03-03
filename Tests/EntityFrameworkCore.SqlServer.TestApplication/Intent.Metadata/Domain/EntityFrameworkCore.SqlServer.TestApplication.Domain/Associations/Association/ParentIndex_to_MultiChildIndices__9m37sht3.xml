@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="83b2238b-8a3d-4751-8a73-46e87c8e8f09" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MultiChildIndices</name>
-    <display>MultiChildIndices: MultiChildIndex[*]   [1 --&gt; *]</display>
+    <display>MultiChildIndices: MultiChildIndex[*]</display>
     <order>2</order>
     <typeReference id="a1f727a8-e2d0-4d22-a38c-1b292f38a5f3">
       <typeId>0823c8e8-1617-4d4e-af87-bfcf8373c87d</typeId>

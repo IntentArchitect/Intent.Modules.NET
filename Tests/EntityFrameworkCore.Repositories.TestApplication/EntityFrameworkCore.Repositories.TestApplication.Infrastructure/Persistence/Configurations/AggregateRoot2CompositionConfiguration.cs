@@ -46,6 +46,9 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
                 .HasForeignKey(x => x.AggregateRoot2CompositionId);
 
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.AggregateRoot2CompositionId)
+                .IsRequired();
         }
     }
 }

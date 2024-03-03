@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="27cceb86-fa3a-4272-8f91-39f2c9c96bf7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>N_CompositeManies</name>
-    <display>N_CompositeManies: N_CompositeMany[*]   [1 --&gt; *]</display>
+    <display>N_CompositeManies: N_CompositeMany[*]</display>
     <order>5</order>
     <typeReference id="498278e2-34ea-4b9a-93c3-d9975ebcaa91">
       <typeId>e92d9629-a9a5-4fef-ad56-c4f3df7cd4bf</typeId>

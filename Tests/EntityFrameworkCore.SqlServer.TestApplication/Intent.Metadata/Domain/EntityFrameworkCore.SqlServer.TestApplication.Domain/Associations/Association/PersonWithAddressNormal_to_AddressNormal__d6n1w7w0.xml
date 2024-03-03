@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="4475bbb0-2c92-497f-91bd-bc8690f918aa" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AddressNormal</name>
-    <display>AddressNormal: AddressNormal   [1 --&gt; 1]</display>
+    <display>AddressNormal: AddressNormal</display>
     <order>2</order>
     <typeReference id="605fac0e-0cf1-437b-9316-a6a69ba68812">
       <typeId>f0e16920-fecc-438e-8578-c8a66f65a682</typeId>

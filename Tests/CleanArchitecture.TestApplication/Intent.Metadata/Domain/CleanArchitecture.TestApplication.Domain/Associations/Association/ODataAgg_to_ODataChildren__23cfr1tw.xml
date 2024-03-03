@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="67c5821e-5f5d-4fa1-bbe8-a8498665672d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ODataChildren</name>
-    <display>ODataChildren: ODataChild[*]   [1 --&gt; *]</display>
+    <display>ODataChildren: ODataChild[*]</display>
     <order>2</order>
     <typeReference id="8ceb144d-7cc9-40e5-abca-dafe59a254f5">
       <typeId>80ea0747-c7b6-4da6-8a9b-abfb096561c9</typeId>

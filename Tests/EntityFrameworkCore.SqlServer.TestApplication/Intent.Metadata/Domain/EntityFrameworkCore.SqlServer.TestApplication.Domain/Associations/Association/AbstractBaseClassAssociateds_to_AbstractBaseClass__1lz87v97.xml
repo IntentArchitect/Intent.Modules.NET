@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="42875317-6623-4a78-b982-0a7ad5c01f6f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AbstractBaseClass</name>
-    <display>AbstractBaseClass: TPT_AbstractBaseClass   [* --&gt; 1]</display>
-    <order>1</order>
+    <display>AbstractBaseClass: TPT_AbstractBaseClass</display>
+    <order>3</order>
     <typeReference id="2e0cab6e-26d1-4cd2-9752-964e58b15c04">
       <typeId>8c6a2254-9f5b-49b0-bf2f-064627808e41</typeId>
       <isNavigable>true</isNavigable>

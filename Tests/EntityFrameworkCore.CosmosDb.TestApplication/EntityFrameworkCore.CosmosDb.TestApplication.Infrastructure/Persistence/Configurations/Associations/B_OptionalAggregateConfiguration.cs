@@ -24,7 +24,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.Property(x => x.BOptionaldependentId);
+            builder.Property(x => x.B_OptionalDependentId);
 
             builder.HasOne(x => x.B_OptionalDependent)
                 .WithOne()

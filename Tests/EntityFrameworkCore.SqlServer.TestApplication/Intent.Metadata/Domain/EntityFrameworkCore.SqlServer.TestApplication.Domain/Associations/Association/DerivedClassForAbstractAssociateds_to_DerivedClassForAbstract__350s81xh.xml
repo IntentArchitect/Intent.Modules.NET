@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="5fc1c02d-1714-420a-b99d-b4e46f4a401b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedClassForAbstract</name>
-    <display>DerivedClassForAbstract: TPH_DerivedClassForAbstract   [* --&gt; 1]</display>
-    <order>1</order>
+    <display>DerivedClassForAbstract: TPH_DerivedClassForAbstract</display>
+    <order>3</order>
     <typeReference id="b4fe0a77-92ea-48d9-808b-7c29c2b06c74">
       <typeId>488ba739-52ee-490e-81b1-d9d435becec1</typeId>
       <isNavigable>true</isNavigable>

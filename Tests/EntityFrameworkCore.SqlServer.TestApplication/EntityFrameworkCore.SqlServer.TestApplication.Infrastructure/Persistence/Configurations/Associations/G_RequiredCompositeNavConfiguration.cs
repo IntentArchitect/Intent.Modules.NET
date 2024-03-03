@@ -31,6 +31,9 @@ namespace EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persisten
 
             builder.Property(x => x.MultipleDepAttr)
                 .IsRequired();
+
+            builder.Property(x => x.G_RequiredCompositeNavId)
+                .IsRequired();
         }
     }
 }
