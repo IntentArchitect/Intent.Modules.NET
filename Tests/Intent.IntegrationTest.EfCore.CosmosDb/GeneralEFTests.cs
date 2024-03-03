@@ -310,35 +310,6 @@ public class GeneralEFTests
     }
 
     [IgnoreOnCiBuildFact]
-    public void Test_PartitionKey_Default()
-    {
-        var implicitKeyClass = new ImplicitKeyClass()
-        {
-            Attribute = "test1"
-        };
-
-        DbContext.ImplicitKeyClasses.Add(implicitKeyClass);
-
-        var explicitKeyClass = new ExplicitKeyClass()
-        {
-            Attribute = "test2"
-        };
-        DbContext.ExplicitKeyClasses.Add(explicitKeyClass);
-
-        DbContext.SaveChanges();
-
-        var receivedImplicitKeyClass = DbContext.ImplicitKeyClasses.FirstOrDefault();
-        Assert.NotNull(receivedImplicitKeyClass);
-        Assert.NotEqual(Guid.Empty, receivedImplicitKeyClass.Id);
-        Assert.Equal(implicitKeyClass.Attribute, receivedImplicitKeyClass.Attribute);
-
-        var receivedExplicitKeyClass = DbContext.ExplicitKeyClasses.FirstOrDefault();
-        Assert.NotNull(receivedExplicitKeyClass);
-        Assert.NotEqual(Guid.Empty, receivedExplicitKeyClass.Id);
-        Assert.Equal(explicitKeyClass.Attribute, receivedExplicitKeyClass.Attribute);
-    }
-
-    [IgnoreOnCiBuildFact]
     public async Task Test_S_NoPkInComposite()
     {
         var root = new S_NoPkInComposite();

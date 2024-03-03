@@ -1,6 +1,6 @@
 Write-Host "Searching for .sln files..."
 
-$slnFiles = Get-ChildItem Tests/**/*.sln -Recurse -Depth 2
+$slnFiles = Get-ChildItem Tests/**/*.sln -Recurse -Depth 2 | Where-Object { $_ -NotLike "*previous_output*" }
 $count = 0
 
 foreach ($slnFile in $slnFiles) {
