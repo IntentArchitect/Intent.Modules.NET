@@ -94,7 +94,6 @@
   </moduleSettingsExtensions>
   <factoryExtensions>
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.EntityRepositoryInterfaceSyncExtension" externalReference="03e4264c-744e-4b91-a96d-ae175d36008b" />
-    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.PagedListFactoryExtension" externalReference="5a0baf83-b93a-428d-8f47-3bf1b6a67f99" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.StoredProcedureFactoryExtension" externalReference="9e59c198-59ae-4bda-ab55-caa7830d951f" />
   </factoryExtensions>
 </package>

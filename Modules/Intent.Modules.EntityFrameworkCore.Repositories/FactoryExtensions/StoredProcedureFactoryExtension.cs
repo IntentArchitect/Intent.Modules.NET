@@ -76,32 +76,34 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);
                 }
 
-                if (TryGetTemplate<RepositoryTemplate>(application, RepositoryTemplate.TemplateId, entity, out var implementationTemplate))
+                if (!TryGetTemplate<RepositoryTemplate>(application, RepositoryTemplate.TemplateId, entity, out var implementationTemplate))
                 {
-                    if (storedProcedures.Any(x => x.TypeReference.Element?.Id != implementationTemplate.Model.Id))
-                    {
-                        implementationTemplate.CSharpFile.AfterBuild(file =>
-                        {
-                            var @class = file.Classes.First();
-
-                            var parameters = @class.Constructors
-                                .SelectMany(x => x.Parameters)
-                                .Where(x => x.Name == "dbContext");
-
-                            foreach (var parameter in parameters)
-                            {
-                                parameter.IntroduceReadonlyField();
-                            }
-                        });
-                    }
-
-                    StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures);
+                    continue;
                 }
+
+                if (storedProcedures.Any(x => x.TypeReference.Element?.Id != implementationTemplate.Model.Id))
+                {
+                    implementationTemplate.CSharpFile.AfterBuild(file =>
+                    {
+                        var @class = file.Classes.First();
+
+                        var parameters = @class.Constructors
+                            .SelectMany(x => x.Parameters)
+                            .Where(x => x.Name == "dbContext");
+
+                        foreach (var parameter in parameters)
+                        {
+                            parameter.IntroduceReadonlyField();
+                        }
+                    });
+                }
+
+                StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures);
             }
         }
 
-        private bool TryGetTemplate<T>(
-            IApplication application,
+        private static bool TryGetTemplate<T>(
+            ISoftwareFactoryExecutionContext application,
             string templateId,
             object model,
             out T template) where T : class
@@ -110,8 +112,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             return template != null;
         }
 
-        private bool TryGetTemplate<T>(
-            IApplication application,
+        private static bool TryGetTemplate<T>(
+            ISoftwareFactoryExecutionContext application,
             string templateId,
             out T template) where T : class
         {
