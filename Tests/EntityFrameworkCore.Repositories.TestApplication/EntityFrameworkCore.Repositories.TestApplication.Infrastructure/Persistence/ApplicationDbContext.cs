@@ -1,3 +1,4 @@
+using System.Data.Common;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -103,6 +104,25 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
+        }
+
+        public async Task<T?> ExecuteScalarAsync<T>(string rawSql, params DbParameter[]? parameters)
+        {
+            var connection = Database.GetDbConnection();
+            await using var command = connection.CreateCommand();
+
+            command.CommandText = rawSql;
+
+            if (parameters != null)
+            {
+                foreach (var parameter in parameters)
+                {
+                    command.Parameters.Add(parameter);
+                }
+            }
+
+            await connection.OpenAsync();
+            return (T?)await command.ExecuteScalarAsync();
         }
     }
 }

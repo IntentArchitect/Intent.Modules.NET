@@ -30,6 +30,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomRepository, CustomRepository>();
+            services.AddTransient<ISqlParameterRepositoryReturningScalarRepository, SqlParameterRepositoryReturningScalarRepository>();
             services.AddTransient<ISqlParameterRepositoryWithNameRepository, SqlParameterRepositoryWithNameRepository>();
             services.AddTransient<ISqlParameterRepositoryWithoutNameRepository, SqlParameterRepositoryWithoutNameRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();
