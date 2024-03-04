@@ -25,6 +25,8 @@ namespace Intent.Modules.Bugsnag.FactoryExtensions
             var filterTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.ExceptionFilter");
             filterTemplate?.CSharpFile.OnBuild(file =>
             {
+                filterTemplate.AddUsing("System.Collections.Generic");
+
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.FirstOrDefault();
                 if (ctor is null)

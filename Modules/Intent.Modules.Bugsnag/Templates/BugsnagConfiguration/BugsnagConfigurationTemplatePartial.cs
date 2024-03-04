@@ -25,6 +25,7 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
             AddNugetDependency(NugetPackages.BugsnagAspNetCore);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Bugsnag.AspNet.Core")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"BugsnagConfiguration", @class =>
