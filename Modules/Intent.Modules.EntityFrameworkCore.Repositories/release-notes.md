@@ -1,3 +1,7 @@
+### Version 4.5.1
+
+- Improvement: Added support for stored procedures which return scalar values.
+
 ### Version 4.5.0
 
 - Improvement: Moved `PagedList<T>` type into the `Intent.EntityFrameworkCore 4.6.0` module since pagination is an separate concert to the repository pattern.

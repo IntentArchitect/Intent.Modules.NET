@@ -3,9 +3,11 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
@@ -30,33 +32,71 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
         {
             var repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
-            var dataContractResults = repositoryModels
-                .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
-                .Select(x => x.TypeReference?.Element.AsDataContractModel())
-                .Where(x => x != null)
-                .Distinct()
-                .ToArray();
-
-            if (dataContractResults.Any() &&
-                TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+            if (TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
             {
-                dbContextTemplate.CSharpFile.OnBuild(file =>
+                var hasTypeDefinitionResults = repositoryModels
+                    .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
+                    .Select(x => x.TypeReference?.Element.AsTypeDefinitionModel())
+                    .Any(x => x != null);
+
+                if (hasTypeDefinitionResults)
                 {
-                    var @class = file.Classes.Single();
-                    var onModelCreating = @class.Methods.Single(x => x.Name == "OnModelCreating");
-
-                    foreach (var dc in dataContractResults)
+                    dbContextTemplate.CSharpFile.OnBuild(file =>
                     {
-                        var typeName = dbContextTemplate.GetTypeName(TemplateRoles.Domain.DataContract, dc);
+                        var @class = file.Classes.Single();
+                        @class.AddMethod("T?", "ExecuteScalarAsync", method =>
+                        {
+                            method.AddGenericParameter("T", out var t);
+                            method.Async();
+                            method.AddParameter("string", "rawSql");
+                            method.AddParameter($"{dbContextTemplate.UseType("System.Data.Common.DbParameter")}[]?", "parameters", p => p.WithParamsParameterModifier());
 
-                        @class.AddProperty(
-                            type: $"DbSet<{typeName}>",
-                            name: typeName.Pluralize(),
-                            configure: prop => prop.AddMetadata("model", dc));
+                            method.AddStatement("var connection = Database.GetDbConnection();");
+                            method.AddStatement("await using var command = connection.CreateCommand();");
 
-                        onModelCreating.AddStatement($"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);");
-                    }
-                });
+                            method.AddStatement("command.CommandText = rawSql;", s => s.SeparatedFromPrevious());
+
+                            method.AddIfStatement("parameters != null", @if =>
+                            {
+                                @if.AddForEachStatement("parameter", "parameters", @foreach =>
+                                {
+                                    @foreach.AddStatement("command.Parameters.Add(parameter);");
+                                });
+                            });
+
+                            method.AddStatement("await connection.OpenAsync();", s => s.SeparatedFromPrevious());
+                            method.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
+                        });
+                    });
+                }
+
+                var dataContractResults = repositoryModels
+                    .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
+                    .Select(x => x.TypeReference?.Element.AsDataContractModel())
+                    .Where(x => x != null)
+                    .Distinct()
+                    .ToArray();
+
+                if (dataContractResults.Any())
+                {
+                    dbContextTemplate.CSharpFile.OnBuild(file =>
+                    {
+                        var @class = file.Classes.Single();
+                        var onModelCreating = @class.Methods.Single(x => x.Name == "OnModelCreating");
+
+                        foreach (var dc in dataContractResults)
+                        {
+                            var typeName = dbContextTemplate.GetTypeName(TemplateRoles.Domain.DataContract, dc);
+
+                            @class.AddProperty(
+                                type: $"DbSet<{typeName}>",
+                                name: typeName.Pluralize(),
+                                configure: prop => prop.AddMetadata("model", dc));
+
+                            onModelCreating.AddStatement($"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);");
+                        }
+                    });
+                }
             }
 
             var classRepositories = repositoryModels

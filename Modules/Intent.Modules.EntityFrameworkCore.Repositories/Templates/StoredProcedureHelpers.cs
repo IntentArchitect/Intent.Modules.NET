@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.EntityFrameworkCore.Repositories.Api;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -10,6 +11,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
+using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Utils;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
@@ -77,7 +80,6 @@ internal static class StoredProcedureHelpers
                     {
                         ClassModel model => model.Id,
                         DataContractModel model => model.Id,
-                        TypeDefinitionModel model => model.Id,
                         _ => throw new Exception($"Unknown type: {x.GetMetadata("model").GetType()}")
                     });
 
@@ -107,6 +109,12 @@ internal static class StoredProcedureHelpers
                             returnTupleProperties.Insert(0, resultVariableName);
                         }
 
+                        var returnsScalar = returnTypeElement?.SpecializationType == "Type-Definition";
+                        if (returnsScalar && returnsCollection)
+                        {
+                            throw new ElementException(storedProcedure.InternalElement, "Collection of scalar return types from stored procedures is not supported");
+                        }
+
                         method.Async();
 
                         foreach (var parameter in storedProcedure.Parameters)
@@ -127,68 +135,80 @@ internal static class StoredProcedureHelpers
                             ? nameInSchema
                             : storedProcedure.Name;
 
-                        var parameters = new List<string>();
-                        var sqlParameterTypeName = new Lazy<string>(() => template.UseType("Microsoft.Data.SqlClient.SqlParameter"));
-                        var parameterDirectionTypeName = new Lazy<string>(() => template.UseType("System.Data.ParameterDirection"));
-                        var sqlDbTypeTypeName = new Lazy<string>(() => template.UseType("System.Data.SqlDbType"));
+                        var provider = template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
+
+                        IDbParameterFactory parameterFactory = provider switch
+                        {
+                            //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory => expr,
+                            DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => new SqlDbParameterFactory(template),
+                            //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => expr,
+                            //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql => expr,
+                            //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos => expr,
+                            _ => throw new NotSupportedException($"{provider} is not supported at this time. Please reach out to us at " +
+                                                                 $"https://github.com/IntentArchitect/Support should you need support added.")
+                        };
+
+                        var parameters = new List<(string ParameterName, string VariableName, string Output)>();
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
                             var isOutputParameter = parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true;
                             var isUserDefinedTableType = parameter.TypeReference.Element.IsDataContractModel();
                             var output = isOutputParameter ? " OUTPUT" : string.Empty;
-                            var variableName = isOutputParameter || isUserDefinedTableType
-                                ? parameter.Name.ToCamelCase().EnsureSuffixedWith("Parameter")
-                                : parameter.Name.ToLocalVariableName();
+                            var parameterName = parameter.Name.ToLocalVariableName();
+                            var variableName = isOutputParameter || isUserDefinedTableType || returnsScalar
+                                ? parameterName.EnsureSuffixedWith("Parameter")
+                                : parameterName;
 
-                            parameters.Add($" {{{variableName}}}{output}");
+                            parameters.Add((parameterName, variableName, output));
 
-                            if (isOutputParameter)
+                            if (returnsScalar)
                             {
-                                method.AddObjectInitializerBlock(
-                                    invocation: $"var {variableName} = new {sqlParameterTypeName.Value}",
-                                    configure: @object =>
-                                    {
-                                        @object.AddObjectInitStatement("Direction", $"{parameterDirectionTypeName.Value}.Output");
-                                        @object.AddObjectInitStatement("SqlDbType", $"{sqlDbTypeTypeName.Value}.{GetSqlDbType(parameter)}");
-                                        @object.WithSemicolon();
-                                    });
+                                method.AddStatement(parameterFactory.CreateForInput(
+                                    invocationPrefix: $"var {variableName} = ",
+                                    valueVariableName: parameterName,
+                                    parameter: parameter));
+                            }
+                            else if (isOutputParameter)
+                            {
+                                method.AddStatement(parameterFactory.CreateForOutput(
+                                    invocationPrefix: $"var {variableName} = ",
+                                    parameter: parameter));
                             }
                             else if (isUserDefinedTableType)
                             {
-                                method.AddObjectInitializerBlock(
-                                    invocation: $"var {variableName} = new {sqlParameterTypeName.Value}",
-                                    configure: @object =>
-                                    {
-                                        var dataContractModel = parameter.TypeReference.Element.AsDataContractModel();
-                                        var userDefinedTableName = dataContractModel.GetUserDefinedTableTypeSettings()?.Name();
-                                        if (string.IsNullOrWhiteSpace(userDefinedTableName))
-                                        {
-                                            userDefinedTableName = dataContractModel.Name;
-                                        }
-
-                                        // Add using for the extension method:
-                                        template.GetDataContractExtensionMethodsName(dataContractModel);
-
-
-                                        @object.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
-                                        @object.AddObjectInitStatement("SqlDbType", $"{sqlDbTypeTypeName.Value}.Structured");
-                                        @object.AddObjectInitStatement("Value", $"{parameter.Name.ToLocalVariableName()}.ToDataTable()");
-                                        @object.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
-                                        @object.WithSemicolon();
-                                    });
+                                method.AddStatement(parameterFactory.CreateForTableType(
+                                    invocationPrefix: $"var {variableName} = ",
+                                    parameter: parameter));
                             }
                         }
 
-                        var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters)}\"";
-
-                        if (returnTypeElement == null)
+                        if (returnsScalar)
                         {
+                            var sql = $"\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" @{x.ParameterName}{x.Output}"))}\"";
+
+                            method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure)}>",
+                                s =>
+                                {
+                                    s.AddArgument(sql);
+
+                                    foreach (var parameter in parameters)
+                                    {
+                                        s.AddArgument($"{parameter.VariableName}");
+                                    }
+                                });
+                        }
+                        else if (returnTypeElement == null)
+                        {
+                            var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.Output}"))}\"";
+
                             file.AddUsing("Microsoft.EntityFrameworkCore");
                             method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
                         }
                         else
                         {
+                            var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.Output}"))}\"";
+
                             var source =
                                 template is RepositoryTemplate repositoryTemplate &&
                                 repositoryTemplate.Model.Id == returnTypeElement.Id
@@ -283,29 +303,6 @@ internal static class StoredProcedureHelpers
         }
     }
 
-    private static string GetSqlDbType(this StoredProcedureParameterModel parameter)
-    {
-        // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
-        return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
-        {
-            "binary" => "VarBinary",
-            "bool" => "Bit",
-            "byte" => "TinyInt",
-            "date" => "Date",
-            "datetime" => "DateTime2",
-            "datetimeoffset" => "DateTimeOffset",
-            "decimal" => "Decimal",
-            "double" => "Float",
-            "float" => "Real",
-            "guid" => "UniqueIdentifier",
-            "int" => "Int",
-            "long" => "BigInt",
-            "short" => "SmallInt",
-            "string" => "VarChar",
-            _ => throw new ArgumentOutOfRangeException(nameof(parameter), parameter.TypeReference.Element.Name, null)
-        };
-    }
-
     private static string GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = storedProcedure.Parameters
@@ -333,5 +330,118 @@ internal static class StoredProcedureHelpers
             > 1 => $"Task<({string.Join(", ", tupleProperties.Select(x => $"{x.TypeName} {x.Name}"))})>",
             _ => throw new ArgumentOutOfRangeException()
         };
+    }
+
+    private interface IDbParameterFactory
+    {
+        CSharpStatement CreateForOutput(
+            string invocationPrefix,
+            StoredProcedureParameterModel parameter);
+
+        CSharpStatement CreateForInput(
+            string invocationPrefix,
+            string valueVariableName,
+            StoredProcedureParameterModel parameter);
+
+        CSharpStatement CreateForTableType(
+            string invocationPrefix,
+            StoredProcedureParameterModel parameter);
+    }
+
+    /// <summary>
+    /// Microsoft SQL Server implementation of <see cref="IDbParameterFactory"/>.
+    /// </summary>
+    private class SqlDbParameterFactory : IDbParameterFactory
+    {
+        private readonly ICSharpFileBuilderTemplate _template;
+        private string _parameterTypeName;
+        private string _parameterDirectionTypeName;
+        private string _dbTypeTypeName;
+
+        public SqlDbParameterFactory(ICSharpFileBuilderTemplate template)
+        {
+            _template = template;
+        }
+
+        private string ParameterTypeName => _parameterTypeName ??= _template.UseType("Microsoft.Data.SqlClient.SqlParameter");
+        private string ParameterDirectionTypeName => _parameterDirectionTypeName ??= _template.UseType("System.Data.ParameterDirection");
+        private string DbTypeTypeName => _dbTypeTypeName ??= _template.UseType("System.Data.SqlDbType");
+
+        public CSharpStatement CreateForOutput(
+            string invocationPrefix,
+            StoredProcedureParameterModel parameter)
+        {
+            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
+
+            statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Output");
+            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
+            statement.WithSemicolon();
+
+            return statement;
+        }
+
+        public CSharpStatement CreateForInput(
+            string invocationPrefix,
+            string valueVariableName,
+            StoredProcedureParameterModel parameter)
+        {
+            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
+
+            statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Input");
+            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
+            statement.AddObjectInitStatement("ParameterName", $"\"{valueVariableName}\"");
+            statement.AddObjectInitStatement("Value", valueVariableName);
+            statement.WithSemicolon();
+
+            return statement;
+        }
+
+        public CSharpStatement CreateForTableType(
+            string invocationPrefix,
+            StoredProcedureParameterModel parameter)
+        {
+            var dataContractModel = parameter.TypeReference.Element.AsDataContractModel();
+            var userDefinedTableName = dataContractModel.GetUserDefinedTableTypeSettings()?.Name();
+            if (string.IsNullOrWhiteSpace(userDefinedTableName))
+            {
+                userDefinedTableName = dataContractModel.Name;
+            }
+
+            // Add using for the extension method:
+            _template.GetDataContractExtensionMethodsName(dataContractModel);
+
+            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
+        
+            statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
+            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.Structured");
+            statement.AddObjectInitStatement("Value", $"{parameter.Name.ToLocalVariableName()}.ToDataTable()");
+            statement.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
+            statement.WithSemicolon();
+
+            return statement;
+        }
+
+        private static string GetSqlDbType(StoredProcedureParameterModel parameter)
+        {
+            // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
+            return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
+            {
+                "binary" => "VarBinary",
+                "bool" => "Bit",
+                "byte" => "TinyInt",
+                "date" => "Date",
+                "datetime" => "DateTime2",
+                "datetimeoffset" => "DateTimeOffset",
+                "decimal" => "Decimal",
+                "double" => "Float",
+                "float" => "Real",
+                "guid" => "UniqueIdentifier",
+                "int" => "Int",
+                "long" => "BigInt",
+                "short" => "SmallInt",
+                "string" => "VarChar",
+                _ => throw new ArgumentOutOfRangeException(nameof(parameter), parameter.TypeReference.Element.Name, null)
+            };
+        }
     }
 }
