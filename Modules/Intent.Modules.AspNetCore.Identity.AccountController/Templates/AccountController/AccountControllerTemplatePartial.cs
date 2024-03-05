@@ -248,6 +248,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                     @class.AddMethod("IActionResult", "ForgotPassword", method =>
                     {
                         method.AddAttribute("[HttpPost(\"~/api/[controller]/forgotPassword\")]");
+                        method.AddAttribute("AllowAnonymous");
                         method.Async();
                         method.AddParameter("ForgotPasswordDto", "resetRequest");
                         method.AddStatements($@"
@@ -270,6 +271,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                     @class.AddMethod("IActionResult", "ResetPassword", method =>
                     {
                         method.AddAttribute("[HttpPost(\"~/api/[controller]/resetPassword\")]");
+                        method.AddAttribute("AllowAnonymous");
                         method.Async();
                         method.AddParameter("ResetPasswordDto", "resetRequest");
                         method.AddStatements($@"

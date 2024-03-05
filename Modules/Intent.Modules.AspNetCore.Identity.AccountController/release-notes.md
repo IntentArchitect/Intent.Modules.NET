@@ -1,4 +1,8 @@
-﻿### Version 3.1.0
+﻿### Version 3.1.1
+
+- Fixed: `ForgotPassword` and `ResetPassword` endpoints did not have `[AllowAnonymous]` set.
+
+### Version 3.1.0
 
 - Improvement: Added `POST /manage/info` endpoint for updating info including email address and/or password.
 - Improvement: Added `GET /manage/info` endpoint for retrieving user info (only email address at this time).
