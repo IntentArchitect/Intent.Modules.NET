@@ -80,30 +80,13 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
                 return;
             }
 
-            var idAttribute = identityModel.Attributes.SingleOrDefault(x => x.Name.Equals("id", StringComparison.OrdinalIgnoreCase));
-            var textConstraints = idAttribute?.GetTextConstraints();
-
-            if (identityModel.ParentClass != null ||
-                idAttribute == null ||
-                !idAttribute.HasPrimaryKey() ||
-                idAttribute.TypeReference?.Element?.Name != "string" ||
-                textConstraints?.SQLDataType().IsDEFAULT() != true ||
-                textConstraints.MaxLength() != 450)
+            if (identityModel.ParentClass?.Name != "IdentityUser")
             {
-                Logging.Log.Failure($"When the \"Identity User\" stereotype is applied to a class, it must have an attribute with all the following characteristics:{Environment.NewLine}" +
-                                    $"- It cannot be inheriting from another class{Environment.NewLine}" +
-                                    $"- A \"Primary Key\" stereotype applied{Environment.NewLine}" +
-                                    $"- A name of \"id\"{Environment.NewLine}" +
-                                    $"- Its type set to \"string\"{Environment.NewLine}" +
-                                    $"- The \"Text Constraints\" stereotype applied to it{Environment.NewLine}" +
-                                    $"- Its \"Text Constraints\" stereotype's \"SQL Data Type\" property must be set to \"DEFAULT\"{Environment.NewLine}" +
-                                    $"- Its \"Text Constraints\" stereotype's \"MaxLength\" property must be set to \"450\"{Environment.NewLine}" +
-                                    $"{Environment.NewLine}" +
-                                    $"Update the \"{identityModel.Name}\" [{identityModel.Id}] class in the Domain Designer to ensure it meets the above requirements or " +
-                                    $"remove the \"Identity User\" Stereotype from the class.");
+                Logging.Log.Failure($"When the \"Identity User\" stereotype is applied to a class it must derive from the IdentityUser class. " +
+                                    $"Update the \"{identityModel.Name}\" [{identityModel.Id}] class in the Domain Designer to ensure it meets " +
+                                    $"this requirements or remove the \"Identity User\" Stereotype from the class.");
                 return;
             }
-
 
             var entityTemplate = application
                 .FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel(TemplateRoles.Domain.Entity.Primary, identityModel));
