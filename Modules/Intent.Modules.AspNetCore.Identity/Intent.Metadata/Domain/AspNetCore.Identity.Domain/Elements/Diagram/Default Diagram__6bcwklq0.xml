@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e34da95b-5d2a-421e-88e0-c75de656bfe9" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</parentFolderId>
+  <packageId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</packageId>
+  <packageName>AspNetCore.Identity.Domain</packageName>
+  <diagram>
+    <targetPackageId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity</id>
-  <version>4.1.0</version>
+  <version>4.1.1-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</summary>
   <description>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</description>
@@ -37,7 +37,7 @@
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.EntityFrameworkCore" version="4.4.6" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.5.6" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.5.12" />
     <dependency id="Intent.Modelers.Domain" version="3.4.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
@@ -48,6 +48,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Identity/Intent.AspNetCore.Identity.pkg.config" externalReference="7061eb5a-c934-46e4-8c73-e3df67edf43a" />
+    <install target="Domain" src="Intent.Metadata/Domain/AspNetCore.Identity.Domain/AspNetCore.Identity.Domain.pkg.config" />
     <install target="Domain" src="modelers/Domain Extensions.designer.settings" externalReference="d06187ef-95a6-4243-b299-2e2d028478ef" />
   </metadata>
 </package>
