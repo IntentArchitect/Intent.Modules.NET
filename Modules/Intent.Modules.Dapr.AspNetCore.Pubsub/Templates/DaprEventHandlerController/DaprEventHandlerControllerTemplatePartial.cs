@@ -6,6 +6,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
@@ -77,8 +78,10 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
             {
                 startupTemplate.StartupFile.ConfigureApp((statements, context) =>
                 {
-                    statements.Statements[1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
-                    statements.Statements[1].InsertAbove($"{context.App}.UseCloudEvents();", s => s.SeparatedFromPrevious());
+                    ExecutionContext.EventDispatcher.Publish(
+                        ApplicationBuilderRegistrationRequest.ToRegister(
+                                extensionMethodName: "UseCloudEvents")
+                            .WithPriority(-200));
                 });
 
                 startupTemplate.StartupFile.ConfigureEndpoints((statements, context) =>
