@@ -196,7 +196,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
                 this.ApplyAppSetting("open-telemetry-protocol", new
                 {
-                    endpoint = "http://localhost:4317",
+                    endpoint = "",
                     protocol = "Grpc"
                 });
                 break;
