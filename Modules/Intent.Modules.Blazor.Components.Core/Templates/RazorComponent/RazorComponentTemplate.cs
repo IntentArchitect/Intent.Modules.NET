@@ -30,9 +30,9 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                         .AddAttribute("OnInvalidSubmit", "(async () => await HandleSubmitAsync(false))");
                 });
             });
-            foreach (var component in Model.InternalElement.ChildElements)
+            foreach (var component in Model.View.InternalElement.ChildElements)
             {
-                sb.AppendLine(_componentRenderer.Render(component));
+                razorFile.Nodes.Add(_componentResolver.ResolveFor(component).Render());
             }
 
             return razorFile.ToString();
@@ -118,7 +118,8 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         {
             return $@"{indentation}@{Expression.GetText(indentation)?.TrimStart() ?? "code"} {{
 {indentation}{string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}
-{indentation}}}";
+{indentation}}}
+";
         }
     }
 
@@ -144,13 +145,13 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public string GetText(string indentation)
         {
             var sb = new StringBuilder();
-            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}>");
+            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}>{(Nodes.Any() ? Environment.NewLine : "")}");
 
             if (!string.IsNullOrWhiteSpace(Text))
             {
                 if (Nodes.Any())
                 {
-                    sb.AppendLine($"{Environment.NewLine}{indentation}    {Text}");
+                    sb.AppendLine($"{indentation}    {Text}");
                 }
                 else
                 {
@@ -160,12 +161,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
             foreach (var e in Nodes)
             {
-                sb.AppendLine(e.GetText($"{indentation}    "));
+                sb.Append(e.GetText($"{indentation}    "));
             }
 
             if (Attributes.Count > 1 || Nodes.Any())
             {
-                sb.AppendLine($"{Environment.NewLine}{indentation}</{Name}>");
+                sb.AppendLine($"{(!Nodes.Any() ? Environment.NewLine : "")}{indentation}</{Name}>");
             }
             else
             {

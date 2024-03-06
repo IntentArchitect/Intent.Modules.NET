@@ -29,9 +29,8 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ComponentModel model)
         {
-            // [IntentIgnore]
-            return new RazorComponentTemplate(outputTarget, model, null);
-            return new RazorComponentTemplate(outputTarget, model);
+            // [IntentIgnore(Match = "return")]
+            return new RazorComponentTemplate(outputTarget, model, new ComponentRendererResolver());
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
