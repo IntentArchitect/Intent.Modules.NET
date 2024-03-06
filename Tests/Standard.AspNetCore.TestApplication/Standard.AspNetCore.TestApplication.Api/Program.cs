@@ -1,12 +1,9 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
-using Standard.AspNetCore.TestApplication.Api.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
@@ -44,12 +41,7 @@ namespace Standard.AspNetCore.TestApplication.Api
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
                     .Enrich.FromLogContext()
-                    .WriteTo.Console(), writeToProviders: true)
-                .ConfigureLogging((context, logBuilder) =>
-                {
-                    logBuilder.ClearProviders();
-                    logBuilder.AddTelemetryConfiguration(context);
-                })
+                    .WriteTo.Console())
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
