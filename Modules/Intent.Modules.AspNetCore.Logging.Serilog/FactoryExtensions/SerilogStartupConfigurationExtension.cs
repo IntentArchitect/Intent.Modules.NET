@@ -35,7 +35,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
         private static void ConfigureStartup(IApplication application)
         {
             var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            template.AddNugetDependency(NugetPackages.SerilogAspNetCore);
+            template.AddNugetDependency(NugetPackages.SerilogAspNetCore(template.OutputTarget));
             template.AddUsing("Serilog");
 
             application.EventDispatcher.Publish(
@@ -132,7 +132,8 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                     .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
                     .AddChainStatement("ReadFrom.Services(services)")
                     .AddChainStatement("Enrich.FromLogContext()")
-                    .AddChainStatement("WriteTo.Console()"));
+                    .AddChainStatement("WriteTo.Console()")
+                );
         }
 
         private static void AddSetLoggerStatement(IHasCSharpStatements targetBlock)

@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improved: Nuget package versions are updated based on selected .NET version.
+
 ### Version 5.0.2
 
 - Fixed: Added support for Serilog logging configuration in the `appsettings.json` file.
