@@ -72,11 +72,12 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
 
             var currentSinks = writeTo.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
             var selectedSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
-
+            var managedSinks = Enum.GetValues<SerilogSettings.SinksOptionsEnum>().Select(SerilogOptionToSectionName).ToHashSet();
+            
             // Remove sinks not present in the valid sinks
             foreach (var sink in currentSinks.Except(selectedSinks).ToArray())
             {
-                var sinkToRemove = writeTo.FirstOrDefault(x => x["Name"]?.ToString() == sink);
+                var sinkToRemove = writeTo.FirstOrDefault(x => x["Name"]?.ToString() == sink && managedSinks.Contains(sink));
                 if (sinkToRemove is not null)
                 {
                     writeTo.Remove(sinkToRemove);
@@ -142,11 +143,12 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             var validUsings = _application.Settings.GetSerilogSettings().Sinks()
                 .Select(sink => SerilogOptionToType(sink.AsEnum()))
                 .ToHashSet();
+            var managedSinks = Enum.GetValues<SerilogSettings.SinksOptionsEnum>().Select(SerilogOptionToType).ToHashSet();
 
             // Remove invalid usings
             foreach (var usingToRemove in existingUsings.Except(validUsings).ToList())
             {
-                var itemToRemove = usingArr.FirstOrDefault(u => u.ToString() == usingToRemove);
+                var itemToRemove = usingArr.FirstOrDefault(u => u.ToString() == usingToRemove && managedSinks.Contains(u.ToString()));
                 if (itemToRemove != null)
                 {
                     usingArr.Remove(itemToRemove);
