@@ -42,9 +42,7 @@ namespace OpenTelemetry.Console.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Enrich.FromLogContext()
-                    .WriteTo.Console(), writeToProviders: true)
+                    .ReadFrom.Services(services), writeToProviders: true)
                 .ConfigureLogging((context, logBuilder) =>
                 {
                     logBuilder.ClearProviders();
