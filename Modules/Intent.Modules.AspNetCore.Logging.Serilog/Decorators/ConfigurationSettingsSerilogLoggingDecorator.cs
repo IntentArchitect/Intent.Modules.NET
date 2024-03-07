@@ -134,40 +134,37 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
 
         private void PopulateUsings(JObject serilog)
         {
-            JArray usingArr;
-            if (serilog.ContainsKey("Using"))
-            {
-                usingArr = (JArray)serilog.GetValue("Using")!;
-            }
-            else
-            {
-                usingArr = new JArray();
-                serilog.AddFirst(new JProperty("Using", usingArr));
-            }
+            var usingArr = serilog.TryGetValue("Using", out var usingSink) ? (JArray)usingSink! : new JArray();
+            serilog.TryAdd("Using", usingArr);
 
-            var existingSinks = new HashSet<string>(usingArr.Cast<JValue>().Select(s => s.Value?.ToString()));
+            // Add "Using" only if it doesn't exist
+            var existingUsings = new HashSet<string>(usingArr.Select(u => u.ToString()));
+            var validUsings = _application.Settings.GetSerilogSettings().Sinks()
+                .Select(sink => SerilogOptionToType(sink.AsEnum()))
+                .ToHashSet();
 
-            foreach (var sink in existingSinks.Except(_application.Settings.GetSerilogSettings().Sinks().Select(x => SerilogOptionToType(x.AsEnum()))).ToArray())
+            // Remove invalid usings
+            foreach (var usingToRemove in existingUsings.Except(validUsings).ToList())
             {
-                var sinkToRemove = usingArr.FirstOrDefault(x=>x.Value<string>()==sink);
-                if (sinkToRemove is not null)
+                var itemToRemove = usingArr.FirstOrDefault(u => u.ToString() == usingToRemove);
+                if (itemToRemove != null)
                 {
-                    usingArr.Remove(sinkToRemove);
+                    usingArr.Remove(itemToRemove);
                 }
             }
 
+            // Add new usings
             foreach (var serilogSink in _application.Settings.GetSerilogSettings().Sinks())
             {
-                if (existingSinks.Contains(SerilogOptionToType(serilogSink.AsEnum())))
+                var sinkType = SerilogOptionToType(serilogSink.AsEnum());
+                if (!existingUsings.Contains(sinkType))
                 {
-                    continue;
+                    usingArr.Add(sinkType);
                 }
-
-                usingArr.Add(SerilogOptionToType(serilogSink.AsEnum()));
             }
 
             return;
-
+            
             static string SerilogOptionToType(SerilogSettings.SinksOptionsEnum option)
             {
                 return option switch
@@ -175,10 +172,11 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                     SerilogSettings.SinksOptionsEnum.Console => "Serilog.Sinks.Console",
                     SerilogSettings.SinksOptionsEnum.File => "Serilog.Sinks.File",
                     SerilogSettings.SinksOptionsEnum.Graylog => "Serilog.Sinks.Graylog",
-                    _ => null
+                    _ => null // Handle default case gracefully
                 };
             }
         }
+
 
         private void PopulateEnriches(JObject serilog)
         {
