@@ -67,77 +67,55 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
 
         private void PopulateWriteToSinks(JObject serilog)
         {
-            JArray writeTo;
-            if (serilog.ContainsKey("WriteTo"))
+            var writeTo = serilog.TryGetValue("WriteTo", out var sinkEntry) ? (JArray)sinkEntry! : new JArray();
+            serilog.TryAdd("WriteTo", writeTo);
+
+            var currentSinks = writeTo.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
+            var validSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
+
+            // Remove sinks not present in the valid sinks
+            foreach (var sink in currentSinks.Except(validSinks).ToArray())
             {
-                writeTo = (JArray)serilog.GetValue("WriteTo")!;
-            }
-            else
-            {
-                writeTo = new JArray();
-                serilog.TryAdd("WriteTo", writeTo);
+                var sinkToRemove = writeTo.FirstOrDefault(x => x["Name"]?.ToString() == sink);
+                if (sinkToRemove != null)
+                {
+                    writeTo.Remove(sinkToRemove);
+                }
             }
 
-            foreach (var sinkToRemove in writeTo
-                         .Cast<JObject>()
-                         .Select(x => x.GetValue("Name")?.Value<string>())
-                         .Except(_application.Settings.GetSerilogSettings().Sinks().Select(x => SerilogOptionToSectionName(x.AsEnum())))
-                         .ToArray())
-            {
-                var existing = writeTo.Cast<JObject>().First(x => x.GetValue("Name")?.Value<string>() == sinkToRemove);
-                writeTo.Remove(existing);
-            }
-
+            // Add new sinks
             foreach (var serilogSink in _application.Settings.GetSerilogSettings().Sinks())
             {
-                var existing = writeTo.Cast<JObject>().FirstOrDefault(x => x.GetValue("Name")?.Value<string>() == SerilogOptionToSectionName(serilogSink.AsEnum()));
-                if (existing is not null)
+                var sinkName = SerilogOptionToSectionName(serilogSink.AsEnum());
+                if (currentSinks.Contains(sinkName))
                 {
                     continue;
                 }
-
-                writeTo.Add(serilogSink.AsEnum() switch
+                
+                var sinkToAdd = new JObject { ["Name"] = sinkName };
+                var args = new JObject();
+                switch (serilogSink.AsEnum())
                 {
-                    SerilogSettings.SinksOptionsEnum.Console =>
-                        new JObject
-                        {
-                            { "Name", "Console" },
-                            {
-                                "Args", new JObject
-                                {
-                                    { "outputTemplate", "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Category:0} - {Message}{NewLine:1}" },
-                                    { "restrictedToMinimumLevel", "Information" }
-                                }
-                            }
-                        },
-                    SerilogSettings.SinksOptionsEnum.File =>
-                        new JObject
-                        {
-                            { "Name", "File" },
-                            {
-                                "Args", new JObject
-                                {
-                                    { "path", @"Logs\.log" },
-                                    { "rollingInterval", "Day" },
-                                    { "restrictedToMinimumLevel", "Information" }
-                                }
-                            }
-                        },
-                    SerilogSettings.SinksOptionsEnum.Graylog =>
-                        new JObject
-                        {
-                            { "Name", "Graylog" },
-                            {
-                                "Args", new JObject
-                                {
-                                    { "hostnameOrAddress", "localhost" },
-                                    { "port", "12201" },
-                                    { "transportType", "Udp" }
-                                }
-                            }
-                        },
-                    _ => new JObject()
-                });
+                    case SerilogSettings.SinksOptionsEnum.Console:
+                        args["outputTemplate"] = "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Category:0} - {Message}{NewLine:1}";
+                        args["restrictedToMinimumLevel"] = "Information";
+                        break;
+                    case SerilogSettings.SinksOptionsEnum.File:
+                        args["path"] = @"Logs\.log";
+                        args["rollingInterval"] = "Day";
+                        args["restrictedToMinimumLevel"] = "Information";
+                        break;
+                    case SerilogSettings.SinksOptionsEnum.Graylog:
+                        args["hostnameOrAddress"] = "localhost";
+                        args["port"] = "12201";
+                        args["transportType"] = "Udp";
+                        break;
+                    default:
+                        continue; // If the sink is not recognized, skip adding it
+                }
+
+                sinkToAdd["Args"] = args;
+                writeTo.Add(sinkToAdd);
             }
 
             return;
