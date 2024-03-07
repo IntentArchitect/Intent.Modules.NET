@@ -34,6 +34,11 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
+            if (!_template.OutputTarget.HasRole("Distribution"))
+            {
+                return;
+            }
+            
             var serilog = appSettings.GetProperty<JObject>("Serilog");
             serilog = CreateDefaultSerilogSettingsObj(serilog);
 
