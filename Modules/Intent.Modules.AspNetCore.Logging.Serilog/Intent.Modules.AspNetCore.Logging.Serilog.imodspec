@@ -16,7 +16,21 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Modules.AspNetCore.Logging.Serilog.SerilogStartupConfigurationExtension" externalReference="8b105b15-9d7b-425c-b739-1b4e40c2b9a9" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="627ffe24-50f0-4e12-8276-073a255523b0" title="Serilog Settings" externalReference="627ffe24-50f0-4e12-8276-073a255523b0">
+      <settings>
+        <setting id="e1e76d8d-298a-4f47-af08-0b08fdcc95c1" title="Sinks" type="multi-select">
+          <isRequired>true</isRequired>
+          <defaultValue>["console"]</defaultValue>
+          <options>
+            <option value="console" description="Console" />
+            <option value="file" description="File" />
+            <option value="graylog" description="Graylog" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <interoperability>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore">

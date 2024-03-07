@@ -15,5 +15,9 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
                 (7, 0) => "7.0.0",
                 _ => "8.0.0"
             });
+
+        public static readonly NugetPackageInfo SerilogSinksGraylog = new NugetPackageInfo("serilog.sinks.graylog", "3.1.1");
+        public static readonly NugetPackageInfo SerilogEnrichersSpan = new NugetPackageInfo("Serilog.Enrichers.Span", "3.1.0");
+        
     }
 }
