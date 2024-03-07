@@ -19,8 +19,8 @@
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
-    <file src="$outDir$/Microsoft.Data.SqlClient.dll" />
-    <file src="$outDir$/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll" />
+    <file src="$outDir$/NuGet.Versioning.dll" inspect="false" />
+    
   </files>
   <tags />
   <moduleSettingsExtensions />
