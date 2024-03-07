@@ -71,13 +71,13 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             serilog.TryAdd("WriteTo", writeTo);
 
             var currentSinks = writeTo.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
-            var validSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
+            var selectedSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
 
             // Remove sinks not present in the valid sinks
-            foreach (var sink in currentSinks.Except(validSinks).ToArray())
+            foreach (var sink in currentSinks.Except(selectedSinks).ToArray())
             {
                 var sinkToRemove = writeTo.FirstOrDefault(x => x["Name"]?.ToString() == sink);
-                if (sinkToRemove != null)
+                if (sinkToRemove is not null)
                 {
                     writeTo.Remove(sinkToRemove);
                 }
@@ -91,7 +91,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 {
                     continue;
                 }
-                
+
                 var sinkToAdd = new JObject { ["Name"] = sinkName };
                 var args = new JObject();
                 switch (serilogSink.AsEnum())
@@ -119,7 +119,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             }
 
             return;
-            
+
             static string SerilogOptionToSectionName(SerilogSettings.SinksOptionsEnum option)
             {
                 return option switch
@@ -145,10 +145,20 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 serilog.AddFirst(new JProperty("Using", usingArr));
             }
 
-            var existing = new HashSet<string>(usingArr.Cast<JValue>().Select(s => s.Value?.ToString()));
+            var existingSinks = new HashSet<string>(usingArr.Cast<JValue>().Select(s => s.Value?.ToString()));
+
+            foreach (var sink in existingSinks.Except(_application.Settings.GetSerilogSettings().Sinks().Select(x => SerilogOptionToType(x.AsEnum()))).ToArray())
+            {
+                var sinkToRemove = usingArr.FirstOrDefault(x=>x.Value<string>()==sink);
+                if (sinkToRemove is not null)
+                {
+                    usingArr.Remove(sinkToRemove);
+                }
+            }
+
             foreach (var serilogSink in _application.Settings.GetSerilogSettings().Sinks())
             {
-                if (existing.Contains(SerilogOptionToType(serilogSink.AsEnum())))
+                if (existingSinks.Contains(SerilogOptionToType(serilogSink.AsEnum())))
                 {
                     continue;
                 }
