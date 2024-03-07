@@ -78,9 +78,20 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 serilog.TryAdd("WriteTo", writeTo);
             }
 
+            foreach (var sinkToRemove in writeTo
+                         .Cast<JObject>()
+                         .Select(x => x.GetValue("Name")?.Value<string>())
+                         .Except(_application.Settings.GetSerilogSettings().Sinks().Select(x => SerilogOptionToSectionName(x.AsEnum())))
+                         .ToArray())
+            {
+                var existing = writeTo.Cast<JObject>().First(x => x.GetValue("Name")?.Value<string>() == sinkToRemove);
+                writeTo.Remove(existing);
+            }
+
             foreach (var serilogSink in _application.Settings.GetSerilogSettings().Sinks())
             {
-                if (writeTo.Cast<JObject>().Any(sink => string.Equals(sink.GetValue("Name")?.ToString(), serilogSink.Value, StringComparison.OrdinalIgnoreCase)))
+                var existing = writeTo.Cast<JObject>().FirstOrDefault(x => x.GetValue("Name")?.Value<string>() == SerilogOptionToSectionName(serilogSink.AsEnum()));
+                if (existing is not null)
                 {
                     continue;
                 }
@@ -127,6 +138,19 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                         },
                     _ => new JObject()
                 });
+            }
+
+            return;
+            
+            static string SerilogOptionToSectionName(SerilogSettings.SinksOptionsEnum option)
+            {
+                return option switch
+                {
+                    SerilogSettings.SinksOptionsEnum.Console => "Console",
+                    SerilogSettings.SinksOptionsEnum.File => "File",
+                    SerilogSettings.SinksOptionsEnum.Graylog => "Graylog",
+                    _ => null
+                };
             }
         }
 
@@ -178,7 +202,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             else
             {
                 enrichArr = new JArray();
-                serilog.AddFirst(new JProperty("Enrich", enrichArr));
+                serilog.Add(new JProperty("Enrich", enrichArr));
             }
 
             var expectedEnriches = new List<string> { "FromLogContext" };
