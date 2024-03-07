@@ -136,7 +136,10 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
         private void PopulateUsings(JObject serilog)
         {
             var usingArr = serilog.TryGetValue("Using", out var usingSink) ? (JArray)usingSink! : new JArray();
-            serilog.TryAdd("Using", usingArr);
+            if (!serilog.ContainsKey("Using"))
+            {
+                serilog.AddFirst(new JProperty("Using", usingArr));
+            }
 
             // Add "Using" only if it doesn't exist
             var existingUsings = new HashSet<string>(usingArr.Select(u => u.ToString()));
