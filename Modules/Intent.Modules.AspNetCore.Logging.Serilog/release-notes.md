@@ -1,3 +1,9 @@
+### Version 5.0.3
+
+- Improvement: The NuGet package versions now automatically update to match the selected .NET version.
+- Improvement: The configuration for the Serilog sink has been relocated from the Program.cs file to the `appsettings.json` file. This change gives developers the flexibility to include custom sinks in their projects, even if they are not directly supported by Intent Architect.
+- New Feature: Support for [Graylog](https://github.com/serilog-contrib/serilog-sinks-graylog) and File sink options has been introduced, expanding the logging capabilities.
+
 ### Version 5.0.2
 
 - Fixed: Added support for Serilog logging configuration in the `appsettings.json` file.

@@ -18,6 +18,7 @@ namespace Intent.Modules.OpenTelemetry.Templates.OpenTelemetryConfiguration
     {
         public override string TemplateId => OpenTelemetryConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new OpenTelemetryConfigurationTemplate(outputTarget);

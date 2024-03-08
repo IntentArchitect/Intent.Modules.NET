@@ -177,7 +177,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Enums.Shared", "Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.shproj", "{46039F50-4110-455C-8288-22DEC8A0D340}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
 EndProject

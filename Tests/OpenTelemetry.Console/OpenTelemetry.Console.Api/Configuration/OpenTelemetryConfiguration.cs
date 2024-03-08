@@ -10,7 +10,7 @@ using OpenTelemetry.Trace;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.OpenTelemetry.OpenTelemetryConfiguration", Version = "1.0")]
 
-namespace Standard.AspNetCore.TestApplication.Api.Configuration
+namespace OpenTelemetry.Console.Api.Configuration
 {
     public static class OpenTelemetryConfiguration
     {
@@ -20,7 +20,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService("Standard.AspNetCore.TestApplication")
+                    .AddService("OpenTelemetry.Console")
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
@@ -37,7 +37,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
             {
                 options.SetResourceBuilder(ResourceBuilder
                     .CreateDefault()
-                    .AddService("Standard.AspNetCore.TestApplication"));
+                    .AddService("OpenTelemetry.Console"));
                 options.AddConsoleExporter();
                 options.IncludeFormattedMessage = true;
                 options.IncludeScopes = true;

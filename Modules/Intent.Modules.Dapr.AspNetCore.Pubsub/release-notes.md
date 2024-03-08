@@ -1,3 +1,7 @@
+### Version 2.0.5
+
+- Fixed: `UseCloudEvents` will no longer be generated in the wrong location when using Minimal Hosting Model.
+
 ### Version 2.0.4
 
 - Improvement: Updated Interoperable dependency versions.
