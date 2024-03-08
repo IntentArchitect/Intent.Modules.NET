@@ -32,7 +32,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             });
             foreach (var component in Model.View.InternalElement.ChildElements)
             {
-                razorFile.Nodes.Add(_componentResolver.ResolveFor(component).Render());
+                razorFile.Nodes.Add(_componentResolver.ResolveFor(component).Render(component));
             }
 
             return razorFile.ToString();
@@ -142,10 +142,17 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             return this;
         }
 
+        public HtmlElement WithText(string text)
+        {
+            Text = text;
+            return this;
+        }
+
         public string GetText(string indentation)
         {
             var sb = new StringBuilder();
-            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}>{(Nodes.Any() ? Environment.NewLine : "")}");
+            var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || Nodes.Any();
+            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(Nodes.Any() ? Environment.NewLine : "")}");
 
             if (!string.IsNullOrWhiteSpace(Text))
             {
@@ -164,14 +171,20 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                 sb.Append(e.GetText($"{indentation}    "));
             }
 
-            if (Attributes.Count > 1 || Nodes.Any())
+            if (requiresEndTag)
             {
-                sb.AppendLine($"{(!Nodes.Any() ? Environment.NewLine : "")}{indentation}</{Name}>");
+                if (Attributes.Count > 1 || Nodes.Any())
+                {
+                    sb.Append($"{(!Nodes.Any() ? Environment.NewLine : "")}{indentation}</{Name}>");
+                }
+                else
+                {
+                    sb.Append($"</{Name}>");
+                }
             }
-            else
-            {
-                sb.AppendLine($"</{Name}>");
-            }
+
+            sb.AppendLine();
+
             return sb.ToString();
         }
 

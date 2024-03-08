@@ -47,7 +47,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
     public interface IComponentRenderer
     {
-        IRazorFileNode Render();
+        IRazorFileNode Render(IElement component);
     }
 
     public class ComponentRendererResolver : IComponentRendererResolver
@@ -56,13 +56,14 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
         public ComponentRendererResolver()
         {
-            _componentRenderers[FormModel.SpecializationTypeId] = (component) => new FormComponentRenderer(component, this);
+            _componentRenderers[FormModel.SpecializationTypeId] = (component) => new FormComponentRenderer(this);
+            _componentRenderers[TextInputModel.SpecializationTypeId] = (component) => new TextInputComponentRenderer(this);
         }
         public IComponentRenderer ResolveFor(IElement component)
         {
             if (!_componentRenderers.ContainsKey(component.SpecializationTypeId))
             {
-                return new EmptyElementRenderer(component, this);
+                return new EmptyElementRenderer(this);
             }   
             return _componentRenderers[component.SpecializationTypeId](component);
         }
@@ -70,44 +71,60 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
     public class FormComponentRenderer : IComponentRenderer
     {
-        private readonly IElement _component;
         private readonly IComponentRendererResolver _componentResolver;
 
-        public FormComponentRenderer(IElement component, IComponentRendererResolver componentResolver)
+        public FormComponentRenderer(IComponentRendererResolver componentResolver)
         {
-            _component = component;
             _componentResolver = componentResolver;
         }
 
-        public IRazorFileNode Render()
+        public IRazorFileNode Render(IElement component)
         {
-            var htmlElement = new HtmlElement(_component.Name);
-            foreach (var child in _component.ChildElements)
+            var htmlElement = new HtmlElement(component.Name);
+            foreach (var child in component.ChildElements)
             {
-                htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render());
+                htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
             }
             return htmlElement;
         }
     }
 
-
-    public class EmptyElementRenderer : IComponentRenderer
+    public class TextInputComponentRenderer : IComponentRenderer
     {
-        private readonly IElement _component;
         private readonly IComponentRendererResolver _componentResolver;
 
-        public EmptyElementRenderer(IElement component, IComponentRendererResolver componentResolver)
+        public TextInputComponentRenderer(IComponentRendererResolver componentResolver)
         {
-            _component = component;
             _componentResolver = componentResolver;
         }
 
-        public IRazorFileNode Render()
+        public IRazorFileNode Render(IElement component)
         {
-            var htmlElement = new HtmlElement(_component.Name);
-            foreach (var child in _component.ChildElements)
+            var htmlElement = new HtmlElement("label")
+                .WithText("First Name:")
+                .AddHtmlElement("InputText", inputText =>
+                {
+                    inputText.AddAttribute("@bind-Value", "MappingHere");
+                });
+            return htmlElement;
+        }
+    }
+
+    public class EmptyElementRenderer : IComponentRenderer
+    {
+        private readonly IComponentRendererResolver _componentResolver;
+
+        public EmptyElementRenderer(IComponentRendererResolver componentResolver)
+        {
+            _componentResolver = componentResolver;
+        }
+
+        public IRazorFileNode Render(IElement component)
+        {
+            var htmlElement = new HtmlElement(component.Name);
+            foreach (var child in component.ChildElements)
             {
-                htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render());
+                htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
             }
             return htmlElement;
         }
