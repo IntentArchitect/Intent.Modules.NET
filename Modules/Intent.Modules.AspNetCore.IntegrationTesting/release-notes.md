@@ -1,4 +1,8 @@
-﻿### Version 1.0.1
+﻿### Version 1.0.2
+
+- Fixed: Added missing using clause in generated CRUD tests.
+
+### Version 1.0.1
 
 - Improvement: File transfer ( upload / download ) support on proxies.
 

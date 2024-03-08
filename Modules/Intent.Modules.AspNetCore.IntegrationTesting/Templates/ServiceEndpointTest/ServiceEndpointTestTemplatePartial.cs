@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientRequestException;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;

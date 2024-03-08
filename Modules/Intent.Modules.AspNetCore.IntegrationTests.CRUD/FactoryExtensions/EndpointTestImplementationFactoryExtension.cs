@@ -10,6 +10,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates;
 using Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.TestDataFactory;
@@ -219,6 +220,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             {
                 template.AddUsing("System.Net");
                 template.AddUsing("AutoFixture");
+                template.GetHttpClientRequestExceptionName();
 
                 var @class = template.CSharpFile.Classes.First();
                 var operation = crudTest.Delete!;
@@ -246,7 +248,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"await client.{crudTest.Delete!.Name}Async({deleteParams});")
 
                         .AddStatement("//Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.{crudTest.GetById.Name}Async({getByIdParams}));")
+                        .AddStatement($"var exception = await Assert.ThrowsAsync<{template.GetHttpClientRequestExceptionName()}>(() => client.{crudTest.GetById.Name}Async({getByIdParams}));")
                         .AddStatement($"Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);")
                         ;
                 });
