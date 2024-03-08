@@ -30,7 +30,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
             AddNugetDependency(NugetPackages.AutoFixture);
             AddTypeSource(ProxyServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId);
-            AddTypeSource(HttpClientRequestExceptionTemplate.TemplateId);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
                 .AddClass($"{Model.Name}Tests", @class =>
                 {
