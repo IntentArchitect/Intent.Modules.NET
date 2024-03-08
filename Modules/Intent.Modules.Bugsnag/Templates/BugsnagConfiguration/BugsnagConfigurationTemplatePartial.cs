@@ -39,7 +39,10 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
 
                         method.AddInvocationStatement("services.AddBugsnag", inv => inv
                             .AddArgument(new CSharpLambdaBlock("cfg")
-                                .AddStatement(@"cfg.ApiKey = configuration[""Bugsnag:ApiKey""];")));
+                                .AddStatement(@"cfg.ApiKey = configuration[""Bugsnag:ApiKey""];")
+                                .AddStatement(@"cfg.AppVersion = configuration[""Bugsnag:AppVersion""];")
+                                .AddIfStatement(@"!string.IsNullOrWhiteSpace(configuration[""Bugsnag:ReleaseStage""])", ifStmt => ifStmt
+                                    .AddStatement(@"cfg.ReleaseStage = configuration[""Bugsnag:ReleaseStage""];"))));
 
                         method.AddStatement("return services;");
                     });
@@ -50,7 +53,9 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
         {
             this.ApplyAppSetting("Bugsnag", new
             {
-                ApiKey = ""
+                ApiKey = "",
+                AppVersion = "1.0.0",
+                ReleaseStage = ""
             });
 
             this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest

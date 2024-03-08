@@ -15,6 +15,12 @@ public static class BugsnagConfiguration
         services.AddBugsnag(cfg =>
         {
             cfg.ApiKey = configuration["Bugsnag:ApiKey"];
+            cfg.AppVersion = configuration["Bugsnag:AppVersion"];
+
+            if (!string.IsNullOrWhiteSpace(configuration["Bugsnag:ReleaseStage"]))
+            {
+                cfg.ReleaseStage = configuration["Bugsnag:ReleaseStage"];
+            }
         });
         return services;
     }

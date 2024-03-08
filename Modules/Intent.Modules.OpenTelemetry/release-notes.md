@@ -1,3 +1,8 @@
+### Version 2.0.3
+
+- Improvement: Added `OpenTelemetry Protocol` which acts as a generic exporter for most systems including [Jaeger](https://www.jaegertracing.io/docs/1.48/apis/#opentelemetry-protocol-stable).
+- Improvement: Updated nuget package versions to closest latest stable versions.
+
 ### Version 2.0.2
 
 - Improvement: Updated Interoperable dependency versions.

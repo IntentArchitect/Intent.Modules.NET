@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0CBADF25-C687-4779-9304-A6FBDAAEB115}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "OpenTelemetry.Console.Api", "OpenTelemetry.Console.Api\OpenTelemetry.Console.Api.csproj", "{35EA4510-0ACA-4A31-9FF3-CE335AD9969D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{193DE80C-1D86-4F35-88EB-E4208B041F41}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "OpenTelemetry.Console.Application", "OpenTelemetry.Console.Application\OpenTelemetry.Console.Application.csproj", "{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{766A7339-AE3D-4336-8D14-077755C4FFBE}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "OpenTelemetry.Console.Domain", "OpenTelemetry.Console.Domain\OpenTelemetry.Console.Domain.csproj", "{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{79CE8E8F-3CB0-4AEF-90BF-45B320452CF5}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "OpenTelemetry.Console.Infrastructure", "OpenTelemetry.Console.Infrastructure\OpenTelemetry.Console.Infrastructure.csproj", "{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{35EA4510-0ACA-4A31-9FF3-CE335AD9969D} = {0CBADF25-C687-4779-9304-A6FBDAAEB115}
+		{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA} = {193DE80C-1D86-4F35-88EB-E4208B041F41}
+		{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6} = {766A7339-AE3D-4336-8D14-077755C4FFBE}
+		{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9} = {79CE8E8F-3CB0-4AEF-90BF-45B320452CF5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35EA4510-0ACA-4A31-9FF3-CE335AD9969D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EA4510-0ACA-4A31-9FF3-CE335AD9969D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EA4510-0ACA-4A31-9FF3-CE335AD9969D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EA4510-0ACA-4A31-9FF3-CE335AD9969D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216AA99D-D19B-46F9-84CE-E6B7A6A2F0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12851D3A-1AF6-4FD0-A1B7-FCDAE271ADD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A1BFF3-9395-4649-9E6D-23C96AC6D7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

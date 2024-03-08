@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="db965501-53d4-468c-9183-8722bd4cf6fb" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Filters</name>
+  <display>Filters</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>35ea4510-0aca-4a31-9ff3-ce335ad9969d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="01c402ca-2d10-4679-b8a4-b40c5b281b1c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>db965501-53d4-468c-9183-8722bd4cf6fb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="10ab8690-18e0-449f-a3d5-c6c7640f1965" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>db965501-53d4-468c-9183-8722bd4cf6fb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
