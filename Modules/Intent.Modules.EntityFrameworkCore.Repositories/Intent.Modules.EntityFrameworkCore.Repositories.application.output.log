@@ -26,26 +26,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#575edd35-9438-406d-b0a7-b99d6f29b560</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/StoredProcedureModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StoredProcedureModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#575edd35-9438-406d-b0a7-b99d6f29b560</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/StoredProcedureModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StoredProcedureModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04b769d0-8cb9-42be-a063-6eeb73b19b9a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#5823b192-eb03-47c8-90d8-5501c922e9a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/StoredProcedureParameterModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StoredProcedureParameterModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

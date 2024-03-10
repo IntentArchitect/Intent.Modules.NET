@@ -71,8 +71,8 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.EntityFrameworkCore.Repositories</typePackageName>
-            <typePackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</typePackageId>
+            <typePackageName>Intent.Modules.Modelers.Domain.StoredProcedures</typePackageName>
+            <typePackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

@@ -13,6 +13,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;

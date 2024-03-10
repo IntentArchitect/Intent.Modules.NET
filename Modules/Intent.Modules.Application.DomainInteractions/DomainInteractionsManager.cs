@@ -9,6 +9,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -18,6 +19,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Templates;
 using Intent.Utils;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
@@ -58,10 +60,19 @@ public class DomainInteractionsManager
         {
             foreach (var queryAction in model.QueryEntityActions())
             {
-                var foundEntity = queryAction.Element.AsClassModel();
-                if (foundEntity != null && queryAction.Mappings.GetQueryEntityMapping() != null)
+                if (queryAction.Mappings.GetQueryEntityMapping() == null)
                 {
-                    statements.AddRange(domainInteractionManager.QueryEntity(foundEntity, queryAction.InternalAssociationEnd));
+                    continue;
+                }
+                
+                switch (queryAction.Element)
+                {
+                    case var foundEntity when foundEntity.IsClassModel():
+                        statements.AddRange(domainInteractionManager.QueryEntity(foundEntity.AsClassModel(), queryAction.InternalAssociationEnd));
+                        break;
+                    case var foundEntity when foundEntity.IsStoredProcedureModel():
+                        statements.AddRange(domainInteractionManager.QueryEntity(foundEntity.AsStoredProcedureModel(), queryAction.InternalAssociationEnd));
+                        break;
                 }
             }
 
@@ -133,6 +144,46 @@ public class DomainInteractionsManager
         }
     }
 
+    public List<CSharpStatement> QueryEntity(StoredProcedureModel foundEntity, IAssociationEnd associationEnd)
+    {
+        var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
+        if (queryMapping == null)
+        {
+            throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
+        }
+
+        var entityVariableName = associationEnd.Name;
+
+        _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+        _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
+        _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
+        _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
+        _csharpMapping.SetFromReplacement(associationEnd.ParentElement, "request");
+        
+        var statements = new List<CSharpStatement>();
+
+        if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity.InternalElement.ParentElement, out var repositoryInterface))
+        {
+            return statements;
+        }
+
+        var queryInvocation = new CSharpInvocationStatement($"await {InjectService(repositoryInterface)}.{foundEntity.Name}");
+        foreach (var mappedEnd in queryMapping.MappedEnds)
+        {
+            queryInvocation.AddArgument(_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd));
+        }
+
+        queryInvocation.AddArgument("cancellationToken");
+        
+        statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", queryInvocation).SeparatedFromPrevious());
+
+        var dataContractModel = foundEntity.TypeReference.Element?.AsDataContractModel();
+        
+        TrackedEntities.Add(associationEnd.Id, new EntityDetails(null, dataContractModel, entityVariableName, null, false, associationEnd.TypeReference.IsCollection));
+        
+        return statements;
+    }
+    
     public List<CSharpStatement> QueryEntity(ClassModel foundEntity, IAssociationEnd associationEnd)
     {
         try
@@ -234,7 +285,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity, null, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }
@@ -301,7 +352,7 @@ public class DomainInteractionsManager
         dataAccessProvider = null;
         return false;
     }
-
+    
     public bool TryInjectRepositoryForEntity(ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
     {
 
@@ -349,29 +400,32 @@ public class DomainInteractionsManager
         }
         var statements = new List<CSharpStatement>();
         var entitiesReturningPk = TrackedEntities.Values
-            .Where(x => x.Model.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+            .Where(x => x.ClassModel?.GetTypesInHierarchy()
+                .SelectMany(c => c.Attributes)
+                .Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
-        foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.Model.Id).Select(x => x.First()))
+        foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.ClassModel.Id).Select(x => x.First()))
         {
             statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
         }
 
         if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
         {
-            var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
+            var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
+            var entityDetails = TrackedEntities.Values.First(x => x.ClassModel?.Id == mappedElementId || x.DataContractModel?.Id == mappedElementId);
             var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
             statements.Add($"return {entityDetails.VariableName}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
         }
         else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
         {
-            var entityDetails = TrackedEntities.Values.First(x => x.Model.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
+            var entityDetails = TrackedEntities.Values.First(x => x.ClassModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
             var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
             statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
         }
         else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
         {
             var entityDetails = entitiesReturningPk.Single();
-            var entity = entityDetails.Model;
+            var entity = entityDetails.ClassModel;
             statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
         }
         else
@@ -392,7 +446,7 @@ public class DomainInteractionsManager
             var entityVariableName = createAction.Name;
             var dataAccess = InjectDataAccessProvider(entity);
 
-            TrackedEntities.Add(createAction.Id, new EntityDetails(entity, createAction.Name, dataAccess, true));
+            TrackedEntities.Add(createAction.Id, new EntityDetails(entity, null, createAction.Name, dataAccess, true));
 
             var mapping = createAction.Mappings.SingleOrDefault();
             var statements = new List<CSharpStatement>();
@@ -435,7 +489,7 @@ public class DomainInteractionsManager
         try
         {
             var entityDetails = TrackedEntities[updateAction.Id];
-            var entity = entityDetails.Model;
+            var entity = entityDetails.ClassModel;
             var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
 
             var statements = new List<CSharpStatement>();
@@ -549,7 +603,7 @@ public class DomainInteractionsManager
 
                 if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
                 {
-                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(entityModel, variableName, null, false, operationModel.TypeReference.IsCollection));
+                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(entityModel, null, variableName, null, false, operationModel.TypeReference.IsCollection));
                 }
             }
             else
@@ -564,7 +618,7 @@ public class DomainInteractionsManager
             throw new ElementException(callServiceOperation.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
     }
-
+    
     private IDataAccessProvider InjectDataAccessProvider(ClassModel foundEntity)
     {
         if (TryInjectRepositoryForEntity(foundEntity, out var dataAccess))
@@ -870,7 +924,7 @@ public class DomainInteractionsManager
 
 
 
-public record EntityDetails(ClassModel Model, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
+public record EntityDetails(ClassModel ClassModel, DataContractModel DataContractModel, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
 
 internal static class AttributeModelExtensions
 {
