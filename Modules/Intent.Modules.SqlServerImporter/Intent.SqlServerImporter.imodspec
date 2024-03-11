@@ -5,7 +5,6 @@
   <supportedClientVersions>[4.2.0-beta.5,5.0.0)</supportedClientVersions>
   <summary>Module for Importing Domain Models based on SQL Server Databases</summary>
   <description>This module adds the functionality to import Domain Models based on SQL Server database schemas.</description>
-  <authors>Intent.Modules.NET</authors>
   <authors>Intent Architect</authors>
   <tags>csharp dotnet sql server import domain export</tags>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.SqlServerImporter/README.md</projectUrl>
