@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="3efd2ca6-8bc8-4f82-8276-02aa447a8652" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In Memory</name>
-          <display>In Memory = in-memory</display>
+          <display>In Memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="24246c29-feaf-4e55-a5aa-3d2fdedb20c8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Rabbit MQ</name>
-          <display>Rabbit MQ = rabbitmq</display>
+          <display>Rabbit MQ</display>
           <isAbstract>false</isAbstract>
           <value>rabbitmq</value>
           <genericTypes />
@@ -67,7 +67,7 @@
         </childElement>
         <childElement id="c8dbeb41-83a5-42f7-9a5c-7eabb9d3c0ec" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Azure Service Bus</name>
-          <display>Azure Service Bus = azure-service-bus</display>
+          <display>Azure Service Bus</display>
           <isAbstract>false</isAbstract>
           <value>azure-service-bus</value>
           <genericTypes />
@@ -81,7 +81,7 @@
         </childElement>
         <childElement id="09e41888-3f16-4762-905a-b66a16d94fed" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Amazon SQS</name>
-          <display>Amazon SQS = amazon-sqs</display>
+          <display>Amazon SQS</display>
           <isAbstract>false</isAbstract>
           <value>amazon-sqs</value>
           <genericTypes />
@@ -122,7 +122,7 @@
       <childElements>
         <childElement id="317d27fd-d6a7-4478-b43a-a3af9772a0fd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>None</name>
-          <display>None = none</display>
+          <display>None</display>
           <isAbstract>false</isAbstract>
           <value>none</value>
           <genericTypes />
@@ -136,7 +136,7 @@
         </childElement>
         <childElement id="9670c78b-8b7a-4cc8-90ff-0a4dc4665200" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In Memory</name>
-          <display>In Memory = in-memory</display>
+          <display>In Memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <genericTypes />
@@ -150,7 +150,7 @@
         </childElement>
         <childElement id="162267fe-abd6-4a28-9cad-f0f63fd36418" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Entity Framework</name>
-          <display>Entity Framework = entity-framework</display>
+          <display>Entity Framework</display>
           <isAbstract>false</isAbstract>
           <value>entity-framework</value>
           <genericTypes />
@@ -191,7 +191,7 @@
       <childElements>
         <childElement id="0a9d5e1c-5f97-4a3a-aa4f-c005adbb7c45" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Immediate</name>
-          <display>Immediate = retry-immediate</display>
+          <display>Immediate</display>
           <isAbstract>false</isAbstract>
           <value>retry-immediate</value>
           <genericTypes />
@@ -205,7 +205,7 @@
         </childElement>
         <childElement id="a76464ab-bb3b-4096-ad87-265181b47ab6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Interval</name>
-          <display>Interval = retry-interval</display>
+          <display>Interval</display>
           <isAbstract>false</isAbstract>
           <value>retry-interval</value>
           <genericTypes />
@@ -219,7 +219,7 @@
         </childElement>
         <childElement id="897af2d9-0ffa-40b6-af98-a6a1f80af28d" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Incremental</name>
-          <display>Incremental = retry-incremental</display>
+          <display>Incremental</display>
           <isAbstract>false</isAbstract>
           <value>retry-incremental</value>
           <genericTypes />
@@ -233,7 +233,7 @@
         </childElement>
         <childElement id="7449b2b2-6523-49db-85ef-2a7779d42cdd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Exponential</name>
-          <display>Exponential = retry-exponential</display>
+          <display>Exponential</display>
           <isAbstract>false</isAbstract>
           <value>retry-exponential</value>
           <genericTypes />
@@ -247,7 +247,7 @@
         </childElement>
         <childElement id="cce39925-d223-4bf8-84b9-5e1cdd804a10" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>None</name>
-          <display>None = retry-none</display>
+          <display>None</display>
           <isAbstract>false</isAbstract>
           <value>retry-none</value>
           <genericTypes />

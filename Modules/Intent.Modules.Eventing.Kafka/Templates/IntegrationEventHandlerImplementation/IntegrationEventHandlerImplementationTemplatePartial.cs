@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modelers.Services.EventInteractions;
+using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -13,15 +13,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandler
+namespace Intent.Modules.Eventing.Kafka.Templates.IntegrationEventHandlerImplementation
 {
     [IntentManaged(Mode.Ignore)]
-    public class IntegrationEventHandlerTemplate : IntegrationEventHandlerTemplateBase
+    partial class IntegrationEventHandlerImplementationTemplate : IntegrationEventHandlerImplementationTemplateBase
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Eventing.MassTransit.IntegrationEventHandler";
+        public const string TemplateId = "Intent.Eventing.Kafka.IntegrationEventHandlerImplementation";
 
-        public IntegrationEventHandlerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
+        public IntegrationEventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,
