@@ -50,7 +50,12 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 				return Fail(errorMessage!);
 			}
 
-			Logging.Log.Info($"Executing: {toolname} --serialized-config \"{sqlImportSettings}\"");
+
+			var toolDirectory = Path.Combine( Path.GetDirectoryName( typeof(DatabaseImport).Assembly.Location), @"../content/tool");
+			var executableName = "dotnet";
+			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}\" --serialized-config \"{sqlImportSettings}\"";
+
+			Logging.Log.Info($"Executing: {executableName} {executableArgs} ");
 			var succeeded = false;
 			try
 			{
@@ -58,18 +63,19 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 				{
 					StartInfo = new ProcessStartInfo
 					{
-						FileName = toolname,
-						Arguments = $"--serialized-config \"{sqlImportSettings}\"",
+						FileName = executableName,
+						Arguments = executableArgs,
 						RedirectStandardInput = true,
 						RedirectStandardOutput = true,
 						CreateNoWindow = false,
 						UseShellExecute = false,
+						WorkingDirectory = toolDirectory,
 						EnvironmentVariables =
 						{
 							["DOTNET_CLI_UI_LANGUAGE"] = "en"
 						}
 					}
-				};
+				}; 
 
 				process.OutputDataReceived += (_, args) =>
 				{
@@ -133,16 +139,13 @@ Please see reasons below:");
 				return false;
 			}
 
-			var designer = _metadataManager.GetDesigner(settings.ApplicationId, settings.DesignerId);
+			var designer = _metadataManager.GetDesigner(settings.ApplicationId, "Domain");
 			if (designer == null)
 			{
 				errorMessage = $"Unable to find domain designer in application";
 				return false;
 			}
 
-#warning need to get package location
-			settings.PackageFileName = @"C:\Workshop\ImportTest2\intent\ImportTest2\Intent.Metadata\Domain\Domain\Domain.pkg.config";
-			/*
 			var package = designer.Packages.FirstOrDefault(p => p.Id == settings.PackageId);
 			if (package == null)
 			{
@@ -151,7 +154,7 @@ Please see reasons below:");
 			}
 
 			settings.PackageFileName = package.FileLocation;
-			*/
+			
 			var sending = JsonSerializer.Serialize(settings);
 			sqlImportSettings = sending.Replace("\"", "\\\"");
 			return true;
