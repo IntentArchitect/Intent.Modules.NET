@@ -33,18 +33,6 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 
 		public string Execute(params string[] args)
 		{
-			string toolname = "intent-sql-schema-extractor";
-			var minimumToolVersion = new NuGetVersion(1, 1, 2);
-
-			if (!IsToolInstalled(toolname))
-			{
-				return Fail($"({toolname}) not installed. You can install it from a Terminal as follows: \\r\\ndotnet tool install Intent.SQLSchemaExtractor --global");
-			}
-			if (!CheckToolVersion(toolname, minimumToolVersion))
-			{
-				return Fail($"({toolname}) needs to be updated to at least ({minimumToolVersion.ToString()}). You can install it from a Terminal as follows: \\r\\ndotnet tool update Intent.SQLSchemaExtractor --global");
-			}
-
 			if (!ValiadateRequest(args, out var sqlImportSettings, out var errorMessage ))
 			{
 				return Fail(errorMessage!);
@@ -111,7 +99,7 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 			}
 			catch (Exception e)
 			{
-				Logging.Log.Failure($@"Failed to execute: ""{toolname}"".
+				Logging.Log.Failure($@"Failed to execute: ""Intent.SQLSchemaExtractor.dll"".
 Please see reasons below:");
 				Logging.Log.Failure(e);
 				return Fail(e.GetBaseException().Message);
@@ -158,64 +146,6 @@ Please see reasons below:");
 			var sending = JsonSerializer.Serialize(settings);
 			sqlImportSettings = sending.Replace("\"", "\\\"");
 			return true;
-		}
-
-		private bool CheckToolVersion(string toolname, NuGetVersion minimumVersion)
-		{
-			var processStartInfo = new ProcessStartInfo
-			{
-				FileName = toolname,
-				Arguments = "--version",
-				RedirectStandardInput = true,
-				RedirectStandardOutput = true,
-				CreateNoWindow = false,
-				UseShellExecute = false
-			};
-
-			var cmd = Process.Start(processStartInfo)!;
-			cmd.WaitForExit(5000);
-			if (!cmd.HasExited)
-			{
-				throw new Exception("Timeout exceeded when performing \"intent-sql-schema-extractor --version\"");
-			}
-
-			var output = cmd.StandardOutput.ReadToEnd();
-
-			var versionString = output.Trim();
-			if (versionString.Contains('\n'))
-			{
-				versionString = versionString.Substring(versionString.LastIndexOf('\n') + 1);
-			}
-			var currentVerion =  NuGetVersion.Parse(versionString);
-			Logging.Log.Info($"using {toolname}:{versionString}");
-			return currentVerion >= minimumVersion;
-		}
-
-		static bool IsToolInstalled(string toolName)
-		{
-			try
-			{
-				string command = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "where" : "which";
-
-				Process process = new Process();
-				process.StartInfo.FileName = command;
-				process.StartInfo.Arguments = toolName;
-				process.StartInfo.UseShellExecute = false;
-				process.StartInfo.RedirectStandardOutput = true;
-				process.StartInfo.CreateNoWindow = true;
-				process.Start();
-
-				string output = process.StandardOutput.ReadToEnd();
-				process.WaitForExit();
-
-				// Check if the tool executable path is found in the output
-				return !string.IsNullOrEmpty(output) && output.Contains(toolName);
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine($"Error checking for {toolName}: {ex.Message}");
-				return false;
-			}
 		}
 
 		private string Fail(string reason)
