@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.5.2</version>
+  <version>4.5.3</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -48,7 +48,7 @@
     </detect>
     <detect id="Intent.OutputManager.RoslynWeaver">
       <install>
-        <package id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+        <package id="Intent.OutputManager.RoslynWeaver" version="4.7.0" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
