@@ -7,6 +7,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -45,14 +46,10 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                             {
                                 var block = statement as CSharpLambdaBlock;
 
-                                block.AddStatement("""
-                                                   // TODO JL: Pull from config
-                                                   var schemaRegistryConfig = new SchemaRegistryConfig
-                                                   {
-                                                       Url = "https://psrc-g3yw1.southafricanorth.azure.confluent.cloud",
-                                                       BasicAuthUserInfo = "Q3PAHLZMIUUTDD35:2sowIQvb2nmy/Bf13sr88ER0Seqtv23IJyzvMuzdqZGZsB4B9nxuRSL1W9lCvPza"
-                                                   };
-                                                   """);
+                                block.AddStatement(@"var schemaRegistryConfig = serviceProvider
+                    .GetRequiredService<IConfiguration>()
+                    .GetSection(""Kafka:SchemaRegistryConfig"")
+                    .Get<SchemaRegistryConfig>();");
 
                                 block.AddStatement("return new CachedSchemaRegistryClient(schemaRegistryConfig);", s => s.SeparatedFromPrevious());
                             });
@@ -89,12 +86,19 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
             return messageTypeNames;
         }
 
-        public override void BeforeTemplateExecution()
+        public override void AfterTemplateRegistration()
         {
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddKafkaConfiguration")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
+
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Kafka:SchemaRegistryConfig",
+                new
+                {
+                    Url = "",
+                    BasicAuthUserInfo = "",
+                }));
         }
 
         [IntentManaged(Mode.Fully)]
