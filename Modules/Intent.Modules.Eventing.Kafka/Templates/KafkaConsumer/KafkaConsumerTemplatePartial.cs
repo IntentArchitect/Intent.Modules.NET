@@ -81,6 +81,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
 
                                             usingScope.AddTryBlock(tryHandle =>
                                             {
+                                                tryHandle.AddStatement("// TODO JL: UnitOfWork, etc");
                                                 tryHandle.AddStatement("await handler.HandleAsync(consumeResult.Message.Value, stoppingToken);");
                                             });
                                             usingScope.AddCatchBlock(@catch =>

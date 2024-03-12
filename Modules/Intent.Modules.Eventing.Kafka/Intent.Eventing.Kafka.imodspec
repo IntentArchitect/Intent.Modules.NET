@@ -64,6 +64,22 @@
       <role>Infrastructure.Eventing.KafkaEventBus</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.Kafka.KafkaProducer" externalReference="b218f77f-0479-42a8-9362-06b78abe4fd8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Kafka.KafkaProducerInterface" externalReference="d9d79f52-b108-4d49-b4fd-15762e888e31">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>

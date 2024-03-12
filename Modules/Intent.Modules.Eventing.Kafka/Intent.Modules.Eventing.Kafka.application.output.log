@@ -154,6 +154,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b218f77f-0479-42a8-9362-06b78abe4fd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducer/KafkaProducerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducer/KafkaProducerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b218f77f-0479-42a8-9362-06b78abe4fd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducer/KafkaProducerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducer/KafkaProducerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#d9d79f52-b108-4d49-b4fd-15762e888e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducerInterface/KafkaProducerInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#d9d79f52-b108-4d49-b4fd-15762e888e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducerInterface/KafkaProducerInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d9d79f52-b108-4d49-b4fd-15762e888e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducerInterface/KafkaProducerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d9d79f52-b108-4d49-b4fd-15762e888e31</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/KafkaProducerInterface/KafkaProducerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaProducerInterface/KafkaProducerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c09b251-abe6-4aaf-9114-0abf2988f377</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

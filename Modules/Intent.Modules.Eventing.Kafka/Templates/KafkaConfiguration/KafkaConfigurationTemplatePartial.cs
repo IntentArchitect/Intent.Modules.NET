@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         public KafkaConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Confluent.SchemaRegistry")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"KafkaConfiguration", @class =>
                 {
@@ -38,24 +39,28 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
 
+                        method.AddInvocationStatement("services.AddSingleton<ISchemaRegistryClient>", invocation =>
+                        {
+                            invocation.AddArgument(new CSharpLambdaBlock("serviceProvider"), statement =>
+                            {
+                                var block = statement as CSharpLambdaBlock;
+
+                                block.AddStatement("""
+                                                   // TODO JL: Pull from config
+                                                   var schemaRegistryConfig = new SchemaRegistryConfig
+                                                   {
+                                                       Url = "https://psrc-g3yw1.southafricanorth.azure.confluent.cloud",
+                                                       BasicAuthUserInfo = "Q3PAHLZMIUUTDD35:2sowIQvb2nmy/Bf13sr88ER0Seqtv23IJyzvMuzdqZGZsB4B9nxuRSL1W9lCvPza"
+                                                   };
+                                                   """);
+
+                                block.AddStatement("return new CachedSchemaRegistryClient(schemaRegistryConfig);", s => s.SeparatedFromPrevious());
+                            });
+                        });
+                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");
 
-                        var serviceDesignerMessages = ExecutionContext.MetadataManager
-                            .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-                            .SelectMany(x => x.IntegrationEventSubscriptions())
-                            .Select(x => x.TypeReference.Element.AsMessageModel());
-
-                        var eventingDesignerMessages = ExecutionContext.MetadataManager
-                            .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
-                            .SelectMany(x => x.SubscribedMessages())
-                            .Select(x => x.TypeReference.Element.AsMessageModel());
-
-                        var messageTypeNames = Enumerable.Empty<MessageModel>()
-                            .Concat(serviceDesignerMessages)
-                            .Concat(eventingDesignerMessages)
-                            .Select(this.GetIntegrationEventMessageName)
-                            .ToArray();
-
+                        var messageTypeNames = GetMessageTypeNames();
                         foreach (var messageTypeName in messageTypeNames)
                         {
                             method.AddStatement($"services.AddTransient<{this.GetKafkaConsumerInterfaceName()}, {this.GetKafkaConsumerName()}<{messageTypeName}>>();");
@@ -64,11 +69,30 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 });
         }
 
+        private IEnumerable<string> GetMessageTypeNames()
+        {
+            var serviceDesignerMessages = ExecutionContext.MetadataManager
+                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+                .SelectMany(x => x.IntegrationEventSubscriptions())
+                .Select(x => x.TypeReference.Element.AsMessageModel());
+
+            var eventingDesignerMessages = ExecutionContext.MetadataManager
+                .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
+                .SelectMany(x => x.SubscribedMessages())
+                .Select(x => x.TypeReference.Element.AsMessageModel());
+
+            var messageTypeNames = Enumerable.Empty<MessageModel>()
+                .Concat(serviceDesignerMessages)
+                .Concat(eventingDesignerMessages)
+                .Select(this.GetIntegrationEventMessageName);
+
+            return messageTypeNames;
+        }
+
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister(
-                    "AddKafkaConfiguration",
-                    ServiceConfigurationRequest.ParameterType.Configuration)
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("AddKafkaConfiguration")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
         }

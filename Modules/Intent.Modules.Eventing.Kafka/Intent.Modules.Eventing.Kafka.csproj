@@ -28,6 +28,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>KafkaConsumerInterfaceTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>KafkaProducerInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +39,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>KafkaConsumerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KafkaProducerInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

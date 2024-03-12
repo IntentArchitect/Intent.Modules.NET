@@ -9,6 +9,8 @@ using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerBackgroundService;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerInterface;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus;
+using Intent.Modules.Eventing.Kafka.Templates.KafkaProducer;
+using Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -62,6 +64,16 @@ namespace Intent.Modules.Eventing.Kafka.Templates
         public static string GetKafkaEventBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(KafkaEventBusTemplate.TemplateId);
+        }
+
+        public static string GetKafkaProducerName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(KafkaProducerTemplate.TemplateId);
+        }
+
+        public static string GetKafkaProducerInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(KafkaProducerInterfaceTemplate.TemplateId);
         }
 
     }
