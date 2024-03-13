@@ -20,10 +20,13 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
     [IntentManaged(Mode.Merge)]
     public class ConfigurationSettingsSerilogLoggingDecorator : AppSettingsDecorator
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.Modules.AspNetCore.Logging.Serilog.ConfigurationSettingsSerilogLoggingDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.Modules.AspNetCore.Logging.Serilog.ConfigurationSettingsSerilogLoggingDecorator";
 
-        [IntentManaged(Mode.Fully)] private readonly AppSettingsTemplate _template;
-        [IntentManaged(Mode.Fully)] private readonly IApplication _application;
+        [IntentManaged(Mode.Fully)]
+        private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
         public ConfigurationSettingsSerilogLoggingDecorator(AppSettingsTemplate template, IApplication application)
@@ -38,7 +41,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             {
                 return;
             }
-            
+
             var serilog = appSettings.GetProperty<JObject>("Serilog");
             serilog = CreateDefaultSerilogSettingsObj(serilog);
 
@@ -78,7 +81,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             var currentSinks = writeTo.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
             var selectedSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
             var managedSinks = Enum.GetValues<SerilogSettings.SinksOptionsEnum>().Select(SerilogOptionToSectionName).ToHashSet();
-            
+
             // Remove sinks not present in the valid sinks
             foreach (var sink in currentSinks.Except(selectedSinks).ToArray())
             {
@@ -174,7 +177,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             }
 
             return;
-            
+
             static string SerilogOptionToType(SerilogSettings.SinksOptionsEnum option)
             {
                 return option switch

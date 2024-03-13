@@ -82,7 +82,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             main.AddTryBlock(block =>
                 block.AddStatement(@"Log.Information(""Starting web host"");")
                     .AddStatement(hostRunStmt));
-            
+
             main.AddCatchBlock(template.UseType("System.Exception"), "ex",
                 block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
             main.AddFinallyBlock(block => block.AddStatement("Log.CloseAndFlush();"));

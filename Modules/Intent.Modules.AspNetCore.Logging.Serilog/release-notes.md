@@ -1,4 +1,4 @@
-### Version 5.0.3
+### Version 5.1.0
 
 - Improvement: The NuGet package versions now automatically update to match the selected .NET version.
 - Improvement: The configuration for the Serilog sink has been relocated from the Program.cs file to the `appsettings.json` file. This change gives developers the flexibility to include custom sinks in their projects, even if they are not directly supported by Intent Architect.
