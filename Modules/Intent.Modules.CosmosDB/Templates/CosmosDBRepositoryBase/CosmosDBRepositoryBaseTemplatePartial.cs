@@ -43,6 +43,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Azure.Cosmos")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Extensions")
                 .AddClass("CosmosDBRepositoryBase", @class =>
                 {
                     @class
@@ -60,10 +61,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     @class
                         .AddGenericParameter("TDocument", out var tDocument)
                         .AddGenericParameter("TDocumentInterface", out var tDocumentInterface);
-
-                    var selectGenericTypeArgument = createEntityInterfaces
-                        ? $"<{tDocument}, {tDomain}>"
-                        : string.Empty;
 
                     @class
                         .ImplementsInterface($"{this.GetCosmosDBRepositoryInterfaceName()}<{tDomain}, {tDocumentInterface}>")
@@ -90,7 +87,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                     if (useOptimisticConcurrency)
                     {
-                        @class.AddField("Dictionary<string, string?>", "_etags");
+                        @class.AddField("Dictionary<string, string?>", "_eTags", f => f
+                            .PrivateReadOnly()
+                            .WithAssignment(new CSharpStatement("new Dictionary<string, string?>()")));
                     }
 
                     @class.AddConstructor(ctor =>
@@ -101,11 +100,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{tDocument}>"),
                             "cosmosRepository", p => p.IntroduceReadonlyField());
                         ctor.AddParameter("string", "idFieldName", p => p.IntroduceReadonlyField());
-
-                        if (useOptimisticConcurrency)
-                        {
-                            ctor.AddStatement("_etags = new Dictionary<string, string?>();");
-                        }
                     });
 
                     @class.AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", p => p
@@ -113,24 +107,19 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Getter.WithExpressionImplementation("_unitOfWork")
                     );
 
-                    if (useOptimisticConcurrency)
-                    {
-                        @class.AddMethod("string", "GetId", method =>
-                        {
-                            method.Abstract();
-                            method.AddParameter(tDomain, "entity");
-                        });
-                    }
-
                     @class.AddMethod("void", "Add", m => m
                         .AddParameter(tDomain, "entity")
                         .AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious())
                         .AddInvocationStatement("_unitOfWork.Enqueue", invocation =>
                         {
                             invocation.AddMetadata(MetadataNames.EnqueueStatement, true);
+                            var getEntityArgument = useOptimisticConcurrency
+                                ? ", _ => null"
+                                : string.Empty;
+
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
+                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity{getEntityArgument});", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
                                     .AddStatement(
                                         "await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);")
                                 );
@@ -138,7 +127,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     );
 
                     var updatePopulateFromEntityStatement = useOptimisticConcurrency
-                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, GetEtag(entity));"
+                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, _eTags.GetValueOrDefault);"
                         : $"var document = new {tDocument}().PopulateFromEntity(entity);";
                     @class.AddMethod("void", "Update", m => m
                         .AddParameter(tDomain, "entity")
@@ -156,7 +145,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     );
 
                     var removePopulateFromEntityStatement = useOptimisticConcurrency
-                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, GetEtag(entity));"
+                        ? $"var document = new {tDocument}().PopulateFromEntity(entity, _eTags.GetValueOrDefault);"
                         : $"var document = new {tDocument}().PopulateFromEntity(entity);";
                     @class.AddMethod("void", "Remove", m => m
                         .AddParameter(tDomain, "entity")
@@ -181,13 +170,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                         method
                             .AddStatement(
-                                "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
+                                "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken).ToListAsync();"
                                 , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                            .AddIfStatement("documents == null || !documents.Any()", stmt =>
+                            .AddIfStatement("!documents.Any()", stmt =>
                             {
                                 stmt.AddStatement("return default;");
                             })
-                            .AddStatement($"var entity = LoadAndTrackDocument(documents.First());")
+                            .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
                             .AddStatement("return entity;", s => s.SeparatedFromPrevious());
                     });
 
@@ -195,7 +184,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Async()
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement("var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);", c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                        .AddStatement($"var results = LoadAndTrackDocuments(documents).ToList();")
+                        .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
@@ -232,7 +221,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .AddStatement(
                                 "var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);"
                                 , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
-                            .AddStatement($"var results = LoadAndTrackDocuments(documents).ToList();")
+                            .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
                     });
 
@@ -277,7 +266,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             c => c.AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true))
                         .AddStatement(
                             "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                        .AddStatement($"var results = LoadAndTrackDocuments(documents).ToList();")
+                        .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
                     );
 
@@ -311,7 +300,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                         if (useOptimisticConcurrency)
                         {
-                            method.AddStatement("_etags[document.Id] = document.Etag;");
+                            method.AddStatement("_eTags[document.Id] = document.Etag;");
                         }
 
                         method.AddStatement("return entity;", s => s.SeparatedFromPrevious());
@@ -324,21 +313,6 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
 
                         method.AddForEachStatement("document", "documents", stmt => stmt.AddStatement("yield return LoadAndTrackDocument(document);"));
                     });
-
-                    if (useOptimisticConcurrency)
-                    {
-                        @class.AddMethod($"string?", "GetEtag", method =>
-                        {
-                            method.AddParameter(tDomain, "entity");
-
-                            method.AddIfStatement("_etags.TryGetValue(GetId(entity), out var etag)", @if =>
-                            {
-                                @if.AddStatement("return etag;");
-                            });
-
-                            method.AddStatement("return default;", s => { s.SeparatedFromPrevious(); });
-                        });
-                    }
 
                     @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
                     {
