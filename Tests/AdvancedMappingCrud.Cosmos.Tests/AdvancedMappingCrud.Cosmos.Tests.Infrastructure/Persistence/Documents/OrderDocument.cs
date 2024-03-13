@@ -50,7 +50,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public OrderDocument PopulateFromEntity(Order entity, string? etag = null)
+        public OrderDocument PopulateFromEntity(Order entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             CustomerId = entity.CustomerId;
@@ -60,19 +60,19 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
             OrderTags = entity.OrderTags.Select(x => OrderTagsDocument.FromEntity(x)!).ToList();
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static OrderDocument? FromEntity(Order? entity, string? etag = null)
+        public static OrderDocument? FromEntity(Order? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new OrderDocument().PopulateFromEntity(entity, etag);
+            return new OrderDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

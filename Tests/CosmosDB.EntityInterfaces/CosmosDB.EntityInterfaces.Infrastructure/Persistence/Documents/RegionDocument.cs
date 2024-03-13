@@ -40,25 +40,25 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public RegionDocument PopulateFromEntity(IRegion entity, string? etag = null)
+        public RegionDocument PopulateFromEntity(IRegion entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             Name = entity.Name;
             Countries = entity.Countries.Select(x => CountryDocument.FromEntity(x)!).ToList();
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static RegionDocument? FromEntity(IRegion? entity, string? etag = null)
+        public static RegionDocument? FromEntity(IRegion? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new RegionDocument().PopulateFromEntity(entity, etag);
+            return new RegionDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

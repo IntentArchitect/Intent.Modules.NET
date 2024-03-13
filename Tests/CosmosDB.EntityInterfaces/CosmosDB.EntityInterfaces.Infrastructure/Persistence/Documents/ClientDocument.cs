@@ -45,25 +45,25 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public ClientDocument PopulateFromEntity(IClient entity, string? etag = null)
+        public ClientDocument PopulateFromEntity(IClient entity, Func<string, string?> getEtag)
         {
             Identifier = entity.Identifier;
             Type = entity.Type;
             Name = entity.Name;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static ClientDocument? FromEntity(IClient? entity, string? etag = null)
+        public static ClientDocument? FromEntity(IClient? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ClientDocument().PopulateFromEntity(entity, etag);
+            return new ClientDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

@@ -43,25 +43,29 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public NonStringPartitionKeyDocument PopulateFromEntity(INonStringPartitionKey entity, string? etag = null)
+        public NonStringPartitionKeyDocument PopulateFromEntity(
+            INonStringPartitionKey entity,
+            Func<string, string?> getEtag)
         {
             Id = entity.Id;
             PartInt = entity.PartInt.ToString(CultureInfo.InvariantCulture);
             Name = entity.Name;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static NonStringPartitionKeyDocument? FromEntity(INonStringPartitionKey? entity, string? etag = null)
+        public static NonStringPartitionKeyDocument? FromEntity(
+            INonStringPartitionKey? entity,
+            Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new NonStringPartitionKeyDocument().PopulateFromEntity(entity, etag);
+            return new NonStringPartitionKeyDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

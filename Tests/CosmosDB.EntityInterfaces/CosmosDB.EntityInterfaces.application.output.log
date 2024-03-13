@@ -1732,6 +1732,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/IWithGuidId.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWithGuidId.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/IWithoutPartitionKey.cs</ApplicationRelativeFilePath>
@@ -1792,6 +1800,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/Region.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Region.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>de31055b-9ca4-42b2-b4b7-02a11510c2ae</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Entities/WithGuidId.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithGuidId.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1996,6 +2012,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/Documents/IWithGuidIdDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWithGuidIdDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcc25b2b-5e81-4b2b-9c51-8879a3d57f3e</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/Documents/IWithoutPartitionKeyDocument.cs</ApplicationRelativeFilePath>
@@ -2160,6 +2184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22a6cd96-765c-4611-acde-2f596d55c4f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Domain/Repositories/IWithGuidIdRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWithGuidIdRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2412,6 +2444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Persistence/Documents/WithGuidIdDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithGuidIdDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fb0d8532-7114-4fca-bafc-1447c4a4efd3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#196db76b-12fe-46c7-b302-dea73072e8aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Persistence/Documents/WithoutPartitionKeyDocument.cs</ApplicationRelativeFilePath>
@@ -2568,6 +2608,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Repositories/RegionCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RegionCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>79bcaaa9-ecc5-4000-b129-a87de9601d43</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#d1c71e34-8712-45cd-8808-54d7c1077f47</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Infrastructure/Repositories/WithGuidIdCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WithGuidIdCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

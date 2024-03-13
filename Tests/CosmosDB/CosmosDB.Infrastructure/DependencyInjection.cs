@@ -61,6 +61,8 @@ namespace CosmosDB.Infrastructure
                     .Configure<FolderContainerDocument>(c => c
                         .WithContainer("Folder")
                         .WithPartitionKey("/folderPartitionKey"))
+                    .Configure<GetAllImplementationCustomerDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<IdTestingDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<InvoiceDocument>(c => c
@@ -78,6 +80,8 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<RegionDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<WithGuidIdDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
@@ -90,6 +94,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
             services.AddScoped<IDerivedTypeAggregateRepository, DerivedTypeAggregateCosmosDBRepository>();
             services.AddScoped(typeof(IEntityOfTRepository<>), typeof(EntityOfTCosmosDBRepository<>));
+            services.AddScoped<IGetAllImplementationCustomerRepository, GetAllImplementationCustomerCosmosDBRepository>();
             services.AddScoped<IIdTestingRepository, IdTestingCosmosDBRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceCosmosDBRepository>();
             services.AddScoped<INonStringPartitionKeyRepository, NonStringPartitionKeyCosmosDBRepository>();
@@ -97,6 +102,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IProductRepository, ProductCosmosDBRepository>();
             services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
+            services.AddScoped<IWithGuidIdRepository, WithGuidIdCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();

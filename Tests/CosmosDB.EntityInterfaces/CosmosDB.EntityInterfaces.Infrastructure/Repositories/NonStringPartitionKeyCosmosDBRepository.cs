@@ -25,8 +25,6 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
 
         public async Task<INonStringPartitionKey?> FindByIdAsync(
             (string Id, int PartInt) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
-
-        public override string GetId(INonStringPartitionKey entity) => entity.Id;
+            CancellationToken cancellationToken = default) => await FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
     }
 }

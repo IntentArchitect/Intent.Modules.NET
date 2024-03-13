@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="f354da52-acc3-4793-acec-ff70a2728f1d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Product</name>
-    <display>Product: Product   [* --&gt; 1]</display>
+    <display>Product: Product</display>
     <order>5</order>
     <typeReference id="413c7f91-fa79-4d68-9118-48f384c9a071">
       <typeId>fba562a1-58b1-45de-af9b-f3c37586b695</typeId>

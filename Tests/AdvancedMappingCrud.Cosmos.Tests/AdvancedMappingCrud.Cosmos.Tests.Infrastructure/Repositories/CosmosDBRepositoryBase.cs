@@ -12,6 +12,7 @@ using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Extensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepositoryBase", Version = "1.0")]
@@ -22,7 +23,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>, TDocumentInterface, new()
     {
-        private Dictionary<string, string?> _etags;
+        private readonly Dictionary<string, string?> _eTags = new Dictionary<string, string?>();
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
@@ -34,19 +35,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
-            _etags = new Dictionary<string, string?>();
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
-
-        public abstract string GetId(TDomain entity);
 
         public void Add(TDomain entity)
         {
             _unitOfWork.Track(entity);
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = new TDocument().PopulateFromEntity(entity);
+                var document = new TDocument().PopulateFromEntity(entity, _ => null);
                 await _cosmosRepository.CreateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -55,7 +53,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = new TDocument().PopulateFromEntity(entity, GetEtag(entity));
+                var document = new TDocument().PopulateFromEntity(entity, _eTags.GetValueOrDefault);
                 await _cosmosRepository.UpdateAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -64,7 +62,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         {
             _unitOfWork.Enqueue(async cancellationToken =>
             {
-                var document = new TDocument().PopulateFromEntity(entity, GetEtag(entity));
+                var document = new TDocument().PopulateFromEntity(entity, _eTags.GetValueOrDefault);
                 await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
             });
         }
@@ -73,9 +71,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             Expression<Func<TDocumentInterface, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
-            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken).ToListAsync();
 
-            if (documents == null || !documents.Any())
+            if (!documents.Any())
             {
                 return default;
             }
@@ -171,7 +169,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             var entity = document.ToEntity();
 
             _unitOfWork.Track(entity);
-            _etags[document.Id] = document.Etag;
+            _eTags[document.Id] = document.Etag;
 
             return entity;
         }
@@ -182,16 +180,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             {
                 yield return LoadAndTrackDocument(document);
             }
-        }
-
-        public string? GetEtag(TDomain entity)
-        {
-            if (_etags.TryGetValue(GetId(entity), out var etag))
-            {
-                return etag;
-            }
-
-            return default;
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

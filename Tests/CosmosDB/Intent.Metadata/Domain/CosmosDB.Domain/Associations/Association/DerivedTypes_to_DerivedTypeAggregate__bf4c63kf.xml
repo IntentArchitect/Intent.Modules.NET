@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="5227d396-85d7-44e1-bee9-5add650eacdf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>DerivedTypeAggregate</name>
-    <display>DerivedTypeAggregate: DerivedTypeAggregate   [* --&gt; 1]</display>
+    <display>DerivedTypeAggregate: DerivedTypeAggregate</display>
     <order>2</order>
     <typeReference id="06a2a06f-b3c7-4155-ac62-4e777887ca96">
       <typeId>ae449d5d-e9c7-45f2-8118-00c9e26dd18a</typeId>

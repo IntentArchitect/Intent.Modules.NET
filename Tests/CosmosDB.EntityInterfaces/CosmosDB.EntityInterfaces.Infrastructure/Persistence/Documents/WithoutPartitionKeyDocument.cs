@@ -33,23 +33,23 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public WithoutPartitionKeyDocument PopulateFromEntity(IWithoutPartitionKey entity, string? etag = null)
+        public WithoutPartitionKeyDocument PopulateFromEntity(IWithoutPartitionKey entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static WithoutPartitionKeyDocument? FromEntity(IWithoutPartitionKey? entity, string? etag = null)
+        public static WithoutPartitionKeyDocument? FromEntity(IWithoutPartitionKey? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new WithoutPartitionKeyDocument().PopulateFromEntity(entity, etag);
+            return new WithoutPartitionKeyDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

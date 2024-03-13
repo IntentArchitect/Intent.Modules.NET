@@ -14,6 +14,7 @@ using Finbuckle.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Extensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepositoryBase", Version = "1.0")]
@@ -97,9 +98,9 @@ namespace CosmosDBMultiTenancy.Infrastructure.Repositories
             Expression<Func<TDocumentInterface, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
-            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(filterExpression), cancellationToken).ToListAsync();
 
-            if (documents == null || !documents.Any())
+            if (!documents.Any())
             {
                 return default;
             }

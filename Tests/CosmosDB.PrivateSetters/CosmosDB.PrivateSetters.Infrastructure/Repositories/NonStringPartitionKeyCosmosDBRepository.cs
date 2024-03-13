@@ -25,6 +25,6 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
 
         public async Task<NonStringPartitionKey?> FindByIdAsync(
             (string Id, int PartInt) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
+            CancellationToken cancellationToken = default) => await FindByIdAsync(id: id.Id, partitionKey: id.PartInt.ToString(CultureInfo.InvariantCulture), cancellationToken: cancellationToken);
     }
 }

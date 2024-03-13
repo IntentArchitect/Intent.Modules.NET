@@ -21,7 +21,5 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         }
 
         public async Task<Order?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);
-
-        public override string GetId(Order entity) => entity.Id;
     }
 }
