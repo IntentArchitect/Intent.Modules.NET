@@ -32,7 +32,7 @@ internal static class StoredProcedureHelpers
         template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
-            .AfterBuild(file =>
+            .OnBuild(file =>
             {
                 var @interface = file.Interfaces.First();
 
@@ -40,6 +40,7 @@ internal static class StoredProcedureHelpers
                 {
                     @interface.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
+                        method.RepresentsModel(storedProcedure);
                         method.TryAddXmlDocComments(storedProcedure.InternalElement);
 
                         foreach (var parameter in storedProcedure.Parameters)
@@ -71,7 +72,7 @@ internal static class StoredProcedureHelpers
         template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
-            .AfterBuild(file =>
+            .OnBuild(file =>
             {
                 var @class = file.Classes.First();
                 var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
@@ -90,6 +91,7 @@ internal static class StoredProcedureHelpers
 
                     @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
+                        method.RepresentsModel(storedProcedure);
                         var returnTupleProperties = storedProcedure.Parameters
                             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
                             .Select(parameter =>
