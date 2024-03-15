@@ -138,54 +138,6 @@ public class DomainInteractionsManager
             throw new ElementException(model.InternalElement, "An error occurred while generating the domain interactions logic. See inner exception for more details", ex);
         }
     }
-
-    // public List<CSharpStatement> QueryEntity(StoredProcedureModel foundEntity, IAssociationEnd associationEnd)
-    // {
-    //     var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
-    //     if (queryMapping == null)
-    //     {
-    //         throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
-    //     }
-    //
-    //     var entityVariableName = associationEnd.Name;
-    //
-    //     _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
-    //     _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
-    //     _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
-    //     _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
-    //     _csharpMapping.SetFromReplacement(associationEnd.ParentElement, "request");
-    //     
-    //     var statements = new List<CSharpStatement>();
-    //
-    //     if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity.InternalElement.ParentElement, out var repositoryInterface))
-    //     {
-    //         return statements;
-    //     }
-    //
-    //     var queryInvocation = new CSharpInvocationStatement($"await {InjectService(repositoryInterface)}.{foundEntity.Name}");
-    //     foreach (var mappedEnd in queryMapping.MappedEnds)
-    //     {
-    //         queryInvocation.AddArgument(_csharpMapping.GenerateSourceStatementForMapping(queryMapping, mappedEnd));
-    //     }
-    //
-    //     queryInvocation.AddArgument("cancellationToken");
-    //     
-    //     statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", queryInvocation).SeparatedFromPrevious());
-    //
-    //     var variableType = VariableType.UnknownType();
-    //     if (foundEntity.TypeReference.Element?.IsDataContractModel() == true)
-    //     {
-    //         variableType = new VariableType(foundEntity.TypeReference.Element.AsDataContractModel());
-    //     }
-    //     else if (foundEntity.TypeReference.Element?.IsTypeDefinitionModel() == true)
-    //     {
-    //         variableType = new VariableType(foundEntity.TypeReference.Element.AsTypeDefinitionModel());
-    //     }
-    //
-    //     TrackedEntities.Add(associationEnd.Id, new EntityDetails(variableType, entityVariableName, null, false, associationEnd.TypeReference.IsCollection));
-    //     
-    //     return statements;
-    // }
     
     public List<CSharpStatement> QueryEntity(ClassModel foundEntity, IAssociationEnd associationEnd)
     {
@@ -367,25 +319,6 @@ public class DomainInteractionsManager
         dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface), _template, _csharpMapping);
         return true;
     }
-
-    //private string InjectRepositoryService(string repositoryInterface)
-    //{
-    //    var repositoryName = repositoryInterface[1..].ToCamelCase();
-    //    var repositoryFieldName = default(string);
-
-    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-    //    if (ctor.Parameters.All(x => x.Type != repositoryInterface))
-    //    {
-    //        ctor.AddParameter(repositoryInterface, repositoryName.ToParameterName(),
-    //            param => param.IntroduceReadonlyField(field => repositoryFieldName = field.Name));
-    //    }
-    //    else
-    //    {
-    //        repositoryFieldName = ctor.Parameters.First(x => x.Type == repositoryInterface).Name.ToPrivateMemberName();
-    //    }
-
-    //    return repositoryFieldName;
-    //}
 
     // This is likely to cause bugs since it doesn't align exactly with the logic that "enabled/disables" the IApplicationDbContext template
     public bool SettingGenerateDbContextInterface()
