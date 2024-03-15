@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="fb38ea17-144f-4e62-95dc-30d456744e41" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>GetAllImplementationOrder</name>
-    <display>GetAllImplementationOrder: GetAllImplementationOrder   [1 --&gt; 1]</display>
+    <display>GetAllImplementationOrder: GetAllImplementationOrder</display>
     <order>2</order>
     <typeReference id="ab362783-e573-4b3f-9f71-010b9dfa4904">
       <typeId>e2ac691c-4989-4e62-9a1b-da8c284ee952</typeId>

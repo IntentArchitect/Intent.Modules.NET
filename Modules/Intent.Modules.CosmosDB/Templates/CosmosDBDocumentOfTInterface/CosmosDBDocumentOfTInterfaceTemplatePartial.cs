@@ -73,7 +73,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface
                     {
                         @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
                             .AddParameter(tDomain, "entity")
-                            .AddParameter("string?", "etag", e => e.WithDefaultValue("null")));
+                            .AddParameter("Func<string, string?>", "getEtag"));
                     }
                     else
                     {

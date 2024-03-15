@@ -43,9 +43,7 @@ namespace AzureKeyVault.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Enrich.FromLogContext()
-                    .WriteTo.Console())
+                    .ReadFrom.Services(services))
                 .ConfigureAppConfiguration((context, config) =>
                 {
                     var configuration = config.Build();

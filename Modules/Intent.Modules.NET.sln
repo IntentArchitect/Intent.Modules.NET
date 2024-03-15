@@ -177,7 +177,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Enums.Shared", "Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.shproj", "{46039F50-4110-455C-8288-22DEC8A0D340}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
 EndProject
@@ -270,6 +270,7 @@ EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.QuartzScheduler", "Intent.Modules.QuartzScheduler\Intent.Modules.QuartzScheduler.csproj", "{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Bugsnag", "Intent.Modules.Bugsnag\Intent.Modules.Bugsnag.csproj", "{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.SqlServerImporter", "Intent.Modules.SqlServerImporter\Intent.Modules.SqlServerImporter.csproj", "{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.Components.Core", "Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj", "{7FD68940-2B43-492D-BFB0-E37982918D79}"
 EndProject
@@ -747,6 +748,10 @@ Global
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -884,6 +889,7 @@ Global
 		{EAA223B1-DE69-45BA-8877-516C26E65C2B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7FD68940-2B43-492D-BFB0-E37982918D79} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

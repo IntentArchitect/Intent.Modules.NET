@@ -221,6 +221,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Controllers
         }
 
         [HttpPost("~/api/[controller]/forgotPassword")]
+        [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordDto resetRequest)
         {
             var user = await _userManager.FindByEmailAsync(resetRequest.Email!);
@@ -240,6 +241,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Controllers
         }
 
         [HttpPost("~/api/[controller]/resetPassword")]
+        [AllowAnonymous]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetRequest)
         {
             var modelState = new ModelStateDictionary();

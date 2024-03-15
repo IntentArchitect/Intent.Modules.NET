@@ -42,24 +42,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public IdTestingDocument PopulateFromEntity(IIdTesting entity, string? etag = null)
+        public IdTestingDocument PopulateFromEntity(IIdTesting entity, Func<string, string?> getEtag)
         {
             Identifier = entity.Identifier;
             Id = entity.Id;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static IdTestingDocument? FromEntity(IIdTesting? entity, string? etag = null)
+        public static IdTestingDocument? FromEntity(IIdTesting? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new IdTestingDocument().PopulateFromEntity(entity, etag);
+            return new IdTestingDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

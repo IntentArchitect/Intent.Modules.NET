@@ -134,6 +134,7 @@
     <application id="2290890c-a17b-4ab3-a978-dc65f1c862a8" name="Intent.Modules.QuartzScheduler" relativePath="Intent.Modules.QuartzScheduler/Intent.Modules.QuartzScheduler.application.config" />
     <application id="6c0933d2-4779-46ed-9096-135f2a0b10fc" name="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost" relativePath="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost/Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost.application.config" />
     <application id="b5fc2084-b1b4-49d0-bae3-af9b5256b54a" name="Intent.Modules.Bugsnag" relativePath="Intent.Modules.Bugsnag/Intent.Modules.Bugsnag.application.config" />
+    <application id="6e00a575-a873-4cf4-ab2a-b62721a8bc24" name="Intent.Modules.SqlServerImporter" relativePath="Intent.Modules.SqlServerImporter/Intent.Modules.SqlServerImporter.application.config" />
     <application id="04bdf667-67c6-44b6-abd6-11cc0d134e4a" name="Intent.Modules.Blazor.Components.Core" relativePath="Intent.Modules.Blazor.Components.Core/Intent.Modules.Blazor.Components.Core.application.config" />
   </applications>
 </solution>

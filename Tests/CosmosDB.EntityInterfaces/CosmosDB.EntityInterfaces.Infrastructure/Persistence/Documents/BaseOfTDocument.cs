@@ -38,12 +38,12 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public BaseOfTDocument<T> PopulateFromEntity(IBaseOfT<T> entity, string? etag = null)
+        public BaseOfTDocument<T> PopulateFromEntity(IBaseOfT<T> entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             GenericAttribute = entity.GenericAttribute;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }

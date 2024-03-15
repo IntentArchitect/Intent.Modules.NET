@@ -55,7 +55,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public InvoiceDocument PopulateFromEntity(IInvoice entity, string? etag = null)
+        public InvoiceDocument PopulateFromEntity(IInvoice entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             ClientIdentifier = entity.ClientIdentifier;
@@ -68,19 +68,19 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             LineItems = entity.LineItems.Select(x => LineItemDocument.FromEntity(x)!).ToList();
             InvoiceLogo = InvoiceLogoDocument.FromEntity(entity.InvoiceLogo)!;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static InvoiceDocument? FromEntity(IInvoice? entity, string? etag = null)
+        public static InvoiceDocument? FromEntity(IInvoice? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new InvoiceDocument().PopulateFromEntity(entity, etag);
+            return new InvoiceDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

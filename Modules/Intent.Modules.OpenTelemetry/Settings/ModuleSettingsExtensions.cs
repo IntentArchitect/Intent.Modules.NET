@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Text.Json;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Modules.Common.Templates;
@@ -60,6 +62,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
                 return Value switch
                 {
                     "console" => ExportOptionsEnum.Console,
+                    "open-telemetry-protocol" => ExportOptionsEnum.OpenTelemetryProtocol,
                     "azure-application-insights" => ExportOptionsEnum.AzureApplicationInsights,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
@@ -68,6 +71,11 @@ namespace Intent.Modules.OpenTelemetry.Settings
             public bool IsConsole()
             {
                 return Value == "console";
+            }
+
+            public bool IsOpenTelemetryProtocol()
+            {
+                return Value == "open-telemetry-protocol";
             }
 
             public bool IsAzureApplicationInsights()
@@ -79,6 +87,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
         public enum ExportOptionsEnum
         {
             Console,
+            OpenTelemetryProtocol,
             AzureApplicationInsights,
         }
     }

@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60601/",
+      "applicationUrl": "http://localhost:60610/",
       "sslPort": 44336
     }
   },
@@ -11,10 +11,8 @@
     "Standard.AspNetCore.TestApplication.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:60601/;https://localhost:44336/",
-      "launchUrl": "http://localhost:60601/swagger",
-      "publishAllPorts": false,
-      "useSSL": false,
+      "applicationUrl": "https://localhost:44336/",
+      "launchUrl": "http://localhost:44336/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -22,9 +20,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:60601/swagger",
-      "publishAllPorts": false,
-      "useSSL": false,
+      "launchUrl": "http://localhost:44336/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

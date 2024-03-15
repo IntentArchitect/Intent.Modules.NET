@@ -33,23 +33,23 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public BaseTypeDocument PopulateFromEntity(IBaseType entity, string? etag = null)
+        public BaseTypeDocument PopulateFromEntity(IBaseType entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static BaseTypeDocument? FromEntity(IBaseType? entity, string? etag = null)
+        public static BaseTypeDocument? FromEntity(IBaseType? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new BaseTypeDocument().PopulateFromEntity(entity, etag);
+            return new BaseTypeDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

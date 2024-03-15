@@ -40,27 +40,27 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 
         public GetAllImplementationCustomerDocument PopulateFromEntity(
             GetAllImplementationCustomer entity,
-            string? etag = null)
+            Func<string, string?> getEtag)
         {
             Id = entity.Id;
             Name = entity.Name;
             GetAllImplementationOrder = GetAllImplementationOrderDocument.FromEntity(entity.GetAllImplementationOrder)!;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
         public static GetAllImplementationCustomerDocument? FromEntity(
             GetAllImplementationCustomer? entity,
-            string? etag = null)
+            Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new GetAllImplementationCustomerDocument().PopulateFromEntity(entity, etag);
+            return new GetAllImplementationCustomerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

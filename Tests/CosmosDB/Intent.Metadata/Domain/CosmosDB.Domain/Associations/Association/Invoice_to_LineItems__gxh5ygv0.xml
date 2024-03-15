@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="809cddd7-d014-49ba-a2a3-907ce892c4fe" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>LineItems</name>
-    <display>LineItems: LineItem[*]   [1 --&gt; *]</display>
+    <display>LineItems: LineItem[*]</display>
     <order>10</order>
     <typeReference id="c18e8fd3-ef78-4628-aa20-a19bbe22da1a">
       <typeId>a2fd5acc-33f4-4755-a358-ce8d59bc5077</typeId>

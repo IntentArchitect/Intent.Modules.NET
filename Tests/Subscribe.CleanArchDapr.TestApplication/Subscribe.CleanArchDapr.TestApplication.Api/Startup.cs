@@ -54,7 +54,6 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseCloudEvents();
             app.UseSerilogRequestLogging();
             app.UseExceptionHandler();

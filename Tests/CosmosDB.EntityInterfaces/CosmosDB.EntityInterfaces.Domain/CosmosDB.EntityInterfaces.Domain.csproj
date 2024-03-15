@@ -122,6 +122,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\IWithGuidId.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WithGuidId.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

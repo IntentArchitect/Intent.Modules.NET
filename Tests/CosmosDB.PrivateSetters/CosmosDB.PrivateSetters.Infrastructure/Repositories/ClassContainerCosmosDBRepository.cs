@@ -24,6 +24,6 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
 
         public async Task<ClassContainer?> FindByIdAsync(
             (string Id, string ClassPartitionKey) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.ClassPartitionKey, cancellationToken: cancellationToken);
+            CancellationToken cancellationToken = default) => await FindByIdAsync(id: id.Id, partitionKey: id.ClassPartitionKey, cancellationToken: cancellationToken);
     }
 }

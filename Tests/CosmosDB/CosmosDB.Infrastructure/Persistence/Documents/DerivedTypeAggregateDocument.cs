@@ -33,23 +33,23 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public DerivedTypeAggregateDocument PopulateFromEntity(DerivedTypeAggregate entity, string? etag = null)
+        public DerivedTypeAggregateDocument PopulateFromEntity(DerivedTypeAggregate entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static DerivedTypeAggregateDocument? FromEntity(DerivedTypeAggregate? entity, string? etag = null)
+        public static DerivedTypeAggregateDocument? FromEntity(DerivedTypeAggregate? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new DerivedTypeAggregateDocument().PopulateFromEntity(entity, etag);
+            return new DerivedTypeAggregateDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }
