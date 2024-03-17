@@ -26,6 +26,14 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
                 return new MethodInvocationMapping(mappingModel, _template);
             }
 
+            if (model.SpecializationType == "Stored Procedure Parameter" &&
+                model.TypeReference.Element?.SpecializationType == "Data Contract")
+            {
+                _template.AddTypeSource("Domain.DataContract");
+                
+                return new DataContractInstantiationMapping(mappingModel, _template);
+            }
+
             return null;
         }
     }

@@ -527,7 +527,7 @@ public class DomainInteractionsManager
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
             if (methodInvocation is CSharpInvocationStatement s)
             {
-                if (s.Expression.Reference is ICSharpMethodDeclaration method && (method.IsAsync))
+                if (s.Expression.Reference is ICSharpMethodDeclaration method && (method.IsAsync || method.ReturnType?.GetText("").Contains("Task") == true))
                 {
                     s.AddArgument("cancellationToken");
                     invoke = new CSharpAwaitExpression(invoke);
