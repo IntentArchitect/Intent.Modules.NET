@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher;
+using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface;
+using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,6 +31,8 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
             AddNugetDependency(NugetPackages.ConfluentKafka);
             AddNugetDependency(NugetPackages.ConfluentSchemaRegistrySerdesJson);
 
+            AddKnownType("Confluent.Kafka.IsolationLevel");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -33,7 +40,9 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
                 .AddUsing("Confluent.Kafka")
                 .AddUsing("Confluent.Kafka.SyncOverAsync")
                 .AddUsing("Confluent.SchemaRegistry.Serdes")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Logging")
                 .AddClass($"KafkaConsumer", @class =>
                 {
                     @class.AddGenericParameter("T", out var t);
@@ -42,10 +51,9 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IServiceProvider", "serviceProvider", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
+                        ctor.AddParameter($"ILogger<{@class.Name}<{t}>>", "logger", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter("IConfiguration", "configuration", p => p.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("Task", "DoWork", method =>
@@ -53,52 +61,87 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
                         method.Async();
                         method.AddParameter("CancellationToken", "stoppingToken");
 
-                        method.AddStatement($$"""
-                                            var consumerConfig = new ConsumerConfig
-                                            {
-                                                GroupId = "kafka-dotnet-getting-started",
-                                                AutoOffsetReset = AutoOffsetReset.Earliest,
-                                                BootstrapServers = "localhost:61294"
-                                            };
-                                            
-                                            var topic = typeof({{t}}).Name; // TODO JL: This should come from configuration
-                                            """);
+                        method.AddStatement("var messageType = $\"{typeof(T).Namespace}.{typeof(T).Name}\";");
 
-                        method.AddUsingBlock(
-                            $"var consumer = new ConsumerBuilder<string, {t}>(consumerConfig).SetValueDeserializer(new JsonDeserializer<{t}>().AsSyncOverAsync()).Build()",
-                            @using =>
-                            {
-                                @using.AddStatement("consumer.Subscribe(topic);");
+                        method.AddStatement(@"var consumerConfig = _configuration
+                .GetSection($""Kafka:MessageTypes:{messageType}:ConsumerConfig"")
+                .Get<ConsumerConfig>();", s => s.SeparatedFromPrevious());
 
-                                @using.AddTryBlock(@try =>
+                        method.AddStatement(@"_logger.LogInformation(consumerConfig != null
+                ? ""Using message type specific configuration""
+                : ""Using default configuration"");", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement(@"consumerConfig ??= _configuration
+                .GetSection(""Kafka:DefaultConsumerConfig"")
+                .Get<ConsumerConfig>();", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement("var topic = _configuration[$\"Kafka:MessageTypes:{messageType}:Topic\"] ?? typeof(T).Name;", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement("_logger.LogInformation($\"Topic: {topic}\");", s => s.SeparatedFromPrevious());
+
+                        method.AddTryBlock(outerTry =>
+                        {
+                            outerTry.AddUsingBlock(
+                                $"var consumer = new ConsumerBuilder<string, {t}>(consumerConfig).SetValueDeserializer(new JsonDeserializer<{t}>().AsSyncOverAsync()).Build()",
+                                @using =>
                                 {
-                                    @try.AddWhileStatement("!stoppingToken.IsCancellationRequested", @while =>
-                                    {
-                                        @while.AddUsingBlock("var scope = _serviceProvider.CreateScope()", usingScope =>
+                                    @using.AddStatement("consumer.Subscribe(topic);");
+
+                                    @using
+                                        .AddTryBlock(innerTry =>
                                         {
-                                            usingScope.AddStatement("var consumeResult = consumer.Consume(stoppingToken);");
-                                            usingScope.AddStatement($"var handler = scope.ServiceProvider.GetRequiredService<{this.GetIntegrationEventHandlerInterfaceName()}<{t}>>();");
+                                            innerTry.AddWhileStatement("!stoppingToken.IsCancellationRequested",
+                                                @while =>
+                                                {
+                                                    @while.AddUsingBlock("var scope = _serviceProvider.CreateScope()",
+                                                        usingScope =>
+                                                        {
+                                                            usingScope.AddStatement("var consumeResult = consumer.Consume(stoppingToken);");
+                                                            usingScope.AddStatement($"var dispatcher = scope.ServiceProvider.GetRequiredService<{this.GetKafkaEventDispatcherInterfaceName()}<{t}>>();");
 
-                                            usingScope.AddTryBlock(tryHandle =>
-                                            {
-                                                tryHandle.AddStatement("// TODO JL: UnitOfWork, etc");
-                                                tryHandle.AddStatement("await handler.HandleAsync(consumeResult.Message.Value, stoppingToken);");
-                                            });
-                                            usingScope.AddCatchBlock(@catch =>
-                                            {
-                                                @catch.AddStatement("// TODO JL: Proper error handling");
-                                            });
+                                                            usingScope.AddTryBlock(@try =>
+                                                            {
+                                                                @try.AddStatement("await dispatcher.Dispatch(consumeResult.Message.Value, stoppingToken);", s => s.SeparatedFromPrevious());
+                                                            });
+                                                            usingScope.AddCatchBlock(@catch =>
+                                                            {
+                                                                @catch.WithExceptionType("Exception").WithParameterName("exception");
+                                                                @catch.AddStatement("_logger.LogError(exception, \"Error processing incoming message\");");
+                                                            });
+                                                        });
+                                                });
+                                        })
+                                        .AddCatchBlock(innerCatch =>
+                                        {
+                                            innerCatch.WithExceptionType("OperationCanceledException");
+                                            innerCatch.AddStatement("// NOP");
+                                        })
+                                        .AddFinallyBlock(innerFinally =>
+                                        {
+                                            innerFinally.AddStatement("consumer.Close();");
                                         });
-                                    });
                                 });
-
-                                @using.AddCatchBlock(@catch => @catch
-                                    .WithExceptionType("OperationCanceledException")
-                                    .AddStatement("// NOP"));
-                                @using.AddFinallyBlock(@finally => @finally.AddStatement("consumer.Close();"));
+                        })
+                            .AddCatchBlock(outerCatch =>
+                            {
+                                outerCatch.WithExceptionType("Exception").WithParameterName("exception");
+                                outerCatch.AddStatement("_logger.LogError(exception, $\"Error creating consumer for {messageType}\");");
                             });
                     });
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Kafka:DefaultConsumerConfig",
+                new
+                {
+                    GroupId = ExecutionContext.GetSolutionConfig().SolutionName,
+                    AutoOffsetReset = "Earliest",
+                    BootstrapServers = "localhost:61294"
+                }));
+
+            base.AfterTemplateRegistration();
         }
 
         [IntentManaged(Mode.Fully)]

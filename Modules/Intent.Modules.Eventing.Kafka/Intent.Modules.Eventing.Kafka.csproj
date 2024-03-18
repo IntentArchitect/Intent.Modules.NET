@@ -6,11 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.5-pre.1" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="5.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.0.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.4-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,6 +32,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>KafkaProducerInterfaceTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>KafkaEventDispatcherInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +49,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>KafkaProducerInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KafkaEventDispatcherInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -52,5 +61,7 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
 
 </Project>

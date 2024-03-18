@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface
+namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,9 +22,9 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class KafkaProducerInterfaceTemplate : CSharpTemplateBase<object>
+    public partial class KafkaEventDispatcherInterfaceTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -32,24 +32,23 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System.Collections.Concurrent;\r\nusing System.Threading;\r\nusing System.Threa" +
-                    "ding.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultInten" +
+                    "tManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+            #line 15 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt"
+            #line 17 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.Kafka\Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("<TValue>\r\n        where TValue : class\r\n    {\r\n        Task Produce(ConcurrentQue" +
-                    "ue<TValue> messageQueue, CancellationToken cancellationToken = default);\r\n    }\r" +
-                    "\n}");
+            this.Write("<in T>\r\n        where T : class\r\n    {\r\n        Task Dispatch(T message, Cancella" +
+                    "tionToken cancellationToken = default);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

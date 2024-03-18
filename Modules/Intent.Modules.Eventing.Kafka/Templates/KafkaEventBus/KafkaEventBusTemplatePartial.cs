@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -27,20 +29,17 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                 .AddUsing("System.Collections.Concurrent")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Confluent.SchemaRegistry")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"KafkaEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
-                    @class.AddField($"ConcurrentDictionary<Type, {this.GetKafkaProducerInterfaceName()}>", "_producersByMessageType", f => f
+                    @class.AddField($"ConcurrentDictionary<Type, IProducer>", "_producersByMessageType", f => f
                         .PrivateReadOnly()
-                        .WithAssignment(new CSharpStatement("new ConcurrentDictionary<Type, IKafkaProducer>()")));
+                        .WithAssignment(new CSharpStatement("new ConcurrentDictionary<Type, IProducer>()")));
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("ISchemaRegistryClient", "schemaRegistryClient", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
+                        ctor.AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("void", "Publish", method =>
@@ -49,14 +48,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                         method.AddGenericTypeConstraint(t, c => c.AddType("class"));
                         method.AddParameter(t, "message");
 
-                        method.AddStatement($"var producer = _producersByMessageType.GetOrAdd(typeof({t}), _ => new {this.GetKafkaProducerName()}<{t}>(_schemaRegistryClient));");
+                        method.AddStatement($"var producer = _producersByMessageType.GetOrAdd(typeof({t}), _ => new Producer<{t}>(_serviceProvider.GetRequiredService<{this.GetKafkaProducerInterfaceName()}<{t}>>()));");
                         method.AddStatement("producer.EnqueueMessage(message);");
                     });
 
                     @class.AddMethod("void", "FlushAllAsync", method =>
                     {
                         method.Async();
-                        method.AddOptionalCancellationTokenParameter(this);
+                        method.AddOptionalCancellationTokenParameter();
 
                         method.AddStatement("var producers = _producersByMessageType.Values;");
                         method.AddForEachStatement("producer", "producers", @while =>
@@ -64,7 +63,58 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                             @while.AddStatement("await producer.FlushAsync(cancellationToken);");
                         });
                     });
+
+                    @class.AddNestedClass("Producer", producerClass =>
+                    {
+                        producerClass.Private();
+                        producerClass.ImplementsInterface("IProducer");
+
+                        producerClass.AddGenericParameter("T", out var t);
+                        producerClass.AddGenericTypeConstraint(t, c => c.AddType("class"));
+                        producerClass.AddField($"ConcurrentQueue<{t}>", "_messageQueue", f => f
+                            .PrivateReadOnly()
+                            .WithAssignment(new CSharpStatement($"new ConcurrentQueue<{t}>()")));
+
+                        producerClass.AddConstructor(ctor =>
+                        {
+                            ctor.AddParameter($"IKafkaProducer<{t}>", "kafkaProducer", p => p.IntroduceReadonlyField());
+                        });
+
+                        producerClass.AddMethod("void", "EnqueueMessage", method =>
+                        {
+                            method.AddParameter("object", "message");
+                            method.WithExpressionBody($"_messageQueue.Enqueue(({t})message)");
+                        });
+
+                        producerClass.AddMethod("void", "FlushAsync", method =>
+                        {
+                            method.Async();
+                            method.AddParameter("CancellationToken", "cancellationToken");
+                            method.WithExpressionBody("await _kafkaProducer.Produce(_messageQueue, cancellationToken)");
+                        });
+                    });
+
+                    @class.AddNestedInterface("IProducer", producerInterface =>
+                    {
+                        producerInterface.Private();
+                        producerInterface.AddMethod("void", "EnqueueMessage", m => m.AddParameter("object", "message"));
+                        producerInterface.AddMethod("Task", "FlushAsync", m => m.AddParameter("CancellationToken", "cancellationToken"));
+                    });
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(ClassName)
+                .WithPerServiceCallLifeTime()
+                .ForInterface(this.GetEventBusInterfaceName())
+                .WithPriority(4)
+                .ForConcern("Infrastructure")
+                .HasDependency(this)
+                .HasDependency(ExecutionContext.FindTemplateInstance<ITemplate>(EventBusInterfaceTemplate.TemplateId)));
+
+            base.AfterTemplateRegistration();
         }
 
         [IntentManaged(Mode.Fully)]

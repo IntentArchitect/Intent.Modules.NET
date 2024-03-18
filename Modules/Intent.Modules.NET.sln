@@ -270,9 +270,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.QuartzScheduler", "Intent.Modules.QuartzScheduler\Intent.Modules.QuartzScheduler.csproj", "{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Bugsnag", "Intent.Modules.Bugsnag\Intent.Modules.Bugsnag.csproj", "{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}"
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.SqlServerImporter", "Intent.Modules.SqlServerImporter\Intent.Modules.SqlServerImporter.csproj", "{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Kafka", "Intent.Modules.Eventing.Kafka\Intent.Modules.Eventing.Kafka.csproj", "{A62D0C8F-724C-42A8-81F0-D930A724244E}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Kafka", "Intent.Modules.Eventing.Kafka\Intent.Modules.Eventing.Kafka.csproj", "{A62D0C8F-724C-42A8-81F0-D930A724244E}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Eventing.Shared", "Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.shproj", "{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196}"
 EndProject
@@ -750,10 +749,6 @@ Global
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -891,7 +886,6 @@ Global
 		{EAA223B1-DE69-45BA-8877-516C26E65C2B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{1C5E20A7-EA37-4FDA-9472-C1EA8260C383} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A62D0C8F-724C-42A8-81F0-D930A724244E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
@@ -935,6 +929,7 @@ Global
 		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{a5014cab-e575-4d90-afd3-ba92d8e3bec5}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{a5014cab-e575-4d90-afd3-ba92d8e3bec5}*SharedItemsImports = 5
 		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{a62d0c8f-724c-42a8-81f0-d930a724244e}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{a62d0c8f-724c-42a8-81f0-d930a724244e}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{ad3459e5-44ce-4c5f-9bf8-8fd2ba15fc05}*SharedItemsImports = 13
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{b5867ba4-e8ab-4e4a-986e-b7938d12795e}*SharedItemsImports = 13
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{b5a0abb8-fdf9-4b1a-a8b7-9f362738e38d}*SharedItemsImports = 5

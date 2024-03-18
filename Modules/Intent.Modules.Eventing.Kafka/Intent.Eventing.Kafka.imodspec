@@ -3,10 +3,11 @@
   <id>Intent.Eventing.Kafka</id>
   <version>1.0.0-pre.0</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
-  <summary>A custom module for Intent.Modules.NET.</summary>
-  <description>A custom module for Intent.Modules.NET.</description>
+  <summary>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</summary>
+  <description>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</description>
   <authors>Intent.Modules.NET</authors>
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHZlcnNpb249IjEuMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPgogIDxzdHlsZT4KICAgIC5rYWZrYUxvZ28gewogICAgICBmaWxsOiAjMDAwMDAwCiAgICB9CgogICAgW2RhdGEtdGhlbWU9ImRhcmsiXSAua2Fma2FMb2dvIHsKICAgICAgZmlsbDogI2ZmZmZmZgogICAgfQogIDwvc3R5bGU+CiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4wNjcwMzE3OCwwLDAsMC4wNjcwMzIwNCw1LjYwOTU4NjYsMS4wMTUwODEpIj4KICAgIDxwYXRoIGNsYXNzPSJrYWZrYUxvZ28iIGQ9Im0gMjM3LjYxNjg2LDI0OS4yNjc3NCBjIC0xOC41OTAxNywwIC0zNS4yNTY1NSw4LjIzNjE0IC00Ni42Njk1MywyMS4yMDMwOSBMIDE2MS43MDIyLDI0OS43NjczNiBjIDMuMTA0NDksLTguNTQ3MzkgNC44ODcwMiwtMTcuNzI1MzMgNC44ODcwMiwtMjcuMzMxNjcgMCwtOS40Mzk4IC0xLjcyMDUxLC0xOC40NjM4MyAtNC43MjI3OCwtMjYuODg0ODkgbCAyOS4xNzk2NiwtMjAuNDg0MSBjIDExLjQxMTg0LDEyLjkwMTQ4IDI4LjAzNDU3LDIxLjA5MjgzIDQ2LjU3MDc2LDIxLjA5MjgzIDM0LjMxMjQ2LDAgNjIuMjMyMTgsLTI3LjkxNTEzIDYyLjIzMjE4LC02Mi4yMzIxOCAwLC0zNC4zMTcwNDkgLTI3LjkxOTcyLC02Mi4yMzIxNzEgLTYyLjIzMjE4LC02Mi4yMzIxNzEgLTM0LjMxMjQ1LDAgLTYyLjIzMjE3LDI3LjkxNTEyMiAtNjIuMjMyMTcsNjIuMjMyMTcxIDAsNi4xNDIzNiAwLjkyODAyLDEyLjA2NTM1IDIuNTkzMzksMTcuNjc0NzkgTCAxNDguNzc4OSwxNzIuMDk2NTkgQyAxMzYuNTgxNDcsMTU2Ljk2NDY1IDExOS4wMTkyMywxNDYuMzk5MjggOTkuMDA5NDczLDE0My4xNzQyIGwgMCwtMzUuMTkxMDggYyAyOC4xODk2MTcsLTUuOTIwNyA0OS40Mjk0NTcsLTMwLjk2Njc4MiA0OS40Mjk0NTcsLTYwLjg5NDEzNiAwLC0zNC4zMTcwNTIgLTI3LjkxOTcxLC02Mi4yMzIxNzQgLTYyLjIzMjE2NywtNjIuMjMyMTc0IC0zNC4zMTI0NTgsMCAtNjIuMjMyMTc0LDI3LjkxNTEyMiAtNjIuMjMyMTc0LDYyLjIzMjE3NCAwLDI5LjUyNjUxNSAyMC42ODk2OTQsNTQuMjYzNjQ2IDQ4LjMxNTM4Niw2MC42MDY5OTYgbCAwLDM1LjY0ODIgYyAtMzcuNzAxNzgyLDYuNjE3ODYgLTY2LjQ2NTY3MTIsMzkuNTIxMDYgLTY2LjQ2NTY3MTIsNzkuMDkxNTEgMCwzOS43NjM0IDI5LjA0ODcyNTIsNzIuNzg3MiA2Ny4wMjI3MTAyLDc5LjE3OTk0IGwgMCwzNy42NDIwNiBjIC0yNy45MDgyMzEsNi4xMzQzMiAtNDguODcyNDI1LDMxLjAyMzA2IC00OC44NzI0MjUsNjAuNzUwNTcgMCwzNC4zMTcwNSAyNy45MTk3MTYsNjIuMjMyMTcgNjIuMjMyMTc0LDYyLjIzMjE3IDM0LjMxMjQ1NywwIDYyLjIzMjE2NywtMjcuOTE1MTIgNjIuMjMyMTY3LC02Mi4yMzIxNyAwLC0yOS43Mjc1MSAtMjAuOTY0MTksLTU0LjYxNjI1IC00OC44NzI0MTgsLTYwLjc1MDU3IGwgMCwtMzcuNjQzMiBDIDExOS4xODIzMiwyOTguMzExMyAxMzYuNDIxODIsMjg3Ljk1NDk3IDE0OC40OTQwNiwyNzMuMTU4NCBsIDI5LjQ0MDM4LDIwLjgzNzg2IGMgLTEuNjM0MzcsNS41NTg5IC0yLjU0OTc1LDExLjQyMzMyIC0yLjU0OTc1LDE3LjUwMzY2IDAsMzQuMzE3MDUgMjcuOTE5NzIsNjIuMjMyMTcgNjIuMjMyMTcsNjIuMjMyMTcgMzQuMzEyNDYsMCA2Mi4yMzIxOCwtMjcuOTE1MTIgNjIuMjMyMTgsLTYyLjIzMjE3IDAsLTM0LjMxNzA1IC0yNy45MTk3MiwtNjIuMjMyMTggLTYyLjIzMjE4LC02Mi4yMzIxOCBsIDAsMCB6IG0gMCwtMTQ1LjUxMzUzIGMgMTYuNjM4ODIsMCAzMC4xNzIsMTMuNTM4OTIgMzAuMTcyLDMwLjE3MzE0IDAsMTYuNjM0MjIgLTEzLjUzMzE4LDMwLjE3MTk5IC0zMC4xNzIsMzAuMTcxOTkgLTE2LjYzODgxLDAgLTMwLjE3MTk5LC0xMy41Mzc3NyAtMzAuMTcxOTksLTMwLjE3MTk5IDAsLTE2LjYzNDIyIDEzLjUzMzE4LC0zMC4xNzMxNCAzMC4xNzE5OSwtMzAuMTczMTQgbCAwLDAgeiBNIDU2LjAzMzYyMiw0Ny4wODg5ODQgYyAwLC0xNi42MzQyMiAxMy41MzQzMjcsLTMwLjE3MTk5MiAzMC4xNzMxNDEsLTMwLjE3MTk5MiAxNi42Mzg4MTcsMCAzMC4xNzE5ODcsMTMuNTM3NzcyIDMwLjE3MTk4NywzMC4xNzE5OTIgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkxIC0zMC4xNzE5ODcsMzAuMTcxOTkxIC0xNi42Mzg4MTQsMCAtMzAuMTczMTQxLC0xMy41Mzc3NzEgLTMwLjE3MzE0MSwtMzAuMTcxOTkxIGwgMCwwIHogTSAxMTYuMzc4NzUsNDAwLjAwODI2IGMgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkgLTMwLjE3MTk4NywzMC4xNzE5OSAtMTYuNjM4ODE0LDAgLTMwLjE3MzE0MSwtMTMuNTM3NzcgLTMwLjE3MzE0MSwtMzAuMTcxOTkgMCwtMTYuNjM0MjIgMTMuNTM0MzI3LC0zMC4xNzIgMzAuMTczMTQxLC0zMC4xNzIgMTYuNjM4ODE3LDAgMzAuMTcxOTg3LDEzLjUzNzc4IDMwLjE3MTk4NywzMC4xNzIgbCAwLDAgeiBNIDg2LjIwNDQ2NiwyNjQuNTE1NjggYyAtMjMuMjA2MTMzLDAgLTQyLjA4NDU4OCwtMTguODc1MDEgLTQyLjA4NDU4OCwtNDIuMDc5OTkgMCwtMjMuMjA2MTMgMTguODc4NDU1LC00Mi4wODQ1OSA0Mi4wODQ1ODgsLTQyLjA4NDU5IDIzLjIwNDk4NCwwIDQyLjA4MzQzNCwxOC44Nzg0NiA0Mi4wODM0MzQsNDIuMDg0NTkgMCwyMy4yMDQ5OCAtMTguODc4NDUsNDIuMDc5OTkgLTQyLjA4MzQzNCw0Mi4wNzk5OSBsIDAsMCB6IG0gMTUxLjQxMjM5NCw3Ny4xNTczOCBjIC0xNi42Mzg4MSwwIC0zMC4xNzE5OSwtMTMuNTM4OTIgLTMwLjE3MTk5LC0zMC4xNzMxNCAwLC0xNi42MzQyMiAxMy41MzMxOCwtMzAuMTcxOTkgMzAuMTcxOTksLTMwLjE3MTk5IDE2LjYzODgyLDAgMzAuMTcyLDEzLjUzNzc3IDMwLjE3MiwzMC4xNzE5OSAwLDE2LjYzNDIyIC0xMy41MzMxOCwzMC4xNzMxNCAtMzAuMTcyLDMwLjE3MzE0IGwgMCwwIHoiLz4KICA8L2c+Cjwvc3ZnPgo=</iconUrl>
+  <tags>csharp dotnet eventing kafka pubsub integration</tags>
   <templates>
     <template id="Intent.Eventing.Kafka.IntegrationEventHandler" externalReference="95ed3df7-e1f2-4096-89fa-029303d591b6">
       <config>
@@ -64,6 +65,22 @@
       <role>Infrastructure.Eventing.KafkaEventBus</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.Kafka.KafkaEventDispatcher" externalReference="7350b8c4-1bdb-4918-bd09-423a566c1f7b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Kafka.KafkaEventDispatcherInterface" externalReference="61f1f3d9-0f2a-4298-be6d-bab5e1d731de">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
     <template id="Intent.Eventing.Kafka.KafkaProducer" externalReference="b218f77f-0479-42a8-9362-06b78abe4fd8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -86,19 +103,20 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts" version="5.0.3" />
     <dependency id="Intent.Modelers.Eventing" version="5.0.2" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.2" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.4-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <tags />
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Eventing;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Kafka/Intent.Eventing.Kafka.pkg.config" externalReference="a586f55c-9eca-44ef-8409-e110d1644c0b" />
+  </metadata>
 </package>
