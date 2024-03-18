@@ -15,7 +15,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
-using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Templates;
 using Intent.Utils;
 using JetBrains.Annotations;
