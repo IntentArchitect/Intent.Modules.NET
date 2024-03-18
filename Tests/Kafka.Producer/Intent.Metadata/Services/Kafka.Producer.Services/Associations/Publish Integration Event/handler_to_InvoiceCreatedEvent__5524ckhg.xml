@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="57f96802-b879-4a58-9829-d5b7f9825dea">
+  <sourceEnd id="da96206c-ee49-4e01-8797-fdfb26b589d8" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : InvoiceCreatedHandler.handler</display>
+    <order>0</order>
+    <typeReference id="72710a7b-c0b6-460d-8698-54eb943595b8">
+      <typeId>87bf41b2-a70a-48cb-b923-b80afd364d80</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Services</typePackageName>
+      <typePackageId>d0b468ef-2076-4b60-9f06-11502faec1d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="57f96802-b879-4a58-9829-d5b7f9825dea" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] InvoiceCreatedEvent</display>
+    <order>0</order>
+    <typeReference id="016704da-af2d-4e39-b599-dde7aa7bcbbc">
+      <typeId>3ff76d11-9f7f-4ad8-8e50-67da63bbaa28</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Eventing.Messages</typePackageName>
+      <typePackageId>242a2542-7680-405a-be5b-7618e41c1071</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="87bf41b2-a70a-48cb-b923-b80afd364d80" location="[Kafka.Producer].[Services].[handler]" />
+        <target applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" location="[Kafka.Producer].[Services].[InvoiceCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Invoice.Id}</expression>
+            <path>
+              <target id="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" name="InvoiceCreatedEvent" type="element" specialization="Message" />
+              <target id="cbdb277d-8754-4d41-96ac-b97cbdb3688d" name="Id" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Invoice.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="87bf41b2-a70a-48cb-b923-b80afd364d80" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="4b77822d-8938-4847-b1a6-816d14ffef10" name="Invoice" type="element" specialization="Property" />
+                  <target id="bbb87f37-dad3-4eaa-80ca-c08b00282268" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.Note}</expression>
+            <path>
+              <target id="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" name="InvoiceCreatedEvent" type="element" specialization="Message" />
+              <target id="8b6e756a-2734-4801-8b15-c3b7cfd7028a" name="Note" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Invoice.Note" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="87bf41b2-a70a-48cb-b923-b80afd364d80" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="4b77822d-8938-4847-b1a6-816d14ffef10" name="Invoice" type="element" specialization="Property" />
+                  <target id="16d569e8-f2f9-4ceb-94aa-9acee846ceda" name="Note" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

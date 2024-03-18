@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5bdee032-5f24-4770-9f88-278b71036109" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>InvoiceUpdated</name>
+  <display>InvoiceUpdated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</parentFolderId>
+  <packageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</packageId>
+  <packageName>Kafka.Producer.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f3dafdb1-d144-437e-b3f4-390a8bd08ced" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Invoice</name>
+      <display>Invoice: Invoice</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a85029e4-6911-4687-8660-7e521e4a956b">
+        <typeId>b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Kafka.Producer.Domain</typePackageName>
+        <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5bdee032-5f24-4770-9f88-278b71036109</parentFolderId>
+      <packageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</packageId>
+      <packageName>Kafka.Producer.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

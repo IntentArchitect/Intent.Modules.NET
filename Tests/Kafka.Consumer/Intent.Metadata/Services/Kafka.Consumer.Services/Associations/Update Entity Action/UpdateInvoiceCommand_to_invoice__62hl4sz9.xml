@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8fa7fb57-fa2c-4c93-8bd4-8dab13c4a83f">
+  <sourceEnd id="1e3843c1-f7fd-4c7d-bef7-2e4dc3807100" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Invoices.UpdateInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="0e49c852-2e6d-44f3-a3e7-2433b8ddeaf8">
+      <typeId>c0e2d473-e2e0-440a-a199-322fcb3d31ab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Consumer.Services</typePackageName>
+      <typePackageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8fa7fb57-fa2c-4c93-8bd4-8dab13c4a83f" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>invoice</name>
+    <display>[update] invoice: Update</display>
+    <order>2</order>
+    <typeReference id="f452fb2d-44a4-4e4a-94d0-770d82409efd">
+      <typeId>73d3d674-5231-40ab-80bc-956df792a7b5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Consumer.Domain</typePackageName>
+      <typePackageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c0e2d473-e2e0-440a-a199-322fcb3d31ab" location="[Kafka.Consumer].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="36fe654d-f983-4baa-bf05-465e1e13e0fd" location="[Kafka.Consumer].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="36fe654d-f983-4baa-bf05-465e1e13e0fd" name="Invoice" type="element" specialization="Class" />
+              <target id="1adc827e-aa1d-440d-a0ef-26f1f4ff020c" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c0e2d473-e2e0-440a-a199-322fcb3d31ab" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="62105aae-e77d-4cd7-84f5-76abe4fb61f2" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c0e2d473-e2e0-440a-a199-322fcb3d31ab" location="[Kafka.Consumer].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="36fe654d-f983-4baa-bf05-465e1e13e0fd" location="[Kafka.Consumer].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateInvoiceCommand}</expression>
+            <path>
+              <target id="36fe654d-f983-4baa-bf05-465e1e13e0fd" name="Invoice" type="element" specialization="Class" />
+              <target id="73d3d674-5231-40ab-80bc-956df792a7b5" name="Update" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdateInvoiceCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="c0e2d473-e2e0-440a-a199-322fcb3d31ab" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Note}</expression>
+            <path>
+              <target id="36fe654d-f983-4baa-bf05-465e1e13e0fd" name="Invoice" type="element" specialization="Class" />
+              <target id="73d3d674-5231-40ab-80bc-956df792a7b5" name="Update" type="element" specialization="Operation" />
+              <target id="c5adf418-8975-48db-8fd8-ccae8d12c2a4" name="note" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Note" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="c0e2d473-e2e0-440a-a199-322fcb3d31ab" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="85e41789-e583-4315-aa20-f4930054cb66" name="Note" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
