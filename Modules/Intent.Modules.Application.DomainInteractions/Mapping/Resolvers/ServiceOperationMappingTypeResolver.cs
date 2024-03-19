@@ -31,7 +31,7 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             {
                 _template.AddTypeSource("Domain.DataContract");
                 
-                return new DataContractInstantiationMapping(mappingModel, _template);
+                return new ObjectInitializationMapping(mappingModel, _template);
             }
 
             return null;
