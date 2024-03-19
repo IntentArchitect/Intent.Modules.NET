@@ -101,8 +101,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
         {
             var result = await _pricingService.GetProductPriceAsync(productId, cancellationToken);
             var sumPrice = _pricingService.SumPrices(prices);
-
-            throw new NotImplementedException("Implement return type mapping...");
+            return result;
         }
 
         public void Dispose()
