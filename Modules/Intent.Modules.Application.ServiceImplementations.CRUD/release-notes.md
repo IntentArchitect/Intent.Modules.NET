@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Improvement: Automatic wiring up of `DomainService`s in CRUD Implementations.
+
 ### Version 5.0.3
 
 - Improvement: Added support for `Value Object` collections.

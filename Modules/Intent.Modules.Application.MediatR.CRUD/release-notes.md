@@ -1,3 +1,7 @@
+### Version 6.0.6
+
+- Improvement: Automatic wiring up of `DomainService`s in CRUD Implementations.
+
 ### Version 6.0.5
 
 - Improvement: Removed support for implicit keys, allowing keyless entities to now be modelled.

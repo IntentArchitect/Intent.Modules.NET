@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Improvement: Bump due to dependency update.
+
 ### Version 5.0.4
 
 - Improvement: Domain Event Handlers will now by default have `[IntentManaged(Mode.Fully, Body = Mode.Fully)]` in all circumstances, meaning that for cases where the file was originally generated before a mapping was created, the mapping will now get generated on subsequent Software Factory generations after the mapping was added.

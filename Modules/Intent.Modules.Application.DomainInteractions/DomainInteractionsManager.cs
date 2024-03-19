@@ -387,7 +387,8 @@ public class DomainInteractionsManager
     {
         try
         {
-            var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
+			var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
+
             var entityVariableName = createAction.Name;
             var dataAccess = InjectDataAccessProvider(entity);
 
@@ -405,10 +406,14 @@ public class DomainInteractionsManager
             }
 
             if (mapping != null)
-            {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", _csharpMapping.GenerateCreationStatement(mapping)).WithSemicolon());
-            }
-            else
+			{
+				var constructionStatement = _csharpMapping.GenerateCreationStatement(mapping);
+
+				WireupDomainServicesForConstructors(createAction, constructionStatement);
+
+				statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", constructionStatement).WithSemicolon());
+			}
+			else
             {
                 statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", $"new {entity.Name}();"));
             }
@@ -425,7 +430,7 @@ public class DomainInteractionsManager
         }
     }
 
-    public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
+	public IEnumerable<CSharpStatement> UpdateEntity(UpdateEntityActionTargetEndModel updateAction)
     {
         try
         {
@@ -454,7 +459,11 @@ public class DomainInteractionsManager
             {
                 if (updateMapping != null)
                 {
-                    statements.AddRange(_csharpMapping.GenerateUpdateStatements(updateMapping));
+                    var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
+
+					WireupDomainServicesForOperations(updateAction, updateStatements);
+
+					statements.AddRange(updateStatements);
                 }
 
                 if (RepositoryRequiresExplicitUpdate(entity))
@@ -478,7 +487,7 @@ public class DomainInteractionsManager
         }
     }
 
-    public IEnumerable<CSharpStatement> DeleteEntity(DeleteEntityActionTargetEndModel deleteAction)
+	public IEnumerable<CSharpStatement> DeleteEntity(DeleteEntityActionTargetEndModel deleteAction)
     {
         try
         {
@@ -604,23 +613,83 @@ public class DomainInteractionsManager
         return fieldName;
     }
 
-    //private void InjectAutoMapper(out string fieldName)
-    //{
-    //    var temp = default(string);
-    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-    //    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
-    //    {
-    //        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
-    //            param => param.IntroduceReadonlyField(field => temp = field.Name));
-    //        fieldName = temp;
-    //    }
-    //    else
-    //    {
-    //        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
-    //    }
-    //}
+	private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
+	private const string DomainServiceTemplateId = "Intent.DomainServices.DomainServiceInterface";
+	private void WireupDomainServicesForConstructors(CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
+	{
+		var constructor = createAction.Element.AsClassConstructorModel();
+		if (constructor != null)
+		{
+			if (constructor.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)) // Domain Service
+			{
+				var invocation = constructionStatement as CSharpInvocationStatement;
+				for (var i = 0; i < constructor.Parameters.Count; i++)
+				{
+					var arg = constructor.Parameters[i];
+					if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
+					{
+						continue;
+					}
+					if (_template.TryGetTypeName(DomainServiceTemplateId, arg.TypeReference.Element.Id, out var domainServiceInterface))
+					{
+						var fieldname = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
+						//Change `default` or `parameterName: default` into `_domainService` (fieldName)
+						invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldname));
+					}
+				}
+			}
+		}
+	}
 
-    private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
+	private void WireupDomainServicesForOperations(UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
+	{
+        var @operation = OperationModelExtensions.AsOperationModel( updateAction.Element);
+		if (@operation != null)
+        {
+			if (@operation.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)) // Domain Service
+			{
+                foreach (var updateStatement in updateStatements)
+                {
+					var invocation = updateStatement as CSharpInvocationStatement;
+                    if (invocation != null)
+                    {
+                        for (var i = 0; i < @operation.Parameters.Count; i++)
+                        {
+                            var arg = @operation.Parameters[i];
+                            if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
+                            {
+                                continue;
+                            }
+                            if (_template.TryGetTypeName(DomainServiceTemplateId, arg.TypeReference.Element.Id, out var domainServiceInterface))
+                            {
+                                var fieldname = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
+                                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
+                                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldname));
+                            }
+                        }
+                    }
+				}
+			}
+		}
+	}
+
+	//private void InjectAutoMapper(out string fieldName)
+	//{
+	//    var temp = default(string);
+	//    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+	//    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
+	//    {
+	//        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
+	//            param => param.IntroduceReadonlyField(field => temp = field.Name));
+	//        fieldName = temp;
+	//    }
+	//    else
+	//    {
+	//        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
+	//    }
+	//}
+
+	private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
     {
         if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
         {
