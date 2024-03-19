@@ -19,6 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="f6f4264b-6354-4c4e-95f6-6d642e510278" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
     <display>extends FuneralCoverQuote</display>
     <order>0</order>
     <typeReference id="2959ab82-15ba-4c8d-907b-d93fa16797a9">

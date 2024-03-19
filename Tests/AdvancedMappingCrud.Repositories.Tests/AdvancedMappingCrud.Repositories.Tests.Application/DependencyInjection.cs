@@ -8,6 +8,7 @@ using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.Event
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Services.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Eventing.Messages;
 using AutoMapper;
 using FluentValidation;
@@ -41,6 +42,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICustomerManager, CustomerManager>();
             services.AddTransient<IPricingService, PricingService>();
+            services.AddTransient<IMyDomainService, MyDomainService>();
+            services.AddTransient<IClassicDomainServiceTestsService, ClassicDomainServiceTestsService>();
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IUploadDownloadService, UploadDownloadService>();
             services.AddTransient<IPersonService, PersonService>();

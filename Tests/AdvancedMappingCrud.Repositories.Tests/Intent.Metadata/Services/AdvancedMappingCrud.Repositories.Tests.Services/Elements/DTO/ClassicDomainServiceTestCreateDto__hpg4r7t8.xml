@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7c4c0de3-fd05-424c-9ccd-838e3dfbdb3a" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>ClassicDomainServiceTestCreateDto</name>
+  <display>ClassicDomainServiceTestCreateDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>02408688-c538-48a7-8b18-78a0e4317915</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -195,6 +195,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7c4c0de3-fd05-424c-9ccd-838e3dfbdb3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ClassicDomainServiceTests/ClassicDomainServiceTestCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassicDomainServiceTests/ClassicDomainServiceTestCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e235fa53-a964-4134-80d7-7466362682d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ClassicDomainServiceTests/ClassicDomainServiceTestDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassicDomainServiceTests/ClassicDomainServiceTestDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e235fa53-a964-4134-80d7-7466362682d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ClassicDomainServiceTests/ClassicDomainServiceTestDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassicDomainServiceTests/ClassicDomainServiceTestDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6482aeac-dcdf-44f9-86a2-eb54b004bc0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ClassicDomainServiceTests/ClassicDomainServiceTestUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassicDomainServiceTests/ClassicDomainServiceTestUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>49871c19-65a3-467d-934c-4934ec125684</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -819,6 +851,166 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a7959404-b129-4cb4-9287-42bccde8717d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a7959404-b129-4cb4-9287-42bccde8717d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a7959404-b129-4cb4-9287-42bccde8717d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#dbda5420-9c16-42ff-8f17-100d3240b09e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#dbda5420-9c16-42ff-8f17-100d3240b09e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#dbda5420-9c16-42ff-8f17-100d3240b09e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e48d822f-4d12-42bc-949b-7626fa9fa485</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DomainServiceTestDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/DomainServiceTestDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e48d822f-4d12-42bc-949b-7626fa9fa485</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DomainServiceTestDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/DomainServiceTestDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9713bcc0-db8f-49a5-83bd-1ed2d2093bb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9713bcc0-db8f-49a5-83bd-1ed2d2093bb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9713bcc0-db8f-49a5-83bd-1ed2d2093bb4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#4e2b2021-dae9-4b0a-8096-0b0eb805afa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#4e2b2021-dae9-4b0a-8096-0b0eb805afa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4e2b2021-dae9-4b0a-8096-0b0eb805afa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f1b4dc97-521d-4969-a99e-80d7491988db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f1b4dc97-521d-4969-a99e-80d7491988db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f1b4dc97-521d-4969-a99e-80d7491988db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#216b1064-9350-43fe-b5a3-97c67fa2e629</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#216b1064-9350-43fe-b5a3-97c67fa2e629</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#216b1064-9350-43fe-b5a3-97c67fa2e629</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>521e0420-cfad-464f-a8c0-04c5339c8c3f</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#dd13015f-0643-4a62-9bc7-2d70eddf3de5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -944,6 +1136,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FileUploads/UploadFile/UploadFileCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6351ab37-21e4-4d66-b068-6845c1f7eb52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ClassicDomainServiceTestsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassicDomainServiceTestsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1088,6 +1288,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/Customers/IPersonService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/IPersonService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#6351ab37-21e4-4d66-b068-6845c1f7eb52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IClassicDomainServiceTestsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IClassicDomainServiceTestsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1844,6 +2052,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#513c7a03-e1d4-44e4-939c-f85848f5acdb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/DomainServices/ClassicDomainServiceTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/ClassicDomainServiceTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d9469dfe-8970-471c-b63d-b87b5f4d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/DomainServices/DomainServiceTest.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/DomainServiceTest.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs</ApplicationRelativeFilePath>
@@ -1948,6 +2172,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#513c7a03-e1d4-44e4-939c-f85848f5acdb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/DomainServices/IClassicDomainServiceTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/IClassicDomainServiceTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d9469dfe-8970-471c-b63d-b87b5f4d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/DomainServices/IDomainServiceTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/IDomainServiceTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#4da701dd-1644-418e-ac1a-19668809b605</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ICorporateFuneralCoverQuoteRepository.cs</ApplicationRelativeFilePath>
@@ -2048,6 +2288,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Services/CustomerManager.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerManager.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ea1b9a3-5b8c-40c0-9252-888bf4b09fac</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#3b9a8b1f-914c-4429-968c-5ebdb2450778</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Services/DomainServices/IMyDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/IMyDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ea1b9a3-5b8c-40c0-9252-888bf4b09fac</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#3b9a8b1f-914c-4429-968c-5ebdb2450778</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Services/DomainServices/MyDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/MyDomainService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2204,6 +2460,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#513c7a03-e1d4-44e4-939c-f85848f5acdb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/DomainServices/ClassicDomainServiceTestConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/ClassicDomainServiceTestConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d9469dfe-8970-471c-b63d-b87b5f4d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/DomainServices/DomainServiceTestConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/DomainServiceTestConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#319abbbb-65b5-4179-a3dd-33699a0f778e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/FileUploadConfiguration.cs</ApplicationRelativeFilePath>
@@ -2280,6 +2552,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#513c7a03-e1d4-44e4-939c-f85848f5acdb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/DomainServices/ClassicDomainServiceTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/ClassicDomainServiceTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d9469dfe-8970-471c-b63d-b87b5f4d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/DomainServices/DomainServiceTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServices/DomainServiceTestRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

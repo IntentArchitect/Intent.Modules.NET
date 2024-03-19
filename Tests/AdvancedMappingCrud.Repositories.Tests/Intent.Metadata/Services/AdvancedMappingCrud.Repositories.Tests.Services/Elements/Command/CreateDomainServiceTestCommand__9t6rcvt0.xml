@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a7959404-b129-4cb4-9287-42bccde8717d" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateDomainServiceTestCommand</name>
+  <display>CreateDomainServiceTestCommand: guid</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="74ad98e6-023e-4e7a-8474-5e010c977073">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>090169cc-05b9-4267-81d7-81ad5bb954a2</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="d9469dfe-8970-471c-b63d-b87b5f4d75a6" name="DomainServiceTest" type="element" specialization="Class" />
+      <target id="8a708c05-20fa-42a4-9632-1a45daa2f1fe" name="Constructor" type="element" specialization="Class Constructor" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>74d968f9-b5ad-4c9d-a632-4fc4bcc54cdf</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="DomainServiceTest" />
+  </metadata>
+  <childElements />
+</class>

@@ -5,7 +5,9 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainServices;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +35,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<Product> Products { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ClassicDomainServiceTest> ClassicDomainServiceTests { get; set; }
+        public DbSet<DomainServiceTest> DomainServiceTests { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -62,6 +66,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new QuoteConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassicDomainServiceTestConfiguration());
+            modelBuilder.ApplyConfiguration(new DomainServiceTestConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
