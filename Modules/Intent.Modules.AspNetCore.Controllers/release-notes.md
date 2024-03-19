@@ -1,4 +1,4 @@
-### Version 6.0.3
+### Version 6.0.4
 
 - Improvement: Swagger Schema Filter support, specifically for `TimeSpan`.
 
