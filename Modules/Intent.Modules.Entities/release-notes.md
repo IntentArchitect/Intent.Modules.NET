@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Improvement: `DataContractTemplate` update to include `RepresentsModel` to aid in advanced mapping detection scenarios.
+
 ### Version 5.0.3
 
 - Fixed: Data Contract does not apply Base Type when it is set in the designer.
