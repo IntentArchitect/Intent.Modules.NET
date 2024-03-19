@@ -15,15 +15,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class BinaryContentFilterExtension : FactoryExtensionBase
+    public class TypeSchemaFilterExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AspNetCore.Controllers.BinaryContentFilterExtension";
-        private readonly IMetadataManager _metadataManager;
-
-        public BinaryContentFilterExtension(IMetadataManager metadataManager)
-        {
-            _metadataManager = metadataManager;
-        }
+        public override string Id => "Intent.AspNetCore.Controllers.TypeSchemaFilterExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -36,11 +30,6 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 return;
             }
 
-            if (!FileTransferHelper.NeedsFileUploadInfrastructure(_metadataManager, application.Id))
-            {
-                return;
-            }
-
             var @class = template.CSharpFile.Classes.First();
 
             var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
@@ -49,7 +38,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 return;
             }
 
-            configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetBinaryContentFilterName()}>();");
+            configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetTypeSchemaFilterName()}>();");
         }
         private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {

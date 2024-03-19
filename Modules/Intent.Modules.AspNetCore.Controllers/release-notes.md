@@ -1,5 +1,9 @@
 ### Version 6.0.3
 
+- Improvement: Swagger Schema Filter support, specifically for `TimeSpan`.
+
+### Version 6.0.3
+
 - Improvement: File transfer ( upload / download ) support.
 - Improvement: Added Service Designer validation - `GET Operations do not support collections on complex objects`.
 
