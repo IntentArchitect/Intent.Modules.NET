@@ -99,6 +99,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3c9062a3-83b2-44d6-8dce-ac88e0fedd13</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#3c9062a3-83b2-44d6-8dce-ac88e0fedd13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

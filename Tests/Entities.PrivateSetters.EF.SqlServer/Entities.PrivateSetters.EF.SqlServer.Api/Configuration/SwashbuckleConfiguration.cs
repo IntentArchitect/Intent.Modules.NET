@@ -47,6 +47,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

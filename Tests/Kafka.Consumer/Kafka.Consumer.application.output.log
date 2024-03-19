@@ -91,6 +91,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2b7f3235-2b77-42dd-9647-117e4f811009</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Consumer.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d443f015-cee5-46b0-ab6a-c99f83af09bb</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d443f015-cee5-46b0-ab6a-c99f83af09bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

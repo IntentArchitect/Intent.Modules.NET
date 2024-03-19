@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5df48f5c-568a-465d-8494-c7e0081c11d9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b127e69-05bb-4e42-a53d-89cb373b3518</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1b127e69-05bb-4e42-a53d-89cb373b3518</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

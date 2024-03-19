@@ -67,6 +67,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6922343d-fe4c-4155-9206-139051392432</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>19139c14-b0b4-4bd2-9808-3abe0e823559</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#19139c14-b0b4-4bd2-9808-3abe0e823559</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

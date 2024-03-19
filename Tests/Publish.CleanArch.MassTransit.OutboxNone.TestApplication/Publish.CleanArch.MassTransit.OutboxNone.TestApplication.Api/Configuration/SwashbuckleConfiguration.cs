@@ -48,6 +48,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Configura
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using EntityFrameworkCore.Oracle.TestApplication.Api.Filters;
 using EntityFrameworkCore.Oracle.TestApplication.Application;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

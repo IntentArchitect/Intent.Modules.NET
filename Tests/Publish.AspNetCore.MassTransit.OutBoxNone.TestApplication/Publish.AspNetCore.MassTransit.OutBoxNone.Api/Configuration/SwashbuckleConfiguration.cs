@@ -47,6 +47,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

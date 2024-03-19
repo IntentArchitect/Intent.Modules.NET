@@ -46,6 +46,7 @@ namespace MassTransitFinbuckle.Test.Api.Configuration
                         options.IncludeXmlComments(applicationXmlFile);
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
+                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
