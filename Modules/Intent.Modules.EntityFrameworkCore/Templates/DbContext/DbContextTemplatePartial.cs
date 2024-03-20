@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
@@ -17,6 +18,7 @@ using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -124,10 +126,27 @@ modelBuilder.Entity<Car>().HasData(
             });
         }
 
-        // This is the cleanest (and foolproof way) I can get to ensure that DbSet name and types are unique since
-        // all the EntityTypeConfigurations are made known via events so a buffer of sorts is
-        // required to keep track of all the registered ones and then check if there are any duplicates.
-        private void DoPostTypeConfigProcess(CSharpFile file)
+        private void MakeDbSetNameUnqiue(CapturedEntityTypeConfiguration lhs, CapturedEntityTypeConfiguration rhs)
+        {
+			if (lhs.Prefix != rhs.Prefix)
+            {
+				lhs.DbSetName = lhs.Prefix + lhs.DbSetName;
+				rhs.DbSetName = rhs.Prefix + rhs.DbSetName;
+                return;
+			}
+			if (lhs.DbSetElementType != rhs.DbSetElementType)
+			{
+				lhs.DbSetName = lhs.DbSetElementType;
+				rhs.DbSetName = rhs.DbSetElementType;
+				return;
+			}
+            throw new Exception($"Different Entities resolving to same DB Set name `{lhs.DbSetName}` for {lhs.DbSetElementType} and {rhs.DbSetName}");
+		}
+
+		// This is the cleanest (and foolproof way) I can get to ensure that DbSet name and types are unique since
+		// all the EntityTypeConfigurations are made known via events so a buffer of sorts is
+		// required to keep track of all the registered ones and then check if there are any duplicates.
+		private void DoPostTypeConfigProcess(CSharpFile file)
         {
             var dbSetNameLookup = new Dictionary<string, CapturedEntityTypeConfiguration>();
             foreach (var entry in _capturedEntityTypeConfigurations)
@@ -140,8 +159,7 @@ modelBuilder.Entity<Car>().HasData(
                 var collisionEntry = dbSetNameLookup[entry.DbSetName];
                 dbSetNameLookup.Remove(entry.DbSetName);
 
-                entry.DbSetName = entry.Prefix + entry.DbSetName;
-                collisionEntry.DbSetName = collisionEntry.Prefix + collisionEntry.DbSetName;
+                MakeDbSetNameUnqiue(entry, collisionEntry);
 
                 dbSetNameLookup.Add(entry.DbSetName, entry);
                 dbSetNameLookup.Add(collisionEntry.DbSetName, collisionEntry);

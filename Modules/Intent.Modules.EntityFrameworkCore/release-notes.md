@@ -1,4 +1,8 @@
-﻿### Version 5.0.0
+﻿### Version 5.0.1
+
+- Fixed: Resolved several issues where DbContext file would not generate correctly based on `Entity` names.
+
+### Version 5.0.0
 
 > ⚠️ **BREAKING CHANGES**
 >

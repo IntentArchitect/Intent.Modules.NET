@@ -40,7 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 var saveAsyncMethod = template.GetSaveChangesAsyncMethod();
                 saveAsyncMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
 
-                @class.AddMethod("Task", "DispatchEventsAsync", method =>
+                @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), "DispatchEventsAsync", method =>
                 {
                     method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     method.Private().Async();
