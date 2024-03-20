@@ -1,6 +1,7 @@
 ### Version 5.0.4
 
 - Improvement: `DataContractTemplate` update to include `RepresentsModel` to aid in advanced mapping detection scenarios.
+- Improvement: `DataContractTemplate` will now take attributes from type `DataContract` to populate its own constructor before taking its own attributes.
 
 ### Version 5.0.3
 
