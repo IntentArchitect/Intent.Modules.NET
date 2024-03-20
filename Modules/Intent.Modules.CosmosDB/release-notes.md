@@ -1,4 +1,8 @@
-﻿### Version 1.1.0
+﻿### Version 1.1.1
+
+- Fixed: If key types other than `string` were being used for an entity and `Use Optimistic Concurrency` was enabled then uncompilable code would be generated.
+
+### Version 1.1.0
 
 - New Feature: Added support fo Optimistic Concurrency using `ETag` for `CosmosDB` module.
 - Improvement: Added `FindAsync` method to repository.

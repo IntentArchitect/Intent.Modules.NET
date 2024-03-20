@@ -40,24 +40,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public PackageContainerDocument PopulateFromEntity(IPackageContainer entity, string? etag = null)
+        public PackageContainerDocument PopulateFromEntity(IPackageContainer entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             PackagePartitionKey = entity.PackagePartitionKey;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static PackageContainerDocument? FromEntity(IPackageContainer? entity, string? etag = null)
+        public static PackageContainerDocument? FromEntity(IPackageContainer? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new PackageContainerDocument().PopulateFromEntity(entity, etag);
+            return new PackageContainerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

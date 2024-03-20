@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.5-pre.1" />
+    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="5.0.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.0.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.5.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.4-pre.0" />
+    <PackageReference Include="Intent.Packager" Version="3.4.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\KafkaConsumerInterface\KafkaConsumerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>KafkaConsumerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>KafkaProducerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>KafkaEventDispatcherInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\KafkaConsumerInterface\KafkaConsumerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KafkaConsumerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\KafkaProducerInterface\KafkaProducerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KafkaProducerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\KafkaEventDispatcherInterface\KafkaEventDispatcherInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KafkaEventDispatcherInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
+
+</Project>

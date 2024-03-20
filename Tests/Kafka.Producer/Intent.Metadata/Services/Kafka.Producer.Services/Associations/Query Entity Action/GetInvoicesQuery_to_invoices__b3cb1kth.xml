@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e61e4392-d196-4b3e-a30f-92965e88ce19">
+  <sourceEnd id="424e35e1-1f81-4aef-bc8d-95d574feb37c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetInvoicesQuery</display>
+    <order>0</order>
+    <typeReference id="7c133f71-cfbf-4eae-be1d-9bff3a45d553">
+      <typeId>35454479-7714-4bf7-b257-cd03cb04c881</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Services</typePackageName>
+      <typePackageId>d0b468ef-2076-4b60-9f06-11502faec1d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e61e4392-d196-4b3e-a30f-92965e88ce19" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoices</name>
+    <display>[query] invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="4180577e-42b7-4b0e-8366-f5763ba4e198">
+      <typeId>b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Domain</typePackageName>
+      <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="35454479-7714-4bf7-b257-cd03cb04c881" location="[Kafka.Producer].[Services].[GetInvoicesQuery]" />
+        <target applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f" location="[Kafka.Producer].[Services].[Invoice]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

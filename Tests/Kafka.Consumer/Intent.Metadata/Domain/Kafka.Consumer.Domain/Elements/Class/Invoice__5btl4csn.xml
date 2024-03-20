@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36fe654d-f983-4baa-bf05-465e1e13e0fd" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Invoice</name>
+  <display>Invoice</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</parentFolderId>
+  <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+  <packageName>Kafka.Consumer.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1adc827e-aa1d-440d-a0ef-26f1f4ff020c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="df27c0e8-e755-48b7-8c1e-3a20945a695a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>36fe654d-f983-4baa-bf05-465e1e13e0fd</parentFolderId>
+      <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+      <packageName>Kafka.Consumer.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1bc53a1c-3344-4a70-8b9d-ed34a46d0700" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Note</name>
+      <display>Note: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="68e7a5a8-e1c5-4e52-8010-825540ab2185">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>36fe654d-f983-4baa-bf05-465e1e13e0fd</parentFolderId>
+      <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+      <packageName>Kafka.Consumer.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8cb51c89-7c6f-4a08-b412-815d7cf826d1" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>Invoice(id: guid, note: string)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="36fe654d-f983-4baa-bf05-465e1e13e0fd" name="Invoice" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>36fe654d-f983-4baa-bf05-465e1e13e0fd</parentFolderId>
+      <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+      <packageName>Kafka.Consumer.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="49b3a7f3-0cfa-43d9-a9bd-51ddb365a1f4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e704026d-031b-4ebd-b813-9f0e82550f52">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="1adc827e-aa1d-440d-a0ef-26f1f4ff020c" name="Id" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8cb51c89-7c6f-4a08-b412-815d7cf826d1</parentFolderId>
+          <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+          <packageName>Kafka.Consumer.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3f77f10d-63c0-4568-821c-88f32382e572" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>note</name>
+          <display>in : note: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7737df1d-e3f7-41c8-ae0b-512a5c53be27">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="1bc53a1c-3344-4a70-8b9d-ed34a46d0700" name="Note" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8cb51c89-7c6f-4a08-b412-815d7cf826d1</parentFolderId>
+          <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+          <packageName>Kafka.Consumer.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="73d3d674-5231-40ab-80bc-956df792a7b5" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Update</name>
+      <display>Update(note: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="5ff19a86-e4bd-4e28-a114-835ae3b09535">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="36fe654d-f983-4baa-bf05-465e1e13e0fd" name="Invoice" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>36fe654d-f983-4baa-bf05-465e1e13e0fd</parentFolderId>
+      <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+      <packageName>Kafka.Consumer.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c5adf418-8975-48db-8fd8-ccae8d12c2a4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>note</name>
+          <display>in : note: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cd1ae1f8-b306-425c-9fa0-ff0e9ea15b28">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="1bc53a1c-3344-4a70-8b9d-ed34a46d0700" name="Note" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>73d3d674-5231-40ab-80bc-956df792a7b5</parentFolderId>
+          <packageId>96de88ca-4a5e-407b-b0a2-c1a7d0814334</packageId>
+          <packageName>Kafka.Consumer.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

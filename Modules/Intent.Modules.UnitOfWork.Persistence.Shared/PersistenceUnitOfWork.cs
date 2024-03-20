@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -15,20 +14,20 @@ internal static class PersistenceUnitOfWork
     public static bool SystemUsesPersistenceUnitOfWork(this ICSharpFileBuilderTemplate template)
     {
         return
+            template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
-            template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _) ||
-            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _);
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
     }
 
     public static void ApplyUnitOfWorkImplementations(
-        this CSharpClassMethod method,
+        this IHasCSharpStatements block,
         ICSharpFileBuilderTemplate template,
         CSharpConstructor constructor,
         CSharpStatement invocationStatement,
-        string returnType = null,
+        string? returnType = null,
         string resultVariableName = "result",
         string cancellationTokenExpression = "cancellationToken",
         string fieldSuffix = "unitOfWork",
@@ -50,7 +49,7 @@ internal static class PersistenceUnitOfWork
         var requiresCosmosDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _);
         if (requiresCosmosDb)
         {
-            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
+            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
             {
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
@@ -67,7 +66,7 @@ internal static class PersistenceUnitOfWork
         var requiresDapr = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _);
         if (requiresDapr)
         {
-            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
+            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
             {
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
@@ -84,12 +83,15 @@ internal static class PersistenceUnitOfWork
         var requiresEf = template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null;
         if (requiresEf)
         {
-            string typeName = template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ? unitOfWork
-                    : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ? unitOfWork
-                    : template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork) ? unitOfWork
-                    : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support.");
+            var typeName = template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork)
+                ? unitOfWork
+                : template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork)
+                    ? unitOfWork
+                    : template.TryGetTypeName(TemplateRoles.Infrastructure.Data.DbContext, out unitOfWork)
+                        ? unitOfWork
+                        : throw new Exception("A Unit of Work interface could not be resolved. Please contact Intent Architect support.");
 
-            if (!constructor.Parameters.Any(p => p.Type == typeName))
+            if (constructor.Parameters.All(p => p.Type != typeName))
             {
                 constructor.AddParameter(typeName,
                 efParameterName,
@@ -106,7 +108,7 @@ internal static class PersistenceUnitOfWork
         var requiresMongoDb = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _);
         if (requiresMongoDb)
         {
-            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
+            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
             {
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
@@ -122,7 +124,7 @@ internal static class PersistenceUnitOfWork
         var requiresTableStorage = template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _);
         if (requiresTableStorage)
         {
-            if (!constructor.Parameters.Any(p => p.Type == template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
+            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
             {
                 constructor.AddParameter(
                 template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
@@ -150,10 +152,9 @@ internal static class PersistenceUnitOfWork
         var hasSeparateResultDeclaration = useTransactionScope && useOutsideTransactionScope;
         if (hasSeparateResultDeclaration && returnType != null)
         {
-            method.AddStatement($"{template.UseType(returnType)} {resultVariableName};");
+            block.AddStatement($"{template.UseType(returnType)} {resultVariableName};");
         }
 
-        var hasCSharpStatements = (IHasCSharpStatements)method;
         if (useTransactionScope)
         {
             var transactionScope = template.UseType("System.Transactions.TransactionScope");
@@ -165,7 +166,7 @@ internal static class PersistenceUnitOfWork
 
             if (includeComments)
             { 
-                method.AddStatements(new[]
+                block.AddStatements(new[]
                 {
                     new CSharpStatement("// The execution is wrapped in a transaction scope to ensure that if any other").SeparatedFromPrevious(),
                     "// SaveChanges calls to the data source (e.g. EF Core) are called, that they are",
@@ -176,11 +177,11 @@ internal static class PersistenceUnitOfWork
                 });
             }
 
-            method.AddUsingBlock(@$"var transaction = new {transactionScope}({transactionScopeOption}.Required,
+            block.AddUsingBlock(@$"var transaction = new {transactionScope}({transactionScopeOption}.Required,
                 new {transactionOptions} {{ IsolationLevel = {isolationLevel}.ReadCommitted }}, {transactionScopeAsyncFlowOption}.Enabled)",
                 usingBlock =>
                 {
-                    hasCSharpStatements = usingBlock;
+                    block = usingBlock;
                     usingBlock.BeforeSeparator = includeComments ? CSharpCodeSeparatorType.None : CSharpCodeSeparatorType.EmptyLines;
                     usingBlock.AddMetadata("transaction", "using-block");
                 });
@@ -195,11 +196,11 @@ internal static class PersistenceUnitOfWork
                 replaceWith: $"{varKeyword}{resultVariableName} = {invocationStatement}");
         }
 
-        hasCSharpStatements.AddStatement(invocationStatement);
+        block.AddStatement<IHasCSharpStatements, CSharpStatement>(invocationStatement);
 
         if (useTransactionScope && includeComments)
         {
-            hasCSharpStatements.AddStatements(new[]
+            block.AddStatements(new[]
             {
                 new CSharpStatement("// By calling SaveChanges at the last point in the transaction ensures that write-").SeparatedFromPrevious(),
                 "// locks in the database are created and then released as quickly as possible. This",
@@ -209,7 +210,7 @@ internal static class PersistenceUnitOfWork
 
         if (requiresEf)
         {
-            hasCSharpStatements.AddStatement(
+            block.AddStatement(
                 $"await _{efParameterName}.SaveChangesAsync({cancellationTokenExpression});",
                 s => s.AddMetadata("transaction", "save-changes"));
         }
@@ -218,13 +219,13 @@ internal static class PersistenceUnitOfWork
         {
             if (includeComments)
             {
-                hasCSharpStatements.AddStatements(new[]
+                block.AddStatements(new[]
                 {
                     new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
                     "// disposed if anything failed."
                 });
             }
-            hasCSharpStatements.AddStatement(
+            block.AddStatement(
                 "transaction.Complete();",
                 s => s.AddMetadata("transaction", "complete"));
         }
@@ -232,43 +233,42 @@ internal static class PersistenceUnitOfWork
         var separatedFromPrevious = default(Action<CSharpStatement>);
         if (useOutsideTransactionScope)
         {
-            hasCSharpStatements = method;
             separatedFromPrevious = c => c.SeparatedFromPrevious();
         }
 
         if (requiresCosmosDb)
         {
-            hasCSharpStatements.AddStatement($"await _{cosmosDbParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            block.AddStatement($"await _{cosmosDbParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 
         if (requiresDapr)
         {
-            hasCSharpStatements.AddStatement($"await _{daprParameterName}.SaveChangesAsync( {cancellationTokenExpression} );", separatedFromPrevious);
+            block.AddStatement($"await _{daprParameterName}.SaveChangesAsync( {cancellationTokenExpression} );", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 
         if (requiresMongoDb)
         {
-            hasCSharpStatements.AddStatement($"await _{mongoDbParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            block.AddStatement($"await _{mongoDbParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 
         if (requiresTableStorage)
         {
-            hasCSharpStatements.AddStatement($"await _{tableStorageParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            block.AddStatement($"await _{tableStorageParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
         
         if (requiresRedisOm)
         {
-            hasCSharpStatements.AddStatement($"await _{redisOmParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
+            block.AddStatement($"await _{redisOmParameterName}.SaveChangesAsync({cancellationTokenExpression});", separatedFromPrevious);
             separatedFromPrevious = null;
         }
 
         if (returnType != null)
         {
-            hasCSharpStatements.AddStatement($"return {resultVariableName};", c => c.SeparatedFromPrevious());
+            block.AddStatement($"return {resultVariableName};", c => c.SeparatedFromPrevious());
         }
     }
 }

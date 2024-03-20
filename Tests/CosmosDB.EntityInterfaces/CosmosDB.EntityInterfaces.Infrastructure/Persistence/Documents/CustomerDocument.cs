@@ -46,7 +46,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public CustomerDocument PopulateFromEntity(ICustomer entity, string? etag = null)
+        public CustomerDocument PopulateFromEntity(ICustomer entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             Name = entity.Name;
@@ -54,19 +54,19 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             DeliveryAddress = AddressDocument.FromEntity(entity.DeliveryAddress)!;
             BillingAddress = AddressDocument.FromEntity(entity.BillingAddress);
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static CustomerDocument? FromEntity(ICustomer? entity, string? etag = null)
+        public static CustomerDocument? FromEntity(ICustomer? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new CustomerDocument().PopulateFromEntity(entity, etag);
+            return new CustomerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

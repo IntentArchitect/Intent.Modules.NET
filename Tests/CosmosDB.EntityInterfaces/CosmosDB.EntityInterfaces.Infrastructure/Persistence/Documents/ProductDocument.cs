@@ -40,25 +40,25 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public ProductDocument PopulateFromEntity(IProduct entity, string? etag = null)
+        public ProductDocument PopulateFromEntity(IProduct entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             Name = entity.Name;
             CategoriesIds = entity.CategoriesIds.ToList();
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static ProductDocument? FromEntity(IProduct? entity, string? etag = null)
+        public static ProductDocument? FromEntity(IProduct? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ProductDocument().PopulateFromEntity(entity, etag);
+            return new ProductDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

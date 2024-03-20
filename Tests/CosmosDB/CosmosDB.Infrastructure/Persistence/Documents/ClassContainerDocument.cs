@@ -42,24 +42,24 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         }
         string? IItemWithEtag.Etag => _etag;
 
-        public ClassContainerDocument PopulateFromEntity(ClassContainer entity, string? etag = null)
+        public ClassContainerDocument PopulateFromEntity(ClassContainer entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             ClassPartitionKey = entity.ClassPartitionKey;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static ClassContainerDocument? FromEntity(ClassContainer? entity, string? etag = null)
+        public static ClassContainerDocument? FromEntity(ClassContainer? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new ClassContainerDocument().PopulateFromEntity(entity, etag);
+            return new ClassContainerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

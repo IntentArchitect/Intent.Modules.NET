@@ -12,7 +12,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         where TDomainState : class, TDomain
         where TDocument : ICosmosDBDocument<TDomain, TDomainState, TDocument>
     {
-        TDocument PopulateFromEntity(TDomain entity, string? etag = null);
+        TDocument PopulateFromEntity(TDomain entity, Func<string, string?> getEtag);
         TDomainState ToEntity(TDomainState? entity = null);
     }
 

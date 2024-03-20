@@ -83,6 +83,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>53e1426a-098c-49da-9cdf-7d1745401e8f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>6c3bf66b-e429-4443-9393-3969538ff22b</ProjectId>
       <CorrelationId>Intent.AspNetCore.SignalR.Hub#fd8d6552-ed96-4b01-a270-e6a6d43ce5f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

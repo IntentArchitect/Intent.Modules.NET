@@ -2,6 +2,7 @@ using System;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,24 +24,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public DerivedOfTDocument PopulateFromEntity(IDerivedOfT entity, string? etag = null)
+        public DerivedOfTDocument PopulateFromEntity(IDerivedOfT entity, Func<string, string?> getEtag)
         {
             DerivedAttribute = entity.DerivedAttribute;
 
-            _etag = etag;
-            base.PopulateFromEntity(entity);
+            _etag = getEtag(((IItem)this).Id);
+            base.PopulateFromEntity(entity, getEtag);
 
             return this;
         }
 
-        public static DerivedOfTDocument? FromEntity(IDerivedOfT? entity, string? etag = null)
+        public static DerivedOfTDocument? FromEntity(IDerivedOfT? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new DerivedOfTDocument().PopulateFromEntity(entity, etag);
+            return new DerivedOfTDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

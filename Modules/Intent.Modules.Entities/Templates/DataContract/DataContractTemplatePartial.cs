@@ -24,6 +24,7 @@ namespace Intent.Modules.Entities.Templates.DataContract
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddRecord($"{Model.Name}", record =>
                 {
+                    record.RepresentsModel(Model);
                     if (Model.BaseType != null)
                     {
                         record.WithBaseType(Model.BaseType.Element.Name);
@@ -35,7 +36,8 @@ namespace Intent.Modules.Entities.Templates.DataContract
                         {
                             ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>
                             {
-                                param.IntroduceProperty(prop => prop.Init());
+                                param.RepresentsModel(attribute);
+                                param.IntroduceProperty(prop => prop.Init().RepresentsModel(attribute));
                             });
                         }
                     });

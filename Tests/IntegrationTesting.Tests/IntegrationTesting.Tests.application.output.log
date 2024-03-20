@@ -163,6 +163,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b900ad49-1153-4f3e-aedd-8b5a82c6052e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>467a385c-5fdb-4746-9170-7c7ae233fe80</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#467a385c-5fdb-4746-9170-7c7ae233fe80</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

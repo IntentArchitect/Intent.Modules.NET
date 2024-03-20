@@ -11,7 +11,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         where TDomain : class
         where TDocument : ICosmosDBDocument<TDomain, TDocument>
     {
-        TDocument PopulateFromEntity(TDomain entity, string? etag = null);
+        TDocument PopulateFromEntity(TDomain entity, Func<string, string?> getEtag);
         TDomain ToEntity(TDomain? entity = null);
     }
 

@@ -91,11 +91,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EventBusPublisherInterfaceTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>IntegrationEventHandlerImplementationTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\IntegrationEventHandlerInterface\IntegrationEventHandlerInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -158,10 +153,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventBusPublisherInterfaceTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>IntegrationEventHandlerImplementationTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\IntegrationEventHandlerInterface\IntegrationEventHandlerInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IntegrationEventHandlerInterfaceTemplate.cs</LastGenOutput>
@@ -190,5 +181,7 @@
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
 
   <Import Project="..\Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
 
 </Project>

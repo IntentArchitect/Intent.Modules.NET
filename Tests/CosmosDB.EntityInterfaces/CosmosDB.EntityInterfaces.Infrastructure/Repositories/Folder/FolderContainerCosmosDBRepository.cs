@@ -24,8 +24,6 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories.Folder
 
         public async Task<IFolderContainer?> FindByIdAsync(
             (string Id, string FolderPartitionKey) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.FolderPartitionKey, cancellationToken: cancellationToken);
-
-        public override string GetId(IFolderContainer entity) => entity.Id;
+            CancellationToken cancellationToken = default) => await FindByIdAsync(id: id.Id, partitionKey: id.FolderPartitionKey, cancellationToken: cancellationToken);
     }
 }

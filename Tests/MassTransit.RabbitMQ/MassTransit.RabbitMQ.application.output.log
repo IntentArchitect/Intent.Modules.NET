@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>849d6a98-3051-47d5-9f3c-5577070c6611</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8cab7e82-ebd6-48fe-9fab-4903decafa34</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8cab7e82-ebd6-48fe-9fab-4903decafa34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

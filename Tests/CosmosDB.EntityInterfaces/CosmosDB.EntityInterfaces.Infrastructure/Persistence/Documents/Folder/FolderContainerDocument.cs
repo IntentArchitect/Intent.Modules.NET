@@ -40,24 +40,24 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents.Folder
             return entity;
         }
 
-        public FolderContainerDocument PopulateFromEntity(IFolderContainer entity, string? etag = null)
+        public FolderContainerDocument PopulateFromEntity(IFolderContainer entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             FolderPartitionKey = entity.FolderPartitionKey;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static FolderContainerDocument? FromEntity(IFolderContainer? entity, string? etag = null)
+        public static FolderContainerDocument? FromEntity(IFolderContainer? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new FolderContainerDocument().PopulateFromEntity(entity, etag);
+            return new FolderContainerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

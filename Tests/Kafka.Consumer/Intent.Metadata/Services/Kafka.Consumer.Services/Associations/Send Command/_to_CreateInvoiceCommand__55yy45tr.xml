@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8b57214b-5bfe-412d-9148-a843fcefb4d3">
+  <sourceEnd id="9f932795-44b5-4d31-a9ae-d77abe491601" type="Send Command Source End" typeId="6b9e34dd-b50f-4998-a3cf-93dde7b2d51e">
+    <display>published by : InvoiceIntegrationEventHandler.</display>
+    <order>0</order>
+    <typeReference id="cb40a192-d200-478a-b5aa-d9d2970a0484">
+      <typeId>e98d90f1-4faa-411e-83a4-96e07b64db12</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Consumer.Services</typePackageName>
+      <typePackageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8b57214b-5bfe-412d-9148-a843fcefb4d3" type="Send Command Target End" typeId="d3096261-1268-440f-8db3-0a6b8b4786cc">
+    <display>publish: CreateInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="42d45b1e-90dc-4e6d-8b0b-ccc81c812a14">
+      <typeId>b33c4231-db53-4fa3-8d5d-0ab78785748e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Consumer.Services</typePackageName>
+      <typePackageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Integration Event Handler Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" location="[Kafka.Consumer].[Services].[InvoiceCreatedEvent]" />
+        <target applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b33c4231-db53-4fa3-8d5d-0ab78785748e" location="[Kafka.Consumer].[Services].[CreateInvoiceCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="b33c4231-db53-4fa3-8d5d-0ab78785748e" name="CreateInvoiceCommand" type="element" specialization="Command" />
+              <target id="dd79293c-f4a4-43eb-baf1-ae50c64fae6b" name="Id" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" name="InvoiceCreatedEvent" type="element" specialization="Message" />
+                  <target id="cbdb277d-8754-4d41-96ac-b97cbdb3688d" name="Id" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Note}</expression>
+            <path>
+              <target id="b33c4231-db53-4fa3-8d5d-0ab78785748e" name="CreateInvoiceCommand" type="element" specialization="Command" />
+              <target id="fc2bc045-63c8-41be-b08a-f00840c9756b" name="Note" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Note" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" name="InvoiceCreatedEvent" type="element" specialization="Message" />
+                  <target id="8b6e756a-2734-4801-8b15-c3b7cfd7028a" name="Note" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Command</associationType>
+  <associationTypeId>38a3de5a-ca88-4f6e-88b9-88e5953936b2</associationTypeId>
+  <stereotypes />
+</association>

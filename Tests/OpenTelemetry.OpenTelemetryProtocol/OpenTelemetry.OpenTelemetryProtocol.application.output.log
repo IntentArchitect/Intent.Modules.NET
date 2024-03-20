@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9af63763-e78b-49b4-a416-564ce70de8b1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenTelemetry.OpenTelemetryProtocol.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>62f5260a-5c14-4cd9-b7d7-460aaf62dd46</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#62f5260a-5c14-4cd9-b7d7-460aaf62dd46</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

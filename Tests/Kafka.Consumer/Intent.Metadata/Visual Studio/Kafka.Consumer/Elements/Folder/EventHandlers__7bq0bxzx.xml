@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e3b06d03-e3a4-4a0c-af17-261db3762a66" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>EventHandlers</name>
+  <display>EventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>448f51b5-d751-4ede-b003-8eb77e7f72b8</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="30eea3ff-159b-4227-8fa1-b8fd78bc53cc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Kafka.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Kafka.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Kafka</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e3b06d03-e3a4-4a0c-af17-261db3762a66</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a1797354-7d6d-4ca2-97db-e91839cce562" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Kafka.IntegrationEventHandlerImplementation</name>
+      <display>Intent.Eventing.Kafka.IntegrationEventHandlerImplementation</display>
+      <externalReference>Intent.Eventing.Kafka</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e3b06d03-e3a4-4a0c-af17-261db3762a66</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

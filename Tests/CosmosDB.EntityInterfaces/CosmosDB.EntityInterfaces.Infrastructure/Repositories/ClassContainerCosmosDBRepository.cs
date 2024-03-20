@@ -24,8 +24,6 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
 
         public async Task<IClassContainer?> FindByIdAsync(
             (string Id, string ClassPartitionKey) id,
-            CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id.Id, partitionKey: id.ClassPartitionKey, cancellationToken: cancellationToken);
-
-        public override string GetId(IClassContainer entity) => entity.Id;
+            CancellationToken cancellationToken = default) => await FindByIdAsync(id: id.Id, partitionKey: id.ClassPartitionKey, cancellationToken: cancellationToken);
     }
 }

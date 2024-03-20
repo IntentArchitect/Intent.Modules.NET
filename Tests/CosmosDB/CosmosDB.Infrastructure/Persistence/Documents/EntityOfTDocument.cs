@@ -35,24 +35,24 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public EntityOfTDocument<T> PopulateFromEntity(EntityOfT<T> entity, string? etag = null)
+        public EntityOfTDocument<T> PopulateFromEntity(EntityOfT<T> entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             GenericAttribute = entity.GenericAttribute;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static EntityOfTDocument<T>? FromEntity(EntityOfT<T>? entity, string? etag = null)
+        public static EntityOfTDocument<T>? FromEntity(EntityOfT<T>? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new EntityOfTDocument<T>().PopulateFromEntity(entity, etag);
+            return new EntityOfTDocument<T>().PopulateFromEntity(entity, getEtag);
         }
     }
 }

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="bf278d7f-e75f-4540-b4cd-6ef927510e35" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Customer</name>
-    <display>Customer: Customer   [* --&gt; 1]</display>
+    <display>Customer: Customer</display>
     <order>5</order>
     <typeReference id="b2cecfc5-756b-4e78-9b38-9c1f2295165a">
       <typeId>8ed97c04-fbb0-4712-a969-b9ade95e0fe5</typeId>

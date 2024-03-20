@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="58927d22-498d-450f-94cc-4d2fa12b7967">
+  <sourceEnd id="1d153885-9d2f-4991-b3ba-9d8554a84656" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Invoice.Update</display>
+    <order>1</order>
+    <typeReference id="e48bf8e9-399e-4bc0-8be6-68fa425f4f34">
+      <typeId>9f2a1f09-ab90-4c59-a635-19270800d30f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Domain</typePackageName>
+      <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="58927d22-498d-450f-94cc-4d2fa12b7967" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : InvoiceUpdated</display>
+    <order>1</order>
+    <typeReference id="19f22862-c87f-4dcd-8795-b69e2775523b">
+      <typeId>5bdee032-5f24-4770-9f88-278b71036109</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Domain</typePackageName>
+      <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f" location="[Kafka.Producer].[Domain].[Invoice]" />
+        <target applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5bdee032-5f24-4770-9f88-278b71036109" location="[Kafka.Producer].[Domain].[InvoiceUpdated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Invoice}</expression>
+            <path>
+              <target id="5bdee032-5f24-4770-9f88-278b71036109" name="InvoiceUpdated" type="element" specialization="Domain Event" />
+              <target id="f3dafdb1-d144-437e-b3f4-390a8bd08ced" name="Invoice" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Invoice" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f" name="Invoice" type="element" specialization="Class" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

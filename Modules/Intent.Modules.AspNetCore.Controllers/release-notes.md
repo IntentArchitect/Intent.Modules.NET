@@ -1,3 +1,7 @@
+### Version 6.0.4
+
+- Improvement: Swagger Schema Filter support, specifically for `TimeSpan`.
+
 ### Version 6.0.3
 
 - Improvement: File transfer ( upload / download ) support.

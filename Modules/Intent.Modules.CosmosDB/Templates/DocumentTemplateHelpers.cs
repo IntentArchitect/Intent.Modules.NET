@@ -89,7 +89,7 @@ namespace Intent.Modules.CosmosDB.Templates
         {
             if (!template.TryGetTemplate<IClassProvider>(CosmosDBDocumentInterfaceTemplate.TemplateId, typeReference.Element, out var classProvider))
             {
-                if (!template.TryGetTemplate<IClassProvider>(CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId, typeReference.Element, out classProvider))
+                if (!template.TryGetTemplate(CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId, typeReference.Element, out classProvider))
                 {
                     throw new Exception($"No Interface template found for {typeReference.Element.Name}.");
                 }
@@ -229,7 +229,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
+                    method.AddParameter("Func<string, string?>", "getEtag");
                 }
 
                 foreach (var attribute in attributes)
@@ -290,12 +290,15 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddStatement("_etag = etag;", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"_etag = getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id);", s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)
                 {
-                    method.AddStatement("base.PopulateFromEntity(entity);");
+                    var getEtagArgument = useOptimisticConcurrency
+                        ? ", getEtag"
+                        : string.Empty;
+                    method.AddStatement($"base.PopulateFromEntity(entity{getEtagArgument});");
                 }
 
                 method.AddStatement("return this;", s => s.SeparatedFromPrevious());
@@ -313,8 +316,8 @@ namespace Intent.Modules.CosmosDB.Templates
 
                     if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                     {
-                        method.AddParameter($"string?", "etag", parameter => parameter.WithDefaultValue("null"));
-                        method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity, etag);", s => s.SeparatedFromPrevious());
+                        method.AddParameter("Func<string, string?>", "getEtag");
+                        method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity, getEtag);", s => s.SeparatedFromPrevious());
                     }
                     else
                     {

@@ -67,6 +67,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>11f87224-18c0-4eb4-96e5-4aa332934f70</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#11f87224-18c0-4eb4-96e5-4aa332934f70</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

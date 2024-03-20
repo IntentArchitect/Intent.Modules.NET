@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5df1290d-a556-41e0-b6a4-2dd2b3512543" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>InvoiceCreatedHandler</name>
+  <display>InvoiceCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c71ff6e-1949-4105-9c26-666df7a3956d</parentFolderId>
+  <packageId>d0b468ef-2076-4b60-9f06-11502faec1d3</packageId>
+  <packageName>Kafka.Producer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

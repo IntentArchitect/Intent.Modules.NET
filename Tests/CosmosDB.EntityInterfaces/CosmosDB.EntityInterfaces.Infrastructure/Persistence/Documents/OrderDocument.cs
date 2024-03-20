@@ -49,7 +49,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public OrderDocument PopulateFromEntity(IOrder entity, string? etag = null)
+        public OrderDocument PopulateFromEntity(IOrder entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             WarehouseId = entity.WarehouseId;
@@ -57,19 +57,19 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             OrderDate = entity.OrderDate;
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static OrderDocument? FromEntity(IOrder? entity, string? etag = null)
+        public static OrderDocument? FromEntity(IOrder? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new OrderDocument().PopulateFromEntity(entity, etag);
+            return new OrderDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }

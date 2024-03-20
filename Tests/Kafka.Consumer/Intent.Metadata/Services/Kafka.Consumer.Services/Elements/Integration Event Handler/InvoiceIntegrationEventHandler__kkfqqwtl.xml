@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="44ef1dfe-6d90-4661-a437-590cf676f143" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>InvoiceIntegrationEventHandler</name>
+  <display>InvoiceIntegrationEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f85ef20-35a2-46f6-8a77-3f1d623327a3</parentFolderId>
+  <packageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</packageId>
+  <packageName>Kafka.Consumer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

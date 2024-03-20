@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="67b7b4f8-e510-4cc9-8e62-aa278f4b2936" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Categories</name>
-    <display>Categories: Category[*]   [* --&gt; *]</display>
+    <display>Categories: Category[*]</display>
     <order>3</order>
     <typeReference id="971d9eac-0bb6-43f7-9024-6d67d45d6682">
       <typeId>0bb76501-0455-49be-a419-5eb250e023cb</typeId>

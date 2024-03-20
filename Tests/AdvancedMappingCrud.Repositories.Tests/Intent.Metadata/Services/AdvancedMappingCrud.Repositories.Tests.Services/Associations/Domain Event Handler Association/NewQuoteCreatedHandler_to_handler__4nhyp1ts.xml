@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="52a77343-8971-412c-9fc2-85d4391e7415">
+  <sourceEnd id="9267750b-9ebd-4eed-bf96-5336d62e4737" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: NewQuoteCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="0d848233-db57-43ef-9cc2-47f08ad45037">
+      <typeId>dd13015f-0643-4a62-9bc7-2d70eddf3de5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="52a77343-8971-412c-9fc2-85d4391e7415" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : NewQuoteCreated</display>
+    <sort-children>by-type-then-manually</sort-children>
+    <order>0</order>
+    <typeReference id="52a88002-c53e-444b-a350-bf153e31c8ea">
+      <typeId>51da9af6-ef50-4720-9eda-59ecb3cc858c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements>
+      <childElement id="802dfcd2-4c34-47d1-bc7e-f95cb169d88d" type="Processing Action" typeId="405a2857-b911-431f-8142-719a0e9f15f3">
+        <name>Action</name>
+        <display>Action</display>
+        <isAbstract>false</isAbstract>
+        <genericTypes />
+        <isMapped>false</isMapped>
+        <parentFolderId>52a77343-8971-412c-9fc2-85d4391e7415</parentFolderId>
+        <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+        <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+        <stereotypes />
+        <mappings>
+          <mapping type="Process Action Mapping" typeId="01bc7593-a6a2-45aa-8497-b4b6a269ab68">
+            <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="52a77343-8971-412c-9fc2-85d4391e7415" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[handler]" />
+            <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="52a77343-8971-412c-9fc2-85d4391e7415" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[handler]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{result.Email}</expression>
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="708b47a2-31f7-4b23-9604-9f101e3e0283" name="user" type="association" specialization="Query Entity Action Target End" />
+                  <target id="16e16f74-79b4-48ae-8903-4da355712f2d" name="Email" type="element" specialization="Attribute" />
+                </path>
+                <sources>
+                  <source identifier="result.Email" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
+                    <path>
+                      <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                      <target id="29096c0b-6d46-4b38-8685-bbb87e97d14e" name="result" type="association" specialization="Call Service Operation Target End" />
+                      <target id="6a5e4f4a-5988-4185-a2b7-764f4ebbe8d6" name="Email" type="element" specialization="DTO-Field" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{Quote.Id}</expression>
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="708b47a2-31f7-4b23-9604-9f101e3e0283" name="user" type="association" specialization="Query Entity Action Target End" />
+                  <target id="0b145467-15e1-48fc-91b3-e551829558af" name="QuoteId" type="element" specialization="Attribute" />
+                </path>
+                <sources>
+                  <source identifier="Quote.Id" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
+                    <path>
+                      <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                      <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+                      <target id="906ee3fe-d676-45c2-abbe-1fd4a31100b8" name="Id" type="element" specialization="Attribute" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{result.Name}</expression>
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="708b47a2-31f7-4b23-9604-9f101e3e0283" name="user" type="association" specialization="Query Entity Action Target End" />
+                  <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+                  <target id="ab6fcfec-b889-49fb-a96d-d9a56b230110" name="Name" type="element" specialization="Attribute" />
+                </path>
+                <sources>
+                  <source identifier="result.Name" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
+                    <path>
+                      <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                      <target id="29096c0b-6d46-4b38-8685-bbb87e97d14e" name="result" type="association" specialization="Call Service Operation Target End" />
+                      <target id="d25f0c66-926b-4cf6-b5a9-1bf910612d9b" name="Name" type="element" specialization="DTO-Field" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{result.Surname}</expression>
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="708b47a2-31f7-4b23-9604-9f101e3e0283" name="user" type="association" specialization="Query Entity Action Target End" />
+                  <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
+                  <target id="36a7333a-6ce3-4687-8c93-f34cf6ea482b" name="Surname" type="element" specialization="Attribute" />
+                </path>
+                <sources>
+                  <source identifier="result.Surname" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
+                    <path>
+                      <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
+                      <target id="29096c0b-6d46-4b38-8685-bbb87e97d14e" name="result" type="association" specialization="Call Service Operation Target End" />
+                      <target id="6e6b2bf2-3708-4375-9364-5e7d0da37147" name="Surname" type="element" specialization="DTO-Field" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+        <metadata />
+        <childElements />
+      </childElement>
+    </childElements>
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

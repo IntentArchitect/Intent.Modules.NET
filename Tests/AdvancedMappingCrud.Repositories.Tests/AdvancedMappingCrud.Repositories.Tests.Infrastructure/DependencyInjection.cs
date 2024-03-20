@@ -1,9 +1,11 @@
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +36,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IQuoteRepository, QuoteRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IClassicDomainServiceTestRepository, ClassicDomainServiceTestRepository>();
+            services.AddTransient<IDomainServiceTestRepository, DomainServiceTestRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             services.AddHttpClients(configuration);

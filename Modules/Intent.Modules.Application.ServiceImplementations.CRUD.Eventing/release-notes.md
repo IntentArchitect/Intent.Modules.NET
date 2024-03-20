@@ -1,3 +1,7 @@
+### Version 1.0.12
+
+- Improvement: Updated dependency versions.
+
 ### Version 1.0.11
 
 - Improvement: Updated dependency versions.

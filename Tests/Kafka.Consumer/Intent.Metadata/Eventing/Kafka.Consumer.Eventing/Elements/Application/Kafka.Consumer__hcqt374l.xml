@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="28cb83de-bbe4-48b2-b511-225cca5f2810" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Kafka.Consumer</name>
+  <display>Kafka.Consumer</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f6e372ac-661e-4502-966f-89acbac3113c</parentFolderId>
+  <diagram>
+    <targetPackageId>304c474b-bb85-4d05-9caa-3ffe16fdb8bf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

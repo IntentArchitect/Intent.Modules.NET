@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="35917589-9c0c-4111-9b4f-3c9115c3b2cc">
+  <sourceEnd id="2343d248-23a7-4448-9430-2bd10518e840" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ClassicDomainServiceTestsService.DeleteClassicDomainServiceTest</display>
+    <order>0</order>
+    <typeReference id="af1419ad-4f9a-48ec-b20c-b3b16e2555c8">
+      <typeId>3b98ee93-2fac-4c98-8e9d-87fd8ec73c55</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="35917589-9c0c-4111-9b4f-3c9115c3b2cc" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>classicDomainServiceTest</name>
+    <display>[delete] classicDomainServiceTest: ClassicDomainServiceTest</display>
+    <order>1</order>
+    <typeReference id="b4182b16-182a-453a-8b8e-b211cf04eb37">
+      <typeId>513c7a03-e1d4-44e4-939c-f85848f5acdb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3b98ee93-2fac-4c98-8e9d-87fd8ec73c55" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteClassicDomainServiceTest]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="513c7a03-e1d4-44e4-939c-f85848f5acdb" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ClassicDomainServiceTest]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="513c7a03-e1d4-44e4-939c-f85848f5acdb" name="ClassicDomainServiceTest" type="element" specialization="Class" />
+              <target id="5c374687-e6e5-466c-9275-b83cc1185295" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3b98ee93-2fac-4c98-8e9d-87fd8ec73c55" name="DeleteClassicDomainServiceTest" type="element" specialization="Operation" />
+                  <target id="4b05b200-0db3-435c-bfbd-e7f838fd5b37" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

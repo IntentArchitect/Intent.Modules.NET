@@ -47,6 +47,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

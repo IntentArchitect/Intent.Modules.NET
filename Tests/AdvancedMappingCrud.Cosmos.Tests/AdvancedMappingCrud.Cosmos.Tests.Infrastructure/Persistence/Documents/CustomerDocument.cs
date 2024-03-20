@@ -42,7 +42,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             return entity;
         }
 
-        public CustomerDocument PopulateFromEntity(Customer entity, string? etag = null)
+        public CustomerDocument PopulateFromEntity(Customer entity, Func<string, string?> getEtag)
         {
             Id = entity.Id;
             Name = entity.Name;
@@ -50,19 +50,19 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             IsActive = entity.IsActive;
             ShippingAddress = AddressDocument.FromEntity(entity.ShippingAddress)!;
 
-            _etag = etag;
+            _etag = getEtag(((IItem)this).Id);
 
             return this;
         }
 
-        public static CustomerDocument? FromEntity(Customer? entity, string? etag = null)
+        public static CustomerDocument? FromEntity(Customer? entity, Func<string, string?> getEtag)
         {
             if (entity is null)
             {
                 return null;
             }
 
-            return new CustomerDocument().PopulateFromEntity(entity, etag);
+            return new CustomerDocument().PopulateFromEntity(entity, getEtag);
         }
     }
 }
