@@ -37,6 +37,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
             var @class = _template.CSharpFile.Classes.First();
             var handleMethod = @class.FindMethod("Handle");
