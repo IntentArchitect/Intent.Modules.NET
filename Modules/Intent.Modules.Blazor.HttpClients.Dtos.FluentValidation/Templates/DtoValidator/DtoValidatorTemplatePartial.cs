@@ -29,7 +29,8 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget),
                 validatorProviderInterfaceTemplateId: "Blazor.HttpClient.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: true,
-                repositoryInjectionEnabled: false)
+                repositoryInjectionEnabled: false,
+                customValidationEnabled: false)
         {
         }
     }

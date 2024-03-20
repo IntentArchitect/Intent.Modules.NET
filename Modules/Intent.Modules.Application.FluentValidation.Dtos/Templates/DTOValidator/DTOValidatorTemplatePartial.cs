@@ -28,7 +28,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 modelParameterName: "model",
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
-                repositoryInjectionEnabled: true)
+                repositoryInjectionEnabled: true,
+                customValidationEnabled: true)
         {
         }
     }
