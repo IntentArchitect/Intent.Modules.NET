@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{9C546C8E-897D-4590-99F3-4FB736C61CFB}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "TableStorage.Tests.Api", "TableStorage.Tests.Api\TableStorage.Tests.Api.csproj", "{3EFFCDE8-F393-4220-9420-7D63ED5BC58D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableStorage.Tests.Api", "TableStorage.Tests.Api\TableStorage.Tests.Api.csproj", "{3EFFCDE8-F393-4220-9420-7D63ED5BC58D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0EC4BF17-D290-414F-AC5F-5977DB2B406A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "TableStorage.Tests.Application", "TableStorage.Tests.Application\TableStorage.Tests.Application.csproj", "{EB64E2C0-B031-4C65-9304-ACF8CCBE389C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableStorage.Tests.Application", "TableStorage.Tests.Application\TableStorage.Tests.Application.csproj", "{EB64E2C0-B031-4C65-9304-ACF8CCBE389C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F7DD6B66-E8D0-48AA-B476-E303FD26FF2E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "TableStorage.Tests.Domain", "TableStorage.Tests.Domain\TableStorage.Tests.Domain.csproj", "{4E188162-14F3-45E8-BDD1-A9C7CCFBFBF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableStorage.Tests.Domain", "TableStorage.Tests.Domain\TableStorage.Tests.Domain.csproj", "{4E188162-14F3-45E8-BDD1-A9C7CCFBFBF7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{6C03D82E-4D00-40E2-B93E-3D3D0DDD2166}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "TableStorage.Tests.Infrastructure", "TableStorage.Tests.Infrastructure\TableStorage.Tests.Infrastructure.csproj", "{14784B90-F6BC-4FD7-ACA7-F05FB9E3540E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableStorage.Tests.Infrastructure", "TableStorage.Tests.Infrastructure\TableStorage.Tests.Infrastructure.csproj", "{14784B90-F6BC-4FD7-ACA7-F05FB9E3540E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

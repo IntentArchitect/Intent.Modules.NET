@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{7E7F
 		OpenApiConfigurationOptions.cs = OpenApiConfigurationOptions.cs
 	EndProjectSection
 EndProject
-Project("{73E51385-5E20-4E2C-AA0B-6EB2DC8DE52E}") = "AzureFunctions.TestApplication.Api", "AzureFunctions.TestApplication.Api\AzureFunctions.TestApplication.Api.csproj", "{999793A3-90D3-42E3-AC3F-71D231A90C99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.TestApplication.Api", "AzureFunctions.TestApplication.Api\AzureFunctions.TestApplication.Api.csproj", "{999793A3-90D3-42E3-AC3F-71D231A90C99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{C6CACBC7-6F5D-47FE-BF3F-090895E3429E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Application", "AzureFunctions.TestApplication.Application\AzureFunctions.TestApplication.Application.csproj", "{3BDE8D64-055B-42C7-9C41-1B46258D6DF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.TestApplication.Application", "AzureFunctions.TestApplication.Application\AzureFunctions.TestApplication.Application.csproj", "{3BDE8D64-055B-42C7-9C41-1B46258D6DF6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{E259BAFB-F022-4994-9366-4CAC51B7A749}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Domain", "AzureFunctions.TestApplication.Domain\AzureFunctions.TestApplication.Domain.csproj", "{56477774-E375-40DA-B00C-4FD3944CE41C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.TestApplication.Domain", "AzureFunctions.TestApplication.Domain\AzureFunctions.TestApplication.Domain.csproj", "{56477774-E375-40DA-B00C-4FD3944CE41C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{3E8A922D-BF3D-43C3-B9EE-5A0B71DB4FBF}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Infrastructure", "AzureFunctions.TestApplication.Infrastructure\AzureFunctions.TestApplication.Infrastructure.csproj", "{AF96ACDE-B300-436C-A446-7E38FCE728F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.TestApplication.Infrastructure", "AzureFunctions.TestApplication.Infrastructure\AzureFunctions.TestApplication.Infrastructure.csproj", "{AF96ACDE-B300-436C-A446-7E38FCE728F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

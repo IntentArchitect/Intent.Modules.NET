@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{D5802F92-AFEA-488B-9CEC-2533FC50A1BB}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.SingleFiles.Api", "CleanArchitecture.SingleFiles.Api\CleanArchitecture.SingleFiles.Api.csproj", "{C65EE65D-B4C7-4BB2-BB59-72215705884B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.SingleFiles.Api", "CleanArchitecture.SingleFiles.Api\CleanArchitecture.SingleFiles.Api.csproj", "{C65EE65D-B4C7-4BB2-BB59-72215705884B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EE90604F-F0AD-4546-8414-9B8C03219394}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.SingleFiles.Application", "CleanArchitecture.SingleFiles.Application\CleanArchitecture.SingleFiles.Application.csproj", "{1773A42C-B33A-400C-ACBB-0B81956FCADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.SingleFiles.Application", "CleanArchitecture.SingleFiles.Application\CleanArchitecture.SingleFiles.Application.csproj", "{1773A42C-B33A-400C-ACBB-0B81956FCADD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{1440B20E-A673-4816-BB75-895C78F02867}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.SingleFiles.Domain", "CleanArchitecture.SingleFiles.Domain\CleanArchitecture.SingleFiles.Domain.csproj", "{297CBC28-89E8-401F-B071-188D67113822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.SingleFiles.Domain", "CleanArchitecture.SingleFiles.Domain\CleanArchitecture.SingleFiles.Domain.csproj", "{297CBC28-89E8-401F-B071-188D67113822}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{95FACAB9-F087-4CCF-8B49-0E3CC114C1FE}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.SingleFiles.Infrastructure", "CleanArchitecture.SingleFiles.Infrastructure\CleanArchitecture.SingleFiles.Infrastructure.csproj", "{F0DB48F6-7AA9-4E05-91EA-04CC31380034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.SingleFiles.Infrastructure", "CleanArchitecture.SingleFiles.Infrastructure\CleanArchitecture.SingleFiles.Infrastructure.csproj", "{F0DB48F6-7AA9-4E05-91EA-04CC31380034}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{A984D92F-3482-470F-A4E1-4EF23478945A}"
 EndProject

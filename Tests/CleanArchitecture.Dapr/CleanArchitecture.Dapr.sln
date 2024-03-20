@@ -21,19 +21,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{4BAF157E-4F50-4CC3-9F39-B48D986DD23B}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.Dapr.Api", "CleanArchitecture.Dapr.Api\CleanArchitecture.Dapr.Api.csproj", "{3894A0B4-8863-4325-9FF8-56672D827970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.Api", "CleanArchitecture.Dapr.Api\CleanArchitecture.Dapr.Api.csproj", "{3894A0B4-8863-4325-9FF8-56672D827970}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{51A0BECD-AAFB-400E-9882-793E1844650E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Application", "CleanArchitecture.Dapr.Application\CleanArchitecture.Dapr.Application.csproj", "{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.Application", "CleanArchitecture.Dapr.Application\CleanArchitecture.Dapr.Application.csproj", "{9FB3C05F-90B8-4765-91FC-B111AC34F8DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{E314C98B-14F4-453E-ACB5-56FC258F499F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Domain", "CleanArchitecture.Dapr.Domain\CleanArchitecture.Dapr.Domain.csproj", "{4450620A-A704-4A68-9C0C-A8F804162B82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.Domain", "CleanArchitecture.Dapr.Domain\CleanArchitecture.Dapr.Domain.csproj", "{4450620A-A704-4A68-9C0C-A8F804162B82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{2C90ED80-F6F2-4F1E-8AB1-05756F431BFC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.Dapr.Infrastructure", "CleanArchitecture.Dapr.Infrastructure\CleanArchitecture.Dapr.Infrastructure.csproj", "{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.Infrastructure", "CleanArchitecture.Dapr.Infrastructure\CleanArchitecture.Dapr.Infrastructure.csproj", "{E5E38311-21D4-4C4E-907C-BF6E9F6F68C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{09746B38-0E86-46EE-836B-F4BCB2407BFC}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Entities.PrivateSetters.EF.CosmosDb.Api", "Entities.PrivateSetters.EF.CosmosDb.Api\Entities.PrivateSetters.EF.CosmosDb.Api.csproj", "{3C1EC598-DAFC-4EF2-8251-F5E490D70AB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.CosmosDb.Api", "Entities.PrivateSetters.EF.CosmosDb.Api\Entities.PrivateSetters.EF.CosmosDb.Api.csproj", "{3C1EC598-DAFC-4EF2-8251-F5E490D70AB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{ED85514F-12B0-4640-B9A8-12794D939803}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.CosmosDb.Application", "Entities.PrivateSetters.EF.CosmosDb.Application\Entities.PrivateSetters.EF.CosmosDb.Application.csproj", "{625FB4CC-631A-4D78-BD70-5D695B5EE971}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.CosmosDb.Application", "Entities.PrivateSetters.EF.CosmosDb.Application\Entities.PrivateSetters.EF.CosmosDb.Application.csproj", "{625FB4CC-631A-4D78-BD70-5D695B5EE971}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6F7BE649-341C-497E-9BC6-FFB979659D7C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.CosmosDb.Domain", "Entities.PrivateSetters.EF.CosmosDb.Domain\Entities.PrivateSetters.EF.CosmosDb.Domain.csproj", "{8583540C-4BC8-4181-92B5-E42E7F676744}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.CosmosDb.Domain", "Entities.PrivateSetters.EF.CosmosDb.Domain\Entities.PrivateSetters.EF.CosmosDb.Domain.csproj", "{8583540C-4BC8-4181-92B5-E42E7F676744}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EADF2A66-E6B0-4CFD-A311-D8D8101D7D0A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.CosmosDb.Infrastructure", "Entities.PrivateSetters.EF.CosmosDb.Infrastructure\Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj", "{10646B37-332C-468F-B03C-7904547633A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.CosmosDb.Infrastructure", "Entities.PrivateSetters.EF.CosmosDb.Infrastructure\Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj", "{10646B37-332C-468F-B03C-7904547633A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

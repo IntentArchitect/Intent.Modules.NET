@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{D6B4DB21-DF07-4D54-AFAC-0A4D223113E5}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EFCore.Lazy.Loading.Tests.Api", "EFCore.Lazy.Loading.Tests.Api\EFCore.Lazy.Loading.Tests.Api.csproj", "{757FF4F1-CEAD-4C9F-B603-D11E6EF44C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Lazy.Loading.Tests.Api", "EFCore.Lazy.Loading.Tests.Api\EFCore.Lazy.Loading.Tests.Api.csproj", "{757FF4F1-CEAD-4C9F-B603-D11E6EF44C87}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8904FAA7-DE39-42B1-9B38-52FF34392DF5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EFCore.Lazy.Loading.Tests.Application", "EFCore.Lazy.Loading.Tests.Application\EFCore.Lazy.Loading.Tests.Application.csproj", "{2EC764FD-21ED-45AA-9E58-A22EF35F700C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Lazy.Loading.Tests.Application", "EFCore.Lazy.Loading.Tests.Application\EFCore.Lazy.Loading.Tests.Application.csproj", "{2EC764FD-21ED-45AA-9E58-A22EF35F700C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{3D5BDA1D-2865-4214-A584-84F21EE42ABC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EFCore.Lazy.Loading.Tests.Domain", "EFCore.Lazy.Loading.Tests.Domain\EFCore.Lazy.Loading.Tests.Domain.csproj", "{5E45446C-55F7-4365-A827-013CA8E69BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Lazy.Loading.Tests.Domain", "EFCore.Lazy.Loading.Tests.Domain\EFCore.Lazy.Loading.Tests.Domain.csproj", "{5E45446C-55F7-4365-A827-013CA8E69BFD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{36DD41BC-980E-4785-A51C-462B6827F448}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EFCore.Lazy.Loading.Tests.Infrastructure", "EFCore.Lazy.Loading.Tests.Infrastructure\EFCore.Lazy.Loading.Tests.Infrastructure.csproj", "{201055D9-CB0F-48C1-9CF6-A80523C5666D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Lazy.Loading.Tests.Infrastructure", "EFCore.Lazy.Loading.Tests.Infrastructure\EFCore.Lazy.Loading.Tests.Infrastructure.csproj", "{201055D9-CB0F-48C1-9CF6-A80523C5666D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

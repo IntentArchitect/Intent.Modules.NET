@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{15FA3985-136C-41C8-B195-176401DAD2CE}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MongoDb.TestApplication.Api", "MongoDb.TestApplication.Api\MongoDb.TestApplication.Api.csproj", "{36F5CE7E-0227-40ED-81EC-F52DCB573920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb.TestApplication.Api", "MongoDb.TestApplication.Api\MongoDb.TestApplication.Api.csproj", "{36F5CE7E-0227-40ED-81EC-F52DCB573920}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2D5731A1-8198-4245-800C-C51E993AB52A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MongoDb.TestApplication.Application", "MongoDb.TestApplication.Application\MongoDb.TestApplication.Application.csproj", "{C5F10692-9990-468A-AD8C-F600CDE465CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb.TestApplication.Application", "MongoDb.TestApplication.Application\MongoDb.TestApplication.Application.csproj", "{C5F10692-9990-468A-AD8C-F600CDE465CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{72669090-9C8C-495E-A86A-8678B3F0610F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MongoDb.TestApplication.Domain", "MongoDb.TestApplication.Domain\MongoDb.TestApplication.Domain.csproj", "{29141D4A-66E3-4384-A3E6-F67448E4505B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb.TestApplication.Domain", "MongoDb.TestApplication.Domain\MongoDb.TestApplication.Domain.csproj", "{29141D4A-66E3-4384-A3E6-F67448E4505B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7CC5BFA3-B1D3-4525-8704-D8B830FF70E8}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MongoDb.TestApplication.Infrastructure", "MongoDb.TestApplication.Infrastructure\MongoDb.TestApplication.Infrastructure.csproj", "{63FF75BF-B5A2-463E-9433-17DE27F3BB32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb.TestApplication.Infrastructure", "MongoDb.TestApplication.Infrastructure\MongoDb.TestApplication.Infrastructure.csproj", "{63FF75BF-B5A2-463E-9433-17DE27F3BB32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

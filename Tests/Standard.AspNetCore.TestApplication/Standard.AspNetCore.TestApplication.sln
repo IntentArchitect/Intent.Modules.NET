@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{8C68EB93-F1DF-430B-AEC2-7EDE115F3EE8}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Standard.AspNetCore.TestApplication.Api", "Standard.AspNetCore.TestApplication.Api\Standard.AspNetCore.TestApplication.Api.csproj", "{418C6192-1FBF-4D24-81F7-F1A060223C2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.TestApplication.Api", "Standard.AspNetCore.TestApplication.Api\Standard.AspNetCore.TestApplication.Api.csproj", "{418C6192-1FBF-4D24-81F7-F1A060223C2C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{E18D7772-BBD1-47B5-B01D-978F6A82A7C5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.TestApplication.Application", "Standard.AspNetCore.TestApplication.Application\Standard.AspNetCore.TestApplication.Application.csproj", "{19ECC7DA-5642-4311-86D7-FFFA2E71C5A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.TestApplication.Application", "Standard.AspNetCore.TestApplication.Application\Standard.AspNetCore.TestApplication.Application.csproj", "{19ECC7DA-5642-4311-86D7-FFFA2E71C5A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{B48E13E1-4A8C-4B4C-82FA-21E2E9563993}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.TestApplication.Domain", "Standard.AspNetCore.TestApplication.Domain\Standard.AspNetCore.TestApplication.Domain.csproj", "{974DA2FC-C76A-4845-9905-CB4DF85673CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.TestApplication.Domain", "Standard.AspNetCore.TestApplication.Domain\Standard.AspNetCore.TestApplication.Domain.csproj", "{974DA2FC-C76A-4845-9905-CB4DF85673CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E760E5CA-027A-4643-872D-B0BCADDC272A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.TestApplication.Infrastructure", "Standard.AspNetCore.TestApplication.Infrastructure\Standard.AspNetCore.TestApplication.Infrastructure.csproj", "{2660D263-1E60-4AAF-AE9B-6D9C2D60CACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.TestApplication.Infrastructure", "Standard.AspNetCore.TestApplication.Infrastructure\Standard.AspNetCore.TestApplication.Infrastructure.csproj", "{2660D263-1E60-4AAF-AE9B-6D9C2D60CACC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

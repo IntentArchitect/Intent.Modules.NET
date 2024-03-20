@@ -73,6 +73,11 @@
         <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.4.5" />
       </install>
     </detect>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore" version="5.0.1-pre.0" />
+      </install>
+    </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>

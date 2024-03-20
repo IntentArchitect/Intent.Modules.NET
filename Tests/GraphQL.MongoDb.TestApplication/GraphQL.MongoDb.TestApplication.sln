@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{51BCFA3A-27FA-4892-8615-54755BFACB70}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "GraphQL.MongoDb.TestApplication.Api", "GraphQL.MongoDb.TestApplication.Api\GraphQL.MongoDb.TestApplication.Api.csproj", "{8E7FFD1C-C720-4129-835C-461134115F05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.MongoDb.TestApplication.Api", "GraphQL.MongoDb.TestApplication.Api\GraphQL.MongoDb.TestApplication.Api.csproj", "{8E7FFD1C-C720-4129-835C-461134115F05}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{64963154-02FB-45C3-8957-26748FDD4B2A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.MongoDb.TestApplication.Application", "GraphQL.MongoDb.TestApplication.Application\GraphQL.MongoDb.TestApplication.Application.csproj", "{8D09AD06-B56C-4F15-AC61-758EC2F477C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.MongoDb.TestApplication.Application", "GraphQL.MongoDb.TestApplication.Application\GraphQL.MongoDb.TestApplication.Application.csproj", "{8D09AD06-B56C-4F15-AC61-758EC2F477C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{BB5EDDCF-C758-4791-9BC8-42B487F4D18A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.MongoDb.TestApplication.Domain", "GraphQL.MongoDb.TestApplication.Domain\GraphQL.MongoDb.TestApplication.Domain.csproj", "{8E12E4D0-ABE2-4522-839B-B255A8A42CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.MongoDb.TestApplication.Domain", "GraphQL.MongoDb.TestApplication.Domain\GraphQL.MongoDb.TestApplication.Domain.csproj", "{8E12E4D0-ABE2-4522-839B-B255A8A42CFA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7EB0E6AC-21CA-4152-BA97-00938864C3F7}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.MongoDb.TestApplication.Infrastructure", "GraphQL.MongoDb.TestApplication.Infrastructure\GraphQL.MongoDb.TestApplication.Infrastructure.csproj", "{4D4AE5A0-96F9-4915-97DB-7BC5E91D7EE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.MongoDb.TestApplication.Infrastructure", "GraphQL.MongoDb.TestApplication.Infrastructure\GraphQL.MongoDb.TestApplication.Infrastructure.csproj", "{4D4AE5A0-96F9-4915-97DB-7BC5E91D7EE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

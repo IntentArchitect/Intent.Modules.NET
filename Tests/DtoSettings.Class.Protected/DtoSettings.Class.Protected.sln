@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{E3DC2DFB-5AB0-44FC-9BD9-DD88C427C276}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "DtoSettings.Class.Protected.Api", "DtoSettings.Class.Protected.Api\DtoSettings.Class.Protected.Api.csproj", "{2CA9E80F-82D3-4D6E-ADDE-849EFF81D50B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Protected.Api", "DtoSettings.Class.Protected.Api\DtoSettings.Class.Protected.Api.csproj", "{2CA9E80F-82D3-4D6E-ADDE-849EFF81D50B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0D3A61B4-5C09-49D0-8680-6D9B0820E975}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Protected.Application", "DtoSettings.Class.Protected.Application\DtoSettings.Class.Protected.Application.csproj", "{B485A01B-41C9-4C91-A217-F59C349BCFF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Protected.Application", "DtoSettings.Class.Protected.Application\DtoSettings.Class.Protected.Application.csproj", "{B485A01B-41C9-4C91-A217-F59C349BCFF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{3069932E-83E9-46A1-A853-F219C1F0FBBD}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Protected.Domain", "DtoSettings.Class.Protected.Domain\DtoSettings.Class.Protected.Domain.csproj", "{03EC77B4-1E90-46C9-87D3-66C3EDCCA3A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Protected.Domain", "DtoSettings.Class.Protected.Domain\DtoSettings.Class.Protected.Domain.csproj", "{03EC77B4-1E90-46C9-87D3-66C3EDCCA3A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0FF170DC-1AC3-4504-B0AA-34F240E3223F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Protected.Infrastructure", "DtoSettings.Class.Protected.Infrastructure\DtoSettings.Class.Protected.Infrastructure.csproj", "{A8D8A227-E543-4666-BD27-52C05408F1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Protected.Infrastructure", "DtoSettings.Class.Protected.Infrastructure\DtoSettings.Class.Protected.Infrastructure.csproj", "{A8D8A227-E543-4666-BD27-52C05408F1C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

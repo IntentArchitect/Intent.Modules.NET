@@ -17,19 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{58B30CE4-0030-40D0-BD51-8A4D999217BE}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.CleanArchDapr.TestApplication.Api", "Publish.CleanArchDapr.TestApplication.Api\Publish.CleanArchDapr.TestApplication.Api.csproj", "{B504F7FC-775C-4DC1-AF48-FB1C6924692E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArchDapr.TestApplication.Api", "Publish.CleanArchDapr.TestApplication.Api\Publish.CleanArchDapr.TestApplication.Api.csproj", "{B504F7FC-775C-4DC1-AF48-FB1C6924692E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{DA8C9BBD-8AD0-438B-A3E1-2AC6A256110A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArchDapr.TestApplication.Application", "Publish.CleanArchDapr.TestApplication.Application\Publish.CleanArchDapr.TestApplication.Application.csproj", "{EE58CF18-6A03-45FE-A2DF-4B7E7F8E7A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArchDapr.TestApplication.Application", "Publish.CleanArchDapr.TestApplication.Application\Publish.CleanArchDapr.TestApplication.Application.csproj", "{EE58CF18-6A03-45FE-A2DF-4B7E7F8E7A6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{FE2688E1-C80E-4C89-A8BC-981D6D6D28CA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArchDapr.TestApplication.Domain", "Publish.CleanArchDapr.TestApplication.Domain\Publish.CleanArchDapr.TestApplication.Domain.csproj", "{53931E0B-DBE3-49C7-A233-320089381C16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArchDapr.TestApplication.Domain", "Publish.CleanArchDapr.TestApplication.Domain\Publish.CleanArchDapr.TestApplication.Domain.csproj", "{53931E0B-DBE3-49C7-A233-320089381C16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{30F2CFD3-4C2E-43C0-B261-DE14EA478E55}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArchDapr.TestApplication.Infrastructure", "Publish.CleanArchDapr.TestApplication.Infrastructure\Publish.CleanArchDapr.TestApplication.Infrastructure.csproj", "{4F2D1717-560E-4103-A7F7-50E9974AB530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArchDapr.TestApplication.Infrastructure", "Publish.CleanArchDapr.TestApplication.Infrastructure\Publish.CleanArchDapr.TestApplication.Infrastructure.csproj", "{4F2D1717-560E-4103-A7F7-50E9974AB530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

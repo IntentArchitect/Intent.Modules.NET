@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{23F18CA2-2C37-45EE-84C8-D7AC06D61962}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Application.Identity.Jwt.TestApplication.Api", "Application.Identity.Jwt.TestApplication.Api\Application.Identity.Jwt.TestApplication.Api.csproj", "{176C87C9-2085-4D2B-A9CD-640FA5E7CD7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.Jwt.TestApplication.Api", "Application.Identity.Jwt.TestApplication.Api\Application.Identity.Jwt.TestApplication.Api.csproj", "{176C87C9-2085-4D2B-A9CD-640FA5E7CD7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{523F81EF-0EA1-4194-B23F-4C75DAC14BEB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.Jwt.TestApplication.Application", "Application.Identity.Jwt.TestApplication.Application\Application.Identity.Jwt.TestApplication.Application.csproj", "{2E3D2A11-B48F-48D3-8D7A-184D8281C3C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.Jwt.TestApplication.Application", "Application.Identity.Jwt.TestApplication.Application\Application.Identity.Jwt.TestApplication.Application.csproj", "{2E3D2A11-B48F-48D3-8D7A-184D8281C3C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{58054C42-EB8D-47BA-9231-6DF8B17F3E0F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.Jwt.TestApplication.Domain", "Application.Identity.Jwt.TestApplication.Domain\Application.Identity.Jwt.TestApplication.Domain.csproj", "{81788946-235A-41E7-AC34-3D50D2CCD776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.Jwt.TestApplication.Domain", "Application.Identity.Jwt.TestApplication.Domain\Application.Identity.Jwt.TestApplication.Domain.csproj", "{81788946-235A-41E7-AC34-3D50D2CCD776}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EFA0F50B-AFA3-471D-96B3-D992D3D43DE0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.Jwt.TestApplication.Infrastructure", "Application.Identity.Jwt.TestApplication.Infrastructure\Application.Identity.Jwt.TestApplication.Infrastructure.csproj", "{AA94E9E2-894B-4B6F-B8C7-309342C8EEC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.Jwt.TestApplication.Infrastructure", "Application.Identity.Jwt.TestApplication.Infrastructure\Application.Identity.Jwt.TestApplication.Infrastructure.csproj", "{AA94E9E2-894B-4B6F-B8C7-309342C8EEC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

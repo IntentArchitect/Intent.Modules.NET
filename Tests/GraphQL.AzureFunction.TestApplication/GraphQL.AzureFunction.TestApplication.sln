@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0F64AFD2-FA55-48AB-8428-5546782C2059}"
 EndProject
-Project("{73E51385-5E20-4E2C-AA0B-6EB2DC8DE52E}") = "GraphQL.AzureFunction.TestApplication.Api", "GraphQL.AzureFunction.TestApplication.Api\GraphQL.AzureFunction.TestApplication.Api.csproj", "{5C72C7F5-5A19-4034-8F19-3D5633EF2694}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.AzureFunction.TestApplication.Api", "GraphQL.AzureFunction.TestApplication.Api\GraphQL.AzureFunction.TestApplication.Api.csproj", "{5C72C7F5-5A19-4034-8F19-3D5633EF2694}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{9BE2158A-1EBE-41E5-BD11-504A07E9A264}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.AzureFunction.TestApplication.Application", "GraphQL.AzureFunction.TestApplication.Application\GraphQL.AzureFunction.TestApplication.Application.csproj", "{420F0338-67C2-4B08-B5E4-933122198FB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.AzureFunction.TestApplication.Application", "GraphQL.AzureFunction.TestApplication.Application\GraphQL.AzureFunction.TestApplication.Application.csproj", "{420F0338-67C2-4B08-B5E4-933122198FB5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6CF22A3F-0824-449A-9537-944A18232FF8}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.AzureFunction.TestApplication.Domain", "GraphQL.AzureFunction.TestApplication.Domain\GraphQL.AzureFunction.TestApplication.Domain.csproj", "{36ED3DB0-71DE-4180-BBB0-9833B1499A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.AzureFunction.TestApplication.Domain", "GraphQL.AzureFunction.TestApplication.Domain\GraphQL.AzureFunction.TestApplication.Domain.csproj", "{36ED3DB0-71DE-4180-BBB0-9833B1499A1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{28818474-98E9-4586-9C07-3FB84D27A0B7}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.AzureFunction.TestApplication.Infrastructure", "GraphQL.AzureFunction.TestApplication.Infrastructure\GraphQL.AzureFunction.TestApplication.Infrastructure.csproj", "{FCFEFD1B-D39C-4A8E-9D46-5CB00C02DDFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.AzureFunction.TestApplication.Infrastructure", "GraphQL.AzureFunction.TestApplication.Infrastructure\GraphQL.AzureFunction.TestApplication.Infrastructure.csproj", "{FCFEFD1B-D39C-4A8E-9D46-5CB00C02DDFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

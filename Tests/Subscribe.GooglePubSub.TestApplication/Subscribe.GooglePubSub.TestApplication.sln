@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{B28D1F73-E507-4E5E-A386-14873BF4DC4D}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Subscribe.GooglePubSub.TestApplication.Api", "Subscribe.GooglePubSub.TestApplication.Api\Subscribe.GooglePubSub.TestApplication.Api.csproj", "{2C2D42E1-BDC0-41FF-BBDD-97DC1602B262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.GooglePubSub.TestApplication.Api", "Subscribe.GooglePubSub.TestApplication.Api\Subscribe.GooglePubSub.TestApplication.Api.csproj", "{2C2D42E1-BDC0-41FF-BBDD-97DC1602B262}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EB02484D-2175-4E94-A89D-7C5BC1703195}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.GooglePubSub.TestApplication.Application", "Subscribe.GooglePubSub.TestApplication.Application\Subscribe.GooglePubSub.TestApplication.Application.csproj", "{CC2E2CF1-E802-4326-8C36-DFBE725411AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.GooglePubSub.TestApplication.Application", "Subscribe.GooglePubSub.TestApplication.Application\Subscribe.GooglePubSub.TestApplication.Application.csproj", "{CC2E2CF1-E802-4326-8C36-DFBE725411AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0A84FF84-158D-476F-8E99-0CF3CC481C56}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.GooglePubSub.TestApplication.Domain", "Subscribe.GooglePubSub.TestApplication.Domain\Subscribe.GooglePubSub.TestApplication.Domain.csproj", "{CE048A6F-F5DD-4761-80AE-E4BC265E9A2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.GooglePubSub.TestApplication.Domain", "Subscribe.GooglePubSub.TestApplication.Domain\Subscribe.GooglePubSub.TestApplication.Domain.csproj", "{CE048A6F-F5DD-4761-80AE-E4BC265E9A2E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{BB127D7D-175B-4795-9F77-5F0BF3B1212D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.GooglePubSub.TestApplication.Infrastructure", "Subscribe.GooglePubSub.TestApplication.Infrastructure\Subscribe.GooglePubSub.TestApplication.Infrastructure.csproj", "{F4EF271D-E069-4C80-9564-5EFE9835B367}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.GooglePubSub.TestApplication.Infrastructure", "Subscribe.GooglePubSub.TestApplication.Infrastructure\Subscribe.GooglePubSub.TestApplication.Infrastructure.csproj", "{F4EF271D-E069-4C80-9564-5EFE9835B367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

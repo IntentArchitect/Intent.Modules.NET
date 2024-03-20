@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{BF038D77-5BAE-4D17-81B1-1753CEFEB39F}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.csproj", "{8E85476E-2807-4261-A979-55F4F5ACCAAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Api.csproj", "{8E85476E-2807-4261-A979-55F4F5ACCAAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0501F88E-04EA-40DF-AE89-BB1560BE6C46}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.csproj", "{C0AF0524-CD07-469A-AE19-B21A5D7E0AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.csproj", "{C0AF0524-CD07-469A-AE19-B21A5D7E0AAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{8AD7ED4E-041E-4D45-A553-B70B253DCCB1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.csproj", "{DCC601C4-10FA-4A16-A8DC-3239DBC6D082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.csproj", "{DCC601C4-10FA-4A16-A8DC-3239DBC6D082}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F2118A53-4D88-4534-9340-9CA30DB9BF2E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.csproj", "{3DEA73EC-29AF-41DC-B955-10CEC850539E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure", "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.csproj", "{3DEA73EC-29AF-41DC-B955-10CEC850539E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

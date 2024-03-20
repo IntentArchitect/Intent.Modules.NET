@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F47EB607-31B5-4359-B03A-518B12A0C51A}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Subscribe.MassTransit.OutboxMemory.Api", "Subscribe.MassTransit.OutboxMemory.Api\Subscribe.MassTransit.OutboxMemory.Api.csproj", "{09D10784-EAA2-4870-833D-19480CD5808D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxMemory.Api", "Subscribe.MassTransit.OutboxMemory.Api\Subscribe.MassTransit.OutboxMemory.Api.csproj", "{09D10784-EAA2-4870-833D-19480CD5808D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{6838D975-1272-4C50-BB1C-598485748B47}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxMemory.Application", "Subscribe.MassTransit.OutboxMemory.Application\Subscribe.MassTransit.OutboxMemory.Application.csproj", "{3EF2501D-6029-44D2-8641-083478FDEEC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxMemory.Application", "Subscribe.MassTransit.OutboxMemory.Application\Subscribe.MassTransit.OutboxMemory.Application.csproj", "{3EF2501D-6029-44D2-8641-083478FDEEC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{5FA334C0-19CA-4F7C-91EE-2D3EE2C0344C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxMemory.Domain", "Subscribe.MassTransit.OutboxMemory.Domain\Subscribe.MassTransit.OutboxMemory.Domain.csproj", "{5F0468DE-7554-4149-A4FC-7DD18BA2A402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxMemory.Domain", "Subscribe.MassTransit.OutboxMemory.Domain\Subscribe.MassTransit.OutboxMemory.Domain.csproj", "{5F0468DE-7554-4149-A4FC-7DD18BA2A402}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7138E6A9-B5F4-45E0-9F3D-0FCA69ED7CEC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxMemory.Infrastructure", "Subscribe.MassTransit.OutboxMemory.Infrastructure\Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj", "{080B5C00-82ED-4040-82C0-00CB176C1A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxMemory.Infrastructure", "Subscribe.MassTransit.OutboxMemory.Infrastructure\Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj", "{080B5C00-82ED-4040-82C0-00CB176C1A71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

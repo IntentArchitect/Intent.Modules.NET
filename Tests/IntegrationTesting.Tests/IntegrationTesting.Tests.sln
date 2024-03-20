@@ -4,23 +4,23 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{2C5516BE-52BB-4847-9C3C-C54E592B772E}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "IntegrationTesting.Tests.Api", "IntegrationTesting.Tests.Api\IntegrationTesting.Tests.Api.csproj", "{467A385C-5FDB-4746-9170-7C7AE233FE80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.Tests.Api", "IntegrationTesting.Tests.Api\IntegrationTesting.Tests.Api.csproj", "{467A385C-5FDB-4746-9170-7C7AE233FE80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{81E6D50C-014E-4DEC-B699-B311A5777949}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "IntegrationTesting.Tests.Application", "IntegrationTesting.Tests.Application\IntegrationTesting.Tests.Application.csproj", "{4735FC39-BB13-4DCE-85C2-B5EFEC2269DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.Tests.Application", "IntegrationTesting.Tests.Application\IntegrationTesting.Tests.Application.csproj", "{4735FC39-BB13-4DCE-85C2-B5EFEC2269DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{628DFE3B-3A3C-49C7-8EEF-D63359495BC0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "IntegrationTesting.Tests.Domain", "IntegrationTesting.Tests.Domain\IntegrationTesting.Tests.Domain.csproj", "{34AA4120-6E59-4341-8145-EAFBAE569DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.Tests.Domain", "IntegrationTesting.Tests.Domain\IntegrationTesting.Tests.Domain.csproj", "{34AA4120-6E59-4341-8145-EAFBAE569DCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{357FF2C7-6F87-40AD-9845-049D8AF34D4A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "IntegrationTesting.Tests.Infrastructure", "IntegrationTesting.Tests.Infrastructure\IntegrationTesting.Tests.Infrastructure.csproj", "{99DF99BE-17FF-4B0A-9548-8E64425AAF36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.Tests.Infrastructure", "IntegrationTesting.Tests.Infrastructure\IntegrationTesting.Tests.Infrastructure.csproj", "{99DF99BE-17FF-4B0A-9548-8E64425AAF36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{8B3EB2D9-526A-4E6E-AF51-96A53E354D7F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "IntegrationTesting.Tests.IntegrationTests", "IntegrationTesting.Tests.IntegrationTests\IntegrationTesting.Tests.IntegrationTests.csproj", "{FDA9375F-9964-43CF-9FF4-DBB6A285027C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTesting.Tests.IntegrationTests", "IntegrationTesting.Tests.IntegrationTests\IntegrationTesting.Tests.IntegrationTests.csproj", "{FDA9375F-9964-43CF-9FF4-DBB6A285027C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
