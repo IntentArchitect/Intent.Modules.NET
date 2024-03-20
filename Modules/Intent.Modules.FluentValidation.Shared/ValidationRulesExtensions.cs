@@ -24,7 +24,8 @@ public static class ValidationRulesExtensions
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        bool uniqueConstraintValidationEnabled)
+        bool uniqueConstraintValidationEnabled,
+        bool customValidationEnabled)
     {
         var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
 
@@ -33,7 +34,8 @@ public static class ValidationRulesExtensions
             dtoModel: dtoModel,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
-            indexFields: indexFields).Any();
+            indexFields: indexFields, 
+            customValidationEnabled: customValidationEnabled).Any();
     }
 
     public static void ConfigureForValidation<TModel>(
@@ -45,7 +47,8 @@ public static class ValidationRulesExtensions
         string dtoValidatorTemplateId,
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
-        bool repositoryInjectionEnabled)
+        bool repositoryInjectionEnabled,
+        bool customValidationEnabled)
     {
         ((ICSharpFileBuilderTemplate)template).CSharpFile
             .AddUsing("FluentValidation")
@@ -76,7 +79,8 @@ public static class ValidationRulesExtensions
                         dtoModel: dtoModel,
                         dtoTemplateId: dtoTemplateId,
                         dtoValidatorTemplateId: dtoValidatorTemplateId,
-                        indexFields: indexFields);
+                        indexFields: indexFields,
+                        customValidationEnabled: customValidationEnabled);
 
                     foreach (var propertyStatement in validationRuleStatements)
                     {
@@ -99,11 +103,7 @@ public static class ValidationRulesExtensions
                         continue;
                     }
 
-                    // SJ: not happy with this. This is not a clean method to check if the custom validators should be applied,
-                    //     and without adding parameters to check for this, I need to check if having fluent validation that 
-                    //     copies the server-side validation in blazor even makes any sense, why is this not being done in
-                    //     standard http integration clients?
-                    if (dtoValidatorTemplateId != "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator")
+                    if (customValidationEnabled)
                     {
                         if (validations.Custom())
                         {
@@ -245,7 +245,8 @@ public static class ValidationRulesExtensions
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        IReadOnlyCollection<ConstraintField> indexFields)
+        IReadOnlyCollection<ConstraintField> indexFields,
+        bool customValidationEnabled)
     {
         // If no template is present we still need a way to determine what
         // type is primitive.
@@ -277,7 +278,7 @@ public static class ValidationRulesExtensions
 
             if (field.HasValidations())
             {
-                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain);
+                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled);
             }
 
             AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields);
@@ -301,7 +302,8 @@ public static class ValidationRulesExtensions
 
     private static void AddValidatorsFromFluentValidationStereotype(
         DTOFieldModel field,
-        CSharpMethodChainStatement validationRuleChain)
+        CSharpMethodChainStatement validationRuleChain,
+        bool customValidationEnabled)
     {
         var validations = field.GetValidations();
 
@@ -359,15 +361,18 @@ public static class ValidationRulesExtensions
             validationRuleChain.AddChainStatement($"Must({validations.Predicate()}){message}");
         }
 
-        if (validations.Custom())
+        if (customValidationEnabled)
         {
-            validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");
-        }
+            if (validations.Custom())
+            {
+                validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");
+            }
 
-        if (validations.HasCustomValidation() ||
-            validations.Must())
-        {
-            validationRuleChain.AddChainStatement($"MustAsync(Validate{field.Name.ToPascalCase()}Async)");
+            if (validations.HasCustomValidation() ||
+                validations.Must())
+            {
+                validationRuleChain.AddChainStatement($"MustAsync(Validate{field.Name.ToPascalCase()}Async)");
+            }
         }
     }
 

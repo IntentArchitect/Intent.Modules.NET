@@ -18,8 +18,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Field)
-                .NotNull()
-                .CustomAsync(ValidateFieldAsync);
+                .NotNull();
 
             RuleFor(v => v.Email)
                 .NotNull()
@@ -28,8 +27,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
             RuleFor(v => v.CascaseTest)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
-                .MinimumLength(1)
-                .CustomAsync(ValidateCascaseTestAsync);
+                .MinimumLength(1);
         }
     }
 }
