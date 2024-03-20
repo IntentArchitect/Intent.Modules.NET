@@ -99,35 +99,42 @@ public static class ValidationRulesExtensions
                         continue;
                     }
 
-                    if (validations.Custom())
+                    // SJ: not happy with this. This is not a clean method to check if the custom validators should be applied,
+                    //     and without adding parameters to check for this, I need to check if having fluent validation that 
+                    //     copies the server-side validation in blazor even makes any sense, why is this not being done in
+                    //     standard http integration clients?
+                    if (dtoValidatorTemplateId != "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator")
                     {
-                        @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                        if (validations.Custom())
                         {
-                            method
-                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
-                                .Private()
-                                .Async();
-                            method.AddParameter(template.GetTypeName(field), "value");
-                            method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
-                            method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
-                        });
-                    }
+                            @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                            {
+                                method
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .Private()
+                                    .Async();
+                                method.AddParameter(template.GetTypeName(field), "value");
+                                method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
+                                method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
+                            });
+                        }
 
-                    if (validations.HasCustomValidation() ||
-                        validations.Must())
-                    {
-                        @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                        if (validations.HasCustomValidation() ||
+                            validations.Must())
                         {
-                            method
-                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
-                                .Private()
-                                .Async();
-                            method.AddParameter(toValidateTypeName, modelParameterName);
-                            method.AddParameter(template.GetTypeName(field), "value");
-                            method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
-                        });
+                            @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                            {
+                                method
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .Private()
+                                    .Async();
+                                method.AddParameter(toValidateTypeName, modelParameterName);
+                                method.AddParameter(template.GetTypeName(field), "value");
+                                method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
+                            });
+                        }
                     }
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
