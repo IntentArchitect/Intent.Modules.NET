@@ -32,6 +32,19 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
                 return new ObjectInitializationMapping(mappingModel, _template);
             }
 
+            if (model.SpecializationType == "Domain Service")
+            {
+                return new MethodInvocationMapping(mappingModel, _template);
+            }
+            
+            if (model.SpecializationType == "Parameter" &&
+                model.TypeReference.Element?.SpecializationType == "Data Contract")
+            {
+                _template.AddTypeSource("Domain.DataContract");
+                
+                return new ObjectInitializationMapping(mappingModel, _template);
+            }
+
             return null;
         }
     }
