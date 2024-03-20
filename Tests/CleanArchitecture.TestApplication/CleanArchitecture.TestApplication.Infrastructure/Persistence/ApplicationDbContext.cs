@@ -6,6 +6,7 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Entities.Async;
+using CleanArchitecture.TestApplication.Domain.Entities.BugFixes;
 using CleanArchitecture.TestApplication.Domain.Entities.CompositeKeys;
 using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
@@ -22,6 +23,7 @@ using CleanArchitecture.TestApplication.Domain.Entities.Pagination;
 using CleanArchitecture.TestApplication.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Async;
+using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.BugFixes;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CompositeKeys;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.ConventionBasedEventPublishing;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
@@ -68,6 +70,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
         public DbSet<AggregateTestNoIdReturn> AggregateTestNoIdReturns { get; set; }
         public DbSet<AsyncOperationsClass> AsyncOperationsClasses { get; set; }
+        public DbSet<Bank> Bank { get; set; }
+        public DbSet<Banks> Banks { get; set; }
+        public DbSet<Domain.Entities.BugFixes.Task> Tasks { get; set; }
         public DbSet<IntegrationTriggering> IntegrationTriggerings { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
@@ -90,7 +95,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<AggregateWithUniqueConstraintIndexStereotype> AggregateWithUniqueConstraintIndexStereotypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
-        public override async Task<int> SaveChangesAsync(
+        public override async System.Threading.Tasks.Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)
         {
@@ -110,6 +115,9 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
+            modelBuilder.ApplyConfiguration(new BankConfiguration());
+            modelBuilder.ApplyConfiguration(new BanksConfiguration());
+            modelBuilder.ApplyConfiguration(new TaskConfiguration());
             modelBuilder.ApplyConfiguration(new WithCompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new IntegrationTriggeringConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
@@ -157,7 +165,7 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             */
         }
 
-        private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
+        private async System.Threading.Tasks.Task DispatchEventsAsync(CancellationToken cancellationToken = default)
         {
             while (true)
             {
