@@ -4,8 +4,10 @@ using EntityFrameworkCore.Repositories.TestApplication.Application;
 using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories;
+using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +35,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddTransient<ISqlParameterRepositoryReturningScalarRepository, SqlParameterRepositoryReturningScalarRepository>();
             services.AddTransient<ISqlParameterRepositoryWithNameRepository, SqlParameterRepositoryWithNameRepository>();
             services.AddTransient<ISqlParameterRepositoryWithoutNameRepository, SqlParameterRepositoryWithoutNameRepository>();
+            services.AddTransient<IMappableStoredProcRepository, MappableStoredProcRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();
             services.AddTransient<IAggregateRoot2CompositionRepository, AggregateRoot2CompositionRepository>();
             services.AddTransient<IAggregateRoot3AggCollectionRepository, AggregateRoot3AggCollectionRepository>();

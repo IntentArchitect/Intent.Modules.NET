@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c2158b15-8a94-4195-91be-761c486d792f">
+  <sourceEnd id="617de8b4-3824-4451-acbb-c78d5d08b548" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : MappableStoredProcs.GetEntityName</display>
+    <order>0</order>
+    <typeReference id="e1caee5e-9c90-4146-8498-339c6ead0e93">
+      <typeId>9b9b6ef7-f64f-41be-999a-c3bf3359b1a1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c2158b15-8a94-4195-91be-761c486d792f" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetEntityName(...): string</display>
+    <order>1</order>
+    <typeReference id="3bff631d-1ba9-4101-9c3b-81beb06c22a5">
+      <typeId>2d18a0ec-17f8-42ad-8978-5c824cfe872d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source elementId="9b9b6ef7-f64f-41be-999a-c3bf3359b1a1" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetEntityName]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2d18a0ec-17f8-42ad-8978-5c824cfe872d" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetEntityName]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetEntityName}</expression>
+            <path>
+              <target id="2d18a0ec-17f8-42ad-8978-5c824cfe872d" name="GetEntityName" type="element" specialization="Stored Procedure" />
+            </path>
+            <sources>
+              <source identifier="GetEntityName" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="9b9b6ef7-f64f-41be-999a-c3bf3359b1a1" name="GetEntityName" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2d18a0ec-17f8-42ad-8978-5c824cfe872d" name="GetEntityName" type="element" specialization="Stored Procedure" />
+              <target id="634bf5bd-ef09-4a04-a1d9-c1df75b89a06" name="id" type="element" specialization="Stored Procedure Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="9b9b6ef7-f64f-41be-999a-c3bf3359b1a1" name="GetEntityName" type="element" specialization="Query" />
+                  <target id="91a17d8d-6e30-4d1e-8f78-6f90120070e8" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>
