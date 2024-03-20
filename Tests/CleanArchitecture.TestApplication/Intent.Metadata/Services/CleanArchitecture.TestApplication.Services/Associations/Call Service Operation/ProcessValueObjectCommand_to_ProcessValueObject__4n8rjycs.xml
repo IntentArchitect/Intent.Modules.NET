@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fee85743-da35-4a22-b695-5cc414341207">
+  <sourceEnd id="7861e2f7-16f7-485e-a203-ab07fdbec0b2" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : DomainServices.ProcessValueObjectCommand</display>
+    <order>0</order>
+    <typeReference id="40fd33e7-fbeb-41b1-ab2f-38830d24af8f">
+      <typeId>c230e1f0-639a-4e17-bb05-669c91598031</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fee85743-da35-4a22-b695-5cc414341207" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : ProcessValueObject(...): null</display>
+    <order>2</order>
+    <typeReference id="5383fab5-8095-4b5e-ad40-7e0fd31d093a">
+      <typeId>1c1f101c-bc94-40d7-afb1-7c01ebf25caf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c230e1f0-639a-4e17-bb05-669c91598031" location="[CleanArchitecture.TestApplication].[Services].[ProcessValueObjectCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1c1f101c-bc94-40d7-afb1-7c01ebf25caf" location="[CleanArchitecture.TestApplication].[Services].[ProcessValueObject]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ProcessValueObjectCommand}</expression>
+            <path>
+              <target id="1c1f101c-bc94-40d7-afb1-7c01ebf25caf" name="ProcessValueObject" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ProcessValueObjectCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="c230e1f0-639a-4e17-bb05-669c91598031" name="ProcessValueObjectCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="1c1f101c-bc94-40d7-afb1-7c01ebf25caf" name="ProcessValueObject" type="element" specialization="Operation" />
+              <target id="12983af2-049f-4d3a-99a5-9f12e5c73cc4" name="vo" type="element" specialization="Parameter" />
+              <target id="e7a6d0a4-659d-4629-a0e6-b0af62fdc2c2" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c230e1f0-639a-4e17-bb05-669c91598031" name="ProcessValueObjectCommand" type="element" specialization="Command" />
+                  <target id="5df99fff-b1f6-4bb1-98c2-9c639f613a2e" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Currency}</expression>
+            <path>
+              <target id="1c1f101c-bc94-40d7-afb1-7c01ebf25caf" name="ProcessValueObject" type="element" specialization="Operation" />
+              <target id="12983af2-049f-4d3a-99a5-9f12e5c73cc4" name="vo" type="element" specialization="Parameter" />
+              <target id="305f679e-5aa0-4b14-8401-38aaea5fdee8" name="Currency" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Currency" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c230e1f0-639a-4e17-bb05-669c91598031" name="ProcessValueObjectCommand" type="element" specialization="Command" />
+                  <target id="aa6e266c-bb13-40ab-8745-ecd9f79fa99d" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

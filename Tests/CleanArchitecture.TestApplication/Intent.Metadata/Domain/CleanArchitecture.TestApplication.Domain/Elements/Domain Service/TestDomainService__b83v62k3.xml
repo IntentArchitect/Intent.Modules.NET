@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7aba7b94-06cd-43ab-9448-c12663e40298" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>TestDomainService</name>
+  <display>TestDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>58769d62-aaf4-422c-9e2c-cb97dfa7fa8a</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="05fec351-fe1a-4cc6-b872-bcf7fb33f700" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ProcessEntity</name>
+      <display>ProcessEntity(entity: ConcreteEntityA): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f26d8fe0-8673-48c6-942f-a4a070c5c280">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7aba7b94-06cd-43ab-9448-c12663e40298</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d9eebd28-7627-41e4-9a9e-85b222cdf37d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entity</name>
+          <display>in : entity: ConcreteEntityA</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="29d4c1d7-a061-4bbe-a983-e63c0b79adc4">
+            <typeId>41a42e8f-4098-4033-82f9-0a09569b7572</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05fec351-fe1a-4cc6-b872-bcf7fb33f700</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c9034d54-b628-4128-bd90-734015e405b1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ProcessContract</name>
+      <display>ProcessContract(obj: PassthroughObj): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="7113e55a-2de1-4372-82f4-2a07b90e3788">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7aba7b94-06cd-43ab-9448-c12663e40298</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e177b9e6-a167-423b-bc8e-74f491904381" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>obj</name>
+          <display>in : obj: PassthroughObj</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6bcd8f02-944a-4671-9491-ab996ea03605">
+            <typeId>6acba22a-2540-4aea-aba9-9c586b8b415a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c9034d54-b628-4128-bd90-734015e405b1</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1c1f101c-bc94-40d7-afb1-7c01ebf25caf" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ProcessValueObject</name>
+      <display>ProcessValueObject(vo: MoneyVO): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3594e9d2-832d-4903-846a-120235aac56d">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7aba7b94-06cd-43ab-9448-c12663e40298</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="12983af2-049f-4d3a-99a5-9f12e5c73cc4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>vo</name>
+          <display>in : vo: MoneyVO</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="92f63160-f07c-4433-b8e8-0fcc1636b29c">
+            <typeId>84915d96-9c56-4c4b-a5ff-4580e1dc8a5a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1c1f101c-bc94-40d7-afb1-7c01ebf25caf</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

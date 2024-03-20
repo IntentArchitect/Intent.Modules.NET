@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c3631082-f9c3-4fb1-8719-eb28577ce022">
+  <sourceEnd id="ff935af8-39a1-47fa-b8ad-119b6d02d302" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: ConcreteEntityB</display>
+    <order>0</order>
+    <typeReference id="c681e344-fa30-47f4-9212-979e9e52bd5f">
+      <typeId>66f7a006-43b0-4d24-a648-2a0d8a51d446</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c3631082-f9c3-4fb1-8719-eb28577ce022" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends BaseEntityB</display>
+    <order>0</order>
+    <typeReference id="5ffbf463-86e9-43f7-8c97-ec5d36026962">
+      <typeId>1a51984c-71f6-421b-a4a6-3586a6a4722f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

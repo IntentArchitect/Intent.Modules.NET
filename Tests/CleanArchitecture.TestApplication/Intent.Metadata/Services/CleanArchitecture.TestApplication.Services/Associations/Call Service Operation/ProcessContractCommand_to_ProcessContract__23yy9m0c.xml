@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1016ca1e-ea29-4016-bd5a-0d81173556b1">
+  <sourceEnd id="e6738b68-6ecb-46bb-80fc-4cf88ac4b6ec" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : DomainServices.ProcessContractCommand</display>
+    <order>0</order>
+    <typeReference id="a59fecb0-d11d-4486-a64a-5b129817ce62">
+      <typeId>b8abae62-0dc3-4d44-92ff-ac7013fadf41</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1016ca1e-ea29-4016-bd5a-0d81173556b1" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : ProcessContract(...): null</display>
+    <order>1</order>
+    <typeReference id="9340887a-dc3e-427c-8c62-cb0771a65620">
+      <typeId>c9034d54-b628-4128-bd90-734015e405b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b8abae62-0dc3-4d44-92ff-ac7013fadf41" location="[CleanArchitecture.TestApplication].[Services].[ProcessContractCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c9034d54-b628-4128-bd90-734015e405b1" location="[CleanArchitecture.TestApplication].[Services].[ProcessContract]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ProcessContractCommand}</expression>
+            <path>
+              <target id="c9034d54-b628-4128-bd90-734015e405b1" name="ProcessContract" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ProcessContractCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="b8abae62-0dc3-4d44-92ff-ac7013fadf41" name="ProcessContractCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ConcreteAttr}</expression>
+            <path>
+              <target id="c9034d54-b628-4128-bd90-734015e405b1" name="ProcessContract" type="element" specialization="Operation" />
+              <target id="e177b9e6-a167-423b-bc8e-74f491904381" name="obj" type="element" specialization="Parameter" />
+              <target id="59449caa-eb1f-4e08-b51a-58a6cf047a59" name="ConcreteAttr" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ConcreteAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="b8abae62-0dc3-4d44-92ff-ac7013fadf41" name="ProcessContractCommand" type="element" specialization="Command" />
+                  <target id="0d7ec08f-058b-4a29-aff6-155c60623b94" name="ConcreteAttr" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

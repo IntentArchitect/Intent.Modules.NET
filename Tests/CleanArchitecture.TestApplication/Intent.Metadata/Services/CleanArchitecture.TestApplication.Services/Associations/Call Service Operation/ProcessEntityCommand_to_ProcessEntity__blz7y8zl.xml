@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4d03f404-2164-4bf2-b0de-24f003e66a41">
+  <sourceEnd id="7ec8acfd-4d3b-4c1f-9d42-3e361fd93787" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : DomainServices.ProcessEntityCommand</display>
+    <order>0</order>
+    <typeReference id="adc504e1-f508-4743-8856-b5853d07ad94">
+      <typeId>ed79933d-a418-4bda-8707-ba7018084821</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4d03f404-2164-4bf2-b0de-24f003e66a41" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : ProcessEntity(...): null</display>
+    <order>2</order>
+    <typeReference id="4b0d9e33-a251-4809-bc3e-1826fdfef11b">
+      <typeId>05fec351-fe1a-4cc6-b872-bcf7fb33f700</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ed79933d-a418-4bda-8707-ba7018084821" location="[CleanArchitecture.TestApplication].[Services].[ProcessEntityCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="05fec351-fe1a-4cc6-b872-bcf7fb33f700" location="[CleanArchitecture.TestApplication].[Services].[ProcessEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ProcessEntityCommand}</expression>
+            <path>
+              <target id="05fec351-fe1a-4cc6-b872-bcf7fb33f700" name="ProcessEntity" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ProcessEntityCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="ed79933d-a418-4bda-8707-ba7018084821" name="ProcessEntityCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ConcreteAttr}</expression>
+            <path>
+              <target id="05fec351-fe1a-4cc6-b872-bcf7fb33f700" name="ProcessEntity" type="element" specialization="Operation" />
+              <target id="d9eebd28-7627-41e4-9a9e-85b222cdf37d" name="entity" type="element" specialization="Parameter" />
+              <target id="adb465c9-94b1-4e12-86ed-c27ae57abef4" name="ConcreteAttr" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ConcreteAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="ed79933d-a418-4bda-8707-ba7018084821" name="ProcessEntityCommand" type="element" specialization="Command" />
+                  <target id="6c3cf73b-9618-4447-960b-a1475cebd4f7" name="ConcreteAttr" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BaseAttr}</expression>
+            <path>
+              <target id="05fec351-fe1a-4cc6-b872-bcf7fb33f700" name="ProcessEntity" type="element" specialization="Operation" />
+              <target id="d9eebd28-7627-41e4-9a9e-85b222cdf37d" name="entity" type="element" specialization="Parameter" />
+              <target id="1b2ab641-3e5c-47dc-9f99-f2a142d3967e" name="base" type="association" specialization="Generalization Target End" />
+              <target id="225cbc64-3cd9-4aee-a8da-5d6ecce7a54e" name="BaseAttr" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="BaseAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="ed79933d-a418-4bda-8707-ba7018084821" name="ProcessEntityCommand" type="element" specialization="Command" />
+                  <target id="6a5aad05-6aea-4518-962d-676ea95c9718" name="BaseAttr" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

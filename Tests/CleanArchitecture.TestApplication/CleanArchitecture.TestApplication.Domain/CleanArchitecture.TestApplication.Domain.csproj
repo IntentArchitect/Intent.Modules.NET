@@ -9,4 +9,8 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\DomainServices\" />
+  </ItemGroup>
+
 </Project>
