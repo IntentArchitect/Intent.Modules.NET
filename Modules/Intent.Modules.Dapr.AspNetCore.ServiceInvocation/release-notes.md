@@ -1,4 +1,8 @@
-﻿### Version 2.2.1
+﻿### Version 2.2.2
+
+- Improvement: Added support for Dapr Http Client URL configuration.
+
+### Version 2.2.1
 
 - Improvement: File transfer ( upload / download ) support.
 - Improvement: Improved internal processes for working with Service Proxies.

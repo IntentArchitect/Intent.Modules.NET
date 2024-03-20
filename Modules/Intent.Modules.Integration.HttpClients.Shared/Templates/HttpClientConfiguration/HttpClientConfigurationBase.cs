@@ -76,7 +76,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                                             var options = (CSharpLambdaBlock)a;
                                             configureHttpClient(options, proxy, this);
                                         }).WithoutSemicolon());
-                            });                                        
+                            });
                         }
                     });
                 });        
