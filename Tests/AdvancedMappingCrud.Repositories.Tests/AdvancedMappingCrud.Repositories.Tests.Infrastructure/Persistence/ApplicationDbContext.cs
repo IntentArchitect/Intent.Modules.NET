@@ -6,8 +6,10 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +39,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<ClassicDomainServiceTest> ClassicDomainServiceTests { get; set; }
         public DbSet<DomainServiceTest> DomainServiceTests { get; set; }
+        public DbSet<BaseEntityA> BaseEntityAs { get; set; }
+        public DbSet<BaseEntityB> BaseEntityBs { get; set; }
+        public DbSet<ConcreteEntityA> ConcreteEntityAs { get; set; }
+        public DbSet<ConcreteEntityB> ConcreteEntityBs { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -68,6 +74,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ClassicDomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new DomainServiceTestConfiguration());
+            modelBuilder.ApplyConfiguration(new BaseEntityAConfiguration());
+            modelBuilder.ApplyConfiguration(new BaseEntityBConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteEntityAConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteEntityBConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

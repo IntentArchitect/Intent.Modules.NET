@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="68f8b7f9-7f00-471d-ab0d-66f76f56387b">
+  <sourceEnd id="213c9b2a-8b24-49fe-8ce6-4a1c6daf42a8" type="Data Contract Generalization Source End" typeId="12c2ffdc-9a54-4e99-9e09-a441fa260bef">
+    <display>: PassthroughObj</display>
+    <order>0</order>
+    <typeReference id="a0e84566-f0a8-41f4-8ad7-2a591f4fe8ab">
+      <typeId>28d279ea-b911-4229-811d-f8d3faf1d107</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="68f8b7f9-7f00-471d-ab0d-66f76f56387b" type="Data Contract Generalization Target End" typeId="4ea029c6-e963-46c7-8d2f-e4ea73e05a07">
+    <name>base</name>
+    <display>extends PassthroughBaseObj</display>
+    <order>0</order>
+    <typeReference id="282d03c4-0512-4e8c-a7d8-bfba36de4f6c">
+      <typeId>6f46df34-cc95-4392-a927-600555ccc32f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Data Contract Generalization</associationType>
+  <associationTypeId>4199ae15-0ecc-4086-82f3-bfa885c9d3e8</associationTypeId>
+  <stereotypes />
+</association>

@@ -10,7 +10,6 @@ using CleanArchitecture.TestApplication.Domain.Services;
 using CleanArchitecture.TestApplication.Domain.Services.Async;
 using CleanArchitecture.TestApplication.Domain.Services.DDD;
 using CleanArchitecture.TestApplication.Domain.Services.DefaultDiagram;
-using CleanArchitecture.TestApplication.Domain.Services.DomainServices;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -44,7 +43,6 @@ namespace CleanArchitecture.TestApplication.Application
             services.AddTransient<IAccountingDomainService, AccountingDomainService>();
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
-            services.AddTransient<ITestDomainService, TestDomainService>();
             services.AddTransient<ICommentTestService, CommentTestService>();
             services.AddTransient<IServiceDispatchService, ServiceDispatchService>();
             return services;

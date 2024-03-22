@@ -12,7 +12,6 @@ using CleanArchitecture.TestApplication.Domain.Entities.ConventionBasedEventPubl
 using CleanArchitecture.TestApplication.Domain.Entities.CRUD;
 using CleanArchitecture.TestApplication.Domain.Entities.DDD;
 using CleanArchitecture.TestApplication.Domain.Entities.DefaultDiagram;
-using CleanArchitecture.TestApplication.Domain.Entities.DomainServices;
 using CleanArchitecture.TestApplication.Domain.Entities.Enums;
 using CleanArchitecture.TestApplication.Domain.Entities.General;
 using CleanArchitecture.TestApplication.Domain.Entities.Inheritance;
@@ -30,7 +29,6 @@ using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configuration
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DefaultDiagram;
-using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.DomainServices;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.General;
 using CleanArchitecture.TestApplication.Infrastructure.Persistence.Configurations.Inheritance;
@@ -77,10 +75,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<Domain.Entities.BugFixes.Task> Tasks { get; set; }
         public DbSet<IntegrationTriggering> IntegrationTriggerings { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
-        public DbSet<BaseEntityA> BaseEntityAs { get; set; }
-        public DbSet<BaseEntityB> BaseEntityBs { get; set; }
-        public DbSet<ConcreteEntityA> ConcreteEntityAs { get; set; }
-        public DbSet<ConcreteEntityB> ConcreteEntityBs { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
         public DbSet<CustomMapping> CustomMappings { get; set; }
         public DbSet<BaseClass> BaseClasses { get; set; }
@@ -142,10 +136,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
-            modelBuilder.ApplyConfiguration(new BaseEntityAConfiguration());
-            modelBuilder.ApplyConfiguration(new BaseEntityBConfiguration());
-            modelBuilder.ApplyConfiguration(new ConcreteEntityAConfiguration());
-            modelBuilder.ApplyConfiguration(new ConcreteEntityBConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new CustomMappingConfiguration());
             modelBuilder.ApplyConfiguration(new BaseClassConfiguration());

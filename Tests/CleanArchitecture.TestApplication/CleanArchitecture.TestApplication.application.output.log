@@ -5971,22 +5971,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dbe409ec-7ee3-4862-a375-d383c2224419</ProjectId>
-      <CorrelationId>Intent.Entities.DataContract#049413c9-3ad2-48b6-9bf2-884443c74cb3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Contracts/DomainServices/PassthroughBaseObj.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/PassthroughBaseObj.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dbe409ec-7ee3-4862-a375-d383c2224419</ProjectId>
-      <CorrelationId>Intent.Entities.DataContract#6acba22a-2540-4aea-aba9-9c586b8b415a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Contracts/DomainServices/PassthroughObj.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/PassthroughObj.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c52e41d4-d2e2-492c-8f52-d8f26d532ff8</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#38b31ac4-df9d-40c8-a277-a20c8c8955b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -6000,14 +5984,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/DDD/Money.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DDD/Money.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c52e41d4-d2e2-492c-8f52-d8f26d532ff8</ProjectId>
-      <CorrelationId>Intent.ValueObjects.ValueObject#84915d96-9c56-4c4b-a5ff-4580e1dc8a5a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/DomainServices/MoneyVO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/MoneyVO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6208,38 +6184,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DefaultDiagram/ClassWithDefault.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefault.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#c3a91c66-8df5-4aae-9ae9-9c76c7bb823e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DomainServices/BaseEntityA.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityA.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#1a51984c-71f6-421b-a4a6-3586a6a4722f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DomainServices/BaseEntityB.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityB.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#41a42e8f-4098-4033-82f9-0a09569b7572</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DomainServices/ConcreteEntityA.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityA.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#66f7a006-43b0-4d24-a648-2a0d8a51d446</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/DomainServices/ConcreteEntityB.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityB.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6564,38 +6508,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#c3a91c66-8df5-4aae-9ae9-9c76c7bb823e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DomainServices/IBaseEntityARepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/IBaseEntityARepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#1a51984c-71f6-421b-a4a6-3586a6a4722f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DomainServices/IBaseEntityBRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/IBaseEntityBRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#41a42e8f-4098-4033-82f9-0a09569b7572</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DomainServices/IConcreteEntityARepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/IConcreteEntityARepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#66f7a006-43b0-4d24-a648-2a0d8a51d446</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/DomainServices/IConcreteEntityBRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/IConcreteEntityBRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Enums/IClassWithEnumsRepository.cs</ApplicationRelativeFilePath>
@@ -6792,22 +6704,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DefaultDiagram/IDomainServiceWithDefault.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/IDomainServiceWithDefault.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
-      <CorrelationId>Intent.DomainServices.DomainServiceInterface#7aba7b94-06cd-43ab-9448-c12663e40298</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DomainServices/ITestDomainService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ITestDomainService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ce16d169-b912-49ae-9d9c-5ad9e24915e6</ProjectId>
-      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#7aba7b94-06cd-43ab-9448-c12663e40298</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Services/DomainServices/TestDomainService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/TestDomainService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7108,38 +7004,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c3a91c66-8df5-4aae-9ae9-9c76c7bb823e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DomainServices/BaseEntityAConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityAConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1a51984c-71f6-421b-a4a6-3586a6a4722f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DomainServices/BaseEntityBConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityBConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#41a42e8f-4098-4033-82f9-0a09569b7572</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DomainServices/ConcreteEntityAConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityAConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#66f7a006-43b0-4d24-a648-2a0d8a51d446</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/DomainServices/ConcreteEntityBConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityBConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#46bc5b02-6490-4518-a755-fe0f8b237402</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/Enums/ClassWithEnumsConfiguration.cs</ApplicationRelativeFilePath>
@@ -7384,38 +7248,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DefaultDiagram/ClassWithDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultDiagram/ClassWithDefaultRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#c3a91c66-8df5-4aae-9ae9-9c76c7bb823e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DomainServices/BaseEntityARepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityARepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#1a51984c-71f6-421b-a4a6-3586a6a4722f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DomainServices/BaseEntityBRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/BaseEntityBRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#41a42e8f-4098-4033-82f9-0a09569b7572</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DomainServices/ConcreteEntityARepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityARepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#66f7a006-43b0-4d24-a648-2a0d8a51d446</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/DomainServices/ConcreteEntityBRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainServices/ConcreteEntityBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

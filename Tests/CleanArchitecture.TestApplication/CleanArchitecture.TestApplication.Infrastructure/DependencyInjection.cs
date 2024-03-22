@@ -12,7 +12,6 @@ using CleanArchitecture.TestApplication.Domain.Repositories.ConventionBasedEvent
 using CleanArchitecture.TestApplication.Domain.Repositories.CRUD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DDD;
 using CleanArchitecture.TestApplication.Domain.Repositories.DefaultDiagram;
-using CleanArchitecture.TestApplication.Domain.Repositories.DomainServices;
 using CleanArchitecture.TestApplication.Domain.Repositories.Enums;
 using CleanArchitecture.TestApplication.Domain.Repositories.General;
 using CleanArchitecture.TestApplication.Domain.Repositories.Inheritance;
@@ -33,7 +32,6 @@ using CleanArchitecture.TestApplication.Infrastructure.Repositories.ConventionBa
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.CRUD;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.DDD;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.DefaultDiagram;
-using CleanArchitecture.TestApplication.Infrastructure.Repositories.DomainServices;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Enums;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.General;
 using CleanArchitecture.TestApplication.Infrastructure.Repositories.Inheritance;
@@ -81,10 +79,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddTransient<IClassWithDefaultRepository, ClassWithDefaultRepository>();
-            services.AddTransient<IBaseEntityARepository, BaseEntityARepository>();
-            services.AddTransient<IBaseEntityBRepository, BaseEntityBRepository>();
-            services.AddTransient<IConcreteEntityARepository, ConcreteEntityARepository>();
-            services.AddTransient<IConcreteEntityBRepository, ConcreteEntityBRepository>();
             services.AddTransient<IClassWithEnumsRepository, ClassWithEnumsRepository>();
             services.AddTransient<ICustomMappingRepository, CustomMappingRepository>();
             services.AddTransient<IBaseClassRepository, BaseClassRepository>();

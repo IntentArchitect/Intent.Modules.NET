@@ -58,7 +58,7 @@
             <path>
               <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
               <target id="c0ec52b3-8a6a-4b04-8477-2ac6028179bc" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="c1bbcc67-fd1b-42e3-9329-dd133277916d" name="name" type="element" specialization="Parameter" />
+              <target id="da66f0e4-d8c1-4dd2-9062-851d975140e6" name="name" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -74,7 +74,7 @@
             <path>
               <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
               <target id="c0ec52b3-8a6a-4b04-8477-2ac6028179bc" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="40cae955-7181-4402-9617-05d9fbb92cf9" name="surname" type="element" specialization="Parameter" />
+              <target id="ea7ae966-4365-4876-a544-6feb211a9586" name="surname" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -90,7 +90,7 @@
             <path>
               <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
               <target id="c0ec52b3-8a6a-4b04-8477-2ac6028179bc" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="3e011845-d358-4b0f-9ddc-5c5645aa5020" name="email" type="element" specialization="Parameter" />
+              <target id="5ab15507-4636-434e-b997-c087361b5205" name="email" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="Email" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -106,7 +106,7 @@
             <path>
               <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
               <target id="c0ec52b3-8a6a-4b04-8477-2ac6028179bc" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="030e886b-6f33-4445-921d-227018e7abe2" name="quoteId" type="element" specialization="Parameter" />
+              <target id="1abb2b38-e7be-486e-ae18-45eb7426de68" name="quoteId" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="QuoteId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">

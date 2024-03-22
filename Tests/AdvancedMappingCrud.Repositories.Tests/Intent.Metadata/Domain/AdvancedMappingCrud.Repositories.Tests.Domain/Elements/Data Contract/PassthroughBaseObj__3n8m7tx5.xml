@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6f46df34-cc95-4392-a927-600555ccc32f" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>PassthroughBaseObj</name>
+  <display>PassthroughBaseObj</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7df15663-b2c4-4759-9052-ff2ae9906531</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ebbe697d-7d67-4ace-8d4c-7859275caefa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>BaseAttr</name>
+      <display>BaseAttr: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4cd5642c-34f7-4ade-8b31-ef5553ee2034">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6f46df34-cc95-4392-a927-600555ccc32f</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
