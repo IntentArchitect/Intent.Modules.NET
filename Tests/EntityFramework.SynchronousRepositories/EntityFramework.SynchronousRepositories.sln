@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{EF420D81-3AFD-443F-A554-BCAA5ECB00C2}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFramework.SynchronousRepositories.Api", "EntityFramework.SynchronousRepositories.Api\EntityFramework.SynchronousRepositories.Api.csproj", "{285EAEE2-0667-405A-B5E7-F7317BF7E4EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.SynchronousRepositories.Api", "EntityFramework.SynchronousRepositories.Api\EntityFramework.SynchronousRepositories.Api.csproj", "{285EAEE2-0667-405A-B5E7-F7317BF7E4EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{56251F7A-4945-49B6-A64E-3DC2985D7D79}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFramework.SynchronousRepositories.Application", "EntityFramework.SynchronousRepositories.Application\EntityFramework.SynchronousRepositories.Application.csproj", "{C466B58B-E303-4DD4-AA75-A5AF837AAF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.SynchronousRepositories.Application", "EntityFramework.SynchronousRepositories.Application\EntityFramework.SynchronousRepositories.Application.csproj", "{C466B58B-E303-4DD4-AA75-A5AF837AAF7A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{8A8A4ADD-9A7D-4DFD-A823-BE0780518DBF}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFramework.SynchronousRepositories.Domain", "EntityFramework.SynchronousRepositories.Domain\EntityFramework.SynchronousRepositories.Domain.csproj", "{7A289763-D956-4E6D-9929-CE4D563288A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.SynchronousRepositories.Domain", "EntityFramework.SynchronousRepositories.Domain\EntityFramework.SynchronousRepositories.Domain.csproj", "{7A289763-D956-4E6D-9929-CE4D563288A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{B578DDED-D3C7-4506-B7E7-09A1DF4C8DAA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFramework.SynchronousRepositories.Infrastructure", "EntityFramework.SynchronousRepositories.Infrastructure\EntityFramework.SynchronousRepositories.Infrastructure.csproj", "{1713E47C-03CF-4B7D-B29E-93DADA666F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.SynchronousRepositories.Infrastructure", "EntityFramework.SynchronousRepositories.Infrastructure\EntityFramework.SynchronousRepositories.Infrastructure.csproj", "{1713E47C-03CF-4B7D-B29E-93DADA666F65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

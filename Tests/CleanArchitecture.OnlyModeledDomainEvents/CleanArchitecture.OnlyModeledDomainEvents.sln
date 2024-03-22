@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{75C130AD-02A0-4778-842B-98AB007323EF}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.OnlyModeledDomainEvents.Api", "CleanArchitecture.OnlyModeledDomainEvents.Api\CleanArchitecture.OnlyModeledDomainEvents.Api.csproj", "{66ADA38C-0C1E-4CF2-9D83-6B9B49DBA031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.OnlyModeledDomainEvents.Api", "CleanArchitecture.OnlyModeledDomainEvents.Api\CleanArchitecture.OnlyModeledDomainEvents.Api.csproj", "{66ADA38C-0C1E-4CF2-9D83-6B9B49DBA031}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EA6FE53B-44C4-48AB-907D-7C46D0564909}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.OnlyModeledDomainEvents.Application", "CleanArchitecture.OnlyModeledDomainEvents.Application\CleanArchitecture.OnlyModeledDomainEvents.Application.csproj", "{92DE15CC-9B5D-4CCF-A146-ED2264A003E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.OnlyModeledDomainEvents.Application", "CleanArchitecture.OnlyModeledDomainEvents.Application\CleanArchitecture.OnlyModeledDomainEvents.Application.csproj", "{92DE15CC-9B5D-4CCF-A146-ED2264A003E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{4208CA6E-34EE-4B4D-A051-08818798AEEF}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.OnlyModeledDomainEvents.Domain", "CleanArchitecture.OnlyModeledDomainEvents.Domain\CleanArchitecture.OnlyModeledDomainEvents.Domain.csproj", "{DBD1894E-BDEE-4802-8443-4A98B970827D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.OnlyModeledDomainEvents.Domain", "CleanArchitecture.OnlyModeledDomainEvents.Domain\CleanArchitecture.OnlyModeledDomainEvents.Domain.csproj", "{DBD1894E-BDEE-4802-8443-4A98B970827D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0F0A8603-0084-4710-8FED-313930AAAF83}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.OnlyModeledDomainEvents.Infrastructure", "CleanArchitecture.OnlyModeledDomainEvents.Infrastructure\CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.csproj", "{68EB7A68-637E-41A5-8947-D84EE8A46C94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.OnlyModeledDomainEvents.Infrastructure", "CleanArchitecture.OnlyModeledDomainEvents.Infrastructure\CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.csproj", "{68EB7A68-637E-41A5-8947-D84EE8A46C94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

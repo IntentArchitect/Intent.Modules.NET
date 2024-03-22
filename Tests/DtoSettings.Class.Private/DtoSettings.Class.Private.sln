@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5B2ED47B-E7B2-413E-8D8A-E069AF6EA54A}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "DtoSettings.Class.Private.Api", "DtoSettings.Class.Private.Api\DtoSettings.Class.Private.Api.csproj", "{CABCB58C-5DEB-41D6-BE66-D99CC7F2B3EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Private.Api", "DtoSettings.Class.Private.Api\DtoSettings.Class.Private.Api.csproj", "{CABCB58C-5DEB-41D6-BE66-D99CC7F2B3EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3946BF21-9764-4FD5-AEF8-5CB4F68BCB78}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Private.Application", "DtoSettings.Class.Private.Application\DtoSettings.Class.Private.Application.csproj", "{93359EFB-D807-4A3C-BFC0-71FB72589163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Private.Application", "DtoSettings.Class.Private.Application\DtoSettings.Class.Private.Application.csproj", "{93359EFB-D807-4A3C-BFC0-71FB72589163}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{8E965246-A680-4EF6-BA8E-F44BF658CBEE}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Private.Domain", "DtoSettings.Class.Private.Domain\DtoSettings.Class.Private.Domain.csproj", "{C7454744-44E0-4B29-96F3-93D59A63B53A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Private.Domain", "DtoSettings.Class.Private.Domain\DtoSettings.Class.Private.Domain.csproj", "{C7454744-44E0-4B29-96F3-93D59A63B53A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7C026222-4E16-482D-BB5D-13C732101EC6}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Private.Infrastructure", "DtoSettings.Class.Private.Infrastructure\DtoSettings.Class.Private.Infrastructure.csproj", "{4F74E113-152E-4022-AF4F-CB939EBD5FF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Private.Infrastructure", "DtoSettings.Class.Private.Infrastructure\DtoSettings.Class.Private.Infrastructure.csproj", "{4F74E113-152E-4022-AF4F-CB939EBD5FF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

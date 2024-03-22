@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14bb1112-cfb0-43a4-b91d-ba28c73bd603" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Tests</name>
+  <display>Tests</display>
+  <externalReference>2173c93e-11d2-4750-99c2-2f5a83dd35b9</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</parentFolderId>
+  <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="e3f33a20-24d7-4135-8838-a625839a0663" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</name>
+      <display>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</parentFolderId>
+      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ed60b2ed-a0b0-4659-82e7-05db6467c7c6" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>IntegrationTests.Tests</name>
+      <display>IntegrationTests.Tests</display>
+      <externalReference>219e8b45-a2a8-48a5-aeb9-a3c77eeb64a7</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</parentFolderId>
+      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

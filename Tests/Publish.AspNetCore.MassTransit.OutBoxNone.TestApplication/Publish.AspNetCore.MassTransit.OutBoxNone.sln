@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{7518A12F-55A9-40D6-85D0-157680BCE6DB}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Api", "Publish.AspNetCore.MassTransit.OutBoxNone.Api\Publish.AspNetCore.MassTransit.OutBoxNone.Api.csproj", "{50C0899E-3A40-4155-8C23-74201C8E8139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Api", "Publish.AspNetCore.MassTransit.OutBoxNone.Api\Publish.AspNetCore.MassTransit.OutBoxNone.Api.csproj", "{50C0899E-3A40-4155-8C23-74201C8E8139}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{E6616BD4-2497-4D10-B541-E8700079CCA4}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Application", "Publish.AspNetCore.MassTransit.OutBoxNone.Application\Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj", "{1CAB6970-9672-43E7-80E3-BA2D1E954E0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Application", "Publish.AspNetCore.MassTransit.OutBoxNone.Application\Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj", "{1CAB6970-9672-43E7-80E3-BA2D1E954E0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{95580302-AE97-42B1-94F3-5B93F0A1093C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Domain", "Publish.AspNetCore.MassTransit.OutBoxNone.Domain\Publish.AspNetCore.MassTransit.OutBoxNone.Domain.csproj", "{49D3EBC7-0FD4-438F-A3EB-DA65C44CC05A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Domain", "Publish.AspNetCore.MassTransit.OutBoxNone.Domain\Publish.AspNetCore.MassTransit.OutBoxNone.Domain.csproj", "{49D3EBC7-0FD4-438F-A3EB-DA65C44CC05A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{52698CCB-085A-4C56-B7BB-D4115541D5DA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure", "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure\Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj", "{643B219A-A2EB-4625-8C8D-81DF3B881C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure", "Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure\Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj", "{643B219A-A2EB-4625-8C8D-81DF3B881C74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

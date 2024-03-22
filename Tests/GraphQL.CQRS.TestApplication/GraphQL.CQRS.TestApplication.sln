@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{26EBFB1E-019B-4FA2-9E08-98B15FB9A285}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "GraphQL.CQRS.TestApplication.Api", "GraphQL.CQRS.TestApplication.Api\GraphQL.CQRS.TestApplication.Api.csproj", "{11F87224-18C0-4EB4-96E5-4AA332934F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.CQRS.TestApplication.Api", "GraphQL.CQRS.TestApplication.Api\GraphQL.CQRS.TestApplication.Api.csproj", "{11F87224-18C0-4EB4-96E5-4AA332934F70}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A0BC2951-A672-410B-A33A-0FCF984CF4A5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.CQRS.TestApplication.Application", "GraphQL.CQRS.TestApplication.Application\GraphQL.CQRS.TestApplication.Application.csproj", "{21B05F5F-F434-477A-98B4-A911CFEAD889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.CQRS.TestApplication.Application", "GraphQL.CQRS.TestApplication.Application\GraphQL.CQRS.TestApplication.Application.csproj", "{21B05F5F-F434-477A-98B4-A911CFEAD889}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F600D04E-2DB0-4E40-AE50-028B9155BB1B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.CQRS.TestApplication.Domain", "GraphQL.CQRS.TestApplication.Domain\GraphQL.CQRS.TestApplication.Domain.csproj", "{0074D2B0-7AC9-42C4-9F32-6D181341A6DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.CQRS.TestApplication.Domain", "GraphQL.CQRS.TestApplication.Domain\GraphQL.CQRS.TestApplication.Domain.csproj", "{0074D2B0-7AC9-42C4-9F32-6D181341A6DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{170C5C6D-5DAB-465C-8783-B0DA084C23C0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "GraphQL.CQRS.TestApplication.Infrastructure", "GraphQL.CQRS.TestApplication.Infrastructure\GraphQL.CQRS.TestApplication.Infrastructure.csproj", "{3FB81F71-9CE2-463D-B586-C4026E6D58D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.CQRS.TestApplication.Infrastructure", "GraphQL.CQRS.TestApplication.Infrastructure\GraphQL.CQRS.TestApplication.Infrastructure.csproj", "{3FB81F71-9CE2-463D-B586-C4026E6D58D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

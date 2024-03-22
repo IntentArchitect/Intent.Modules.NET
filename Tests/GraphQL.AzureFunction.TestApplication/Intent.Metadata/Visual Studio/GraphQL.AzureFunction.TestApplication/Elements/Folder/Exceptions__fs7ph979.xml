@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a8a86ac7-7e46-4af9-8f86-4f19bea97ae4</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

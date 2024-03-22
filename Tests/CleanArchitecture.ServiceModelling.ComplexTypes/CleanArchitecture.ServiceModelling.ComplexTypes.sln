@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{6A72AC9B-C7B1-4C3E-9184-3DD00BBE0CE3}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Api", "CleanArchitecture.ServiceModelling.ComplexTypes.Api\CleanArchitecture.ServiceModelling.ComplexTypes.Api.csproj", "{B0429A7C-1B1D-4021-A40D-1C19C581225C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Api", "CleanArchitecture.ServiceModelling.ComplexTypes.Api\CleanArchitecture.ServiceModelling.ComplexTypes.Api.csproj", "{B0429A7C-1B1D-4021-A40D-1C19C581225C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{78D7CD2E-411A-46F5-953C-0FA84407A921}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Application", "CleanArchitecture.ServiceModelling.ComplexTypes.Application\CleanArchitecture.ServiceModelling.ComplexTypes.Application.csproj", "{EBBC2452-3082-4897-8067-36E2DCEC0731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Application", "CleanArchitecture.ServiceModelling.ComplexTypes.Application\CleanArchitecture.ServiceModelling.ComplexTypes.Application.csproj", "{EBBC2452-3082-4897-8067-36E2DCEC0731}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{96B96B38-1E6D-4106-BD03-F853C493A830}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Domain", "CleanArchitecture.ServiceModelling.ComplexTypes.Domain\CleanArchitecture.ServiceModelling.ComplexTypes.Domain.csproj", "{DE96D7B3-EA0A-431C-810C-F3A85FB4789B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Domain", "CleanArchitecture.ServiceModelling.ComplexTypes.Domain\CleanArchitecture.ServiceModelling.ComplexTypes.Domain.csproj", "{DE96D7B3-EA0A-431C-810C-F3A85FB4789B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{535C8A2F-620B-4791-85C0-4E88010EE69B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure", "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure\CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj", "{9DC8C190-797F-42D4-8315-7AEDC4A3C1A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure", "CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure\CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj", "{9DC8C190-797F-42D4-8315-7AEDC4A3C1A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

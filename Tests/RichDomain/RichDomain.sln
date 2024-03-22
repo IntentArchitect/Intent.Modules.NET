@@ -4,23 +4,23 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F2532D0A-70D3-4CA7-99DB-2CF059235177}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "RichDomain.Api", "RichDomain.Api\RichDomain.Api.csproj", "{964CC32C-A63A-4FAC-8A08-F440BFEE912B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RichDomain.Api", "RichDomain.Api\RichDomain.Api.csproj", "{964CC32C-A63A-4FAC-8A08-F440BFEE912B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2AC1FA66-493D-403F-BA04-2A4C25004159}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "RichDomain.Application", "RichDomain.Application\RichDomain.Application.csproj", "{7523B3AA-AB87-45FE-ADC9-365F5B100829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RichDomain.Application", "RichDomain.Application\RichDomain.Application.csproj", "{7523B3AA-AB87-45FE-ADC9-365F5B100829}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{DDAA94C0-F1CC-4735-AC48-60784DD0E462}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "RichDomain.Domain", "RichDomain.Domain\RichDomain.Domain.csproj", "{003E9A3F-0F5C-4539-BAD0-E0FD72F11EDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RichDomain.Domain", "RichDomain.Domain\RichDomain.Domain.csproj", "{003E9A3F-0F5C-4539-BAD0-E0FD72F11EDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{42290797-AC44-4AF5-B33F-B34052E2B111}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "RichDomain.Infrastructure", "RichDomain.Infrastructure\RichDomain.Infrastructure.csproj", "{49BE393A-10A7-41C1-BEF6-BCB2A646AF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RichDomain.Infrastructure", "RichDomain.Infrastructure\RichDomain.Infrastructure.csproj", "{49BE393A-10A7-41C1-BEF6-BCB2A646AF31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{740CA3A6-786F-4476-9B4B-A847A9563AC8}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "RichDomain.Application.Tests", "RichDomain.Application.Tests\RichDomain.Application.Tests.csproj", "{327FE658-FE48-4C00-85CE-3EDAFAB98268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RichDomain.Application.Tests", "RichDomain.Application.Tests\RichDomain.Application.Tests.csproj", "{327FE658-FE48-4C00-85CE-3EDAFAB98268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

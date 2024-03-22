@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{FCBFCAB4-E5D0-499B-BABC-8C907A1CCA8A}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Application.Identity.MSAL.TestApplication.Api", "Application.Identity.MSAL.TestApplication.Api\Application.Identity.MSAL.TestApplication.Api.csproj", "{768525A0-B0D4-4197-B873-ED24F0E3CFE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.MSAL.TestApplication.Api", "Application.Identity.MSAL.TestApplication.Api\Application.Identity.MSAL.TestApplication.Api.csproj", "{768525A0-B0D4-4197-B873-ED24F0E3CFE5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{DF0D2829-740D-4A29-9E17-4BCC8E85969B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.MSAL.TestApplication.Application", "Application.Identity.MSAL.TestApplication.Application\Application.Identity.MSAL.TestApplication.Application.csproj", "{D96B2E4F-ECB1-4080-BE47-C24B7ECE1357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.MSAL.TestApplication.Application", "Application.Identity.MSAL.TestApplication.Application\Application.Identity.MSAL.TestApplication.Application.csproj", "{D96B2E4F-ECB1-4080-BE47-C24B7ECE1357}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D670A5C4-3B08-442D-B5C9-2970D4E6029C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.MSAL.TestApplication.Domain", "Application.Identity.MSAL.TestApplication.Domain\Application.Identity.MSAL.TestApplication.Domain.csproj", "{C8AFB118-8FDC-4D8A-936A-9D2A1D38C2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.MSAL.TestApplication.Domain", "Application.Identity.MSAL.TestApplication.Domain\Application.Identity.MSAL.TestApplication.Domain.csproj", "{C8AFB118-8FDC-4D8A-936A-9D2A1D38C2FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8D493305-5A3F-4C65-A946-6324A5F0735B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Application.Identity.MSAL.TestApplication.Infrastructure", "Application.Identity.MSAL.TestApplication.Infrastructure\Application.Identity.MSAL.TestApplication.Infrastructure.csproj", "{A5B221EC-8909-4B59-A6E6-88B124652D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Identity.MSAL.TestApplication.Infrastructure", "Application.Identity.MSAL.TestApplication.Infrastructure\Application.Identity.MSAL.TestApplication.Infrastructure.csproj", "{A5B221EC-8909-4B59-A6E6-88B124652D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

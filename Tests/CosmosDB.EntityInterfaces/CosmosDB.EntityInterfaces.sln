@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F36B7415-4066-4503-8EA3-582B0A81CC86}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CosmosDB.EntityInterfaces.Api", "CosmosDB.EntityInterfaces.Api\CosmosDB.EntityInterfaces.Api.csproj", "{07E37433-D16D-4131-A898-E2D85F366B82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EntityInterfaces.Api", "CosmosDB.EntityInterfaces.Api\CosmosDB.EntityInterfaces.Api.csproj", "{07E37433-D16D-4131-A898-E2D85F366B82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{FC4A93EF-0BEC-4034-BA5E-ED782D66B147}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.EntityInterfaces.Application", "CosmosDB.EntityInterfaces.Application\CosmosDB.EntityInterfaces.Application.csproj", "{B7A6DB15-E1C5-461C-A475-981A79392809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EntityInterfaces.Application", "CosmosDB.EntityInterfaces.Application\CosmosDB.EntityInterfaces.Application.csproj", "{B7A6DB15-E1C5-461C-A475-981A79392809}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6FA03274-1C42-4209-B733-DF43B5D7FF3A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.EntityInterfaces.Domain", "CosmosDB.EntityInterfaces.Domain\CosmosDB.EntityInterfaces.Domain.csproj", "{D25A3E41-986D-42D8-9B0E-34AE05377744}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EntityInterfaces.Domain", "CosmosDB.EntityInterfaces.Domain\CosmosDB.EntityInterfaces.Domain.csproj", "{D25A3E41-986D-42D8-9B0E-34AE05377744}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F14F568A-FDA6-4248-88DF-0B731D62CACC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDB.EntityInterfaces.Infrastructure", "CosmosDB.EntityInterfaces.Infrastructure\CosmosDB.EntityInterfaces.Infrastructure.csproj", "{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EntityInterfaces.Infrastructure", "CosmosDB.EntityInterfaces.Infrastructure\CosmosDB.EntityInterfaces.Infrastructure.csproj", "{3B24CD56-5DEF-4BBC-BE81-875BE95CAFBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
