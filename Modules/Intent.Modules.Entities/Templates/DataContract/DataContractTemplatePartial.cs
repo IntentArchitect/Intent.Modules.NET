@@ -25,17 +25,17 @@ namespace Intent.Modules.Entities.Templates.DataContract
                 .AddRecord($"{Model.Name}", record =>
                 {
                     record.RepresentsModel(Model);
-                    if (Model.BaseType is not null)
+                    
+                    if (Model.BaseDataContract is not null)
                     {
-                        record.WithBaseType(Model.BaseType.Element.Name);
+                        record.WithBaseType(GetTypeName(TemplateId, Model.BaseDataContract));
                     }
 
                     record.AddConstructor(ctor =>
                     {
-                        if (Model.BaseType?.Element?.IsDataContractModel() == true)
+                        if (Model.BaseDataContract is not null)
                         {
-                            var baseAttributes = Model.BaseType.Element.AsDataContractModel().Attributes;
-                            foreach (var baseAttribute in baseAttributes)
+                            foreach (var baseAttribute in Model.BaseDataContract.Attributes)
                             {
                                 ctor.AddParameter(GetTypeName(baseAttribute), baseAttribute.Name.ToCamelCase(), param =>
                                 {

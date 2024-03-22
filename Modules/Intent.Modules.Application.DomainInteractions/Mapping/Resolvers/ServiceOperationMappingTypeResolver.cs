@@ -27,7 +27,7 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             }
 
             if (model.SpecializationType == "Stored Procedure Parameter" &&
-                model.TypeReference.Element?.SpecializationType == "Data Contract")
+                model.TypeReference.Element?.SpecializationType is "Data Contract" or "Class")
             {
                 return new ObjectInitializationMapping(mappingModel, _template);
             }
@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             }
             
             if (model.SpecializationType == "Parameter" &&
-                model.TypeReference.Element?.SpecializationType == "Data Contract")
+                model.TypeReference.Element?.SpecializationType is "Data Contract" or "Class")
             {
                 _template.AddTypeSource("Domain.DataContract");
                 
