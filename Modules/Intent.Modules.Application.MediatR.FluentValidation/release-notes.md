@@ -1,3 +1,7 @@
+### Version 4.5.3
+
+- Improvement: Ignore custom validation rules when generating service proxies.
+
 ### Version 4.5.2
 
 - Improvement: Added IntentManaged Body Merge attribute to the `ConfigureValidationRules` method to prevent it from being updated when the Software Factory is re-executed.

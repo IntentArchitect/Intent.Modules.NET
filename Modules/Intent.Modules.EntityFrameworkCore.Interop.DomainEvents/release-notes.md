@@ -1,3 +1,7 @@
+### Version 4.0.9
+
+- Fixed: Added more explicit typing in around `Task`.
+
 ### Version 4.0.8
 
 - Improvement: Removed code to inject a `null` parameter value when the `Intent.EntityFrameworkCore.DesignTimeDbContextFactory` is present.

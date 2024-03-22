@@ -24,7 +24,8 @@ public static class ValidationRulesExtensions
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        bool uniqueConstraintValidationEnabled)
+        bool uniqueConstraintValidationEnabled,
+        bool customValidationEnabled)
     {
         var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
 
@@ -33,7 +34,8 @@ public static class ValidationRulesExtensions
             dtoModel: dtoModel,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
-            indexFields: indexFields).Any();
+            indexFields: indexFields, 
+            customValidationEnabled: customValidationEnabled).Any();
     }
 
     public static void ConfigureForValidation<TModel>(
@@ -45,7 +47,8 @@ public static class ValidationRulesExtensions
         string dtoValidatorTemplateId,
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
-        bool repositoryInjectionEnabled)
+        bool repositoryInjectionEnabled,
+        bool customValidationEnabled)
     {
         ((ICSharpFileBuilderTemplate)template).CSharpFile
             .AddUsing("FluentValidation")
@@ -76,7 +79,8 @@ public static class ValidationRulesExtensions
                         dtoModel: dtoModel,
                         dtoTemplateId: dtoTemplateId,
                         dtoValidatorTemplateId: dtoValidatorTemplateId,
-                        indexFields: indexFields);
+                        indexFields: indexFields,
+                        customValidationEnabled: customValidationEnabled);
 
                     foreach (var propertyStatement in validationRuleStatements)
                     {
@@ -99,35 +103,38 @@ public static class ValidationRulesExtensions
                         continue;
                     }
 
-                    if (validations.Custom())
+                    if (customValidationEnabled)
                     {
-                        @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                        if (validations.Custom())
                         {
-                            method
-                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
-                                .Private()
-                                .Async();
-                            method.AddParameter(template.GetTypeName(field), "value");
-                            method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
-                            method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
-                        });
-                    }
+                            @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                            {
+                                method
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .Private()
+                                    .Async();
+                                method.AddParameter(template.GetTypeName(field), "value");
+                                method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
+                                method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
+                            });
+                        }
 
-                    if (validations.HasCustomValidation() ||
-                        validations.Must())
-                    {
-                        @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                        if (validations.HasCustomValidation() ||
+                            validations.Must())
                         {
-                            method
-                                .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
-                                .Private()
-                                .Async();
-                            method.AddParameter(toValidateTypeName, modelParameterName);
-                            method.AddParameter(template.GetTypeName(field), "value");
-                            method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
-                            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
-                        });
+                            @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
+                            {
+                                method
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .Private()
+                                    .Async();
+                                method.AddParameter(toValidateTypeName, modelParameterName);
+                                method.AddParameter(template.GetTypeName(field), "value");
+                                method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
+                            });
+                        }
                     }
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
@@ -238,7 +245,8 @@ public static class ValidationRulesExtensions
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
-        IReadOnlyCollection<ConstraintField> indexFields)
+        IReadOnlyCollection<ConstraintField> indexFields,
+        bool customValidationEnabled)
     {
         // If no template is present we still need a way to determine what
         // type is primitive.
@@ -270,7 +278,7 @@ public static class ValidationRulesExtensions
 
             if (field.HasValidations())
             {
-                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain);
+                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled);
             }
 
             AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields);
@@ -294,7 +302,8 @@ public static class ValidationRulesExtensions
 
     private static void AddValidatorsFromFluentValidationStereotype(
         DTOFieldModel field,
-        CSharpMethodChainStatement validationRuleChain)
+        CSharpMethodChainStatement validationRuleChain,
+        bool customValidationEnabled)
     {
         var validations = field.GetValidations();
 
@@ -352,15 +361,18 @@ public static class ValidationRulesExtensions
             validationRuleChain.AddChainStatement($"Must({validations.Predicate()}){message}");
         }
 
-        if (validations.Custom())
+        if (customValidationEnabled)
         {
-            validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");
-        }
+            if (validations.Custom())
+            {
+                validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");
+            }
 
-        if (validations.HasCustomValidation() ||
-            validations.Must())
-        {
-            validationRuleChain.AddChainStatement($"MustAsync(Validate{field.Name.ToPascalCase()}Async)");
+            if (validations.HasCustomValidation() ||
+                validations.Must())
+            {
+                validationRuleChain.AddChainStatement($"MustAsync(Validate{field.Name.ToPascalCase()}Async)");
+            }
         }
     }
 
