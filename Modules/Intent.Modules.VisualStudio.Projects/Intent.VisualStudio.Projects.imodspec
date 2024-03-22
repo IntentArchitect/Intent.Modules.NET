@@ -75,7 +75,7 @@
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore" version="5.0.1-pre.0" />
+        <package id="Intent.EntityFrameworkCore" version="5.0.1-pre.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
