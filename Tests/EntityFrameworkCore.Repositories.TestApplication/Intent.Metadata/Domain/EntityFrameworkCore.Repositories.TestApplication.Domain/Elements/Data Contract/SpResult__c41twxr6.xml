@@ -5,14 +5,6 @@
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="a02c7748-61db-472b-82bf-51a94e0108c0">
-    <isNavigable>true</isNavigable>
-    <isNullable>false</isNullable>
-    <isCollection>false</isCollection>
-    <isRequired>true</isRequired>
-    <stereotypes />
-    <genericTypeParameters />
-  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
   <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
