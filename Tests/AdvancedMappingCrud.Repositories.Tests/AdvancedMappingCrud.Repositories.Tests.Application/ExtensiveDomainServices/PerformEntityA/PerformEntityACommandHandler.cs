@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.ExtensiveDomainServ
             _extensiveDomainService.PerformEntityA(new ConcreteEntityA
             {
                 ConcreteAttr = request.ConcreteAttr,
-                base.BaseAttr = request.BaseAttr
+                BaseAttr = request.BaseAttr
             });
         }
     }
