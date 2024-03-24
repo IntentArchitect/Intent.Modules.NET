@@ -24,10 +24,10 @@ namespace TableStorage.Tests.Application.Common.Behaviours
         private readonly IUnitOfWork _dataSource;
         private readonly ITableStorageUnitOfWork _tableStorageDataSource;
 
-        public UnitOfWorkBehaviour(IUnitOfWork dataSource, ITableStorageUnitOfWork tableStorageDataSource)
+        public UnitOfWorkBehaviour(ITableStorageUnitOfWork tableStorageDataSource, IUnitOfWork dataSource)
         {
-            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
             _tableStorageDataSource = tableStorageDataSource ?? throw new ArgumentNullException(nameof(tableStorageDataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(

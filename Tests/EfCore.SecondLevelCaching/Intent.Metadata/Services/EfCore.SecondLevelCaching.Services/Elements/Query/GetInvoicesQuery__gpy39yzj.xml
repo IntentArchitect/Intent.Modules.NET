@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ed6ced4-2fa2-4126-a5de-743b1288fe7b" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetInvoicesQuery</name>
+  <display>GetInvoicesQuery: InvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c2c343dd-da1b-445a-998c-104cdf96f186">
+    <typeId>89048c82-62f6-4dfe-8102-d6d980538821</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EfCore.SecondLevelCaching.Services</typePackageName>
+    <typePackageId>8b6d5771-31e4-4942-a441-98c9621d7886</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9ff6c725-bc62-4080-8248-b4c1a2072590</parentFolderId>
+  <packageId>8b6d5771-31e4-4942-a441-98c9621d7886</packageId>
+  <packageName>EfCore.SecondLevelCaching.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/invoice" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Invoices" />
+  </metadata>
+  <childElements />
+</class>

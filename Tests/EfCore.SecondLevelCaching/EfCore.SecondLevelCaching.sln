@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{CDDD198C-9391-4BF4-B351-4E5EB8426106}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCore.SecondLevelCaching.Api", "EfCore.SecondLevelCaching.Api\EfCore.SecondLevelCaching.Api.csproj", "{2A301170-1C87-45C6-AE94-B787325CCF08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{798BDF48-5761-4384-9399-971C9D23882E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCore.SecondLevelCaching.Application", "EfCore.SecondLevelCaching.Application\EfCore.SecondLevelCaching.Application.csproj", "{A985FC56-B25C-46F5-A6AF-06FF47BF1647}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F1896013-0A27-47AC-8894-327E72D67BC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCore.SecondLevelCaching.Domain", "EfCore.SecondLevelCaching.Domain\EfCore.SecondLevelCaching.Domain.csproj", "{ADC9E97F-A834-43F7-B061-4508705A1ED6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A17426E7-4837-4F4C-BAE6-A57CAB1D4618}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCore.SecondLevelCaching.Infrastructure", "EfCore.SecondLevelCaching.Infrastructure\EfCore.SecondLevelCaching.Infrastructure.csproj", "{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A301170-1C87-45C6-AE94-B787325CCF08} = {CDDD198C-9391-4BF4-B351-4E5EB8426106}
+		{A985FC56-B25C-46F5-A6AF-06FF47BF1647} = {798BDF48-5761-4384-9399-971C9D23882E}
+		{ADC9E97F-A834-43F7-B061-4508705A1ED6} = {F1896013-0A27-47AC-8894-327E72D67BC6}
+		{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2} = {A17426E7-4837-4F4C-BAE6-A57CAB1D4618}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A301170-1C87-45C6-AE94-B787325CCF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A301170-1C87-45C6-AE94-B787325CCF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A301170-1C87-45C6-AE94-B787325CCF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A301170-1C87-45C6-AE94-B787325CCF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A985FC56-B25C-46F5-A6AF-06FF47BF1647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A985FC56-B25C-46F5-A6AF-06FF47BF1647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A985FC56-B25C-46F5-A6AF-06FF47BF1647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A985FC56-B25C-46F5-A6AF-06FF47BF1647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC9E97F-A834-43F7-B061-4508705A1ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC9E97F-A834-43F7-B061-4508705A1ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC9E97F-A834-43F7-B061-4508705A1ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC9E97F-A834-43F7-B061-4508705A1ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E8768C2-035D-4A34-AFF6-37D3AF9ABCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
