@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -14,6 +15,54 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates
 {
+    public class BlazorFile : RazorFile
+    {
+        private Action<BlazorFile> _configure;
+        public ICSharpTemplate Template { get; }
+        public IList<RazorCodeBlock> CodeBlocks => Nodes.OfType<RazorCodeBlock>().Where(x => x.Expression == null).ToList();
+
+        public BlazorFile(ICSharpTemplate template)
+        {
+            Template = template;
+        }
+
+        public RazorFile AddPageDirective(string route)
+        {
+            Directives.Insert(0, new RazorDirective("page", new CSharpStatement($"\"{route}\"")));
+            return this;
+        }
+
+        public RazorFile AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
+        {
+            var serviceDeclaration = $"{Template.UseType(fullyQualifiedTypeName)} {propertyName ?? Template.UseType(fullyQualifiedTypeName)}";
+            if (!Directives.Any(x => x.Keyword == "inject" && x.Expression.ToString() == serviceDeclaration))
+            {
+                Directives.Add(new RazorDirective("inject", new CSharpStatement(serviceDeclaration)));
+            }
+            return this;
+        }
+
+        public BlazorFile AddCodeBlock(Action<RazorCodeBlock> configure = null)
+        {
+            var razorCodeBlock = new RazorCodeBlock(null, File);
+            Nodes.Add(razorCodeBlock);
+            configure?.Invoke(razorCodeBlock);
+            return this;
+        }
+
+        public BlazorFile Configure(Action<BlazorFile> configure)
+        {
+            _configure = configure;
+            return this;
+        }
+
+        public new RazorFile Build()
+        {
+            _configure(this);
+            return this;
+        }
+    }
+
     public class RazorFile : RazorFileNodeBase<RazorFile>
     {
         private Action<RazorFile> _configure;
@@ -27,13 +76,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public RazorFile AddUsing(string @namespace)
         {
             Directives.Add(new RazorDirective("using", new CSharpStatement(@namespace.Replace("using ", ""))));
-            return this;
-        }
-
-
-        public RazorFile AddPageDirective(string route)
-        {
-            Directives.Insert(0, new RazorDirective("page", new CSharpStatement($"\"{route}\"")));
             return this;
         }
 
@@ -58,12 +100,13 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         {
             var sb = new StringBuilder();
 
-            for (var index = 0; index < Directives.Count; index++)
+            var orderedDirectives = Directives.OrderBy(x => x.Order).ToList();
+            for (var index = 0; index < orderedDirectives.Count; index++)
             {
-                var directive = Directives[index];
+                var directive = orderedDirectives[index];
                 sb.AppendLine(directive.ToString());
 
-                if (index == Directives.Count - 1)
+                if (index == orderedDirectives.Count - 1)
                 {
                     sb.AppendLine();
                 }
@@ -84,7 +127,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         void AddNode(IRazorFileNode node);
     }
 
-    public abstract class RazorFileNodeBase<T> : IRazorFileNode where T : RazorFileNodeBase<T>
+    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>, IRazorFileNode where T : RazorFileNodeBase<T>
     {
         public RazorFileNodeBase(RazorFile file)
         {
@@ -130,6 +173,8 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public string Keyword { get; }
         public ICSharpExpression Expression { get; }
 
+        public int Order { get; set; }
+
         public RazorDirective(string keyword, ICSharpExpression expression = null)
         {
             if (string.IsNullOrWhiteSpace(keyword))
@@ -139,6 +184,21 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
             Keyword = keyword;
             Expression = expression;
+            switch (keyword)
+            {
+                case "page":
+                    Order = 0;
+                    break;
+                case "using":
+                    Order = 1;
+                    break;
+                case "inject":
+                    Order = 2;
+                    break;
+                default:
+                    Order = 0;
+                    break;
+            }
         }
 
         public override string ToString()
@@ -187,7 +247,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public override string GetText(string indentation)
         {
-            return $@"{indentation}@{Expression.GetText(indentation)?.TrimStart() ?? "code"} {{
+            return $@"{indentation}@{Expression?.GetText(indentation)?.TrimStart() ?? "code"} {{
 {string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}{string.Join(@"
 ", Declarations.ConcatCode(indentation + "    "))}
 {indentation}}}
@@ -231,11 +291,11 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         {
             var sb = new StringBuilder();
             var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || Nodes.Any();
-            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(Nodes.Any() ? Environment.NewLine : "")}");
+            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(Nodes.Any() || Attributes.Count > 1 ? Environment.NewLine : "")}");
 
             if (!string.IsNullOrWhiteSpace(Text))
             {
-                if (Nodes.Any())
+                if (Nodes.Any() || Attributes.Count > 1)
                 {
                     sb.AppendLine($"{indentation}    {Text}");
                 }
@@ -254,7 +314,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             {
                 if (Attributes.Count > 1 || Nodes.Any())
                 {
-                    sb.Append($"{(!Nodes.Any() ? Environment.NewLine : "")}{indentation}</{Name}>");
+                    sb.Append($"{(!Nodes.Any() && Attributes.Count <= 1 ? Environment.NewLine : "")}{indentation}</{Name}>");
                 }
                 else
                 {

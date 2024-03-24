@@ -21,8 +21,8 @@ public class FormComponentRenderer : IComponentRenderer
     public void Render(IElement component, IRazorFileNode node)
     {
         var formModel = new FormModel(component);
-        var codeBlock = new RazorCodeBlock(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _template.RazorFile);
-        var htmlElement = new HtmlElement("EditForm", _template.RazorFile);
+        var codeBlock = new RazorCodeBlock(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _template.BlazorFile);
+        var htmlElement = new HtmlElement("EditForm", _template.BlazorFile);
         
         codeBlock.AddHtmlElement(htmlElement);
         htmlElement.AddAttributeIfNotEmpty("Model", _template.GetStereotypePropertyBinding(formModel, "Model"));
