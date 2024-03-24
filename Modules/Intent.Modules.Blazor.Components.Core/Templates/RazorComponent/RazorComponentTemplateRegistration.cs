@@ -30,7 +30,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ComponentModel model)
         {
             // [IntentIgnore(Match = "return")]
-            return new RazorComponentTemplate(outputTarget, model, new ComponentRendererResolver());
+            return new RazorComponentTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
