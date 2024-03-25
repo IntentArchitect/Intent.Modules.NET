@@ -404,6 +404,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntities.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntities.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntitiesHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntitiesHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntitiesValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntitiesValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#04572051-5b17-4057-b40e-0bba7e8c4fe5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityById/GetEntityById.cs</ApplicationRelativeFilePath>
