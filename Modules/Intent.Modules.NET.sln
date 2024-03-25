@@ -120,9 +120,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.BlobSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit", "Intent.Modules.Eventing.MassTransit\Intent.Modules.Eventing.MassTransit.csproj", "{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{86501370-286C-4246-BE58-4B0D7D43F5C2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{86501370-286C-4246-BE58-4B0D7D43F5C2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		..\Directory.Build.props = ..\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore", "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore\Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj", "{C66B22D9-D49E-4639-B8DE-661E59F23D9A}"
@@ -277,9 +278,9 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Eventing.Sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SqlServerImporter", "Intent.Modules.SqlServerImporter\Intent.Modules.SqlServerImporter.csproj", "{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.DistributedCaching", "Intent.Modules.AspNetCore.DistributedCaching\Intent.Modules.AspNetCore.DistributedCaching.csproj", "{6755D512-DE99-44B6-B3B8-29BC0878EE25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.DistributedCaching", "Intent.Modules.AspNetCore.DistributedCaching\Intent.Modules.AspNetCore.DistributedCaching.csproj", "{6755D512-DE99-44B6-B3B8-29BC0878EE25}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
