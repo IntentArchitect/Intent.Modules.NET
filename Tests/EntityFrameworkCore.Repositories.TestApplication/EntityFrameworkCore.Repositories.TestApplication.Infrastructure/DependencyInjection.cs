@@ -48,6 +48,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddTransient<IAggregateRoot4SingleRepository, AggregateRoot4SingleRepository>();
             services.AddTransient<IAggregateRoot5Repository, AggregateRoot5Repository>();
             services.AddTransient<IAggregateRoot5EntityWithRepoRepository, AggregateRoot5EntityWithRepoRepository>();
+            services.AddTransient<IMockEntityRepository, MockEntityRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
