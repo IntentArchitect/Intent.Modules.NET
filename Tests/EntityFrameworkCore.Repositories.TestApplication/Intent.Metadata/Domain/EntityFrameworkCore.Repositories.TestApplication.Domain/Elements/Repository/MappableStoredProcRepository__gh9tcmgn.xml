@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3391b7d1-e5ee-4518-a1e1-713572f5f04a" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
   <name>MappableStoredProcRepository</name>
-  <display>MappableStoredProcRepository&lt;void&gt;</display>
+  <display>MappableStoredProcRepository</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
