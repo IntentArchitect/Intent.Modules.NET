@@ -88,7 +88,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.6" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.10" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.4.3" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
