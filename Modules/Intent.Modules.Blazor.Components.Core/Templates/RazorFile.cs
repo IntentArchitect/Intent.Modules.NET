@@ -18,12 +18,10 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
     public class BlazorFile : RazorFile
     {
         private Action<BlazorFile> _configure;
-        public ICSharpTemplate Template { get; }
         public IList<RazorCodeBlock> CodeBlocks => Nodes.OfType<RazorCodeBlock>().Where(x => x.Expression == null).ToList();
 
-        public BlazorFile(ICSharpTemplate template)
+        public BlazorFile(ICSharpTemplate template) : base(template)
         {
-            Template = template;
         }
 
         public RazorFile AddPageDirective(string route)
@@ -44,7 +42,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public BlazorFile AddCodeBlock(Action<RazorCodeBlock> configure = null)
         {
-            var razorCodeBlock = new RazorCodeBlock(null, File);
+            var razorCodeBlock = new RazorCodeBlock(null, RazorFile);
             Nodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return this;
@@ -63,20 +61,40 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         }
     }
 
-    public class RazorFile : RazorFileNodeBase<RazorFile>
+    public class RazorFile : RazorFileNodeBase<RazorFile>, ICSharpFile
     {
         private Action<RazorFile> _configure;
 
-        public RazorFile() : base(null)
+        public RazorFile(ICSharpTemplate template) : base(null)
         {
+            Template = template;
+            File = this;
+            RazorFile = this;
         }
 
+        public ICSharpTemplate Template { get; protected set; }
         public IList<RazorDirective> Directives { get; } = new List<RazorDirective>();
 
         public RazorFile AddUsing(string @namespace)
         {
             Directives.Add(new RazorDirective("using", new CSharpStatement(@namespace.Replace("using ", ""))));
             return this;
+        }
+
+        public string GetModelType<TModel>(TModel model) where TModel : IMetadataModel, IHasName
+        {
+            if (Template == null)
+            {
+                throw new InvalidOperationException("Cannot add property with model. Please add the template as an argument to this CSharpFile's constructor.");
+            }
+
+            var type = model switch
+            {
+                IHasTypeReference hasType => Template.GetTypeName(hasType.TypeReference),
+                ITypeReference typeRef => Template.GetTypeName(typeRef),
+                _ => throw new ArgumentException($"model {model.Name} must implement either IHasTypeReference or ITypeReference", nameof(model))
+            };
+            return type;
         }
 
         public RazorFile Configure(Action<RazorFile> configure)
@@ -127,20 +145,21 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         void AddNode(IRazorFileNode node);
     }
 
-    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>, IRazorFileNode where T : RazorFileNodeBase<T>
+    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>,  IRazorFileNode where T : RazorFileNodeBase<T>
     {
         public RazorFileNodeBase(RazorFile file)
         {
             File = file;
+            RazorFile = file;
         }
 
-        public RazorFile File { get; }
+        public RazorFile RazorFile { get; protected set; }
 
         public IList<IRazorFileNode> Nodes { get; } = new List<IRazorFileNode>();
 
         public T AddHtmlElement(string name, Action<HtmlElement> configure = null)
         {
-            var htmlElement = new HtmlElement(name, File);
+            var htmlElement = new HtmlElement(name, RazorFile);
             Nodes.Add(htmlElement);
             configure?.Invoke(htmlElement);
             return (T)this;
@@ -154,13 +173,14 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public T AddCodeBlock(CSharpStatement expression, Action<RazorCodeBlock> configure = null)
         {
-            var razorCodeBlock = new RazorCodeBlock(expression, File);
+            var razorCodeBlock = new RazorCodeBlock(expression, RazorFile);
             Nodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return (T)this;
         }
 
         public abstract string GetText(string indentation);
+
 
         public void AddNode(IRazorFileNode node)
         {
@@ -223,7 +243,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public RazorCodeBlock AddProperty(string type, string name, Action<CSharpProperty> configure = null)
         {
-            var property = new CSharpProperty(type, name, null)
+            var property = new CSharpProperty(type, name, RazorFile)
             {
                 BeforeSeparator = CSharpCodeSeparatorType.EmptyLines,
                 AfterSeparator = CSharpCodeSeparatorType.EmptyLines
@@ -235,7 +255,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public RazorCodeBlock AddMethod(string type, string name, Action<CSharpClassMethod> configure = null)
         {
-            var method = new CSharpClassMethod(type, name, null)
+            var method = new CSharpClassMethod(type, name, RazorFile)
             {
                 BeforeSeparator = CSharpCodeSeparatorType.EmptyLines,
                 AfterSeparator = CSharpCodeSeparatorType.EmptyLines

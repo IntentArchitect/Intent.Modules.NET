@@ -7,6 +7,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.FactoryExtensions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -35,6 +36,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource("Intent.Blazor.HttpClients.DtoContract");
+            AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");
             AddTypeSource(TemplateId);
             BlazorFile = new BlazorFile(this);
             _componentResolver = new ComponentRendererResolver(this);
@@ -81,17 +83,22 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                             });
                         }
 
-                        if (child.IsOperationModel())
+                        if (child.IsComponentOperationModel())
                         {
-                            block.AddMethod(GetTypeName(child.TypeReference), child.Name.ToPropertyName(), method =>
+                            var operation = child.AsComponentOperationModel();
+                            block.AddMethod(GetTypeName(operation.TypeReference), operation.Name.ToPropertyName(), method =>
                             {
                                 //method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
-                                if (child.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
+                                if (operation.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
                                 {
-                                    //method.Async(); // doesn't work unless we set class parent
-                                    method.WithReturnType(method.ReturnType == "void" ? "Task" : $"Task<{method.ReturnType}>");
+                                    method.Async();
                                 }
-                                foreach (var parameter in child.AsOperationModel().Parameters)
+
+                                if (operation.Name is "OnInitializedAsync" or "OnInitialized")
+                                {
+                                    method.Protected().Override();
+                                }
+                                foreach (var parameter in operation.Parameters)
                                 {
                                     method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
                                     {
@@ -100,6 +107,65 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                             param.WithDefaultValue(parameter.Value);
                                         }
                                     });
+                                }
+
+                                var mappingManager = CreateMappingManager();
+                                mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
+
+                                foreach (var serviceCall in operation.CallServiceOperationActionTargets())
+                                {
+                                    method.Async();
+                                    var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
+                                    file.AddInjectDirective(GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                                    var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
+                                    if (serviceCall.GetMapResponseMapping() != null)
+                                    {
+                                        if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == serviceCall.Id)
+                                        {
+                                            method.AddStatement(new CSharpAssignmentStatement(mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()), new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                        }
+                                        else
+                                        {
+                                            method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                            var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
+                                            method.AddStatements(response);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        method.AddStatement(new CSharpAccessMemberStatement($"await {serviceName}", invocation));
+                                    }
+                                }
+
+                                foreach (var navigationModel in operation.NavigateToComponents())
+                                {
+                                    method.Private();
+                                    var route = $"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"";
+                                    if (route.Contains("{"))
+                                    {
+                                        route = $"${route}";
+                                    }
+                                    foreach (var parameter in navigationModel.Parameters)
+                                    {
+                                        method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
+                                        {
+                                            if (parameter.Value != null)
+                                            {
+                                                param.WithDefaultValue(parameter.Value);
+                                            }
+                                        });
+                                        var replaceIndex = route.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
+                                            ? route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
+                                            : route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
+                                        if (replaceIndex != -1)
+                                        {
+                                            route = route.Remove(replaceIndex, route.IndexOf('}', replaceIndex) + 1 - replaceIndex)
+                                                .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
+                                        }
+                                    }
+
+                                    file.AddInjectDirective("NavigationManager");
+                                    method.AddStatement($"NavigationManager.NavigateTo({route});");
                                 }
                             });
                         }
@@ -152,6 +218,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         {
             var mappingManager = new CSharpClassMappingManager(this);
             mappingManager.SetFromReplacement(Model, null);
+            mappingManager.SetToReplacement(Model, null);
             return mappingManager;
         }
 
@@ -218,6 +285,30 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public override string RunTemplate()
         {
             return TransformText();
+        }
+    }
+
+    public class CallServiceOperationMappingResolver : IMappingTypeResolver
+    {
+        private readonly ICSharpTemplate _template;
+
+        public CallServiceOperationMappingResolver(ICSharpTemplate template)
+        {
+            _template = template;
+        }
+
+        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+        {
+            if (mappingModel.Model.SpecializationType == "Operation")
+            {
+                return new MethodInvocationMapping(mappingModel, _template);
+            }
+
+            if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "Command")
+            {
+                return new ObjectInitializationMapping(mappingModel, _template);
+            }
+            return null;
         }
     }
 }

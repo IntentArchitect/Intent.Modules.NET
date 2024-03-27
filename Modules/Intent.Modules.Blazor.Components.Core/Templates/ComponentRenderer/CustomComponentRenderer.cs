@@ -41,7 +41,7 @@ public class CustomComponentRenderer : IComponentRenderer
                 continue;
             }
 
-            var operation = mappedEnd.SourceElement.AsOperationModel();
+            var operation = mappedEnd.SourceElement.AsComponentOperationModel();
             if (operation?.Parameters.Count == 1 && operation.Parameters.Single().TypeReference.Element.Id == eventEmitter.TypeReference.Element.Id)
             {
                 htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), $"{operation.Parameters.Single().Name.ToParameterName()} => {_template.GetBinding(mappedEnd)}({operation.Parameters.Single().Name.ToParameterName()})");
