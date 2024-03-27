@@ -43,6 +43,7 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 			var executableName = "dotnet";
 			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}\" --serialized-config \"{sqlImportSettings}\"";
 
+			var warnings = new StringBuilder();
 			Logging.Log.Info($"Executing: {executableName} {executableArgs} ");
 			var succeeded = false;
 			try
@@ -71,7 +72,7 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 					{
 						succeeded = true;
 					}
-					else if (args.Data?.Trim().StartsWith("Error :") == true)
+					else if (args.Data?.Trim().StartsWith("Error:") == true)
 					{
 						Logging.Log.Failure(args.Data);
 						succeeded = false;
@@ -79,7 +80,11 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 						process.Kill(true);
 					}
 					else
-					{ 
+					{
+						if (args.Data?.Trim().StartsWith("Warning:") == true)
+						{
+							warnings.AppendLine(args.Data);
+						}
 						Logging.Log.Info(args.Data);
 					}
 				};
@@ -90,6 +95,10 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 
 				if (succeeded)
 				{
+					if (warnings.Length > 0)
+					{
+						return $"{{\"warnings\": \"{warnings.Replace(Environment.NewLine, "\\n").ToString()}\"}}";
+					}
 					return "{}";
 				}
 				else

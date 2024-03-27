@@ -133,7 +133,12 @@ async function importSqlDatabase(element) {
         await dialogService.error(result === null || result === void 0 ? void 0 : result.errorMessage);
     }
     else {
-        await dialogService.info("Import complete.");
+        if (result === null || result === void 0 ? void 0 : result.warnings) {
+            await dialogService.warn("Import complete.\r\n\r\n" + (result === null || result === void 0 ? void 0 : result.warnings));
+        }
+        else {
+            await dialogService.info("Import complete.");
+        }
     }
 }
 function getDialogDefaults(element) {
