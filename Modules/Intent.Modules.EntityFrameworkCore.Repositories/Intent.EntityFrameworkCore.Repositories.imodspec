@@ -2,7 +2,7 @@
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
   <version>4.5.2-pre.1</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Repositories for Domain Entities</summary>
   <description>Generates Repositories for Domain Entities</description>
   <authors>Intent Architect</authors>
