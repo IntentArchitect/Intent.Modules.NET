@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</id>
-  <version>4.3.38</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.3.39</version>
+  <supportedClientVersions>[4.2.4-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET</shortDescription>
   <priority>0</priority>
