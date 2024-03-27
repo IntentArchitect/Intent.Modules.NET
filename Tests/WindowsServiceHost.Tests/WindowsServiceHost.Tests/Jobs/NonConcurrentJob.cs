@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
@@ -9,13 +10,14 @@ using Quartz;
 
 namespace WindowsServiceHost.Tests.Jobs
 {
+    [DisallowConcurrentExecution]
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RunEvery15Seconds : IJob
+    public class NonConcurrentJob : IJob
     {
-        private readonly ILogger<RunEvery15Seconds> _logger;
+        private readonly ILogger<NonConcurrentJob> _logger;
 
         [IntentManaged(Mode.Merge)]
-        public RunEvery15Seconds(ILogger<RunEvery15Seconds> logger)
+        public NonConcurrentJob(ILogger<NonConcurrentJob> logger)
         {
             _logger = logger;
         }
@@ -23,7 +25,8 @@ namespace WindowsServiceHost.Tests.Jobs
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Execute(IJobExecutionContext context)
         {
-            _logger.LogInformation("15 seconds");
+            _logger.LogInformation("Non Concurrent");
+            await Task.Delay(2000);
         }
     }
 }

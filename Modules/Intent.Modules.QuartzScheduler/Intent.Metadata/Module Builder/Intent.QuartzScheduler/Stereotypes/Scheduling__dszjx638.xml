@@ -36,10 +36,21 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>(example: */10 * * * * ?)</placeholder>
       <valueOptions />
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="81666ced-cb50-49d7-a85d-5a4be8d3b462">
+      <hint>Only execute this job once the previous instance is completed.</hint>
+      <name>Disallow Concurrent Execution</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>
