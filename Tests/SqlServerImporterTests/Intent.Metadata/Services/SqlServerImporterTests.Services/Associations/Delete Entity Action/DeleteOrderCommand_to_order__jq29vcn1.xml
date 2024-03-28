@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a344cff1-9cb2-4b7b-902c-787cd833e12c">
+  <sourceEnd id="9e1480d1-6f48-40d3-92e5-0d43904b9617" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Orders.DeleteOrderCommand</display>
+    <order>0</order>
+    <typeReference id="58a3c96b-2740-4f20-a0c5-31a78f53a85d">
+      <typeId>bd54329c-a8d3-4e90-8d95-b05adf87c919</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests.Services</typePackageName>
+      <typePackageId>2e97ac00-7126-447c-839f-d3d0b69b5f27</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a344cff1-9cb2-4b7b-902c-787cd833e12c" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>order</name>
+    <display>[delete] order: Order</display>
+    <order>1</order>
+    <typeReference id="332424e5-8ff1-4e17-8724-5a04b161652e">
+      <typeId>db54401b-3d65-48d0-9186-31d3c997f2b4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a5bda094-e905-46f8-8348-5afef353db68" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bd54329c-a8d3-4e90-8d95-b05adf87c919" location="[SqlServerImporterTests].[Services].[DeleteOrderCommand]" />
+        <target elementId="db54401b-3d65-48d0-9186-31d3c997f2b4" location="[SqlServerImporterTests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="db54401b-3d65-48d0-9186-31d3c997f2b4" name="Order" type="element" specialization="Class" />
+              <target id="18c884eb-e79d-4c82-b5e5-17faacbd3796" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="bd54329c-a8d3-4e90-8d95-b05adf87c919" name="DeleteOrderCommand" type="element" specialization="Command" />
+                  <target id="81476e08-6a35-458c-9840-17df0faba608" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

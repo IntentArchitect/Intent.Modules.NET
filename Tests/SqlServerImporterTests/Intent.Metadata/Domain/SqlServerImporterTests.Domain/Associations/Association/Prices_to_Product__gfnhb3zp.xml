@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="01bef1d0-29fa-4561-97db-41469896cfa0">
+  <sourceEnd id="3ea41632-8fa4-47fc-9237-1b328cf9a602" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Prices</name>
+    <display>Prices: Price[*]</display>
+    <order>0</order>
+    <typeReference id="25e9410a-af36-4991-9692-ec079af8decb">
+      <typeId>dfb07f6b-6550-42a1-a9ce-135412c051a2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="01bef1d0-29fa-4561-97db-41469896cfa0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Product</name>
+    <display>Product: Product</display>
+    <order>4</order>
+    <typeReference id="c1604d01-781a-4248-b4b5-20580e71c7cd">
+      <typeId>320bd3e7-6bbe-4168-bf09-88db9a1ae2cb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[prices].[fk_prices_products_productid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[prices].[fk_prices_products_productid]</externalReference>
+  <stereotypes />
+</association>

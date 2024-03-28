@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bac4998a-9acf-4424-8a7b-862c43b82ab6" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Views</name>
+  <display>Views</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c5137fb3-11a7-4f59-9a42-74623ae698a3</parentFolderId>
+  <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
+  <packageName>SqlServerImporterTests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c0f17219-ada3-47ac-80c6-7a5750cbd322" name="Schema">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="981470a5-f1b3-4781-a709-ea7500975ff5" display="Name" value="views" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

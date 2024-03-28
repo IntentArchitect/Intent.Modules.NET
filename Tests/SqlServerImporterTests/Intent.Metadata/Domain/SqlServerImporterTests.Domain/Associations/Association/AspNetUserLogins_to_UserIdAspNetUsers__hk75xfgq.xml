@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ecb94207-e1e2-4352-bbd7-23898125b627">
+  <sourceEnd id="8104c3db-d203-487f-a66f-0521d720a648" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AspNetUserLogins</name>
+    <display>AspNetUserLogins: AspNetUserLogin[*]</display>
+    <order>0</order>
+    <typeReference id="492facfe-f962-4592-aef4-e0eea6f62bf4">
+      <typeId>0e1b93e8-a5d0-4a98-93d6-4477fcb21c9f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ecb94207-e1e2-4352-bbd7-23898125b627" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>UserIdAspNetUsers</name>
+    <display>UserIdAspNetUsers: AspNetUser</display>
+    <order>4</order>
+    <typeReference id="2e7a0d23-0ec3-4d62-b751-b2f52df6658d">
+      <typeId>114c5646-631e-4265-a4da-ac69fbae6566</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[aspnetuserlogins].[fk_aspnetuserlogins_aspnetusers_userid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[aspnetuserlogins].[fk_aspnetuserlogins_aspnetusers_userid]</externalReference>
+  <stereotypes />
+</association>

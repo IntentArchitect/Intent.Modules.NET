@@ -101,5 +101,6 @@
     <application id="95a85ee6-e01b-438f-8749-3e4da534d9a6" name="Kafka.Producer" relativePath="Kafka.Producer/Kafka.Producer.application.config" />
     <application id="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" name="Kafka.Consumer" relativePath="Kafka.Consumer/Kafka.Consumer.application.config" />
     <application id="f829f9a9-22e7-4c53-b644-4254eacfb4e8" name="EfCore.SecondLevelCaching" relativePath="EfCore.SecondLevelCaching/EfCore.SecondLevelCaching.application.config" />
+    <application id="a5bda094-e905-46f8-8348-5afef353db68" name="SqlServerImporterTests" relativePath="SqlServerImporterTests/SqlServerImporterTests.application.config" />
   </applications>
 </solution>
