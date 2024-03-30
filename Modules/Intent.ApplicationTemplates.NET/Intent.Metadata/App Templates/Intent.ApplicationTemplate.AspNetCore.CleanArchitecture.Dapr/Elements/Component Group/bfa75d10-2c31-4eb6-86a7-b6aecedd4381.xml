@@ -4,7 +4,7 @@
   <display>Logging</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>10</order>
+  <order>9</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="baa961cf-bf82-483c-90e2-6b869c0ebe8e" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="baa961cf-bf82-483c-90e2-6b869c0ebe8e" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modules.AspNetCore.Logging.Serilog</name>
           <display>Intent.Modules.AspNetCore.Logging.Serilog</display>
           <isAbstract>false</isAbstract>

@@ -4,7 +4,7 @@
   <display>Cloud</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>10</order>
+  <order>9</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b4b11cc2-0c05-4c0c-9eb3-9ff9e3d78ec8" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="b4b11cc2-0c05-4c0c-9eb3-9ff9e3d78ec8" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Azure.KeyVault</name>
           <display>Intent.Azure.KeyVault</display>
           <isAbstract>false</isAbstract>

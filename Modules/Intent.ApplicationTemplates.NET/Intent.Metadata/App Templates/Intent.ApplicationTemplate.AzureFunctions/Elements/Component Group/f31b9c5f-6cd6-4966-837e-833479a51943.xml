@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4c2dd800-16c6-405e-a956-be6ed4c5f3f7" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="4c2dd800-16c6-405e-a956-be6ed4c5f3f7" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
           <display>Intent.VisualStudio.Projects</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c1512db-76c1-4cce-a189-526671eb883a" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="3c1512db-76c1-4cce-a189-526671eb883a" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.OutputManager.RoslynWeaver</name>
           <display>Intent.OutputManager.RoslynWeaver</display>
           <isAbstract>false</isAbstract>

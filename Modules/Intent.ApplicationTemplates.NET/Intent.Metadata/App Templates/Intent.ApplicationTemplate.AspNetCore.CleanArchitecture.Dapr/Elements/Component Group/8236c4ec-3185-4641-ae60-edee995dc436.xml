@@ -4,7 +4,7 @@
   <display>Tooling</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>11</order>
+  <order>10</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="68d06239-813c-4dcf-8626-a9020b63ef78" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="68d06239-813c-4dcf-8626-a9020b63ef78" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
           <display>Intent.VisualStudio.Projects</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1d4ca035-9dc7-4b52-99bb-75cc37ffbd44" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="1d4ca035-9dc7-4b52-99bb-75cc37ffbd44" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.OutputManager.RoslynWeaver</name>
           <display>Intent.OutputManager.RoslynWeaver</display>
           <isAbstract>false</isAbstract>
@@ -126,7 +126,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b536a122-c445-4003-9e42-b03b8f6d03db" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="b536a122-c445-4003-9e42-b03b8f6d03db" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Docker</name>
           <display>Intent.AspNetCore.Docker</display>
           <isAbstract>false</isAbstract>

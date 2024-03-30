@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07e98ca0-63e2-48e8-ac65-ec9926be0631" type="Minimum Dependency Versions" typeId="63605213-ab56-4042-b801-907bb5a79c08">
+  <name>Minimum Dependency Versions</name>
+  <display>Minimum Dependency Versions</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>da621866-ec56-4cb0-815a-ce21261712a6</parentFolderId>
+  <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+  <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

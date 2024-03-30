@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0bfff57c-5b9c-4f31-92a3-6d0b1c608769" type="Minimum Dependency Versions" typeId="63605213-ab56-4042-b801-907bb5a79c08">
+  <name>Minimum Dependency Versions</name>
+  <display>Minimum Dependency Versions</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
+  <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+  <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

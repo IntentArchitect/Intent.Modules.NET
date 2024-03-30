@@ -4,7 +4,7 @@
   <display>Testing</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>7</order>
+  <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4a5784c5-42e3-4f4f-9608-74a41a268426" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="4a5784c5-42e3-4f4f-9608-74a41a268426" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.IntegrationTesting</name>
           <display>Intent.AspNetCore.IntegrationTesting</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d1ac2112-6b98-4c97-9a06-5771c687ec03" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="d1ac2112-6b98-4c97-9a06-5771c687ec03" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.IntegrationTests.CRUD</name>
           <display>Intent.AspNetCore.IntegrationTests.CRUD</display>
           <isAbstract>false</isAbstract>

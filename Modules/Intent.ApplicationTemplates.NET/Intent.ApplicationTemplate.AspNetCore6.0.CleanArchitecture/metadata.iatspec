@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</id>
-  <version>4.3.39</version>
-  <supportedClientVersions>[4.2.4-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.3.40</version>
+  <supportedClientVersions>[4.2.4-beta.2, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET</shortDescription>
   <priority>0</priority>
@@ -518,6 +518,20 @@
     </group>
   </componentGroups>
   <additionalSettings>
+    <group id="fe3814c7-90cd-41f4-9bd3-45079e4b7ecb" title="Domain Settings">
+      <settings>
+        <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
+          <defaultValue>pascal-case</defaultValue>
+          <isRequired>true</isRequired>
+          <options />
+        </setting>
+        <setting id="14bc1e98-930b-494c-97a9-5da4e1f3a5fa" title="Default Mapping Mode" type="hidden">
+          <defaultValue>advanced</defaultValue>
+          <isRequired>false</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
     <group id="94473a8a-cf47-43ec-9314-f0230649aebb" title="Basic Settings">
       <settings>
         <setting id="target-framework" title="Target Framework" type="select">
@@ -533,19 +547,8 @@
         </setting>
       </settings>
     </group>
-    <group id="fe3814c7-90cd-41f4-9bd3-45079e4b7ecb" title="Domain Settings">
-      <settings>
-        <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
-          <defaultValue>pascal-case</defaultValue>
-          <isRequired>true</isRequired>
-          <options />
-        </setting>
-        <setting id="14bc1e98-930b-494c-97a9-5da4e1f3a5fa" title="Default Mapping Mode" type="hidden">
-          <defaultValue>advanced</defaultValue>
-          <isRequired>false</isRequired>
-          <options />
-        </setting>
-      </settings>
-    </group>
   </additionalSettings>
+  <minimumDependencyVersions>
+    <module id="Intent.Modelers.Services" version="3.6.1" />
+  </minimumDependencyVersions>
 </applicationTemplate>

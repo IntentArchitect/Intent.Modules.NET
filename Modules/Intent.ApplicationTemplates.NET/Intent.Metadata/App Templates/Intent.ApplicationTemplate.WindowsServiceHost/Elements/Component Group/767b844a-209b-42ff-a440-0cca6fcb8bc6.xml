@@ -4,7 +4,7 @@
   <display>Application</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>4</order>
+  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="251fc1f0-02e4-4d22-9db8-1f401f0b5dc0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="251fc1f0-02e4-4d22-9db8-1f401f0b5dc0" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.QuartzScheduler</name>
           <display>Intent.QuartzScheduler</display>
           <isAbstract>false</isAbstract>
@@ -101,7 +101,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="155ee067-6683-4ebd-a2d1-f94f3a471580" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="155ee067-6683-4ebd-a2d1-f94f3a471580" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR</name>
           <display>Intent.Application.MediatR</display>
           <isAbstract>false</isAbstract>
@@ -126,7 +126,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c6e88304-e4ec-466e-b486-e2be7468f0b1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="c6e88304-e4ec-466e-b486-e2be7468f0b1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.DependencyInjection.MediatR</name>
           <display>Intent.Application.DependencyInjection.MediatR</display>
           <isAbstract>false</isAbstract>
@@ -151,7 +151,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d772ec2e-afb8-4533-bcf7-86dccf7079d7" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="d772ec2e-afb8-4533-bcf7-86dccf7079d7" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.Services.CQRS</name>
           <display>Intent.Modelers.Services.CQRS</display>
           <isAbstract>false</isAbstract>

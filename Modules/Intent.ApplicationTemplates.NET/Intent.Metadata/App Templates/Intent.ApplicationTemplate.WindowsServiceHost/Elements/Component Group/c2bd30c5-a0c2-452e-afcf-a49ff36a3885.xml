@@ -4,7 +4,7 @@
   <display>Tooling</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>6</order>
+  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="72a120c7-8c1f-459e-b149-84753408c369" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="72a120c7-8c1f-459e-b149-84753408c369" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
           <display>Intent.VisualStudio.Projects</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e8f605a4-b3b3-49b2-a42a-59fffade6442" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e8f605a4-b3b3-49b2-a42a-59fffade6442" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.OutputManager.RoslynWeaver</name>
           <display>Intent.OutputManager.RoslynWeaver</display>
           <isAbstract>false</isAbstract>

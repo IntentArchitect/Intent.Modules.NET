@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e26eea6-f2d4-4d99-9dcc-5daa442503e4" type="Minimum Dependency Versions" typeId="63605213-ab56-4042-b801-907bb5a79c08">
+  <name>Minimum Dependency Versions</name>
+  <display>Minimum Dependency Versions</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
+  <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
