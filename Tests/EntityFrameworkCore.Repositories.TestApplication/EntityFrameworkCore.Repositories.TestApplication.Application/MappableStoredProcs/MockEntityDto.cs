@@ -1,3 +1,7 @@
+using System;
+using AutoMapper;
+using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Mappings;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.MappableStoredProcs;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -5,17 +9,28 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableStoredProcs
 {
-    public class MockEntityDto
+    public class MockEntityDto : IMapFrom<MockEntity>
     {
         public MockEntityDto()
         {
+            Name = null!;
         }
 
-        public static MockEntityDto Create()
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+
+        public static MockEntityDto Create(Guid id, string name)
         {
             return new MockEntityDto
             {
+                Id = id,
+                Name = name
             };
+        }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<MockEntity, MockEntityDto>();
         }
     }
 }
