@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.7.0-pre.0</version>
+  <version>3.7.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -75,14 +75,14 @@
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore" version="5.0.1-pre.1" />
+        <package id="Intent.EntityFrameworkCore" version="5.0.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.10" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

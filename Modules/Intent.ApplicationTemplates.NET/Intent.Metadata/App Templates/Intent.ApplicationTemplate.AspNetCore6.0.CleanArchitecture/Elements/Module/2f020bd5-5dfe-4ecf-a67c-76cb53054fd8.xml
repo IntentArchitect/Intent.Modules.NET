@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2f020bd5-5dfe-4ecf-a67c-76cb53054fd8" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.EntityFrameworkCore.Interop.DomainEvents</name>
+  <display>Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.9</display>
+  <isAbstract>false</isAbstract>
+  <value>4.0.9</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
+  <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

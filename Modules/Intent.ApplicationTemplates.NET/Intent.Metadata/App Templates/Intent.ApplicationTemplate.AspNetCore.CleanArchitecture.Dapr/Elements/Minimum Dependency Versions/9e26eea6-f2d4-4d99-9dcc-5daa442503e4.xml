@@ -3,6 +3,7 @@
   <name>Minimum Dependency Versions</name>
   <display>Minimum Dependency Versions</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
