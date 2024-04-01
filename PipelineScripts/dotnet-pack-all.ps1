@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 # "dotnet pack" all projects. We want to dynamically work out which projects to pack so that if
 # new projects to pack are added to the repository, then they will also be included automatically
 # as opposed to us needing to update a list somewhere.
@@ -134,19 +136,28 @@ if ($isOnBuildAgent) {
 "@
 }
 
+$index = 1
 foreach ($project in $projects) {
-    Invoke-Expression "dotnet clean $project --verbosity normal"
+    Write-Host
+    Write-Host "Running dotnet clean for $project ($index of $($projects.length))..."
+    Invoke-Expression "dotnet clean $project --verbosity quiet --nologo"
+    $index++
 }
 
+$index = 1
 foreach ($project in $projects) {
-    Invoke-Expression "dotnet restore $project --verbosity normal"
-    Invoke-Expression "dotnet build $project --verbosity normal --configuration Release"
-    Invoke-Expression "dotnet pack $project --verbosity normal$packOutputParam"
+    Write-Host
+    Write-Host "Running dotnet build and pack for $project ($index of $($projects.length))..."
+    Invoke-Expression "dotnet restore $project --verbosity quiet"
+    Invoke-Expression "dotnet build $project --verbosity quiet --nologo /property:WarningLevel=0 --configuration Release"
+    Invoke-Expression "dotnet pack $project --verbosity quiet --nologo  /property:WarningLevel=0$packOutputParam"
+    $index++
 }
 
 # Resolves the following issue which would often get logged and cause this task to in Azure DevOps to become stuck:
 # The STDIO streams did not close within 10 seconds of the exit event from process '/usr/bin/pwsh'. This may indicate a child process inherited the STDIO streams and has not yet exited.
 if ($isOnBuildAgent) {
+    Write-Host
     Write-Host "Stopping dotnet processes"
     Get-Process | Where-Object { $_.ProcessName.StartsWith("dotnet", "InvariantCultureIgnoreCase") } | Foreach-Object { Stop-Process $_ }
 }
