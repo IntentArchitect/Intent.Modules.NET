@@ -2,7 +2,7 @@
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</id>
   <version>1.1.38</version>
-  <supportedClientVersions>[4.2.4-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4-beta.2, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET with Dapr</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET using Dapr for integration.</shortDescription>
   <priority>2000</priority>

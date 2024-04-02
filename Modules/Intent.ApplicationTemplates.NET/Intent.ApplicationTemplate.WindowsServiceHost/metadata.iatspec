@@ -2,7 +2,7 @@
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.WindowsServiceHost</id>
   <version>1.0.2</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4-beta.2, 5.0.0-a)</supportedClientVersions>
   <displayName>Windows Service Host</displayName>
   <shortDescription>Create Windows Service Application for the Windows Platform.</shortDescription>
   <priority>2500</priority>
