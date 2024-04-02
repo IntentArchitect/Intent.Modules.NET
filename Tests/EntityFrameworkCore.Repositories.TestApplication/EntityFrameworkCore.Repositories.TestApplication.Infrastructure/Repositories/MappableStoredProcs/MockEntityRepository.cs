@@ -34,6 +34,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return result;
         }
 
+        public async Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default)
+        {
+            var results = await GetSet()
+                .FromSqlInterpolated($"EXECUTE GetMockEntities")
+                .IgnoreQueryFilters()
+                .ToArrayAsync(cancellationToken);
+
+            return results;
+        }
+
         public async Task<MockEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

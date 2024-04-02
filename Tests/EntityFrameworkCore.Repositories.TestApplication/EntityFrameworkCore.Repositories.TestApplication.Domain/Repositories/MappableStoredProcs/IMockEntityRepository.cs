@@ -14,6 +14,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
     public interface IMockEntityRepository : IEFRepository<MockEntity, MockEntity>
     {
         Task<MockEntity> GetMockEntityById(Guid id, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<MockEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

@@ -476,6 +476,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntities.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntities.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntitiesHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntitiesHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntitiesValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntitiesValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntity/GetMockEntity.cs</ApplicationRelativeFilePath>
