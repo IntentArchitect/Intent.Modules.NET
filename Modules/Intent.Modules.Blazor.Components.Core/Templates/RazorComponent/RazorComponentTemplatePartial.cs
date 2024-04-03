@@ -50,7 +50,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
                 foreach (var component in Model.View.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(component).Render(component, BlazorFile);
+                    _componentResolver.ResolveFor(component).BuildComponent(component, BlazorFile);
                 }
 
                 file.AddCodeBlock(block =>
@@ -88,7 +88,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                             var operation = child.AsComponentOperationModel();
                             block.AddMethod(GetTypeName(operation.TypeReference), operation.Name.ToPropertyName(), method =>
                             {
-                                //method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
+                                method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
                                 if (operation.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
                                 {
                                     method.Async();
@@ -110,7 +110,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                 }
 
                                 var mappingManager = CreateMappingManager();
-                                mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
 
                                 foreach (var serviceCall in operation.CallServiceOperationActionTargets())
                                 {
@@ -217,9 +216,21 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public CSharpClassMappingManager CreateMappingManager()
         {
             var mappingManager = new CSharpClassMappingManager(this);
+            mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
             mappingManager.SetFromReplacement(Model, null);
             mappingManager.SetToReplacement(Model, null);
             return mappingManager;
+        }
+
+        public string GetCodeDirective(IElementToElementMappedEnd mappedEnd, CSharpClassMappingManager mappingManager = null)
+        {
+            if (mappedEnd == null)
+            {
+                return null;
+            }
+
+            var binding = GetBinding(mappedEnd, mappingManager);
+            return binding.Contains(' ') ? $"@({binding})" : $"@{binding}";
         }
 
         public string GetBinding(IElementToElementMappedEnd mappedEnd, CSharpClassMappingManager mappingManager = null)

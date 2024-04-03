@@ -19,6 +19,7 @@ public class ComponentRendererResolver : IComponentRendererResolver
         _componentRenderers[TextInputModel.SpecializationTypeId] = (component) => new TextInputComponentRenderer(this, Template);
         _componentRenderers[ButtonModel.SpecializationTypeId] = (component) => new ButtonRenderer(this, Template);
         _componentRenderers[TableModel.SpecializationTypeId] = (component) => new TableRenderer(this, Template);
+        _componentRenderers[TextModel.SpecializationTypeId] = (component) => new TextRenderer(this, Template);
         _componentRenderers[DisplayComponentModel.SpecializationTypeId] = (component) => new CustomComponentRenderer(this, Template);
     }
     public IComponentRenderer ResolveFor(IElement component)
@@ -39,7 +40,7 @@ public interface IComponentRendererResolver
 
 public interface IComponentRenderer
 {
-    void Render(IElement component, IRazorFileNode node);
+    void BuildComponent(IElement component, IRazorFileNode node);
 }
 
 public class TextInputComponentRenderer : IComponentRenderer
@@ -53,7 +54,7 @@ public class TextInputComponentRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("label", _template.BlazorFile)
@@ -77,12 +78,12 @@ public class EmptyElementRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var htmlElement = new HtmlElement(component.Name, _template.BlazorFile);
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).Render(child, htmlElement);
+            _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
         node.AddNode(htmlElement);
     }

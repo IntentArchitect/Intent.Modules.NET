@@ -16,11 +16,11 @@ public class ButtonRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("button", _template.BlazorFile)
-            .AddAttribute("type", "submit")
+            .AddAttribute("type", button.GetInteraction().Type().IsSubmit() ? "submit" : "button")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         var onClickMapping = _template.GetMappedEndFor(button, "On Click");

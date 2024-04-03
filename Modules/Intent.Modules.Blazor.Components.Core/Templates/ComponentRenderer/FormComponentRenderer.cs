@@ -18,7 +18,7 @@ public class FormComponentRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var formModel = new FormModel(component);
         var codeBlock = new RazorCodeBlock(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _template.BlazorFile);
@@ -26,11 +26,11 @@ public class FormComponentRenderer : IComponentRenderer
         
         codeBlock.AddHtmlElement(htmlElement);
         htmlElement.AddAttributeIfNotEmpty("Model", _template.GetStereotypePropertyBinding(formModel, "Model"));
-        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"async () => await {_template.GetStereotypePropertyBinding(formModel, "On Submit")}");
+        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"async () => await {_template.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
         htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"async () => await {_template.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).Render(child, htmlElement);
+            _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
         node.AddNode(codeBlock);
 

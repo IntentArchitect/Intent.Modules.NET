@@ -16,7 +16,7 @@ public class TableRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var table = new TableModel(component);
         var loadingCode = new RazorCodeBlock(new CSharpStatement($"if ({_template.GetElementBinding(table)} is null)"), _template.BlazorFile);
@@ -73,7 +73,7 @@ public class TableRenderer : IComponentRenderer
                                     {
                                         foreach (var child in column.InternalElement.ChildElements)
                                         {
-                                            _componentResolver.ResolveFor(child).Render(child, td);
+                                            _componentResolver.ResolveFor(child).BuildComponent(child, td);
                                         }
                                     }
                                 });

@@ -17,7 +17,7 @@ public class CustomComponentRenderer : IComponentRenderer
         _template = template;
     }
 
-    public void Render(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var model = new ComponentModel((IElement)component.TypeReference.Element);
         var htmlElement = new HtmlElement(_template.GetTypeName(component.TypeReference), _template.BlazorFile);
@@ -65,7 +65,7 @@ public class CustomComponentRenderer : IComponentRenderer
 
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).Render(child, htmlElement);
+            _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
         node.AddNode(htmlElement);
     }
