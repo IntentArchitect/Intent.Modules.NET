@@ -1,8 +1,4 @@
-﻿### Version 1.0.3
-
-- Improvement: Added support for Dapr Http Client URL configuration.
-
-### Version 1.0.2
+﻿### Version 1.0.2
 
 - Fixed: Added missing using clause in generated CRUD tests.
 
