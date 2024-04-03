@@ -4,7 +4,7 @@
   <display>Integration</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>5</order>
+  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="31ecea48-5b15-40f7-a37a-22674f5b2b35" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="31ecea48-5b15-40f7-a37a-22674f5b2b35" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Integration.HttpClients</name>
           <display>Intent.Integration.HttpClients</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="28b81a6a-b5ee-47d9-af18-76cc50399831" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="28b81a6a-b5ee-47d9-af18-76cc50399831" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.ServiceProxies</name>
           <display>Intent.Modelers.ServiceProxies</display>
           <isAbstract>false</isAbstract>

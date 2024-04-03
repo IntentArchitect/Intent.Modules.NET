@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{E73721EE-C726-4C76-9FF6-032A1196A90F}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "DtoSettings.Class.Internal.Api", "DtoSettings.Class.Internal.Api\DtoSettings.Class.Internal.Api.csproj", "{6EB376E8-1793-4E64-9BD3-DEF0E26045D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Internal.Api", "DtoSettings.Class.Internal.Api\DtoSettings.Class.Internal.Api.csproj", "{6EB376E8-1793-4E64-9BD3-DEF0E26045D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{209B99C7-9291-4A7C-9067-1288D128A5FB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Internal.Application", "DtoSettings.Class.Internal.Application\DtoSettings.Class.Internal.Application.csproj", "{1AF1E709-41F3-481A-BAE4-96B4190516E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Internal.Application", "DtoSettings.Class.Internal.Application\DtoSettings.Class.Internal.Application.csproj", "{1AF1E709-41F3-481A-BAE4-96B4190516E4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{743CBEDE-E122-4412-AF2D-28C6EE776554}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Internal.Domain", "DtoSettings.Class.Internal.Domain\DtoSettings.Class.Internal.Domain.csproj", "{12F3B11F-FF32-4619-A943-2342124AFB50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Internal.Domain", "DtoSettings.Class.Internal.Domain\DtoSettings.Class.Internal.Domain.csproj", "{12F3B11F-FF32-4619-A943-2342124AFB50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{71CB9F8C-1668-4375-B45B-64137DDD9140}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Internal.Infrastructure", "DtoSettings.Class.Internal.Infrastructure\DtoSettings.Class.Internal.Infrastructure.csproj", "{EA896B97-95FC-4174-B76D-D8CF786AAFF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Internal.Infrastructure", "DtoSettings.Class.Internal.Infrastructure\DtoSettings.Class.Internal.Infrastructure.csproj", "{EA896B97-95FC-4174-B76D-D8CF786AAFF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

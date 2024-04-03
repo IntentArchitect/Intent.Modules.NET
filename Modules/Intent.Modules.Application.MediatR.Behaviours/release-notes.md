@@ -1,3 +1,7 @@
+### Version 4.2.12
+
+- Improvement: Added support for `IDistributedCacheWithUnitOfWork` to unit of work implementation.
+
 ### Version 4.2.11
 
 - Improvement: Updated Interoperable dependency versions.

@@ -74,5 +74,15 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE CreateEntity {id}, {name}", cancellationToken);
         }
+
+        public async Task<IReadOnlyCollection<EntityRecord>> GetEntities(CancellationToken cancellationToken = default)
+        {
+            var results = await _dbContext.EntityRecords
+                .FromSqlInterpolated($"EXECUTE GetEntities")
+                .IgnoreQueryFilters()
+                .ToArrayAsync(cancellationToken);
+
+            return results;
+        }
     }
 }

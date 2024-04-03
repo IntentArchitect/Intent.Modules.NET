@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{420395CE-5D00-4875-84EF-FEEDDB4E82AE}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "SwashbuckleSettings.SimpleSchemaId.Api", "SwashbuckleSettings.SimpleSchemaId.Api\SwashbuckleSettings.SimpleSchemaId.Api.csproj", "{3E6BFBF9-0B5D-407D-BE75-96C1BFCF50A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.SimpleSchemaId.Api", "SwashbuckleSettings.SimpleSchemaId.Api\SwashbuckleSettings.SimpleSchemaId.Api.csproj", "{3E6BFBF9-0B5D-407D-BE75-96C1BFCF50A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8F0F2E44-CF6E-481D-934B-35F5A0A2DFC7}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.SimpleSchemaId.Application", "SwashbuckleSettings.SimpleSchemaId.Application\SwashbuckleSettings.SimpleSchemaId.Application.csproj", "{1787AAC3-9EE7-460B-A2A2-5C7E55DDB26E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.SimpleSchemaId.Application", "SwashbuckleSettings.SimpleSchemaId.Application\SwashbuckleSettings.SimpleSchemaId.Application.csproj", "{1787AAC3-9EE7-460B-A2A2-5C7E55DDB26E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{EB6861C4-725C-40D0-9085-DD4980D8EB38}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.SimpleSchemaId.Domain", "SwashbuckleSettings.SimpleSchemaId.Domain\SwashbuckleSettings.SimpleSchemaId.Domain.csproj", "{0281384A-2CD1-41E8-9851-BE9A5F86A33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.SimpleSchemaId.Domain", "SwashbuckleSettings.SimpleSchemaId.Domain\SwashbuckleSettings.SimpleSchemaId.Domain.csproj", "{0281384A-2CD1-41E8-9851-BE9A5F86A33D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{ABB16C91-F95E-4624-919C-0AC6C197FDB1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.SimpleSchemaId.Infrastructure", "SwashbuckleSettings.SimpleSchemaId.Infrastructure\SwashbuckleSettings.SimpleSchemaId.Infrastructure.csproj", "{8285E72E-3D1C-4099-A3EB-B5BEE1FA62D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.SimpleSchemaId.Infrastructure", "SwashbuckleSettings.SimpleSchemaId.Infrastructure\SwashbuckleSettings.SimpleSchemaId.Infrastructure.csproj", "{8285E72E-3D1C-4099-A3EB-B5BEE1FA62D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

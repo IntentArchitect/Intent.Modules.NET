@@ -83,7 +83,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case VisualStudioProjectTypeIds.WebApiApplication:
                         new FrameworkProjectSyncProcessor(templateInstance, _sfEventDispatcher, _changeManager).Process(events);
                         break;
-                    case VisualStudioProjectTypeIds.CoreCSharpLibrary:
+                    case VisualStudioProjectTypeIds.SdkCSharpProject:
+					case VisualStudioProjectTypeIds.CoreCSharpLibrary:
                     case VisualStudioProjectTypeIds.CoreWebApp:
                     case VisualStudioProjectTypeIds.CoreConsoleApp:
                     case VisualStudioProjectTypeIds.AzureFunctionsProject:

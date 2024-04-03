@@ -4,14 +4,6 @@
   <display>DataContractObject</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="54dd03dc-049f-4e4e-af3b-c53c11cf914f">
-    <isNavigable>true</isNavigable>
-    <isNullable>false</isNullable>
-    <isCollection>false</isCollection>
-    <isRequired>true</isRequired>
-    <stereotypes />
-    <genericTypeParameters />
-  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>086ef0af-9891-49d0-b2fe-0ea6e2c14196</parentFolderId>
   <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>

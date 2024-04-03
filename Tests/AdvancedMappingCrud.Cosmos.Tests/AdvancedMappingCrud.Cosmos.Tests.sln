@@ -4,23 +4,23 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F5E32B96-31C1-4AAD-BB7F-C61A3C37F61A}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "AdvancedMappingCrud.Cosmos.Tests.Api", "AdvancedMappingCrud.Cosmos.Tests.Api\AdvancedMappingCrud.Cosmos.Tests.Api.csproj", "{96FE8FB6-D4FD-4352-9BCA-58FD6A6146F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.Cosmos.Tests.Api", "AdvancedMappingCrud.Cosmos.Tests.Api\AdvancedMappingCrud.Cosmos.Tests.Api.csproj", "{96FE8FB6-D4FD-4352-9BCA-58FD6A6146F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{43DC0D81-C342-46A6-BE3F-37824B0DD643}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.Cosmos.Tests.Application", "AdvancedMappingCrud.Cosmos.Tests.Application\AdvancedMappingCrud.Cosmos.Tests.Application.csproj", "{AC728B60-FCA0-4DD9-BA43-5BB11239AA88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.Cosmos.Tests.Application", "AdvancedMappingCrud.Cosmos.Tests.Application\AdvancedMappingCrud.Cosmos.Tests.Application.csproj", "{AC728B60-FCA0-4DD9-BA43-5BB11239AA88}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D4B2E62C-3E07-4B95-8F7E-D33AFC65FCA0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.Cosmos.Tests.Domain", "AdvancedMappingCrud.Cosmos.Tests.Domain\AdvancedMappingCrud.Cosmos.Tests.Domain.csproj", "{F3853C95-C817-43E2-BF36-AAFB6221C7AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.Cosmos.Tests.Domain", "AdvancedMappingCrud.Cosmos.Tests.Domain\AdvancedMappingCrud.Cosmos.Tests.Domain.csproj", "{F3853C95-C817-43E2-BF36-AAFB6221C7AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{4AB2295D-E708-4386-91AD-E554E4E7B767}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.Cosmos.Tests.Infrastructure", "AdvancedMappingCrud.Cosmos.Tests.Infrastructure\AdvancedMappingCrud.Cosmos.Tests.Infrastructure.csproj", "{D4EEFFAC-8FB8-4BB3-A1B2-235CE87F7BE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.Cosmos.Tests.Infrastructure", "AdvancedMappingCrud.Cosmos.Tests.Infrastructure\AdvancedMappingCrud.Cosmos.Tests.Infrastructure.csproj", "{D4EEFFAC-8FB8-4BB3-A1B2-235CE87F7BE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{522DD979-CA70-4386-AA33-927D11E48FC4}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.Cosmos.Tests.IntegrationTests", "AdvancedMappingCrud.Cosmos.Tests.IntegrationTests\AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.csproj", "{F6C2BA26-F45B-416D-9E71-86AB3A6B1BE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.Cosmos.Tests.IntegrationTests", "AdvancedMappingCrud.Cosmos.Tests.IntegrationTests\AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.csproj", "{F6C2BA26-F45B-416D-9E71-86AB3A6B1BE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

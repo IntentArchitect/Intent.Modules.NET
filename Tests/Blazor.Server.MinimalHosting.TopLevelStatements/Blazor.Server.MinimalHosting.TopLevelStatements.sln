@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Blazor.Server.MinimalHosting.TopLevelStatements", "Blazor.Server.MinimalHosting.TopLevelStatements\Blazor.Server.MinimalHosting.TopLevelStatements.csproj", "{183786B6-E215-48AD-9D90-F762D371C8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Server.MinimalHosting.TopLevelStatements", "Blazor.Server.MinimalHosting.TopLevelStatements\Blazor.Server.MinimalHosting.TopLevelStatements.csproj", "{183786B6-E215-48AD-9D90-F762D371C8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

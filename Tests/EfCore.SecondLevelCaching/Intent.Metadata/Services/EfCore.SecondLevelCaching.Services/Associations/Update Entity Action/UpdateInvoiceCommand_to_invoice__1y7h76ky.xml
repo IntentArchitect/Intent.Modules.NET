@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="551a1e1c-2b6d-4caf-9897-af22e192a663">
+  <sourceEnd id="915db500-fe5f-4572-b551-00914c2c8605" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Invoices.UpdateInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="2a521ca2-3258-4044-8109-dbb4c774d8eb">
+      <typeId>e204784d-21ea-40dc-a394-e7e782868541</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Services</typePackageName>
+      <typePackageId>8b6d5771-31e4-4942-a441-98c9621d7886</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="551a1e1c-2b6d-4caf-9897-af22e192a663" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>invoice</name>
+    <display>[update] invoice: Invoice</display>
+    <order>2</order>
+    <typeReference id="41f20b1b-e7b9-4187-b965-ba952f02a4db">
+      <typeId>e16737a1-3f42-4f22-a9b1-7cee4792284b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Domain</typePackageName>
+      <typePackageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e204784d-21ea-40dc-a394-e7e782868541" location="[EfCore.SecondLevelCaching].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e16737a1-3f42-4f22-a9b1-7cee4792284b" location="[EfCore.SecondLevelCaching].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="e16737a1-3f42-4f22-a9b1-7cee4792284b" name="Invoice" type="element" specialization="Class" />
+              <target id="a4332b34-7819-49e1-a4a1-f9351262e361" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e204784d-21ea-40dc-a394-e7e782868541" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="fddca8f9-950a-41e2-bf71-eb2b03869a8e" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e204784d-21ea-40dc-a394-e7e782868541" location="[EfCore.SecondLevelCaching].[Services].[UpdateInvoiceCommand]" />
+        <target applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e16737a1-3f42-4f22-a9b1-7cee4792284b" location="[EfCore.SecondLevelCaching].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Notes}</expression>
+            <path>
+              <target id="e16737a1-3f42-4f22-a9b1-7cee4792284b" name="Invoice" type="element" specialization="Class" />
+              <target id="21371791-d2a8-48b0-9a1a-5d0753ee6b8a" name="Notes" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Notes" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e204784d-21ea-40dc-a394-e7e782868541" name="UpdateInvoiceCommand" type="element" specialization="Command" />
+                  <target id="fa6e7522-3910-4a26-b229-1a9b26ac645e" name="Notes" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

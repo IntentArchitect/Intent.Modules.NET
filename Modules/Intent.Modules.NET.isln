@@ -136,5 +136,7 @@
     <application id="b5fc2084-b1b4-49d0-bae3-af9b5256b54a" name="Intent.Modules.Bugsnag" relativePath="Intent.Modules.Bugsnag/Intent.Modules.Bugsnag.application.config" />
     <application id="6e00a575-a873-4cf4-ab2a-b62721a8bc24" name="Intent.Modules.SqlServerImporter" relativePath="Intent.Modules.SqlServerImporter/Intent.Modules.SqlServerImporter.application.config" />
     <application id="82b660c8-1973-49da-9f1d-91a9bda3ff55" name="Intent.Modules.Eventing.Kafka" relativePath="Intent.Modules.Eventing.Kafka/Intent.Modules.Eventing.Kafka.application.config" />
+    <application id="23a2e556-4b65-4e09-b1b6-be706e425f17" name="Intent.Modules.AspNetCore.DistributedCaching" relativePath="Intent.Modules.AspNetCore.DistributedCaching/Intent.Modules.AspNetCore.DistributedCaching.application.config" />
+    <application id="004cfd62-cf66-4e52-8da3-881422ea54c4" name="Intent.Modules.EntityFrameworkCore.SecondLevelCaching" relativePath="Intent.Modules.EntityFrameworkCore.SecondLevelCaching/Intent.Modules.EntityFrameworkCore.SecondLevelCaching.application.config" />
   </applications>
 </solution>

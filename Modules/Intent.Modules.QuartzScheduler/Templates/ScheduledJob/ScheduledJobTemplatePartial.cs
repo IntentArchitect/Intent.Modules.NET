@@ -28,7 +28,12 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name.ToPascalCase()}", @class =>
                 {
-                    @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
+                    if (Model.GetScheduling().DisallowConcurrentExecution())
+                    {
+                        @class.AddAttribute(UseType("Quartz.DisallowConcurrentExecution"));
+                    }
+                    
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     @class.ImplementsInterface(UseType("Quartz.IJob"));
                     @class.AddConstructor(ctor =>
                     {
@@ -44,16 +49,17 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                     });
                     @class.AddMethod("Task", "Execute", async method =>
                     {
-                        method.AddAttribute("IntentManaged(Mode.Fully, Signature = Mode.Fully)");
+                        method.Async();
                         method.AddParameter("IJobExecutionContext", "context");
                         if (model.PublishedCommand() != null)
                         {
-                            method.Async();
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithSignatureFully());
                             method.AddStatement($"var command = new {GetTypeName("Application.Contract.Command", model.PublishedCommand())}();");
                             method.AddStatement("await _mediator.Send(command);");
                         }
                         else
                         {
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                             AddUsing("System");
                             method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                         }

@@ -17,19 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0F2DEC41-BB50-4D3A-9C76-60AB03379AA4}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Subscribe.CleanArchDapr.TestApplication.Api", "Subscribe.CleanArchDapr.TestApplication.Api\Subscribe.CleanArchDapr.TestApplication.Api.csproj", "{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.CleanArchDapr.TestApplication.Api", "Subscribe.CleanArchDapr.TestApplication.Api\Subscribe.CleanArchDapr.TestApplication.Api.csproj", "{E5A755D8-C526-4B5E-8B91-06A2E8187ACE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{B4E27713-21BA-46E2-95DF-81B3FD0E5A50}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Application", "Subscribe.CleanArchDapr.TestApplication.Application\Subscribe.CleanArchDapr.TestApplication.Application.csproj", "{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.CleanArchDapr.TestApplication.Application", "Subscribe.CleanArchDapr.TestApplication.Application\Subscribe.CleanArchDapr.TestApplication.Application.csproj", "{DD65AE8D-ACAE-4555-AF68-893ED7D51ACE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{595C7AEB-F9BC-4780-8682-8EA3D2088727}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Domain", "Subscribe.CleanArchDapr.TestApplication.Domain\Subscribe.CleanArchDapr.TestApplication.Domain.csproj", "{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.CleanArchDapr.TestApplication.Domain", "Subscribe.CleanArchDapr.TestApplication.Domain\Subscribe.CleanArchDapr.TestApplication.Domain.csproj", "{4CBE73D8-8BB3-4B59-81B9-A846C1210F0C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{55820FC5-C178-495D-B42B-82AAC7409B4F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.CleanArchDapr.TestApplication.Infrastructure", "Subscribe.CleanArchDapr.TestApplication.Infrastructure\Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj", "{9A02C2C1-32C1-4DFA-AD06-519222669804}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.CleanArchDapr.TestApplication.Infrastructure", "Subscribe.CleanArchDapr.TestApplication.Infrastructure\Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj", "{9A02C2C1-32C1-4DFA-AD06-519222669804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

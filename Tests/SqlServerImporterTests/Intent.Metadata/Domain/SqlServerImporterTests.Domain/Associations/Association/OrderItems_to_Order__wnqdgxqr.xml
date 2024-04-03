@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c806ea0c-a3ad-4f8d-a79f-f042097ae232">
+  <sourceEnd id="0cea488b-0c27-49a7-a2a0-cc329e6cbe75" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OrderItems</name>
+    <display>OrderItems: OrderItem[*]</display>
+    <order>0</order>
+    <typeReference id="4e1a055a-8b23-4046-a759-8aece08d95b3">
+      <typeId>82e67933-e8cf-4c26-9198-4138387e1443</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c806ea0c-a3ad-4f8d-a79f-f042097ae232" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>5</order>
+    <typeReference id="5351802a-c46e-4645-9360-4095ef5035cf">
+      <typeId>db54401b-3d65-48d0-9186-31d3c997f2b4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[orderitems].[fk_orderitems_orders_orderid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[orderitems].[fk_orderitems_orders_orderid]</externalReference>
+  <stereotypes />
+</association>

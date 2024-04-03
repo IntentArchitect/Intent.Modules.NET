@@ -1,3 +1,7 @@
+### Version 6.0.7
+
+- Fixed: Issue around CRUD with nullable return types.
+
 ### Version 6.0.6
 
 - Improvement: Automatic wiring up of `DomainService`s in CRUD Implementations.

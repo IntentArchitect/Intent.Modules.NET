@@ -58,7 +58,7 @@
             <path>
               <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
               <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="38244143-ea75-4362-84bd-21e2b183fde7" name="refNo" type="element" specialization="Parameter" />
+              <target id="a47d6067-769a-43ab-886b-5a01898ab889" name="refNo" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="refNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -74,7 +74,7 @@
             <path>
               <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
               <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="d8c10486-b3bc-4315-9cab-142bca6b41ec" name="personId" type="element" specialization="Parameter" />
+              <target id="d9bb92ef-2ee1-4065-aeff-4de3493c3142" name="personId" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="personId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -90,7 +90,7 @@
             <path>
               <target id="029a89c6-9b95-4c63-af26-7bcdfe92e78e" name="FuneralCoverQuote" type="element" specialization="Class" />
               <target id="594906e7-27f7-43f0-a5aa-0ac3e65be84c" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="2d68d1cd-4c18-4b8c-b409-4cf662ea3df6" name="personEmail" type="element" specialization="Parameter" />
+              <target id="9c29ff6f-c5e2-418d-a4fe-3c65e8cd5e3c" name="personEmail" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="personEmail" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -174,7 +174,7 @@
               <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
               <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
               <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="81ca97d8-3d63-4f65-9fc0-46d406898eaa" name="productId" type="element" specialization="Parameter" />
+              <target id="f71370a5-665b-40f6-bebf-3bc07171368f" name="productId" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="QuoteLines.productId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">

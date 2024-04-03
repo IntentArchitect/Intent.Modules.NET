@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{11AEEB8B-05CB-4F59-A4CD-7F9362D48B8F}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFrameworkCore.Repositories.TestApplication.Api", "EntityFrameworkCore.Repositories.TestApplication.Api\EntityFrameworkCore.Repositories.TestApplication.Api.csproj", "{CB1EF6F1-6FFB-4B3F-B840-A0BF3B6974D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Api", "EntityFrameworkCore.Repositories.TestApplication.Api\EntityFrameworkCore.Repositories.TestApplication.Api.csproj", "{CB1EF6F1-6FFB-4B3F-B840-A0BF3B6974D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D0E7334A-EF06-4049-8326-DF6CF4B96ACB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Repositories.TestApplication.Application", "EntityFrameworkCore.Repositories.TestApplication.Application\EntityFrameworkCore.Repositories.TestApplication.Application.csproj", "{CBA0848F-5AFF-47D9-BB33-E81B336D22F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Application", "EntityFrameworkCore.Repositories.TestApplication.Application\EntityFrameworkCore.Repositories.TestApplication.Application.csproj", "{CBA0848F-5AFF-47D9-BB33-E81B336D22F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{17E76155-57D6-4377-903F-02C776958F85}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Repositories.TestApplication.Domain", "EntityFrameworkCore.Repositories.TestApplication.Domain\EntityFrameworkCore.Repositories.TestApplication.Domain.csproj", "{FB6E7A83-E6CC-4D58-9BA5-274BA68B7D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Domain", "EntityFrameworkCore.Repositories.TestApplication.Domain\EntityFrameworkCore.Repositories.TestApplication.Domain.csproj", "{FB6E7A83-E6CC-4D58-9BA5-274BA68B7D0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{ED050DBC-93CF-414D-9622-2632F7EA4C41}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.Repositories.TestApplication.Infrastructure", "EntityFrameworkCore.Repositories.TestApplication.Infrastructure\EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj", "{555ED9EC-137B-4A0C-A10D-C2FC0DF7571F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Infrastructure", "EntityFrameworkCore.Repositories.TestApplication.Infrastructure\EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj", "{555ED9EC-137B-4A0C-A10D-C2FC0DF7571F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

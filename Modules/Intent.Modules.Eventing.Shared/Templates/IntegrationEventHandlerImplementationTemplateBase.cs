@@ -11,7 +11,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 
 namespace Intent.Modules.Eventing.Shared.Templates;
 
-public abstract class IntegrationEventHandlerImplementationTemplateBase : CSharpTemplateBase<MessageSubscribeAssocationTargetEndModel>
+public abstract class IntegrationEventHandlerImplementationTemplateBase : CSharpTemplateBase<MessageSubscribeAssocationTargetEndModel>, ICSharpFileBuilderTemplate
 {
     protected IntegrationEventHandlerImplementationTemplateBase(string templateId, IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model)
         : base(templateId, outputTarget, model)

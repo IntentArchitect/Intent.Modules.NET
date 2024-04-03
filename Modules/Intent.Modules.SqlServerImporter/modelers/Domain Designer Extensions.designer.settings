@@ -72,6 +72,13 @@ async function importSqlDatabase(element) {
         hint: "Export SQL stored procedures",
         value: defaults.includeStoredProcedures
     };
+    let includeIndexes = {
+        id: "includeIndexes",
+        fieldType: "checkbox",
+        label: "Include Indexes",
+        hint: "Export SQL indexes",
+        value: defaults.includeIndexes
+    };
     let settingPersistence = {
         id: "settingPersistence",
         fieldType: "select",
@@ -90,6 +97,7 @@ async function importSqlDatabase(element) {
             includeTables,
             includeViews,
             includeStoredProcedures,
+            includeIndexes,
             settingPersistence,
         ]
     };
@@ -103,6 +111,9 @@ async function importSqlDatabase(element) {
     }
     if (inputs.includeStoredProcedures == "true") {
         typesToExport.push("StoredProcedure");
+    }
+    if (inputs.includeIndexes == "true") {
+        typesToExport.push("Index");
     }
     const domainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
     let importConfig = {
@@ -122,7 +133,12 @@ async function importSqlDatabase(element) {
         await dialogService.error(result === null || result === void 0 ? void 0 : result.errorMessage);
     }
     else {
-        await dialogService.info("Import complete.");
+        if (result === null || result === void 0 ? void 0 : result.warnings) {
+            await dialogService.warn("Import complete.\r\n\r\n" + (result === null || result === void 0 ? void 0 : result.warnings));
+        }
+        else {
+            await dialogService.info("Import complete.");
+        }
     }
 }
 function getDialogDefaults(element) {
@@ -131,10 +147,12 @@ function getDialogDefaults(element) {
     let includeTables = "true";
     let includeViews = "true";
     let includeStoredProcedures = "true";
+    let includeIndexes = "true";
     if (persistedValue) {
         includeTables = "false";
         includeViews = "false";
         includeStoredProcedures = "false";
+        includeIndexes = "false";
         persistedValue.split(";").forEach(i =&gt; {
             switch (i.toLocaleLowerCase()) {
                 case 'table':
@@ -145,6 +163,9 @@ function getDialogDefaults(element) {
                     break;
                 case 'storedprocedure':
                     includeStoredProcedures = "true";
+                    break;
+                case 'index':
+                    includeIndexes = "true";
                     break;
                 default:
                     break;
@@ -159,6 +180,7 @@ function getDialogDefaults(element) {
         includeTables: includeTables,
         includeViews: includeViews,
         includeStoredProcedures: includeStoredProcedures,
+        includeIndexes: includeIndexes,
         settingPersistence: getSettingValue(package, "sql-import:settingPersistence", "None"),
     };
     return result;

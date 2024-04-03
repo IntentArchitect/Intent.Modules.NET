@@ -115,10 +115,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             var foundEntity = returnDto.Mapping.Element.AsClassModel();
+            if (foundEntity is null)
+            {
+                return NoMatch;
+            }
             var dtoToReturn = _application.MetadataManager.Services(_application)
                 .GetDTOModels().SingleOrDefault(x =>
-                    x.Id == _template.Model.TypeReference.Element.Id && x.IsMapped &&
-                    x.Mapping.ElementId == foundEntity.Id);
+                    x.Id == _template.Model.TypeReference.Element?.Id && x.IsMapped &&
+                    x.Mapping?.ElementId == foundEntity.Id);
             if (dtoToReturn == null)
             {
                 return NoMatch;

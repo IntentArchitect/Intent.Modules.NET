@@ -173,7 +173,7 @@
               <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
               <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
               <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="81ca97d8-3d63-4f65-9fc0-46d406898eaa" name="productId" type="element" specialization="Parameter" />
+              <target id="f71370a5-665b-40f6-bebf-3bc07171368f" name="productId" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="QuoteLines.productId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">

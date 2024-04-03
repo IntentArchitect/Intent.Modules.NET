@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{74F5B7BA-C6D0-4DBD-97EF-17A7E8FEB779}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Entities.PrivateSetters.EF.SqlServer.Api", "Entities.PrivateSetters.EF.SqlServer.Api\Entities.PrivateSetters.EF.SqlServer.Api.csproj", "{80266D8F-72BE-4F41-8B6B-650EDC0D10C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.SqlServer.Api", "Entities.PrivateSetters.EF.SqlServer.Api\Entities.PrivateSetters.EF.SqlServer.Api.csproj", "{80266D8F-72BE-4F41-8B6B-650EDC0D10C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{01A58BF1-5CAA-46D6-A9CC-41EF54C104B5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.SqlServer.Application", "Entities.PrivateSetters.EF.SqlServer.Application\Entities.PrivateSetters.EF.SqlServer.Application.csproj", "{F679AC82-9F74-44BC-A570-813237CC00E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.SqlServer.Application", "Entities.PrivateSetters.EF.SqlServer.Application\Entities.PrivateSetters.EF.SqlServer.Application.csproj", "{F679AC82-9F74-44BC-A570-813237CC00E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F90B179B-B1AB-4E7A-9FAA-ABFC7948EEEA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.SqlServer.Domain", "Entities.PrivateSetters.EF.SqlServer.Domain\Entities.PrivateSetters.EF.SqlServer.Domain.csproj", "{8BC255D9-F38E-4F4D-ACB8-2047F2F5975E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.SqlServer.Domain", "Entities.PrivateSetters.EF.SqlServer.Domain\Entities.PrivateSetters.EF.SqlServer.Domain.csproj", "{8BC255D9-F38E-4F4D-ACB8-2047F2F5975E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{4AA27B25-7045-4747-B0BD-B321C2153973}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.EF.SqlServer.Infrastructure", "Entities.PrivateSetters.EF.SqlServer.Infrastructure\Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj", "{D683C72A-BFB6-4251-B8D0-910C07EC3113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.EF.SqlServer.Infrastructure", "Entities.PrivateSetters.EF.SqlServer.Infrastructure\Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj", "{D683C72A-BFB6-4251-B8D0-910C07EC3113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

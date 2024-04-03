@@ -1,7 +1,9 @@
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Products;
 using AutoFixture;
@@ -40,6 +42,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var customerId = await client.CreateCustomerAsync(command);
             _idTracker["CustomerId"] = customerId;
             return customerId;
+        }
+
+        public async Task<Guid> CreateOptional()
+        {
+            var client = new OptionalsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateOptionalCommand>();
+            var optionalId = await client.CreateOptionalAsync(command);
+            _idTracker["OptionalId"] = optionalId;
+            return optionalId;
         }
 
         public async Task CreateOrderDependencies()

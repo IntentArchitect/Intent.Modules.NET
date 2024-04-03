@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.CRUD.Eventing</id>
-  <version>1.0.12-pre.0</version>
+  <version>1.0.12</version>
   <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Wires up the auto CRUD Event Publishing for the Standard Service Implementation.</summary>
@@ -17,7 +17,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.1.5" />
   </dependencies>

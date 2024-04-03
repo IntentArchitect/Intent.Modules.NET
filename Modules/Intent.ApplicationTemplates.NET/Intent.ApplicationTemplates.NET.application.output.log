@@ -3,13 +3,13 @@
   <ApplicationId>7decc3ee-90dc-439b-b1f1-a6652711ee7b</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#903a0cfd-b65d-4f8d-952c-f2fce3db019d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#903a0cfd-b65d-4f8d-952c-f2fce3db019d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#3d474ae5-467a-493b-add4-e223d61b188a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr/metadata.iatspec</ApplicationRelativeFilePath>
@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#9612bb90-998c-4dda-b8af-98f201160728</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture/metadata.iatspec</ApplicationRelativeFilePath>
@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#da621866-ec56-4cb0-815a-ce21261712a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AzureFunctions/metadata.iatspec</ApplicationRelativeFilePath>
@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#7e8ada90-678e-4a30-925f-66b864b9918d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ApplicationRelativeFilePath>
@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#ca894a4c-ca0c-4d31-a058-1336c12bb71a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.WindowsServiceHost/metadata.iatspec</ApplicationRelativeFilePath>
@@ -49,8 +49,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#61f239a7-101b-4b4d-bacc-19a6cc318a71</CorrelationId>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7de2afc2-6dcc-4ab6-b002-f40aa963976e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ProjectRelativeFilePath>

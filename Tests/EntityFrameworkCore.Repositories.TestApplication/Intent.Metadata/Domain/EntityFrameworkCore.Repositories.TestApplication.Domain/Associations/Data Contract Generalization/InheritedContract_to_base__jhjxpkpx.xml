@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ca29c3ee-ba8a-4422-9336-23b6e8975cda">
+  <sourceEnd id="a60c2728-0784-4e0d-bd36-6aae21372dd5" type="Data Contract Generalization Source End" typeId="12c2ffdc-9a54-4e99-9e09-a441fa260bef">
+    <display>: InheritedContract</display>
+    <order>0</order>
+    <typeReference id="94c30991-c0eb-41b3-8d52-62b98066ce0c">
+      <typeId>0c388142-4d87-4dad-b975-76a5314d4cf0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ca29c3ee-ba8a-4422-9336-23b6e8975cda" type="Data Contract Generalization Target End" typeId="4ea029c6-e963-46c7-8d2f-e4ea73e05a07">
+    <name>base</name>
+    <display>extends BaseContract</display>
+    <order>0</order>
+    <typeReference id="a8c75e80-d71d-40c3-b905-7fa4d961015d">
+      <typeId>8f48f018-053a-4942-8452-e68903ab87da</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Data Contract Generalization</associationType>
+  <associationTypeId>4199ae15-0ecc-4086-82f3-bfa885c9d3e8</associationTypeId>
+  <stereotypes />
+</association>

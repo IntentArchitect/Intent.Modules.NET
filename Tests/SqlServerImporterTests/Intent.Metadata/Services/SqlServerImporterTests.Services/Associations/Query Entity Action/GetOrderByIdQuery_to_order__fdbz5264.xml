@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5a74ddc1-46c2-43f7-a368-9ef21fffb08e">
+  <sourceEnd id="0a6f453d-d9db-4f7c-9f28-d701081c556d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderByIdQuery</display>
+    <order>0</order>
+    <typeReference id="c8b79522-181d-4bd0-9d69-8e1e22707ce8">
+      <typeId>7187f18a-17ce-4449-8a0f-438fa96b722f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests.Services</typePackageName>
+      <typePackageId>2e97ac00-7126-447c-839f-d3d0b69b5f27</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5a74ddc1-46c2-43f7-a368-9ef21fffb08e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>1</order>
+    <typeReference id="e8770ff6-3a00-4170-96db-a6aa719ebf10">
+      <typeId>db54401b-3d65-48d0-9186-31d3c997f2b4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a5bda094-e905-46f8-8348-5afef353db68" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7187f18a-17ce-4449-8a0f-438fa96b722f" location="[SqlServerImporterTests].[Services].[GetOrderByIdQuery]" />
+        <target elementId="db54401b-3d65-48d0-9186-31d3c997f2b4" location="[SqlServerImporterTests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="db54401b-3d65-48d0-9186-31d3c997f2b4" name="Order" type="element" specialization="Class" />
+              <target id="18c884eb-e79d-4c82-b5e5-17faacbd3796" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7187f18a-17ce-4449-8a0f-438fa96b722f" name="GetOrderByIdQuery" type="element" specialization="Query" />
+                  <target id="9e2a876e-6508-46fc-8aff-305720918932" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="db641322-a672-4eb0-a659-e33aff12dc93">
+  <sourceEnd id="51c28678-5372-4ba7-a1df-ad7dd12c431b" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : MappableStoredProcs.GetMockEntities</display>
+    <order>0</order>
+    <typeReference id="c7f97e2a-0fe4-46e2-88d5-1eba606cfd30">
+      <typeId>b62b8549-b7f0-4262-944d-38800da83791</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="db641322-a672-4eb0-a659-e33aff12dc93" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetMockEntities(...): MockEntity[*]</display>
+    <order>0</order>
+    <typeReference id="5bdfc047-8f60-4bb1-a2b7-99b594e07ae3">
+      <typeId>06fd5496-fb86-4845-bdc8-609a9a6003f5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b62b8549-b7f0-4262-944d-38800da83791" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntities]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="06fd5496-fb86-4845-bdc8-609a9a6003f5" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntities]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetMockEntities}</expression>
+            <path>
+              <target id="06fd5496-fb86-4845-bdc8-609a9a6003f5" name="GetMockEntities" type="element" specialization="Stored Procedure" />
+            </path>
+            <sources>
+              <source identifier="GetMockEntities" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="b62b8549-b7f0-4262-944d-38800da83791" name="GetMockEntities" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

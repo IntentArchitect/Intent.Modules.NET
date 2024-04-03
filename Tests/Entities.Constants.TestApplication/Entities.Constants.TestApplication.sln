@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{9B1A446A-A73C-48E8-B5E5-27CFB82DB728}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Entities.Constants.TestApplication.Api", "Entities.Constants.TestApplication.Api\Entities.Constants.TestApplication.Api.csproj", "{660B593C-705A-4E57-94C3-FF918DBA4CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.Constants.TestApplication.Api", "Entities.Constants.TestApplication.Api\Entities.Constants.TestApplication.Api.csproj", "{660B593C-705A-4E57-94C3-FF918DBA4CCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{394E15AE-3F08-4EB7-A718-DF9041349098}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.Constants.TestApplication.Application", "Entities.Constants.TestApplication.Application\Entities.Constants.TestApplication.Application.csproj", "{CE288898-1970-4C99-8235-5BC78BEA6C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.Constants.TestApplication.Application", "Entities.Constants.TestApplication.Application\Entities.Constants.TestApplication.Application.csproj", "{CE288898-1970-4C99-8235-5BC78BEA6C3B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{5D972D4E-B297-4CB7-BA60-44C558FC5E83}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.Constants.TestApplication.Domain", "Entities.Constants.TestApplication.Domain\Entities.Constants.TestApplication.Domain.csproj", "{1B1410DC-9FE7-4CEE-912E-C335A2899773}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.Constants.TestApplication.Domain", "Entities.Constants.TestApplication.Domain\Entities.Constants.TestApplication.Domain.csproj", "{1B1410DC-9FE7-4CEE-912E-C335A2899773}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{49BED15B-6C84-480D-B10E-2DCFF65F9CB2}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.Constants.TestApplication.Infrastructure", "Entities.Constants.TestApplication.Infrastructure\Entities.Constants.TestApplication.Infrastructure.csproj", "{525FBF51-667B-40D0-AA63-5439D8A602C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.Constants.TestApplication.Infrastructure", "Entities.Constants.TestApplication.Infrastructure\Entities.Constants.TestApplication.Infrastructure.csproj", "{525FBF51-667B-40D0-AA63-5439D8A602C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

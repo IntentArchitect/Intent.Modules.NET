@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3466057B-2DED-468A-BF08-53F0CB5337BB}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Kafka.Consumer.Api", "Kafka.Consumer.Api\Kafka.Consumer.Api.csproj", "{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Api", "Kafka.Consumer.Api\Kafka.Consumer.Api.csproj", "{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{79DDBC1C-056E-4F40-8050-2340D4455D09}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Kafka.Consumer.Application", "Kafka.Consumer.Application\Kafka.Consumer.Application.csproj", "{903DC353-D19B-4D90-9469-F5D3F316C551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Application", "Kafka.Consumer.Application\Kafka.Consumer.Application.csproj", "{903DC353-D19B-4D90-9469-F5D3F316C551}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{45F28322-CD6E-4E81-8BC3-F70CCD43942F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Kafka.Consumer.Domain", "Kafka.Consumer.Domain\Kafka.Consumer.Domain.csproj", "{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Domain", "Kafka.Consumer.Domain\Kafka.Consumer.Domain.csproj", "{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{B9179793-2A30-4298-85EF-0B68333F39CE}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Kafka.Consumer.Infrastructure", "Kafka.Consumer.Infrastructure\Kafka.Consumer.Infrastructure.csproj", "{FA987292-61EC-4C58-A1E0-96A58CA49C3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Infrastructure", "Kafka.Consumer.Infrastructure\Kafka.Consumer.Infrastructure.csproj", "{FA987292-61EC-4C58-A1E0-96A58CA49C3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

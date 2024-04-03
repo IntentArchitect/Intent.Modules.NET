@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{BD6F31A0-B7DB-4B2E-9602-6B7B8F017779}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MassTransit.RetryPolicy.Interval.Api", "MassTransit.RetryPolicy.Interval.Api\MassTransit.RetryPolicy.Interval.Api.csproj", "{8919579D-ABE6-4C7F-94E7-3BBB57A54DD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RetryPolicy.Interval.Api", "MassTransit.RetryPolicy.Interval.Api\MassTransit.RetryPolicy.Interval.Api.csproj", "{8919579D-ABE6-4C7F-94E7-3BBB57A54DD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{C70FC5B0-0F50-4B0F-B032-9A9251168561}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RetryPolicy.Interval.Application", "MassTransit.RetryPolicy.Interval.Application\MassTransit.RetryPolicy.Interval.Application.csproj", "{1EF84A78-A6E6-4746-BB31-9648B7057C04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RetryPolicy.Interval.Application", "MassTransit.RetryPolicy.Interval.Application\MassTransit.RetryPolicy.Interval.Application.csproj", "{1EF84A78-A6E6-4746-BB31-9648B7057C04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{18CE317E-27B2-4D05-A6FE-E8B208249694}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RetryPolicy.Interval.Domain", "MassTransit.RetryPolicy.Interval.Domain\MassTransit.RetryPolicy.Interval.Domain.csproj", "{CA436A00-ADFD-4050-B8C8-851D8ED004FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RetryPolicy.Interval.Domain", "MassTransit.RetryPolicy.Interval.Domain\MassTransit.RetryPolicy.Interval.Domain.csproj", "{CA436A00-ADFD-4050-B8C8-851D8ED004FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A832792A-364B-4162-933F-0C5869A6A2D5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RetryPolicy.Interval.Infrastructure", "MassTransit.RetryPolicy.Interval.Infrastructure\MassTransit.RetryPolicy.Interval.Infrastructure.csproj", "{6B0475A4-B639-41DA-B1A6-0535340CF5A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RetryPolicy.Interval.Infrastructure", "MassTransit.RetryPolicy.Interval.Infrastructure\MassTransit.RetryPolicy.Interval.Infrastructure.csproj", "{6B0475A4-B639-41DA-B1A6-0535340CF5A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.AspNetCore.DistributedCaching</id>
+  <version>1.0.0-beta.0</version>
+  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <summary>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</summary>
+  <description>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOCAxOCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iLTIuMTEzIiB5MT0iMTIuMjExIiB4Mj0iMTAuMDExIiB5Mj0iMTIuMjExIiBncmFkaWVudFRyYW5zZm9ybT0icm90YXRlKC4xNDcgOTg4LjYzIDEwNTAuNzE1KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwNWJhMSIvPjxzdG9wIG9mZnNldD0iLjA2OCIgc3RvcC1jb2xvcj0iIzAwNjBhOSIvPjxzdG9wIG9mZnNldD0iLjM1NiIgc3RvcC1jb2xvcj0iIzAwNzFjOCIvPjxzdG9wIG9mZnNldD0iLjUxNyIgc3RvcC1jb2xvcj0iIzAwNzhkNCIvPjxzdG9wIG9mZnNldD0iLjY0MiIgc3RvcC1jb2xvcj0iIzAwNzRjZCIvPjxzdG9wIG9mZnNldD0iLjgyIiBzdG9wLWNvbG9yPSIjMDA2YWJiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA1YmExIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSI2LjU2MyIgeTE9IjE1LjI3NCIgeDI9IjE0Ljc4NSIgeTI9IjE1LjI3NCIgZ3JhZGllbnRUcmFuc2Zvcm09InJvdGF0ZSguMTQ3IDk4OC42MyAxMDUwLjcxNSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMzMmJlZGQiLz48c3RvcCBvZmZzZXQ9Ii4zMjIiIHN0b3AtY29sb3I9IiM0N2RhZjUiLz48c3RvcCBvZmZzZXQ9Ii41MTciIHN0b3AtY29sb3I9IiM1MGU2ZmYiLz48c3RvcCBvZmZzZXQ9Ii42NjQiIHN0b3AtY29sb3I9IiM0YmRmZjkiLz48c3RvcCBvZmZzZXQ9Ii44NzIiIHN0b3AtY29sb3I9IiMzZGNkZWEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMmJlZGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNNi42MjkgNC45MTdDMy4yODEgNC45MDkuNTcgMy45MTMuNTczIDIuNjkzbC0uMDMgMTEuNzQ5YzAgMS4yMSAyLjY2MyAyLjIgNS45NzMgMi4yMjRINi42YzMuMzQ4LjAwOSA2LjA2NS0uOTczIDYuMDY4LTIuMTkzTDEyLjcgMi43MjRjLS4wMDYgMS4yMi0yLjcyMyAyLjIwMi02LjA3MSAyLjE5M3oiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJNMTIuNyAyLjcyNGMwIDEuMjItMi43MiAyLjItNi4wNjggMi4xOTNTLjU3IDMuOTEzLjU3MyAyLjY5MyAzLjI5My40OTEgNi42NDEuNXM2LjA2IDEgNi4wNTYgMi4yMjQiIGZpbGw9IiNlNmU2ZTYiLz48cGF0aCBkPSJNMTEuMjgzIDIuNTQyYzAgLjc3NS0yLjA4NSAxLjQtNC42NTEgMS4zOTJzLTQuNjQ2LS42NC00LjY0NC0xLjQxNiAyLjA4NS0xLjQgNC42NTEtMS4zOTMgNC42NDYuNjQxIDQuNjQ0IDEuNDE3IiBmaWxsPSIjNTBlNmZmIi8+PHBhdGggZD0iTTYuNjM1IDIuODUzYTExLjE4MSAxMS4xODEgMCAwMC0zLjY4My41MjQgMTAuOCAxMC44IDAgMDAzLjY4LjU1NyAxMC44MTQgMTAuODE0IDAgMDAzLjY4My0uNTM0IDExLjE3NiAxMS4xNzYgMCAwMC0zLjY4LS41NDd6IiBmaWxsPSIjMTk4YWIzIi8+PHBhdGggZD0iTTEzLjM0MyA5LjUzM2MtMi4yNzEtLjAwNi00LjEwOS0uNjgxLTQuMTA3LTEuNTA4bC0uMDIxIDcuOTY3YzAgLjgyIDEuODA3IDEuNDkxIDQuMDUxIDEuNTA4aC4wNTZjMi4yNzEuMDA2IDQuMTEzLS42NiA0LjExNS0xLjQ4N2wuMDItNy45NjdjLS4wMDIuODI3LTEuODQ0IDEuNDkzLTQuMTE0IDEuNDg3eiIgZmlsbD0idXJsKCNiKSIvPjxwYXRoIGQ9Ik0xNy40NTcgOC4wNDZjMCAuODI3LTEuODQ0IDEuNDkzLTQuMTE0IDEuNDg3cy00LjEwOS0uNjgxLTQuMTA3LTEuNTA4IDEuODQ0LTEuNDkzIDQuMTE0LTEuNDg3IDQuMTEuNjgxIDQuMTA3IDEuNTA4IiBmaWxsPSIjZTZlNmU2Ii8+PHBhdGggZD0iTTE2LjUgNy45MjJjMCAuNTI2LTEuNDEzLjk0OC0zLjE1NC45NDRzLTMuMTUtLjQzNC0zLjE0OC0uOTYgMS40MTMtLjk0OSAzLjE1My0uOTQ0IDMuMTUuNDM0IDMuMTQ5Ljk2IiBmaWxsPSIjNTBlNmZmIi8+PHBhdGggZD0iTTEzLjM0NiA4LjEzM2E3LjYxIDcuNjEgMCAwMC0yLjUuMzU1IDcuMzEyIDcuMzEyIDAgMDAyLjQ5NS4zNzggNy4zMjEgNy4zMjEgMCAwMDIuNS0uMzY1IDcuNjExIDcuNjExIDAgMDAtMi40OTUtLjM2OHoiIGZpbGw9IiMxOThhYjMiLz48cGF0aCBkPSJNMTQuMDQ0IDEwLjU4OWEuMS4xIDAgMDAtLjA1Mi0uMDEzLjEzNC4xMzQgMCAwMC0uMDkyLjA1MkwxMS42NTIgMTMuOWEuMTI4LjEyOCAwIDAwLS4wMTMuMTE4LjEzMy4xMzMgMCAwMC4xMDUuMDY1aDEuMzQ2bC0uNiAxLjk3NGEuMS4xIDAgMDAuMDUyLjEzLjA3OC4wNzggMCAwMC4wNTIuMDEzLjEzNC4xMzQgMCAwMC4wOTItLjA1MkwxNSAxMi44MzdjLjAxMy0uMDI2LjAyNi0uMDM5LjAyNi0uMDY1YS4xMTcuMTE3IDAgMDAtLjExNy0uMTE4aC0xLjM4OGwuNTc5LTEuOTM0YS4xLjEgMCAwMC0uMDU2LS4xMzF6IiBmaWxsPSIjZjJmMmYyIi8+PC9zdmc+</iconUrl>
+  <tags>aspnet aspnetcore redis cache distributed</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.DistributedCaching/README.md</projectUrl>
+  <templates>
+    <template id="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" externalReference="b4c2413f-4f64-4e91-9c9b-2f17150dab68">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DistributedCaching</role>
+      <location>Caching</location>
+    </template>
+    <template id="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface" externalReference="c6b19606-dd34-4b26-bdc7-e53ee68da980">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.DistributedCaching</role>
+      <location>Common/Interfaces</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings>
+    <group id="49ad40aa-eeb7-4d44-9b20-947a784dc12d" title="Distributed Caching Settings" externalReference="49ad40aa-eeb7-4d44-9b20-947a784dc12d">
+      <settings>
+        <setting id="82233474-2fba-4033-b236-97d5cc4d3e04" title="Provider" type="select">
+          <isRequired>false</isRequired>
+          <hint>The [implementation](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#establish-distributed-caching-services) to register for [IDistributedCache](https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache).</hint>
+          <defaultValue>memory</defaultValue>
+          <options>
+            <option value="memory" description="Memory" />
+            <option value="stack-exchange-redis" description="Stack Exchange Redis" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
+</package>

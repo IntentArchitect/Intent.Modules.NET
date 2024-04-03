@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{FEF590E6-AA12-44AA-AFFD-F8E41FBDB200}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.TestApplication.Domain", "Entities.PrivateSetters.TestApplication.Domain\Entities.PrivateSetters.TestApplication.Domain.csproj", "{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.TestApplication.Domain", "Entities.PrivateSetters.TestApplication.Domain\Entities.PrivateSetters.TestApplication.Domain.csproj", "{F9E29C3A-1C96-4F73-B8E6-5AF75211821E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{4680DFED-913E-4C09-ADF5-DB44D7ED4F2D}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Entities.PrivateSetters.TestApplication.Api", "Entities.PrivateSetters.TestApplication.Api\Entities.PrivateSetters.TestApplication.Api.csproj", "{9C6D5F39-9AF8-4525-8729-F0FD950F230B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.TestApplication.Api", "Entities.PrivateSetters.TestApplication.Api\Entities.PrivateSetters.TestApplication.Api.csproj", "{9C6D5F39-9AF8-4525-8729-F0FD950F230B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{66D2476E-946C-473D-B75F-717CCC27773A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.TestApplication.Application", "Entities.PrivateSetters.TestApplication.Application\Entities.PrivateSetters.TestApplication.Application.csproj", "{848F131A-C455-42BF-8804-C2363A45FF8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.TestApplication.Application", "Entities.PrivateSetters.TestApplication.Application\Entities.PrivateSetters.TestApplication.Application.csproj", "{848F131A-C455-42BF-8804-C2363A45FF8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{6DC175A4-6F00-43BE-95DD-65857180D01F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Entities.PrivateSetters.TestApplication.Infrastructure", "Entities.PrivateSetters.TestApplication.Infrastructure\Entities.PrivateSetters.TestApplication.Infrastructure.csproj", "{6DA9C9AD-6B12-4316-8DFD-49E8C055312F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities.PrivateSetters.TestApplication.Infrastructure", "Entities.PrivateSetters.TestApplication.Infrastructure\Entities.PrivateSetters.TestApplication.Infrastructure.csproj", "{6DA9C9AD-6B12-4316-8DFD-49E8C055312F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

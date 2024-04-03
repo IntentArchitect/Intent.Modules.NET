@@ -17,7 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Jobs
         }
 
         [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-        public Task Execute(IJobExecutionContext context)
+        public async Task Execute(IJobExecutionContext context)
         {
             throw new NotImplementedException("Your implementation here...");
         }

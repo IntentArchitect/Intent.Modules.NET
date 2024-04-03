@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{84AFF6B8-C24A-4078-BB7F-4DAE82D347D7}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Subscribe.MassTransit.OutboxEF.Api", "Subscribe.MassTransit.OutboxEF.Api\Subscribe.MassTransit.OutboxEF.Api.csproj", "{4FB9B6F7-A41F-462A-AA07-A07A19C58536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxEF.Api", "Subscribe.MassTransit.OutboxEF.Api\Subscribe.MassTransit.OutboxEF.Api.csproj", "{4FB9B6F7-A41F-462A-AA07-A07A19C58536}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BBEC7732-FDCA-4EFB-B562-68A343C1174D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxEF.Application", "Subscribe.MassTransit.OutboxEF.Application\Subscribe.MassTransit.OutboxEF.Application.csproj", "{D2F445C3-2185-4F69-9492-742B7FA349E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxEF.Application", "Subscribe.MassTransit.OutboxEF.Application\Subscribe.MassTransit.OutboxEF.Application.csproj", "{D2F445C3-2185-4F69-9492-742B7FA349E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{F9D68A07-A05F-4F3E-B032-2B17E005A3A0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxEF.Domain", "Subscribe.MassTransit.OutboxEF.Domain\Subscribe.MassTransit.OutboxEF.Domain.csproj", "{36323D97-FB4E-4C61-BBC9-C147A42EAC73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxEF.Domain", "Subscribe.MassTransit.OutboxEF.Domain\Subscribe.MassTransit.OutboxEF.Domain.csproj", "{36323D97-FB4E-4C61-BBC9-C147A42EAC73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{BA9DAEFC-4106-4AF2-9DA1-C4CDA4728780}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Subscribe.MassTransit.OutboxEF.Infrastructure", "Subscribe.MassTransit.OutboxEF.Infrastructure\Subscribe.MassTransit.OutboxEF.Infrastructure.csproj", "{09342643-8F76-4122-B9B0-37ED42DB005F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscribe.MassTransit.OutboxEF.Infrastructure", "Subscribe.MassTransit.OutboxEF.Infrastructure\Subscribe.MassTransit.OutboxEF.Infrastructure.csproj", "{09342643-8F76-4122-B9B0-37ED42DB005F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

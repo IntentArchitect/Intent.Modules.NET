@@ -42,6 +42,8 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                         @interface.AddGenericParameter(genericType);
                     }
 
+                    @interface.RepresentsModel(model);
+                    
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>

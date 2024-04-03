@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{1A6761BF-BC6A-4772-A1F9-86B740222F18}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Standard.AspNetCore.ServiceCallHandlers.Api", "Standard.AspNetCore.ServiceCallHandlers.Api\Standard.AspNetCore.ServiceCallHandlers.Api.csproj", "{2AF5ED02-28E9-4E02-A5F1-C067F5F47BDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.ServiceCallHandlers.Api", "Standard.AspNetCore.ServiceCallHandlers.Api\Standard.AspNetCore.ServiceCallHandlers.Api.csproj", "{2AF5ED02-28E9-4E02-A5F1-C067F5F47BDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EE158D0D-96F0-462E-9CBB-37462EF10BDA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.ServiceCallHandlers.Application", "Standard.AspNetCore.ServiceCallHandlers.Application\Standard.AspNetCore.ServiceCallHandlers.Application.csproj", "{6E063B21-0902-4E72-8A91-B01A2EC5E662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.ServiceCallHandlers.Application", "Standard.AspNetCore.ServiceCallHandlers.Application\Standard.AspNetCore.ServiceCallHandlers.Application.csproj", "{6E063B21-0902-4E72-8A91-B01A2EC5E662}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{2CAD0161-6CBB-4D7F-8BA8-825E1128E992}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.ServiceCallHandlers.Domain", "Standard.AspNetCore.ServiceCallHandlers.Domain\Standard.AspNetCore.ServiceCallHandlers.Domain.csproj", "{CA3BB162-2E92-42AB-8332-5C767A9C9524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.ServiceCallHandlers.Domain", "Standard.AspNetCore.ServiceCallHandlers.Domain\Standard.AspNetCore.ServiceCallHandlers.Domain.csproj", "{CA3BB162-2E92-42AB-8332-5C767A9C9524}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{25C758FD-9167-441A-A510-49805FC8DF6F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Standard.AspNetCore.ServiceCallHandlers.Infrastructure", "Standard.AspNetCore.ServiceCallHandlers.Infrastructure\Standard.AspNetCore.ServiceCallHandlers.Infrastructure.csproj", "{41664478-7414-4E9A-B1FA-7D80F9D94C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.ServiceCallHandlers.Infrastructure", "Standard.AspNetCore.ServiceCallHandlers.Infrastructure\Standard.AspNetCore.ServiceCallHandlers.Infrastructure.csproj", "{41664478-7414-4E9A-B1FA-7D80F9D94C36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
