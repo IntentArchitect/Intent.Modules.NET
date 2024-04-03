@@ -39,7 +39,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"http.BaseAddress = new Uri($\"http://{GetConfigKey(proxy, "Uri")}\");");
+                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
                   }
                   )
         {
