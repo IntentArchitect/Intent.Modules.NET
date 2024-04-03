@@ -4,7 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modelers.WebClient.Api;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Contracts.Clients.Http.Shared;
@@ -37,7 +37,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ServiceProxyModel> GetModels(IApplication application)
         {
-            return _metadataManager.WebClient(application).GetServiceProxyModels()
+            return _metadataManager.UserInterface(application).GetServiceProxyModels()
                 .Where(p => p.GetMappedEndpoints().Any())
                 .ToArray();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modelers.WebClient.Api;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Types.Api;
@@ -37,7 +37,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.WebClient(application).GetMappedServiceProxyEnumModels();
+            return _metadataManager.UserInterface(application).GetMappedServiceProxyEnumModels();
         }
     }
 }

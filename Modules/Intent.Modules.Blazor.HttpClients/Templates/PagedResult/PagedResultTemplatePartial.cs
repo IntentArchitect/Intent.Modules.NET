@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.WebClient.Api;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.PagedResult
 
         protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
         {
-            return metadataManager.WebClient(applicationId);
+            return metadataManager.UserInterface(applicationId);
         }
     }
 }
