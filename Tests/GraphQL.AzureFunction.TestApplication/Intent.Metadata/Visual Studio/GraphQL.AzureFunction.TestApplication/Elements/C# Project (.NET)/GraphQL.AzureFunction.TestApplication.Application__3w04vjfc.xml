@@ -4,7 +4,7 @@
   <display>GraphQL.AzureFunction.TestApplication.Application</display>
   <externalReference>bd5e4339-667c-4f46-93d5-1eb6b93ed09d</externalReference>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9be2158a-1ebe-41e5-bd11-504a07e9a264</parentFolderId>
@@ -17,6 +17,8 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
@@ -31,6 +33,7 @@
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
         <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -51,6 +54,22 @@
       <name>Intent.Application.DependencyInjection.DependencyInjection</name>
       <display>Intent.Application.DependencyInjection.DependencyInjection</display>
       <externalReference>Intent.Application.DependencyInjection</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="79035313-b147-4d46-9c93-7f13f6f8f439" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
+      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -95,22 +114,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="79035313-b147-4d46-9c93-7f13f6f8f439" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
-      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
-      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="0e25cb14-0a88-4058-8d49-25da2858211a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
       <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
@@ -131,22 +134,6 @@
       <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
       <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
       <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="af9e74dd-f836-4514-bfce-00c9d84815a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</name>
-      <display>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</display>
-      <externalReference>Intent.AzureFunctions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -211,6 +198,22 @@
       <name>Intent.Application.MediatR.QueryModels</name>
       <display>Intent.Application.MediatR.QueryModels</display>
       <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>420f0338-67c2-4b08-b5e4-933122198fb5</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="af9e74dd-f836-4514-bfce-00c9d84815a5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</name>
+      <display>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

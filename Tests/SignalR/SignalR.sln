@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{9E68B1C4-678E-44BC-97D0-4BC3E8A8A1DC}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "SignalR.Api", "SignalR.Api\SignalR.Api.csproj", "{E2F72414-EBF2-49E1-9771-819C769203E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.Api", "SignalR.Api\SignalR.Api.csproj", "{E2F72414-EBF2-49E1-9771-819C769203E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{88773394-DE9C-44AF-A838-0F962349F318}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SignalR.Application", "SignalR.Application\SignalR.Application.csproj", "{9B308BBB-DD11-4AF2-A692-E3A183E3BDD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.Application", "SignalR.Application\SignalR.Application.csproj", "{9B308BBB-DD11-4AF2-A692-E3A183E3BDD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{2FE56C1D-7B92-456F-8783-564E3D88089E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SignalR.Domain", "SignalR.Domain\SignalR.Domain.csproj", "{5E2BD3E5-5B84-4A67-878F-F6D82F83CA69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.Domain", "SignalR.Domain\SignalR.Domain.csproj", "{5E2BD3E5-5B84-4A67-878F-F6D82F83CA69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{17EFE23C-D1F7-481C-980C-1EE43A2897A1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SignalR.Infrastructure", "SignalR.Infrastructure\SignalR.Infrastructure.csproj", "{404A8DBD-1DB7-48C3-B5CA-6B409A34ABCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.Infrastructure", "SignalR.Infrastructure\SignalR.Infrastructure.csproj", "{404A8DBD-1DB7-48C3-B5CA-6B409A34ABCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

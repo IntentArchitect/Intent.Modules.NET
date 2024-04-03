@@ -4,7 +4,7 @@
   <display>Core</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>3</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3e6c7a23-ab29-478c-ac33-f8fa20cd98fb" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="3e6c7a23-ab29-478c-ac33-f8fa20cd98fb" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.WindowsServiceHost</name>
           <display>Intent.WindowsServiceHost</display>
           <isAbstract>false</isAbstract>

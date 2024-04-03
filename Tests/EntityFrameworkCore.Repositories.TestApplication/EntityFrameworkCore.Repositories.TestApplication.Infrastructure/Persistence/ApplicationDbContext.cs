@@ -6,8 +6,11 @@ using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Interf
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations;
+using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations.MappableStoredProcs;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +29,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         }
 
         public DbSet<SpResult> SpResults { get; set; }
+        public DbSet<EntityRecord> EntityRecords { get; set; }
 
         public DbSet<AggregateRoot1> AggregateRoot1s { get; set; }
         public DbSet<AggregateRoot2Composition> AggregateRoot2Compositions { get; set; }
@@ -38,6 +42,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         public DbSet<AggregateRoot4Nullable> AggregateRoot4Nullables { get; set; }
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
+        public DbSet<MockEntity> MockEntities { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -59,6 +64,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
 
             ConfigureModel(modelBuilder);
             modelBuilder.Entity<SpResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<EntityRecord>().HasNoKey().ToView(null);
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());
@@ -70,6 +76,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
+            modelBuilder.ApplyConfiguration(new MockEntityConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

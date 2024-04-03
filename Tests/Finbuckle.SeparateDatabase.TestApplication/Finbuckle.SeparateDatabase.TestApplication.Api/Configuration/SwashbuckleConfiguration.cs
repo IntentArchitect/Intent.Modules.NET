@@ -48,6 +48,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Configuration
                         options.IncludeXmlComments(applicationXmlFile);
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

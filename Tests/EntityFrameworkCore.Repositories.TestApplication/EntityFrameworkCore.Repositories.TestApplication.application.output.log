@@ -59,6 +59,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f9158722-462b-442e-9d0a-5abcf4ff151a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f66ac67a-f416-440b-987c-fd11b8a385b6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -244,10 +252,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>40ac8682-f156-4f7d-b008-33c2c9850dcb</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>40ac8682-f156-4f7d-b008-33c2c9850dcb</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>40ac8682-f156-4f7d-b008-33c2c9850dcb</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -272,6 +296,270 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/EntityFrameworkCore.Repositories.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9324f001-e2e6-4891-a5ba-955ff449e8bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntities/CreateEntitiesCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntities/CreateEntitiesCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9324f001-e2e6-4891-a5ba-955ff449e8bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntities/CreateEntitiesCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntities/CreateEntitiesCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9324f001-e2e6-4891-a5ba-955ff449e8bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntities/CreateEntitiesCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntities/CreateEntitiesCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0052bfff-c171-4ea7-9369-e54c4c360f34</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntitiesCommandentitiesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntitiesCommandentitiesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0052bfff-c171-4ea7-9369-e54c4c360f34</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntitiesCommandentitiesDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntitiesCommandentitiesDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f213a45e-7e27-4492-bb7f-50f079bdbf78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntity/CreateEntityCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntity/CreateEntityCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f213a45e-7e27-4492-bb7f-50f079bdbf78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntity/CreateEntityCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntity/CreateEntityCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f213a45e-7e27-4492-bb7f-50f079bdbf78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/CreateEntity/CreateEntityCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/CreateEntity/CreateEntityCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#cacad717-6a2d-4777-a359-4a41896ed9b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/DoSomething/DoSomethingCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/DoSomething/DoSomethingCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#cacad717-6a2d-4777-a359-4a41896ed9b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/DoSomething/DoSomethingCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/DoSomething/DoSomethingCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cacad717-6a2d-4777-a359-4a41896ed9b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/DoSomething/DoSomethingCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/DoSomething/DoSomethingCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1629484c-171e-4523-b032-0983dce29ddb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/EntityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/EntityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#1629484c-171e-4523-b032-0983dce29ddb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/EntityDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/EntityDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntities.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntities.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntitiesHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntitiesHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#6051aace-ed83-44f7-b62c-2fc525ba8051</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntities/GetEntitiesValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntities/GetEntitiesValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#04572051-5b17-4057-b40e-0bba7e8c4fe5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityById/GetEntityById.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityById/GetEntityById.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#04572051-5b17-4057-b40e-0bba7e8c4fe5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityById/GetEntityByIdHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityById/GetEntityByIdHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#04572051-5b17-4057-b40e-0bba7e8c4fe5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityById/GetEntityByIdValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityById/GetEntityByIdValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9b9b6ef7-f64f-41be-999a-c3bf3359b1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityName/GetEntityName.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityName/GetEntityName.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9b9b6ef7-f64f-41be-999a-c3bf3359b1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityName/GetEntityNameHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityName/GetEntityNameHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9b9b6ef7-f64f-41be-999a-c3bf3359b1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetEntityName/GetEntityNameValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetEntityName/GetEntityNameValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntities.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntities.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntitiesHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntitiesHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b62b8549-b7f0-4262-944d-38800da83791</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntities/GetMockEntitiesValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntities/GetMockEntitiesValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntity/GetMockEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntity/GetMockEntity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntity/GetMockEntityHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntity/GetMockEntityHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/GetMockEntity/GetMockEntityValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/GetMockEntity/GetMockEntityValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#90cbb1b5-5aa6-4f79-905a-822aae4932a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/MismatchType/MismatchTypeQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MismatchType/MismatchTypeQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#90cbb1b5-5aa6-4f79-905a-822aae4932a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/MismatchType/MismatchTypeQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MismatchType/MismatchTypeQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#90cbb1b5-5aa6-4f79-905a-822aae4932a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/MismatchType/MismatchTypeQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MismatchType/MismatchTypeQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f5f4f9d6-8589-4190-bc4e-908e82d2ea1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/MockEntityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MockEntityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#f5f4f9d6-8589-4190-bc4e-908e82d2ea1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/MappableStoredProcs/MockEntityDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MockEntityDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -336,6 +624,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/InheritedContract.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InheritedContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#29622774-bd97-416c-b2c5-168eca3e0f80</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/EntityRecord.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/EntityRecord.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -480,6 +776,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/AggregateRoot5EntityWithRepo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5EntityWithRepo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#3daeb485-a2f4-46b9-82c1-86aa14ebb0d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/MappableStoredProcs/MockEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MockEntity.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -643,6 +947,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/MappableStoredProcs/IMappableStoredProcRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/IMappableStoredProcRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#3daeb485-a2f4-46b9-82c1-86aa14ebb0d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/MappableStoredProcs/IMockEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/IMockEntityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>af02fb6f-c1dc-4529-9231-d8a99dbb4322</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -752,6 +1072,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/AggregateRoot5Configuration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5Configuration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3daeb485-a2f4-46b9-82c1-86aa14ebb0d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/MappableStoredProcs/MockEntityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MockEntityConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -868,6 +1196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#29622774-bd97-416c-b2c5-168eca3e0f80</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/MappableStoredProcs/EntityRecordExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/EntityRecordExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpParameterExtensionMethods.cs</ApplicationRelativeFilePath>
@@ -880,6 +1216,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpParameterWithNameExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpParameterWithNameExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/MappableStoredProcs/MappableStoredProcRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappableStoredProcRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#3daeb485-a2f4-46b9-82c1-86aa14ebb0d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/MappableStoredProcs/MockEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MockEntityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

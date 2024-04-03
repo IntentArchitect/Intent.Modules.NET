@@ -98,5 +98,9 @@
     <application id="d6651822-7211-49b3-85ac-882768d56d09" name="OpenTelemetry.AzureAppInsights" relativePath="OpenTelemetry.AzureAppInsights/OpenTelemetry.AzureAppInsights.application.config" />
     <application id="ed6e4565-5571-4334-8b10-b6d9a9a63d0c" name="OpenTelemetry.OpenTelemetryProtocol" relativePath="OpenTelemetry.OpenTelemetryProtocol/OpenTelemetry.OpenTelemetryProtocol.application.config" />
     <application id="37917353-50eb-4e6f-a64c-241e49dd5cc6" name="OpenTelemetry.Console" relativePath="OpenTelemetry.Console/OpenTelemetry.Console.application.config" />
+    <application id="95a85ee6-e01b-438f-8749-3e4da534d9a6" name="Kafka.Producer" relativePath="Kafka.Producer/Kafka.Producer.application.config" />
+    <application id="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" name="Kafka.Consumer" relativePath="Kafka.Consumer/Kafka.Consumer.application.config" />
+    <application id="f829f9a9-22e7-4c53-b644-4254eacfb4e8" name="EfCore.SecondLevelCaching" relativePath="EfCore.SecondLevelCaching/EfCore.SecondLevelCaching.application.config" />
+    <application id="a5bda094-e905-46f8-8348-5afef353db68" name="SqlServerImporterTests" relativePath="SqlServerImporterTests/SqlServerImporterTests.application.config" />
   </applications>
 </solution>

@@ -33,15 +33,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                     {
                         ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
                     });
-
-                    var storedProcedures = Model.GetStoredProcedureModels();
-                    if (!storedProcedures.Any())
-                    {
-                        return;
-                    }
-
-                    StoredProcedureHelpers.ApplyImplementationMethods<CustomRepositoryTemplate, RepositoryModel>(this, storedProcedures);
                 });
+            
+            var storedProcedures = Model.GetStoredProcedureModels();
+            if (!storedProcedures.Any())
+            {
+                return;
+            }
+            StoredProcedureHelpers.ApplyImplementationMethods<CustomRepositoryTemplate, RepositoryModel>(this, storedProcedures);
         }
 
         public override void BeforeTemplateExecution()

@@ -67,5 +67,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3a18b162-56b1-42e4-96bc-b31983549f80" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>849d6a98-3051-47d5-9f3c-5577070c6611</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

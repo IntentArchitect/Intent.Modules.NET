@@ -1,0 +1,23 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System.Collections.Concurrent;
+using System.Threading;
+using System.Threading.Tasks;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public interface <#= ClassName #><TValue>
+        where TValue : class
+    {
+        Task Produce(ConcurrentQueue<TValue> messageQueue, CancellationToken cancellationToken = default);
+    }
+}

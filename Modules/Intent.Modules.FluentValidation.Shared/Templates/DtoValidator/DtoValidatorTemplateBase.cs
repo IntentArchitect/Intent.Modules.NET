@@ -27,6 +27,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
+        bool customValidationEnabled,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
@@ -41,6 +42,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             repositoryInjectionEnabled: repositoryInjectionEnabled,
+            customValidationEnabled: customValidationEnabled,
             additionalFolders: additionalFolders)
     {
     }
@@ -57,7 +59,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string relativeLocation,
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
-        bool repositoryInjectionEnabled)
+        bool repositoryInjectionEnabled,
+        bool customValidationEnabled)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
@@ -71,6 +74,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             repositoryInjectionEnabled: repositoryInjectionEnabled,
+            customValidationEnabled: customValidationEnabled,
             additionalFolders: Array.Empty<string>())
     {
     }
@@ -88,6 +92,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
+        bool customValidationEnabled,
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
@@ -105,7 +110,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             dtoValidatorTemplateId: dtoValidatorTemplateId,
             validatorProviderInterfaceTemplateId: validatorProviderInterfaceTemplateId,
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
-            repositoryInjectionEnabled: repositoryInjectionEnabled);
+            repositoryInjectionEnabled: repositoryInjectionEnabled,
+            customValidationEnabled: customValidationEnabled);
     }
 
     [IntentManaged(Mode.Fully)]

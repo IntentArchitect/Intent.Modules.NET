@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{A51EB33C-00E0-48F8-B6DA-7ED4E2D54211}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MassTransit.AzureServiceBus.Api", "MassTransit.AzureServiceBus.Api\MassTransit.AzureServiceBus.Api.csproj", "{1B127E69-05BB-4E42-A53D-89CB373B3518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.AzureServiceBus.Api", "MassTransit.AzureServiceBus.Api\MassTransit.AzureServiceBus.Api.csproj", "{1B127E69-05BB-4E42-A53D-89CB373B3518}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{7A421617-B4D5-4D80-A1B8-FB486CD71B7C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.AzureServiceBus.Application", "MassTransit.AzureServiceBus.Application\MassTransit.AzureServiceBus.Application.csproj", "{FDD1EFBB-8345-4377-BDF6-450D77403B45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.AzureServiceBus.Application", "MassTransit.AzureServiceBus.Application\MassTransit.AzureServiceBus.Application.csproj", "{FDD1EFBB-8345-4377-BDF6-450D77403B45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{9D6C9467-3A71-461C-A63E-17BDDCF9FA35}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.AzureServiceBus.Domain", "MassTransit.AzureServiceBus.Domain\MassTransit.AzureServiceBus.Domain.csproj", "{87A84126-A3FE-4BF5-A534-856A50F85E21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.AzureServiceBus.Domain", "MassTransit.AzureServiceBus.Domain\MassTransit.AzureServiceBus.Domain.csproj", "{87A84126-A3FE-4BF5-A534-856A50F85E21}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CDA8951D-FC94-44B2-AFFA-8364EB3B1405}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.AzureServiceBus.Infrastructure", "MassTransit.AzureServiceBus.Infrastructure\MassTransit.AzureServiceBus.Infrastructure.csproj", "{396696CE-5AF3-4F3D-97AE-DFA10E1270EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.AzureServiceBus.Infrastructure", "MassTransit.AzureServiceBus.Infrastructure\MassTransit.AzureServiceBus.Infrastructure.csproj", "{396696CE-5AF3-4F3D-97AE-DFA10E1270EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -28,13 +28,13 @@ namespace CleanArchitecture.SingleFiles.Application.Common.Behaviours
 
         public UnitOfWorkBehaviour(ICosmosDBUnitOfWork cosmosDBDataSource,
             IDaprStateStoreUnitOfWork daprStateStoreDataSource,
-            IUnitOfWork dataSource,
-            IMongoDbUnitOfWork mongoDbDataSource)
+            IMongoDbUnitOfWork mongoDbDataSource,
+            IUnitOfWork dataSource)
         {
             _cosmosDBDataSource = cosmosDBDataSource ?? throw new ArgumentNullException(nameof(cosmosDBDataSource));
             _daprStateStoreDataSource = daprStateStoreDataSource ?? throw new ArgumentNullException(nameof(daprStateStoreDataSource));
-            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
             _mongoDbDataSource = mongoDbDataSource ?? throw new ArgumentNullException(nameof(mongoDbDataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(
@@ -65,9 +65,9 @@ namespace CleanArchitecture.SingleFiles.Application.Common.Behaviours
                 transaction.Complete();
             }
 
-            await _cosmosDBDataSource.SaveChangesAsync(cancellationToken);
-            await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
             await _mongoDbDataSource.SaveChangesAsync(cancellationToken);
+            await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
+            await _cosmosDBDataSource.SaveChangesAsync(cancellationToken);
 
             return response;
         }

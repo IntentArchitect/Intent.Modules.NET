@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1611dd0a-4b95-4d63-8823-03f6ad4cbc8d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.Common</name>
+  <display>Intent.Common 3.5.3</display>
+  <isAbstract>false</isAbstract>
+  <value>3.5.3</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>99d65be4-cb0d-4530-a0a8-a508b0c4065c</parentFolderId>
+  <packageId>7e8ada90-678e-4a30-925f-66b864b9918d</packageId>
+  <packageName>Intent.ApplicationTemplate.EmptyVisualStudioSolution</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

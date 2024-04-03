@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e98d90f1-4faa-411e-83a4-96e07b64db12">
+  <sourceEnd id="81345063-a39e-4421-8f21-288dc33b1b09" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Invoices.InvoiceIntegrationEventHandler</display>
+    <order>0</order>
+    <typeReference id="60a75fc8-ea0a-4fbe-9e56-214ebc8afe22">
+      <typeId>44ef1dfe-6d90-4661-a437-590cf676f143</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Consumer.Services</typePackageName>
+      <typePackageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e98d90f1-4faa-411e-83a4-96e07b64db12" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: InvoiceCreatedEvent</display>
+    <order>0</order>
+    <typeReference id="c4ef245b-2918-4155-a748-6d37ae34ce14">
+      <typeId>3ff76d11-9f7f-4ad8-8e50-67da63bbaa28</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Eventing.Messages</typePackageName>
+      <typePackageId>242a2542-7680-405a-be5b-7618e41c1071</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

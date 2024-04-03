@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{563535D4-013F-4BAA-912B-A90CA825DE20}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.csproj", "{3CADB33C-01C5-47A0-9AFF-063C83A20EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.csproj", "{3CADB33C-01C5-47A0-9AFF-063C83A20EDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{21749847-3B96-4260-810B-92DBB52DDB8F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj", "{48F82FAA-76CE-4E02-B346-66D8841391E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj", "{48F82FAA-76CE-4E02-B346-66D8841391E7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{27FD42FF-3955-4D37-AEE9-18B2458279B0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.csproj", "{744BCC4C-A5E5-4CCD-A3A1-B1FFDEA1C3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.csproj", "{744BCC4C-A5E5-4CCD-A3A1-B1FFDEA1C3C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{996D0536-14A3-4550-993C-AC8FBE9906E6}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj", "{E120BFC2-6C54-48E2-A07D-1D6390D4AE43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure", "Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure\Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj", "{E120BFC2-6C54-48E2-A07D-1D6390D4AE43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

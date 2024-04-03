@@ -45,6 +45,7 @@ namespace AspNetCore.Controllers.Secured.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -13,6 +14,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
@@ -31,7 +33,7 @@ internal static class StoredProcedureHelpers
         template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
-            .AfterBuild(file =>
+            .OnBuild(file =>
             {
                 var @interface = file.Interfaces.First();
 
@@ -39,6 +41,7 @@ internal static class StoredProcedureHelpers
                 {
                     @interface.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
+                        method.RepresentsModel(storedProcedure);
                         method.TryAddXmlDocComments(storedProcedure.InternalElement);
 
                         foreach (var parameter in storedProcedure.Parameters)
@@ -67,28 +70,22 @@ internal static class StoredProcedureHelpers
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
+        var complexReturnTypeImplementations = new List<ComplexReturnTypeImplRecord>();
+        
         template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
-            .AfterBuild(file =>
+            .OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
-                var dbSetPropertiesByModelId = dbContextTemplate.CSharpFile.Classes.Single().Properties
-                    .Where(x => x.HasMetadata("model"))
-                    .ToDictionary(x => x.GetMetadata("model") switch
-                    {
-                        ClassModel model => model.Id,
-                        DataContractModel model => model.Id,
-                        _ => throw new Exception($"Unknown type: {x.GetMetadata("model").GetType()}")
-                    });
-
+                
                 foreach (var storedProcedure in storedProcedures)
                 {
                     storedProcedure.Validate();
 
                     @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
+                        method.RepresentsModel(storedProcedure);
                         var returnTupleProperties = storedProcedure.Parameters
                             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
                             .Select(parameter =>
@@ -197,6 +194,8 @@ internal static class StoredProcedureHelpers
                                         s.AddArgument($"{parameter.VariableName}");
                                     }
                                 });
+                            
+                            AddReturnStatement(returnTupleProperties, method);
                         }
                         else if (returnTypeElement == null)
                         {
@@ -204,53 +203,93 @@ internal static class StoredProcedureHelpers
 
                             file.AddUsing("Microsoft.EntityFrameworkCore");
                             method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
+                            
+                            AddReturnStatement(returnTupleProperties, method);
                         }
                         else
                         {
                             var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.Output}"))}\"";
-
-                            var source =
-                                template is RepositoryTemplate repositoryTemplate &&
-                                repositoryTemplate.Model.Id == returnTypeElement.Id
-                                    ? "GetSet()"
-                                    : $"_dbContext.{dbSetPropertiesByModelId[returnTypeElement.Id].Name}";
-
-                            method.AddMethodChainStatement($"var {resultVariableName} = {(!returnsCollection ? "(" : string.Empty)}await {source}", mcs =>
-                            {
-                                file.AddUsing("Microsoft.EntityFrameworkCore");
-
-                                mcs
-                                    .AddChainStatement($"FromSqlInterpolated({sql})")
-                                    .AddChainStatement("IgnoreQueryFilters()")
-                                    .AddChainStatement($"ToArrayAsync(cancellationToken){(!returnsCollection ? ")" : string.Empty)}");
-
-                                if (!returnsCollection)
-                                {
-                                    file.AddUsing("System.Linq");
-                                    mcs.AddChainStatement(storedProcedure.TypeReference.IsNullable
-                                        ? "SingleOrDefault()"
-                                        : "Single()");
-                                }
-                            });
+                            
+                            complexReturnTypeImplementations.Add(new ComplexReturnTypeImplRecord(
+                                Method: method,
+                                StoredProcedure: storedProcedure,
+                                Sql: sql,
+                                ReturnTypeElement: returnTypeElement,
+                                ResultVariableName: resultVariableName,
+                                ReturnsCollection: returnsCollection,
+                                ReturnTupleProperties: returnTupleProperties));
                         }
+                    });
+                }
+            })
+            .AfterBuild(file =>
+            {
+                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
+                var dbSetPropertiesByModelId = dbContextTemplate.CSharpFile.Classes.Single().Properties
+                    .Where(x => x.HasMetadata("model"))
+                    .ToDictionary(x => x.GetMetadata("model") switch
+                    {
+                        ClassModel model => model.Id,
+                        DataContractModel model => model.Id,
+                        _ => throw new Exception($"Unknown type: {x.GetMetadata("model").GetType()}")
+                    });
 
-                        switch (returnTupleProperties.Count)
+                foreach (var implRecord in complexReturnTypeImplementations)
+                {
+                    var source =
+                        template is RepositoryTemplate repositoryTemplate &&
+                        repositoryTemplate.Model.Id == implRecord.ReturnTypeElement.Id
+                            ? "GetSet()"
+                            : $"_dbContext.{dbSetPropertiesByModelId[implRecord.ReturnTypeElement.Id].Name}";
+
+                    implRecord.Method.AddMethodChainStatement($"var {implRecord.ResultVariableName} = {(!implRecord.ReturnsCollection ? "(" : string.Empty)}await {source}", mcs =>
+                    {
+                        file.AddUsing("Microsoft.EntityFrameworkCore");
+
+                        mcs
+                            .AddChainStatement($"FromSqlInterpolated({implRecord.Sql})")
+                            .AddChainStatement("IgnoreQueryFilters()")
+                            .AddChainStatement($"ToArrayAsync(cancellationToken){(!implRecord.ReturnsCollection ? ")" : string.Empty)}");
+
+                        if (!implRecord.ReturnsCollection)
                         {
-                            case 0:
-                                return;
-                            case 1:
-                                method.AddStatement($"return {returnTupleProperties[0]};", s => s.SeparatedFromPrevious());
-                                return;
-                            case > 1:
-                                method.AddStatement($"return ({string.Join(", ", returnTupleProperties)});", s => s.SeparatedFromPrevious());
-                                return;
-                            default:
-                                throw new ArgumentOutOfRangeException();
+                            file.AddUsing("System.Linq");
+                            mcs.AddChainStatement(implRecord.StoredProcedure.TypeReference.IsNullable
+                                ? "SingleOrDefault()"
+                                : "Single()");
                         }
+                        
+                        AddReturnStatement(implRecord.ReturnTupleProperties, implRecord.Method);
                     });
                 }
             });
     }
+
+    private static void AddReturnStatement(IReadOnlyList<string> returnTupleProperties, CSharpClassMethod method) 
+    {
+        switch (returnTupleProperties.Count)
+        {
+            case 0:
+                return;
+            case 1:
+                method.AddStatement($"return {returnTupleProperties[0]};", s => s.SeparatedFromPrevious());
+                return;
+            case > 1:
+                method.AddStatement($"return ({string.Join(", ", returnTupleProperties)});", s => s.SeparatedFromPrevious());
+                return;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private record ComplexReturnTypeImplRecord(
+        CSharpClassMethod Method,
+        StoredProcedureModel StoredProcedure,
+        string Sql,
+        ICanBeReferencedType ReturnTypeElement,
+        string ResultVariableName,
+        bool ReturnsCollection,
+        List<string> ReturnTupleProperties);
 
     public static IReadOnlyCollection<StoredProcedureModel> GetStoredProcedureModels(this RepositoryModel repositoryModel)
     {

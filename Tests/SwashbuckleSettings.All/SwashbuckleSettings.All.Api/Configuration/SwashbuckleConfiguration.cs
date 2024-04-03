@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using SwashbuckleSettings.All.Api.Filters;
 using SwashbuckleSettings.All.Application;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -43,6 +44,7 @@ namespace SwashbuckleSettings.All.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e4aa907c-306a-4800-afe1-4dced9d4a93b" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</parentFolderId>
+  <packageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</packageId>
+  <packageName>Kafka.Producer.Domain</packageName>
+  <diagram>
+    <targetPackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

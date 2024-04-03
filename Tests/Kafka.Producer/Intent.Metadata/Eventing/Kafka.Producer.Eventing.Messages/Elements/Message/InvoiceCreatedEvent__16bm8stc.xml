@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3ff76d11-9f7f-4ad8-8e50-67da63bbaa28" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>InvoiceCreatedEvent</name>
+  <display>InvoiceCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>242a2542-7680-405a-be5b-7618e41c1071</parentFolderId>
+  <packageId>242a2542-7680-405a-be5b-7618e41c1071</packageId>
+  <packageName>Kafka.Producer.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="cbdb277d-8754-4d41-96ac-b97cbdb3688d" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2efb3add-4672-4f1d-abfa-c2397e553598">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3ff76d11-9f7f-4ad8-8e50-67da63bbaa28</parentFolderId>
+      <packageId>242a2542-7680-405a-be5b-7618e41c1071</packageId>
+      <packageName>Kafka.Producer.Eventing.Messages</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ea495988-41a8-41f2-944e-24632a06fa70" name="Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.Kafka</definitionPackageName>
+          <definitionPackageId>a586f55c-9eca-44ef-8409-e110d1644c0b</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8b6e756a-2734-4801-8b15-c3b7cfd7028a" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Note</name>
+      <display>Note: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="158cab5e-8e23-4486-a133-c6d5b3bf9055">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3ff76d11-9f7f-4ad8-8e50-67da63bbaa28</parentFolderId>
+      <packageId>242a2542-7680-405a-be5b-7618e41c1071</packageId>
+      <packageName>Kafka.Producer.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

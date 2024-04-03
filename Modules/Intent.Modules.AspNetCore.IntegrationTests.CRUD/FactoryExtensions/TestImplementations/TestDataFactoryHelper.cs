@@ -162,18 +162,21 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         }
                     }
                 }
-                var dtoFieldPkName = GetDtoPkFieldName(crudTest.Update);
-                if (dtoFieldPkName != null)
+                if (crudTest.Update != null)
                 {
-                    string entityId = $"{crudTest.Entity.Name}Id";
-                    if (dtoFieldPkName != entityId && string.Compare(dtoFieldPkName, "Id", true) != 0)
+                    var dtoFieldPkName = GetDtoPkFieldName(crudTest.Update);
+                    if (dtoFieldPkName != null)
                     {
-                        if (!keyAliases.TryGetValue(entityId, out var aliases))
+                        string entityId = $"{crudTest.Entity.Name}Id";
+                        if (dtoFieldPkName != entityId && string.Compare(dtoFieldPkName, "Id", true) != 0)
                         {
-                            aliases = new HashSet<string>();
-                            keyAliases[entityId] = aliases;
+                            if (!keyAliases.TryGetValue(entityId, out var aliases))
+                            {
+                                aliases = new HashSet<string>();
+                                keyAliases[entityId] = aliases;
+                            }
+                            aliases.Add(dtoFieldPkName);
                         }
-                        aliases.Add(dtoFieldPkName);
                     }
                 }
             }

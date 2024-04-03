@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="244fa68d-fd3c-49a2-bf07-af8978d1a723" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Kafka.Producer</name>
+  <display>Kafka.Producer</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cf96e2a-eaf0-459b-83d4-2391a4b8f682</parentFolderId>
+  <diagram>
+    <targetPackageId>242a2542-7680-405a-be5b-7618e41c1071</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

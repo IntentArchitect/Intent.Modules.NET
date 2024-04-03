@@ -4,7 +4,7 @@
   <display>Integration</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>8</order>
+  <order>7</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="affed5d7-25b5-4cf3-9ce8-ff76d8e2bce9" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="affed5d7-25b5-4cf3-9ce8-ff76d8e2bce9" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Eventing.MassTransit</name>
           <display>Intent.Eventing.MassTransit</display>
           <isAbstract>false</isAbstract>
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.1.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.1.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0512b22c-9714-4b9b-80f5-69ab45764ad4" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0512b22c-9714-4b9b-80f5-69ab45764ad4" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Eventing.MassTransit.Scheduling</name>
           <display>Intent.Eventing.MassTransit.Scheduling</display>
           <isAbstract>false</isAbstract>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fad532ae-f5ab-4f9a-93e6-74b9e2ee5ec3" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="fad532ae-f5ab-4f9a-93e6-74b9e2ee5ec3" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Eventing.MassTransit.RequestResponse</name>
           <display>Intent.Eventing.MassTransit.RequestResponse</display>
           <isAbstract>false</isAbstract>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6e0102e9-749d-4883-8791-13a15f890d3b" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="6e0102e9-749d-4883-8791-13a15f890d3b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.Eventing</name>
           <display>Intent.Modelers.Eventing</display>
           <isAbstract>false</isAbstract>
@@ -148,7 +148,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0bd528a1-910e-4640-9dab-a9c0b7815036" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0bd528a1-910e-4640-9dab-a9c0b7815036" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Eventing.Contracts</name>
           <display>Intent.Eventing.Contracts</display>
           <isAbstract>false</isAbstract>
@@ -173,7 +173,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="22d2c488-05e0-41bb-b172-2a5457d6a110" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="22d2c488-05e0-41bb-b172-2a5457d6a110" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.Services.EventInteractions</name>
           <display>Intent.Modelers.Services.EventInteractions</display>
           <isAbstract>false</isAbstract>
@@ -188,7 +188,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.4" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -226,7 +226,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f2231743-2267-44d9-8988-a23ed892dad3" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="f2231743-2267-44d9-8988-a23ed892dad3" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Integration.HttpClients</name>
           <display>Intent.Integration.HttpClients</display>
           <isAbstract>false</isAbstract>
@@ -251,7 +251,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5199b4d5-2a39-4c6d-94d7-0bde3e09d9cf" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="5199b4d5-2a39-4c6d-94d7-0bde3e09d9cf" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.ServiceProxies</name>
           <display>Intent.Modelers.ServiceProxies</display>
           <isAbstract>false</isAbstract>

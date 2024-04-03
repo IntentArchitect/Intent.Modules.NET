@@ -7,4 +7,5 @@ internal static class TemplateIds
     public const string MongoDbUnitOfWorkInterface = "Intent.MongoDb.MongoDbUnitOfWorkInterface";
     public const string TableStorageUnitOfWorkInterface = "Intent.Azure.TableStorage.TableStorageUnitOfWorkInterface";
     public const string RedisOmUnitOfWorkInterface = "Intent.Redis.Om.Repositories.Templates.RedisOmUnitOfWorkInterface";
+    public const string DistributedCacheWithUnitOfWorkInterface = "Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface";
 }

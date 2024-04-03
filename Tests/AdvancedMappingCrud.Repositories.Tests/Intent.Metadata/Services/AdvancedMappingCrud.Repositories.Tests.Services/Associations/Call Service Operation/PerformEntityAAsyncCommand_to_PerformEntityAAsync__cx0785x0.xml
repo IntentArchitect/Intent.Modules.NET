@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aca73bac-8c46-4f32-b333-fde2bcec9da2">
+  <sourceEnd id="818e16ac-aa29-4b6e-a546-460ff8a7d37f" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ExtensiveDomainServices.PerformEntityAAsyncCommand</display>
+    <order>0</order>
+    <typeReference id="73cfb7d8-e726-4b8b-9c5d-4bfc38295ffe">
+      <typeId>634ecce8-21bd-4cf9-8435-6556650f7190</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aca73bac-8c46-4f32-b333-fde2bcec9da2" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : PerformEntityAAsync(...): null</display>
+    <order>2</order>
+    <typeReference id="20ac9079-24fa-46c1-b90c-20120a03a1e3">
+      <typeId>daf306f7-ba72-4cff-b6d6-5438c5310e81</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="634ecce8-21bd-4cf9-8435-6556650f7190" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformEntityAAsyncCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="daf306f7-ba72-4cff-b6d6-5438c5310e81" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformEntityAAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PerformEntityAAsyncCommand}</expression>
+            <path>
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="PerformEntityAAsyncCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ConcreteAttr}</expression>
+            <path>
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
+              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" />
+              <target id="78aaffa9-c613-4f4c-8b21-c71b25e93af9" name="ConcreteAttr" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ConcreteAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
+                  <target id="eac84c18-8d3c-4ff2-8bca-a917ee0241ce" name="ConcreteAttr" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BaseAttr}</expression>
+            <path>
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
+              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" />
+              <target id="85f3868d-ad2a-477a-ba77-fec7957a53d3" name="base" type="association" specialization="Generalization Target End" />
+              <target id="60d718fe-cd61-468b-9057-5894dca44d14" name="BaseAttr" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="BaseAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
+                  <target id="249f6ffb-c1b9-442a-b16f-eb4a76cd799b" name="BaseAttr" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{75F6C944-D3D5-4313-BE94-18016BBA3EF8}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "CosmosDBMultiTenancy.Api", "CosmosDBMultiTenancy.Api\CosmosDBMultiTenancy.Api.csproj", "{ACD17F06-2BE3-45D8-A81F-50B2EFC6C1A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDBMultiTenancy.Api", "CosmosDBMultiTenancy.Api\CosmosDBMultiTenancy.Api.csproj", "{ACD17F06-2BE3-45D8-A81F-50B2EFC6C1A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{5467C0F3-8F6D-41AE-AD03-A5705ED29177}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDBMultiTenancy.Application", "CosmosDBMultiTenancy.Application\CosmosDBMultiTenancy.Application.csproj", "{ACF214D7-23E0-4EE8-A01A-02FAA394A221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDBMultiTenancy.Application", "CosmosDBMultiTenancy.Application\CosmosDBMultiTenancy.Application.csproj", "{ACF214D7-23E0-4EE8-A01A-02FAA394A221}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6696A99B-0369-48A6-93BF-BF7FE24B5DE5}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDBMultiTenancy.Domain", "CosmosDBMultiTenancy.Domain\CosmosDBMultiTenancy.Domain.csproj", "{850053AE-845E-498A-B889-FAFB7E6C5E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDBMultiTenancy.Domain", "CosmosDBMultiTenancy.Domain\CosmosDBMultiTenancy.Domain.csproj", "{850053AE-845E-498A-B889-FAFB7E6C5E4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{23E40381-B30B-45E1-88C6-0905926E8EDC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "CosmosDBMultiTenancy.Infrastructure", "CosmosDBMultiTenancy.Infrastructure\CosmosDBMultiTenancy.Infrastructure.csproj", "{7005F66E-31F3-4140-AF0E-130EF0AF8B08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDBMultiTenancy.Infrastructure", "CosmosDBMultiTenancy.Infrastructure\CosmosDBMultiTenancy.Infrastructure.csproj", "{7005F66E-31F3-4140-AF0E-130EF0AF8B08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

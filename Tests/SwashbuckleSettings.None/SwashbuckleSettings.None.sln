@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{D57BC773-E51F-4EFB-98DA-C7E96D320D35}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "SwashbuckleSettings.None.Api", "SwashbuckleSettings.None.Api\SwashbuckleSettings.None.Api.csproj", "{45EFB7B0-17F3-4CE4-888A-4560E9E1BC80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.None.Api", "SwashbuckleSettings.None.Api\SwashbuckleSettings.None.Api.csproj", "{45EFB7B0-17F3-4CE4-888A-4560E9E1BC80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{4DC04BBC-7D0F-4738-975C-123D4C7D419F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.None.Application", "SwashbuckleSettings.None.Application\SwashbuckleSettings.None.Application.csproj", "{E3F753BA-008E-4005-B083-38A0195815F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.None.Application", "SwashbuckleSettings.None.Application\SwashbuckleSettings.None.Application.csproj", "{E3F753BA-008E-4005-B083-38A0195815F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{B485F294-A046-4270-86A2-05B529275AF9}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.None.Domain", "SwashbuckleSettings.None.Domain\SwashbuckleSettings.None.Domain.csproj", "{29970920-F52A-4EC1-8A26-AE44F92C04B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.None.Domain", "SwashbuckleSettings.None.Domain\SwashbuckleSettings.None.Domain.csproj", "{29970920-F52A-4EC1-8A26-AE44F92C04B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C4E108B5-F058-47D6-9D84-1243CFA812A1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "SwashbuckleSettings.None.Infrastructure", "SwashbuckleSettings.None.Infrastructure\SwashbuckleSettings.None.Infrastructure.csproj", "{421A435C-8947-439C-A837-56A160287C33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashbuckleSettings.None.Infrastructure", "SwashbuckleSettings.None.Infrastructure\SwashbuckleSettings.None.Infrastructure.csproj", "{421A435C-8947-439C-A837-56A160287C33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

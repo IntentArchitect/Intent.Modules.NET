@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="361208b9-19c3-4432-bcfa-18e7480c54a0">
+  <sourceEnd id="c316bf65-b34f-432c-b44c-35c29ddb9ebb" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Invoices.DeleteInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="7ba1956e-5a56-44a5-a73c-82d5a43921c2">
+      <typeId>bf224e97-bef9-401c-b80e-4009eaa0fbad</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Services</typePackageName>
+      <typePackageId>8b6d5771-31e4-4942-a441-98c9621d7886</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="361208b9-19c3-4432-bcfa-18e7480c54a0" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>invoice</name>
+    <display>[delete] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="28eee827-dfcd-4379-8ed2-7d3592d7d86a">
+      <typeId>e16737a1-3f42-4f22-a9b1-7cee4792284b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Domain</typePackageName>
+      <typePackageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bf224e97-bef9-401c-b80e-4009eaa0fbad" location="[EfCore.SecondLevelCaching].[Services].[DeleteInvoiceCommand]" />
+        <target applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e16737a1-3f42-4f22-a9b1-7cee4792284b" location="[EfCore.SecondLevelCaching].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="e16737a1-3f42-4f22-a9b1-7cee4792284b" name="Invoice" type="element" specialization="Class" />
+              <target id="a4332b34-7819-49e1-a4a1-f9351262e361" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="bf224e97-bef9-401c-b80e-4009eaa0fbad" name="DeleteInvoiceCommand" type="element" specialization="Command" />
+                  <target id="2a1cd394-e7c2-4de4-94e8-94ba70466f17" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

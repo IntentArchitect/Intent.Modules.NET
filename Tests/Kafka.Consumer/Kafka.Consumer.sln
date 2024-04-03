@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3466057B-2DED-468A-BF08-53F0CB5337BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Api", "Kafka.Consumer.Api\Kafka.Consumer.Api.csproj", "{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{79DDBC1C-056E-4F40-8050-2340D4455D09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Application", "Kafka.Consumer.Application\Kafka.Consumer.Application.csproj", "{903DC353-D19B-4D90-9469-F5D3F316C551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{45F28322-CD6E-4E81-8BC3-F70CCD43942F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Domain", "Kafka.Consumer.Domain\Kafka.Consumer.Domain.csproj", "{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{B9179793-2A30-4298-85EF-0B68333F39CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kafka.Consumer.Infrastructure", "Kafka.Consumer.Infrastructure\Kafka.Consumer.Infrastructure.csproj", "{FA987292-61EC-4C58-A1E0-96A58CA49C3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D443F015-CEE5-46B0-AB6A-C99F83AF09BB} = {3466057B-2DED-468A-BF08-53F0CB5337BB}
+		{903DC353-D19B-4D90-9469-F5D3F316C551} = {79DDBC1C-056E-4F40-8050-2340D4455D09}
+		{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5} = {45F28322-CD6E-4E81-8BC3-F70CCD43942F}
+		{FA987292-61EC-4C58-A1E0-96A58CA49C3E} = {B9179793-2A30-4298-85EF-0B68333F39CE}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D443F015-CEE5-46B0-AB6A-C99F83AF09BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903DC353-D19B-4D90-9469-F5D3F316C551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903DC353-D19B-4D90-9469-F5D3F316C551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903DC353-D19B-4D90-9469-F5D3F316C551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903DC353-D19B-4D90-9469-F5D3F316C551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE0D88A-15EC-4844-BEE2-6AAC8058E6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA987292-61EC-4C58-A1E0-96A58CA49C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA987292-61EC-4C58-A1E0-96A58CA49C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA987292-61EC-4C58-A1E0-96A58CA49C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA987292-61EC-4C58-A1E0-96A58CA49C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

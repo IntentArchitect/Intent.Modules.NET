@@ -18,8 +18,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Field)
-                .NotNull()
-                .CustomAsync(ValidateFieldAsync);
+                .NotNull();
 
             RuleFor(v => v.Email)
                 .NotNull()
@@ -28,26 +27,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.S
             RuleFor(v => v.CascaseTest)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
-                .MinimumLength(1)
-                .CustomAsync(ValidateCascaseTestAsync);
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private async Task ValidateFieldAsync(
-            string value,
-            ValidationContext<ValidatedCommand> validationContext,
-            CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException("Your custom validation rules here...");
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private async Task ValidateCascaseTestAsync(
-            string value,
-            ValidationContext<ValidatedCommand> validationContext,
-            CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException("Your custom validation rules here...");
+                .MinimumLength(1);
         }
     }
 }

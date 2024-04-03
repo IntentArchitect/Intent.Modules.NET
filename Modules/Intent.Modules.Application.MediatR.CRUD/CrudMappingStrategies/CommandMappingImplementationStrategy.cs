@@ -37,6 +37,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
+            _template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
             var @class = _template.CSharpFile.Classes.First();
             var handleMethod = @class.FindMethod("Handle");
@@ -47,6 +48,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(_model, "request");

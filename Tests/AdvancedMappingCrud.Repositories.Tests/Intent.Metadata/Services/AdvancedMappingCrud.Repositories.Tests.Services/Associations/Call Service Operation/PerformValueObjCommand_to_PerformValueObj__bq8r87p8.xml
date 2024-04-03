@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c174179b-5cca-42dc-b5ed-b0e0de27ec43">
+  <sourceEnd id="af455fb9-42b4-4fbb-af3b-61bc96d691b4" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ExtensiveDomainServices.PerformValueObjCommand</display>
+    <order>0</order>
+    <typeReference id="1c81e5f3-9b8b-47d8-afa1-9464e604dc65">
+      <typeId>220ce6d3-f523-4d49-90be-736bc00f0893</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c174179b-5cca-42dc-b5ed-b0e0de27ec43" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : PerformValueObj(...): null</display>
+    <order>2</order>
+    <typeReference id="61dd37eb-0f37-42ac-bc4d-d572e8927e30">
+      <typeId>cca3f2e3-0d85-4117-a656-49d58c409163</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="220ce6d3-f523-4d49-90be-736bc00f0893" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformValueObjCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cca3f2e3-0d85-4117-a656-49d58c409163" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformValueObj]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PerformValueObjCommand}</expression>
+            <path>
+              <target id="cca3f2e3-0d85-4117-a656-49d58c409163" name="PerformValueObj" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="PerformValueObjCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="220ce6d3-f523-4d49-90be-736bc00f0893" name="PerformValueObjCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Value1}</expression>
+            <path>
+              <target id="cca3f2e3-0d85-4117-a656-49d58c409163" name="PerformValueObj" type="element" specialization="Operation" />
+              <target id="15af794d-7642-4697-a995-253314d208d5" name="vo" type="element" specialization="Parameter" />
+              <target id="5e070296-c746-4211-85f0-70c3de9c8f12" name="Value1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Value1" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="220ce6d3-f523-4d49-90be-736bc00f0893" name="PerformValueObjCommand" type="element" specialization="Command" />
+                  <target id="3f4a1eba-e045-4683-8cde-c643c91cc2d4" name="Value1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Value2}</expression>
+            <path>
+              <target id="cca3f2e3-0d85-4117-a656-49d58c409163" name="PerformValueObj" type="element" specialization="Operation" />
+              <target id="15af794d-7642-4697-a995-253314d208d5" name="vo" type="element" specialization="Parameter" />
+              <target id="71685d40-3aa3-40cd-9c2f-65c55a174bfd" name="Value2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Value2" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="220ce6d3-f523-4d49-90be-736bc00f0893" name="PerformValueObjCommand" type="element" specialization="Command" />
+                  <target id="75cf5f50-1a1f-4c11-b547-e8c1f3f7d829" name="Value2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

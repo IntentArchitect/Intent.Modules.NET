@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Threading;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;

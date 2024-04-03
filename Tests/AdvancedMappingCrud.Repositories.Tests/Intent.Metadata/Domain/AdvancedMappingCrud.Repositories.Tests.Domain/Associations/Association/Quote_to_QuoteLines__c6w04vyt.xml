@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>QuoteLines</name>
-    <display>QuoteLines: QuoteLine[*]   [1 --&gt; *]</display>
+    <display>QuoteLines: QuoteLine[*]</display>
     <order>6</order>
     <typeReference id="e8e6d5bd-95c0-4a08-8454-f1230714d787">
       <typeId>1ef04c46-7955-472d-9c4f-af43c9e2921d</typeId>

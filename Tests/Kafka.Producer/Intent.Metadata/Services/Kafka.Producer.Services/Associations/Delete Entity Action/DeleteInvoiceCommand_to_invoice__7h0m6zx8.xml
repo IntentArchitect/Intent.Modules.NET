@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b5674b6c-659e-4f0a-9636-b3a4002b4ab7">
+  <sourceEnd id="0f581327-a849-4a0d-a8f4-f19e0de2ab72" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Invoices.DeleteInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="e1a47532-2fd8-4abc-b0f3-0ce1fce8d4c4">
+      <typeId>19b04a0c-ab48-4eb2-b4a7-c15ce1a4d26c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Services</typePackageName>
+      <typePackageId>d0b468ef-2076-4b60-9f06-11502faec1d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b5674b6c-659e-4f0a-9636-b3a4002b4ab7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>invoice</name>
+    <display>[delete] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="21fb0531-a289-4d74-9405-0f7e3b9e64e4">
+      <typeId>b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Domain</typePackageName>
+      <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="19b04a0c-ab48-4eb2-b4a7-c15ce1a4d26c" location="[Kafka.Producer].[Services].[DeleteInvoiceCommand]" />
+        <target applicationId="95a85ee6-e01b-438f-8749-3e4da534d9a6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f" location="[Kafka.Producer].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="b2ac3147-2ecd-486c-9d11-9c2c3b02fb3f" name="Invoice" type="element" specialization="Class" />
+              <target id="bbb87f37-dad3-4eaa-80ca-c08b00282268" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="19b04a0c-ab48-4eb2-b4a7-c15ce1a4d26c" name="DeleteInvoiceCommand" type="element" specialization="Command" />
+                  <target id="6bed1890-5784-424c-8188-61b3ffe79b88" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

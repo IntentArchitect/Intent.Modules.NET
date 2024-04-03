@@ -19,14 +19,14 @@ namespace CleanArchitecture.Dapr.Infrastructure.Configuration
             services
                 .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = new Uri($"http://clean-architecture-dapr");
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:NamedQueryStringsService:Uri");
                 })
                 .ConfigureForDapr();
 
             services
                 .AddHttpClient<ISecuredService, SecuredServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = new Uri($"http://clean-architecture-dapr");
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:SecuredService:Uri");
                 })
                 .AddHeaders(config =>
                 {

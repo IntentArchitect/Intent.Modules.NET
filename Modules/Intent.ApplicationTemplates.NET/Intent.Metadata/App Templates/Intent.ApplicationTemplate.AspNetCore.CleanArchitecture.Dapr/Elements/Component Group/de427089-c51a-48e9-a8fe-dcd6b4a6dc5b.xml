@@ -4,7 +4,7 @@
   <display>Api</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>3</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6ae310ee-e50f-4003-b5ec-cc102893c42a" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="6ae310ee-e50f-4003-b5ec-cc102893c42a" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.DependencyInjection</name>
           <display>Intent.Application.DependencyInjection</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9104624d-ad9c-43a8-ad74-1bdb800addf3" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="9104624d-ad9c-43a8-ad74-1bdb800addf3" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.Dtos</name>
           <display>Intent.Application.Dtos</display>
           <isAbstract>false</isAbstract>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0d36e52d-447e-4ac6-8dec-7caeba2b81f1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0d36e52d-447e-4ac6-8dec-7caeba2b81f1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore</name>
           <display>Intent.AspNetCore</display>
           <isAbstract>false</isAbstract>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0c95bc41-94df-4e72-b13f-d9694e0c0723" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0c95bc41-94df-4e72-b13f-d9694e0c0723" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Controllers</name>
           <display>Intent.AspNetCore.Controllers</display>
           <isAbstract>false</isAbstract>
@@ -138,7 +138,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.3" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.4" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -148,7 +148,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4f3142c5-d200-4f84-9490-1fc3c75a3566" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="4f3142c5-d200-4f84-9490-1fc3c75a3566" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Infrastructure.DependencyInjection</name>
           <display>Intent.Infrastructure.DependencyInjection</display>
           <isAbstract>false</isAbstract>
@@ -173,7 +173,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="90310d6f-8701-49ff-98d9-ad8377e28236" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="90310d6f-8701-49ff-98d9-ad8377e28236" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Metadata.WebApi</name>
           <display>Intent.Metadata.WebApi</display>
           <isAbstract>false</isAbstract>
@@ -188,7 +188,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.4.3" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.4.4" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -226,7 +226,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b8bc6feb-1f19-4dbe-a285-962f73c6222b" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="b8bc6feb-1f19-4dbe-a285-962f73c6222b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Security.JWT</name>
           <display>Intent.Security.JWT</display>
           <isAbstract>false</isAbstract>
@@ -279,7 +279,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e5c81d60-eee9-4099-8abd-1251087fd9e1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e5c81d60-eee9-4099-8abd-1251087fd9e1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Swashbuckle</name>
           <display>Intent.AspNetCore.Swashbuckle</display>
           <isAbstract>false</isAbstract>
@@ -304,7 +304,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c607752b-b75e-46f1-8f9c-3059d83b790d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="c607752b-b75e-46f1-8f9c-3059d83b790d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Versioning</name>
           <display>Intent.AspNetCore.Versioning</display>
           <isAbstract>false</isAbstract>
@@ -357,7 +357,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b7250329-f3f3-4937-af46-c76f3459f245" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="b7250329-f3f3-4937-af46-c76f3459f245" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.SignalR</name>
           <display>Intent.AspNetCore.SignalR</display>
           <isAbstract>false</isAbstract>
@@ -410,7 +410,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ad16f611-4559-497b-9f91-685a5d97c5d1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="ad16f611-4559-497b-9f91-685a5d97c5d1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.HealthChecks</name>
           <display>Intent.AspNetCore.HealthChecks</display>
           <isAbstract>false</isAbstract>

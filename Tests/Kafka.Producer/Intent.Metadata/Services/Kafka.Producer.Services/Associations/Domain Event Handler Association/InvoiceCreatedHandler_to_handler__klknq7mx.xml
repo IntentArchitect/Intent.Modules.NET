@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9396a4fe-2324-4b94-848f-d2da9b495c5f">
+  <sourceEnd id="fac0a48e-e8ab-467c-9e49-96e58bc6dcb7" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: InvoiceCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="e8a808d8-c8a3-4c8a-b9b0-f6d9e517e48d">
+      <typeId>5df1290d-a556-41e0-b6a4-2dd2b3512543</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Services</typePackageName>
+      <typePackageId>d0b468ef-2076-4b60-9f06-11502faec1d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9396a4fe-2324-4b94-848f-d2da9b495c5f" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : InvoiceUpdated</display>
+    <order>1</order>
+    <typeReference id="00d5a431-9a35-421a-94ff-c3f7b1249c8e">
+      <typeId>5bdee032-5f24-4770-9f88-278b71036109</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Kafka.Producer.Domain</typePackageName>
+      <typePackageId>98a9ce5d-10bd-40ec-8f4c-f73ae7443c00</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

@@ -21,9 +21,41 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="fcc10631-3fa6-46f5-b0fe-594f90ed76da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d2fb404-c0da-4d9c-b902-f3f7c0e537fb</parentFolderId>
+      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="e39ae0f1-0aee-41b6-aaa7-daf149bb2d89" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
       <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d2fb404-c0da-4d9c-b902-f3f7c0e537fb</parentFolderId>
+      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="af3bb57a-68d6-4e2b-b194-df314efd6046" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
       <externalReference>Intent.AspNetCore.Controllers</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -47,20 +79,6 @@
       <parentFolderId>6d2fb404-c0da-4d9c-b902-f3f7c0e537fb</parentFolderId>
       <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="fcc10631-3fa6-46f5-b0fe-594f90ed76da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
-      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6d2fb404-c0da-4d9c-b902-f3f7c0e537fb</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

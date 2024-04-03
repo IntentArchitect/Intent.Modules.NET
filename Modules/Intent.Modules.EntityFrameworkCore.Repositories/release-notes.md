@@ -1,3 +1,12 @@
+### Version 4.5.2
+
+> ⚠️ **KNOWN ISSUE**
+> 
+>  The `Stored Procedure` element was moved to `Intent.Modules.Modelers.Domain.StoredProcedures` module and there is a bug with Intent Architect 4.2.2 and earlier that when you update to this version it will cause and error regarding a duplicate element.
+
+- Improvement: `CustomRepositoryTemplate` and `CustomRepositoryInterfaceTemplate` Initialization Logic - Adjusted the execution timing of StoredProcedureHelpers.ApplyImplementationMethods outside the AddClass method scope. This change ensures more efficient startup behavior and better supports runtime metadata lookups (i.e. for async method configurations).
+- Improvement: `StoredProcedureHelpers` - Refined the implementation method to better support stored procedures with complex return types. This includes a more sophisticated handling of async operations, output parameters, and return statements, ensuring that stored procedures are executed more efficiently and correctly.
+
 ### Version 4.5.1
 
 - Improvement: Added support for stored procedures which return scalar values.

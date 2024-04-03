@@ -4,23 +4,23 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{9222B317-F001-47DA-9566-95C692256C46}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "AdvancedMappingCrud.DbContext.Tests.Api", "AdvancedMappingCrud.DbContext.Tests.Api\AdvancedMappingCrud.DbContext.Tests.Api.csproj", "{43BF6301-655C-49FC-B80F-CF91357FB666}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.Tests.Api", "AdvancedMappingCrud.DbContext.Tests.Api\AdvancedMappingCrud.DbContext.Tests.Api.csproj", "{43BF6301-655C-49FC-B80F-CF91357FB666}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{F3DBD691-7A70-40DE-B069-D36AF3F3F208}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.Application", "AdvancedMappingCrud.DbContext.Tests.Application\AdvancedMappingCrud.DbContext.Tests.Application.csproj", "{3C50F867-88D1-419E-8A2E-EED8D12E80F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.Tests.Application", "AdvancedMappingCrud.DbContext.Tests.Application\AdvancedMappingCrud.DbContext.Tests.Application.csproj", "{3C50F867-88D1-419E-8A2E-EED8D12E80F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{838F9F24-08EA-4A6D-98BE-43CDE85D242A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.Domain", "AdvancedMappingCrud.DbContext.Tests.Domain\AdvancedMappingCrud.DbContext.Tests.Domain.csproj", "{333EBC43-E65E-482F-9772-DB8F55CACFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.Tests.Domain", "AdvancedMappingCrud.DbContext.Tests.Domain\AdvancedMappingCrud.DbContext.Tests.Domain.csproj", "{333EBC43-E65E-482F-9772-DB8F55CACFA2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CB80604B-F6C8-423E-AC09-AA585E4A8BBF}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.Infrastructure", "AdvancedMappingCrud.DbContext.Tests.Infrastructure\AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj", "{3042658D-5472-4C53-95DA-0E7A3BDE78E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.Tests.Infrastructure", "AdvancedMappingCrud.DbContext.Tests.Infrastructure\AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj", "{3042658D-5472-4C53-95DA-0E7A3BDE78E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{46673BD1-4F10-4670-985A-05D7992BAE1F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AdvancedMappingCrud.DbContext.Tests.IntegrationTests", "AdvancedMappingCrud.DbContext.Tests.IntegrationTests\AdvancedMappingCrud.DbContext.Tests.IntegrationTests.csproj", "{D2049E4C-EA02-43C8-9986-8749080E35EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.Tests.IntegrationTests", "AdvancedMappingCrud.DbContext.Tests.IntegrationTests\AdvancedMappingCrud.DbContext.Tests.IntegrationTests.csproj", "{D2049E4C-EA02-43C8-9986-8749080E35EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

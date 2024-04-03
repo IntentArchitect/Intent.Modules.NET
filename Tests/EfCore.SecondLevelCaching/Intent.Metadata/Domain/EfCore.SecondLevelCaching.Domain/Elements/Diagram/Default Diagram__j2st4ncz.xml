@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e39d0e8-1e44-4c17-943e-7404fe983890" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</parentFolderId>
+  <packageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</packageId>
+  <packageName>EfCore.SecondLevelCaching.Domain</packageName>
+  <diagram>
+    <targetPackageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

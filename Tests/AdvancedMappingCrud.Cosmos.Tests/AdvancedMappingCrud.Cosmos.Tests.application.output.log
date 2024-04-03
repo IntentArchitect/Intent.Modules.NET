@@ -131,6 +131,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5953d7a0-4268-4835-a44e-d00c269d64b5</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b9107dcc-4408-43e6-899e-e4202e502f62</ProjectId>
       <CorrelationId>Intent.QuartzScheduler.ScheduledJob#7ffbcf5f-6361-4f26-8dd4-ec39b739ba45</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

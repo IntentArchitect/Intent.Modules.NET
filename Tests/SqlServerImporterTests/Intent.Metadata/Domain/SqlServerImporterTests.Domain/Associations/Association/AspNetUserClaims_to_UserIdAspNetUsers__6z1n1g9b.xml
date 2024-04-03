@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4b91d764-c968-4b33-9971-8ab909aa8722">
+  <sourceEnd id="7a4961d6-1bbd-4bff-ba90-9e482bf18223" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AspNetUserClaims</name>
+    <display>AspNetUserClaims: AspNetUserClaim[*]</display>
+    <order>0</order>
+    <typeReference id="d2c04ba9-74ef-417d-b42f-bd0e60239b61">
+      <typeId>3b891d09-fd34-4fdc-9fdf-e1ad1f6d5b93</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4b91d764-c968-4b33-9971-8ab909aa8722" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>UserIdAspNetUsers</name>
+    <display>UserIdAspNetUsers: AspNetUser</display>
+    <order>4</order>
+    <typeReference id="f5399e13-8d83-4536-9320-46e193b25949">
+      <typeId>114c5646-631e-4265-a4da-ac69fbae6566</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[aspnetuserclaims].[fk_aspnetuserclaims_aspnetusers_userid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[aspnetuserclaims].[fk_aspnetuserclaims_aspnetusers_userid]</externalReference>
+  <stereotypes />
+</association>

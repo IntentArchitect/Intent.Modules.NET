@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb28a3e0-3e43-4ff9-8ff4-1e8887b4c8a5" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOrdersQuery</name>
+  <display>GetOrdersQuery: OrderDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="f113f45e-690c-4a16-8579-bd00732e4d8e">
+    <typeId>c718cbc3-0cb5-4783-8ac4-931545160b2d</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>SqlServerImporterTests.Services</typePackageName>
+    <typePackageId>2e97ac00-7126-447c-839f-d3d0b69b5f27</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>7184d16b-6af2-4c10-abf9-5f8f66b4fc72</parentFolderId>
+  <packageId>2e97ac00-7126-447c-839f-d3d0b69b5f27</packageId>
+  <packageName>SqlServerImporterTests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Orders" />
+  </metadata>
+  <childElements />
+</class>

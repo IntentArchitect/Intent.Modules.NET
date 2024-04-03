@@ -36,6 +36,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
+                customValidationEnabled: true,
                 additionalFolders: outputTarget.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
                     ? Array.Empty<string>()
                     : new[] { model.GetConceptName() })
@@ -53,7 +54,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: template.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
-                repositoryInjectionEnabled: true);
+                repositoryInjectionEnabled: true,
+                customValidationEnabled: true);
         }
 
         public override bool CanRunTemplate()

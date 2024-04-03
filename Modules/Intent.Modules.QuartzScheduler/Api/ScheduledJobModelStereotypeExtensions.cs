@@ -57,6 +57,11 @@ namespace Intent.QuartzScheduler.Api
                 return _stereotype.GetProperty<string>("Cron Schedule");
             }
 
+            public bool DisallowConcurrentExecution()
+            {
+                return _stereotype.GetProperty<bool>("Disallow Concurrent Execution");
+            }
+
         }
 
     }

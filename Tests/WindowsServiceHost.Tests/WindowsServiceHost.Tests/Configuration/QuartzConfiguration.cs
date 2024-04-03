@@ -27,6 +27,15 @@ namespace WindowsServiceHost.Tests.Configuration
                         });
                     }
 
+                    if (configuration.GetValue<bool?>($"Quartz:Jobs:NonConcurrentJob:Enabled") ?? true)
+                    {
+                        q.ScheduleJob<NonConcurrentJob>(trigger =>
+                        {
+                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:NonConcurrentJob:CronSchedule") ?? "*/1 * * * * ?");
+                            trigger.WithIdentity("NonConcurrentJob");
+                        });
+                    }
+
                     if (configuration.GetValue<bool?>($"Quartz:Jobs:RunEvery15Seconds:Enabled") ?? true)
                     {
                         q.ScheduleJob<RunEvery15Seconds>(trigger =>

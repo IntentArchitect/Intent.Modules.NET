@@ -4,27 +4,27 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Frontend", "0 - Frontend", "{7C9D0B32-FBBE-40E7-AEBE-FCF1B7EB635B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MinimalHostingModel.BlazorClient", "MinimalHostingModel.BlazorClient\MinimalHostingModel.BlazorClient.csproj", "{4DB14E1A-8B17-4990-BFEF-8951CF818E01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.BlazorClient", "MinimalHostingModel.BlazorClient\MinimalHostingModel.BlazorClient.csproj", "{4DB14E1A-8B17-4990-BFEF-8951CF818E01}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{51041368-70DE-4C19-A361-EE2EB457D704}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MinimalHostingModel.Api", "MinimalHostingModel.Api\MinimalHostingModel.Api.csproj", "{23156EA2-5268-45CF-A247-A74D47935F62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.Api", "MinimalHostingModel.Api\MinimalHostingModel.Api.csproj", "{23156EA2-5268-45CF-A247-A74D47935F62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BB3E58A1-85B8-4463-B5DB-03AC44A8D10E}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MinimalHostingModel.Application", "MinimalHostingModel.Application\MinimalHostingModel.Application.csproj", "{77B8DDD2-30DA-4A3E-8BBE-EFADF0A2F5F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.Application", "MinimalHostingModel.Application\MinimalHostingModel.Application.csproj", "{77B8DDD2-30DA-4A3E-8BBE-EFADF0A2F5F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{83664713-36F6-4861-A097-3946A5493D3B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MinimalHostingModel.Domain", "MinimalHostingModel.Domain\MinimalHostingModel.Domain.csproj", "{D2FF75B0-39F3-4CAD-B440-26C5B416E00A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.Domain", "MinimalHostingModel.Domain\MinimalHostingModel.Domain.csproj", "{D2FF75B0-39F3-4CAD-B440-26C5B416E00A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{3CD5584D-F72F-4B9A-8706-79A8093FD179}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MinimalHostingModel.Infrastructure", "MinimalHostingModel.Infrastructure\MinimalHostingModel.Infrastructure.csproj", "{FAABC763-8338-418E-A75C-A453905D6339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.Infrastructure", "MinimalHostingModel.Infrastructure\MinimalHostingModel.Infrastructure.csproj", "{FAABC763-8338-418E-A75C-A453905D6339}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{EB79C769-89F6-400B-9D3C-D406DE9521D8}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MinimalHostingModel.Tests", "MinimalHostingModel.Tests\MinimalHostingModel.Tests.csproj", "{1CF87C41-B94E-43F0-A9B1-F0E4DB4D366A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalHostingModel.Tests", "MinimalHostingModel.Tests\MinimalHostingModel.Tests.csproj", "{1CF87C41-B94E-43F0-A9B1-F0E4DB4D366A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

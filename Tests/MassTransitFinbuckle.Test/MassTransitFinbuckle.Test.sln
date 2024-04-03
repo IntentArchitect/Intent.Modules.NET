@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{24207EAB-60A7-4305-87A8-6617F2488AE4}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MassTransitFinbuckle.Test.Api", "MassTransitFinbuckle.Test.Api\MassTransitFinbuckle.Test.Api.csproj", "{3C9062A3-83B2-44D6-8DCE-AC88E0FEDD13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitFinbuckle.Test.Api", "MassTransitFinbuckle.Test.Api\MassTransitFinbuckle.Test.Api.csproj", "{3C9062A3-83B2-44D6-8DCE-AC88E0FEDD13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{4FFCE83B-1DD0-4990-8E3A-19BC6D1A8BD0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransitFinbuckle.Test.Application", "MassTransitFinbuckle.Test.Application\MassTransitFinbuckle.Test.Application.csproj", "{2204336B-62F6-4AB7-9E95-EC6134CA1D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitFinbuckle.Test.Application", "MassTransitFinbuckle.Test.Application\MassTransitFinbuckle.Test.Application.csproj", "{2204336B-62F6-4AB7-9E95-EC6134CA1D62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{7A6CDF25-E02B-40B6-9EEA-CD2B4342EE1D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransitFinbuckle.Test.Domain", "MassTransitFinbuckle.Test.Domain\MassTransitFinbuckle.Test.Domain.csproj", "{2FB89767-76FD-408B-BEA3-8087E5509297}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitFinbuckle.Test.Domain", "MassTransitFinbuckle.Test.Domain\MassTransitFinbuckle.Test.Domain.csproj", "{2FB89767-76FD-408B-BEA3-8087E5509297}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A304995A-CAD1-468D-B926-F3503757C539}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransitFinbuckle.Test.Infrastructure", "MassTransitFinbuckle.Test.Infrastructure\MassTransitFinbuckle.Test.Infrastructure.csproj", "{5F54CA23-D142-4094-A2F0-9B4F6F532892}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransitFinbuckle.Test.Infrastructure", "MassTransitFinbuckle.Test.Infrastructure\MassTransitFinbuckle.Test.Infrastructure.csproj", "{5F54CA23-D142-4094-A2F0-9B4F6F532892}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

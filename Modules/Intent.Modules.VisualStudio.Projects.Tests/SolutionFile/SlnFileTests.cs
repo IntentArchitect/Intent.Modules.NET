@@ -36,8 +36,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Assert
             result.ReplaceLineEndings().ShouldBe("""
                 Microsoft Visual Studio Solution File, Format Version 12.00
-                # Visual Studio 14
-                VisualStudioVersion = 14.0.25420.1
+                # Visual Studio 17
+                VisualStudioVersion = 17.8.34322.80
                 MinimumVisualStudioVersion = 10.0.40219.1
                 Project("{TYPE_ID}") = "NAME", "Project.csproj", "{ID}"
                 EndProject
@@ -45,7 +45,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
                 
                 """
-                .ReplaceLineEndings());
+				.ReplaceLineEndings());
         }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Assert
             result.ReplaceLineEndings().ShouldBe("""
                 Microsoft Visual Studio Solution File, Format Version 12.00
-                # Visual Studio 14
-                VisualStudioVersion = 14.0.25420.1
+                # Visual Studio 17
+                VisualStudioVersion = 17.8.34322.80
                 MinimumVisualStudioVersion = 10.0.40219.1
                 Project("{TYPE_ID}") = "NAME", "Project.csproj", "{ID}"
                 EndProject
@@ -82,7 +82,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-                .ReplaceLineEndings());
+				.ReplaceLineEndings());
         }
 
         [Fact]
@@ -314,8 +314,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Assert
             result.ReplaceLineEndings().ShouldBe("""
                 Microsoft Visual Studio Solution File, Format Version 12.00
-                # Visual Studio 14
-                VisualStudioVersion = 14.0.25420.1
+                # Visual Studio 17
+                VisualStudioVersion = 17.8.34322.80
                 MinimumVisualStudioVersion = 10.0.40219.1
                 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subfolder", "Subfolder", "{ID}"
                 	ProjectSection(SolutionItems) = preProject
@@ -326,7 +326,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-                .ReplaceLineEndings());
+				.ReplaceLineEndings());
         }
 
         [Fact]
@@ -351,8 +351,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Assert
             result.ReplaceLineEndings().ShouldBe("""
                 Microsoft Visual Studio Solution File, Format Version 12.00
-                # Visual Studio 14
-                VisualStudioVersion = 14.0.25420.1
+                # Visual Studio 17
+                VisualStudioVersion = 17.8.34322.80
                 MinimumVisualStudioVersion = 10.0.40219.1
                 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldFolder", "OldFolder", "{OLD}"
                 EndProject
@@ -365,7 +365,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-                .ReplaceLineEndings());
+				.ReplaceLineEndings());
         }
     }
 }

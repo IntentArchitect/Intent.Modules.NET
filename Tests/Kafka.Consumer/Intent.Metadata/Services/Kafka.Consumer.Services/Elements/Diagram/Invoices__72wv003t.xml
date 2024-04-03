@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f0fba266-d895-43ba-88b6-69dc1a5d615a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Invoices</name>
+  <display>Invoices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f85ef20-35a2-46f6-8a77-3f1d623327a3</parentFolderId>
+  <packageId>52e2d5b8-a3c4-4fa1-84ae-f2fec54901e9</packageId>
+  <packageName>Kafka.Consumer.Services</packageName>
+  <diagram>
+    <targetPackageId>4f85ef20-35a2-46f6-8a77-3f1d623327a3</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

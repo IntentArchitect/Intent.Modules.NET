@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cfc1714e-2bfd-4395-b905-02eb90ef4815" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="cfc1714e-2bfd-4395-b905-02eb90ef4815" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AzureFunctions</name>
           <display>Intent.AzureFunctions</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="11145a12-379e-45e6-87c3-5384c3dc6ecd" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="11145a12-379e-45e6-87c3-5384c3dc6ecd" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Infrastructure.DependencyInjection</name>
           <display>Intent.Infrastructure.DependencyInjection</display>
           <isAbstract>false</isAbstract>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0231074a-e337-4eae-aacd-08a0843e96aa" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0231074a-e337-4eae-aacd-08a0843e96aa" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.DependencyInjection</name>
           <display>Intent.Application.DependencyInjection</display>
           <isAbstract>false</isAbstract>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="24f99f1a-3f16-4ef3-9f07-9c8e8924b4d7" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="24f99f1a-3f16-4ef3-9f07-9c8e8924b4d7" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.Dtos</name>
           <display>Intent.Application.Dtos</display>
           <isAbstract>false</isAbstract>
@@ -148,7 +148,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d72467f1-85c6-48b5-a214-4a16ec4ab473" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="d72467f1-85c6-48b5-a214-4a16ec4ab473" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Metadata.WebApi</name>
           <display>Intent.Metadata.WebApi</display>
           <isAbstract>false</isAbstract>
@@ -163,7 +163,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.4.3" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.4.4" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -201,7 +201,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="88913392-6b40-4bf9-a703-fdab04dd1462" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="88913392-6b40-4bf9-a703-fdab04dd1462" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AzureFunctions.OpenApi</name>
           <display>Intent.AzureFunctions.OpenApi</display>
           <isAbstract>false</isAbstract>

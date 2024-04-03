@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2f1d26c9-0826-410a-8a83-967221b3e0e2">
+  <sourceEnd id="44f355bb-4f4c-4503-b905-82c72697535c" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : MappableStoredProcs.CreateEntityCommand</display>
+    <order>0</order>
+    <typeReference id="0eb16558-7631-4dde-a4b7-2e954c7629cf">
+      <typeId>f213a45e-7e27-4492-bb7f-50f079bdbf78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2f1d26c9-0826-410a-8a83-967221b3e0e2" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : CreateEntity(...): null</display>
+    <order>2</order>
+    <typeReference id="31ba16b8-3e63-4fec-a2d0-7f218ba3f10e">
+      <typeId>ae388b59-bdbe-46a8-b14d-2499e7d29a3e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source elementId="f213a45e-7e27-4492-bb7f-50f079bdbf78" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[CreateEntityCommand]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ae388b59-bdbe-46a8-b14d-2499e7d29a3e" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[CreateEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateEntityCommand}</expression>
+            <path>
+              <target id="ae388b59-bdbe-46a8-b14d-2499e7d29a3e" name="CreateEntity" type="element" specialization="Stored Procedure" />
+            </path>
+            <sources>
+              <source identifier="CreateEntityCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="f213a45e-7e27-4492-bb7f-50f079bdbf78" name="CreateEntityCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ae388b59-bdbe-46a8-b14d-2499e7d29a3e" name="CreateEntity" type="element" specialization="Stored Procedure" />
+              <target id="c884df16-2267-4cb4-81a1-063a1be4b728" name="id" type="element" specialization="Stored Procedure Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f213a45e-7e27-4492-bb7f-50f079bdbf78" name="CreateEntityCommand" type="element" specialization="Command" />
+                  <target id="edc27e54-94cc-47a7-bdb1-892f6daf453e" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="ae388b59-bdbe-46a8-b14d-2499e7d29a3e" name="CreateEntity" type="element" specialization="Stored Procedure" />
+              <target id="2ee895b5-fce9-4c45-8904-86e81f8c71c1" name="name" type="element" specialization="Stored Procedure Parameter" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f213a45e-7e27-4492-bb7f-50f079bdbf78" name="CreateEntityCommand" type="element" specialization="Command" />
+                  <target id="36ba38b3-a2a5-462a-adb1-85301b3ce38a" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

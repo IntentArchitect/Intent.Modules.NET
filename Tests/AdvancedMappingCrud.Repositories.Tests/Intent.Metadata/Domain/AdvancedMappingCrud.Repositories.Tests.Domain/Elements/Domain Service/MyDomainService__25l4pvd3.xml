@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3b9a8b1f-914c-4429-968c-5ebdb2450778" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>MyDomainService</name>
+  <display>MyDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9ba56693-ca26-481c-8f41-635aaddc2a3c</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="65af14ed-af21-4da2-b13d-06bc32b4eb94" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>DoSomething</name>
+      <display>DoSomething(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ed643e93-33f1-4a8a-8d8c-9b55b1ed253b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3b9a8b1f-914c-4429-968c-5ebdb2450778</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

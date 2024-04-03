@@ -1,3 +1,12 @@
+### Version 5.0.5
+
+- Fixed: Issue around CRUD with nullable return types.
+
+### Version 5.0.4
+
+- Improvement: Automatic wiring up of `DomainService`s in CRUD Implementations.
+- Improvement: `DomainInteractionsManager` - Consolidated CallServiceOperation enhancements include refined service dependency checks, extended support for ClassModel, DataContractModel, and TypeDefinitionModel through VariableType, and robust handling of asynchronous operations with proper awaiting and cancellation token integration, improving clarity and flexibility in service operation calls.
+
 ### Version 5.0.3
 
 - Improvement: Added support for `Value Object` collections.

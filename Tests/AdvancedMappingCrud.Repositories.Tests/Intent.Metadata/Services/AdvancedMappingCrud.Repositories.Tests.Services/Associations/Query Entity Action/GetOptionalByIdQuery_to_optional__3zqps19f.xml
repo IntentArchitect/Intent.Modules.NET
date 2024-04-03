@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0c6cc039-2383-409e-a1af-e80b6d22d8ed">
+  <sourceEnd id="7f9c8fa1-db66-4e6a-b941-96fb0fe54b24" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOptionalByIdQuery</display>
+    <order>0</order>
+    <typeReference id="9dfa76a3-d125-4e9b-a389-48664c8fe012">
+      <typeId>e09fff0e-6042-4e95-96a8-3bf2af4428f7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0c6cc039-2383-409e-a1af-e80b6d22d8ed" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>optional</name>
+    <display>[query] optional: Optional?</display>
+    <order>1</order>
+    <typeReference id="201388f1-93b0-437d-ae53-b77031c5ed9a">
+      <typeId>25b33f68-88fc-468d-9954-f9d67b53c057</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e09fff0e-6042-4e95-96a8-3bf2af4428f7" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetOptionalByIdQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="25b33f68-88fc-468d-9954-f9d67b53c057" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Optional]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="25b33f68-88fc-468d-9954-f9d67b53c057" name="Optional" type="element" specialization="Class" />
+              <target id="0c68f13e-b6f3-459f-90da-1a66f3e2d81d" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e09fff0e-6042-4e95-96a8-3bf2af4428f7" name="GetOptionalByIdQuery" type="element" specialization="Query" />
+                  <target id="a183bee9-d375-45e3-8233-470fce6a9c2f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

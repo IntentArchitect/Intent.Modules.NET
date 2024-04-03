@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{87A6EB6E-70F4-4F80-84A4-990B52130C48}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MassTransit.RabbitMQ.Api", "MassTransit.RabbitMQ.Api\MassTransit.RabbitMQ.Api.csproj", "{8CAB7E82-EBD6-48FE-9FAB-4903DECAFA34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RabbitMQ.Api", "MassTransit.RabbitMQ.Api\MassTransit.RabbitMQ.Api.csproj", "{8CAB7E82-EBD6-48FE-9FAB-4903DECAFA34}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{FB951517-F59A-46A7-BEF7-6AFE371FE879}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RabbitMQ.Application", "MassTransit.RabbitMQ.Application\MassTransit.RabbitMQ.Application.csproj", "{EEE6378A-6323-4705-8A5A-F59BFE340E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RabbitMQ.Application", "MassTransit.RabbitMQ.Application\MassTransit.RabbitMQ.Application.csproj", "{EEE6378A-6323-4705-8A5A-F59BFE340E11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6213129F-BE21-475D-9ED6-B4720CC52701}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RabbitMQ.Domain", "MassTransit.RabbitMQ.Domain\MassTransit.RabbitMQ.Domain.csproj", "{CD7B8BA4-CE26-4019-93B1-32D487100F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RabbitMQ.Domain", "MassTransit.RabbitMQ.Domain\MassTransit.RabbitMQ.Domain.csproj", "{CD7B8BA4-CE26-4019-93B1-32D487100F43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C5D1D102-D77D-48E7-8FE2-20AD957E71CF}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MassTransit.RabbitMQ.Infrastructure", "MassTransit.RabbitMQ.Infrastructure\MassTransit.RabbitMQ.Infrastructure.csproj", "{3F793BFE-F5BB-483D-BA0A-2E5BCBAD85EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.RabbitMQ.Infrastructure", "MassTransit.RabbitMQ.Infrastructure\MassTransit.RabbitMQ.Infrastructure.csproj", "{3F793BFE-F5BB-483D-BA0A-2E5BCBAD85EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

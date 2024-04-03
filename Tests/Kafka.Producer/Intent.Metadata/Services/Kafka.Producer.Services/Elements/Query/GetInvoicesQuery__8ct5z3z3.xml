@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="35454479-7714-4bf7-b257-cd03cb04c881" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetInvoicesQuery</name>
+  <display>GetInvoicesQuery: InvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="ea29651d-8d03-446a-bc0e-5f6b62344f94">
+    <typeId>9473e54a-c29e-4d38-98b7-5b104b1e62bb</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Kafka.Producer.Services</typePackageName>
+    <typePackageId>d0b468ef-2076-4b60-9f06-11502faec1d3</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>7c71ff6e-1949-4105-9c26-666df7a3956d</parentFolderId>
+  <packageId>d0b468ef-2076-4b60-9f06-11502faec1d3</packageId>
+  <packageName>Kafka.Producer.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/invoice" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Invoices" />
+  </metadata>
+  <childElements />
+</class>

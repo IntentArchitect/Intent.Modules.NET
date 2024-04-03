@@ -1,3 +1,7 @@
+### Version 6.1.1
+
+- Improvement: Added support for `IDistributedCacheWithUnitOfWork` to unit of work implementation.
+
 ### Version 6.1.0
 
 - Improvement: Renamed `ConsumerWrapper` to `IntegrationEventConsumer`.

@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{B3BD9866-2A19-4041-B459-7AB8B6A5BB2A}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFrameworkCore.SqlServer.TestApplication.Api", "EntityFrameworkCore.SqlServer.TestApplication.Api\EntityFrameworkCore.SqlServer.TestApplication.Api.csproj", "{6857B938-1B09-4838-BDE0-3B3444EDE988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Api", "EntityFrameworkCore.SqlServer.TestApplication.Api\EntityFrameworkCore.SqlServer.TestApplication.Api.csproj", "{6857B938-1B09-4838-BDE0-3B3444EDE988}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{99C4E975-33BE-480B-9DDE-A1FE7929C705}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.TestApplication.Application", "EntityFrameworkCore.SqlServer.TestApplication.Application\EntityFrameworkCore.SqlServer.TestApplication.Application.csproj", "{51DE1101-FBBE-495B-B316-4384BD8E6179}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Application", "EntityFrameworkCore.SqlServer.TestApplication.Application\EntityFrameworkCore.SqlServer.TestApplication.Application.csproj", "{51DE1101-FBBE-495B-B316-4384BD8E6179}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{9F1042DE-D75A-46ED-9ABE-F4360BC041AD}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.TestApplication.Domain", "EntityFrameworkCore.SqlServer.TestApplication.Domain\EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj", "{9DBA1D00-445F-4BE6-8410-BDC44592FEFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Domain", "EntityFrameworkCore.SqlServer.TestApplication.Domain\EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj", "{9DBA1D00-445F-4BE6-8410-BDC44592FEFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{B07520E0-4E49-445F-9E7C-7D001AC288D9}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure", "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj", "{84E80518-0246-4212-8077-1C35A397190A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure", "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj", "{84E80518-0246-4212-8077-1C35A397190A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

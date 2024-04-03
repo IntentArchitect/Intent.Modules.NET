@@ -39,10 +39,9 @@ namespace MultipleDocumentStores.Application.Common.Behaviours
             CancellationToken cancellationToken)
         {
             var response = await next();
-
-            await _cosmosDBDataSource.SaveChangesAsync(cancellationToken);
-            await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
             await _mongoDbDataSource.SaveChangesAsync(cancellationToken);
+            await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
+            await _cosmosDBDataSource.SaveChangesAsync(cancellationToken);
 
             return response;
         }

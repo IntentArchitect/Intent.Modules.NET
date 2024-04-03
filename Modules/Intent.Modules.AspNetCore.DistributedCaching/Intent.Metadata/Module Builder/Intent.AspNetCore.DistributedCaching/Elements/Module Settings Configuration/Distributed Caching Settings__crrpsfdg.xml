@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="49ad40aa-eeb7-4d44-9b20-947a784dc12d" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Distributed Caching Settings</name>
+  <display>Distributed Caching Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d8ebd780-6e1c-46c7-8041-695663ee223b</parentFolderId>
+  <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+  <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="82233474-2fba-4033-b236-97d5cc4d3e04" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Provider</name>
+      <display>Provider</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>49ad40aa-eeb7-4d44-9b20-947a784dc12d</parentFolderId>
+      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The [implementation](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#establish-distributed-caching-services) to register for [IDistributedCache](https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache)." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="memory" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9d74842b-5450-4da7-a23e-d0fb63e4d39b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Memory</name>
+          <display>Memory</display>
+          <isAbstract>false</isAbstract>
+          <value>memory</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>82233474-2fba-4033-b236-97d5cc4d3e04</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="52f8b35a-e3a8-4ea4-a1cc-5785d82fe1c4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Stack Exchange Redis</name>
+          <display>Stack Exchange Redis</display>
+          <isAbstract>false</isAbstract>
+          <value>stack-exchange-redis</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>82233474-2fba-4033-b236-97d5cc4d3e04</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
