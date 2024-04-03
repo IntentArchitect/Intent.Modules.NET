@@ -19,7 +19,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.Configuration
             services
                 .AddHttpClient<IMyProxy, MyProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = new Uri($"http://publish-clean-arch-dapr-test-application");
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MyProxy:Uri");
                 })
                 .ConfigureForDapr();
         }
