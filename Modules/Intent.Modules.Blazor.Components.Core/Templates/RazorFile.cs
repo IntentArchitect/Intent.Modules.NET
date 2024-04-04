@@ -42,7 +42,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public BlazorFile AddCodeBlock(Action<RazorCodeBlock> configure = null)
         {
-            var razorCodeBlock = new RazorCodeBlock(null, RazorFile);
+            var razorCodeBlock = new RazorCodeBlock(RazorFile);
             Nodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return this;
@@ -171,9 +171,9 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             return (T)this;
         }
 
-        public T AddCodeBlock(CSharpStatement expression, Action<RazorCodeBlock> configure = null)
+        public T AddCodeBlock(CSharpStatement expression, Action<RazorCodeDirective> configure = null)
         {
-            var razorCodeBlock = new RazorCodeBlock(expression, RazorFile);
+            var razorCodeBlock = new RazorCodeDirective(expression, RazorFile);
             Nodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return (T)this;
@@ -227,7 +227,25 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         }
     }
 
-    public class RazorCodeBlock : RazorFileNodeBase<RazorCodeBlock>, IRazorFileNode
+
+    public class RazorCodeDirective : RazorFileNodeBase<RazorCodeDirective>, IRazorFileNode
+    {
+        public ICSharpExpression Expression { get; set; }
+        public RazorCodeDirective(ICSharpExpression expression, RazorFile file) : base(file)
+        {
+            Expression = expression ?? throw new ArgumentNullException(nameof(expression));
+        }
+
+        public override string GetText(string indentation)
+        {
+            return $@"{indentation}@{Expression.GetText(indentation)?.TrimStart()} {{
+{string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}
+{indentation}}}
+";
+        }
+    }
+
+    public class RazorCodeBlock : RazorFileNodeBase<RazorCodeBlock>, IRazorFileNode, IBuildsCSharpMembers
     {
         public ICSharpExpression Expression { get; set; }
         public IList<ICodeBlock> Declarations { get; } = new List<ICodeBlock>();
@@ -236,12 +254,19 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         {
         }
 
-        public RazorCodeBlock(ICSharpExpression expression, RazorFile file) : this(file)
+        public IBuildsCSharpMembers AddField(string type, string name, Action<CSharpField> configure = null)
         {
-            Expression = expression;
+            var field = new CSharpField(type, name)
+            {
+                BeforeSeparator = CSharpCodeSeparatorType.NewLine,
+                AfterSeparator = CSharpCodeSeparatorType.NewLine
+            };
+            Declarations.Add(field);
+            configure?.Invoke(field);
+            return this;
         }
 
-        public RazorCodeBlock AddProperty(string type, string name, Action<CSharpProperty> configure = null)
+        public IBuildsCSharpMembers AddProperty(string type, string name, Action<CSharpProperty> configure = null)
         {
             var property = new CSharpProperty(type, name, RazorFile)
             {
@@ -253,7 +278,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             return this;
         }
 
-        public RazorCodeBlock AddMethod(string type, string name, Action<CSharpClassMethod> configure = null)
+        public IBuildsCSharpMembers AddMethod(string type, string name, Action<CSharpClassMethod> configure = null)
         {
             var method = new CSharpClassMethod(type, name, RazorFile)
             {
@@ -267,7 +292,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public override string GetText(string indentation)
         {
-            return $@"{indentation}@{Expression?.GetText(indentation)?.TrimStart() ?? "code"} {{
+            return $@"{indentation}@code {{
 {string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}{string.Join(@"
 ", Declarations.ConcatCode(indentation + "    "))}
 {indentation}}}

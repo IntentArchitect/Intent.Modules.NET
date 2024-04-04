@@ -18,6 +18,7 @@ public class ComponentRendererResolver : IComponentRendererResolver
         _componentRenderers[FormModel.SpecializationTypeId] = (component) => new FormComponentRenderer(this, Template);
         _componentRenderers[TextInputModel.SpecializationTypeId] = (component) => new TextInputComponentRenderer(this, Template);
         _componentRenderers[ButtonModel.SpecializationTypeId] = (component) => new ButtonRenderer(this, Template);
+        _componentRenderers[ContainerModel.SpecializationTypeId] = (component) => new ContainerRenderer(this, Template);
         _componentRenderers[TableModel.SpecializationTypeId] = (component) => new TableRenderer(this, Template);
         _componentRenderers[TextModel.SpecializationTypeId] = (component) => new TextRenderer(this, Template);
         _componentRenderers[DisplayComponentModel.SpecializationTypeId] = (component) => new CustomComponentRenderer(this, Template);

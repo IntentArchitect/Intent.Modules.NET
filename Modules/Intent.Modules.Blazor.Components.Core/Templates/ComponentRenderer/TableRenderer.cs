@@ -19,7 +19,7 @@ public class TableRenderer : IComponentRenderer
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeBlock(new CSharpStatement($"if ({_template.GetElementBinding(table)} is null)"), _template.BlazorFile);
+        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is null)"), _template.BlazorFile);
         loadingCode.AddHtmlElement("div", rowDiv =>
         {
             rowDiv.AddAttribute("class", "row");
@@ -30,7 +30,7 @@ public class TableRenderer : IComponentRenderer
             });
         });
         node.AddNode(loadingCode);
-        var tableCode = new RazorCodeBlock(new CSharpStatement($"if ({_template.GetElementBinding(table)} is not null)"), _template.BlazorFile);
+        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is not null)"), _template.BlazorFile);
         tableCode.AddHtmlElement("table", htmlTable =>
         {
             htmlTable.AddAttribute("class", "table")

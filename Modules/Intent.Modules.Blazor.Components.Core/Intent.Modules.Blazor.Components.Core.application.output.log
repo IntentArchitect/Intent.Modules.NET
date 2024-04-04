@@ -10,18 +10,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>7fd68940-2b43-492d-bfb0-e37982918d79</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7fd68940-2b43-492d-bfb0-e37982918d79</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.Core.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.Core.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Blazor.Components.Core.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Blazor.Components.Core.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7fd68940-2b43-492d-bfb0-e37982918d79</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7fd68940-2b43-492d-bfb0-e37982918d79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.Core.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.Core.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.Core.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.Core.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -30,7 +30,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
@@ -38,7 +38,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>

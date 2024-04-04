@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>2de187d1-f928-4c0c-bd99-9400166accd0</parentFolderId>
   <packageId>2de187d1-f928-4c0c-bd99-9400166accd0</packageId>
-  <packageName>Intent.Modules.Blazor.Components.Core</packageName>
+  <packageName>Intent.Blazor.Components.Core</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="819dee60-184a-4cb7-9529-0d3910f82ee6" name="File Settings">
       <addedByDefault>true</addedByDefault>

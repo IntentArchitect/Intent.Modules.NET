@@ -21,7 +21,7 @@ public class FormComponentRenderer : IComponentRenderer
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var formModel = new FormModel(component);
-        var codeBlock = new RazorCodeBlock(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _template.BlazorFile);
+        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _template.BlazorFile);
         var htmlElement = new HtmlElement("EditForm", _template.BlazorFile);
         
         codeBlock.AddHtmlElement(htmlElement);

@@ -24,11 +24,19 @@ public class ButtonRenderer : IComponentRenderer
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         var onClickMapping = _template.GetMappedEndFor(button, "On Click");
-        if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
+        if (onClickMapping != null)
         {
-            var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-            htmlElement.AddAttribute("@onclick", $"() => {_template.GetBinding(onClickMapping)}()");
+            if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
+            {
+                var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
+                htmlElement.AddAttribute("@onclick", $"() => {_template.GetBinding(onClickMapping)}()");
+            }
+            else
+            {
+                htmlElement.AddAttribute("@onclick", $"{_template.GetBinding(onClickMapping)}");
+            }
         }
+
         //foreach (var child in component.ChildElements)
         //{
         //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));

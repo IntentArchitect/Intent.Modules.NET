@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -65,7 +64,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                 {
                                     property.WithInitialValue(child.Value);
                                 }
-                                if (child.AsPropertyModel().HasBindable())
+                                if (child.AsPropertyModel().HasBindable() || (Model.TryGetPage(out var pageSettings) && new RouteManager(pageSettings.Route()).HasParameterExpression(property.Name)))
                                 {
                                     property.AddAttribute("Parameter");
                                 }
@@ -178,11 +177,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                             block.AddMethod("void", associationEnd.Name.ToPropertyName(), method =>
                             {
                                 method.Private();
-                                var route = $"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"";
-                                if (route.Contains("{"))
-                                {
-                                    route = $"${route}";
-                                }
+                                var routeManager = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
                                 foreach (var parameter in navigationModel.Parameters)
                                 {
                                     method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
@@ -192,14 +187,24 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                             param.WithDefaultValue(parameter.Value);
                                         }
                                     });
-                                    var replaceIndex = route.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
-                                        ? route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
-                                        : route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
-                                    if (replaceIndex != -1)
+                                    if (routeManager.HasParameterExpression(parameter.Name))
                                     {
-                                        route = route.Remove(replaceIndex, route.IndexOf('}', replaceIndex) + 1 - replaceIndex)
-                                            .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
+                                        routeManager.ReplaceParameterExpression(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
                                     }
+                                    //var replaceIndex = routeManager.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
+                                    //    ? routeManager.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
+                                    //    : routeManager.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
+                                    //if (replaceIndex != -1)
+                                    //{
+                                    //    routeManager = routeManager.Remove(replaceIndex, routeManager.IndexOf('}', replaceIndex) + 1 - replaceIndex)
+                                    //        .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
+                                    //}
+                                }
+
+                                var route = routeManager.Route;
+                                if (route.Contains("{"))
+                                {
+                                    route = $"${route}";
                                 }
 
                                 file.AddInjectDirective("NavigationManager");
