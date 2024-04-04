@@ -58,18 +58,30 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(LaunchProfileRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { LaunchProfileRegistrationEvent.ProfileNameKey, "Docker" },
-                { LaunchProfileRegistrationEvent.CommandNameKey, "Docker" },
-                { LaunchProfileRegistrationEvent.LaunchBrowserKey, "true" },
-                { LaunchProfileRegistrationEvent.LaunchUrlKey, $"{{Scheme}}://{{ServiceHost}}:{{ServicePort}}{AddDefaultLaunchUrl()}" },
-                { LaunchProfileRegistrationEvent.PublishAllPorts, "true" },
-                { LaunchProfileRegistrationEvent.UseSSL, "true" },
-            });
+            base.BeforeTemplateExecution();
+
+            var environmentVariables = new Dictionary<string, string>
+			{
+				{ "ASPNETCORE_HTTPS_PORTS", "8081" },
+				{ "ASPNETCORE_HTTP_PORTS", "8080" }
+			};
+			ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
+			{
+				Name = "Docker",
+				CommandName = "Docker",
+				LaunchBrowser = true,
+                LaunchUrl = $"{{Scheme}}://{{ServiceHost}}:{{ServicePort}}{AddDefaultLaunchUrl()}",
+                EnvironmentVariables = environmentVariables,
+                PublishAllPorts = true,
+                UseSsl = true,
+			});
+            ExecutionContext.EventDispatcher.Publish(new AddProjectPropertyEvent(Project, "DockerDefaultTargetOS", "Linux"));
+
+            //Make sure the file exists
+            ExecutionContext.EventDispatcher.Publish(new AddUserSecretsEvent(Project, new Dictionary<string, string>()));
         }
 
-        private string AddDefaultLaunchUrl()
+		private string AddDefaultLaunchUrl()
         {
             if (string.IsNullOrWhiteSpace(_defaultLaunchUrlPath))
             {

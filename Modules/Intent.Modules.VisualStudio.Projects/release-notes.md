@@ -1,7 +1,12 @@
+### Version 3.7.1
+
+- Improvement: Support added for `AddUserSecretsEvent` and `AddProjectPropertyEvent`.
+- 
 ### Version 3.7.0
 
 - Improvement: Aligned VS Solution Project Type Ids to the new project system ids (https://github.com/dotnet/project-system/blob/main/docs/opening-with-new-project-system.md).
 - Improvement: Updated generated VS `Sln` file versioning Info
+
 ### Version 3.6.2
 
 - Improvement: `appsettings.json` added for `CSProject` using the `Microsoft.NET.Sdk.Worker` SDK e.g. Windows Services.
