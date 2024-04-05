@@ -48,7 +48,7 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.OnceOff,
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled,
                 codeGenType: CodeGenType.Basic,
                 fileName: "Dockerfile",
                 fileExtension: "",
