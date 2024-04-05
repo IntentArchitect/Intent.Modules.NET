@@ -39,6 +39,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter
                             stmt.AddStatement("schema.Example = new OpenApiString(\"00:00:00\"); // Set your desired format here");
                             stmt.AddStatement("schema.Type = \"string\"; // Override the default representation to be a string");
                         });
+                        method.AddIfStatement("context.Type == typeof(DateOnly) || context.Type == typeof(DateOnly?)", stmt =>
+                        {
+                            stmt.AddStatement("schema.Example = new OpenApiString(DateTime.Today.ToString(\"yyyy-MM-dd\")); // Set your desired format here");
+                            stmt.AddStatement("schema.Type = \"string\"; // Override the default representation to be a string");
+                        });
                     });
                 });
         }

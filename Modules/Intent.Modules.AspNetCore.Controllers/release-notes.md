@@ -1,3 +1,7 @@
+### Version 6.0.5
+
+- Improvement: Swagger Schema Filter support, specifically for `DateOnly`.
+
 ### Version 6.0.4
 
 - Improvement: Swagger Schema Filter support, specifically for `TimeSpan`.
