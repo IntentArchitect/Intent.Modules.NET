@@ -514,11 +514,6 @@ public class DomainInteractionsManager
             var operationModel = (IElement)callServiceOperation.Element;
             var serviceModel = operationModel.ParentElement;
 
-            // Is this an Entity specific Repository?
-            if (serviceModel.SpecializationType == "Repository" && serviceModel.TypeReference.Element is not null)
-            {
-                serviceModel = (IElement)serviceModel.TypeReference.Element;
-            }
             
             if (!HasServiceDependency(serviceModel, out var serviceInterfaceTemplate) || callServiceOperation.Mappings.Any() is false)
             {
