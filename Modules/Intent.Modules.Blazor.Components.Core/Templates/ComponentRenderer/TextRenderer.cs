@@ -4,12 +4,12 @@ using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class TextRenderer : IComponentRenderer
+public class TextRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public TextRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public TextRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

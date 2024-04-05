@@ -24,12 +24,12 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings
+    public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
     {
-        private readonly IComponentRendererResolver _componentResolver;
+        private readonly IRazorComponentBuilderResolver _componentResolver;
 
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Blazor.Components.Core.RazorComponentTemplate";
+        public const string TemplateId = "Intent.Blazor.Components.Core.RazorComponentTemplate";
 
         [IntentManaged(Mode.Merge)]
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
@@ -39,6 +39,15 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             AddTypeSource(TemplateId);
             BlazorFile = new BlazorFile(this);
             _componentResolver = new ComponentRendererResolver(this);
+
+            _componentResolver.Register(FormModel.SpecializationTypeId, new FormComponentRenderer(_componentResolver, this));
+            _componentResolver.Register(TextInputModel.SpecializationTypeId, new TextInputComponentRenderer(_componentResolver, this));
+            _componentResolver.Register(ButtonModel.SpecializationTypeId, new ButtonRenderer(_componentResolver, this));
+            _componentResolver.Register(ContainerModel.SpecializationTypeId, new ContainerRenderer(_componentResolver, this));
+            _componentResolver.Register(TableModel.SpecializationTypeId, new TableRenderer(_componentResolver, this));
+            _componentResolver.Register(TextModel.SpecializationTypeId, new TextRenderer(_componentResolver, this));
+            _componentResolver.Register(DisplayComponentModel.SpecializationTypeId, new CustomComponentRenderer(_componentResolver, this));
+
             ViewBinding = Model.View.InternalElement.Mappings.FirstOrDefault();
             BlazorFile.Configure(file =>
             {
@@ -175,7 +184,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                         {
                             var navigationModel = associationEnd.AsNavigationTargetEndModel();
                             block.AddMethod("void", associationEnd.Name.ToPropertyName(), method =>
-                            {
+                            { 
                                 method.Private();
                                 var routeManager = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
                                 foreach (var parameter in navigationModel.Parameters)
@@ -191,14 +200,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                     {
                                         routeManager.ReplaceParameterExpression(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
                                     }
-                                    //var replaceIndex = routeManager.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
-                                    //    ? routeManager.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
-                                    //    : routeManager.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
-                                    //if (replaceIndex != -1)
-                                    //{
-                                    //    routeManager = routeManager.Remove(replaceIndex, routeManager.IndexOf('}', replaceIndex) + 1 - replaceIndex)
-                                    //        .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
-                                    //}
                                 }
 
                                 var route = routeManager.Route;
@@ -271,6 +272,10 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         }
 
         public BlazorFile BlazorFile { get; set; }
+
+        public IRazorComponentBuilderResolver ComponentBuilderResolver => _componentResolver;
+
+        RazorFile IRazorComponentTemplate.BlazorFile => BlazorFile;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
 

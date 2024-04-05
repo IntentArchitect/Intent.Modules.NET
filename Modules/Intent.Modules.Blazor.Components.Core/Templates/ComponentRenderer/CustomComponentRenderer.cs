@@ -6,12 +6,12 @@ using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class CustomComponentRenderer : IComponentRenderer
+public class CustomComponentRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public CustomComponentRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public CustomComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

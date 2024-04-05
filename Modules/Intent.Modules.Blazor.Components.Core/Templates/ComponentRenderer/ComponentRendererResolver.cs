@@ -7,49 +7,49 @@ using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class ComponentRendererResolver : IComponentRendererResolver
+public class ComponentRendererResolver : IRazorComponentBuilderResolver
 {
     public RazorComponentTemplate Template { get; }
-    private Dictionary<string, Func<IElement, IComponentRenderer>> _componentRenderers = new();
+    private Dictionary<string, IRazorComponentBuilder> _componentRenderers = new();
 
     public ComponentRendererResolver(RazorComponentTemplate template)
     {
         Template = template;
-        _componentRenderers[FormModel.SpecializationTypeId] = (component) => new FormComponentRenderer(this, Template);
-        _componentRenderers[TextInputModel.SpecializationTypeId] = (component) => new TextInputComponentRenderer(this, Template);
-        _componentRenderers[ButtonModel.SpecializationTypeId] = (component) => new ButtonRenderer(this, Template);
-        _componentRenderers[ContainerModel.SpecializationTypeId] = (component) => new ContainerRenderer(this, Template);
-        _componentRenderers[TableModel.SpecializationTypeId] = (component) => new TableRenderer(this, Template);
-        _componentRenderers[TextModel.SpecializationTypeId] = (component) => new TextRenderer(this, Template);
-        _componentRenderers[DisplayComponentModel.SpecializationTypeId] = (component) => new CustomComponentRenderer(this, Template);
     }
-    public IComponentRenderer ResolveFor(IElement component)
+
+    public void Register(string elementSpecializationId, IRazorComponentBuilder componentBuilder)
+    {
+        _componentRenderers[elementSpecializationId] = componentBuilder;
+    }
+
+    public IRazorComponentBuilder ResolveFor(IElement component)
     {
         if (!_componentRenderers.ContainsKey(component.SpecializationTypeId))
         {
             return new EmptyElementRenderer(this, Template);
         }
-        return _componentRenderers[component.SpecializationTypeId](component);
+        return _componentRenderers[component.SpecializationTypeId];
     }
 }
 
 
-public interface IComponentRendererResolver
+public interface IRazorComponentBuilderResolver
 {
-    IComponentRenderer ResolveFor(IElement component);
+    void Register(string elementSpecializationId, IRazorComponentBuilder componentBuilder);
+    IRazorComponentBuilder ResolveFor(IElement component);
 }
 
-public interface IComponentRenderer
+public interface IRazorComponentBuilder
 {
     void BuildComponent(IElement component, IRazorFileNode node);
 }
 
-public class TextInputComponentRenderer : IComponentRenderer
+public class TextInputComponentRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public TextInputComponentRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public TextInputComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
@@ -68,12 +68,12 @@ public class TextInputComponentRenderer : IComponentRenderer
     }
 }
 
-public class EmptyElementRenderer : IComponentRenderer
+public class EmptyElementRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public EmptyElementRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public EmptyElementRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

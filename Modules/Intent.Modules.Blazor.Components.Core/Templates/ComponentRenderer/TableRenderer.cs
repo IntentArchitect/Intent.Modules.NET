@@ -5,12 +5,12 @@ using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class TableRenderer : IComponentRenderer
+public class TableRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public TableRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public TableRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

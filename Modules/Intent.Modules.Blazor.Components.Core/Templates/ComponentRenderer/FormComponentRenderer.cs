@@ -7,12 +7,12 @@ using Intent.Modules.Common.CSharp.Mapping;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class FormComponentRenderer : IComponentRenderer
+public class FormComponentRenderer : IRazorComponentBuilder
 {
-    private readonly IComponentRendererResolver _componentResolver;
+    private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public FormComponentRenderer(IComponentRendererResolver componentResolver, RazorComponentTemplate template)
+    public FormComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
