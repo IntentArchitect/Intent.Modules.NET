@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="717da44e-3aa8-467d-a341-1698d58de83f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
