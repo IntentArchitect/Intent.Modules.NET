@@ -27,8 +27,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableS
         public async Task Handle(CreateEntitiesCommand request, CancellationToken cancellationToken)
         {
             await _mappableStoredProcRepository.CreateEntities(request.Entities
-.Select(e => new EntityRecord(e.Id, e.Name))
-.ToList(), cancellationToken);
+                .Select(e => new EntityRecord(e.Id, e.Name))
+                .ToList(), cancellationToken);
         }
     }
 }
