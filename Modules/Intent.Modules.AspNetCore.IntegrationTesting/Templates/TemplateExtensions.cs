@@ -10,6 +10,7 @@ using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientRequestEx
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTestWebAppFactory;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.JsonResponse;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.PagedResult;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProblemDetailsWithErrors;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpointTest;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.SharedContainerFixture;
@@ -87,6 +88,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
         public static string GetPagedResultName(this IIntentTemplate template)
         {
             return template.GetTypeName(PagedResultTemplate.TemplateId);
+        }
+
+        public static string GetProblemDetailsWithErrorsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ProblemDetailsWithErrorsTemplate.TemplateId);
         }
 
         public static string GetProxyServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceModel

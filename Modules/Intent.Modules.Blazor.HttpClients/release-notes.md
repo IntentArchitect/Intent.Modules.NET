@@ -1,4 +1,8 @@
-﻿### Version 3.1.1
+﻿### Version 3.1.2
+
+- Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
+
+### Version 3.1.1
 
 - Improvement: File transfer ( upload / download ) support.
 - Improvement: Improved internal processes for working with Service Proxies.

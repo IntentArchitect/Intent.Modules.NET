@@ -5,6 +5,7 @@ using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientHeaderHandler;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Integration.HttpClients.Templates.JsonResponse;
+using Intent.Modules.Integration.HttpClients.Templates.ProblemDetailsWithErrors;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -43,6 +44,11 @@ namespace Intent.Modules.Integration.HttpClients.Templates
         public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
+        }
+
+        public static string GetProblemDetailsWithErrorsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ProblemDetailsWithErrorsTemplate.TemplateId);
         }
 
     }

@@ -1,4 +1,8 @@
-﻿### Version 1.0.2
+﻿### Version 1.0.3
+
+- Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
+
+### Version 1.0.2
 
 - Fixed: Added missing using clause in generated CRUD tests.
 

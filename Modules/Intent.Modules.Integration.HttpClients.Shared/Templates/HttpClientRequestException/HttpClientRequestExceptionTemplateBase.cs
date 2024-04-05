@@ -23,6 +23,9 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                 .IntentManagedFully()
                 .AddClass("HttpClientRequestException", @class => @class
                     .WithBaseType("Exception")
+                    .AddProperty("ProblemDetailsWithErrors?", "ProblemDetails", prop => prop
+                        .PrivateSetter()
+                    )
                     .AddConstructor(c => c
                         .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
                         .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
@@ -32,6 +35,15 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .CallsBase(b => b
                             .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
                         )
+                        .AddStatements(new[]
+                        {
+                            $"if (responseContent is not null &&",
+                            $"    responseHeaders.TryGetValue(\"ContentType\", out var contentTypeValues) &&",
+                            $"    contentTypeValues.FirstOrDefault() == \"application/problem+json\")",
+                            $"{{",
+                            $"    ProblemDetails = System.Text.Json.JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);",
+                            $"}}",
+                        })
                     )
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
                         .Static()

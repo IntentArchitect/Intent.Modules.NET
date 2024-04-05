@@ -62,7 +62,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
@@ -118,6 +118,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse/JsonResponseTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ce41bc1-e95c-4392-8a8c-0086dcaba43c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4ce41bc1-e95c-4392-8a8c-0086dcaba43c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -42,6 +42,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract
             .ToList();
         }
 
-        
+
     }
 }

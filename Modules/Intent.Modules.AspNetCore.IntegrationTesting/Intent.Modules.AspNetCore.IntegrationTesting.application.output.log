@@ -210,6 +210,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#82910940-c88d-4d88-810c-4d059eea25a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#82910940-c88d-4d88-810c-4d059eea25a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d445f76-f30e-4651-8d9b-df3a51c23390</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ProxyServiceContract/ProxyServiceContractTemplatePartial.cs</ApplicationRelativeFilePath>

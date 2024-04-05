@@ -6,6 +6,7 @@ using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientDaprH
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientHeaderHandler;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientRequestException;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonResponse;
+using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.ProblemDetailsWithErrors;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -49,6 +50,11 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates
         public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
+        }
+
+        public static string GetProblemDetailsWithErrorsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ProblemDetailsWithErrorsTemplate.TemplateId);
         }
 
     }
