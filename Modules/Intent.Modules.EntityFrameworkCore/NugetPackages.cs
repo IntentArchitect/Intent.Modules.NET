@@ -49,7 +49,8 @@ public static class NugetPackages
         {
             (5, 0) => "5.0.4",
             (6, 0) => "6.0.2",
-            _ => "7.0.0"
+            (7, 0) => "7.0.0",
+            _ => "8.0.0"
         });
 
     public static NugetPackageInfo OracleEntityFrameworkCore(IOutputTarget outputTarget) => new(
