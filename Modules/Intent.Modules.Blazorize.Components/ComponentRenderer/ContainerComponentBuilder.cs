@@ -6,12 +6,12 @@ using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class ContainerRenderer : IRazorComponentBuilder
+public class ContainerComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly IRazorComponentTemplate _template;
 
-    public ContainerRenderer(IRazorComponentBuilderResolver componentResolver, IRazorComponentTemplate template)
+    public ContainerComponentBuilder(IRazorComponentBuilderResolver componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

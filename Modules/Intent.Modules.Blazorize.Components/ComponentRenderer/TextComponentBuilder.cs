@@ -1,16 +1,17 @@
-﻿using Intent.Metadata.Models;
+using Intent.Metadata.Models;
+using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
 using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class EmptyElementRenderer : IRazorComponentBuilder
+public class TextComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public EmptyElementRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public TextComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
@@ -18,11 +19,10 @@ public class EmptyElementRenderer : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
-        var htmlElement = new HtmlElement(component.Name, _template.BlazorFile);
-        foreach (var child in component.ChildElements)
-        {
-            _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
-        }
+        var textInput = new TextModel(component);
+        var valueMapping = _template.GetMappedEndFor(textInput);
+        var htmlElement = new HtmlElement("label", _template.BlazorFile)
+            .WithText(valueMapping != null ? _template.GetCodeDirective(valueMapping) : textInput.Value);
         node.AddNode(htmlElement);
     }
 }

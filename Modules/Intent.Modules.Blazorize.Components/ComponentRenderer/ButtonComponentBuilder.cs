@@ -7,12 +7,12 @@ using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class ButtonRenderer : IRazorComponentBuilder
+public class ButtonComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public ButtonRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public ButtonComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

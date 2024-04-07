@@ -9,12 +9,12 @@ using Intent.Modules.Common.CSharp.Mapping;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class FormComponentRenderer : IRazorComponentBuilder
+public class FormComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public FormComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public FormComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

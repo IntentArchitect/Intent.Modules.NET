@@ -6,12 +6,12 @@ using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class TextInputComponent : IRazorComponentBuilder
+public class TextInputComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public TextInputComponent(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public TextInputComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

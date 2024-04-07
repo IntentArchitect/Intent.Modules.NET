@@ -7,12 +7,12 @@ using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class TableRenderer : IRazorComponentBuilder
+public class TableComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderResolver _componentResolver;
     private readonly RazorComponentTemplate _template;
 
-    public TableRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public TableComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

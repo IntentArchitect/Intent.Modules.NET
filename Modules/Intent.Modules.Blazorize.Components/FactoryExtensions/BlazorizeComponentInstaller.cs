@@ -34,12 +34,12 @@ namespace Intent.Modules.Blazorize.Components.FactoryExtensions
             var componentTemplates = application.FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId);
             foreach (var componentTemplate in componentTemplates)
             {
-                componentTemplate.ComponentBuilderResolver.Register(FormModel.SpecializationTypeId, new FormComponentRenderer(componentTemplate.ComponentBuilderResolver, componentTemplate));
-                componentTemplate.ComponentBuilderResolver.Register(TextInputModel.SpecializationTypeId, new TextInputComponent(componentTemplate.ComponentBuilderResolver, componentTemplate));
-                componentTemplate.ComponentBuilderResolver.Register(ButtonModel.SpecializationTypeId, new ButtonRenderer(componentTemplate.ComponentBuilderResolver, componentTemplate));
-                componentTemplate.ComponentBuilderResolver.Register(ContainerModel.SpecializationTypeId, new ContainerRenderer(componentTemplate.ComponentBuilderResolver, componentTemplate));
-                componentTemplate.ComponentBuilderResolver.Register(TableModel.SpecializationTypeId, new TableRenderer(componentTemplate.ComponentBuilderResolver, componentTemplate));
-                componentTemplate.ComponentBuilderResolver.Register(TextModel.SpecializationTypeId, new TextRenderer(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(FormModel.SpecializationTypeId, new FormComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(TextInputModel.SpecializationTypeId, new TextInputComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(ButtonModel.SpecializationTypeId, new ButtonComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(ContainerModel.SpecializationTypeId, new ContainerComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(TableModel.SpecializationTypeId, new TableComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
+                componentTemplate.ComponentBuilderResolver.Register(TextModel.SpecializationTypeId, new TextComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
             }
         }
     }
