@@ -1,4 +1,4 @@
-### Version 4.2.12
+### Version 4.2.13
 
 - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
 
