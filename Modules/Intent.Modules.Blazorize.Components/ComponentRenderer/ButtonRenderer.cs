@@ -23,7 +23,7 @@ public class ButtonRenderer : IRazorComponentBuilder
         var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("Button", _template.BlazorFile)
             .AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
-            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Default")
+            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         var onClickMapping = _template.GetMappedEndFor(button, "On Click");

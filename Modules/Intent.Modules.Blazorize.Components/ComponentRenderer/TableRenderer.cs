@@ -33,56 +33,52 @@ public class TableRenderer : IRazorComponentBuilder
         });
         node.AddNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is not null)"), _template.BlazorFile);
-        tableCode.AddHtmlElement("table", htmlTable =>
+        tableCode.AddHtmlElement("Table", htmlTable =>
         {
-            htmlTable.AddAttribute("class", "table")
-                .AddHtmlElement("thead", thead =>
+            htmlTable.AddHtmlElement("TableHeader", tableHeader =>
+            {
+                foreach (var column in table.Columns)
                 {
-                    thead.AddHtmlElement("tr", tr =>
+                    tableHeader.AddHtmlElement("TableHeaderCell", headerCell =>
                     {
+                        headerCell.WithText(column.Name);
+                    });
+                }
+            });
+            htmlTable.AddHtmlElement("TableBody", tbody =>
+            {
+                var mappingManager = _template.CreateMappingManager();
+                var mappedEnd = _template.GetMappedEndFor(table);
+                tbody.AddCodeBlock($"foreach(var item in {_template.GetBinding(mappedEnd, mappingManager)})", block =>
+                {
+                    mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
+                    block.AddHtmlElement("TableRow", tr =>
+                    {
+                        if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
+                        {
+                            tr.AddAttribute("@onclick", $"() => {_template.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
+                        }
                         foreach (var column in table.Columns)
                         {
-                            tr.AddHtmlElement("th", th =>
+                            tr.AddHtmlElement("TableRowCell", td =>
                             {
-                                th.WithText(column.Name);
+                                var columnMapping = _template.GetElementBinding(column, mappingManager);
+                                if (columnMapping != null)
+                                {
+                                    td.WithText($"@{columnMapping}");
+                                }
+                                else
+                                {
+                                    foreach (var child in column.InternalElement.ChildElements)
+                                    {
+                                        _componentResolver.ResolveFor(child).BuildComponent(child, td);
+                                    }
+                                }
                             });
                         }
                     });
-                })
-                .AddHtmlElement("tbody", tbody =>
-                {
-                    var mappingManager = _template.CreateMappingManager();
-                    var mappedEnd = _template.GetMappedEndFor(table);
-                    tbody.AddCodeBlock($"foreach(var item in {_template.GetBinding(mappedEnd, mappingManager)})", block =>
-                    {
-                        mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
-                        block.AddHtmlElement("tr", tr =>
-                        {
-                            if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
-                            {
-                                tr.AddAttribute("@onclick", $"() => {_template.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
-                            }
-                            foreach (var column in table.Columns)
-                            {
-                                tr.AddHtmlElement("td", td =>
-                                {
-                                    var columnMapping = _template.GetElementBinding(column, mappingManager);
-                                    if (columnMapping != null)
-                                    {
-                                        td.WithText($"@{columnMapping}");
-                                    }
-                                    else
-                                    {
-                                        foreach (var child in column.InternalElement.ChildElements)
-                                        {
-                                            _componentResolver.ResolveFor(child).BuildComponent(child, td);
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                    });
                 });
+            });
         });
 
         node.AddNode(tableCode);

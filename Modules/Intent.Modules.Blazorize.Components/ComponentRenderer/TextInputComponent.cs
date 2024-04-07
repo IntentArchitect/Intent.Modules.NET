@@ -29,7 +29,8 @@ public class TextInputComponent : IRazorComponentBuilder
                 });
                 field.AddHtmlElement("TextEdit", textEdit =>
                 {
-                    textEdit.AddAttribute("@bind-Text", textInput.Value.Trim('{', '}'));
+                    textEdit.AddAttribute("@bind-Text", textInput.Value.Trim('{', '}'))
+                        .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
                 });
             });
         node.AddNode(htmlElement);
