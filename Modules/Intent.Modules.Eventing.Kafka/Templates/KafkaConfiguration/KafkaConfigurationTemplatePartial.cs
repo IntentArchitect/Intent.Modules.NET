@@ -176,7 +176,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 new
                 {
                     Url = "",
-                    BasicAuthUserInfo = "",
+                    BasicAuthUserInfo = "key:secret",
                 }));
 
             var messages = Enumerable.Empty<MessageModel>()
