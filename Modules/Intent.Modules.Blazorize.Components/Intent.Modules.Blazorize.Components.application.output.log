@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>1353682e-b7ca-44bc-ac90-af83855dd4a9</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9c9db6c2-ba2b-4f28-b2a4-e3430ef43a8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e474ac4b-9d6e-4e95-9385-9ea630f60123</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#69609b46-9db4-49a2-b7f9-bfc666782826</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/BlazorizeComponentInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlazorizeComponentInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b48ce5f1-4b14-40dc-b45e-b775e460fac1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Blazorize.Components.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Blazorize.Components.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b48ce5f1-4b14-40dc-b45e-b775e460fac1</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b48ce5f1-4b14-40dc-b45e-b775e460fac1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Blazorize.Components.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Blazorize.Components.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

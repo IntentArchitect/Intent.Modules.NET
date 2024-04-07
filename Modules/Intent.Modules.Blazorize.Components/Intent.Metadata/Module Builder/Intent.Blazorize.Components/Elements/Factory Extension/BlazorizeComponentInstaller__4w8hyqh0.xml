@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="69609b46-9db4-49a2-b7f9-bfc666782826" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BlazorizeComponentInstaller</name>
+  <display>BlazorizeComponentInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>92e19f31-20d8-436c-83b3-a78ff140767f</parentFolderId>
+  <packageId>92e19f31-20d8-436c-83b3-a78ff140767f</packageId>
+  <packageName>Intent.Blazorize.Components</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
