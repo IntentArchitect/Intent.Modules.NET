@@ -82,6 +82,22 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                     AddMethods(@class, entityTemplate, rootEntity, makeAsync: false, makefully: true);
                                 }
                             }
+                            else
+                            {
+                                var parameter = @class.Constructors.First().Parameters.Single(x => x.Name == "dbContext");
+                                parameter.IntroduceReadonlyField();
+                                CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+
+                                @class.AddMethod("void", "Add", method =>
+                                {
+                                    method.AddParameter(GetTypeName(TemplateRoles.Domain.Entity.Interface, Model), "entity");
+
+                                    var columns = Model.Attributes.Select(x => x.Name.ToPascalCase());
+                                    var values = Model.Attributes.Select(x => $"{{entity.{x.Name.ToPascalCase()}}}");
+
+                                    method.AddStatement($"_dbContext.Database.ExecuteSqlInterpolated($\"INSERT INTO {Model.Name.Pluralize()} ({string.Join(", ", columns)}) VALUES({string.Join(", ", values)})\");");
+                                });
+                            }
                         });
                     }
                 });
