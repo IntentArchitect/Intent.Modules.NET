@@ -218,6 +218,9 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
 	private static void CheckForUnsupportTPCRelationships(AssociationEndModel associationEnd)
 	{
+        //Value Object relationships
+        if (associationEnd.OtherEnd().Class == null || associationEnd.Class == null)
+            return;
 		//TPC Foreign keys not supported
 		if (IsRelationshipToTPCBaseClass(associationEnd.OtherEnd().Class) || IsRelationshipToTPCBaseClass(associationEnd.Class))
 		{
