@@ -29,7 +29,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorPr
                     inter.AddMethod($"IValidator<T>", "GetValidator", method => method.AddGenericParameter("T"));
                 });
         }
-        
+
         // public override bool CanRunTemplate()
         // {
         //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Application.Validation.Dto"))

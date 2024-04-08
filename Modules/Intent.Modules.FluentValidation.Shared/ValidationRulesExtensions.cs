@@ -48,7 +48,8 @@ public static class ValidationRulesExtensions
         string validatorProviderInterfaceTemplateId,
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
-        bool customValidationEnabled)
+        bool customValidationEnabled,
+        IEnumerable<IAssociationEnd> associationedElements)
     {
         ((ICSharpFileBuilderTemplate)template).CSharpFile
             .AddUsing("FluentValidation")
@@ -639,9 +640,15 @@ public static class ValidationRulesExtensions
         return false;
     }
 
-    private static bool TryGetAdvancedMappedClass(DTOModel dtoModel, out ClassModel classModel)
+    private static bool TryGetAdvancedMappedClass(IEnumerable<IAssociationEnd> associationedElements, out ClassModel classModel)
     {
-        foreach (var associationEnd in dtoModel.InternalElement.AssociatedElements)
+        if (associationedElements is null)
+        {
+            classModel = null;
+            return false;
+        }
+
+        foreach (var associationEnd in associationedElements)
         {
             foreach (var mapping in associationEnd.Mappings)
             {
