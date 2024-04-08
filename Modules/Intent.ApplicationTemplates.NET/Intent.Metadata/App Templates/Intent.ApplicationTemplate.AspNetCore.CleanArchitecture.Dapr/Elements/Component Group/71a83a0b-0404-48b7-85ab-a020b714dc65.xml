@@ -4,7 +4,7 @@
   <display>Integration</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>7</order>
+  <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cf941153-a136-4ef8-8313-cfad962e69f0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="cf941153-a136-4ef8-8313-cfad962e69f0" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Dapr.AspNetCore.ServiceInvocation</name>
           <display>Intent.Dapr.AspNetCore.ServiceInvocation</display>
           <isAbstract>false</isAbstract>
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="60cb7fb9-563a-4e87-a504-faf72e9926a5" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="60cb7fb9-563a-4e87-a504-faf72e9926a5" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.ServiceProxies</name>
           <display>Intent.Modelers.ServiceProxies</display>
           <isAbstract>false</isAbstract>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="54028d21-e64d-4226-8957-262174ee12e3" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="54028d21-e64d-4226-8957-262174ee12e3" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Dapr.AspNetCore</name>
           <display>Intent.Dapr.AspNetCore</display>
           <isAbstract>false</isAbstract>
@@ -151,7 +151,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e2d46f74-423d-4baf-84ed-3a5923fc809f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e2d46f74-423d-4baf-84ed-3a5923fc809f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Dapr.AspNetCore.Pubsub</name>
           <display>Intent.Dapr.AspNetCore.Pubsub</display>
           <isAbstract>false</isAbstract>
@@ -166,7 +166,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.5" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -176,7 +176,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8fca7542-5a2c-48a2-990f-78707821f13f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="8fca7542-5a2c-48a2-990f-78707821f13f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modelers.Eventing</name>
           <display>Intent.Modelers.Eventing</display>
           <isAbstract>false</isAbstract>
@@ -201,7 +201,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2a1e88fe-59e2-4336-9a89-91133eab3983" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="2a1e88fe-59e2-4336-9a89-91133eab3983" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Eventing.Contracts</name>
           <display>Intent.Eventing.Contracts</display>
           <isAbstract>false</isAbstract>
@@ -226,7 +226,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9b153489-df46-48f8-a599-fa629ca9f72b" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="9b153489-df46-48f8-a599-fa629ca9f72b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Dapr.AspNetCore</name>
           <display>Intent.Dapr.AspNetCore</display>
           <isAbstract>false</isAbstract>

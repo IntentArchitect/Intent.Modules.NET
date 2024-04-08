@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{D37B2D32-36CE-4940-90D3-CD20B26E3C97}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "DtoSettings.Class.Init.Api", "DtoSettings.Class.Init.Api\DtoSettings.Class.Init.Api.csproj", "{BBF9D90B-7F2B-44A3-8993-322E7516D048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Init.Api", "DtoSettings.Class.Init.Api\DtoSettings.Class.Init.Api.csproj", "{BBF9D90B-7F2B-44A3-8993-322E7516D048}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{06BA8ECA-0A1D-4DC5-8932-416C5A4B5131}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Init.Application", "DtoSettings.Class.Init.Application\DtoSettings.Class.Init.Application.csproj", "{6DB6C452-7E2D-4536-9597-540EDC452CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Init.Application", "DtoSettings.Class.Init.Application\DtoSettings.Class.Init.Application.csproj", "{6DB6C452-7E2D-4536-9597-540EDC452CCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{90B8322D-E0ED-4003-A3B8-E39B9244B268}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Init.Domain", "DtoSettings.Class.Init.Domain\DtoSettings.Class.Init.Domain.csproj", "{0E28D8C5-87B7-4EFA-BC1A-6FA77DED556F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Init.Domain", "DtoSettings.Class.Init.Domain\DtoSettings.Class.Init.Domain.csproj", "{0E28D8C5-87B7-4EFA-BC1A-6FA77DED556F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8BFC1665-51B7-4A45-BACB-5241F613CC3D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Class.Init.Infrastructure", "DtoSettings.Class.Init.Infrastructure\DtoSettings.Class.Init.Infrastructure.csproj", "{3927790B-32DD-4A42-840D-C1FFF89BFED6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Class.Init.Infrastructure", "DtoSettings.Class.Init.Infrastructure\DtoSettings.Class.Init.Infrastructure.csproj", "{3927790B-32DD-4A42-840D-C1FFF89BFED6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

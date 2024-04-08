@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4de2fa8d-0ca9-4488-baa3-94af48cc56a2">
+  <sourceEnd id="811a0e00-0eda-402c-85a4-20ee0e551833" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="082ce145-4123-467f-9347-f308d23d5c03">
+      <typeId>320bd3e7-6bbe-4168-bf09-88db9a1ae2cb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4de2fa8d-0ca9-4488-baa3-94af48cc56a2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Brand</name>
+    <display>Brand: Brand</display>
+    <order>5</order>
+    <typeReference id="9bd7fe02-9eaa-4703-9451-ba8786348787">
+      <typeId>f7ee2d6e-1da2-4618-a372-8f1a8e28aa9d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[products].[fk_products_brands_brandid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[products].[fk_products_brands_brandid]</externalReference>
+  <stereotypes />
+</association>

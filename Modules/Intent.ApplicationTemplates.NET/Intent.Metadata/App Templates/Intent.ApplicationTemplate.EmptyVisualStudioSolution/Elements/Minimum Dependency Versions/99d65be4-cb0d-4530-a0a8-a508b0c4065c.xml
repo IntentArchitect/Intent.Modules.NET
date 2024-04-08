@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="99d65be4-cb0d-4530-a0a8-a508b0c4065c" type="Minimum Dependency Versions" typeId="63605213-ab56-4042-b801-907bb5a79c08">
+  <name>Minimum Dependency Versions</name>
+  <display>Minimum Dependency Versions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7e8ada90-678e-4a30-925f-66b864b9918d</parentFolderId>
+  <packageId>7e8ada90-678e-4a30-925f-66b864b9918d</packageId>
+  <packageName>Intent.ApplicationTemplate.EmptyVisualStudioSolution</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{2C30E2E9-9F25-4CE5-8B4B-34381DC2FF04}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "MultipleDocumentStores.Api", "MultipleDocumentStores.Api\MultipleDocumentStores.Api.csproj", "{51943174-2235-4AA6-90A0-CACB540FEFCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleDocumentStores.Api", "MultipleDocumentStores.Api\MultipleDocumentStores.Api.csproj", "{51943174-2235-4AA6-90A0-CACB540FEFCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0532153D-50F6-4F7F-A450-E629255FD0FA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MultipleDocumentStores.Application", "MultipleDocumentStores.Application\MultipleDocumentStores.Application.csproj", "{05AD3928-787B-402D-86C3-46D14F58C8B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleDocumentStores.Application", "MultipleDocumentStores.Application\MultipleDocumentStores.Application.csproj", "{05AD3928-787B-402D-86C3-46D14F58C8B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{21F03375-C85A-4D96-97CE-55870B1E8747}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MultipleDocumentStores.Domain", "MultipleDocumentStores.Domain\MultipleDocumentStores.Domain.csproj", "{800B6CB0-84FF-456B-BF42-54BDFA83D0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleDocumentStores.Domain", "MultipleDocumentStores.Domain\MultipleDocumentStores.Domain.csproj", "{800B6CB0-84FF-456B-BF42-54BDFA83D0B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{90496B8E-1FC3-484C-A09C-EE4818BFA503}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "MultipleDocumentStores.Infrastructure", "MultipleDocumentStores.Infrastructure\MultipleDocumentStores.Infrastructure.csproj", "{01F36A81-049B-44EF-87DF-7408737258FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleDocumentStores.Infrastructure", "MultipleDocumentStores.Infrastructure\MultipleDocumentStores.Infrastructure.csproj", "{01F36A81-049B-44EF-87DF-7408737258FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{85FBD2C2-B030-4932-933E-95FF7F85782D}"
 EndProject

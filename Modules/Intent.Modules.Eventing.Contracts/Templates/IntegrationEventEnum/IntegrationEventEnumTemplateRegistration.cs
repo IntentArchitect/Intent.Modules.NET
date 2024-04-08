@@ -38,11 +38,13 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetSubscribedToEnumModels(application)
+            return Enumerable.Empty<EnumModel>()
+                .Union(_metadataManager.GetSubscribedToEnumModels(application))
                 .Union(_metadataManager.GetPublishedEnumModels(application))
-                .Union(_metadataManager.GetExplicitlyPublishedEnumModels(application))
-                .Union(_metadataManager.GetExplicitlySubscribedToEnumModels(application))
-                .Except(_metadataManager.GetDesigner(application.Id, "Domain").GetEnumModels())
+                .Union(_metadataManager.GetAssociatedMessageEnumModels(application))
+                .Except(_metadataManager
+                    .GetDesigner(application.Id, "Domain")
+                    .GetEnumModels())
                 .ToArray();
         }
     }

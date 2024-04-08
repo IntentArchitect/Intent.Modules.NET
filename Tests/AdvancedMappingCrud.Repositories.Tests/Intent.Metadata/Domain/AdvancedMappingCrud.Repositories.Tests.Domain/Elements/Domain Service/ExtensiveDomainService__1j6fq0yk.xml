@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fbb90816-6006-42f4-8463-33c486d8d9b7" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>ExtensiveDomainService</name>
+  <display>ExtensiveDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7df15663-b2c4-4759-9052-ff2ae9906531</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5a082de2-82a1-4a6e-b6ae-90d0b4593db0" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformEntityA</name>
+      <display>PerformEntityA(entity: ConcreteEntityA): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="39486e07-fd36-4c07-a34e-ab92fd607fe6">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b5442c6d-3935-43e7-b392-f6b7f6fe61ea" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entity</name>
+          <display>in : entity: ConcreteEntityA</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e19d685f-5990-427c-b812-45252e3575b4">
+            <typeId>4a32a92a-9592-4515-8fab-00246ac64d95</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5a082de2-82a1-4a6e-b6ae-90d0b4593db0</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="daf306f7-ba72-4cff-b6d6-5438c5310e81" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformEntityAAsync</name>
+      <display>PerformEntityAAsync(entity: ConcreteEntityA): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="07b73059-2e28-4c25-be92-a3e0896827a3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entity</name>
+          <display>in : entity: ConcreteEntityA</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c1ed7ae3-eb75-4412-8996-14111e77b8c4">
+            <typeId>4a32a92a-9592-4515-8fab-00246ac64d95</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>daf306f7-ba72-4cff-b6d6-5438c5310e81</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="dc533b46-ceb3-462a-b3b1-90ca84bc9f5a" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformEntityB</name>
+      <display>PerformEntityB(entity: ConcreteEntityB): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4d905475-2d7d-4e5c-89bb-2d05a16c8d49">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d3767831-e51d-4a8e-b597-41d5e8174e8a" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entity</name>
+          <display>in : entity: ConcreteEntityB</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e6cb3f88-a6f0-4221-8792-7a81fdca4aaf">
+            <typeId>ea7615a1-f195-4679-bb65-bc8e4283d815</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>dc533b46-ceb3-462a-b3b1-90ca84bc9f5a</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="28cc8d07-2982-473d-a1ce-ff0c122e115c" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformEntityBAsync</name>
+      <display>PerformEntityBAsync(entity: ConcreteEntityB): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="57189387-df4a-4a79-9926-65c6b14178c3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d2dc2e69-1699-4de8-b32a-4b39b07234b7" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entity</name>
+          <display>in : entity: ConcreteEntityB</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="45b4dca0-76ac-49ae-8e1f-2a92df7c00e9">
+            <typeId>ea7615a1-f195-4679-bb65-bc8e4283d815</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>28cc8d07-2982-473d-a1ce-ff0c122e115c</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9d889bf3-4339-4288-828b-fcb2d11e4ac8" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformPassthrough</name>
+      <display>PerformPassthrough(obj: PassthroughObj): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0d1d78ed-91ba-4934-9638-692b85cf0522">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="02b32550-7d9e-4664-aafa-bafb40edc31e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>obj</name>
+          <display>in : obj: PassthroughObj</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="57a1adf4-75ce-47f7-ad29-749989a25a44">
+            <typeId>28d279ea-b911-4229-811d-f8d3faf1d107</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9d889bf3-4339-4288-828b-fcb2d11e4ac8</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ac498aeb-5c12-48a4-838c-2d7ca76292a6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformPassthroughAsync</name>
+      <display>PerformPassthroughAsync(obj: PassthroughObj): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1d170106-04d2-432d-8417-8d3c4624b2f1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f8caf0dd-fa4e-46ab-aec2-6f1ba4520cc6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>obj</name>
+          <display>in : obj: PassthroughObj</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ddcca7ac-5093-4f67-b7b7-6c574d8634ea">
+            <typeId>28d279ea-b911-4229-811d-f8d3faf1d107</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ac498aeb-5c12-48a4-838c-2d7ca76292a6</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cca3f2e3-0d85-4117-a656-49d58c409163" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformValueObj</name>
+      <display>PerformValueObj(vo: SimpleVO): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="64bfb5dd-0c28-43f9-a298-b6c8758db7b3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="15af794d-7642-4697-a995-253314d208d5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>vo</name>
+          <display>in : vo: SimpleVO</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d7779422-0574-469d-a0b1-9ec2edd129f9">
+            <typeId>46137871-4846-41a8-8542-204b78bdb0d6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cca3f2e3-0d85-4117-a656-49d58c409163</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8e0709f2-2eff-44db-bc0b-eaf6ed9481ce" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>PerformValueObjAsync</name>
+      <display>PerformValueObjAsync(vo: SimpleVO): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6448b1a8-1b94-4919-a858-1dc36178663c">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="929914ad-5651-40d9-b5c9-c54f01247e51" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>vo</name>
+          <display>in : vo: SimpleVO</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="328f2909-4223-4252-aefb-38111d29e410">
+            <typeId>46137871-4846-41a8-8542-204b78bdb0d6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8e0709f2-2eff-44db-bc0b-eaf6ed9481ce</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

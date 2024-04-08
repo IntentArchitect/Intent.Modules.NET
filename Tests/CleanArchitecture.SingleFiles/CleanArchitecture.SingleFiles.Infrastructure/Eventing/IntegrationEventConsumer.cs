@@ -25,14 +25,14 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
         public IntegrationEventConsumer(IServiceProvider serviceProvider,
             ICosmosDBUnitOfWork cosmosDBUnitOfWork,
             IDaprStateStoreUnitOfWork daprStateStoreUnitOfWork,
-            IUnitOfWork unitOfWork,
-            IMongoDbUnitOfWork mongoDbUnitOfWork)
+            IMongoDbUnitOfWork mongoDbUnitOfWork,
+            IUnitOfWork unitOfWork)
         {
             _serviceProvider = serviceProvider;
             _cosmosDBUnitOfWork = cosmosDBUnitOfWork ?? throw new ArgumentNullException(nameof(cosmosDBUnitOfWork));
             _daprStateStoreUnitOfWork = daprStateStoreUnitOfWork ?? throw new ArgumentNullException(nameof(daprStateStoreUnitOfWork));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _mongoDbUnitOfWork = mongoDbUnitOfWork ?? throw new ArgumentNullException(nameof(mongoDbUnitOfWork));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)
@@ -62,9 +62,9 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
                 transaction.Complete();
             }
 
-            await _cosmosDBUnitOfWork.SaveChangesAsync(context.CancellationToken);
-            await _daprStateStoreUnitOfWork.SaveChangesAsync(context.CancellationToken);
             await _mongoDbUnitOfWork.SaveChangesAsync(context.CancellationToken);
+            await _daprStateStoreUnitOfWork.SaveChangesAsync(context.CancellationToken);
+            await _cosmosDBUnitOfWork.SaveChangesAsync(context.CancellationToken);
             await eventBus.FlushAllAsync(context.CancellationToken);
         }
     }

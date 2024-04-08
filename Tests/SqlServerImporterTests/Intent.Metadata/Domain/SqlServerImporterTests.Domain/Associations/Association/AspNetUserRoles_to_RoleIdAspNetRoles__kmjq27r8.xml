@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ad6318ff-e226-4568-946b-bc58527eec3f">
+  <sourceEnd id="b36e53a3-666d-49a5-8001-ba1b8b12ece7" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AspNetUserRoles</name>
+    <display>AspNetUserRoles: AspNetUserRole[*]</display>
+    <order>0</order>
+    <typeReference id="3ff9eb73-f658-4dec-b654-493e62adceb8">
+      <typeId>d2a43ce5-971f-414d-b533-409a1733be8c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ad6318ff-e226-4568-946b-bc58527eec3f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>RoleIdAspNetRoles</name>
+    <display>RoleIdAspNetRoles: AspNetRole</display>
+    <order>2</order>
+    <typeReference id="6212d927-ce7f-4a9e-8524-11d6c3bbd984">
+      <typeId>9b2be00b-d465-4c0a-ab3b-c026755e4afc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[aspnetuserroles].[fk_aspnetuserroles_aspnetroles_roleid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[aspnetuserroles].[fk_aspnetuserroles_aspnetroles_roleid]</externalReference>
+  <stereotypes />
+</association>

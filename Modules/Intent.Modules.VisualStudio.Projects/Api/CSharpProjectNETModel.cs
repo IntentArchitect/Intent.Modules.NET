@@ -43,8 +43,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             get
             {
-                var dotnetSettings = this.GetNETSettings();
-                if (dotnetSettings.SDK().IsMicrosoftNETSdkWeb())
+                /*
+				var dotnetSettings = this.GetNETSettings();
+				if (dotnetSettings.SDK().IsMicrosoftNETSdkWeb())
                 {
                     return VisualStudioProjectTypeIds.CoreWebApp;
                 }
@@ -60,8 +61,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 }
 
                 return VisualStudioProjectTypeIds.CoreCSharpLibrary;
-            }
-        }
+                */
+				return VisualStudioProjectTypeIds.SdkCSharpProject;
+			}
+		}
 
         public string RelativeLocation { get; }
 

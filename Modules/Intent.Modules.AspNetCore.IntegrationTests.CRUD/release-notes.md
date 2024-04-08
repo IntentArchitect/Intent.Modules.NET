@@ -1,4 +1,9 @@
-﻿### Version 1.0.2
+﻿### Version 1.0.3
+
+- Fixed: Crash around services don't have an Update operation.
+
+
+### Version 1.0.2
 
 - Fixed: Documentation link fixed.
 

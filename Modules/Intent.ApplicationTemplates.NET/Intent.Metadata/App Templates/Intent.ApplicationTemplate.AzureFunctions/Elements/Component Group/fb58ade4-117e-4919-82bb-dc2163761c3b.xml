@@ -48,7 +48,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c7624023-eafc-47eb-8773-8ed06056e2d6" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="c7624023-eafc-47eb-8773-8ed06056e2d6" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore</name>
           <display>Intent.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.6.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -73,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b71bb461-117c-41ba-b93e-e057c58d362f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="b71bb461-117c-41ba-b93e-e057c58d362f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore.Repositories</name>
           <display>Intent.EntityFrameworkCore.Repositories</display>
           <isAbstract>false</isAbstract>
@@ -88,7 +88,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.5.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.5.2" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="45adac23-125e-40a6-98ca-c1d81a47bc12" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="45adac23-125e-40a6-98ca-c1d81a47bc12" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore.SoftDelete</name>
           <display>Intent.EntityFrameworkCore.SoftDelete</display>
           <isAbstract>false</isAbstract>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3757c87b-9d61-4162-92dd-171890e7e763" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="3757c87b-9d61-4162-92dd-171890e7e763" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities.BasicAuditing</name>
           <display>Intent.Entities.BasicAuditing</display>
           <isAbstract>false</isAbstract>
@@ -148,7 +148,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5c61b214-c88d-4494-8e9b-3158c061abd8" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="5c61b214-c88d-4494-8e9b-3158c061abd8" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
           <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</display>
           <isAbstract>false</isAbstract>
@@ -173,7 +173,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e6071de1-844a-4eda-9b99-a9f48169c60f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e6071de1-844a-4eda-9b99-a9f48169c60f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AzureFunctions.Interop.EntityFrameworkCore</name>
           <display>Intent.AzureFunctions.Interop.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
@@ -198,7 +198,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9f270260-a6d2-4a90-8e66-a35319cf38c6" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="9f270260-a6d2-4a90-8e66-a35319cf38c6" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Metadata.RDBMS</name>
           <display>Intent.Metadata.RDBMS</display>
           <isAbstract>false</isAbstract>
@@ -251,7 +251,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0ce0c87d-144e-4e81-9e53-fd5c274c0c26" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="0ce0c87d-144e-4e81-9e53-fd5c274c0c26" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.MongoDb</name>
           <display>Intent.MongoDb</display>
           <isAbstract>false</isAbstract>
@@ -276,7 +276,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="996db202-f673-4863-8b4b-684e5640581d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="996db202-f673-4863-8b4b-684e5640581d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.MongoDb.Repositories</name>
           <display>Intent.MongoDb.Repositories</display>
           <isAbstract>false</isAbstract>
@@ -301,7 +301,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a936430c-ac63-4d24-8550-9add97a62233" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="a936430c-ac63-4d24-8550-9add97a62233" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Metadata.DocumentDB</name>
           <display>Intent.Metadata.DocumentDB</display>
           <isAbstract>false</isAbstract>
@@ -354,7 +354,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e7ba729a-c4fd-4d9c-9c59-c8dd8712c16d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e7ba729a-c4fd-4d9c-9c59-c8dd8712c16d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.CosmosDB</name>
           <display>Intent.CosmosDB</display>
           <isAbstract>false</isAbstract>
@@ -369,7 +369,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -379,7 +379,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89dabc58-7299-4a1f-b90e-1c98aa602f21" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="89dabc58-7299-4a1f-b90e-1c98aa602f21" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Metadata.DocumentDB</name>
           <display>Intent.Metadata.DocumentDB</display>
           <isAbstract>false</isAbstract>
@@ -432,7 +432,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="27f93a63-235f-496c-8313-79328355cfc2" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="27f93a63-235f-496c-8313-79328355cfc2" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Azure.TableStorage</name>
           <display>Intent.Azure.TableStorage</display>
           <isAbstract>false</isAbstract>
@@ -447,7 +447,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.14" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.15" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />

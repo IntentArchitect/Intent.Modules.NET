@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Kafka</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-beta.2</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</description>
@@ -104,12 +104,12 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.5-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Eventing.Contracts" version="5.0.3" />
     <dependency id="Intent.Modelers.Eventing" version="5.0.2" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.4-pre.0" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

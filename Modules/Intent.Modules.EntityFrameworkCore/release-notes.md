@@ -1,5 +1,10 @@
-﻿### Version 5.0.1
+﻿### Version 5.0.2
 
+- Fixed: `Pomelo.EntityFrameworkCore.MySql` will now install its appropriate version compatible for EF 8.
+
+### Version 5.0.1
+
+- Improvement: Changed the way the DBMigations File works out the start up project.
 - Fixed: Resolved several issues where DbContext file would not generate correctly based on `Entity` names.
 
 ### Version 5.0.0

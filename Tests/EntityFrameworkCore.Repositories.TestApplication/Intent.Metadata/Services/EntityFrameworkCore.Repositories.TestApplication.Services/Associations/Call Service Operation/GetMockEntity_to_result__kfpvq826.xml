@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f8505ffc-4556-4f23-8848-6c93c5dd672e">
+  <sourceEnd id="a17760a6-2307-4d27-8191-e5d3874307b8" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : MappableStoredProcs.GetMockEntity</display>
+    <order>0</order>
+    <typeReference id="39293483-7288-4700-be26-0cc41a9a2ec5">
+      <typeId>c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f8505ffc-4556-4f23-8848-6c93c5dd672e" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetMockEntityById(...): MockEntity</display>
+    <order>1</order>
+    <typeReference id="2210434a-9e3b-4eb1-a6c3-40d0ded7c878">
+      <typeId>2842fdab-f225-4d33-beeb-a1c098a1f10c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntity]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2842fdab-f225-4d33-beeb-a1c098a1f10c" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntityById]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetMockEntity}</expression>
+            <path>
+              <target id="2842fdab-f225-4d33-beeb-a1c098a1f10c" name="GetMockEntityById" type="element" specialization="Stored Procedure" />
+            </path>
+            <sources>
+              <source identifier="GetMockEntity" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4" name="GetMockEntity" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="2842fdab-f225-4d33-beeb-a1c098a1f10c" name="GetMockEntityById" type="element" specialization="Stored Procedure" />
+              <target id="7bf9b92c-ca69-40d1-816d-d6ec67e8a808" name="id" type="element" specialization="Stored Procedure Parameter" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4" name="GetMockEntity" type="element" specialization="Query" />
+                  <target id="9c67af3c-5dec-4668-a548-5a77b016587d" name="id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

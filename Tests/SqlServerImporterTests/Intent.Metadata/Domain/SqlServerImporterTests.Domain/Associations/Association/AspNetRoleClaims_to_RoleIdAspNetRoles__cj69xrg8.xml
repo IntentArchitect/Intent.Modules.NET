@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5f44b9a6-10f6-4ae3-bbf7-aa4139071c5a">
+  <sourceEnd id="ea744dfd-197f-4ad2-8889-78ec38b28b12" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AspNetRoleClaims</name>
+    <display>AspNetRoleClaims: AspNetRoleClaim[*]</display>
+    <order>0</order>
+    <typeReference id="a4f468e0-0faa-4b79-938e-054d9bb28358">
+      <typeId>ea2d375b-e76e-418a-93b5-c87626ce4ffb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5f44b9a6-10f6-4ae3-bbf7-aa4139071c5a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>RoleIdAspNetRoles</name>
+    <display>RoleIdAspNetRoles: AspNetRole</display>
+    <order>4</order>
+    <typeReference id="cfb1c012-f473-42d8-91fd-b7e87da209ac">
+      <typeId>9b2be00b-d465-4c0a-ab3b-c026755e4afc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlServerImporterTests</typePackageName>
+      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>[dbo].[aspnetroleclaims].[fk_aspnetroleclaims_aspnetroles_roleid]</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <externalReference>[dbo].[aspnetroleclaims].[fk_aspnetroleclaims_aspnetroles_roleid]</externalReference>
+  <stereotypes />
+</association>

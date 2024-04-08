@@ -1,3 +1,11 @@
+### Version 5.2.7
+
+- Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
+
+### Version 5.2.6
+
+- Improvement: Added support for `IDistributedCacheWithUnitOfWork` to unit of work implementation.
+
 ### Version 5.2.5
 
 - Improvement: File transfer ( upload / download ) support.

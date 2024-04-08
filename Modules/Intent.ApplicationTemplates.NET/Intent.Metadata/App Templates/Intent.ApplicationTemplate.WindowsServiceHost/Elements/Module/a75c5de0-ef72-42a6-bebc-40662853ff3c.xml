@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a75c5de0-ef72-42a6-bebc-40662853ff3c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.Modelers.Services</name>
+  <display>Intent.Modelers.Services 3.6.1</display>
+  <isAbstract>false</isAbstract>
+  <value>3.6.1</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
+  <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+  <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

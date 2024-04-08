@@ -13,8 +13,8 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
         {
             return Read(file, """
                               Microsoft Visual Studio Solution File, Format Version 12.00
-                              # Visual Studio 14
-                              VisualStudioVersion = 14.0.25420.1
+                              # Visual Studio 17
+                              VisualStudioVersion = 17.8.34322.80
                               MinimumVisualStudioVersion = 10.0.40219.1
                               """);
         }

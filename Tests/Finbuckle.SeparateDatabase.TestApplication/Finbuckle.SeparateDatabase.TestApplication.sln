@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{11923A2A-4CF3-4143-B96B-9D899ADA9514}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Finbuckle.SeparateDatabase.TestApplication.Api", "Finbuckle.SeparateDatabase.TestApplication.Api\Finbuckle.SeparateDatabase.TestApplication.Api.csproj", "{B43A8811-A352-444F-A9B9-5FE6123085F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbuckle.SeparateDatabase.TestApplication.Api", "Finbuckle.SeparateDatabase.TestApplication.Api\Finbuckle.SeparateDatabase.TestApplication.Api.csproj", "{B43A8811-A352-444F-A9B9-5FE6123085F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2A5D9F26-EA7B-422B-9F2B-89058672D9A0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Finbuckle.SeparateDatabase.TestApplication.Application", "Finbuckle.SeparateDatabase.TestApplication.Application\Finbuckle.SeparateDatabase.TestApplication.Application.csproj", "{B4856E43-4AF7-4F3E-8B8D-607B825A245B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbuckle.SeparateDatabase.TestApplication.Application", "Finbuckle.SeparateDatabase.TestApplication.Application\Finbuckle.SeparateDatabase.TestApplication.Application.csproj", "{B4856E43-4AF7-4F3E-8B8D-607B825A245B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{CEFCA6AC-036E-4862-8973-90264B1A1293}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Finbuckle.SeparateDatabase.TestApplication.Domain", "Finbuckle.SeparateDatabase.TestApplication.Domain\Finbuckle.SeparateDatabase.TestApplication.Domain.csproj", "{9C8B18BA-7991-49CF-8173-BE72DDC4F1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbuckle.SeparateDatabase.TestApplication.Domain", "Finbuckle.SeparateDatabase.TestApplication.Domain\Finbuckle.SeparateDatabase.TestApplication.Domain.csproj", "{9C8B18BA-7991-49CF-8173-BE72DDC4F1CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{70B5D6FA-669E-450A-A9E3-D9FFEB54E3DE}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Finbuckle.SeparateDatabase.TestApplication.Infrastructure", "Finbuckle.SeparateDatabase.TestApplication.Infrastructure\Finbuckle.SeparateDatabase.TestApplication.Infrastructure.csproj", "{79AED21E-83FD-447E-8868-77D1825A25EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finbuckle.SeparateDatabase.TestApplication.Infrastructure", "Finbuckle.SeparateDatabase.TestApplication.Infrastructure\Finbuckle.SeparateDatabase.TestApplication.Infrastructure.csproj", "{79AED21E-83FD-447E-8868-77D1825A25EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

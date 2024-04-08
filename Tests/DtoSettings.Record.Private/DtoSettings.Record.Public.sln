@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{301A1FC8-A3A3-4F65-9844-68955324E080}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "DtoSettings.Record.Public.Api", "DtoSettings.Record.Public.Api\DtoSettings.Record.Public.Api.csproj", "{7D845316-1BDC-4166-9788-D39FCC3EE71F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Record.Public.Api", "DtoSettings.Record.Public.Api\DtoSettings.Record.Public.Api.csproj", "{7D845316-1BDC-4166-9788-D39FCC3EE71F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{ABDC3E67-78A4-4C41-9DD0-B47D356F1545}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Record.Public.Application", "DtoSettings.Record.Public.Application\DtoSettings.Record.Public.Application.csproj", "{396B134A-8F3F-431C-9894-0513CC01C4D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Record.Public.Application", "DtoSettings.Record.Public.Application\DtoSettings.Record.Public.Application.csproj", "{396B134A-8F3F-431C-9894-0513CC01C4D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{56BA0ACA-4AE1-49A7-8781-10C72D484A7F}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Record.Public.Domain", "DtoSettings.Record.Public.Domain\DtoSettings.Record.Public.Domain.csproj", "{0D5320EA-E518-4826-AC06-08148727EAAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Record.Public.Domain", "DtoSettings.Record.Public.Domain\DtoSettings.Record.Public.Domain.csproj", "{0D5320EA-E518-4826-AC06-08148727EAAB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{D40B91AB-3360-44E3-BBE6-AADBDB405882}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "DtoSettings.Record.Public.Infrastructure", "DtoSettings.Record.Public.Infrastructure\DtoSettings.Record.Public.Infrastructure.csproj", "{FFE1BE90-9FCF-40D9-890E-5E0DFB6F2800}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoSettings.Record.Public.Infrastructure", "DtoSettings.Record.Public.Infrastructure\DtoSettings.Record.Public.Infrastructure.csproj", "{FFE1BE90-9FCF-40D9-890E-5E0DFB6F2800}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

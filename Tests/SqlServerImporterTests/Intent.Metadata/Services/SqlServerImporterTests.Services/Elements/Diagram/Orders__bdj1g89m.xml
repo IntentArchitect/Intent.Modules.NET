@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7ab58896-4253-47bc-af45-077cf4391547" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7184d16b-6af2-4c10-abf9-5f8f66b4fc72</parentFolderId>
+  <packageId>2e97ac00-7126-447c-839f-d3d0b69b5f27</packageId>
+  <packageName>SqlServerImporterTests.Services</packageName>
+  <diagram>
+    <targetPackageId>7184d16b-6af2-4c10-abf9-5f8f66b4fc72</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

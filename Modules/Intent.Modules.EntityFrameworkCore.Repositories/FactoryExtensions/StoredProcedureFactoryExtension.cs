@@ -113,6 +113,13 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                 if (TryGetTemplate<EntityRepositoryInterfaceTemplate>(application, EntityRepositoryInterfaceTemplate.TemplateId, entity, out var interfaceTemplate))
                 {
+                    // so that this template can be found when searched for by its various roles with the repository model (e.g. DomainInteractions with repositories):
+                    foreach (var role in application.GetRolesForTemplate(interfaceTemplate))
+                    {
+                        application.RegisterTemplateInRoleForModel(role, repository, interfaceTemplate);
+                    }
+                    // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
+                    application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, repository, interfaceTemplate);
                     StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);
                 }
 

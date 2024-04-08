@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="614e3460-5fd7-4fd0-a2b0-9e9187b0d7d2">
+  <sourceEnd id="0fa9559f-5429-4bf1-8695-edc9d2b35e36" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetInvoiceByIdQuery</display>
+    <order>0</order>
+    <typeReference id="ff1aa347-f0a9-4563-866f-2465a676c569">
+      <typeId>2b6688e4-2dd2-457c-b26b-5b6768b2d4fb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Services</typePackageName>
+      <typePackageId>8b6d5771-31e4-4942-a441-98c9621d7886</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="614e3460-5fd7-4fd0-a2b0-9e9187b0d7d2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoice</name>
+    <display>[query] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="71383862-d778-4f58-a7d3-a0e5263d3a2f">
+      <typeId>e16737a1-3f42-4f22-a9b1-7cee4792284b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Domain</typePackageName>
+      <typePackageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2b6688e4-2dd2-457c-b26b-5b6768b2d4fb" location="[EfCore.SecondLevelCaching].[Services].[GetInvoiceByIdQuery]" />
+        <target applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e16737a1-3f42-4f22-a9b1-7cee4792284b" location="[EfCore.SecondLevelCaching].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="e16737a1-3f42-4f22-a9b1-7cee4792284b" name="Invoice" type="element" specialization="Class" />
+              <target id="a4332b34-7819-49e1-a4a1-f9351262e361" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="2b6688e4-2dd2-457c-b26b-5b6768b2d4fb" name="GetInvoiceByIdQuery" type="element" specialization="Query" />
+                  <target id="37f4a614-0f37-4239-9b20-b1617466f45b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

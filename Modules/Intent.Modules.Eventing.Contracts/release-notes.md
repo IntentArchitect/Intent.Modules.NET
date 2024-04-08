@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Improvement: Whether to generate messages, their related DTOs and Enums is now determined by whether they are used in _any_ kind of association, rather than just if they're used by handlers or publishers. This allows automatic inclusion for other modules which may represent consumption/publishing of messages in a different way.
+
 ### Version 5.0.4
 
 - Fix: Fixed an issue where Integration Commands would not honor the folder structure to generate the correct namespace.

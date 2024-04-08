@@ -1,3 +1,11 @@
+### Version 6.1.2
+
+- - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
+
+### Version 6.1.1
+
+- Improvement: Added support for `IDistributedCacheWithUnitOfWork` to unit of work implementation.
+
 ### Version 6.1.0
 
 - Improvement: Renamed `ConsumerWrapper` to `IntegrationEventConsumer`.

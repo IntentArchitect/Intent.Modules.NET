@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Fixed: Issue around CRUD with nullable return types.
+
 ### Version 5.0.4
 
 - Improvement: Automatic wiring up of `DomainService`s in CRUD Implementations.

@@ -8,55 +8,55 @@ migration name when executing these commands.
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Add-Migration -Name {ChangeName} -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef migrations add {ChangeName} --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef migrations add {ChangeName} --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Remove-Migration -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Remove-Migration -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef migrations remove --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef migrations remove --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Update-Database -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef database update --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Update-Database -Migration {Target} -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef database update {Target} --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef database update {Target} --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration -Idempotent -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Script-Migration -Idempotent -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef migrations script --idempotent --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef migrations script --idempotent --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+Script-Migration {Source} {Target} -StartupProject "GraphQL.AzureFunction.TestApplication.Api" -Project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 CLI:
-dotnet ef migrations script {Source} {Target} --startup-project "UNKNOWN" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
+dotnet ef migrations script {Source} {Target} --startup-project "GraphQL.AzureFunction.TestApplication.Api" --project "GraphQL.AzureFunction.TestApplication.Infrastructure"
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Drop all tables in schema:

@@ -90,6 +90,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d195826-c00e-41ed-a41c-91263912a4fb</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#898b3d28-540a-4764-b4ba-482bb2014a00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Jobs/NonConcurrentJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NonConcurrentJob.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d195826-c00e-41ed-a41c-91263912a4fb</ProjectId>
       <CorrelationId>Intent.QuartzScheduler.ScheduledJob#285a5c4a-203e-47ae-8c8a-fddc15c7b1c9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Jobs/RunEvery15Seconds.cs</ApplicationRelativeFilePath>

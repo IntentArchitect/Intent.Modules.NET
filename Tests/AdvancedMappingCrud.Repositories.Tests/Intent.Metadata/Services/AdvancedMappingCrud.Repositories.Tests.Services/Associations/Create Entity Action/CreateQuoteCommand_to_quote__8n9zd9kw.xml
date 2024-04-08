@@ -58,7 +58,7 @@
             <path>
               <target id="52aa9e0f-ec4a-4593-8f17-01ab01d64d45" name="Quote" type="element" specialization="Class" />
               <target id="156cdc02-ec8b-4a8d-8fff-a0018ce22359" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="685bf630-a15f-4e82-9cfc-a7b8115b5b11" name="refNo" type="element" specialization="Parameter" />
+              <target id="528ae670-2c13-4f33-9fe1-c336b7157ce2" name="refNo" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="RefNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -74,7 +74,7 @@
             <path>
               <target id="52aa9e0f-ec4a-4593-8f17-01ab01d64d45" name="Quote" type="element" specialization="Class" />
               <target id="156cdc02-ec8b-4a8d-8fff-a0018ce22359" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="ec86ea46-4832-4b99-8c0b-a65dec0bb406" name="personId" type="element" specialization="Parameter" />
+              <target id="367e9c43-db24-434f-82e9-9db6c5c86182" name="personId" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="PersonId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
@@ -90,7 +90,7 @@
             <path>
               <target id="52aa9e0f-ec4a-4593-8f17-01ab01d64d45" name="Quote" type="element" specialization="Class" />
               <target id="156cdc02-ec8b-4a8d-8fff-a0018ce22359" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="1ea007c5-79b3-4344-9c1c-a4e891b90059" name="personEmail" type="element" specialization="Parameter" />
+              <target id="b76f581a-db31-49d6-8b05-87e688072eac" name="personEmail" type="element" specialization="Parameter" />
             </path>
             <sources>
               <source identifier="PersonEmail" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">

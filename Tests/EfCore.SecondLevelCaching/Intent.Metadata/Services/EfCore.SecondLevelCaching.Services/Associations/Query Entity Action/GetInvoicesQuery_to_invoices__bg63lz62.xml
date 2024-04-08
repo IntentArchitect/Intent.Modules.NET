@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0e685197-fea3-4fba-84db-afcdcbecdcc4">
+  <sourceEnd id="730d3bfe-d67c-424e-a4d9-bf474c0d87f1" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetInvoicesQuery</display>
+    <order>0</order>
+    <typeReference id="5deeeaa3-798a-4384-a2d8-45dc10d08466">
+      <typeId>1ed6ced4-2fa2-4126-a5de-743b1288fe7b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Services</typePackageName>
+      <typePackageId>8b6d5771-31e4-4942-a441-98c9621d7886</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0e685197-fea3-4fba-84db-afcdcbecdcc4" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoices</name>
+    <display>[query] invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="99ca8c46-72db-490c-8cc7-6bcaaf254ce3">
+      <typeId>e16737a1-3f42-4f22-a9b1-7cee4792284b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCore.SecondLevelCaching.Domain</typePackageName>
+      <typePackageId>e3a69d2f-e234-4652-b9bf-d2d8994d65c1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1ed6ced4-2fa2-4126-a5de-743b1288fe7b" location="[EfCore.SecondLevelCaching].[Services].[GetInvoicesQuery]" />
+        <target applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e16737a1-3f42-4f22-a9b1-7cee4792284b" location="[EfCore.SecondLevelCaching].[Services].[Invoice]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cf580267-e70e-472a-aa42-ca1cbe35d4b3" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>CreateDB.SQl file in solution folder to create the DB to reverse engineer this model
+
+You should get a warning, here the naming convention has been broken to accommodate the  table name conflict,</comment>
+  <name>Create the DB</name>
+  <display>Create the DB</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c5137fb3-11a7-4f59-9a42-74623ae698a3</parentFolderId>
+  <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
+  <packageName>SqlServerImporterTests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

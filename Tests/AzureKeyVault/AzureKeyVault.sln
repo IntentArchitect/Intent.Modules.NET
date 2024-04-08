@@ -4,19 +4,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{036DA0E4-57B5-4E30-B85C-7ECE5F66AAD5}"
 EndProject
-Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "AzureKeyVault.Api", "AzureKeyVault.Api\AzureKeyVault.Api.csproj", "{8997AA02-AA06-42E3-AE8C-A5AA4C75078C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVault.Api", "AzureKeyVault.Api\AzureKeyVault.Api.csproj", "{8997AA02-AA06-42E3-AE8C-A5AA4C75078C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{07B76C0E-51CA-4BA9-B194-17148453785C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureKeyVault.Application", "AzureKeyVault.Application\AzureKeyVault.Application.csproj", "{05DB52EA-001D-4927-999E-19BDEE798E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVault.Application", "AzureKeyVault.Application\AzureKeyVault.Application.csproj", "{05DB52EA-001D-4927-999E-19BDEE798E4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{3710C0D2-641C-4C0A-A295-A54B7788614D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureKeyVault.Domain", "AzureKeyVault.Domain\AzureKeyVault.Domain.csproj", "{F7A42422-AD25-41B1-8D46-272FD9203D19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVault.Domain", "AzureKeyVault.Domain\AzureKeyVault.Domain.csproj", "{F7A42422-AD25-41B1-8D46-272FD9203D19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{AB0C6017-CA69-4B65-B6BC-30945B65E8FD}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureKeyVault.Infrastructure", "AzureKeyVault.Infrastructure\AzureKeyVault.Infrastructure.csproj", "{BBCFCC93-D849-4D1C-A6F3-5532A74DE617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVault.Infrastructure", "AzureKeyVault.Infrastructure\AzureKeyVault.Infrastructure.csproj", "{BBCFCC93-D849-4D1C-A6F3-5532A74DE617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

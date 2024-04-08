@@ -19,7 +19,7 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerIgnore
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.OnceOff,
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled,
                 codeGenType: CodeGenType.Basic,
                 fileName: ".dockerignore",
                 fileExtension: "",

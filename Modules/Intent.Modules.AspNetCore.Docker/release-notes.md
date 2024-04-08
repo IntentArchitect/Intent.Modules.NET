@@ -1,3 +1,7 @@
+### Version 3.5.0
+
+- Improvement: Updated to be align with current Visual Studio out the box experience.
+
 ### Version 3.3.9
 
 - Improvement: Updated to be compatible with .NET 8.

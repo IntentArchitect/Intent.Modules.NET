@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
 using Quartz;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,15 +12,18 @@ namespace WindowsServiceHost.Tests.Jobs
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class RunEvery15Seconds : IJob
     {
+        private readonly ILogger<RunEvery15Seconds> _logger;
+
         [IntentManaged(Mode.Merge)]
-        public RunEvery15Seconds()
+        public RunEvery15Seconds(ILogger<RunEvery15Seconds> logger)
         {
+            _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-        public Task Execute(IJobExecutionContext context)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task Execute(IJobExecutionContext context)
         {
-            throw new NotImplementedException("Your implementation here...");
+            _logger.LogInformation("15 seconds");
         }
     }
 }

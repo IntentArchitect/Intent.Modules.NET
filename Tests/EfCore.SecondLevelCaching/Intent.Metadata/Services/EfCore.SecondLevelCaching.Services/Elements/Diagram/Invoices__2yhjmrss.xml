@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cb36b52a-81bf-4ca9-b7ca-d895172c35bb" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Invoices</name>
+  <display>Invoices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9ff6c725-bc62-4080-8248-b4c1a2072590</parentFolderId>
+  <packageId>8b6d5771-31e4-4942-a441-98c9621d7886</packageId>
+  <packageName>EfCore.SecondLevelCaching.Services</packageName>
+  <diagram>
+    <targetPackageId>9ff6c725-bc62-4080-8248-b4c1a2072590</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -73,7 +73,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
-                            bool addSyncVersions = ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories();
                             var rootEntity = file.Classes.First().GetRootEntity();
                             if (rootEntity.HasPrimaryKey())
                             {

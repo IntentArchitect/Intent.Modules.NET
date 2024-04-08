@@ -35,8 +35,8 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0" />
+    <dependency id="Intent.Common" version="3.6.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.6.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.HotChocolate.GraphQL" version="4.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
