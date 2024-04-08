@@ -4,10 +4,11 @@
   <display>Kafka.Producer</display>
   <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8cf96e2a-eaf0-459b-83d4-2391a4b8f682</parentFolderId>
+  <packageId>8cf96e2a-eaf0-459b-83d4-2391a4b8f682</packageId>
+  <packageName>Kafka.Producer.Eventing</packageName>
   <diagram>
     <targetPackageId>242a2542-7680-405a-be5b-7618e41c1071</targetPackageId>
   </diagram>

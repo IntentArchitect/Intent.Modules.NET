@@ -37,11 +37,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EventingDTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetSubscribedToDtoModels(application)
+            return Enumerable.Empty<EventingDTOModel>()
+                .Union(_metadataManager.GetSubscribedToDtoModels(application))
                 .Union(_metadataManager.GetPublishedDtoModels(application))
-                .Union(_metadataManager.GetExplicitlyPublishedDtoModels(application))
-                .Union(_metadataManager.GetExplicitlySubscribedToDtoModels(application))
-                ;
+                .Union(_metadataManager.GetAssociatedMessageDtoModels(application));
         }
     }
 }

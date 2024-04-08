@@ -171,10 +171,13 @@ internal static class PersistenceUnitOfWork
         {
             const string distributedCacheParameterName = "distributedCacheWithUnitOfWork";
 
-            constructor.AddParameter(
-                type: template.GetTypeName(TemplateIds.DistributedCacheWithUnitOfWorkInterface),
-                name: distributedCacheParameterName,
-                configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
+            if (constructor.Parameters.All(x => x.Name != distributedCacheParameterName))
+            {
+                constructor.AddParameter(
+                    type: template.GetTypeName(TemplateIds.DistributedCacheWithUnitOfWorkInterface),
+                    name: distributedCacheParameterName,
+                    configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
+            }
 
             chainOfResponsibilities.Push((blockStack, next) =>
             {

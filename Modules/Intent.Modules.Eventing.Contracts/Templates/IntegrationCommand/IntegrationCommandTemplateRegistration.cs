@@ -36,11 +36,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IntegrationCommandModel> GetModels(IApplication application)
         {
-            var result =
-                _metadataManager.GetExplicitlySentIntegrationCommandModels(application)
-                .Union(_metadataManager.GetExplicitlySubscribedToIntegrationCommandModels(application));
-
-            return result;
+            return _metadataManager.GetAssociatedIntegrationCommandModels(application);
         }
     }
 }

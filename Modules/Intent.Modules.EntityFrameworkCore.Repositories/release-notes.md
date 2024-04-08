@@ -1,3 +1,7 @@
+### Version 4.5.3
+
+- Improvement: Added roles to interface template for easier location in other modules.
+
 ### Version 4.5.2
 
 > ⚠️ **KNOWN ISSUE**
