@@ -29,11 +29,26 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.ProblemDetails
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"ProblemDetailsWithErrors", @class =>
                 {
-                    @class.AddProperty("string", "Type");
-                    @class.AddProperty("string", "Title");
-                    @class.AddProperty("int", "Status");
-                    @class.AddProperty("string", "TraceId");
-                    @class.AddProperty("Dictionary<string, string[]>", "Errors");
+                    @class.AddProperty("string", "Type", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                    {
+                        attribute.AddArgument("\"type\"");
+                    }));
+                    @class.AddProperty("string", "Title", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                    {
+                        attribute.AddArgument("\"title\"");
+                    }));
+                    @class.AddProperty("int", "Status", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                    {
+                        attribute.AddArgument("\"status\"");
+                    }));
+                    @class.AddProperty("string", "TraceId", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                    {
+                        attribute.AddArgument("\"traceId\"");
+                    }));
+                    @class.AddProperty("Dictionary<string, string[]>", "Errors", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
+                    {
+                        attribute.AddArgument("\"errors\"");
+                    }));
                     @class.AddProperty("Dictionary<string, object>", "ExtensionData", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonExtensionData")));
                 });
         }

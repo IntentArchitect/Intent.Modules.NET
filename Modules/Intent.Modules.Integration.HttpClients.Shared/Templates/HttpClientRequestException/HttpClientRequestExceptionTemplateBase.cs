@@ -4,6 +4,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using System.Reflection.PortableExecutable;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequestException
 {
@@ -38,8 +39,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .AddStatements(new[]
                         {
                             $"if (responseContent is not null &&",
-                            $"    responseHeaders.TryGetValue(\"ContentType\", out var contentTypeValues) &&",
-                            $"    contentTypeValues.FirstOrDefault() == \"application/problem+json\")",
+                            $"    responseHeaders.TryGetValue(\"Content-Type\", out var contentTypeValues) &&",
+                            $"    contentTypeValues.FirstOrDefault() == \"application/problem+json; charset=utf-8\")",
                             $"{{",
                             $"    ProblemDetails = System.Text.Json.JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);",
                             $"}}",
@@ -56,8 +57,15 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         {
                             "var fullRequestUri = new Uri(baseAddress, request.RequestUri!);",
                             $"var content = await response.Content.{GetReadAsStringAsyncMethodCall()}.ConfigureAwait(false);",
+                            "",
                             "var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);",
-                            $"return new {@class.Name}(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);",
+                            "var contentHeaders = response.Content.Headers.ToDictionary(k => k.Key, v => v.Value); ",
+                            "var allHeaders = headers",
+                            "    .Concat(contentHeaders)",
+                            "    .GroupBy(kvp => kvp.Key)",
+                            "    .ToDictionary(group => group.Key, group => group.Last().Value);",
+                            "",
+                            $"return new {@class.Name}(fullRequestUri, response.StatusCode, allHeaders, response.ReasonPhrase, content);",
                         })
                     )
                     .AddMethod("string", "GetMessage", m => m
