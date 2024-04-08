@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -13,39 +14,56 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 public class EfCoreAssociationConfigStatement : CSharpStatement
 {
     private readonly AssociationEndModel _associationEnd;
-    protected IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
+    private readonly IElement _targetType;
+
+	protected IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
     protected IList<CSharpStatement> AdditionalStatements { get; } = new List<CSharpStatement>();
     public RequiredEntityProperty[] RequiredProperties = Array.Empty<RequiredEntityProperty>();
 
-    public static EfCoreAssociationConfigStatement CreateOwnsOne(AssociationEndModel associationEnd)
+	private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd, IElement targetType) : base(null)
+	{
+		_associationEnd = associationEnd;
+        _targetType = targetType;
+		if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
+			&& associationEnd.Name.Equals(associationEnd.Element.Name))
+		{
+			Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+		}
+
+		AddMetadata("model", associationEnd);
+	}
+
+	public static EfCoreAssociationConfigStatement CreateOwnsOne(AssociationEndModel associationEnd, IElement targetType)
     {
-        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        var statement = new EfCoreAssociationConfigStatement(associationEnd, targetType);
         statement.RelationshipStatements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
         if (!associationEnd.TypeReference.IsNullable)
         {
             statement.AdditionalStatements.Add($".Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
         }
 
-        return statement;
+        CheckForUnsupportTPCRelationship(associationEnd);
+
+		return statement;
     }
 
-    public EfCoreAssociationConfigStatement CreateWithOwner()
+	public EfCoreAssociationConfigStatement CreateWithOwner()
     {
-        var statement = new EfCoreAssociationConfigStatement(_associationEnd);
+        var statement = new EfCoreAssociationConfigStatement(_associationEnd, _targetType);
         statement.RelationshipStatements.Add(@$"builder.WithOwner({(_associationEnd.OtherEnd().IsNavigable ? $"x => x.{_associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
         return statement;
     }
 
-    public static EfCoreAssociationConfigStatement CreateOwnsMany(AssociationEndModel associationEnd)
+    public static EfCoreAssociationConfigStatement CreateOwnsMany(AssociationEndModel associationEnd, IElement targetType)
     {
-        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        var statement = new EfCoreAssociationConfigStatement(associationEnd, targetType);
         statement.RelationshipStatements.Add($"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
         return statement;
     }
 
-    public static EfCoreAssociationConfigStatement CreateHasOne(AssociationEndModel associationEnd)
+    public static EfCoreAssociationConfigStatement CreateHasOne(AssociationEndModel associationEnd, IElement targetType)
     {
-        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        var statement = new EfCoreAssociationConfigStatement(associationEnd, targetType);
         statement.RelationshipStatements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
 
         if (associationEnd.OtherEnd().IsCollection)
@@ -68,9 +86,9 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         return statement;
     }
 
-    public static EfCoreAssociationConfigStatement CreateHasMany(AssociationEndModel associationEnd, Func<string, string> getTableNameByConvention)
+    public static EfCoreAssociationConfigStatement CreateHasMany(AssociationEndModel associationEnd, IElement targetType, Func<string, string> getTableNameByConvention)
     {
-        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        var statement = new EfCoreAssociationConfigStatement(associationEnd, targetType);
         statement.RelationshipStatements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
         if (associationEnd.OtherEnd().IsCollection)
         {
@@ -116,19 +134,6 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             return targetEnd.GetJoinTable().Name();
         }
         return getTableNameByConvention(associationEnd.OtherEnd().Class.Name + associationEnd.Class.Name);
-    }
-
-    private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd) : base(null)
-    {
-        _associationEnd = associationEnd;
-
-        if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
-            && associationEnd.Name.Equals(associationEnd.Element.Name))
-        {
-            Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
-        }
-
-        AddMetadata("model", associationEnd);
     }
 
     public EfCoreAssociationConfigStatement WithForeignKey(bool enabled = true)
@@ -192,9 +197,11 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
         {
             genericTypeArgument = _associationEnd.OtherEnd().IsNullable
-                ? _associationEnd.OtherEnd().Class.Name
-                : _associationEnd.Class.Name;
-        }
+				? _associationEnd.OtherEnd().Class.Name
+				: _associationEnd.Class.Name;
+
+            CheckForUnsupportTPCRelationship(_associationEnd);
+		}
 
         if (genericTypeArgument != null)
         {
@@ -208,6 +215,22 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         RelationshipStatements.Add($".HasForeignKey{genericTypeArgument}(x => {keyExpression})");
         return this;
     }
+
+	private static void CheckForUnsupportTPCRelationship(AssociationEndModel associationEnd)
+	{
+		//TPC Foreign keys not supported
+		if (IsRelationshipToTPCBaseClass(associationEnd.OtherEnd().Class) || IsRelationshipToTPCBaseClass(associationEnd.Class))
+		{
+			var @class = IsRelationshipToTPCBaseClass(associationEnd.Class) ? associationEnd.Class : associationEnd.OtherEnd().Class;
+			throw new ElementException(associationEnd.InternalAssociationEnd, $"EF does not support Foreign key relationships to TPC Inheritance models. Consider changing to TPH or TPT by putting a Table stereotype on {@class.Name}");
+		}
+	}
+
+
+	private static bool IsRelationshipToTPCBaseClass(ClassModel model)
+    {
+        return model.IsAbstract && !model.HasTable();
+	}
 
     private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd, string foreignKeyAssociationId = null)
     {
