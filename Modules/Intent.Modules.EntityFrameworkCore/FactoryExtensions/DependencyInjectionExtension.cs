@@ -45,10 +45,16 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
+                    
                     if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
                     {
                         dependencyInjection.AddNugetDependency(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget));
                     }
+                    else
+                    {
+                        application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget).Name, dependencyInjection.OutputTarget));
+                    }
+                    
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
                         connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjection.OutputTarget.GetProject())}",
