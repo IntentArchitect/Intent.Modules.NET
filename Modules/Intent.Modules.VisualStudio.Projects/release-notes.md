@@ -1,7 +1,8 @@
 ### Version 3.7.1
 
 - Improvement: Support added for `AddUserSecretsEvent` and `AddProjectPropertyEvent`.
-- 
+- Fixed: Nuget version consolidation would break under certain circumstances.
+
 ### Version 3.7.0
 
 - Improvement: Aligned VS Solution Project Type Ids to the new project system ids (https://github.com/dotnet/project-system/blob/main/docs/opening-with-new-project-system.md).
