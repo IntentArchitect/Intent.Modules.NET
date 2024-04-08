@@ -42,7 +42,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             statement.AdditionalStatements.Add($".Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
         }
 
-        CheckForUnsupportTPCRelationship(associationEnd);
+        CheckForUnsupportTPCRelationships(associationEnd);
 
 		return statement;
     }
@@ -200,7 +200,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 				? _associationEnd.OtherEnd().Class.Name
 				: _associationEnd.Class.Name;
 
-            CheckForUnsupportTPCRelationship(_associationEnd);
+            CheckForUnsupportTPCRelationships(_associationEnd);
 		}
 
         if (genericTypeArgument != null)
@@ -216,7 +216,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         return this;
     }
 
-	private static void CheckForUnsupportTPCRelationship(AssociationEndModel associationEnd)
+	private static void CheckForUnsupportTPCRelationships(AssociationEndModel associationEnd)
 	{
 		//TPC Foreign keys not supported
 		if (IsRelationshipToTPCBaseClass(associationEnd.OtherEnd().Class) || IsRelationshipToTPCBaseClass(associationEnd.Class))
@@ -229,7 +229,8 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
 	private static bool IsRelationshipToTPCBaseClass(ClassModel model)
     {
-        return model.IsAbstract && !model.HasTable();
+		//model.Generalizations() == 1 is just a base class its not an actual TPC hierarchy
+		return model.IsAbstract && !model.HasTable() && model.GeneralizationEnds().Count > 1;
 	}
 
     private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd, string foreignKeyAssociationId = null)
