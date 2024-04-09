@@ -9,7 +9,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TimeConcepts
     {
         public Guid Id { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         public DateTime DateTime { get; set; }
 

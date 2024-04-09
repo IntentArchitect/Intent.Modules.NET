@@ -54,7 +54,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5b954539-a54e-4c43-b8cf-fcb387e3d4e5">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -69,7 +69,9 @@
       <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
       <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="6714e4c9-690f-4b6b-b116-3ecd5fcf27c5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

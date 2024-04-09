@@ -1,6 +1,6 @@
-using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.InheritanceAssociations;
-using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.TPT.Polymorphic;
-using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPT.InheritanceAssociations;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPT.Polymorphic;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
 using Xunit;
 using Xunit.Abstractions;

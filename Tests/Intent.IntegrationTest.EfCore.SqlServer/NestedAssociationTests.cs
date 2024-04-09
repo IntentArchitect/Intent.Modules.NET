@@ -1,5 +1,5 @@
-﻿using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.NestedAssociations;
-using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+﻿using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.NestedAssociations;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
 using Xunit;
 using Xunit.Abstractions;

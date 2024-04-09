@@ -196,7 +196,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="3d7819d8-c26a-4ae7-923f-d869f9f1dcd1">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -240,7 +240,9 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="2d30cae5-0873-4825-9595-2f3a17c489f7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">

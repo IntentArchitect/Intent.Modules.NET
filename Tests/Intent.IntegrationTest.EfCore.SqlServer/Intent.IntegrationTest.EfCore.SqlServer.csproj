@@ -24,7 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EntityFrameworkCore.Repositories.TestApplication\EntityFrameworkCore.Repositories.TestApplication.Infrastructure\EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj" />
-      <ProjectReference Include="..\EntityFrameworkCore.SqlServer.TestApplication\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj" />
+      <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF8\EntityFrameworkCore.SqlServer.EF8.Infrastructure\EntityFrameworkCore.SqlServer.EF8.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
