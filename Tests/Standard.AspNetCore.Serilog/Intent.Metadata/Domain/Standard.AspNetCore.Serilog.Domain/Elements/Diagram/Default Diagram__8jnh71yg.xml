@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b195877b-b838-45c9-8ef9-af2c54ac5ccf" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41b8643b-f148-44ac-aada-9d88e3192a4d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
