@@ -1,6 +1,9 @@
-### Version 3.7.1
+### Version 3.7.2
 
 - Improvement: Support added for `AddUserSecretsEvent` and `AddProjectPropertyEvent`.
+
+### Version 3.7.1
+
 - Fixed: Nuget version consolidation would break under certain circumstances.
 
 ### Version 3.7.0
