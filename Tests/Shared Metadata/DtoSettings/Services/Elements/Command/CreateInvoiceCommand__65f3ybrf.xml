@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f5a35859-2285-4f92-8db3-ec7b73d93169" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateInvoiceCommand</name>
+  <display>CreateInvoiceCommand: guid</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="35e5972e-3e70-45fe-aa71-247f67b4a7ca">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>eed8df8b-f6a8-4307-9bdc-6b0cde72e612</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Invoice" />
+  </metadata>
+  <childElements>
+    <childElement id="d213a0ec-c91f-4c40-bb9c-e9581c31d97a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Number</name>
+      <display>Number: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4df16c9e-710a-4be6-b78f-899d3b61197f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f5a35859-2285-4f92-8db3-ec7b73d93169</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e30f2fab-a0c7-4a63-bd8a-ff66f2740327" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>InvoiceLines</name>
+      <display>InvoiceLines: CreateInvoiceCommandInvoiceLinesDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="67337796-189c-463c-a45c-b43c5ea90a0b">
+        <typeId>52d62acf-81b8-4a21-9e82-c0e792ec5f57</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>DtoSettings.Services</typePackageName>
+        <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f5a35859-2285-4f92-8db3-ec7b73d93169</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

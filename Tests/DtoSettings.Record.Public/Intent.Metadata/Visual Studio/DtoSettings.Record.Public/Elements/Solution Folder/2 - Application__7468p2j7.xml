@@ -123,6 +123,62 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="84dd0277-f5ab-4d90-8505-838414c7a9a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.MediatR.CommandHandler</name>
+          <display>Intent.Application.MediatR.CommandHandler</display>
+          <externalReference>Intent.Application.MediatR</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>396b134a-8f3f-431c-9894-0513cc01c4d7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="cc4a7c98-3f3f-4c50-b69f-f687a7655cce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.MediatR.CommandModels</name>
+          <display>Intent.Application.MediatR.CommandModels</display>
+          <externalReference>Intent.Application.MediatR</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>396b134a-8f3f-431c-9894-0513cc01c4d7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="eb53aaea-d468-4d1e-95f1-0bcc7fc84951" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.MediatR.QueryHandler</name>
+          <display>Intent.Application.MediatR.QueryHandler</display>
+          <externalReference>Intent.Application.MediatR</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>396b134a-8f3f-431c-9894-0513cc01c4d7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="4c4e84ce-f49d-4fca-9257-45c0e1aa3509" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.MediatR.QueryModels</name>
+          <display>Intent.Application.MediatR.QueryModels</display>
+          <externalReference>Intent.Application.MediatR</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>396b134a-8f3f-431c-9894-0513cc01c4d7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>
