@@ -58,6 +58,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Settings
                     "console" => SinksOptionsEnum.Console,
                     "file" => SinksOptionsEnum.File,
                     "graylog" => SinksOptionsEnum.Graylog,
+                    "application-insights" => SinksOptionsEnum.ApplicationInsights,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -76,6 +77,11 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Settings
             {
                 return Value == "graylog";
             }
+
+            public bool IsApplicationInsights()
+            {
+                return Value == "application-insights";
+            }
         }
 
         public enum SinksOptionsEnum
@@ -83,6 +89,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Settings
             Console,
             File,
             Graylog,
+            ApplicationInsights,
         }
     }
 }

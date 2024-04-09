@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>5.1.0</version>
+  <version>5.1.1-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides Serilog logging for ASP.NET Core.</summary>
@@ -26,6 +26,7 @@
             <option value="console" description="Console" />
             <option value="file" description="File" />
             <option value="graylog" description="Graylog" />
+            <option value="application-insights" description="Application Insights" />
           </options>
         </setting>
       </settings>

@@ -18,6 +18,6 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
 
         public static readonly NugetPackageInfo SerilogSinksGraylog = new NugetPackageInfo("serilog.sinks.graylog", "3.1.1");
         public static readonly NugetPackageInfo SerilogEnrichersSpan = new NugetPackageInfo("Serilog.Enrichers.Span", "3.1.0");
-        
+        public static readonly NugetPackageInfo SerilogSinksApplicationInsights = new NugetPackageInfo("Serilog.Sinks.ApplicationInsights", "4.0.0");
     }
 }
