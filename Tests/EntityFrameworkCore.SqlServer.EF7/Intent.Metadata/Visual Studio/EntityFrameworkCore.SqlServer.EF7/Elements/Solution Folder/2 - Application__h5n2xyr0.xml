@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c967acdb-242a-4024-b873-0940502051dd" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</parentFolderId>
+  <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

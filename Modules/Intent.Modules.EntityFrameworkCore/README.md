@@ -221,6 +221,8 @@ Resulting database structure:
 
 ![Table per hierarchy database tables](./docs/images/tph-db.png)
 
+If you wish to make the base class abstract, while still maintaining TPH, simply add a `Table` stereotype to the base class.
+
 #### Table per type
 
 Modeling:

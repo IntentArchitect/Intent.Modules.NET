@@ -70,4 +70,24 @@ public static class NugetPackages
         (7, 0) => "7.0.14",
         _ => "8.0.0"
     };
+    
+    // Has only support for EF 6 & 7: https://erikej.github.io/efcore/sqlserver/2023/09/03/efcore-dateonly-timeonly.html
+    // EF 8 already has support for DateOnly.
+    public static NugetPackageInfo ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget) => new(
+        name: "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (6, 0) => "6.0.0",
+            _ => "7.0.0"
+        });
+
+    public static bool ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget)
+    {
+        return outputTarget.GetMaxNetAppVersion() switch
+        {
+            (6, 0) => true,
+            (7, 0) => true,
+            _ => false
+        };
+    }
 }

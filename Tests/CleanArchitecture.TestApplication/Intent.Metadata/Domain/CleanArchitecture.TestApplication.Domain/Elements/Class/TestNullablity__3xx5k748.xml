@@ -113,7 +113,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e7bb0410-ec61-4836-9c03-f6a9d4b4cd33">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -128,7 +128,9 @@
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.TestApplication.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="0886cd8c-bf32-4ff8-933d-e334443ce5cb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
@@ -385,7 +387,7 @@
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="129100c5-47de-418a-9596-363d586c33b4">
-            <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -407,7 +409,9 @@
           <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
           <packageName>CleanArchitecture.TestApplication.Domain</packageName>
           <stereotypes />
-          <metadata />
+          <metadata>
+            <entry key="common-charp-migration-date-to-datetime" value="true" />
+          </metadata>
           <childElements />
         </childElement>
         <childElement id="d6f295ff-0680-4073-99a9-ee0623786198" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">

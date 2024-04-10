@@ -79,6 +79,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="e741dea1-711e-4435-8a30-49d7c8cfd33f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Application Insights</name>
+          <display>Application Insights</display>
+          <isAbstract>false</isAbstract>
+          <value>application-insights</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e1e76d8d-298a-4f47-af08-0b08fdcc95c1</parentFolderId>
+          <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+          <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

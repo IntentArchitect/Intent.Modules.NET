@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5c8c321d-09a5-4556-a8f7-bf60d9c5a4df">
+  <sourceEnd id="c9857a2f-7248-418c-ac2f-b823a63502ed" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetInvoiceByIdQuery</display>
+    <order>0</order>
+    <typeReference id="d11c7851-948d-4396-be0c-da9c36f78810">
+      <typeId>b0213542-79d2-40c1-a390-758a1a9ff141</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Services</typePackageName>
+      <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5c8c321d-09a5-4556-a8f7-bf60d9c5a4df" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoice</name>
+    <display>[query] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="090cf07c-ca93-406c-91e8-b77d3215d685">
+      <typeId>4db32430-16e4-4d67-90cc-5b283932c4fd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Domain</typePackageName>
+      <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="911db950-d9d5-4e0a-a0a2-33b988afcc64" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b0213542-79d2-40c1-a390-758a1a9ff141" location="[DtoSettings.Record.Public].[Services].[GetInvoiceByIdQuery]" />
+        <target elementId="4db32430-16e4-4d67-90cc-5b283932c4fd" location="[DtoSettings.Record.Public].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="4db32430-16e4-4d67-90cc-5b283932c4fd" name="Invoice" type="element" specialization="Class" />
+              <target id="42774679-bbae-4489-8b2c-51b7823c426a" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b0213542-79d2-40c1-a390-758a1a9ff141" name="GetInvoiceByIdQuery" type="element" specialization="Query" />
+                  <target id="418fa79e-9cf5-4767-a5ef-406a5d1dc6bd" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

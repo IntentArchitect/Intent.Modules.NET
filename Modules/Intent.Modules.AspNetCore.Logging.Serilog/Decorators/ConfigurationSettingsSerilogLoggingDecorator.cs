@@ -119,6 +119,10 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                         args["port"] = "12201";
                         args["transportType"] = "Udp";
                         break;
+                    case SerilogSettings.SinksOptionsEnum.ApplicationInsights:
+                        args["connectionString"] = "[your connection string here]";
+                        args["telemetryConverter"] = "Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights";
+                        break;
                     default:
                         continue; // If the sink is not recognized, skip adding it
                 }
@@ -136,6 +140,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                     SerilogSettings.SinksOptionsEnum.Console => "Console",
                     SerilogSettings.SinksOptionsEnum.File => "File",
                     SerilogSettings.SinksOptionsEnum.Graylog => "Graylog",
+                    SerilogSettings.SinksOptionsEnum.ApplicationInsights => "ApplicationInsights",
                     _ => null
                 };
             }
@@ -185,6 +190,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                     SerilogSettings.SinksOptionsEnum.Console => "Serilog.Sinks.Console",
                     SerilogSettings.SinksOptionsEnum.File => "Serilog.Sinks.File",
                     SerilogSettings.SinksOptionsEnum.Graylog => "Serilog.Sinks.Graylog",
+                    SerilogSettings.SinksOptionsEnum.ApplicationInsights => "Serilog.Sinks.ApplicationInsights",
                     _ => null // Handle default case gracefully
                 };
             }

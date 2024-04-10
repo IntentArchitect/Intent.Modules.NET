@@ -1,6 +1,6 @@
-﻿using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ValueObjects;
-using EntityFrameworkCore.SqlServer.TestApplication.Domain.ValueObjects;
-using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+﻿using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ValueObjects;
+using EntityFrameworkCore.SqlServer.EF8.Domain.ValueObjects;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence;
 using FluentAssertions;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
 using Xunit;

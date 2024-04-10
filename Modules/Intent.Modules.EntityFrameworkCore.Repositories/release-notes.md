@@ -1,6 +1,7 @@
 ### Version 4.5.3
 
 - Improvement: Added roles to interface template for easier location in other modules.
+- Improvement: Keyless entities will now have a manual insert SQL statement generated for them.
 
 ### Version 4.5.2
 

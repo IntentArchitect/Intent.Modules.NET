@@ -83,7 +83,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="4deddc5f-5b45-4fc8-9aea-2c5edc96357c">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
@@ -127,7 +127,9 @@
           </properties>
         </stereotype>
       </stereotypes>
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="006b0f18-3e34-432e-ab9f-7cafe1a1fba8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">

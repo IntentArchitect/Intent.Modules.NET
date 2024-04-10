@@ -1,6 +1,6 @@
-﻿using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.Associations;
-using EntityFrameworkCore.SqlServer.TestApplication.Domain.Entities.ExplicitKeys;
-using EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.Persistence;
+﻿using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence;
 using FluentAssertions;
 using Intent.IntegrationTest.EfCore.SqlServer.Helpers;
 using Microsoft.EntityFrameworkCore;

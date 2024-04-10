@@ -13,12 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.IntegrationTest.EfCo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Imported Module Projects", "Imported Module Projects", "{FB1F3B17-192C-431D-B59A-09CAF7EE43EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Infrastructure", "EntityFrameworkCore.SqlServer.TestApplication\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure\EntityFrameworkCore.SqlServer.TestApplication.Infrastructure.csproj", "{624D72DB-7F1C-4D5E-8474-9809B8D4486C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Domain", "EntityFrameworkCore.SqlServer.TestApplication\EntityFrameworkCore.SqlServer.TestApplication.Domain\EntityFrameworkCore.SqlServer.TestApplication.Domain.csproj", "{8816C0C9-27E6-439D-9A85-35843BDBD946}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SqlServer.TestApplication.Application", "EntityFrameworkCore.SqlServer.TestApplication\EntityFrameworkCore.SqlServer.TestApplication.Application\EntityFrameworkCore.SqlServer.TestApplication.Application.csproj", "{6FAB74E0-56AB-45A8-8980-59EA3895E4A7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Infrastructure", "EntityFrameworkCore.Repositories.TestApplication\EntityFrameworkCore.Repositories.TestApplication.Infrastructure\EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj", "{8FF400D7-B292-4BBC-8646-37E6E5377670}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Repositories.TestApplication.Domain", "EntityFrameworkCore.Repositories.TestApplication\EntityFrameworkCore.Repositories.TestApplication.Domain\EntityFrameworkCore.Repositories.TestApplication.Domain.csproj", "{6E68982A-8641-40B9-B1E0-67BB9EAFCAC5}"
@@ -55,6 +49,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.HttpClient.CleanArchitecture", "Intent.IntegrationTest.HttpClient.CleanArchitecture\Intent.IntegrationTest.HttpClient.CleanArchitecture.csproj", "{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.SqlServer.EF8.Domain", "EntityFrameworkCore.SqlServer.EF8\EntityFrameworkCore.SqlServer.EF8.Domain\EntityFrameworkCore.SqlServer.EF8.Domain.csproj", "{28C2BC89-0192-40F4-86F7-43B0A49D3F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.SqlServer.EF8.Application", "EntityFrameworkCore.SqlServer.EF8\EntityFrameworkCore.SqlServer.EF8.Application\EntityFrameworkCore.SqlServer.EF8.Application.csproj", "{EB5E6F9B-256F-418D-A052-F634B46DC563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.SqlServer.EF8.Infrastructure", "EntityFrameworkCore.SqlServer.EF8\EntityFrameworkCore.SqlServer.EF8.Infrastructure\EntityFrameworkCore.SqlServer.EF8.Infrastructure.csproj", "{50CDEDEF-6129-44E4-A832-B6A45527F4B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCore.SqlServer.EF8.Api", "EntityFrameworkCore.SqlServer.EF8\EntityFrameworkCore.SqlServer.EF8.Api\EntityFrameworkCore.SqlServer.EF8.Api.csproj", "{CD9A856E-908C-4028-BEA3-1E8AB0A40745}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,18 +67,6 @@ Global
 		{F54C4E7B-0BA1-46E8-85C6-23178B06A900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54C4E7B-0BA1-46E8-85C6-23178B06A900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54C4E7B-0BA1-46E8-85C6-23178B06A900}.Release|Any CPU.Build.0 = Release|Any CPU
-		{624D72DB-7F1C-4D5E-8474-9809B8D4486C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{624D72DB-7F1C-4D5E-8474-9809B8D4486C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{624D72DB-7F1C-4D5E-8474-9809B8D4486C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{624D72DB-7F1C-4D5E-8474-9809B8D4486C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8816C0C9-27E6-439D-9A85-35843BDBD946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8816C0C9-27E6-439D-9A85-35843BDBD946}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8816C0C9-27E6-439D-9A85-35843BDBD946}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8816C0C9-27E6-439D-9A85-35843BDBD946}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FAB74E0-56AB-45A8-8980-59EA3895E4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FAB74E0-56AB-45A8-8980-59EA3895E4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FAB74E0-56AB-45A8-8980-59EA3895E4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FAB74E0-56AB-45A8-8980-59EA3895E4A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FF400D7-B292-4BBC-8646-37E6E5377670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FF400D7-B292-4BBC-8646-37E6E5377670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF400D7-B292-4BBC-8646-37E6E5377670}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -149,15 +139,28 @@ Global
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C2BC89-0192-40F4-86F7-43B0A49D3F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C2BC89-0192-40F4-86F7-43B0A49D3F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C2BC89-0192-40F4-86F7-43B0A49D3F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C2BC89-0192-40F4-86F7-43B0A49D3F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB5E6F9B-256F-418D-A052-F634B46DC563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5E6F9B-256F-418D-A052-F634B46DC563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5E6F9B-256F-418D-A052-F634B46DC563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5E6F9B-256F-418D-A052-F634B46DC563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CDEDEF-6129-44E4-A832-B6A45527F4B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CDEDEF-6129-44E4-A832-B6A45527F4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CDEDEF-6129-44E4-A832-B6A45527F4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CDEDEF-6129-44E4-A832-B6A45527F4B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9A856E-908C-4028-BEA3-1E8AB0A40745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9A856E-908C-4028-BEA3-1E8AB0A40745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9A856E-908C-4028-BEA3-1E8AB0A40745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9A856E-908C-4028-BEA3-1E8AB0A40745}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F54C4E7B-0BA1-46E8-85C6-23178B06A900} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
-		{624D72DB-7F1C-4D5E-8474-9809B8D4486C} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
-		{8816C0C9-27E6-439D-9A85-35843BDBD946} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
-		{6FAB74E0-56AB-45A8-8980-59EA3895E4A7} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{8FF400D7-B292-4BBC-8646-37E6E5377670} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{6E68982A-8641-40B9-B1E0-67BB9EAFCAC5} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{D2975663-CD73-4042-B80F-1BFE0A674046} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
@@ -176,5 +179,9 @@ Global
 		{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{2CD99B16-83E6-4C79-81EF-E94DB5288EB5} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 		{DCA52FE0-B28D-4391-90D5-1845D1ADA25F} = {A4426686-429E-43FC-A1AA-85F5025F6C57}
+		{EB5E6F9B-256F-418D-A052-F634B46DC563} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{28C2BC89-0192-40F4-86F7-43B0A49D3F59} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{50CDEDEF-6129-44E4-A832-B6A45527F4B4} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
+		{CD9A856E-908C-4028-BEA3-1E8AB0A40745} = {FB1F3B17-192C-431D-B59A-09CAF7EE43EE}
 	EndGlobalSection
 EndGlobal

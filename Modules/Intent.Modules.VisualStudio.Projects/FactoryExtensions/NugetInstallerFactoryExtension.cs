@@ -325,13 +325,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             {
                 foreach (var projectPackage in projectPackages)
                 {
-                    if (projectPackage.RequestedPackages.TryGetValue(highestVersion.Key, out var requestedPackage) &&
-                        requestedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
+                    if (projectPackage.RequestedPackages.TryGetValue(highestVersion.Key, out var requestedPackage))
                     {
-                        requestedPackage.Version = highestVersion.Value;
+                        if (requestedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
+                        {
+                            requestedPackage.Version = highestVersion.Value;
+                        }
+                        
                         continue;
                     }
-
+                    
                     if (projectPackage.InstalledPackages.TryGetValue(highestVersion.Key, out var installedPackage) &&
                         installedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
                     {

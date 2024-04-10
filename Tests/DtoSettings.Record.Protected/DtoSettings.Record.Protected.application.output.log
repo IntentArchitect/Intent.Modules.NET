@@ -99,6 +99,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>92560481-b0d5-404e-900b-67105668e113</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>92560481-b0d5-404e-900b-67105668e113</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bad114de-efe9-4d9f-acbd-e5ee85d53dcd</ProjectId>
       <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -224,6 +240,110 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/Invoices/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/InvoiceUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f5a35859-2285-4f92-8db3-ec7b73d93169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/CreateInvoice/CreateInvoiceCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f5a35859-2285-4f92-8db3-ec7b73d93169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/CreateInvoice/CreateInvoiceCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#52d62acf-81b8-4a21-9e82-c0e792ec5f57</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/CreateInvoiceCommandInvoiceLinesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/CreateInvoiceCommandInvoiceLinesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6a2305bc-c907-454f-b626-a5a472452c17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6a2305bc-c907-454f-b626-a5a472452c17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b0213542-79d2-40c1-a390-758a1a9ff141</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b0213542-79d2-40c1-a390-758a1a9ff141</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c1e08dc1-7fa5-4ac5-8da5-70043aa31f8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/GetInvoices/GetInvoicesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c1e08dc1-7fa5-4ac5-8da5-70043aa31f8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/GetInvoices/GetInvoicesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6ba3cb9f-dbfb-43d9-9161-bf6a35b6bd66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/InvoiceDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/InvoiceDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6ba3cb9f-dbfb-43d9-9161-bf6a35b6bd66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/InvoiceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/InvoiceDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#65944888-c386-47bc-8053-515323d99c1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#65944888-c386-47bc-8053-515323d99c1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

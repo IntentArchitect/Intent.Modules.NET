@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c1e08dc1-7fa5-4ac5-8da5-70043aa31f8f" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetInvoicesQuery</name>
+  <display>GetInvoicesQuery: InvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="93d7c0e9-136b-4bf6-b623-a6482ab851d6">
+    <typeId>6ba3cb9f-dbfb-43d9-9161-bf6a35b6bd66</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>DtoSettings.Services</typePackageName>
+    <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>eed8df8b-f6a8-4307-9bdc-6b0cde72e612</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Invoices" />
+  </metadata>
+  <childElements />
+</class>

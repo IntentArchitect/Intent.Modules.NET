@@ -38,8 +38,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         public string MigrationProject => OutputTarget.GetProject().Name;
         //Backwards compatible
         public string StartupProject => ExecutionContext.OutputTargets.FirstOrDefault(x =>
-		{
-			if ( x.Type == VisualStudioProjectTypeIds.CoreWebApp)
+        {
+            if (x.Type == VisualStudioProjectTypeIds.CoreWebApp)
             {
                 return true;
             }
@@ -48,33 +48,33 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 var settings = stereotypes.GetStereotype(".NET Settings");
                 switch (settings.GetProperty("SDK").Value)
                 {
-					case "Microsoft.NET.Sdk.Web":
-    				case "Microsoft.NET.Sdk.Worker":
-					    return true;
+                    case "Microsoft.NET.Sdk.Web":
+                    case "Microsoft.NET.Sdk.Worker":
+                        return true;
                     default:
                         break;
-				}
+                }
 
-				var outputType = settings.GetProperty("Output Type");
+                var outputType = settings.GetProperty("Output Type");
                 if (outputType != null)
                 {
-                    switch (outputType.Value) 
+                    switch (outputType.Value)
                     {
-						case "Console Application":
-						case "Windows Application":
-							return true;
-						default:
-							break;
-					}
-				}
-				var azureFunctionVersion = settings.GetProperty("Azure Functions Version");
+                        case "Console Application":
+                        case "Windows Application":
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                var azureFunctionVersion = settings.GetProperty("Azure Functions Version");
                 if (azureFunctionVersion != null && !string.IsNullOrEmpty(azureFunctionVersion.Value))
                 {
                     return true;
-                }			
-			}
-			return false;
-		})?.Name ?? "UNKNOWN";
+                }
+            }
+            return false;
+        })?.Name ?? "UNKNOWN";
         public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN";
 
         public override void BeforeTemplateExecution()

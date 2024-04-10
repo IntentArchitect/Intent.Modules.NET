@@ -1,5 +1,7 @@
 ﻿### Version 5.0.2
 
+- Fixed: Resolved several issues around TPC Inheritance hierarchies with ForeignKeys.
+- Improved: For EF 6 & 7 the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package will be installed to introduce `DateOnly` support for SQL Server.
 - Fixed: `Pomelo.EntityFrameworkCore.MySql` will now install its appropriate version compatible for EF 8.
 
 ### Version 5.0.1

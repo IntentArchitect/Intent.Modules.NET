@@ -128,25 +128,25 @@ modelBuilder.Entity<Car>().HasData(
 
         private void MakeDbSetNameUnqiue(CapturedEntityTypeConfiguration lhs, CapturedEntityTypeConfiguration rhs)
         {
-			if (lhs.Prefix != rhs.Prefix)
+            if (lhs.Prefix != rhs.Prefix)
             {
-				lhs.DbSetName = lhs.Prefix + lhs.DbSetName;
-				rhs.DbSetName = rhs.Prefix + rhs.DbSetName;
+                lhs.DbSetName = lhs.Prefix + lhs.DbSetName;
+                rhs.DbSetName = rhs.Prefix + rhs.DbSetName;
                 return;
-			}
-			if (lhs.DbSetElementType != rhs.DbSetElementType)
-			{
-				lhs.DbSetName = lhs.DbSetElementType;
-				rhs.DbSetName = rhs.DbSetElementType;
-				return;
-			}
+            }
+            if (lhs.DbSetElementType != rhs.DbSetElementType)
+            {
+                lhs.DbSetName = lhs.DbSetElementType;
+                rhs.DbSetName = rhs.DbSetElementType;
+                return;
+            }
             throw new Exception($"Different Entities resolving to same DB Set name `{lhs.DbSetName}` for {lhs.DbSetElementType} and {rhs.DbSetName}");
-		}
+        }
 
-		// This is the cleanest (and foolproof way) I can get to ensure that DbSet name and types are unique since
-		// all the EntityTypeConfigurations are made known via events so a buffer of sorts is
-		// required to keep track of all the registered ones and then check if there are any duplicates.
-		private void DoPostTypeConfigProcess(CSharpFile file)
+        // This is the cleanest (and foolproof way) I can get to ensure that DbSet name and types are unique since
+        // all the EntityTypeConfigurations are made known via events so a buffer of sorts is
+        // required to keep track of all the registered ones and then check if there are any duplicates.
+        private void DoPostTypeConfigProcess(CSharpFile file)
         {
             var dbSetNameLookup = new Dictionary<string, CapturedEntityTypeConfiguration>();
             foreach (var entry in _capturedEntityTypeConfigurations)
