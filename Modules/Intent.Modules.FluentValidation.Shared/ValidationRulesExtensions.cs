@@ -25,9 +25,10 @@ public static class ValidationRulesExtensions
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         bool uniqueConstraintValidationEnabled,
-        bool customValidationEnabled)
+        bool customValidationEnabled,
+        IEnumerable<IAssociationEnd> associationedElements)
     {
-        var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
+        var indexFields = GetUniqueConstraintFields(dtoModel, associationedElements, uniqueConstraintValidationEnabled);
 
         return GetValidationRulesStatements<object>(
             template: default,
@@ -69,7 +70,7 @@ public static class ValidationRulesExtensions
                     ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                 });
 
-                var indexFields = GetUniqueConstraintFields(dtoModel, uniqueConstraintValidationEnabled);
+                var indexFields = GetUniqueConstraintFields(dtoModel, associationedElements, uniqueConstraintValidationEnabled);
                 string repositoryFieldName = null;
 
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
@@ -88,7 +89,7 @@ public static class ValidationRulesExtensions
                         method.AddStatement(propertyStatement);
 
                         AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
-                        if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, out var possibleRepositoryFieldName) &&
+                        if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
                             string.IsNullOrWhiteSpace(repositoryFieldName))
                         {
                             repositoryFieldName = possibleRepositoryFieldName;
@@ -493,10 +494,11 @@ public static class ValidationRulesExtensions
         DTOModel dtoModel,
         CSharpClass validatorClass,
         CSharpMethodChainStatement statement,
+        IEnumerable<IAssociationEnd> associationedElements,
         out string repositoryFieldName)
     {
         if (!statement.Statements.Any(x => x.TryGetMetadata("requires-repository", out bool requiresRepository) && requiresRepository) ||
-            (!TryGetMappedClass(dtoModel, out var classModel) && !TryGetAdvancedMappedClass(dtoModel, out classModel)) ||
+            (!TryGetMappedClass(dtoModel, out var classModel) && !TryGetAdvancedMappedClass(associationedElements, out classModel)) ||
             !template.TryGetTemplate<IClassProvider>(TemplateRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
         {
             repositoryFieldName = null;
@@ -537,14 +539,17 @@ public static class ValidationRulesExtensions
                dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase);
     }
 
-    private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(DTOModel dtoModel, bool enabled)
+    private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(
+        DTOModel dtoModel,
+        IEnumerable<IAssociationEnd> associationedElements,
+        bool enabled)
     {
         if (!enabled || (!IsCreateDto(dtoModel) && !IsUpdateDto(dtoModel)))
         {
             return ArraySegment<ConstraintField>.Empty;
         }
 
-        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass) || TryGetAdvancedMappedClass(dtoModel, out mappedClass);
+        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass) || TryGetAdvancedMappedClass(associationedElements, out mappedClass);
         if (!hasMappedClass)
         {
             return ArraySegment<ConstraintField>.Empty;

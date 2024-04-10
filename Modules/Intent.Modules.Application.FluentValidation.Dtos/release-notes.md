@@ -1,3 +1,7 @@
+### Version 3.8.3
+
+- Fix: Fixed issue where DTO's for compositional entities does not include validation rules.
+
 ### Version 3.8.2
 
 - Improvement: Ignore custom validation rules when generating service proxies.

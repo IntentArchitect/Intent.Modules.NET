@@ -57,7 +57,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                         dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
                         dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                         uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
-                        customValidationEnabled: true);
+                        customValidationEnabled: true,
+                        associationedElements: x.InternalElement?.AssociatedElements);
                 })
                 .ToArray();
 
