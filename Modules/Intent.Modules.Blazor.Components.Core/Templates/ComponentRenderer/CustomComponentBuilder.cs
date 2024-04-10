@@ -6,15 +6,17 @@ using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class CustomComponentRenderer : IRazorComponentBuilder
+public class CustomComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
-    private readonly RazorComponentTemplate _template;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _template;
+    private readonly BindingManager _bindingManager;
 
-    public CustomComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public CustomComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
@@ -24,18 +26,18 @@ public class CustomComponentRenderer : IRazorComponentBuilder
 
         foreach (var modelProperty in model.Properties.Where(x => x.HasBindable()))
         {
-            var mappedEnd = _template.GetMappedEndFor(modelProperty);
+            var mappedEnd = _bindingManager.GetMappedEndFor(modelProperty);
             if (mappedEnd is null)
             {
                 continue;
             }
 
-            htmlElement.AddAttributeIfNotEmpty(modelProperty.Name.ToPropertyName(), _template.GetBinding(mappedEnd));
+            htmlElement.AddAttributeIfNotEmpty(modelProperty.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd));
         }
 
         foreach (var eventEmitter in model.EventEmitters.Where(x => x.HasBindable()))
         {
-            var mappedEnd = _template.GetMappedEndFor(eventEmitter);
+            var mappedEnd = _bindingManager.GetMappedEndFor(eventEmitter);
             if (mappedEnd is null)
             {
                 continue;
@@ -44,11 +46,11 @@ public class CustomComponentRenderer : IRazorComponentBuilder
             var operation = mappedEnd.SourceElement.AsComponentOperationModel();
             if (operation?.Parameters.Count == 1 && operation.Parameters.Single().TypeReference.Element.Id == eventEmitter.TypeReference.Element.Id)
             {
-                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), $"{operation.Parameters.Single().Name.ToParameterName()} => {_template.GetBinding(mappedEnd)}({operation.Parameters.Single().Name.ToParameterName()})");
+                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), $"{operation.Parameters.Single().Name.ToParameterName()} => {_bindingManager.GetBinding(mappedEnd)}({operation.Parameters.Single().Name.ToParameterName()})");
             }
             else
             {
-                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), _template.GetBinding(mappedEnd));
+                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd));
             }
 
         }

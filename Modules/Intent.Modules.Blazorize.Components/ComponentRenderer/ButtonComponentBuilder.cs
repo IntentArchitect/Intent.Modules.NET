@@ -2,20 +2,21 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
 public class ButtonComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
-    private readonly RazorComponentTemplate _template;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _template;
+    private BindingManager _bindingManager;
 
-    public ButtonComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public ButtonComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
@@ -26,17 +27,17 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
-        var onClickMapping = _template.GetMappedEndFor(button, "On Click");
+        var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         if (onClickMapping != null)
         {
             if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
             {
                 var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("Clicked", $"() => {_template.GetBinding(onClickMapping)}()");
+                htmlElement.AddAttribute("Clicked", $"() => {_bindingManager.GetBinding(onClickMapping)}()");
             }
             else
             {
-                htmlElement.AddAttribute("Clicked", $"{_template.GetBinding(onClickMapping)}");
+                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping)}");
             }
         }
 

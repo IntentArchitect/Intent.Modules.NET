@@ -1,12 +1,16 @@
-﻿using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
-using Intent.Modules.Common.CSharp.Builder;
+﻿using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 {
-    public interface IRazorComponentTemplate
+    public interface IRazorComponentTemplate : ICSharpTemplate
     {
-        IRazorComponentBuilderResolver ComponentBuilderResolver { get; }
+        IRazorComponentBuilderProvider ComponentBuilderResolver { get; }
+        BindingManager BindingManager { get; }
         // TODO: Make interface:
         RazorFile BlazorFile { get; }
+        void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null);
+        CSharpClassMappingManager CreateMappingManager();
     }
 }

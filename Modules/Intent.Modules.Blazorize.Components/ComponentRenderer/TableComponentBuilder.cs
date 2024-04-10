@@ -1,7 +1,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
 
@@ -9,19 +8,21 @@ namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
 public class TableComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
-    private readonly RazorComponentTemplate _template;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _template;
+    private readonly BindingManager _bindingManager;
 
-    public TableComponentBuilder(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public TableComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _template = template; 
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is null)"), _template.BlazorFile);
+        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _template.BlazorFile);
         loadingCode.AddHtmlElement("div", rowDiv =>
         {
             rowDiv.AddAttribute("class", "row");
@@ -32,7 +33,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             });
         });
         node.AddNode(loadingCode);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is not null)"), _template.BlazorFile);
+        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _template.BlazorFile);
         tableCode.AddHtmlElement("Table", htmlTable =>
         {
             htmlTable.AddHtmlElement("TableHeader", tableHeader =>
@@ -48,21 +49,21 @@ public class TableComponentBuilder : IRazorComponentBuilder
             htmlTable.AddHtmlElement("TableBody", tbody =>
             {
                 var mappingManager = _template.CreateMappingManager();
-                var mappedEnd = _template.GetMappedEndFor(table);
-                tbody.AddCodeBlock($"foreach(var item in {_template.GetBinding(mappedEnd, mappingManager)})", block =>
+                var mappedEnd = _bindingManager.GetMappedEndFor(table);
+                tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, mappingManager)})", block =>
                 {
                     mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
                     block.AddHtmlElement("TableRow", tr =>
                     {
                         if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                         {
-                            tr.AddAttribute("@onclick", $"() => {_template.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
+                            tr.AddAttribute("@onclick", $"() => {_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
                         }
                         foreach (var column in table.Columns)
                         {
                             tr.AddHtmlElement("TableRowCell", td =>
                             {
-                                var columnMapping = _template.GetElementBinding(column, mappingManager);
+                                var columnMapping = _bindingManager.GetElementBinding(column, mappingManager);
                                 if (columnMapping != null)
                                 {
                                     td.WithText($"@{columnMapping}");

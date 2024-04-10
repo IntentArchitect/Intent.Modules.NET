@@ -56,7 +56,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public new RazorFile Build()
         {
-            _configure(this);
+            _configure?.Invoke(this);
             return this;
         }
     }

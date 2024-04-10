@@ -12,9 +12,15 @@
       <role>Blazor.Components</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Components.Core.RazorLayoutTemplate" externalReference="0f6e4032-0b13-4409-ab3b-2ad987d469be">
+      <role>Blazor.Components</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.Components.Core.DefaultBlazorComponentInstaller" externalReference="ef14e926-b99c-4bd5-83c3-54f715c41dc6" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />

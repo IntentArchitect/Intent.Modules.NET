@@ -1,17 +1,16 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
 public class ContainerComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _template;
 
-    public ContainerComponentBuilder(IRazorComponentBuilderResolver componentResolver, IRazorComponentTemplate template)
+    public ContainerComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;

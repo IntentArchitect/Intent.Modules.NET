@@ -5,21 +5,23 @@ using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class TableRenderer : IRazorComponentBuilder
+public class TableComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
-    private readonly RazorComponentTemplate _template;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _template;
+    private readonly BindingManager _bindingManager;
 
-    public TableRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public TableComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is null)"), _template.BlazorFile);
+        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _template.BlazorFile);
         loadingCode.AddHtmlElement("div", rowDiv =>
         {
             rowDiv.AddAttribute("class", "row");
@@ -30,7 +32,7 @@ public class TableRenderer : IRazorComponentBuilder
             });
         });
         node.AddNode(loadingCode);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_template.GetElementBinding(table)} is not null)"), _template.BlazorFile);
+        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _template.BlazorFile);
         tableCode.AddHtmlElement("table", htmlTable =>
         {
             htmlTable.AddAttribute("class", "table")
@@ -50,21 +52,21 @@ public class TableRenderer : IRazorComponentBuilder
                 .AddHtmlElement("tbody", tbody =>
                 {
                     var mappingManager = _template.CreateMappingManager();
-                    var mappedEnd = _template.GetMappedEndFor(table);
-                    tbody.AddCodeBlock($"foreach(var item in {_template.GetBinding(mappedEnd, mappingManager)})", block =>
+                    var mappedEnd = _bindingManager.GetMappedEndFor(table);
+                    tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, mappingManager)})", block =>
                     {
                         mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
                         block.AddHtmlElement("tr", tr =>
                         {
                             if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                             {
-                                tr.AddAttribute("@onclick", $"() => {_template.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
+                                tr.AddAttribute("@onclick", $"() => {_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
                             }
                             foreach (var column in table.Columns)
                             {
                                 tr.AddHtmlElement("td", td =>
                                 {
-                                    var columnMapping = _template.GetElementBinding(column, mappingManager);
+                                    var columnMapping = _bindingManager.GetElementBinding(column, mappingManager);
                                     if (columnMapping != null)
                                     {
                                         td.WithText($"@{columnMapping}");

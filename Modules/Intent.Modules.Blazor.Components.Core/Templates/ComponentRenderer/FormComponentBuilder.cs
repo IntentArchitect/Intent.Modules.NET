@@ -7,15 +7,17 @@ using Intent.Modules.Common.CSharp.Mapping;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 
-public class FormComponentRenderer : IRazorComponentBuilder
+public class FormComponentBuilder : IRazorComponentBuilder
 {
-    private readonly IRazorComponentBuilderResolver _componentResolver;
-    private readonly RazorComponentTemplate _template;
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _template;
+    private readonly BindingManager _bindingManager;
 
-    public FormComponentRenderer(IRazorComponentBuilderResolver componentResolver, RazorComponentTemplate template)
+    public FormComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _template = template;
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
@@ -25,9 +27,9 @@ public class FormComponentRenderer : IRazorComponentBuilder
         var htmlElement = new HtmlElement("EditForm", _template.BlazorFile);
         
         codeBlock.AddHtmlElement(htmlElement);
-        htmlElement.AddAttributeIfNotEmpty("Model", _template.GetStereotypePropertyBinding(formModel, "Model"));
-        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"async () => await {_template.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
-        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"async () => await {_template.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
+        htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model"));
+        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"async () => await {_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
+        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"async () => await {_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
         foreach (var child in component.ChildElements)
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
