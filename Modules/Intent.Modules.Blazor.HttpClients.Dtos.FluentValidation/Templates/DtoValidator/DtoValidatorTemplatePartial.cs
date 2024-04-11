@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Contracts.Clients.Shared;
@@ -16,7 +18,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator";
 
-        public DtoValidatorTemplate(IOutputTarget outputTarget, DTOModel model)
+        public DtoValidatorTemplate(IOutputTarget outputTarget, DTOModel model, IEnumerable<IAssociationEnd> associationedElements)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,
@@ -30,7 +32,8 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 validatorProviderInterfaceTemplateId: "Blazor.HttpClient.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: true,
                 repositoryInjectionEnabled: false,
-                customValidationEnabled: false)
+                customValidationEnabled: false,
+                associationedElements: associationedElements)
         {
         }
     }

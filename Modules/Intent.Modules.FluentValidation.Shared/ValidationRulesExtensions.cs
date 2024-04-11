@@ -682,6 +682,12 @@ public static class ValidationRulesExtensions
     
     private static bool TryGetAdvancedMappedAttribute(IEnumerable<IAssociationEnd> associationedElements, DTOFieldModel field, out AttributeModel attribute)
     {
+        if (associationedElements is null)
+        {
+            attribute = null;
+            return false;
+        }
+
         foreach (var associationEnd in associationedElements)
         {
             foreach (var mapping in associationEnd.Mappings)

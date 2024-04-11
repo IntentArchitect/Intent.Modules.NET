@@ -10,16 +10,17 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoValidator
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DtoValidatorTemplateRegistration : FilePerModelTemplateRegistration<DTOModel>
+    public class DtoValidatorTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -28,18 +29,15 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => DtoValidatorTemplate.TemplateId;
+        public string TemplateId => DtoValidatorTemplate.TemplateId;
 
-        [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            return new DtoValidatorTemplate(outputTarget, model);
-        }
+            var dtoFields = _metadataManager.Services(applicationManager).GetElementsOfType("")
+                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<DTOModel> GetModels(IApplication application)
-        {
-            return _metadataManager.WebClient(application).GetMappedServiceProxyInboundDTOModels()
+            var models = _metadataManager.WebClient(applicationManager).GetMappedServiceProxyInboundDTOModels()
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
@@ -50,6 +48,37 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                     return true;
                 })
                 .ToList();
+
+            foreach (var model in models)
+            {
+                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);
+
+                registry.RegisterTemplate(TemplateId,
+                    project => new DtoValidatorTemplate(
+                        project,
+                        model,
+                        advancedMappingSource?.AssociatedElements));
+            }
+        }
+
+        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, DTOModel model)
+        {
+            // check to see if parent has advanced mapping
+            var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
+
+            var commandsOrQueries = matchingReferenceFields
+                .Select(f => f.ParentElement)
+                .Distinct()
+                .ToArray();
+
+            var advancedMappingSource = commandsOrQueries.Length switch
+            {
+                0 => null,
+                1 => commandsOrQueries[0],
+                _ => null,
+            };
+
+            return advancedMappingSource;
         }
     }
 }
