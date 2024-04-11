@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -51,6 +52,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             var models = _metadataManager.Services(applicationManager).GetDTOModels()
                 .Where(x =>
                 {
+                    IElement advancedMappingSource = GetAdvancedMappings(dtoFields, x);
+
                     return referencedElementIds.Contains(x.Id) &&
                     ValidationRulesExtensions.HasValidationRules(
                         dtoModel: x,
@@ -58,33 +61,40 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                         dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                         uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                         customValidationEnabled: true,
-                        associationedElements: x.InternalElement?.AssociatedElements);
+                        associationedElements: advancedMappingSource?.AssociatedElements);
                 })
                 .ToArray();
 
             foreach (var model in models)
             {
-                // check to see if parent has advanced mapping
-                var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
+                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);
 
-                var commandsOrQueries = matchingReferenceFields
-                    .Select(f => f.ParentElement)
-                    .Distinct()
-                    .ToArray();
-
-                var advancedMappingSource = commandsOrQueries.Length switch
-                {
-                    0 => null,
-                    1 => commandsOrQueries[0],
-                    _ => null,
-                };
-
-                registry.RegisterTemplate(TemplateId, 
+                registry.RegisterTemplate(TemplateId,
                     project => new DTOValidatorTemplate(
-                        project, 
-                        model, 
+                        project,
+                        model,
                         advancedMappingSource?.AssociatedElements));
             }
+        }
+
+        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, DTOModel model)
+        {
+            // check to see if parent has advanced mapping
+            var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
+
+            var commandsOrQueries = matchingReferenceFields
+                .Select(f => f.ParentElement)
+                .Distinct()
+                .ToArray();
+
+            var advancedMappingSource = commandsOrQueries.Length switch
+            {
+                0 => null,
+                1 => commandsOrQueries[0],
+                _ => null,
+            };
+
+            return advancedMappingSource;
         }
 
         /// <remarks>
