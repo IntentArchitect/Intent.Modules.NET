@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="53da9db2-800c-43e1-a94d-de1d0a9fb3dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Integration.HttpClients.JsonResponse</name>
-      <display>Intent.Integration.HttpClients.JsonResponse</display>
+    <childElement id="59eb7e69-5897-4550-ba6d-bcc3e5001f9b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</name>
+      <display>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</display>
       <externalReference>Intent.Integration.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -53,14 +53,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="59eb7e69-5897-4550-ba6d-bcc3e5001f9b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</name>
-      <display>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</display>
+    <childElement id="53da9db2-800c-43e1-a94d-de1d0a9fb3dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.JsonResponse</name>
+      <display>Intent.Integration.HttpClients.JsonResponse</display>
       <externalReference>Intent.Integration.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>33e877f2-e688-4af6-b60f-5d0bd9532805</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>MinimalHostingModel</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

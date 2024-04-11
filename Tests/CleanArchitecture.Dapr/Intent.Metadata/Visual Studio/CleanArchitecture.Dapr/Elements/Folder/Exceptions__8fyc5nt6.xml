@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6a4f437a-d8eb-4ff4-bcbf-c1a1d0dbbeb9" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8bed1ffa-35dd-4697-90e2-7a07731963bd</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0f24019b-6d0c-4883-94c8-e90ee96781b6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6a4f437a-d8eb-4ff4-bcbf-c1a1d0dbbeb9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

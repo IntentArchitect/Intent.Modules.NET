@@ -100,5 +100,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="649fc8a6-5412-4c07-9424-b07488e6fc09" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</name>
+      <display>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e7203cc8-e6af-4df9-a702-e6a994fe1544</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

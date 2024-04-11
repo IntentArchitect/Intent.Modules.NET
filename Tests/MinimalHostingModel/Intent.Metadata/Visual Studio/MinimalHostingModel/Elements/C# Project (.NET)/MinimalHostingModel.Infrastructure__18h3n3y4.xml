@@ -49,6 +49,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="b0e73a4c-b537-4b43-bfef-43d71607b07d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ab446e12-3ba4-46b6-9a71-b649eefab17e</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>MinimalHostingModel</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="a495c092-cbe9-4d27-a059-c2d1cbdedbb5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
       <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>
@@ -91,20 +107,6 @@
       <packageName>MinimalHostingModel</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="b0e73a4c-b537-4b43-bfef-43d71607b07d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</display>
-      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ab446e12-3ba4-46b6-9a71-b649eefab17e</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

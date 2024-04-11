@@ -53,5 +53,21 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="e072bc43-8f89-4bea-81eb-0cc82ba7bbef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.ProblemDetailsWithErrors</name>
+      <display>Intent.Integration.HttpClients.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6f1699d9-1606-4c5c-b0d3-50133132b97d</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

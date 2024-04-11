@@ -1540,6 +1540,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a8729734-3d09-4e83-86cb-220ac8910248</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/Products/IProductsService.cs</ApplicationRelativeFilePath>

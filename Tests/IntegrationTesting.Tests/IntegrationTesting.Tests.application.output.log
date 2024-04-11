@@ -2516,6 +2516,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#a7b1f487-5348-4002-b066-74fdd61ee6fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/ProductsServiceHttpClient.cs</ApplicationRelativeFilePath>
