@@ -14,9 +14,10 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.HttpClients.Templates.ProblemDetailsWithErrors
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Ignore)]
     public partial class ProblemDetailsWithErrorsTemplate : ProblemDetailsWithErrorsBase
     {
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.HttpClients.ProblemDetailsWithErrors";
 
         public ProblemDetailsWithErrorsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

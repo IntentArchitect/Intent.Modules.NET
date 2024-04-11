@@ -18,6 +18,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.PagedResult
     {
         public override string TemplateId => PagedResultTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new PagedResultTemplate(outputTarget);

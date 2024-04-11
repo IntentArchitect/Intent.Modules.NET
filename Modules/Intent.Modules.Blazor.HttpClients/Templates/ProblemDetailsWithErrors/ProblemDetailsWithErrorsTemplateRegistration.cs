@@ -18,6 +18,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.ProblemDetailsWithErrors
     {
         public override string TemplateId => ProblemDetailsWithErrorsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ProblemDetailsWithErrorsTemplate(outputTarget);
