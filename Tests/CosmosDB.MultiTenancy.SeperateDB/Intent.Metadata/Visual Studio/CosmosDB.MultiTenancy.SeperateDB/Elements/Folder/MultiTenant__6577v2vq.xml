@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8aff4159-97fc-4dea-99ee-339ec21cc907" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>MultiTenant</name>
+  <display>MultiTenant</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d87b2cba-2801-42f5-a6e7-8636e0eb99bf</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b571c70c-52f2-4516-b95b-b309e060e3d7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</display>
+      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8aff4159-97fc-4dea-99ee-339ec21cc907</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7a4f333a-540e-410c-adba-bc8604b94dcc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</display>
+      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8aff4159-97fc-4dea-99ee-339ec21cc907</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

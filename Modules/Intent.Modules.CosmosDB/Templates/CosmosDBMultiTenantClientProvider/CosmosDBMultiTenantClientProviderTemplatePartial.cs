@@ -35,7 +35,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
 				.AddUsing("Microsoft.Azure.CosmosRepository.Providers")
 				.AddClass($"CosmosDBMultiTenantClientProvider", @class =>
                 {
-                    @class.ImplementsInterfaces(new string[]{ "ICosmosClientProvider", "IDisposable" });
+					AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
+
+					@class.ImplementsInterfaces(new string[]{ "ICosmosClientProvider", "IDisposable" });
 
                     @class.AddField("AsyncLocal<ScopedData?>", "_scopedData", f => f.PrivateReadOnly().WithAssignment("new AsyncLocal<ScopedData?>()"));
 					@class.AddField("Dictionary<string, ConnectionInfo>", "_clients", f => f.PrivateReadOnly().WithAssignment("new Dictionary<string, ConnectionInfo>()"));

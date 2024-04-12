@@ -104,5 +104,6 @@
     <application id="d9d69a96-1190-44a7-bc7d-8a992b0218b4" name="EntityFrameworkCore.SqlServer.EF8" relativePath="EntityFrameworkCore.SqlServer.EF8/EntityFrameworkCore.SqlServer.EF8.application.config" />
     <application id="6533a96e-1ae3-47fb-8637-9e4768f42103" name="EntityFrameworkCore.SqlServer.EF7" relativePath="EntityFrameworkCore.SqlServer.EF7/EntityFrameworkCore.SqlServer.EF7.application.config" />
     <application id="6e5e03eb-f608-4392-9a67-c392120303a3" name="Standard.AspNetCore.Serilog" relativePath="Standard.AspNetCore.Serilog/Standard.AspNetCore.Serilog.application.config" />
+    <application id="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" name="CosmosDB.MultiTenancy.SeperateDB" relativePath="CosmosDB.MultiTenancy.SeperateDB/CosmosDB.MultiTenancy.SeperateDB.application.config" />
   </applications>
 </solution>

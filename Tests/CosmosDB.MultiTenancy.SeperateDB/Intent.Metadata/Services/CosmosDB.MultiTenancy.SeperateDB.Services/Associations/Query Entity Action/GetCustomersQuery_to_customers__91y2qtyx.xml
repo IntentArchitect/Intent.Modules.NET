@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fb832083-b3cf-4c5b-92b7-dfccf120c5c7">
+  <sourceEnd id="b138ea2d-8f8b-4c97-bab5-a30c1b722900" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="c6703004-ba61-4918-a21a-821b3b6cd28e">
+      <typeId>2699081f-50ba-4b94-af5e-f1f5c211f67e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.MultiTenancy.SeperateDB.Services</typePackageName>
+      <typePackageId>8659bbfa-61d3-43d3-a5fa-4e34d2ac1038</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fb832083-b3cf-4c5b-92b7-dfccf120c5c7" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <typeReference id="afd7b2d3-e8ad-4799-a820-34f18791e857">
+      <typeId>d7916913-fc81-4c07-94d9-75ad6f612166</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.MultiTenancy.SeperateDB.Domain</typePackageName>
+      <typePackageId>2385fe55-ae06-433f-a4e2-55d964db3acb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2699081f-50ba-4b94-af5e-f1f5c211f67e" location="[CosmosDB.MultiTenancy.SeperateDB].[Services].[GetCustomersQuery]" />
+        <target applicationId="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d7916913-fc81-4c07-94d9-75ad6f612166" location="[CosmosDB.MultiTenancy.SeperateDB].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

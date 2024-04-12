@@ -41,7 +41,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
-            if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
+
+			if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
             {
 				ConfigureSeperateDatabaseMultiTenancy(application);
                 return;
@@ -61,47 +62,46 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
         {
             ConfigureStartUpForSeperateDatabaseMultiTenancy(application);
             ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(application);
-        }    
+        }
 
-		private void ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(IApplication application)
-		{
-		var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
-		if (template is null)
-		{
-			return;
-		}
+        private void ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(IApplication application)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
+            if (template is null)
+            {
+                return;
+            }
 
-		template.CSharpFile.OnBuild(file =>
-		{
-            //Add the Using
-            template.GetCosmosDBMultiTenancyConfigurationName();
-			var method = file.Classes.First().FindMethod("AddInfrastructure");
-			method.AddInvocationStatement("services.ConfigureCosmosSeperateDBMultiTenancy", invocation =>
-			{
-                invocation.AddArgument("configuration");
-			});
-		});
+            template.CSharpFile.OnBuild(file =>
+            {
+                //Add the Using
+                template.GetCosmosDBMultiTenancyConfigurationName();
+                var method = file.Classes.First().FindMethod("AddInfrastructure");
+                method.AddInvocationStatement("services.ConfigureCosmosSeperateDBMultiTenancy", invocation =>
+                {
+                    invocation.AddArgument("configuration");
+                });
+            });
 
-	}
+        }
 
-	private void ConfigureStartUpForSeperateDatabaseMultiTenancy(IApplication application)
-		{
-			var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-
-			template?.CSharpFile.AfterBuild(_ =>
-			{
-				template.StartupFile.ConfigureApp((statements, ctx) =>
-				{
-					var useUseMultiTenancyStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseMultiTenancy()"));
-					if (useUseMultiTenancyStatement == null)
-					{
-						throw new("app.UseMultiTenancy() was not configured");
-					}
+	    private void ConfigureStartUpForSeperateDatabaseMultiTenancy(IApplication application)
+	    {
+		    var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+		    template?.CSharpFile.AfterBuild(_ =>
+		    {
+			    template.StartupFile.ConfigureApp((statements, ctx) =>
+			    {
+				    var useUseMultiTenancyStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseMultiTenancy()"));
+				    if (useUseMultiTenancyStatement == null)
+				    {
+					    throw new("app.UseMultiTenancy() was not configured");
+				    }
                     template.GetCosmosDBMultiTenantMiddlewareName();
-					useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
-				});
-			}, 15);
-		}
+				    useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
+			    });
+		    }, 15);
+	    }
 
 		private static void UpdateRepository(CosmosDBRepositoryTemplate template)
         {
@@ -149,9 +149,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         private static void UpdateRepositoryBase(ICSharpFileBuilderTemplate template)
         {
-            template.AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
-
-            template.CSharpFile.OnBuild(file =>
+			template.AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
+			template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 file.AddUsing("System");
