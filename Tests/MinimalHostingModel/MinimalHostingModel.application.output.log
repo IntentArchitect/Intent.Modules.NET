@@ -235,6 +235,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6f1699d9-1606-4c5c-b0d3-50133132b97d</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -392,6 +400,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da3b096c-8d67-4925-b5f6-43178f945468</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
