@@ -2,6 +2,8 @@
 
 - Improvement: Added roles to interface template for easier location in other modules.
 - Improvement: Keyless entities will now have a manual insert SQL statement generated for them.
+- Fixed: Stored Procedures will generate execution parameter names with `@` prefix symbols.
+- Fixed: OUTPUT parameters have not always been correctly set.
 
 ### Version 4.5.2
 

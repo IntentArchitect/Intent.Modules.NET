@@ -46,7 +46,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE input0_tableType0_output1_return0 {output0Parameter} OUTPUT", cancellationToken);
@@ -59,7 +60,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var result = (await _dbContext.SpResults
@@ -114,7 +116,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var tableType0Parameter = new SqlParameter
@@ -137,7 +140,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var tableType0Parameter = new SqlParameter
@@ -180,7 +184,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE input1_tableType0_output1_return0 {output0Parameter} OUTPUT, {input0}", cancellationToken);
@@ -195,7 +200,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var result = (await _dbContext.SpResults
@@ -253,7 +259,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var tableType0Parameter = new SqlParameter
@@ -277,7 +284,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var output0Parameter = new SqlParameter
             {
                 Direction = ParameterDirection.Output,
-                SqlDbType = SqlDbType.Int
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@output0"
             };
 
             var tableType0Parameter = new SqlParameter

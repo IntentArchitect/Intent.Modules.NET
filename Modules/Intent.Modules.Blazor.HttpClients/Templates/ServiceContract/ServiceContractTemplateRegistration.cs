@@ -29,6 +29,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.ServiceContract
 
         public override string TemplateId => ServiceContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceProxyModel model)
         {
             return new ServiceContractTemplate(outputTarget, model);
