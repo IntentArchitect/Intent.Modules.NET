@@ -19,7 +19,11 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure
             {
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                    b =>
+                    {
+                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                        b.UseDateOnlyTimeOnly();
+                    });
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());

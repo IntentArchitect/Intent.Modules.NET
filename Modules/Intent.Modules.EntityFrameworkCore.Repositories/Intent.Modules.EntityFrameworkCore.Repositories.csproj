@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.5.3-pre.2</Version>
+    <Version>4.5.4-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -25,7 +25,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0-pre.6" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
   </ItemGroup>
 
   <ItemGroup>

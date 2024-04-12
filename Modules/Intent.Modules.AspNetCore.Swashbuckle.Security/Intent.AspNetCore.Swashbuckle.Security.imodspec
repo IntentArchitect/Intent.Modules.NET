@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Swashbuckle.Security</id>
   <version>4.0.6</version>
-  <supportedClientVersions>[4.1.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Supports various Authentications for the Swagger UI</summary>
   <description>Supports various Authentications for the Swagger UI</description>
   <authors>Intent Architect</authors>

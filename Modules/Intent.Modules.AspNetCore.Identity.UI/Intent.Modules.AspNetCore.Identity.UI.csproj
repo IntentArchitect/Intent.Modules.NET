@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="content\**\*.*" />
+    <Compile Remove="resources\**\*.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="content\**\*.*" />
+    <None Include="resources\**\*.*" />
   </ItemGroup>
 
   <ItemGroup>

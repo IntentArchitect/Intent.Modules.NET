@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Interop.Angular</id>
   <version>4.0.2</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Supplies ASP.NET Core host start-up configuration for Angular SPAs.</summary>
   <description>Supplies ASP.NET Core host start-up configuration for Angular SPAs.</description>

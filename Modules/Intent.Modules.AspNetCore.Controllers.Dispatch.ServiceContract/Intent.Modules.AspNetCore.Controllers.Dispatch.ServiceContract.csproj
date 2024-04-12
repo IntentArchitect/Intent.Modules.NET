@@ -6,18 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Contracts" Version="4.0.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />    
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />  
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
