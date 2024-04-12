@@ -37,9 +37,25 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3e81222d-d8f7-458b-b462-55900d2e591c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="7690d2f0-bcd9-4bb4-bdc5-45f0778cf443" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientRequestException</name>
       <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientRequestException</display>
+      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>92d0ea75-82a5-47a9-b0d8-8c76524771d2</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2c54a081-f074-43d3-9f23-3e22f140c164" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</display>
       <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

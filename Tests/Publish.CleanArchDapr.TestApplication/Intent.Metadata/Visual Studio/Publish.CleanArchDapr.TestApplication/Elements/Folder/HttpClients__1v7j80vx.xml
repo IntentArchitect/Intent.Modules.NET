@@ -21,7 +21,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2e1a42ec-e089-48ad-99e0-8ab6a3ab87dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6cfdf108-d12f-40d2-83a7-fa76a5379c50" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient</name>
       <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient</display>
       <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="fdf8ad96-05ed-4369-88c3-ad753ea694ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.ServiceInvocation.JsonResponse</name>
-      <display>Intent.Dapr.AspNetCore.ServiceInvocation.JsonResponse</display>
+    <childElement id="3c88dd82-ef06-41a5-8081-dda8a884bd1e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</display>
       <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -53,21 +53,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="306b75e8-9341-4a0e-b1d7-690f769f954d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</name>
-      <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</display>
-      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e2c4b71a-fb46-4838-9d85-e898252bc6d3</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="70d59fd5-723c-48b4-9618-4c2d01f36cd2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f47caa2d-3375-4d91-a841-1d7751ee8918" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</name>
       <display>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</display>
       <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
@@ -75,6 +61,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e2c4b71a-fb46-4838-9d85-e898252bc6d3</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="45c937f0-dbc7-4239-b3bd-5e85d394e112" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.ServiceInvocation.JsonResponse</name>
+      <display>Intent.Dapr.AspNetCore.ServiceInvocation.JsonResponse</display>
+      <externalReference>Intent.Dapr.AspNetCore.ServiceInvocation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e2c4b71a-fb46-4838-9d85-e898252bc6d3</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
