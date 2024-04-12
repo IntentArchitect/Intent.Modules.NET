@@ -1,7 +1,10 @@
-﻿### Version 2.2.2
+﻿### Version 2.2.3
+
+- Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
+
+### Version 2.2.2
 
 - Improvement: Added support for Dapr Http Client URL configuration.
-- Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
 
 ### Version 2.2.1
 
