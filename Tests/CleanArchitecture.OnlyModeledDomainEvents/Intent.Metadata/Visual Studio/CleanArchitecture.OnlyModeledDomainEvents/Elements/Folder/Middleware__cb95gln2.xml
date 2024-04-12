@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7b5af7a3-258b-431d-980b-5e070ca89c55" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Middleware</name>
+  <display>Middleware</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>66ada38c-0c1e-4cf2-9d83-6b9b49dba031</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="21da5266-8224-4369-ae32-8b41a32df53f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBMultiTenantMiddleware</name>
+      <display>Intent.CosmosDB.CosmosDBMultiTenantMiddleware</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7b5af7a3-258b-431d-980b-5e070ca89c55</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

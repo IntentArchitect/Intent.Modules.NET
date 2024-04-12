@@ -65,7 +65,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenancyConfiguration
                 });
         }
 
-        [IntentManaged(Mode.Fully)]
+		public override bool CanRunTemplate()
+		{
+			return base.CanRunTemplate() && DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(ExecutionContext.Settings);
+		}
+
+		[IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
