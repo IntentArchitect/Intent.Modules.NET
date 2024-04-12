@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>da3b096c-8d67-4925-b5f6-43178f945468</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>MinimalHostingModel</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

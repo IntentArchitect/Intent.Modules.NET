@@ -4,7 +4,7 @@
   <display>Publish.CleanArchDapr.TestApplication.Application</display>
   <externalReference>13d49ec6-9bea-4140-887a-fc52e72ab3b4</externalReference>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>da8c9bbd-8ad0-438b-a3e1-2ac6a256110a</parentFolderId>
@@ -17,6 +17,8 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
@@ -64,6 +66,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="1154b4e6-8c43-4ae8-937f-3987a59f8947" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
+      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="df36a7c6-c202-4d0d-ba57-ba212f8565f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.ContractEnumModel</name>
       <display>Intent.Application.Dtos.ContractEnumModel</display>
@@ -96,10 +114,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1154b4e6-8c43-4ae8-937f-3987a59f8947" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.AutoMapper.MappingExtensions</name>
-      <display>Intent.Application.Dtos.AutoMapper.MappingExtensions</display>
-      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+    <childElement id="4cd7b8e1-539d-45a8-9b4a-370cbe65abc3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
+      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -131,38 +149,6 @@
     <childElement id="33327fe9-9ded-467c-9f2d-d8707eeb83d8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.CommandModels</name>
       <display>Intent.Application.MediatR.CommandModels</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="07cab175-4380-4619-b32a-d9bf76f87f69" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryHandler</name>
-      <display>Intent.Application.MediatR.QueryHandler</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="1bada782-e712-48be-9618-4d16a7bda6fb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryModels</name>
-      <display>Intent.Application.MediatR.QueryModels</display>
       <externalReference>Intent.Application.MediatR</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -208,10 +194,26 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4cd7b8e1-539d-45a8-9b4a-370cbe65abc3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
-      <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="07cab175-4380-4619-b32a-d9bf76f87f69" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryHandler</name>
+      <display>Intent.Application.MediatR.QueryHandler</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1bada782-e712-48be-9618-4d16a7bda6fb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryModels</name>
+      <display>Intent.Application.MediatR.QueryModels</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -243,6 +243,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>92d0ea75-82a5-47a9-b0d8-8c76524771d2</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3f61c05c-533a-4339-a667-92b2c9dad05d</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -816,14 +824,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3acdc6de-93c6-4703-92bc-3c75eaed13ec</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

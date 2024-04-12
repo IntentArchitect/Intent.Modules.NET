@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors", Version = "1.0")]
 
-namespace CleanArchitecture.Dapr.Infrastructure.Common.Exceptions
+namespace Publish.CleanArchDapr.TestApplication.Application.Common.Exceptions
 {
     public class ProblemDetailsWithErrors
     {
