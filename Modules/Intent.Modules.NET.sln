@@ -206,7 +206,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.DocumentDB.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
 EndProject

@@ -6,6 +6,12 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentTypeExtensionMethods;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenancyConfiguration;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultitenantContainerProvider;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantMiddleware;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantOptionsMonitor;
+using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
@@ -53,6 +59,36 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosDBDocumentTypeExtensionMethodsName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBDocumentTypeExtensionMethodsTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultiTenancyConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultiTenancyConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultiTenantClientProviderName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultiTenantClientProviderTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultitenantContainerProviderName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultitenantContainerProviderTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultiTenantMiddlewareName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultiTenantMiddlewareTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultiTenantOptionsMonitorName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultiTenantOptionsMonitorTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBMultiTenantRepositoryOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBMultiTenantRepositoryOptionsTemplate.TemplateId);
         }
 
         public static string GetCosmosDBRepositoryName<T>(this IIntentTemplate<T> template) where T : ClassModel

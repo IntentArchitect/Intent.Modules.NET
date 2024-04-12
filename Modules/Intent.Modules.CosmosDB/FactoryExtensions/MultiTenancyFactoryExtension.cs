@@ -5,6 +5,7 @@ using System.Reflection;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -40,9 +41,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 return;
             }
 
-            if (IsSeparateDatabaseMultiTenancy(application))
+            if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
             {
-                Logging.Log.Warning("The Intent.CosmosDB Module does not currently support the MultiTenancy Settings' \"Data Isolation\" setting of \"Separate Databases\". Please either change the \"Data Isolation\" setting or contact support@intentarchitect.com should you require \"Separate Databases\" isolation.");
+				ConfigureSeperateDatabaseMultiTenancy(application);
                 return;
             }
 
@@ -56,15 +57,53 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             }
         }
 
-        private static bool IsSeparateDatabaseMultiTenancy(IApplication application)
+        private void ConfigureSeperateDatabaseMultiTenancy(IApplication application)
         {
-            const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
-            const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+            ConfigureStartUpForSeperateDatabaseMultiTenancy(application);
+            ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(application);
+        }    
 
-            return application.Settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
-        }
+		private void ConfigureDependencyInjectionForSeperateDatabaseMultiTenancy(IApplication application)
+		{
+		var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
+		if (template is null)
+		{
+			return;
+		}
 
-        private static void UpdateRepository(CosmosDBRepositoryTemplate template)
+		template.CSharpFile.OnBuild(file =>
+		{
+            //Add the Using
+            template.GetCosmosDBMultiTenancyConfigurationName();
+			var method = file.Classes.First().FindMethod("AddInfrastructure");
+			method.AddInvocationStatement("services.ConfigureCosmosSeperateDBMultiTenancy", invocation =>
+			{
+                invocation.AddArgument("configuration");
+			});
+		});
+
+	}
+
+	private void ConfigureStartUpForSeperateDatabaseMultiTenancy(IApplication application)
+		{
+			var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+
+			template?.CSharpFile.AfterBuild(_ =>
+			{
+				template.StartupFile.ConfigureApp((statements, ctx) =>
+				{
+					var useUseMultiTenancyStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseMultiTenancy()"));
+					if (useUseMultiTenancyStatement == null)
+					{
+						throw new("app.UseMultiTenancy() was not configured");
+					}
+                    template.GetCosmosDBMultiTenantMiddlewareName();
+					useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
+				});
+			}, 15);
+		}
+
+		private static void UpdateRepository(CosmosDBRepositoryTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {

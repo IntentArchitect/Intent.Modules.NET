@@ -12,8 +12,8 @@ namespace Intent.Modules.CosmosDB
             {
                 (5, 0) => "3.7.0",
                 (6, 0) => "3.7.0",
-                (7, 0) => "7.1.0",
-                _ => "8.1.3"
+                (7, 0) => "8.1.5",
+                _ => "8.1.5"
             });
         /// <summary>
         /// This dependency is introduced to override the version installed by CosmosDB due to a possible security

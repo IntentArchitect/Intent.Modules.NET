@@ -61,7 +61,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                     throw new("app.UseRouting() was not configured");
                 }
 
-                useRoutingStatement.InsertBelow($"{ctx.App}.UseMultiTenancy();");
+                useRoutingStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
             });
         }, 10);
 
