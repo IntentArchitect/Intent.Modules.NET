@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="04ce1545-a4d2-40e5-87f4-ffa6baf05218" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>SingleIndexEntityMultiChild</name>
-    <display>SingleIndexEntityMultiChild: SingleIndexEntityMultiChild[*]   [1 --&gt; *]</display>
-    <order>3</order>
+    <display>SingleIndexEntityMultiChild: SingleIndexEntityMultiChild[*]</display>
+    <order>2</order>
     <typeReference id="f0fe0c1c-f656-44b3-966e-cd843221afed">
       <typeId>b66ba3a1-4bc9-47f2-b0ac-819231f82f4c</typeId>
       <isNavigable>true</isNavigable>

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="e38ca522-ea4c-4425-8b45-c8e2801f738c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ToManyGuids</name>
-    <display>ToManyGuids: ToManyGuid[*]   [1 --&gt; *]</display>
+    <display>ToManyGuids: ToManyGuid[*]</display>
     <order>1</order>
     <typeReference id="49874e5a-3e39-482c-bb90-ddcae728556c">
       <typeId>6ccb0885-4c8c-442b-a8db-16decc807a27</typeId>

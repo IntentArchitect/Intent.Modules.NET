@@ -64,6 +64,7 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<MapAggPeerAgg> MapAggPeerAggs { get; set; }
         public MongoDbSet<MapAggPeerAggMore> MapAggPeerAggMores { get; set; }
         public MongoDbSet<MapCompChildAgg> MapCompChildAggs { get; set; }
+        public MongoDbSet<MapImplyOptional> MapImplyOptionals { get; set; }
         public MongoDbSet<MapMapMe> MapMapMes { get; set; }
         public MongoDbSet<MapPeerCompChildAgg> MapPeerCompChildAggs { get; set; }
         public MongoDbSet<MapperRoot> MapperRoots { get; set; }
@@ -223,6 +224,9 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<MapCompChildAgg>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapImplyOptional>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<MapMapMe>()

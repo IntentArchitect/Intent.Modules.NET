@@ -18,5 +18,7 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
         public string MapAggPeerId { get; set; }
 
         public MapCompChild MapCompChild { get; set; }
+
+        public MapCompOptional? MapCompOptional { get; set; }
     }
 }

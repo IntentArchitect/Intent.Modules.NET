@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="f12d253d-6627-4b12-a716-9fde47cdc00d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>CompoundIndexEntityMultiChild</name>
-    <display>CompoundIndexEntityMultiChild: CompoundIndexEntityMultiChild[*]   [1 --&gt; *]</display>
-    <order>3</order>
+    <display>CompoundIndexEntityMultiChild: CompoundIndexEntityMultiChild[*]</display>
+    <order>2</order>
     <typeReference id="430698d6-413a-4e4a-a5f5-55e66ec2011b">
       <typeId>5663a7bd-193c-4619-8cd1-d1778e65b77b</typeId>
       <isNavigable>true</isNavigable>

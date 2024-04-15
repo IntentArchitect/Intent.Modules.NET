@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="7874c0a5-e1d3-42c8-96bb-65398c7a2534" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>D_OptionalAggregates</name>
-    <display>D_OptionalAggregates: D_OptionalAggregate[*]   [0..1 --&gt; *]</display>
+    <display>D_OptionalAggregates: D_OptionalAggregate[*]</display>
     <order>3</order>
     <typeReference id="54df7b77-09eb-4de1-8d69-1f44d6a9673b">
       <typeId>74631058-b663-4cee-9250-0ebf4b5372ef</typeId>

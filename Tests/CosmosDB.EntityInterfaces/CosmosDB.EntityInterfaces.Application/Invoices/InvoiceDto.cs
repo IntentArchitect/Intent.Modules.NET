@@ -71,6 +71,11 @@ namespace CosmosDB.EntityInterfaces.Application.Invoices
             public void Process(Invoice source, InvoiceDto destination, ResolutionContext context)
             {
                 var client = _clientRepository.FindByIdAsync(source.ClientIdentifier).Result;
+
+                if (client == null)
+                {
+                    return;
+                }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }
         }

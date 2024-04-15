@@ -165,28 +165,36 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
 
                         string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}.ToArray()" : fkAttribute.Name.ToPascalCase();
 
-                        if (load.IsOptional)
+                        if (load.IsExpressionOptional)
                         {
-                            method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result : null;");
+							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath.Replace("?", "")}.{fkExpression}).Result : null;");
                         }
-                        else
+                        else if (load.IsOptional)
+                        {
+							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result : null;");
+						}
+						else
                         {
                             method.AddStatement($"var {load.Variable} = {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result;");
                         }
-                    }
+                    if (!fkAttribute.TypeReference.IsCollection && !load.IsOptional && !load.IsExpressionOptional)
+                        {
+                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new Exception($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
+						}
+					}
 
                     foreach (var mapping in mappedFields)
                     {
                         string aggregateExpression = GetAggregatePathExpression(template, mapping.Field, mapping.Field.Mapping.Path, out var fieldPath);
                         var load = aggregateLoadInstructions[aggregateExpression];
-                        if (load.IsOptional)
+                        if (load.IsOptional || load.IsExpressionOptional)
                         {
                             method.AddStatement($"destination.{mapping.Field.Name} = {load.Variable} != null ? {load.Variable}.{fieldPath} : null;");
                         }
                         else
                         {
-                            method.AddStatement($"destination.{mapping.Field.Name} = {load.Variable}.{fieldPath};");
-                        }
+							method.AddStatement($"destination.{mapping.Field.Name} = {load.Variable}.{fieldPath};");
+						}
                     }
                 });
             });

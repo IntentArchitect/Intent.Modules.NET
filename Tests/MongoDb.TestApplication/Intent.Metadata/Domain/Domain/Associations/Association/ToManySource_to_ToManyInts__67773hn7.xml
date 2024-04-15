@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="c3e1305a-772b-4402-b7a7-693b5894d209" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ToManyInts</name>
-    <display>ToManyInts: ToManyInt[*]   [1 --&gt; *]</display>
+    <display>ToManyInts: ToManyInt[*]</display>
     <order>2</order>
     <typeReference id="919f7d7e-f6dc-457c-b606-93b160e90686">
       <typeId>3ed0cb74-a536-4b05-abaa-a80326017571</typeId>

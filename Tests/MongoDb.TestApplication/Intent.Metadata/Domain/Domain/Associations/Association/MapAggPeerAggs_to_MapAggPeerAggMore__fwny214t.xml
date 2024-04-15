@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="522b04c9-d150-46d1-bfa2-51f19680d059" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapAggPeerAggMore</name>
-    <display>MapAggPeerAggMore: MapAggPeerAggMore   [* --&gt; 1]</display>
+    <display>MapAggPeerAggMore: MapAggPeerAggMore</display>
     <order>3</order>
     <typeReference id="a115bc11-4fb2-40dd-822d-34496c6a735e">
       <typeId>1f3098de-eb4e-481a-96b4-988fc18fccb7</typeId>

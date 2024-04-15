@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="428bcc2d-dcff-40f0-bd8c-f1ab9130585f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>E_RequiredDependent</name>
-    <display>E_RequiredDependent: E_RequiredDependent   [1 --&gt; 1]</display>
+    <display>E_RequiredDependent: E_RequiredDependent</display>
     <order>2</order>
     <typeReference id="2e834698-87d6-42b6-83e2-14c95eda4e07">
       <typeId>47eb4e60-9b41-4b30-a746-fbd9bae5cf2e</typeId>

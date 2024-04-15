@@ -2116,6 +2116,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#3e9e7cdd-c6dd-484a-b716-877f7f20e27e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/Mappings/MapCompOptional.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mappings/MapCompOptional.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5a0c314c-d6e5-404f-bcc0-1fc1585bc60e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/Mappings/MapImplyOptional.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mappings/MapImplyOptional.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/Mappings/MapMapMe.cs</ApplicationRelativeFilePath>
@@ -2580,6 +2596,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5a0c314c-d6e5-404f-bcc0-1fc1585bc60e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/Mappings/IMapImplyOptionalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mappings/IMapImplyOptionalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/Mappings/IMapMapMeRepository.cs</ApplicationRelativeFilePath>
@@ -2992,6 +3016,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Mappings/MapCompChildAggMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Mappings/MapCompChildAggMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.Repository#5a0c314c-d6e5-404f-bcc0-1fc1585bc60e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Mappings/MapImplyOptionalMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mappings/MapImplyOptionalMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

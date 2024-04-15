@@ -62,6 +62,11 @@ namespace CleanArchitecture.Dapr.Application.Invoices
             public void Process(Invoice source, InvoiceDto destination, ResolutionContext context)
             {
                 var client = _clientRepository.FindByIdAsync(source.ClientId).Result;
+
+                if (client == null)
+                {
+                    return;
+                }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }
         }

@@ -81,6 +81,7 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<IMapAggPeerAggRepository, MapAggPeerAggMongoRepository>();
             services.AddTransient<IMapAggPeerAggMoreRepository, MapAggPeerAggMoreMongoRepository>();
             services.AddTransient<IMapCompChildAggRepository, MapCompChildAggMongoRepository>();
+            services.AddTransient<IMapImplyOptionalRepository, MapImplyOptionalMongoRepository>();
             services.AddTransient<IMapMapMeRepository, MapMapMeMongoRepository>();
             services.AddTransient<IMapPeerCompChildAggRepository, MapPeerCompChildAggMongoRepository>();
             services.AddTransient<IMapperRootRepository, MapperRootMongoRepository>();

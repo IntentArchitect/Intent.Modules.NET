@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="07beee15-6f5f-4728-acbb-e483da79d955" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>AggregateB</name>
-    <display>AggregateB: AggregateB   [0..1 --&gt; 1]</display>
+    <display>AggregateB: AggregateB</display>
     <order>2</order>
     <typeReference id="cfb28b42-8411-4313-8541-44c239b630d3">
       <typeId>46c3e739-1c7a-4578-8d34-6200a7604df2</typeId>
