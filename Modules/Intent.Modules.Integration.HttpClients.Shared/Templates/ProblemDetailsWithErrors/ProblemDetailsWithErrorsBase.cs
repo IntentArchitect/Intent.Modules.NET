@@ -29,6 +29,14 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.ProblemDetails
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"ProblemDetailsWithErrors", @class =>
                 {
+                    @class.AddConstructor(ctor => {
+                        ctor.AddStatement($"Type = null!;");
+                        ctor.AddStatement($"Title = null!;");
+                        ctor.AddStatement($"TraceId = null!;");
+                        ctor.AddStatement($"Errors = null!;");
+                        ctor.AddStatement($"ExtensionData = null!;");
+                    });
+
                     @class.AddProperty("string", "Type", property => property.AddAttribute(UseType("System.Text.Json.Serialization.JsonPropertyName"), attribute =>
                     {
                         attribute.AddArgument("\"type\"");

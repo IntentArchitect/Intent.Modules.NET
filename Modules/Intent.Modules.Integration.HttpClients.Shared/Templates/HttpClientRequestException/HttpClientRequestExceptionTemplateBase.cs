@@ -36,15 +36,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .CallsBase(b => b
                             .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
                         )
-                        .AddStatements(new[]
-                        {
-                            $"if (responseContent is not null &&",
-                            $"    responseHeaders.TryGetValue(\"Content-Type\", out var contentTypeValues) &&",
-                            $"    contentTypeValues.FirstOrDefault() == \"application/problem+json; charset=utf-8\")",
-                            $"{{",
-                            $"    ProblemDetails = System.Text.Json.JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);",
-                            $"}}",
-                        })
+                        .AddIfStatement(
+                            "!string.IsNullOrWhiteSpace(responseContent) && responseHeaders.TryGetValue(\"Content-Type\", out var contentTypeValues) && contentTypeValues.FirstOrDefault() == \"application/problem+json; charset=utf-8\"", 
+                            s => s
+                                .AddStatement($"ProblemDetails = {UseType("System.Text.Json.JsonSerializer")}.Deserialize<ProblemDetailsWithErrors>(responseContent);")
+                                .SeparatedFromPrevious()
+                        )
                     )
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
                         .Static()
@@ -53,20 +50,15 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .AddParameter("HttpRequestMessage", "request")
                         .AddParameter("HttpResponseMessage", "response")
                         .AddParameter("CancellationToken", "cancellationToken")
-                        .AddStatements(new[]
-                        {
-                            "var fullRequestUri = new Uri(baseAddress, request.RequestUri!);",
-                            $"var content = await response.Content.{GetReadAsStringAsyncMethodCall()}.ConfigureAwait(false);",
-                            "",
-                            "var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);",
-                            "var contentHeaders = response.Content.Headers.ToDictionary(k => k.Key, v => v.Value); ",
-                            "var allHeaders = headers",
-                            "    .Concat(contentHeaders)",
-                            "    .GroupBy(kvp => kvp.Key)",
-                            "    .ToDictionary(group => group.Key, group => group.Last().Value);",
-                            "",
-                            $"return new {@class.Name}(fullRequestUri, response.StatusCode, allHeaders, response.ReasonPhrase, content);",
-                        })
+                        .AddStatement("var fullRequestUri = new Uri(baseAddress, request.RequestUri!);")
+                        .AddStatement($"var content = await response.Content.{GetReadAsStringAsyncMethodCall()}.ConfigureAwait(false);")
+                        .AddStatement("var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);", s => s.SeparatedFromPrevious())
+                        .AddStatement("var contentHeaders = response.Content.Headers.ToDictionary(k => k.Key, v => v.Value); ")
+                        .AddStatement("var allHeaders = headers")
+                        .AddStatement("    .Concat(contentHeaders)", s => s.Indent())
+                        .AddStatement("    .GroupBy(kvp => kvp.Key)", s => s.Indent())
+                        .AddStatement("    .ToDictionary(group => group.Key, group => group.Last().Value);", s => s.Indent())
+                        .AddStatement($"return new {@class.Name}(fullRequestUri, response.StatusCode, allHeaders, response.ReasonPhrase, content);", s => s.SeparatedFromPrevious())
                     )
                     .AddMethod("string", "GetMessage", m => m
                         .Private()
@@ -79,7 +71,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .AddStatementBlock("if (!string.IsNullOrWhiteSpace(responseContent))", sb => sb
                             .AddStatement("message += \" See content for more detail.\";")
                         )
-                        .AddStatement("return message;")
+                        .AddStatement("return message;", s => s.SeparatedFromPrevious())
                     )
                 );
         }
