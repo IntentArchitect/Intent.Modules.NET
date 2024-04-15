@@ -36,7 +36,7 @@ public class EfCoreExtension : FactoryExtensionBase
         var entities = application
             .FindTemplateInstances<IIntentTemplate<ClassModel>>(
                 TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"))
-            .Where(p => p.Model.HasSoftDeleteEntity())
+            .Where(p => p.Model.HasSoftDeleteEntity() || (p.Model.ParentClass is not null && p.Model.ParentClass.HasSoftDeleteEntity()))
             .Cast<ICSharpFileBuilderTemplate>()
             .ToArray();
         foreach (var entity in entities)
