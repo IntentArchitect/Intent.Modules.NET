@@ -109,7 +109,7 @@
     </childElement>
     <childElement id="0afe3650-492b-403b-9fc9-89cd0db8c1a4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Date</name>
-      <display>Date: date</display>
+      <display>Date: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e7bb0410-ec61-4836-9c03-f6a9d4b4cd33">
@@ -268,7 +268,7 @@
     </childElement>
     <childElement id="08beef1e-2f90-4e74-a15c-148096ef6ea1" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
       <name>Constructor</name>
-      <display>TestNullablity(id: guid, sampleEnum: NoDefaultLiteralEnum, str: string, date: date, dateTime: datetime, nullableGuid: guid?, nullableEnum: NoDefaultLiteralEnum?, defaultLiteralEnum: DefaultLiteralEnum)</display>
+      <display>TestNullablity(id: guid, sampleEnum: NoDefaultLiteralEnum, str: string, date: datetime, dateTime: datetime, nullableGuid: guid?, nullableEnum: NoDefaultLiteralEnum?, defaultLiteralEnum: DefaultLiteralEnum)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -383,7 +383,7 @@
         </childElement>
         <childElement id="443ab78d-c0a2-447b-8f05-97d75d83e3be" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
           <name>date</name>
-          <display>in : date: date</display>
+          <display>in : date: datetime</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="129100c5-47de-418a-9596-363d586c33b4">

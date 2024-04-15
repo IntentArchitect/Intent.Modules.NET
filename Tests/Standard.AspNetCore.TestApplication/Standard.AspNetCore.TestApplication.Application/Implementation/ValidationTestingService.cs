@@ -20,7 +20,9 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<ValidationDto> ValidationOperation(CancellationToken cancellationToken = default)
+        public async Task InboundValidationDtoAction(
+            InboundValidationDto dto,
+            CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }

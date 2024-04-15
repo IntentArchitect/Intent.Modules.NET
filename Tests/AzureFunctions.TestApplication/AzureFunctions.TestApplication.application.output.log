@@ -331,6 +331,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#cc509d59-db35-428a-a70a-1b0838332b28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Validation/InboundComVal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundComVal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#bfea3639-7499-41cb-a11b-dc0e1aac8811</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Validation/InboundQueVal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundQueVal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#eabb855e-a43c-4f98-af32-04abafc961bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -948,6 +964,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#392b086e-e503-40d5-b6ae-4e76111c5b73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/DummyResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/DummyResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#c26b48e5-bfdf-4f0a-9ad6-0b86654b195b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#cc509d59-db35-428a-a70a-1b0838332b28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/InboundComVal/InboundComValCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundComVal/InboundComValCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#cc509d59-db35-428a-a70a-1b0838332b28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/InboundComVal/InboundComValCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundComVal/InboundComValCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#bfea3639-7499-41cb-a11b-dc0e1aac8811</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/InboundQueVal/InboundQueValQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundQueVal/InboundQueValQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#bfea3639-7499-41cb-a11b-dc0e1aac8811</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validation/InboundQueVal/InboundQueValQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundQueVal/InboundQueValQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
@@ -1120,6 +1184,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/SampleDomains/SampleMappedRequestValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomains/SampleMappedRequestValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cc509d59-db35-428a-a70a-1b0838332b28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Validation/InboundComVal/InboundComValCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundComVal/InboundComValCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#bfea3639-7499-41cb-a11b-dc0e1aac8811</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Validation/InboundQueVal/InboundQueValQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundQueVal/InboundQueValQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

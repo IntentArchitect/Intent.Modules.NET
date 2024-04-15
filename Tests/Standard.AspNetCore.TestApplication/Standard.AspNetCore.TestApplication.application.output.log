@@ -628,10 +628,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#2bcdbbb5-5c7d-4019-b31a-9da787f77670</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#6aa110ea-c7b4-4288-8ee8-c7cf35d74fd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/ValidationDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Validation/ValidationDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3a22fed0-d654-4dfb-b3ab-86f09ae6f126</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/InboundValidationDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundValidationDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7671391-0a4a-47ec-af21-137364618e92</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3a22fed0-d654-4dfb-b3ab-86f09ae6f126</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Validation/InboundValidationDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Validation/InboundValidationDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

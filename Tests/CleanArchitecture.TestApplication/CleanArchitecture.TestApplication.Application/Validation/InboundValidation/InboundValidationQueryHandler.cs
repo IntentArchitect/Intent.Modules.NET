@@ -5,20 +5,20 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Validation.Validated
+namespace CleanArchitecture.TestApplication.Application.Validation.InboundValidation
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class ValidatedCommandHandler : IRequestHandler<ValidatedCommand>
+    public class InboundValidationQueryHandler : IRequestHandler<InboundValidationQuery, DummyResultDto>
     {
         [IntentManaged(Mode.Merge)]
-        public ValidatedCommandHandler()
+        public InboundValidationQueryHandler()
         {
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Handle(ValidatedCommand request, CancellationToken cancellationToken)
+        public async Task<DummyResultDto> Handle(InboundValidationQuery request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");
         }

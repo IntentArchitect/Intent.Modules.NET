@@ -11,6 +11,6 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 {
     public interface IValidationTestingService : IDisposable
     {
-        Task<ValidationDto> ValidationOperation(CancellationToken cancellationToken = default);
+        Task InboundValidationDtoAction(InboundValidationDto dto, CancellationToken cancellationToken = default);
     }
 }

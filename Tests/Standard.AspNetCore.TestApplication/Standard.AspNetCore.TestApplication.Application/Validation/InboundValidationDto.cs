@@ -3,17 +3,18 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Validation
+namespace Standard.AspNetCore.TestApplication.Application.Validation
 {
-    public class ValidatedResultDto
+    public class InboundValidationDto
     {
-        public ValidatedResultDto()
+        public InboundValidationDto()
         {
             RangeStr = null!;
             MinStr = null!;
             MaxStr = null!;
             IsRequired = null!;
             IsRequiredEmpty = null!;
+            RegexField = null!;
         }
 
         public string RangeStr { get; set; }
@@ -30,8 +31,9 @@ namespace CleanArchitecture.TestApplication.Application.Validation
         public string? StringOption { get; set; }
         public string? StringOptionNonEmpty { get; set; }
         public EnumDescriptions MyEnum { get; set; }
+        public string RegexField { get; set; }
 
-        public static ValidatedResultDto Create(
+        public static InboundValidationDto Create(
             string rangeStr,
             string minStr,
             string maxStr,
@@ -45,9 +47,10 @@ namespace CleanArchitecture.TestApplication.Application.Validation
             decimal decimalMax,
             string? stringOption,
             string? stringOptionNonEmpty,
-            EnumDescriptions myEnum)
+            EnumDescriptions myEnum,
+            string regexField)
         {
-            return new ValidatedResultDto
+            return new InboundValidationDto
             {
                 RangeStr = rangeStr,
                 MinStr = minStr,
@@ -62,7 +65,8 @@ namespace CleanArchitecture.TestApplication.Application.Validation
                 DecimalMax = decimalMax,
                 StringOption = stringOption,
                 StringOptionNonEmpty = stringOptionNonEmpty,
-                MyEnum = myEnum
+                MyEnum = myEnum,
+                RegexField = regexField
             };
         }
     }

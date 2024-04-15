@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
     <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Package Reference" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
       <target id="25104660-627e-4d28-ba72-ff403ea7e24f" name="Versioned" type="element" specialization="Folder" />
     </mappedPath>
   </mappedClass>
@@ -24,8 +24,9 @@
   <childElements>
     <childElement id="6bf708d4-97a4-4341-9343-8ce2dbfde12d" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>TestCommandV1</name>
-      <display>TestCommandV1(): void</display>
+      <display>TestCommandV1(command: TestCommandV1): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="834ed698-3240-4041-916a-22a67d00e81e">
         <isNavigable>true</isNavigable>
@@ -48,12 +49,40 @@
       <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="6b87ac09-1834-4d59-99e3-3d10304b8195" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: TestCommandV1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="31e6027b-3dc0-4371-90f3-365b37951ea1">
+            <typeId>43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6bf708d4-97a4-4341-9343-8ce2dbfde12d</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="43d7c30f-c7e3-4c12-ba5a-22fb15e8a8c0" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="f5d80665-2c18-453c-8c29-172d58e08a51" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>TestCommandV2</name>
-      <display>TestCommandV2(): void</display>
+      <display>TestCommandV2(command: TestCommandV2): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="5b913152-2361-41bb-a101-0ffe81afb39e">
         <isNavigable>true</isNavigable>
@@ -76,12 +105,40 @@
       <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="19a58ebd-6385-45a1-a27e-0c4da825e997" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: TestCommandV2</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5bd4d621-c432-4904-b4da-bc6e0398c2f8">
+            <typeId>010c053c-7f23-473f-a9b3-4506101da6b6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f5d80665-2c18-453c-8c29-172d58e08a51</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="010c053c-7f23-473f-a9b3-4506101da6b6" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="c247e5bb-1241-406b-a22d-483346816d6a" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>TestQueryV1</name>
-      <display>TestQueryV1(): int</display>
+      <display>TestQueryV1(value: string): int</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="f9a8ba13-3d09-4f9b-8551-d5c281d4eb28">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
@@ -107,12 +164,40 @@
       <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="672e25ef-78c8-438b-909a-0507b151c8e6" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>value</name>
+          <display>value: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="03c20a06-861a-4561-89c3-044ef7f56a30">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c247e5bb-1241-406b-a22d-483346816d6a</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="bb991606-239c-45a9-a9e5-54505b4a3ddc" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="989450a2-ddce-4e1b-8bb0-cfafe3051622" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>TestQueryV2</name>
-      <display>TestQueryV2(): int</display>
+      <display>TestQueryV2(value: string): int</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="08583333-cafe-42b6-b129-1cac54e52eaf">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
@@ -138,7 +223,34 @@
       <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="ba05ccd8-9465-4a95-9758-44d157135762" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>value</name>
+          <display>value: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="741a6659-9142-40c3-9c32-bc24f9c0c52d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>989450a2-ddce-4e1b-8bb0-cfafe3051622</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="fdafbd67-3051-4ecd-8c4f-ba85dfa82d7f" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

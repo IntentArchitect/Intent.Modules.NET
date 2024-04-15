@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="3c4ee549-68cb-4583-b6b8-2fa57b38857d">
-  <sourceEnd id="4b0088dd-ca1e-44c0-b356-803a483a12c2" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
-    <name>CleanArchitecture.TestApplication</name>
+<association id="6cb70331-61aa-40c9-8b7a-03cb886f22e9">
+  <sourceEnd id="40d7d1f7-8ff8-42a7-b90e-97e2b98caa27" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
     <display>publisher: CleanArchitecture.TestApplication</display>
     <order>0</order>
-    <typeReference id="19cf4ca6-01d1-4159-92e2-9ea07a1dddb4">
+    <typeReference id="a384089c-9a4b-45a8-9901-5f638f8e137f">
       <typeId>64005771-f36f-4127-b15c-e2267c4bd933</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -19,12 +18,11 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="3c4ee549-68cb-4583-b6b8-2fa57b38857d" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
-    <name>TriggersEventUpdated</name>
-    <display>publish: IntegrationTriggeringUpdated</display>
-    <order>1</order>
-    <typeReference id="379d0f67-cd16-4dea-872a-ff1244fd4dbb">
-      <typeId>26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</typeId>
+  <targetEnd id="6cb70331-61aa-40c9-8b7a-03cb886f22e9" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <display>publish: IntegrationTriggeringDeleted</display>
+    <order>2</order>
+    <typeReference id="9b77d881-d940-4b25-9c1b-29c3a7926d02">
+      <typeId>81ebe2ea-a0c6-4934-af3a-a8a4558936bf</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

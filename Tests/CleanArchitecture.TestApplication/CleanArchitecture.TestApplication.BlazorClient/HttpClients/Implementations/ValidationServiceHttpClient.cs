@@ -4,6 +4,7 @@ using System.Text.Json;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common;
 using CleanArchitecture.TestApplication.BlazorClient.HttpClients.Contracts.Services.Validation;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -25,9 +26,63 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementat
             };
         }
 
-        public async Task<ValidatedResultDto> ResultValidationsAsync(CancellationToken cancellationToken = default)
+        public async Task InboundValidationAsync(
+            InboundValidationCommand command,
+            CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/validation/result-validations";
+            var relativeUri = $"api/validation/inbound-validation";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
+        public async Task<DummyResultDto> InboundValidationAsync(
+            string rangeStr,
+            string minStr,
+            string maxStr,
+            int rangeInt,
+            int minInt,
+            int maxInt,
+            string isRequired,
+            string isRequiredEmpty,
+            decimal decimalRange,
+            decimal decimalMin,
+            decimal decimalMax,
+            string? stringOption,
+            string? stringOptionNonEmpty,
+            EnumDescriptions myEnum,
+            string regexField,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/validation/inbound-validation";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("rangeStr", rangeStr);
+            queryParams.Add("minStr", minStr);
+            queryParams.Add("maxStr", maxStr);
+            queryParams.Add("rangeInt", rangeInt.ToString());
+            queryParams.Add("minInt", minInt.ToString());
+            queryParams.Add("maxInt", maxInt.ToString());
+            queryParams.Add("isRequired", isRequired);
+            queryParams.Add("isRequiredEmpty", isRequiredEmpty);
+            queryParams.Add("decimalRange", decimalRange.ToString());
+            queryParams.Add("decimalMin", decimalMin.ToString());
+            queryParams.Add("decimalMax", decimalMax.ToString());
+            queryParams.Add("stringOption", stringOption);
+            queryParams.Add("stringOptionNonEmpty", stringOptionNonEmpty);
+            queryParams.Add("myEnum", myEnum.ToString());
+            queryParams.Add("regexField", regexField);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -40,25 +95,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Implementat
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    return (await JsonSerializer.DeserializeAsync<ValidatedResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
-                }
-            }
-        }
-
-        public async Task ValidatedAsync(ValidatedCommand command, CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/validation/validated";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                    return (await JsonSerializer.DeserializeAsync<DummyResultDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

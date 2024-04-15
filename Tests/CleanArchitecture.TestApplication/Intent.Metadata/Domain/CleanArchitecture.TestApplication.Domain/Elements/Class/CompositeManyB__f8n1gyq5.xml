@@ -95,7 +95,7 @@
     </childElement>
     <childElement id="b571a59e-dd46-4921-9544-68177dece7c9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>SomeDate</name>
-      <display>SomeDate: date?</display>
+      <display>SomeDate: datetime?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5520ef16-7413-4f3e-874b-c167c0049e4f">
