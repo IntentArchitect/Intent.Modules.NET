@@ -8,6 +8,14 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Common
 {
     public class ProblemDetailsWithErrors
     {
+        public ProblemDetailsWithErrors()
+        {
+            Type = null!;
+            Title = null!;
+            TraceId = null!;
+            Errors = null!;
+            ExtensionData = null!;
+        }
         [JsonPropertyName("type")]
         public string Type { get; set; }
         [JsonPropertyName("title")]

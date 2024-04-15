@@ -20,11 +20,10 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients
             ResponseHeaders = responseHeaders;
             ReasonPhrase = reasonPhrase;
             ResponseContent = responseContent;
-            if (responseContent is not null &&
-            responseHeaders.TryGetValue("Content-Type", out var contentTypeValues) &&
-            contentTypeValues.FirstOrDefault() == "application/problem+json; charset=utf-8")
+
+            if (!string.IsNullOrWhiteSpace(responseContent) && responseHeaders.TryGetValue("Content-Type", out var contentTypeValues) && contentTypeValues.FirstOrDefault() == "application/problem+json; charset=utf-8")
             {
-                ProblemDetails = System.Text.Json.JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);
+                ProblemDetails = JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);
             }
         }
 
@@ -48,9 +47,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients
             var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
             var contentHeaders = response.Content.Headers.ToDictionary(k => k.Key, v => v.Value);
             var allHeaders = headers
-            .Concat(contentHeaders)
-            .GroupBy(kvp => kvp.Key)
-            .ToDictionary(group => group.Key, group => group.Last().Value);
+                .Concat(contentHeaders)
+                .GroupBy(kvp => kvp.Key)
+                .ToDictionary(group => group.Key, group => group.Last().Value);
 
             return new HttpClientRequestException(fullRequestUri, response.StatusCode, allHeaders, response.ReasonPhrase, content);
         }
@@ -67,6 +66,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients
                 message = FormatJson(JsonSerializer.Deserialize<dynamic>(responseContent))
                     .Replace("\\r\\n", Environment.NewLine);
             }
+
             return message;
         }
 
