@@ -38,6 +38,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
                 });
         }
 
+
         // public override bool CanRunTemplate()
         // {
         //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);
@@ -50,7 +51,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
             {
                 return;
             }
-            
+
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(this)
                 .ForConcern("BlazorClient")

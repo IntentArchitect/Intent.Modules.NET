@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
     {
         public override string TemplateId => ValidationBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ValidationBehaviourTemplate(outputTarget);

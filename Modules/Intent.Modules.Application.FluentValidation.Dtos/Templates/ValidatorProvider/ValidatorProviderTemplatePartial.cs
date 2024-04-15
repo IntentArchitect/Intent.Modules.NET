@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -49,7 +50,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorPr
                 .HasDependency(template)
                 .WithPerServiceCallLifeTime());
         }
-        
+
         // public override bool CanRunTemplate()
         // {
         //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Application.Validation.Dto"))
@@ -57,7 +58,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorPr
         //         .ToArray();
         //     return validatorTemplates.Any(p => p.CSharpFile.Classes.FirstOrDefault()?.Constructors.FirstOrDefault()?.Parameters.Any(q => q.Type.Contains("IValidatorProvider")) == true);
         // }
-        
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

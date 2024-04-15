@@ -32,7 +32,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
                     inter.AddMethod($"IValidator<T>", "GetValidator", method => method.AddGenericParameter("T"));
                 });
         }
-        
+
         // public override bool CanRunTemplate()
         // {
         //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);

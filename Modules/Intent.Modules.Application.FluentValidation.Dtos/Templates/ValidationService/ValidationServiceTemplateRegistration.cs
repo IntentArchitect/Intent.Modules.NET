@@ -39,6 +39,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
             base.DoRegistration(registry, application);
         }
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ValidationServiceTemplate(outputTarget);

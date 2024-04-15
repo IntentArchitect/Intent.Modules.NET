@@ -1,3 +1,8 @@
+### Version 4.6.0
+
+- Improvement: Added Regular Expressions for Validation.
+- Improvement: Module project updated to .NET 8.
+
 ### Version 4.5.3
 
 - Improvement: Ignore custom validation rules when generating service proxies.

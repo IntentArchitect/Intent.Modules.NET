@@ -31,6 +31,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
 
         public override string TemplateId => DTOValidatorTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
         {
             return new DTOValidatorTemplate(outputTarget, model);

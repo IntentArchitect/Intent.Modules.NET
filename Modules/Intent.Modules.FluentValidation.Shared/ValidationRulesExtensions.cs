@@ -350,6 +350,11 @@ public static class ValidationRulesExtensions
             validationRuleChain.AddChainStatement($"LessThanOrEqualTo({validations.Max()})");
         }
 
+        if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))
+        {
+            validationRuleChain.AddChainStatement($@"Matches(@""{validations.RegularExpression()}"")");
+        }
+
         if (validations.EmailAddress())
         {
             validationRuleChain.AddChainStatement("EmailAddress()");

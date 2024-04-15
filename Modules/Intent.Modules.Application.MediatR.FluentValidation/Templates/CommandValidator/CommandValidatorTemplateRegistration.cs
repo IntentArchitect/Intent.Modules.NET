@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
 
         public override string TemplateId => CommandValidatorTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
             return new CommandValidatorTemplate(outputTarget, model);

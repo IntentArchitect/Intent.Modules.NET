@@ -66,7 +66,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.DependencyInjection", "Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj", "{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.FluentValidation", "Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj", "{F70DF819-B1A1-460C-AD99-567CF48A1A99}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.FluentValidation", "Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj", "{F70DF819-B1A1-460C-AD99-567CF48A1A99}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MediatR.DomainEvents", "Intent.Modules.MediatR.DomainEvents\Intent.Modules.MediatR.DomainEvents.csproj", "{E70FC8AE-5EFF-42C7-8F04-E1F44947B9C0}"
 EndProject
@@ -106,11 +106,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
@@ -170,7 +170,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR", "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR\Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj", "{482C7EA6-B975-4CEA-A0A0-7D915685568E}"
 EndProject
@@ -230,7 +230,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
 EndProject

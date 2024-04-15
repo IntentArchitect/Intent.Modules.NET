@@ -491,7 +491,8 @@ yield return new object[] {{ testCommand, ""{GetPropertyNameWithArray(property)}
         return $@"{{string.Join(string.Empty, fixture.CreateMany<char>({length}))}}";
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

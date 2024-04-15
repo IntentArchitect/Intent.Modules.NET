@@ -1,3 +1,8 @@
+### Version 3.9.0
+
+- Improvement: Added Regular Expressions for Validation.
+- Improvement: Module project updated to .NET 8.
+
 ### Version 3.8.10
 
 - Improvement: Updated Interoperable dependency versions.

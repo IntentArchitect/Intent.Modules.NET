@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
 
         public override string TemplateId => QueryValidatorTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new QueryValidatorTemplate(outputTarget, model);

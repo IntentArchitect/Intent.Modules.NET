@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,15 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
-    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.8.7" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.4.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.2" />
+    <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.9.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.7.0" />
   </ItemGroup>
@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems" Label="Shared" />
+
   <Import Project="..\Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
