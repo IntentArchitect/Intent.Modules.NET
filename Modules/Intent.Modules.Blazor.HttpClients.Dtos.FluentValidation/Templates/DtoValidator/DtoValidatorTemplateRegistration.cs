@@ -23,6 +23,8 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
     public class DtoValidatorTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
+        private const string CommandTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
+        private const string QueryTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
 
         public DtoValidatorTemplateRegistration(IMetadataManager metadataManager)
         {
@@ -34,9 +36,6 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var dtoFields = _metadataManager.Services(applicationManager).GetElementsOfType("")
-                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
-
             var models = _metadataManager.WebClient(applicationManager).GetMappedServiceProxyInboundDTOModels()
                 .Where(x =>
                 {
@@ -51,7 +50,12 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
 
             foreach (var model in models)
             {
-                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);
+                var advancedMappingSource = model.InternalElement.AssociatedElements.Count() switch
+                {
+                    0 => null,
+                    1 => model.InternalElement,
+                    _ => null,
+                };
 
                 registry.RegisterTemplate(TemplateId,
                     project => new DtoValidatorTemplate(
@@ -59,26 +63,6 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                         model,
                         advancedMappingSource?.AssociatedElements));
             }
-        }
-
-        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, DTOModel model)
-        {
-            // check to see if parent has advanced mapping
-            var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
-
-            var commandsOrQueries = matchingReferenceFields
-                .Select(f => f.ParentElement)
-                .Distinct()
-                .ToArray();
-
-            var advancedMappingSource = commandsOrQueries.Length switch
-            {
-                0 => null,
-                1 => commandsOrQueries[0],
-                _ => null,
-            };
-
-            return advancedMappingSource;
         }
     }
 }
