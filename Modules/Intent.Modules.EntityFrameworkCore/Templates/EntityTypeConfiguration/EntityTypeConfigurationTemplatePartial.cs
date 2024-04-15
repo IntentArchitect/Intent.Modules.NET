@@ -217,6 +217,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add("builder.ToJson();");
             }
 
+            // add identity generation for types that require it
+            // By convention, non-composite primary keys of type short, int, long, or Guid are set up to have values
+            // generated for inserted entities if a value isn't provided by the application.
+            // https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#primary-keys
+
+            // add identity generation for types that require it
+            //statements.AddRange(GetNonConventionalOrdinalPrimaryKeyAttributes(targetType)
+            //    .Where(NonConventionalOrdinalPrimaryKeyRequiresConfiguration)
+            //    .Select(x => GetAttributeMapping(x, @class, ownedRelationship)));
+
             statements.AddRange(GetAttributes(targetType)
                 .Where(RequiresConfiguration)
                 .Select(x => GetAttributeMapping(x, @class, ownedRelationship)));
@@ -510,6 +520,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                    attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => !keyAttribute.Equals(attribute));
         }
 
+        private static bool NonConventionalOrdinalPrimaryKeyRequiresConfiguration(AttributeModel attribute)
+        {
+            // Conventional Ordinal Primary Key Types: short, int, long, Guid
+            // Non-Conventional Ordinal Primary Key Types: byte, decimal, double, float
+            var byteId = "A4E9102F-C1C8-4902-A417-CA418E1874D2";
+            var decimalId = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
+            var doubleId = "24A77F70-5B97-40DD-8F9A-4208AD5F9219";
+            var floatId = "341929E9-E3E7-46AA-ACB3-B0438421F4C4";
+            var nonConventionalOrdinalTypeWhitelist = new[] { byteId, decimalId, doubleId, floatId };
+
+            return (!attribute.InternalElement.ParentElement.IsClassModel() ||
+                   attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => keyAttribute.Equals(attribute))) &&
+                   nonConventionalOrdinalTypeWhitelist.Contains(attribute.InternalElement.TypeReference.Element.Id);
+        }
+
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
         {
             return associationEnd.IsTargetEnd();
@@ -631,9 +656,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return new EfCoreKeyMappingStatement(model);
             }
 
-            foreach (var attributeModel in model.GetExplicitPrimaryKey().Where(x =>
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Type())))
+            foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
                 yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
             }
@@ -716,6 +739,22 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             attributes.AddRange(model.ChildElements
                 .Where(x => x.IsAttributeModel() && RequiresConfiguration(x.AsAttributeModel()))
+                .Select(x => x.AsAttributeModel())
+                .ToList());
+            return attributes;
+        }
+
+        private IEnumerable<AttributeModel> GetNonConventionalOrdinalPrimaryKeyAttributes(IElement model)
+        {
+            var attributes = new List<AttributeModel>();
+            var @class = model.AsClassModel();
+            if (IsInheriting(@class) && !ParentConfigurationExists(@class))
+            {
+                attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
+            }
+
+            attributes.AddRange(model.ChildElements
+                .Where(x => x.IsAttributeModel() && NonConventionalOrdinalPrimaryKeyRequiresConfiguration(x.AsAttributeModel()))
                 .Select(x => x.AsAttributeModel())
                 .ToList());
             return attributes;
