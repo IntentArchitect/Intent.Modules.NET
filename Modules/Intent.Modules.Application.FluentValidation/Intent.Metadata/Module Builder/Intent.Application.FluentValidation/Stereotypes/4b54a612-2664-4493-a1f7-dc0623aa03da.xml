@@ -109,7 +109,7 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <isRequiredFunction />
     </property>
     <property id="ad0c1113-ee22-4275-8177-576494ecfa45">
-      <hint>Design and test your regular expression [here](https://regex101.com/).</hint>
+      <hint />
       <name>Regular Expression</name>
       <type>string</type>
       <controlType>text</controlType>
