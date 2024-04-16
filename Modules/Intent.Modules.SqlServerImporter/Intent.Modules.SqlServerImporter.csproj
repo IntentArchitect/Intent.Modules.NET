@@ -1,8 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,8 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="resources\tool\**\*.*">
-    </None>
+    <None Include="resources\tool\**\*.*"></None>
   </ItemGroup>
 
 </Project>

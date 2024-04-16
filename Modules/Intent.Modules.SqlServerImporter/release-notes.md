@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+Improvement: Import a subset of Tables / Views through specifying a filter file.
+
 ### Version 1.0.1
 
 Improvement: Improved support for Index importing.

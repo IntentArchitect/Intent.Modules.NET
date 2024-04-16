@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Intent.SQLSchemaExtractor/1.1.2": {
+      "Intent.SQLSchemaExtractor/1.1.4-pre.4": {
         "dependencies": {
           "Intent.Architect.Persistence": "3.4.0",
           "Intent.Modules.Common": "3.4.2",
@@ -687,7 +687,7 @@
     }
   },
   "libraries": {
-    "Intent.SQLSchemaExtractor/1.1.2": {
+    "Intent.SQLSchemaExtractor/1.1.4-pre.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -716,7 +716,7 @@
     "Intent.Modules.Common/3.4.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rt2ROZiMBDD975CSc3yxm/Tnv1B0r5tM0EAeoyyhF9alZGsI+MYoGnTvlOMhrMxHwMqQ88KQ0APBmYB2WIl2hQ==",
+      "sha512": "sha512-1SSLnPcvS69aNfH2ytLf+5Y7+zyuEahtld8wqXBIzObHkzWpYHH8mSfWsPCD79wkpfUHsh15tXCXmWSEUuqpiA==",
       "path": "intent.modules.common/3.4.2",
       "hashPath": "intent.modules.common.3.4.2.nupkg.sha512"
     },

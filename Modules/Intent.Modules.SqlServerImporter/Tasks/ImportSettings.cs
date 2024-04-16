@@ -21,6 +21,7 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 		public List<string> TypesToExport { get; set; }
 
 		public List<string> SchemaFilter { get; set; }
+		public string TableViewFilterFilePath { get; set; }
 
 		public string ConnectionString { get; set; }
 
