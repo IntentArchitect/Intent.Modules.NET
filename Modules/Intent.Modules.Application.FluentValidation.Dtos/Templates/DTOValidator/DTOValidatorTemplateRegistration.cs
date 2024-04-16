@@ -77,7 +77,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             }
         }
 
-        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, DTOModel model)
+        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, IMetadataModel model)
         {
             // check to see if parent has advanced mapping
             var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
