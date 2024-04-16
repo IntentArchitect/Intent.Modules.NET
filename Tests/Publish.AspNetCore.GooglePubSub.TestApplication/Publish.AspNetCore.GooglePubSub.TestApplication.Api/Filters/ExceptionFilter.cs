@@ -17,7 +17,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Api.Filters
             switch (context.Exception)
             {
                 case UnauthorizedAccessException:
-                    context.Result = new ForbidResult();
+                    context.Result = new UnauthorizedResult();
                     context.ExceptionHandled = true;
                     break;
                 case NotFoundException exception:
