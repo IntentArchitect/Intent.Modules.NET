@@ -93,7 +93,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
         }
 
         switchStatement.AddCase(UseType("System.UnauthorizedAccessException"),
-            block => block.AddStatement("context.Result = new ForbidResult();")
+            block => block.AddStatement("context.Result = new UnauthorizedResult();")
                 .AddStatement("context.ExceptionHandled = true;")
                 .WithBreak());
 
