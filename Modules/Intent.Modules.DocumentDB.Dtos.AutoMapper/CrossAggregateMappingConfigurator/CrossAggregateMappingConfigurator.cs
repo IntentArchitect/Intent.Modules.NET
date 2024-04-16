@@ -177,9 +177,9 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
                         {
                             method.AddStatement($"var {load.Variable} = {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result;");
                         }
-                    if (!fkAttribute.TypeReference.IsCollection && !load.IsOptional && !load.IsExpressionOptional)
+                        if (!fkAttribute.TypeReference.IsCollection && !load.IsOptional && !load.IsExpressionOptional)
                         {
-                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new Exception($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
+                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new NotFoundException($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
 						}
 					}
 

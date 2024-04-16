@@ -74,7 +74,7 @@ namespace CosmosDB.Application.Invoices
 
                 if (client == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({source.ClientIdentifier}). (Invoice)->(Client)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.ClientIdentifier}). (Invoice)->(Client)");
                 }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }

@@ -133,40 +133,40 @@ namespace MongoDb.TestApplication.Application.MapperRoots
                 var mapAggPeer = _mapAggPeerRepository.FindByIdAsync(source.MapAggPeerId).Result;
                 if (mapAggPeer == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({source.MapAggPeerId}). (MapperRoot)->(MapAggPeer)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.MapAggPeerId}). (MapperRoot)->(MapAggPeer)");
                 }
 
                 var mapAggChildren = _mapAggChildRepository.FindByIdsAsync(source.MapAggChildrenIds.ToArray()).Result;
                 var mapAggPeerMapMapMe = _mapMapMeRepository.FindByIdAsync(mapAggPeer.MapMapMeId).Result;
                 if (mapAggPeerMapMapMe == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({mapAggPeer.MapMapMeId}). (MapAggPeer)->(MapMapMe)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({mapAggPeer.MapMapMeId}). (MapAggPeer)->(MapMapMe)");
                 }
 
                 var mapAggPeerMapAggPeerAgg = _mapAggPeerAggRepository.FindByIdAsync(mapAggPeer.MapAggPeerAggId).Result;
 
                 if (mapAggPeerMapAggPeerAgg == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({mapAggPeer.MapAggPeerAggId}). (MapAggPeer)->(MapAggPeerAgg)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({mapAggPeer.MapAggPeerAggId}). (MapAggPeer)->(MapAggPeerAgg)");
                 }
                 var mapCompChildMapCompChildAgg = _mapCompChildAggRepository.FindByIdAsync(source.MapCompChild.MapCompChildAggId).Result;
 
                 if (mapCompChildMapCompChildAgg == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({source.MapCompChild.MapCompChildAggId}). (MapCompChild)->(MapCompChildAgg)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.MapCompChild.MapCompChildAggId}). (MapCompChild)->(MapCompChildAgg)");
                 }
                 var mapCompOptionalMapImplyOptional = source.MapCompOptional?.MapImplyOptionalId != null ? _mapImplyOptionalRepository.FindByIdAsync(source.MapCompOptional.MapImplyOptionalId).Result : null;
                 var mapAggPeerMapAggPeerAggMapAggPeerAggMore = _mapAggPeerAggMoreRepository.FindByIdAsync(mapAggPeerMapAggPeerAgg.MapAggPeerAggMoreId).Result;
 
                 if (mapAggPeerMapAggPeerAggMapAggPeerAggMore == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({mapAggPeerMapAggPeerAgg.MapAggPeerAggMoreId}). (MapAggPeerAgg)->(MapAggPeerAggMore)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({mapAggPeerMapAggPeerAgg.MapAggPeerAggMoreId}). (MapAggPeerAgg)->(MapAggPeerAggMore)");
                 }
                 var mapAggPeerMapPeerCompChildMapPeerCompChildAgg = _mapPeerCompChildAggRepository.FindByIdAsync(mapAggPeer.MapPeerCompChild.MapPeerCompChildAggId).Result;
 
                 if (mapAggPeerMapPeerCompChildMapPeerCompChildAgg == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({mapAggPeer.MapPeerCompChild.MapPeerCompChildAggId}). (MapPeerCompChild)->(MapPeerCompChildAgg)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({mapAggPeer.MapPeerCompChild.MapPeerCompChildAggId}). (MapPeerCompChild)->(MapPeerCompChildAgg)");
                 }
                 destination.CompChildAggAtt = mapCompChildMapCompChildAgg.CompChildAggAtt;
                 destination.PeerAtt = mapAggPeer.PeerAtt;

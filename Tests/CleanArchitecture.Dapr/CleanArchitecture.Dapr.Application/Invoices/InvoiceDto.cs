@@ -65,7 +65,7 @@ namespace CleanArchitecture.Dapr.Application.Invoices
 
                 if (client == null)
                 {
-                    throw new Exception($"Unable to load required relationship for Id({source.ClientId}). (Invoice)->(Client)");
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.ClientId}). (Invoice)->(Client)");
                 }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }
