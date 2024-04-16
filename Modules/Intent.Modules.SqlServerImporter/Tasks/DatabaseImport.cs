@@ -97,7 +97,7 @@ namespace Intent.Modules.SqlServerImporter.Tasks
 				{
 					if (warnings.Length > 0)
 					{
-						return $"{{\"warnings\": \"{warnings.Replace(Environment.NewLine, "\\n").ToString()}\"}}";
+						return $"{{\"warnings\": \"{warnings.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n").ToString()}\"}}";
 					}
 					return "{}";
 				}

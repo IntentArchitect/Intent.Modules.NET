@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.SqlServerImporter</id>
-  <version>1.0.2-pre.0</version>
+  <version>1.0.2-pre.1</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Module for Importing Domain Models based on SQL Server Databases</summary>
   <description>This module adds the functionality to import Domain Models based on SQL Server database schemas.</description>
