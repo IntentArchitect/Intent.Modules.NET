@@ -179,7 +179,7 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
                         }
                         if (!fkAttribute.TypeReference.IsCollection && !load.IsOptional && !load.IsExpressionOptional)
                         {
-                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new NotFoundException($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
+                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new {template.GetNotFoundExceptionName()}($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
 						}
 					}
 
@@ -200,7 +200,8 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
             });
         }
 
-        private static string GetAggregatePathExpression(DtoModelTemplate template, DTOFieldModel field, IList<IElementMappingPathTarget> path, out string fieldPath)
+
+		private static string GetAggregatePathExpression(DtoModelTemplate template, DTOFieldModel field, IList<IElementMappingPathTarget> path, out string fieldPath)
         {
             fieldPath = null;
             for (int i = path.Count - 1; i >= 0; i--)
@@ -286,5 +287,10 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
             return entityTemplate;
         }
 
-    }
+		private static string GetNotFoundExceptionName(this ICSharpTemplate template)
+		{
+			return template.GetTypeName("Domain.NotFoundException", TemplateDiscoveryOptions.DoNotThrow);
+		}
+
+	}
 }

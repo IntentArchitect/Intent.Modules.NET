@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CosmosDB.PrivateSetters.Application.Common.Mappings;
+using CosmosDB.PrivateSetters.Domain.Common.Exceptions;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;

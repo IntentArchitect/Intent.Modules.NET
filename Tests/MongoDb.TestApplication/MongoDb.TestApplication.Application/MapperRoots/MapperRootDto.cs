@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.Common.Mappings;
+using MongoDb.TestApplication.Domain.Common.Exceptions;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Mappings;
 using MongoDb.TestApplication.Domain.Repositories;
