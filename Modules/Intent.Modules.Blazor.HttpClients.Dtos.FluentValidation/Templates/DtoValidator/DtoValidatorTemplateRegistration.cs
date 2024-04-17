@@ -23,8 +23,6 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
     public class DtoValidatorTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
-        private const string CommandTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
-        private const string QueryTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
 
         public DtoValidatorTemplateRegistration(IMetadataManager metadataManager)
         {
