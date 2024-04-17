@@ -94,12 +94,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="344c2699-0e19-44fd-9f5a-2915ed051544" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="9a6fcddb-91bf-4534-8547-3169d3a0f030" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>HOptionalaggregatenavId</name>
       <display>HOptionalaggregatenavId: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="b52fe10f-8e67-4b7c-b71e-0872231b1661">
+      <typeReference id="ac5f49d2-86e6-4690-b2dc-6c0a2bd7eba7">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>

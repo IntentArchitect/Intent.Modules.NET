@@ -22,7 +22,7 @@
   <targetEnd id="71d20030-ef54-46a3-913d-6b4b61822be2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapCompOptional</name>
     <display>MapCompOptional: MapCompOptional?</display>
-    <order>7</order>
+    <order>8</order>
     <typeReference id="6c1579cc-aa09-4be6-be68-0202c6037b3c">
       <typeId>3e9e7cdd-c6dd-484a-b716-877f7f20e27e</typeId>
       <isNavigable>true</isNavigable>

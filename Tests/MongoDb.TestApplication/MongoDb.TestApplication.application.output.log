@@ -972,6 +972,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9a6cdc78-cdc2-427c-9d22-1238ae439aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperM2MDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapperM2MDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#9a6cdc78-cdc2-427c-9d22-1238ae439aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperM2MDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperRoots/MapperM2MDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5f10692-9990-468a-ad8c-f600cde465cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#9b542bb4-83ba-4207-a48f-b25d6e83eb6e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Application/MapperRoots/MapperRootCreateDto.cs</ApplicationRelativeFilePath>
@@ -2068,6 +2084,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#993d4727-86c5-4488-857a-83310b378be7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/MapperM2M.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperM2M.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>49e3d64c-6e25-4d5f-9132-e48fe0ee697e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#e90f339a-6dae-4683-b9bb-fed0b2f099fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Entities/Mappings/MapAggChild.cs</ApplicationRelativeFilePath>
@@ -2432,6 +2456,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IdTypes/IIdTypeOjectIdStrRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdTypes/IIdTypeOjectIdStrRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#993d4727-86c5-4488-857a-83310b378be7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Domain/Repositories/IMapperM2MRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMapperM2MRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2976,6 +3008,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/Indexes/TextIndexEntitySingleParentMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/TextIndexEntitySingleParentMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d32e0685-9892-401f-af57-1db9de5a2872</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.Repository#993d4727-86c5-4488-857a-83310b378be7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Infrastructure/Repositories/MapperM2MMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MapperM2MMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
