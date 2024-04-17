@@ -24,7 +24,6 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags />
-  <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>
     <install src="modelers/Service Designer Extensions.designer.settings" externalReference="da0fdebd-ad29-48ee-a644-737cfe11ef83" target="Services" />
