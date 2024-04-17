@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="62b20ca6-d81f-4c9b-8f12-08bec844f05e" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>StatusType</name>
+  <display>StatusType</display>
+  <externalReference>Pets.StatusType</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>50a9bf06-b0e1-4ccf-8660-0c0d4d6ed4a1</parentFolderId>
+  <packageId>616d535d-8fa9-416f-bc2a-2b5c8eb15472</packageId>
+  <packageName>OpenApiImporterTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="95494edd-54c9-43e9-bae9-ed78ec22b891" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Available</name>
+      <display>Available</display>
+      <externalReference>Pets.StatusType.Available</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>62b20ca6-d81f-4c9b-8f12-08bec844f05e</parentFolderId>
+      <packageId>616d535d-8fa9-416f-bc2a-2b5c8eb15472</packageId>
+      <packageName>OpenApiImporterTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e7520ae3-c131-4360-a6ae-84f29835b021" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <externalReference>Pets.StatusType.Pending</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>62b20ca6-d81f-4c9b-8f12-08bec844f05e</parentFolderId>
+      <packageId>616d535d-8fa9-416f-bc2a-2b5c8eb15472</packageId>
+      <packageName>OpenApiImporterTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e219e3e3-fe8f-473b-8f7c-1978c6720837" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Sold</name>
+      <display>Sold</display>
+      <externalReference>Pets.StatusType.Sold</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>62b20ca6-d81f-4c9b-8f12-08bec844f05e</parentFolderId>
+      <packageId>616d535d-8fa9-416f-bc2a-2b5c8eb15472</packageId>
+      <packageName>OpenApiImporterTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
