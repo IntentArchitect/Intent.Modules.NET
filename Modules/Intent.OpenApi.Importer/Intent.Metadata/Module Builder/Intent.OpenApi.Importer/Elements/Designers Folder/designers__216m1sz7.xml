@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7c2f811d-beda-4607-a243-f7115a9b4b55" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b2efc3f0-6e55-4438-b1fa-d40c055fde84</parentFolderId>
+  <packageId>b2efc3f0-6e55-4438-b1fa-d40c055fde84</packageId>
+  <packageName>Intent.OpenApi.Importer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

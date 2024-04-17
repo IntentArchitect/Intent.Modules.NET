@@ -282,6 +282,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenApi.Importer", "Intent.Modules.OpenApi.Importer\Intent.Modules.OpenApi.Importer.csproj", "{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -772,6 +774,10 @@ Global
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -910,6 +916,7 @@ Global
 		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{97A4546B-440F-472D-910E-475B0E90B26B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
