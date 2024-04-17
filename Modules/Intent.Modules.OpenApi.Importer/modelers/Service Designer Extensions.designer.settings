@@ -36,7 +36,7 @@ async function importOpenApi(element) {
     let allowRemoval = {
         id: "allowRemoval",
         fieldType: "checkbox",
-        label: "Allow removal",
+        label: "Allow Removal",
         hint: "Remove previously imported elements?",
         value: defaults.allowRemoval
     };
@@ -152,7 +152,7 @@ async function importOpenApi(element) {
     let allowRemoval = {
         id: "allowRemoval",
         fieldType: "checkbox",
-        label: "Allow removal",
+        label: "Allow Removal",
         hint: "Remove previously imported elements?",
         value: defaults.allowRemoval
     };
