@@ -163,15 +163,15 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
                             throw new Exception($"No Foreign Key found on : {fkEntityModel.Name} to load associate Aggregate {load.AssociationEndModel.Class.Name}");
                         }
 
-                        string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}.ToArray()" : fkAttribute.Name.ToPascalCase();
+                        string fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}{(fkAttribute.TypeReference.IsNullable ? "?" : "")}.ToArray()" : fkAttribute.Name.ToPascalCase();
 
                         if (load.IsExpressionOptional)
                         {
-							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath.Replace("?", "")}.{fkExpression}).Result : null;");
+							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath.Replace("?", "")}.{fkExpression.Replace("?", "")}).Result : null;");
                         }
                         else if (load.IsOptional)
                         {
-							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression}).Result : null;");
+							method.AddStatement($"var {load.Variable} = {load.FieldPath}.{fkExpression} != null ? {load.Repository.FieldName}.{(fkAttribute.TypeReference.IsCollection ? "FindByIdsAsync" : "FindByIdAsync")}({load.FieldPath}.{fkExpression.Replace("?", "")}).Result : null;");
 						}
 						else
                         {
@@ -224,9 +224,14 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
 
         private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
         {
-            return field.TypeReference.IsCollection
+            var result = field.TypeReference.IsCollection
                 ? $"MapTo{template.GetTypeName(field.TypeReference, "{0}")}List"
                 : $"MapTo{template.GetTypeName(field.TypeReference)}";
+            if (field.TypeReference.IsNullable)
+            {
+                return result.Replace("?", "");
+            }
+            return result;
         }
 
         private static bool IsDtoMappingAccrossAggregates(DTOModel templateModel, IApplication application)
