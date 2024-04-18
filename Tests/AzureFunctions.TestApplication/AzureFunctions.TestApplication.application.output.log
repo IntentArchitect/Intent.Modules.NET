@@ -116,10 +116,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#78a2b9b5-1a83-4033-8c00-49f3422a3a34</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Enums/EnumService/TestHeaderEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumService/TestHeaderEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#61915bbc-fc68-447d-952c-c95c7d4b13ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Enums/EnumService/TestQueryEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumService/TestQueryEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#81b18e7d-a8db-4a92-a6eb-167a9e68ebf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/EnumRoute/RouteEnumService/TestRouteEnum.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EnumRoute/RouteEnumService/TestRouteEnum.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Enums/EnumService/TestRouteEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumService/TestRouteEnum.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -694,8 +710,8 @@
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.ContractEnumModel#d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/EnumRoute/Company.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EnumRoute/Company.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Enums/Company.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/Company.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -718,8 +734,8 @@
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#347c7d33-6946-4cab-a3e3-8d682e575b06</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/EnumRoute/RouteEnumService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EnumRoute/RouteEnumService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Enums/EnumService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/EnumService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -766,8 +782,8 @@
       <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#347c7d33-6946-4cab-a3e3-8d682e575b06</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/EnumRoute/IRouteEnumService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EnumRoute/IRouteEnumService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/Enums/IEnumService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/IEnumService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

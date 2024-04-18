@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="35b17407-2bef-4869-aaf2-d62cb6fe6ded" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>EnumRoute</name>
-  <display>EnumRoute</display>
+  <name>Enums</name>
+  <display>Enums</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
