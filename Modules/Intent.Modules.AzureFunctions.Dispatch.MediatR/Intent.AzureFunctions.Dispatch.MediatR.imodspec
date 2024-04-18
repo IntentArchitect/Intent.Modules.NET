@@ -17,7 +17,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.11" />
-    <dependency id="Intent.AzureFunctions" version="4.0.9" />
+    <dependency id="Intent.AzureFunctions" version="4.1.0-pre.0" />
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>

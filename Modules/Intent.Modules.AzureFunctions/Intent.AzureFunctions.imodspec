@@ -56,12 +56,12 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.AzureFunctions.Interop.Contracts" version="4.1.7" />
+        <package id="Intent.AzureFunctions.Interop.Contracts" version="4.2.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.0.10" />
+        <package id="Intent.AzureFunctions.Dispatch.MediatR" version="1.1.0-pre.0" />
       </install>
     </detect>
   </interoperability>
@@ -82,7 +82,7 @@
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.6.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Metadata.WebApi" version="4.4.1" />
+    <dependency id="Intent.Metadata.WebApi" version="4.5.1-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.7.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
