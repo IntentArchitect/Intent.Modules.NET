@@ -12,6 +12,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
     [Description(OpenApiAttributeDecorator.DecoratorId)]
     public class OpenApiAttributeDecoratorRegistration : DecoratorRegistration<AzureFunctionClassTemplate, AzureFunctionClassDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override AzureFunctionClassDecorator CreateDecoratorInstance(AzureFunctionClassTemplate template, IApplication application)
         {
             return new OpenApiAttributeDecorator(template, application);

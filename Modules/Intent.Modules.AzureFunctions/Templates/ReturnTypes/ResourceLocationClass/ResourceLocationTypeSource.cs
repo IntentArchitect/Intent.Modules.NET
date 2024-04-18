@@ -17,8 +17,8 @@ public class ResourceLocationTypeSource : ITypeSource
 
     public IResolvedTypeInfo GetType(ITypeReference typeInfo)
     {
-        if (typeInfo.Element.Id == TypeDefinitionIds.ResourceLocationVoidTypeDefId
-            || typeInfo.Element.Id == TypeDefinitionIds.ResourceLocationPayloadTypeDefId)
+        if (typeInfo?.Element?.Id == TypeDefinitionIds.ResourceLocationVoidTypeDefId
+            || typeInfo?.Element?.Id == TypeDefinitionIds.ResourceLocationPayloadTypeDefId)
         {
             return CSharpResolvedTypeInfo.Create(
                 resolvedTypeInfo: ResolvedTypeInfo.Create(

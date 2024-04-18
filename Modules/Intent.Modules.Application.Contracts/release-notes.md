@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Fixed: Enums using directives will now be resolved.
+
 ### Version 5.0.4
 
 - Improvement: Making use of more sophisticated resolution systems when generating C# code.

@@ -27,15 +27,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f906b59c-4dfe-4f6e-8366-e3254c358e62</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.AzureFunctions.Dispatch.MediatR/README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#3ef86b46-3e35-473f-8e73-306fe57af8b5</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#3ef86b46-3e35-473f-8e73-306fe57af8b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
@@ -31,6 +32,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")

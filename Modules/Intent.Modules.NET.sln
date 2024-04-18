@@ -100,11 +100,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Logging.Serilog", "Intent.Modules.AspNetCore.Logging.Serilog\Intent.Modules.AspNetCore.Logging.Serilog.csproj", "{A58A2FC1-5444-4388-8BE7-0231516CE1D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
 EndProject
@@ -180,7 +180,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Enums.Shared
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obsolete", "Obsolete", "{1595E08E-BAD2-4F90-8BD9-65F6A846526B}"
 EndProject
@@ -194,7 +194,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Constants", "Intent.Modules.Entities.Constants\Intent.Modules.Entities.Constants.csproj", "{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.KeyVault", "Intent.Modules.Azure.KeyVault\Intent.Modules.Azure.KeyVault.csproj", "{31D61C32-3B68-497E-83E6-F30D7A862894}"
 EndProject

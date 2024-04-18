@@ -91,15 +91,16 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     });
                 }
 
-                if (endpointModel.Inputs.Any())
+                if (endpointModel?.Inputs.Any() == true)
                 {
-                    foreach (var parameterModel in endpointModel.Inputs.Where(x => x.Source is HttpInputSource.FromRoute || x.Source is HttpInputSource.FromHeader || x.Source is HttpInputSource.FromQuery))
+                    foreach (var parameterModel in endpointModel.Inputs
+                                 .Where(x => x.Source is HttpInputSource.FromRoute or HttpInputSource.FromHeader or HttpInputSource.FromQuery))
                     {
                         runMethod.AddAttribute("OpenApiParameter", att =>
                         {
                             att.AddArgument($"name: \"{parameterModel.Name.ToParameterName()}\"");
                             att.AddArgument($"In = ParameterLocation.{GetParameterLocation(parameterModel.Source)}");
-                            att.AddArgument("Required = true");
+                            att.AddArgument($"Required = {(!parameterModel.TypeReference.IsNullable).ToString().ToLower()}");
                             att.AddArgument($"Type = typeof({_template.UseType(template.GetTypeInfo(parameterModel.TypeReference).WithIsNullable(false))})");
                         });
                     }

@@ -3,7 +3,7 @@
   <ApplicationId>3e17b334-0f38-4811-9c78-0e521468f7ce</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#66de07cd-5792-4bc8-b14c-6a78f82f8ae4</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#66de07cd-5792-4bc8-b14c-6a78f82f8ae4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,14 +38,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.OpenApi.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.OpenApi.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28f781ad-1cba-42fe-8fcc-d4f40a1edf0f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

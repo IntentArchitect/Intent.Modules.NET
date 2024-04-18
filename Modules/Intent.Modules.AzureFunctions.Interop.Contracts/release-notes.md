@@ -1,3 +1,8 @@
+### Version 4.2.0
+
+- Improvement: Module project updated to .NET 8.
+- Fixed: Enums can now be supplied as route parameters and parsed correctly.
+
 ### Version 4.1.7
 
 - Improvement: Updated icon to SVG format.

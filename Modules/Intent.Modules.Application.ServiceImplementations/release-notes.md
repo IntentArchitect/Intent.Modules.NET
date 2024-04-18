@@ -1,3 +1,7 @@
+### Version 4.5.2
+
+- Fixed: Enums using directives will now be resolved.
+
 ### Version 4.5.1
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

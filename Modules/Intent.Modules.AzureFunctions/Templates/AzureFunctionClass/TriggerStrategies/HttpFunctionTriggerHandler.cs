@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Utils;
@@ -34,7 +38,6 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         {
             param.AddAttribute("HttpTrigger", attr =>
             {
-
                 var route = !string.IsNullOrWhiteSpace(_endpointModel?.Route)
                     ? $@"""{_endpointModel.Route}"""
                     : @"""""";
@@ -44,13 +47,29 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             });
         });
 
-        foreach (var parameterModel in _endpointModel.Inputs.Where(x => x.Source is HttpInputSource.FromRoute))
+        foreach (var parameterModel in GetRouteParams())
         {
-            method.AddParameter(_template.GetTypeName(parameterModel.TypeReference), parameterModel.Name.ToParameterName());
+            var paramName = parameterModel.Name.ToParameterName();
+            var paramResult = parameterModel.TypeReference switch
+            {
+                var type when type.IsNullable && type.Element.IsEnumModel() => (Type: "string" + NullableSymbol, ReferalVar: $"{paramName}Enum"),
+                var type when !type.IsNullable && type.Element.IsEnumModel() => (Type: "string", ReferalVar: $"{paramName}Enum"),
+                var type => (Type: _template.GetTypeName(type), ReferalVar: null)
+            };
+            method.AddParameter(paramResult.Type, paramName, param =>
+            {
+                if (paramResult.ReferalVar is not null)
+                {
+                    param.AddMetadata("referralVar", paramResult.ReferalVar);
+                }
+                param.AddMetadata("model", parameterModel);
+            });
         }
 
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
+
+    private string NullableSymbol => _template.OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
 
     public void ApplyMethodStatements(CSharpClassMethod method)
     {
@@ -66,16 +85,22 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 ConvertParamToLocalVariable(tryBlock, param, "Headers");
             }
 
+            foreach (var param in GetRouteParams())
+            {
+                if (param.TypeReference.Element.IsEnumModel())
+                {
+                    tryBlock.AddStatement(
+                        $"var {param.Name.ToParameterName()}Enum = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetEnumParamNullable" : "GetEnumParam")}<{_template.GetTypeName(param.TypeReference.Element.AsTypeReference())}>(nameof({param.Name.ToParameterName()}), {param.Name.ToParameterName()});");
+                }
+            }
 
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement($@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody, new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
+                tryBlock.AddStatement(
+                    $@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody, new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
             }
-        }).AddCatchBlock("FormatException", "exception", catchBlock =>
-        {
-            catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});");
-        });
+        }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});"); });
     }
 
     private void ConvertParamToLocalVariable(CSharpTryBlock tryBlock, IHttpEndpointInputModel param, string paramType)
@@ -91,6 +116,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             {
                 tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.{paramType}[""{param.Name.ToCamelCase()}""];");
             }
+
             return;
         }
 
@@ -99,15 +125,16 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             _template.AddUsing("System.Linq");
 
             var itemType = _template.GetTypeName(param.TypeReference, "{0}");
-            tryBlock.AddStatement($@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.Get{paramType}ParamCollection(""{param.Name.ToParameterName()}""
+            tryBlock.AddStatement(
+                $@"var {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.Get{paramType}ParamCollection(""{param.Name.ToParameterName()}""
                     , req.{paramType}
                     , (string val, out {itemType} parsed) => {itemType}.TryParse(val, out parsed)).ToList();
 ");
+            return;
         }
-        else
-        {
-            tryBlock.AddStatement($@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? $"Get{paramType}ParamNullable" : $"Get{paramType}Param")}(""{param.Name.ToParameterName()}"", req.{paramType}, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
-        }
+
+        tryBlock.AddStatement(
+            $@"{_template.GetTypeName(param.TypeReference)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? $"Get{paramType}ParamNullable" : $"Get{paramType}Param")}(""{param.Name.ToParameterName()}"", req.{paramType}, (string val, out {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.TypeReference).Replace("?", string.Empty)}.TryParse(val, out parsed));");
     }
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -132,8 +159,14 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     {
         return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromQuery);
     }
+
     private IEnumerable<IHttpEndpointInputModel> GetHeaderParams()
     {
         return _endpointModel.Inputs.Where(x => x.Source == HttpInputSource.FromHeader);
+    }
+
+    private IEnumerable<IHttpEndpointInputModel> GetRouteParams()
+    {
+        return _endpointModel.Inputs.Where(x => x.Source is HttpInputSource.FromRoute);
     }
 }
