@@ -19,7 +19,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Customers
 {
     public class GetCustomers
     {
@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("GetCustomers")]
+        [FunctionName("Customers_GetCustomers")]
         [OpenApiOperation("GetCustomersQuery", tags: new[] { "Customers" }, Description = "Get customers query")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<CustomerDto>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

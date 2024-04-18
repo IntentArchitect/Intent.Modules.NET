@@ -14,7 +14,7 @@ using Microsoft.Azure.WebJobs;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.CosmosDB.ChangeHandlerService
 {
     public class AcceptChanges
     {
@@ -27,7 +27,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("AcceptChanges")]
+        [FunctionName("CosmosDB_ChangeHandlerService_AcceptChanges")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "MyDB", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeDto> rawCollection,
             CancellationToken cancellationToken)

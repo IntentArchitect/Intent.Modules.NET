@@ -22,7 +22,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Params
 {
     public class FromBodyTest
     {
@@ -35,7 +35,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("FromBodyTest")]
+        [FunctionName("Params_FromBodyTest")]
         [OpenApiOperation("FromBodyTestCommand", tags: new[] { "FromBodyTest" }, Description = "From body test command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(IEnumerable<int>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

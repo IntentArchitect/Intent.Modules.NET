@@ -22,7 +22,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Validation
 {
     public class InboundComVal
     {
@@ -35,7 +35,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("InboundComVal")]
+        [FunctionName("Validation_InboundComVal")]
         [OpenApiOperation("InboundComValCommand", tags: new[] { "Validation" }, Description = "Inbound com val command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(InboundComValCommand))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

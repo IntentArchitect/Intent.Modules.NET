@@ -15,7 +15,7 @@ using Microsoft.Azure.WebJobs;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Queues.Bindings.BindingService
 {
     public class BindingTest
     {
@@ -28,7 +28,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("BindingTest")]
+        [FunctionName("Queues_Bindings_BindingService_BindingTest")]
         public async Task Run(
             [QueueTrigger("in-queue")] CustomerDto dto,
             [Queue("out-queue")] QueueClient queueClient,

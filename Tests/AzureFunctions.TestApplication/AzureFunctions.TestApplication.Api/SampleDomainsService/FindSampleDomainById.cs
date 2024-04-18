@@ -18,7 +18,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.SampleDomainsService
 {
     public class FindSampleDomainById
     {
@@ -29,7 +29,7 @@ namespace AzureFunctions.TestApplication.Api
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
-        [FunctionName("FindSampleDomainById")]
+        [FunctionName("SampleDomainsService_FindSampleDomainById")]
         [OpenApiOperation("FindSampleDomainById", tags: new[] { "SampleDomains" }, Description = "Find sample domain by id")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(SampleDomainDto))]

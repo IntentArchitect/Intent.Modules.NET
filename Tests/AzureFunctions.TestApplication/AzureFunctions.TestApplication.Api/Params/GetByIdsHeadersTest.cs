@@ -19,7 +19,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Params
 {
     public class GetByIdsHeadersTest
     {
@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("GetByIdsHeadersTest")]
+        [FunctionName("Params_GetByIdsHeadersTest")]
         [OpenApiOperation("GetByIdsHeadersTest", tags: new[] { "Params" }, Description = "Get by ids headers test")]
         [OpenApiParameter(name: "ids", In = ParameterLocation.Header, Required = true, Type = typeof(IEnumerable<int>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(int))]

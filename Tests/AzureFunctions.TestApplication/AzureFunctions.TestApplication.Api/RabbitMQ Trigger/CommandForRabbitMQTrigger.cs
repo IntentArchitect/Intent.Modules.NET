@@ -13,7 +13,7 @@ using Microsoft.Azure.WebJobs;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.RabbitMQTrigger
 {
     public class CommandForRabbitMQTrigger
     {
@@ -26,9 +26,9 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CommandForRabbitMQTrigger")]
+        [FunctionName("RabbitMQ Trigger_CommandForRabbitMQTrigger")]
         public async Task Run(
-            [RabbitMQTrigger("rabbit-queue")] Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger commandForRabbitMQTrigger,
+            [Microsoft.Azure.WebJobs.RabbitMQTrigger("rabbit-queue")] Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger commandForRabbitMQTrigger,
             CancellationToken cancellationToken)
         {
             await _mediator.Send(commandForRabbitMQTrigger, cancellationToken);

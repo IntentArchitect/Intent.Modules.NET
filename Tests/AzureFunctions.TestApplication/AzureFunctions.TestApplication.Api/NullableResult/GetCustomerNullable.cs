@@ -19,7 +19,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.NullableResult
 {
     public class GetCustomerNullable
     {
@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("GetCustomerNullable")]
+        [FunctionName("NullableResult_GetCustomerNullable")]
         [OpenApiOperation("GetCustomerNullable", tags: new[] { "NullableResult" }, Description = "Get customer nullable")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(CustomerDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

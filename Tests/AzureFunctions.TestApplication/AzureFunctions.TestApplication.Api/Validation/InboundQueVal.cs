@@ -19,7 +19,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Validation
 {
     public class InboundQueVal
     {
@@ -30,7 +30,7 @@ namespace AzureFunctions.TestApplication.Api
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("InboundQueVal")]
+        [FunctionName("Validation_InboundQueVal")]
         [OpenApiOperation("InboundQueValQuery", tags: new[] { "Validation" }, Description = "Inbound que val query")]
         [OpenApiParameter(name: "rangeStr", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
         [OpenApiParameter(name: "minStr", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
@@ -43,8 +43,8 @@ namespace AzureFunctions.TestApplication.Api
         [OpenApiParameter(name: "decimalRange", In = ParameterLocation.Query, Required = true, Type = typeof(decimal))]
         [OpenApiParameter(name: "decimalMin", In = ParameterLocation.Query, Required = true, Type = typeof(decimal))]
         [OpenApiParameter(name: "decimalMax", In = ParameterLocation.Query, Required = true, Type = typeof(decimal))]
-        [OpenApiParameter(name: "stringOption", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
-        [OpenApiParameter(name: "stringOptionNonEmpty", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
+        [OpenApiParameter(name: "stringOption", In = ParameterLocation.Query, Required = false, Type = typeof(string))]
+        [OpenApiParameter(name: "stringOptionNonEmpty", In = ParameterLocation.Query, Required = false, Type = typeof(string))]
         [OpenApiParameter(name: "myEnum", In = ParameterLocation.Query, Required = true, Type = typeof(EnumDescriptions))]
         [OpenApiParameter(name: "regexField", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(DummyResultDto))]

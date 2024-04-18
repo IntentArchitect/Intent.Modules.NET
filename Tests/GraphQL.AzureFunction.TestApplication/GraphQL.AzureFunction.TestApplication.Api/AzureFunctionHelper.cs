@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 
@@ -102,6 +103,33 @@ namespace GraphQL.AzureFunction.TestApplication.Api
             }
 
             return result;
+        }
+
+        public static TEnum GetEnumParam<TEnum>(string paramName, string enumString)
+            where TEnum : struct
+        {
+            if (!Enum.TryParse<TEnum>(enumString, true, out var enumValue))
+            {
+                throw new FormatException($"Parameter {paramName} has value of {enumString} which is not a valid literal value for Enum {typeof(TEnum).Name}");
+            }
+
+            return enumValue;
+        }
+
+        public static TEnum? GetEnumParamNullable<TEnum>(string paramName, [AllowNull] string enumString)
+            where TEnum : struct
+        {
+            if (enumString is null)
+            {
+                return null;
+            }
+
+            if (!Enum.TryParse<TEnum>(enumString, true, out var enumValue))
+            {
+                throw new FormatException($"Parameter {paramName} has value of {enumString} which is not a valid literal value for Enum {typeof(TEnum).Name}");
+            }
+
+            return enumValue;
         }
 
         public delegate bool ParseDelegate<T>(string strVal, out T parsed);

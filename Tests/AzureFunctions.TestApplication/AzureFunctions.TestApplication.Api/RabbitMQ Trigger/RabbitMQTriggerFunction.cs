@@ -14,7 +14,7 @@ using RabbitMQ.Client.Events;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.RabbitMQTrigger
 {
     public class RabbitMQTriggerFunction
     {
@@ -25,9 +25,9 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("RabbitMQTriggerFunction")]
+        [FunctionName("RabbitMQ Trigger_RabbitMQTriggerFunction")]
         public async Task Run(
-            [RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
+            [Microsoft.Azure.WebJobs.RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
             CancellationToken cancellationToken)
         {
             var command = JsonSerializer.Deserialize<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>(args.Body.ToArray());
