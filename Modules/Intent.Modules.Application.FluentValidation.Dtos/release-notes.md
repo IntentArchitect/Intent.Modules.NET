@@ -2,6 +2,7 @@
 
 - Improvement: Added Regular Expressions for Validation.
 - Improvement: Module project updated to .NET 8.
+- Fix: Fixed issue where DTO's for compositional entities does not include validation rules.
 
 ### Version 3.8.2
 

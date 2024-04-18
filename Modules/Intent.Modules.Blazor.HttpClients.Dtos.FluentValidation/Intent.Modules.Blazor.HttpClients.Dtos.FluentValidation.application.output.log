@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e20eb4c-9053-4405-8133-4dd87b8a2890</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#cd2b4329-787d-4baf-a062-323636a1b582</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#cd2b4329-787d-4baf-a062-323636a1b582</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DtoValidator/DtoValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoValidator/DtoValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
