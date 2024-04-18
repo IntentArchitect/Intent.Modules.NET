@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions</id>
-  <version>4.1.0-pre.0</version>
+  <version>4.1.0-pre.1</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support to describe Azure Functions in the Services designer</summary>
   <description>Provides support to describe Azure Functions in the Services designer</description>
@@ -69,9 +69,9 @@
   <moduleSettings>
     <group id="90437e3f-cb10-4e44-b229-cc30c4807bea" title="Azure Functions Settings" externalReference="90437e3f-cb10-4e44-b229-cc30c4807bea">
       <settings>
-        <setting id="ff298d6c-705b-41d9-9286-be85480a0abd" title="Simple Function Name" type="switch">
+        <setting id="ff298d6c-705b-41d9-9286-be85480a0abd" title="Simple Function Names" type="switch">
           <isRequired>false</isRequired>
-          <hint>Simplifies function name identifiers from full path to just the type name.</hint>
+          <hint>Simplifies function names (`[FunctionName]`) by only using operation names instead of the full path name.</hint>
           <defaultValue>true</defaultValue>
         </setting>
       </settings>

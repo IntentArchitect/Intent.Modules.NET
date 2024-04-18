@@ -39,6 +39,6 @@ namespace Intent.Modules.AzureFunctions.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
-        public bool SimpleFunctionName() => bool.TryParse(_groupSettings.GetSetting("ff298d6c-705b-41d9-9286-be85480a0abd")?.Value.ToPascalCase(), out var result) && result;
+        public bool SimpleFunctionNames() => bool.TryParse(_groupSettings.GetSetting("ff298d6c-705b-41d9-9286-be85480a0abd")?.Value.ToPascalCase(), out var result) && result;
     }
 }

@@ -69,7 +69,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private string GetFunctionName()
         {
-            if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionName())
+            if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionNames())
             {
                 var path = string.Join("_", Model.GetParentFolderNames());
                 if (!string.IsNullOrWhiteSpace(path))
@@ -110,7 +110,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 .Concat(additionalFolders));
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
