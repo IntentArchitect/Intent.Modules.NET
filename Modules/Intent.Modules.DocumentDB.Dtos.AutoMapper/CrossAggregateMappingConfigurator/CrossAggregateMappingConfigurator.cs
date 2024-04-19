@@ -179,7 +179,11 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
                         }
                         if (!fkAttribute.TypeReference.IsCollection && !load.IsOptional && !load.IsExpressionOptional)
                         {
-                            method.AddIfStatement($"{load.Variable} == null", ifs => ifs.AddStatement($"throw new {template.GetNotFoundExceptionName()}($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");"));
+                            method.AddIfStatement($"{load.Variable} == null", ifs =>
+                            {
+                                ifs.AddStatement($"throw new {template.GetNotFoundExceptionName()}($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");");
+                                joel dont
+                            });
 						}
 					}
 
