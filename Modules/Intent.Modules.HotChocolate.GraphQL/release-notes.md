@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Improvement: Added some basic docs.
+
 ### Version 4.0.3
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
