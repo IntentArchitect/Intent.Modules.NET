@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Bumped module version dependency for core HotChoclate module.
+
 ### Version 5.0.2
 
 - Improvement: Updated Interoperable dependency versions.
