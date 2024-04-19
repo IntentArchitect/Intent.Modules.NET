@@ -1,4 +1,8 @@
-﻿### Version 5.0.2
+﻿### Version 5.0.3
+
+- Fixed: Enabled non conventional ordinal types as primary keys
+
+### Version 5.0.2
 
 - Fixed: Resolved several issues around TPC Inheritance hierarchies with ForeignKeys.
 - Improved: For EF 6 & 7 the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package will be installed to introduce `DateOnly` support for SQL Server.

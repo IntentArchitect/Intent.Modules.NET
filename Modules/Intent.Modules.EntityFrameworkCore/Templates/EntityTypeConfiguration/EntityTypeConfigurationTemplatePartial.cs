@@ -635,7 +635,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                          !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||
                          !string.IsNullOrWhiteSpace(x.GetColumn()?.Type())))
             {
-                yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel))
+                {
+                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+                }
             }
         }
 
