@@ -1460,6 +1460,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ContainerCosmosClientProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/ContainerCosmosClientProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContainerCosmosClientProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.CosmosContainerFixture</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/CosmosContainerFixture.cs</ApplicationRelativeFilePath>

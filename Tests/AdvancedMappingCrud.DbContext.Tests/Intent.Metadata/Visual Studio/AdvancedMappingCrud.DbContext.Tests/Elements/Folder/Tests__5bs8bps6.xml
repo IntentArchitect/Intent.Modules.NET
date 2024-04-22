@@ -22,22 +22,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="7d80a162-aa92-4cbc-ae96-9f5bf83ee1e6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</name>
-      <display>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</display>
-      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>abeb604d-15ce-492d-9f87-0be62589f471</parentFolderId>
-      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
-      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="e9da993d-3855-461e-8f25-3306cfad0a21" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>IntegrationTests.Tests</name>
       <display>IntegrationTests.Tests</display>
@@ -50,6 +34,20 @@
       <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d9170a51-64b9-4db4-828d-23869a7235fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</name>
+      <display>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abeb604d-15ce-492d-9f87-0be62589f471</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

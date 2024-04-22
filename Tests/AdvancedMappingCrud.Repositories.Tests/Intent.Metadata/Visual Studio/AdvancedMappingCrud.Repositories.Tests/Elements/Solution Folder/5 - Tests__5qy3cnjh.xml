@@ -411,6 +411,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="dd068582-425b-48fc-a70c-20db4dd15f0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.ContainerCosmosClientProvider</name>
+          <display>Intent.AspNetCore.IntegrationTesting.ContainerCosmosClientProvider</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

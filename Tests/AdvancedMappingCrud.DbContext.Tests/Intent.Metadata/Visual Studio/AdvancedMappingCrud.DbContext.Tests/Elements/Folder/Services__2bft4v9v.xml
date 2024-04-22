@@ -22,22 +22,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a9a66c1b-9419-493b-b58c-c7b5c6c09a01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.IntegrationTesting.PagedResult</name>
-      <display>Intent.AspNetCore.IntegrationTesting.PagedResult</display>
-      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>124fd021-a996-4609-bbcd-4d2ca9d9d562</parentFolderId>
-      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
-      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="c16b2265-85ef-4a9b-8828-5c1f7a1149b0" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>IntegrationTests.PagedResult</name>
       <display>IntegrationTests.PagedResult</display>
@@ -50,6 +34,20 @@
       <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0328054c-5ee7-44b2-8d13-41ce2cd12525" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.PagedResult</name>
+      <display>Intent.AspNetCore.IntegrationTesting.PagedResult</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>124fd021-a996-4609-bbcd-4d2ca9d9d562</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>
