@@ -154,7 +154,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>a5bda094-e905-46f8-8348-5afef353db68</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
@@ -182,8 +182,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3ec460ac-f6db-4345-809c-9f3ee2c11035" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="d0169aaa-739b-46c6-8045-8e007416dfb6" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>CustomerId</name>
+          <display>CustomerId</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>true</isMapped>
@@ -199,21 +200,22 @@
           <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
           <packageName>SqlServerImporterTests</packageName>
           <stereotypes>
-            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e">
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
               <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
               <properties>
-                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" value="Key" isActive="true" />
-                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" value="Ascending" isActive="true" />
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2173cc85-a83c-481d-a993-ec2743143df1" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="9e516064-e860-4eda-a068-2f5e203f6938" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>OrderDate</name>
+          <display>OrderDate</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>true</isMapped>
@@ -229,13 +231,13 @@
           <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
           <packageName>SqlServerImporterTests</packageName>
           <stereotypes>
-            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e">
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
               <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
               <properties>
-                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" value="Included" isActive="true" />
-                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" value="Ascending" isActive="true" />
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Included" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -252,7 +254,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>a5bda094-e905-46f8-8348-5afef353db68</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
@@ -280,8 +282,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="63d0aa1f-026a-4ffe-80b6-3150d17753ca" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="eb8aa37c-6da9-44d9-bac8-da4e56801144" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>RefNo</name>
+          <display>RefNo</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>true</isMapped>
@@ -297,13 +300,13 @@
           <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
           <packageName>SqlServerImporterTests</packageName>
           <stereotypes>
-            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e">
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
               <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
               <properties>
-                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" value="Key" isActive="true" />
-                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" value="Ascending" isActive="true" />
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

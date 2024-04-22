@@ -565,7 +565,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>a5bda094-e905-46f8-8348-5afef353db68</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
@@ -593,8 +593,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0c0b529a-1fd5-4f53-aedf-7995d781e9e6" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="2f633efe-725c-46f5-be6a-bcd175fc8660" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedEmail</name>
+          <display>NormalizedEmail</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>true</isMapped>
@@ -610,13 +611,13 @@
           <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
           <packageName>SqlServerImporterTests</packageName>
           <stereotypes>
-            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e">
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
               <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
               <properties>
-                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" value="Key" isActive="true" />
-                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" value="Ascending" isActive="true" />
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -633,7 +634,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>a5bda094-e905-46f8-8348-5afef353db68</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
@@ -661,8 +662,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d91f86e9-c69e-481f-ab68-bbc7cb67c29a" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="f70c9e54-adff-4f99-b4dc-08c7c242b814" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedUserName</name>
+          <display>NormalizedUserName</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>true</isMapped>
@@ -678,13 +680,13 @@
           <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
           <packageName>SqlServerImporterTests</packageName>
           <stereotypes>
-            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e">
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
               <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
               <properties>
-                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" value="Key" isActive="true" />
-                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" value="Ascending" isActive="true" />
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
