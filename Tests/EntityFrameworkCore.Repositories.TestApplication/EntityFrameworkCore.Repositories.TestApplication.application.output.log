@@ -787,6 +787,70 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5857a53f-66ac-43fb-ad55-81545a810c45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassByte.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassByte.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#87738388-4350-4d97-a027-e81ef743f718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassDecimal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDecimal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f794aafb-1196-45c4-a18c-21f415c070d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassDouble.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDouble.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#26a6b7d1-c0bc-43e6-8175-0bf79e6a2eae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassFloat.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassFloat.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d6444d05-a265-439e-8541-5e871d422a42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassGuid.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassGuid.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a04f7e3f-5e7a-4373-aa0d-2b7b851598e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassInt.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassInt.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d6de7be5-6c3f-46a2-a891-8ab8fa96ac8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassLong.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassLong.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b349ce0f-beef-4269-895a-169d2e96497e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Entities/PrimaryKeyTypes/NewClassShort.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassShort.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e63f3703-401a-44aa-9493-f1bb346af54e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e63f3703-401a-44aa-9493-f1bb346af54e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -963,6 +1027,70 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5857a53f-66ac-43fb-ad55-81545a810c45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassByteRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassByteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#87738388-4350-4d97-a027-e81ef743f718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassDecimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassDecimalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f794aafb-1196-45c4-a18c-21f415c070d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassDoubleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassDoubleRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#26a6b7d1-c0bc-43e6-8175-0bf79e6a2eae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassFloatRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassFloatRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d6444d05-a265-439e-8541-5e871d422a42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassGuidRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassGuidRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a04f7e3f-5e7a-4373-aa0d-2b7b851598e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassIntRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassIntRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d6de7be5-6c3f-46a2-a891-8ab8fa96ac8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassLongRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassLongRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b349ce0f-beef-4269-895a-169d2e96497e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassShortRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/INewClassShortRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>af02fb6f-c1dc-4529-9231-d8a99dbb4322</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1080,6 +1208,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/MappableStoredProcs/MockEntityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappableStoredProcs/MockEntityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5857a53f-66ac-43fb-ad55-81545a810c45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassByteConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassByteConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#87738388-4350-4d97-a027-e81ef743f718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassDecimalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDecimalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f794aafb-1196-45c4-a18c-21f415c070d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassDoubleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDoubleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#26a6b7d1-c0bc-43e6-8175-0bf79e6a2eae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassFloatConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassFloatConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d6444d05-a265-439e-8541-5e871d422a42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassGuidConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassGuidConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a04f7e3f-5e7a-4373-aa0d-2b7b851598e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassIntConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassIntConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d6de7be5-6c3f-46a2-a891-8ab8fa96ac8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassLongConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassLongConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b349ce0f-beef-4269-895a-169d2e96497e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassShortConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassShortConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1232,6 +1424,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/MappableStoredProcs/MockEntityRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappableStoredProcs/MockEntityRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5857a53f-66ac-43fb-ad55-81545a810c45</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassByteRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassByteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#87738388-4350-4d97-a027-e81ef743f718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassDecimalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDecimalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f794aafb-1196-45c4-a18c-21f415c070d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassDoubleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassDoubleRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#26a6b7d1-c0bc-43e6-8175-0bf79e6a2eae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassFloatRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassFloatRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d6444d05-a265-439e-8541-5e871d422a42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassGuidRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassGuidRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a04f7e3f-5e7a-4373-aa0d-2b7b851598e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassIntRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassIntRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d6de7be5-6c3f-46a2-a891-8ab8fa96ac8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassLongRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassLongRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b349ce0f-beef-4269-895a-169d2e96497e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/PrimaryKeyTypes/NewClassShortRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassShortRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

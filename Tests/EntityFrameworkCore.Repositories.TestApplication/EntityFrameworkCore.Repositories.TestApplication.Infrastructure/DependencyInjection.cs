@@ -5,9 +5,11 @@ using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Interf
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.MappableStoredProcs;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.PrimaryKeyTypes;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories.MappableStoredProcs;
+using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories.PrimaryKeyTypes;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +51,14 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddTransient<IAggregateRoot5Repository, AggregateRoot5Repository>();
             services.AddTransient<IAggregateRoot5EntityWithRepoRepository, AggregateRoot5EntityWithRepoRepository>();
             services.AddTransient<IMockEntityRepository, MockEntityRepository>();
+            services.AddTransient<INewClassByteRepository, NewClassByteRepository>();
+            services.AddTransient<INewClassDecimalRepository, NewClassDecimalRepository>();
+            services.AddTransient<INewClassDoubleRepository, NewClassDoubleRepository>();
+            services.AddTransient<INewClassFloatRepository, NewClassFloatRepository>();
+            services.AddTransient<INewClassGuidRepository, NewClassGuidRepository>();
+            services.AddTransient<INewClassIntRepository, NewClassIntRepository>();
+            services.AddTransient<INewClassLongRepository, NewClassLongRepository>();
+            services.AddTransient<INewClassShortRepository, NewClassShortRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }
