@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.BaseIntegrationTest;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ContainerCosmosClientProvider;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainerFixture;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixture;
@@ -29,6 +30,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
         public static string GetBaseIntegrationTestName(this IIntentTemplate template)
         {
             return template.GetTypeName(BaseIntegrationTestTemplate.TemplateId);
+        }
+
+        public static string GetContainerCosmosClientProviderName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ContainerCosmosClientProviderTemplate.TemplateId);
         }
 
         public static string GetCosmosContainerFixtureName(this IIntentTemplate template)
