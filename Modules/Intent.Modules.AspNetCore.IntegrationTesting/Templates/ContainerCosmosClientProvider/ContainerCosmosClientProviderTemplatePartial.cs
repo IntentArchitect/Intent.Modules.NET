@@ -21,14 +21,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ContainerCosmos
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ContainerCosmosClientProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.Cosmos")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
                 .AddClass($"ContainerCosmosClientProvider", @class =>
                 {
-                    @class
-                        .ImplementsInterface("ICosmosClientProvider")
+					AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository);
+					@class
+						.ImplementsInterface("ICosmosClientProvider")
                         .ImplementsInterface("IDisposable");
                     @class.AddConstructor(ctor =>
                     {
@@ -61,7 +61,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ContainerCosmos
                 });
         }
 
-        [IntentManaged(Mode.Fully)]
+		public override bool CanRunTemplate()
+		{
+			return base.CanRunTemplate() && ContainerHelper.RequireCosmosContainer(this);
+		}
+
+		[IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
