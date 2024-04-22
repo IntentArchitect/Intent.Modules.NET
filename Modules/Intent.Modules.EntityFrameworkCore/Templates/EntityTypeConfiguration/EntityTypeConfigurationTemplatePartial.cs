@@ -631,9 +631,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return new EfCoreKeyMappingStatement(model);
             }
 
-            foreach (var attributeModel in model.GetExplicitPrimaryKey().Where(x =>
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Type())))
+            foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
                 if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel))
                 {
