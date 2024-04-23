@@ -18,6 +18,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguraration
     {
         public override string TemplateId => OpenApiConfigurarationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new OpenApiConfigurarationTemplate(outputTarget);

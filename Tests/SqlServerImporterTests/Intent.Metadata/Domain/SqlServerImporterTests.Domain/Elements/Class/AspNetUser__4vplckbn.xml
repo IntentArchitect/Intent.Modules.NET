@@ -593,7 +593,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0d7a0dd9-4b2d-4b54-ac2b-3ee008fb6ed3" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="2f633efe-725c-46f5-be6a-bcd175fc8660" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedEmail</name>
           <display>NormalizedEmail</display>
           <isAbstract>false</isAbstract>
@@ -662,7 +662,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b1f356f9-149e-4cf0-a69d-e13b5092fe64" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="f70c9e54-adff-4f99-b4dc-08c7c242b814" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedUserName</name>
           <display>NormalizedUserName</display>
           <isAbstract>false</isAbstract>

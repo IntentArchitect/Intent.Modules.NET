@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="213d455a-414e-4252-8d25-dbfe29d08e66" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ToManyLongs</name>
-    <display>ToManyLongs: ToManyLong[*]   [1 --&gt; *]</display>
+    <display>ToManyLongs: ToManyLong[*]</display>
     <order>3</order>
     <typeReference id="d26d49b0-876d-420b-b504-9daabad47636">
       <typeId>f3d2107e-3d47-4974-888f-942fccce8b2f</typeId>

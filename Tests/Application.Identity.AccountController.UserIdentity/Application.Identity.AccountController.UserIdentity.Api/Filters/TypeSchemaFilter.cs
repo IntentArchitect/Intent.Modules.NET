@@ -18,6 +18,12 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Filters
                 schema.Example = new OpenApiString("00:00:00"); // Set your desired format here
                 schema.Type = "string"; // Override the default representation to be a string
             }
+
+            if (context.Type == typeof(DateOnly) || context.Type == typeof(DateOnly?))
+            {
+                schema.Example = new OpenApiString(DateTime.Today.ToString("yyyy-MM-dd")); // Set your desired format here
+                schema.Type = "string"; // Override the default representation to be a string
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Blazor.HttpClients.Templates.EnumContract;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClient;
@@ -6,8 +8,10 @@ using Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Blazor.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Blazor.HttpClients.Templates.JsonResponse;
 using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
+using Intent.Modules.Blazor.HttpClients.Templates.ProblemDetailsWithErrors;
 using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,31 +22,31 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.Api.DTOModel
+        public static string GetDtoContractName<T>(this IIntentTemplate<T> template) where T : DTOModel
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDtoContractName(this IIntentTemplate template, Intent.Modelers.Services.Api.DTOModel model)
+        public static string GetDtoContractName(this IIntentTemplate template, DTOModel model)
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, model);
         }
 
-        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        public static string GetEnumContractName<T>(this IIntentTemplate<T> template) where T : EnumModel
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEnumContractName(this IIntentTemplate template, Intent.Modules.Common.Types.Api.EnumModel model)
+        public static string GetEnumContractName(this IIntentTemplate template, EnumModel model)
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, model);
         }
-        public static string GetHttpClientName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
+        public static string GetHttpClientName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHttpClientName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
+        public static string GetHttpClientName(this IIntentTemplate template, ServiceProxyModel model)
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, model);
         }
@@ -67,12 +71,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
             return template.GetTypeName(PagedResultTemplate.TemplateId);
         }
 
-        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
+        public static string GetProblemDetailsWithErrorsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ProblemDetailsWithErrorsTemplate.TemplateId);
+        }
+
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetServiceContractName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
+        public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }

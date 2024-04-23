@@ -148,7 +148,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllPa
             templateInstance?.AddPaginationAssertionMethod(templateInstance.CSharpFile.Classes.First(), Model, domainModel);
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

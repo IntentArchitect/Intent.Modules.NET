@@ -1,4 +1,5 @@
 using System.Net;
+using System.Text.Json;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,7 +20,14 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
             ResponseHeaders = responseHeaders;
             ReasonPhrase = reasonPhrase;
             ResponseContent = responseContent;
+
+            if (!string.IsNullOrWhiteSpace(responseContent) && responseHeaders.TryGetValue("Content-Type", out var contentTypeValues) && contentTypeValues.FirstOrDefault() == "application/problem+json; charset=utf-8")
+            {
+                ProblemDetails = JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);
+            }
         }
+
+        public ProblemDetailsWithErrors? ProblemDetails { get; private set; }
 
         public Uri RequestUri { get; private set; }
         public HttpStatusCode StatusCode { get; private set; }
@@ -35,8 +43,15 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
         {
             var fullRequestUri = new Uri(baseAddress, request.RequestUri!);
             var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+
             var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
-            return new HttpClientRequestException(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
+            var contentHeaders = response.Content.Headers.ToDictionary(k => k.Key, v => v.Value);
+            var allHeaders = headers
+                .Concat(contentHeaders)
+                .GroupBy(kvp => kvp.Key)
+                .ToDictionary(group => group.Key, group => group.Last().Value);
+
+            return new HttpClientRequestException(fullRequestUri, response.StatusCode, allHeaders, response.ReasonPhrase, content);
         }
 
         private static string GetMessage(
@@ -50,6 +65,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients.Common
             {
                 message += " See content for more detail.";
             }
+
             return message;
         }
     }

@@ -19,7 +19,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.SampleDomainsService
 {
     public class DeleteSampleDomain
     {
@@ -32,7 +32,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("DeleteSampleDomain")]
+        [FunctionName("SampleDomainsService_DeleteSampleDomain")]
         [OpenApiOperation("DeleteSampleDomain", tags: new[] { "SampleDomains" }, Description = "Delete sample domain")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

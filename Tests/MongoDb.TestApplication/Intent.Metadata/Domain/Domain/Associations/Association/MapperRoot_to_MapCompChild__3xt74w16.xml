@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="8731db38-4fbf-405e-8a02-02f6558d049a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapCompChild</name>
-    <display>MapCompChild: MapCompChild   [1 --&gt; 1]</display>
-    <order>5</order>
+    <display>MapCompChild: MapCompChild</display>
+    <order>6</order>
     <typeReference id="3cee4941-2144-4522-ac83-31f9acfb651f">
       <typeId>cf3f8146-c3e7-4875-9ca6-3305de7d9f31</typeId>
       <isNavigable>true</isNavigable>

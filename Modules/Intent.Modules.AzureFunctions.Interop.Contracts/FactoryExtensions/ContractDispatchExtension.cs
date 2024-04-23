@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates;
 using Intent.Modules.AzureFunctions.Templates;
@@ -10,6 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -25,8 +27,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
     {
         public override string Id => "Intent.AzureFunctions.Interop.Contracts.ContractDispatchExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -43,19 +44,26 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.Single();
-                    @class.Constructors.First().AddParameter(template.GetServiceContractName(mappedOperation.ParentService), "appService", param =>
-                    {
-                        param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
+                    @class.Constructors.First().AddParameter(template.GetServiceContractName(mappedOperation.ParentService), "appService",
+                        param => { param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                    var runMethod = FindServiceInvokePoint(@class)?
-                        .AddInvocationStatement($"{(template.Model.ReturnType != null ? "var result = " : "")}await _appService.{mappedOperation.Name.ToPascalCase()}",
+                    var runMethod = FindServiceInvokePoint(@class, out var hostMethod)
+                        ?.AddInvocationStatement($"{(template.Model.ReturnType != null ? "var result = " : "")}await _appService.{mappedOperation.Name.ToPascalCase()}",
                             dispatch =>
                             {
                                 foreach (var parameter in template.Model.Parameters)
                                 {
-                                    dispatch.AddArgument(parameter.Name);
+                                    var matchedMethodParam =
+                                        hostMethod.Parameters.FirstOrDefault(p => p.TryGetMetadata("model", out IMetadataModel model) && model.Id == parameter.Id);
+                                    var paramName = parameter.Name;
+                                    if (matchedMethodParam?.TryGetMetadata("referralVar", out string referralVar) == true)
+                                    {
+                                        paramName = referralVar;
+                                    }
+
+                                    dispatch.AddArgument(paramName);
                                 }
+
                                 dispatch.AddArgument("cancellationToken");
                                 dispatch.AddMetadata("service-dispatch-statement", true);
                             })
@@ -64,9 +72,10 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
             }
         }
 
-        private IHasCSharpStatements FindServiceInvokePoint(CSharpClass @class)
+        private IHasCSharpStatements FindServiceInvokePoint(CSharpClass @class, out CSharpClassMethod hostMethod)
         {
             var runMethod = @class.FindMethod("Run");
+            hostMethod = runMethod;
             var explicitPoint = runMethod.FindStatement(s => s.HasMetadata("service-invoke")) as IHasCSharpStatements;
             if (explicitPoint != null) return explicitPoint;
             return ((IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(x => true) ?? runMethod);
@@ -78,17 +87,17 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
             string result = httpTriggersView?.Verb switch
             {
                 HttpVerb.Get => template.Model.ReturnType == null
-                        ? $"return new NoContentResult();"
-                        : $"return new OkObjectResult({GetResultExpression(template)});",
+                    ? $"return new NoContentResult();"
+                    : $"return new OkObjectResult({GetResultExpression(template)});",
                 HttpVerb.Post => template.Model.ReturnType == null
-                        ? $"return new CreatedResult(string.Empty, null);"
-                        : $"return new CreatedResult(string.Empty, {GetResultExpression(template)});",
+                    ? $"return new CreatedResult(string.Empty, null);"
+                    : $"return new CreatedResult(string.Empty, {GetResultExpression(template)});",
                 HttpVerb.Put or HttpVerb.Patch => template.Model.ReturnType == null
-                        ? $"return new NoContentResult();"
-                        : $"return new OkObjectResult({GetResultExpression(template)});",
+                    ? $"return new NoContentResult();"
+                    : $"return new OkObjectResult({GetResultExpression(template)});",
                 HttpVerb.Delete => template.Model.ReturnType == null
-                        ? $"return new OkResult();"
-                        : $"return new OkObjectResult({GetResultExpression(template)});",
+                    ? $"return new OkResult();"
+                    : $"return new OkObjectResult({GetResultExpression(template)});",
                 null => template.Model.ReturnType == null
                     ? string.Empty
                     : $"return result;",

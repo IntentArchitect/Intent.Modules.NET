@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6aa110ea-c7b4-4288-8ee8-c7cf35d74fd4" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EnumDescriptions</name>
+  <display>EnumDescriptions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79d08d69-3a85-4ee5-a973-7e9cddf3edc8</parentFolderId>
+  <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+  <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b8a96a1c-068c-48af-8303-9fc7665baee1" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Option1</name>
+      <display>Option1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6aa110ea-c7b4-4288-8ee8-c7cf35d74fd4</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6d95bcb3-896e-49b2-89e4-82cf71141777" name="Description">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="f58aec6a-90a4-4993-961e-08dc45d1cf90" display="Value" value="My First Option" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f3bedf34-70ad-478f-854c-a9e18d018e43" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Option2</name>
+      <display>Option2 = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6aa110ea-c7b4-4288-8ee8-c7cf35d74fd4</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6d95bcb3-896e-49b2-89e4-82cf71141777" name="Description">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="f58aec6a-90a4-4993-961e-08dc45d1cf90" display="Value" value="My Second Option" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

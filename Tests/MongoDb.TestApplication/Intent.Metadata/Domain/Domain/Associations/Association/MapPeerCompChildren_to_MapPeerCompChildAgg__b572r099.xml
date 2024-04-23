@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="c0c42193-8e2f-48c9-8857-958c6909f5fa" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapPeerCompChildAgg</name>
-    <display>MapPeerCompChildAgg: MapPeerCompChildAgg   [* --&gt; 1]</display>
+    <display>MapPeerCompChildAgg: MapPeerCompChildAgg</display>
     <order>2</order>
     <typeReference id="85e238ff-4dfc-491b-8e89-b7d40f2a7102">
       <typeId>6d2fd443-3ea0-4a80-a397-11c5363f0660</typeId>

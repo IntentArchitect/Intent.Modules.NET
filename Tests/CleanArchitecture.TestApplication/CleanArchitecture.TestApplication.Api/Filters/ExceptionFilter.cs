@@ -32,7 +32,7 @@ public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
                 context.ExceptionHandled = true;
                 break;
             case UnauthorizedAccessException:
-                context.Result = new ForbidResult();
+                context.Result = new UnauthorizedResult();
                 context.ExceptionHandled = true;
                 break;
             case NotFoundException exception:

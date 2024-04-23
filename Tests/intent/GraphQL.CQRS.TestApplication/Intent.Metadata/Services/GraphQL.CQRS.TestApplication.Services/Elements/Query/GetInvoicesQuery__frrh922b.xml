@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>

@@ -22,13 +22,41 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="76e11ceb-9dae-4ab5-8730-83bf68da7bc6" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
-      <name>ResultValidations</name>
-      <display>ResultValidations(): ValidatedResultDto</display>
+    <childElement id="11130eb2-b265-4d15-9981-14936a6812b0" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>InboundValidationCommand</name>
+      <display>InboundValidationCommand(): void</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="6779036c-6810-4806-a4ff-ba4b7709a70e">
-        <typeId>65328190-ec6d-4a47-a1c3-3c834d04c1a3</typeId>
+      <typeReference id="218b14f1-c283-4d83-bd92-aa42f52afe65">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="afa2f4c8-f4f4-4444-b911-09f2ff2ec8b4" name="InboundValidationCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>
+      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+      <packageName>Web Client</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="05ff939c-61dd-44d0-be09-3b3224a25e01" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>InboundValidationQuery</name>
+      <display>InboundValidationQuery(): DummyResultDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5de69b45-1f0f-4e93-ae97-4049e01027be">
+        <typeId>6ecfef12-e4aa-45d5-bc29-c94f91b6d269</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -43,35 +71,7 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="65a7837e-a0ed-4dd0-8c7f-7cc9f1783f14" name="ResultValidationsQuery" type="element" specialization="Query" />
-        </mappedPath>
-      </mappedClass>
-      <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>
-      <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
-      <packageName>Web Client</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="3303bf85-f023-42bb-9c8a-32762c17f0dc" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
-      <name>Validated</name>
-      <display>Validated(): void</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="33643780-8b85-4f73-83cc-8758dc55bcb2">
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="2d9b59d5-a357-4bdb-a9f6-0ccae466e2f7" name="ValidatedCommand" type="element" specialization="Command" />
+          <target id="09d30b8d-c37e-422d-a651-b45f58f74809" name="InboundValidationQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>

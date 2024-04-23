@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     public ServiceContractTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget,
         model)
     {
+        AddTypeSource(TemplateRoles.Application.Contracts.Enum);
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
 

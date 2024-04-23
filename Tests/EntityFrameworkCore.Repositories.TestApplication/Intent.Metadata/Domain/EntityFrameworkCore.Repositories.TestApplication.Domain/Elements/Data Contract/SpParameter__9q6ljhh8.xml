@@ -95,11 +95,11 @@
     </childElement>
     <childElement id="2f773d71-f7a6-4e18-8e8a-db65cbf32685" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>AttributeDate</name>
-      <display>AttributeDate: date</display>
+      <display>AttributeDate: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="891a7ff2-8b4b-4a1b-af8d-fa9c5a91a59c">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -114,7 +114,9 @@
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="e62d1c1d-4a5f-4bb8-ba7d-b0532ffb1f79" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

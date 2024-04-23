@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4ce31d4d-b175-41d9-98e1-15c5c579c4fb">
+  <sourceEnd id="09b28df6-0229-4f56-8fd8-4de1bc107618" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Invoices.DeleteInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="837e7ea4-35b2-4f90-bfa6-18f011442fac">
+      <typeId>6a2305bc-c907-454f-b626-a5a472452c17</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Services</typePackageName>
+      <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4ce31d4d-b175-41d9-98e1-15c5c579c4fb" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>invoice</name>
+    <display>[delete] invoice: Invoice</display>
+    <order>1</order>
+    <typeReference id="ba97d85d-068a-4776-be92-0061075f5417">
+      <typeId>4db32430-16e4-4d67-90cc-5b283932c4fd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Domain</typePackageName>
+      <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="911db950-d9d5-4e0a-a0a2-33b988afcc64" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6a2305bc-c907-454f-b626-a5a472452c17" location="[DtoSettings.Record.Public].[Services].[DeleteInvoiceCommand]" />
+        <target elementId="4db32430-16e4-4d67-90cc-5b283932c4fd" location="[DtoSettings.Record.Public].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="4db32430-16e4-4d67-90cc-5b283932c4fd" name="Invoice" type="element" specialization="Class" />
+              <target id="42774679-bbae-4489-8b2c-51b7823c426a" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6a2305bc-c907-454f-b626-a5a472452c17" name="DeleteInvoiceCommand" type="element" specialization="Command" />
+                  <target id="155c6c53-f99d-4c4f-abac-b2e420ba54c2" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

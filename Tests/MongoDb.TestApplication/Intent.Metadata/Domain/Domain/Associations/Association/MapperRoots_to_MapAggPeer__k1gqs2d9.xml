@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="ebffa9f6-e210-4773-8512-adb07364e590" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapAggPeer</name>
-    <display>MapAggPeer: MapAggPeer   [* --&gt; 1]</display>
-    <order>6</order>
+    <display>MapAggPeer: MapAggPeer</display>
+    <order>7</order>
     <typeReference id="4d20cb15-5f0a-4cfb-8f7d-4c5a111a86d1">
       <typeId>0e3561f1-b7c1-4d20-89b9-3fabb2f2a79a</typeId>
       <isNavigable>true</isNavigable>

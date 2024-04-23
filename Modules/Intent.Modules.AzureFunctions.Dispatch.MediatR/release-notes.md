@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Module project updated to .NET 8.
+
 ### Version 1.0.10
 
 - Improvement: Updated icon to SVG format.

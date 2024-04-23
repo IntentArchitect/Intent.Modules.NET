@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.AzureFunctions.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper;
 using Intent.Modules.AzureFunctions.Templates.ReturnTypes.JsonResponse;
@@ -15,12 +16,12 @@ namespace Intent.Modules.AzureFunctions.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAzureFunctionClassName<T>(this IIntentTemplate<T> template) where T : Intent.AzureFunctions.Api.AzureFunctionModel
+        public static string GetAzureFunctionClassName<T>(this IIntentTemplate<T> template) where T : AzureFunctionModel
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, template.Model);
         }
 
-        public static string GetAzureFunctionClassName(this IIntentTemplate template, Intent.AzureFunctions.Api.AzureFunctionModel model)
+        public static string GetAzureFunctionClassName(this IIntentTemplate template, AzureFunctionModel model)
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, model);
         }

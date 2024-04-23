@@ -1,10 +1,12 @@
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.FluentValidation.Settings;
 using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]
@@ -17,7 +19,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
     {
         public const string TemplateId = "Intent.Application.FluentValidation.Dtos.DTOValidator";
 
-        public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model)
+        public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model, IEnumerable<IAssociationEnd> associationedElements)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,
@@ -29,6 +31,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
+                associationedElements: associationedElements,
                 customValidationEnabled: true)
         {
         }

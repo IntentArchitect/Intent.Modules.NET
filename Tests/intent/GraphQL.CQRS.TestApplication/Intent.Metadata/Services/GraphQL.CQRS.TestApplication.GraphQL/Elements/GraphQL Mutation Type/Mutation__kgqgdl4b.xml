@@ -29,7 +29,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
         <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
@@ -63,7 +63,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
         <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
@@ -129,7 +129,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
         <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>
@@ -162,7 +162,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>96524c15-c348-4dce-8274-e62c5773ac50</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
         <mappingSettingsId>96d1ea0d-844c-4d36-a881-16bc0100dfb5</mappingSettingsId>

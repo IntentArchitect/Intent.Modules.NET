@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e6162f49-4a4c-490e-b230-2cfae40cc6e4">
+  <sourceEnd id="3779f499-b243-4cc6-8dd8-903e52131a58" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="e65b09d3-040a-4837-a6f8-9b77f683aa64">
+      <typeId>989585c1-fa49-4bd3-84cf-b1cc0348e3f1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.MultiTenancy.SeperateDB.Services</typePackageName>
+      <typePackageId>8659bbfa-61d3-43d3-a5fa-4e34d2ac1038</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e6162f49-4a4c-490e-b230-2cfae40cc6e4" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <typeReference id="a6e40447-f377-45a8-a56f-b61ae0cb542a">
+      <typeId>d7916913-fc81-4c07-94d9-75ad6f612166</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.MultiTenancy.SeperateDB.Domain</typePackageName>
+      <typePackageId>2385fe55-ae06-433f-a4e2-55d964db3acb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="989585c1-fa49-4bd3-84cf-b1cc0348e3f1" location="[CosmosDB.MultiTenancy.SeperateDB].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d7916913-fc81-4c07-94d9-75ad6f612166" location="[CosmosDB.MultiTenancy.SeperateDB].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
+              <target id="98fa1cd9-de04-417a-a88f-ca137a1cd8b4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="989585c1-fa49-4bd3-84cf-b1cc0348e3f1" name="DeleteCustomerCommand" type="element" specialization="Command" />
+                  <target id="9deabf52-1b90-4478-ad82-5bfc7b7ae452" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

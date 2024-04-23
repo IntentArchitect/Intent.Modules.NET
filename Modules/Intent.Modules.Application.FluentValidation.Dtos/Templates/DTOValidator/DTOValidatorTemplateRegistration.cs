@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -9,16 +10,17 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
 namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DTOValidatorTemplateRegistration : FilePerModelTemplateRegistration<DTOModel>
+    public class DTOValidatorTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
         private const string CommandTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
@@ -29,22 +31,17 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => DTOValidatorTemplate.TemplateId;
+        public string TemplateId => DTOValidatorTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            return new DTOValidatorTemplate(outputTarget, model);
-        }
-
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<DTOModel> GetModels(IApplication application)
-        {
-            var commandElements = _metadataManager.Services(application).GetElementsOfType(CommandTypeId);
-            var queryElements = _metadataManager.Services(application).GetElementsOfType(QueryTypeId);
+            var commandElements = _metadataManager.Services(applicationManager).GetElementsOfType(CommandTypeId);
+            var queryElements = _metadataManager.Services(applicationManager).GetElementsOfType(QueryTypeId);
             var dtoFields = commandElements.Union(queryElements)
                 .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
 
-            var operations = _metadataManager.Services(application).GetServiceModels()
+            var operations = _metadataManager.Services(applicationManager).GetServiceModels()
                 .SelectMany(x => x.Operations.Select(o => o.InternalElement));
             var parameters = operations
                 .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == ParameterModel.SpecializationTypeId));
@@ -52,15 +49,52 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             var referencedElements = DeepGetDistinctReferencedElements(dtoFields.Union(parameters));
             var referencedElementIds = referencedElements.Select(x => x.Id).ToHashSet();
 
-            return _metadataManager.Services(application).GetDTOModels()
-                .Where(x => referencedElementIds.Contains(x.Id) &&
-                            ValidationRulesExtensions.HasValidationRules(
-                                dtoModel: x,
-                                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
-                                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
-                                uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
-                                customValidationEnabled: true))
+            var models = _metadataManager.Services(applicationManager).GetDTOModels()
+                .Where(x =>
+                {
+                    IElement advancedMappingSource = GetAdvancedMappings(dtoFields, x);
+
+                    return referencedElementIds.Contains(x.Id) &&
+                    ValidationRulesExtensions.HasValidationRules(
+                        dtoModel: x,
+                        dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                        dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                        uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                        customValidationEnabled: true,
+                        associationedElements: advancedMappingSource?.AssociatedElements);
+                })
                 .ToArray();
+
+            foreach (var model in models)
+            {
+                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);
+
+                registry.RegisterTemplate(TemplateId,
+                    project => new DTOValidatorTemplate(
+                        project,
+                        model,
+                        advancedMappingSource?.AssociatedElements));
+            }
+        }
+
+        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, IMetadataModel model)
+        {
+            // check to see if parent has advanced mapping
+            var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
+
+            var commandsOrQueries = matchingReferenceFields
+                .Select(f => f.ParentElement)
+                .Distinct()
+                .ToArray();
+
+            var advancedMappingSource = commandsOrQueries.Length switch
+            {
+                0 => null,
+                1 => commandsOrQueries[0],
+                _ => null,
+            };
+
+            return advancedMappingSource;
         }
 
         /// <remarks>

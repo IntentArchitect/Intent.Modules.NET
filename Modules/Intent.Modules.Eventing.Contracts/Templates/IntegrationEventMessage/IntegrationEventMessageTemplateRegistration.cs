@@ -38,10 +38,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<MessageModel> GetModels(IApplication application)
         {
-            var result = _metadataManager.GetSubscribedToMessageModels(application)
+            var result = Enumerable.Empty<MessageModel>()
+                .Union(_metadataManager.GetSubscribedToMessageModels(application))
                 .Union(_metadataManager.GetPublishedMessageModels(application))
-                .Union(_metadataManager.GetExplicitlySubscribedToMessageModels(application))
-                .Union(_metadataManager.GetExplicitlyPublishedMessageModels(application));
+                .Union(_metadataManager.GetAssociatedMessageModels(application));
 
             return result;
         }

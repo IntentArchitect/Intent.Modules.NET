@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="2ba770ff-0d4e-4ea4-8774-e9d5d9b32da5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>SingleIndexEntitySingleChild</name>
-    <display>SingleIndexEntitySingleChild: SingleIndexEntitySingleChild   [1 --&gt; 1]</display>
-    <order>3</order>
+    <display>SingleIndexEntitySingleChild: SingleIndexEntitySingleChild</display>
+    <order>2</order>
     <typeReference id="989038ac-cf91-4698-b925-8c076cf8b416">
       <typeId>ebbbf7c4-5ae8-40d6-82df-5cec478449f5</typeId>
       <isNavigable>true</isNavigable>

@@ -864,7 +864,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Infrastructure/Repositories/DerivedClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedClassRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f30639e5-aa79-4ec6-a303-acc1a00351b1</ProjectId>

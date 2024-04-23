@@ -37,7 +37,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata>
@@ -100,7 +102,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>be4b0466-617b-4d2d-beb1-5ef601d11ec9</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>f2808fdb-111e-4fdc-857c-9454eac68b92</mappingSettingsId>

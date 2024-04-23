@@ -31,6 +31,7 @@
 </displayFunction>
       <allowRename>true</allowRename>
       <allowAbstract>true</allowAbstract>
+      <allowStatic>false</allowStatic>
       <allowGenericTypes>true</allowGenericTypes>
       <allowMapping>true</allowMapping>
       <allowSorting>true</allowSorting>
@@ -213,6 +214,7 @@ if (!httpVerb) {
           <saveAsOwnFile>false</saveAsOwnFile>
           <allowRename>true</allowRename>
           <allowAbstract>false</allowAbstract>
+          <allowStatic>false</allowStatic>
           <allowGenericTypes>false</allowGenericTypes>
           <allowMapping>false</allowMapping>
           <allowSorting>false</allowSorting>
@@ -262,6 +264,7 @@ if (!httpVerb) {
         </option>
       </creationOptions>
       <scriptOptions />
+      <mappingOptions />
       <typeOrder>
         <type>Azure Function</type>
       </typeOrder>

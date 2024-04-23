@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="59493451-7855-494d-8df8-b6df3f313c3c" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>CustomerService</name>
+  <display>CustomerService</display>
+  <externalReference>CustomerService</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46d1e546-d59f-4fcf-9079-15db850449cf</parentFolderId>
+  <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+  <packageName>ServicesInFolder</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="/api/customers" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f68fe916-92e8-47a1-8538-ec6b59462665" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomer</name>
+      <display>CreateCustomer(dto: CreateCustomerCommand): guid</display>
+      <externalReference>CustomerService.CreateCustomer</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6ea73251-93ee-4c06-bcd0-777e0ee2773a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="88c20ce7-6b98-49e2-8e9a-ae926af2250a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateCustomerCommand</display>
+          <externalReference>CustomerService.CreateCustomer.dto</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9784b46b-c281-4931-9514-151b86e0ab13">
+            <typeId>b0f39cb9-3254-478a-855a-80660c01edb5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ServicesInFolder</typePackageName>
+            <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f68fe916-92e8-47a1-8538-ec6b59462665</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f7045638-368f-4bf5-9e48-d0babf71cae2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomers</name>
+      <display>GetCustomers(): CustomerDto[*]</display>
+      <externalReference>CustomerService.GetCustomers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e8d060d0-ced3-47d2-a3db-0e9a6fb7f398">
+        <typeId>0ada0c5c-9b3e-4486-801d-8ea8cf85642c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ServicesInFolder</typePackageName>
+        <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1359fd7b-1909-4789-8737-dbba6e91a48d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomerOrder</name>
+      <display>CreateCustomerOrder(dto: CreateCustomerOrderCommand, customerId: guid): guid</display>
+      <externalReference>CustomerService.CreateCustomerOrder</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ce7f216d-6527-4b97-a7b8-de39dd361738">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{customerId}/orders" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a2934949-36ea-4ded-b60e-507ec0986a8b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateCustomerOrderCommand</display>
+          <externalReference>CustomerService.CreateCustomerOrder.dto</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5397fed6-5f79-4413-a110-75ff1fbae97d">
+            <typeId>a514cf89-0fc9-4c38-bc5a-52cda3466228</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ServicesInFolder</typePackageName>
+            <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1359fd7b-1909-4789-8737-dbba6e91a48d</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="65995fed-9b5f-49f6-89b9-d825c47645dc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: guid</display>
+          <externalReference>CustomerService.CreateCustomerOrder.customerId</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1bc24cc8-ff60-439f-a814-807bef5029d6">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1359fd7b-1909-4789-8737-dbba6e91a48d</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d46de75b-7094-4f79-be20-9b5e9f57baa0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomerOrders</name>
+      <display>GetCustomerOrders(customerId: guid): CustomerOrderDto[*]</display>
+      <externalReference>CustomerService.GetCustomerOrders</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="79cb66cd-31e4-4984-8b14-182fd81aaca4">
+        <typeId>65a87c29-7180-4358-a9b4-857d63f1019e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ServicesInFolder</typePackageName>
+        <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{customerId}/orders" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="47eead5a-479f-4e96-b3b6-8776b75a3156" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: guid</display>
+          <externalReference>CustomerService.GetCustomerOrders.customerId</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c6005717-6e38-4800-94af-b71c216cc930">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d46de75b-7094-4f79-be20-9b5e9f57baa0</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c3b14cc9-3eea-4508-9fe0-ea0747599976" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteCustomer</name>
+      <display>DeleteCustomer(id: guid): void</display>
+      <externalReference>CustomerService.DeleteCustomer</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4110bcd4-8ee2-4bb1-8098-d8cd8bc6eec9">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5fe2e17d-79fb-419e-9923-6dceb5270ee7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.DeleteCustomer.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="760ef2b3-017d-442b-8059-6ea9aef53dc8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3b14cc9-3eea-4508-9fe0-ea0747599976</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="427de4ef-5d98-4615-9116-cb05842c6be7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateCustomer</name>
+      <display>UpdateCustomer(dto: UpdateCustomerCommand, id: guid): void</display>
+      <externalReference>CustomerService.UpdateCustomer</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="b2e20f83-a7cd-4641-bb41-842015b49ee7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="243c37f6-20dc-45f0-9a77-ba18cecfb749" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UpdateCustomerCommand</display>
+          <externalReference>CustomerService.UpdateCustomer.dto</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9332593b-1940-4a78-a399-f3af216c62e2">
+            <typeId>e644d861-45dd-4bef-b35b-fdd69acbba50</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ServicesInFolder</typePackageName>
+            <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>427de4ef-5d98-4615-9116-cb05842c6be7</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f5f385db-940e-4d34-897b-6fb76b9b032d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.UpdateCustomer.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="49f7fc02-a494-4c21-b95c-9a21a5ff5b9b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>427de4ef-5d98-4615-9116-cb05842c6be7</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d9387324-550e-40ef-b878-e7171c9f961e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomer</name>
+      <display>GetCustomer(id: guid): CustomerDto</display>
+      <externalReference>CustomerService.GetCustomer</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4fe40bdf-ae56-4392-8a84-bd3d6643b8d2">
+        <typeId>0ada0c5c-9b3e-4486-801d-8ea8cf85642c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ServicesInFolder</typePackageName>
+        <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="92d2aed9-4ec1-4a7f-b26a-73507697ab2f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.GetCustomer.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4e58bc4d-0345-4efa-be2f-8d0f000377f8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d9387324-550e-40ef-b878-e7171c9f961e</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="256fe0ee-9d0d-41e6-a55a-c19441e3d48c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteCustomerOrder</name>
+      <display>DeleteCustomerOrder(customerId: guid, id: guid): void</display>
+      <externalReference>CustomerService.DeleteCustomerOrder</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="24097b5d-71f6-4b3c-9216-c094023ed005">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{customerId}/orders/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d273ab53-dada-40ac-a2ff-86012ac1ff58" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: guid</display>
+          <externalReference>CustomerService.DeleteCustomerOrder.customerId</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="65a1145a-6fd3-4769-86e1-3b7a12825f84">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>256fe0ee-9d0d-41e6-a55a-c19441e3d48c</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fe57bcfe-58cf-418c-89c1-a6173d901870" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.DeleteCustomerOrder.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a776ad4c-4a9e-4dd1-bc39-87ae2838c62d">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>256fe0ee-9d0d-41e6-a55a-c19441e3d48c</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cfc0cb5f-f6f7-4dc9-aa41-785d52ed1cbc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateCustomerOrder</name>
+      <display>UpdateCustomerOrder(dto: UpdateCustomerOrderCommand, customerId: guid, id: guid): void</display>
+      <externalReference>CustomerService.UpdateCustomerOrder</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="76e8d45a-67f3-41ab-9659-52549d50556c">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{customerId}/orders/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="81335522-cf25-4e5b-a8c3-03042edab014" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UpdateCustomerOrderCommand</display>
+          <externalReference>CustomerService.UpdateCustomerOrder.dto</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="aabc77f7-434c-4aeb-9961-09c3ac3fbd5a">
+            <typeId>593115db-1aa3-4513-9ccb-061c0afcc6ab</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ServicesInFolder</typePackageName>
+            <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cfc0cb5f-f6f7-4dc9-aa41-785d52ed1cbc</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8858b705-a20c-4998-bf9b-12a549c624dc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: guid</display>
+          <externalReference>CustomerService.UpdateCustomerOrder.customerId</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="043a5288-65ce-49a5-bf87-5a356daec089">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cfc0cb5f-f6f7-4dc9-aa41-785d52ed1cbc</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="566b88b1-59e3-4e33-bfd5-737f08f4eb5d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.UpdateCustomerOrder.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a73cac78-ecfa-497b-8565-e0b5fcda1eb7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cfc0cb5f-f6f7-4dc9-aa41-785d52ed1cbc</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="08514206-c51d-47b7-ab4e-8bf4ade91bd2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomerOrder</name>
+      <display>GetCustomerOrder(customerId: guid, id: guid): CustomerOrderDto</display>
+      <externalReference>CustomerService.GetCustomerOrder</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d85dbbfe-3974-4f98-a2f4-f3098a318784">
+        <typeId>65a87c29-7180-4358-a9b4-857d63f1019e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ServicesInFolder</typePackageName>
+        <typePackageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>59493451-7855-494d-8df8-b6df3f313c3c</parentFolderId>
+      <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+      <packageName>ServicesInFolder</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{customerId}/orders/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="78cf0b40-512c-4b2d-9e66-4a357fa46ba1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: guid</display>
+          <externalReference>CustomerService.GetCustomerOrder.customerId</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7d40e5df-b24a-4cd4-9b05-3c63a465c462">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>08514206-c51d-47b7-ab4e-8bf4ade91bd2</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4b1d1553-53da-495b-a641-78bc052d5d99" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <externalReference>CustomerService.GetCustomerOrder.id</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a35bd3e0-9496-4669-bad7-4cb6e519db2d">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>08514206-c51d-47b7-ab4e-8bf4ade91bd2</parentFolderId>
+          <packageId>cf625fef-7e2d-438d-89c1-3f909e0dd111</packageId>
+          <packageName>ServicesInFolder</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

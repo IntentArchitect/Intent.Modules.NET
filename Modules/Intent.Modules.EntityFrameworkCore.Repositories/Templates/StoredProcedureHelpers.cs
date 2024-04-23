@@ -159,17 +159,18 @@ internal static class StoredProcedureHelpers
 
                             parameters.Add((parameterName, variableName, output));
 
-                            if (returnsScalar)
+                            if (isOutputParameter)
                             {
-                                method.AddStatement(parameterFactory.CreateForInput(
+                                method.AddStatement(parameterFactory.CreateForOutput(
                                     invocationPrefix: $"var {variableName} = ",
                                     valueVariableName: parameterName,
                                     parameter: parameter));
                             }
-                            else if (isOutputParameter)
+                            else if (returnsScalar)
                             {
-                                method.AddStatement(parameterFactory.CreateForOutput(
+                                method.AddStatement(parameterFactory.CreateForInput(
                                     invocationPrefix: $"var {variableName} = ",
+                                    valueVariableName: parameterName,
                                     parameter: parameter));
                             }
                             else if (isUserDefinedTableType)
@@ -373,8 +374,8 @@ internal static class StoredProcedureHelpers
 
     private interface IDbParameterFactory
     {
-        CSharpStatement CreateForOutput(
-            string invocationPrefix,
+        CSharpStatement CreateForOutput(string invocationPrefix,
+            string valueVariableName,
             StoredProcedureParameterModel parameter);
 
         CSharpStatement CreateForInput(
@@ -406,14 +407,15 @@ internal static class StoredProcedureHelpers
         private string ParameterDirectionTypeName => _parameterDirectionTypeName ??= _template.UseType("System.Data.ParameterDirection");
         private string DbTypeTypeName => _dbTypeTypeName ??= _template.UseType("System.Data.SqlDbType");
 
-        public CSharpStatement CreateForOutput(
-            string invocationPrefix,
+        public CSharpStatement CreateForOutput(string invocationPrefix,
+            string valueVariableName,
             StoredProcedureParameterModel parameter)
         {
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
 
             statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Output");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
+            statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
             statement.WithSemicolon();
 
             return statement;
@@ -428,7 +430,7 @@ internal static class StoredProcedureHelpers
 
             statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Input");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
-            statement.AddObjectInitStatement("ParameterName", $"\"{valueVariableName}\"");
+            statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
             statement.AddObjectInitStatement("Value", valueVariableName);
             statement.WithSemicolon();
 

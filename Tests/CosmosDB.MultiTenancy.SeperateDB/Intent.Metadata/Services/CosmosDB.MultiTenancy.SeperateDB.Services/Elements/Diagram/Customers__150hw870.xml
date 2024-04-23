@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="db82cf10-7e4d-4f71-90b4-1e4cdc92086d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0fc7ae67-ef44-426e-afd6-8c0df9dcb087</parentFolderId>
+  <packageId>8659bbfa-61d3-43d3-a5fa-4e34d2ac1038</packageId>
+  <packageName>CosmosDB.MultiTenancy.SeperateDB.Services</packageName>
+  <diagram>
+    <targetPackageId>0fc7ae67-ef44-426e-afd6-8c0df9dcb087</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

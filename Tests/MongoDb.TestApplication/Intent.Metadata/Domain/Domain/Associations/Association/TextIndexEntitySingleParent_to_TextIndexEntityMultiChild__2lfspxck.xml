@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="69268c25-3997-4b07-8946-8e242d814825" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>TextIndexEntityMultiChild</name>
-    <display>TextIndexEntityMultiChild: TextIndexEntityMultiChild[*]   [1 --&gt; *]</display>
-    <order>3</order>
+    <display>TextIndexEntityMultiChild: TextIndexEntityMultiChild[*]</display>
+    <order>2</order>
     <typeReference id="e53df052-8200-4c28-a717-94967ca8895f">
       <typeId>a836b29b-f28c-4466-8a1c-476e3bdffb5e</typeId>
       <isNavigable>true</isNavigable>

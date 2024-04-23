@@ -3,7 +3,7 @@
   <ApplicationId>411531a2-eb34-4b48-b722-ffd07f1ede61</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c5b5e5f7-383a-460e-9697-20ca04132eb7</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c5b5e5f7-383a-460e-9697-20ca04132eb7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -110,7 +110,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AzureFunctions.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
@@ -142,6 +142,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/Azure Functions Types.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Azure Functions Types.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e64773f7-1f50-4185-8e19-5c8fed04e48f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#022dbddc-276c-406b-81e6-5034ad64db72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

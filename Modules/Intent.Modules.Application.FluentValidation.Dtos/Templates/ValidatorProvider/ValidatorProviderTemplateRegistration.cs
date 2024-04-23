@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidatorPr
     {
         public override string TemplateId => ValidatorProviderTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ValidatorProviderTemplate(outputTarget);

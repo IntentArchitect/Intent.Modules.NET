@@ -32,8 +32,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
-            AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository(outputTarget));
-            AddNugetDependency(NugetDependencies.NewtonsoftJson);
+            AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
+			AddNugetDependency(NugetDependencies.MicrosoftExtensionsDependencyInjection);
+			AddNugetDependency(NugetDependencies.MicrosoftExtensionsConfigurationAbstractions);
+			AddNugetDependency(NugetDependencies.MicrosoftExtensionsConfigurationBinder);
+			AddNugetDependency(NugetDependencies.NewtonsoftJson);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -341,17 +344,35 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
-            this.ApplyAppSetting("RepositoryOptions", new
-            {
-                CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-                DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-                ContainerId = "Container"
-            });
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
+
+			this.ApplyAppSetting("RepositoryOptions", GetRepositoryOptions());
+
+			ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
                 .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
         }
 
-        [IntentManaged(Mode.Fully)]
+        private object GetRepositoryOptions()
+        {
+			if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(ExecutionContext.Settings))
+			{
+				return new
+				{
+					DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+					ContainerId = "Container"
+				};
+			}
+			else
+			{
+				return  new
+				{
+					CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+					DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+					ContainerId = "Container"
+				};
+			}
+		}
+
+		[IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]

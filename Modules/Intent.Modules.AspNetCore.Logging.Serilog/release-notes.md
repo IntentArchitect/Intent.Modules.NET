@@ -1,3 +1,8 @@
+### Version 5.1.1
+
+- Improvement: Added `Application Insights` sink option.
+- Fixed: Removing sinks will also uninstall their nuget packages. 
+
 ### Version 5.1.0
 
 - Improvement: The NuGet package versions now automatically update to match the selected .NET version.

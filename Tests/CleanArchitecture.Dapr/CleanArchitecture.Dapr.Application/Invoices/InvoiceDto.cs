@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CleanArchitecture.Dapr.Application.Common.Mappings;
+using CleanArchitecture.Dapr.Domain.Common.Exceptions;
 using CleanArchitecture.Dapr.Domain.Entities;
 using CleanArchitecture.Dapr.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -62,6 +63,11 @@ namespace CleanArchitecture.Dapr.Application.Invoices
             public void Process(Invoice source, InvoiceDto destination, ResolutionContext context)
             {
                 var client = _clientRepository.FindByIdAsync(source.ClientId).Result;
+
+                if (client == null)
+                {
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.ClientId}). (Invoice)->(Client)");
+                }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }
         }

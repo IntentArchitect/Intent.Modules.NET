@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{CB7DBB25-BD85-4651-ADD9-C8C2D6574459}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiImporterTest.Api", "OpenApiImporterTest.Api\OpenApiImporterTest.Api.csproj", "{B90C920D-5503-427C-8ABC-EC63B22F061A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{0E166203-4D46-4FD7-9BBF-D0E484F81214}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiImporterTest.Application", "OpenApiImporterTest.Application\OpenApiImporterTest.Application.csproj", "{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{86A1F2B0-1DB2-408F-86E0-CA57FD805BF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiImporterTest.Domain", "OpenApiImporterTest.Domain\OpenApiImporterTest.Domain.csproj", "{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0FE0AE3C-E344-4A9C-9BB3-C1093CD6E388}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiImporterTest.Infrastructure", "OpenApiImporterTest.Infrastructure\OpenApiImporterTest.Infrastructure.csproj", "{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B90C920D-5503-427C-8ABC-EC63B22F061A} = {CB7DBB25-BD85-4651-ADD9-C8C2D6574459}
+		{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A} = {0E166203-4D46-4FD7-9BBF-D0E484F81214}
+		{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD} = {86A1F2B0-1DB2-408F-86E0-CA57FD805BF1}
+		{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6} = {0FE0AE3C-E344-4A9C-9BB3-C1093CD6E388}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B90C920D-5503-427C-8ABC-EC63B22F061A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90C920D-5503-427C-8ABC-EC63B22F061A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90C920D-5503-427C-8ABC-EC63B22F061A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90C920D-5503-427C-8ABC-EC63B22F061A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A9EBAA-CD85-47D1-A639-CDD26D02FA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FE7F79-D9AF-4B9D-9A9D-0508B27C8ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C8D2A1A-5F83-4106-A03A-FF2CE62A21E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

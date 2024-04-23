@@ -66,7 +66,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e53c1259-2028-4d68-be76-e4be4049495e">
-        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -81,7 +81,9 @@
       <packageId>e34283b3-859f-4000-8713-1d68ff426fdb</packageId>
       <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="common-charp-migration-date-to-datetime" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7ccfa77a-0f22-4f61-9405-2ace17550ffe</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

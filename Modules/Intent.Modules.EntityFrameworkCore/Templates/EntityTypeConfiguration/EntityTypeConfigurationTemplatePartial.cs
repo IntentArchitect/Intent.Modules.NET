@@ -229,7 +229,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             statements.AddRange(GetAssociations(targetType)
                 .Where(RequiresConfiguration)
-                .Select(x => GetAssociationMapping(x, @class)));
+                .Select(x => GetAssociationMapping(x, targetType, @class)));
 
             return statements.Where(x => x != null).ToList();
         }
@@ -437,7 +437,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : EfCoreFieldConfigStatement.CreateOwnsOne(attribute);
         }
 
-        private CSharpStatement GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
+        private CSharpStatement GetAssociationMapping(AssociationEndModel associationEnd, IElement targetType, CSharpClass @class)
         {
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
@@ -451,7 +451,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToOne:
                     if (IsOwned(associationEnd.Element))
                     {
-                        var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd);
+                        var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd, targetType);
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
                             var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
@@ -467,18 +467,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         return field;
                     }
 
-                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd, targetType)
                         .WithForeignKey();
 
                 case RelationshipType.ManyToOne:
-                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd, targetType)
                         .WithForeignKey();
 
                 case RelationshipType.OneToMany:
                     {
                         if (IsOwned(associationEnd.Element))
                         {
-                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
+                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd, targetType);
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
                                 var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
@@ -494,11 +494,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             return field;
                         }
                     }
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention)
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, targetType, GetTableNameByConvention)
                         .WithForeignKey();
 
                 case RelationshipType.ManyToMany:
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, GetTableNameByConvention);
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd, targetType, GetTableNameByConvention);
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
@@ -631,11 +631,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return new EfCoreKeyMappingStatement(model);
             }
 
-            foreach (var attributeModel in model.GetExplicitPrimaryKey().Where(x =>
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||
-                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Type())))
+            foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
-                yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel))
+                {
+                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+                }
             }
         }
 

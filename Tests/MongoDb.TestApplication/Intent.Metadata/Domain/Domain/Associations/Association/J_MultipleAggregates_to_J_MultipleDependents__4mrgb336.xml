@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="c5171943-b0ab-42ec-b863-b34838e86dfc" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>J_MultipleDependents</name>
-    <display>J_MultipleDependents: J_MultipleDependent[*]   [* --&gt; *]</display>
+    <display>J_MultipleDependents: J_MultipleDependent[*]</display>
     <order>3</order>
     <typeReference id="cce1cba0-7d99-495c-82c5-309fdc56e5f3">
       <typeId>4dbd73d3-e4e5-43f7-a03b-796f03a5e075</typeId>

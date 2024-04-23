@@ -33,6 +33,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
 
         public override string TemplateId => DtoContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
         {
             return new DtoContractTemplate(outputTarget, model);

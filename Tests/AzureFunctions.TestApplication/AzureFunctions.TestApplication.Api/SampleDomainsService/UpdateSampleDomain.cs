@@ -23,7 +23,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.SampleDomainsService
 {
     public class UpdateSampleDomain
     {
@@ -38,7 +38,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("UpdateSampleDomain")]
+        [FunctionName("SampleDomainsService_UpdateSampleDomain")]
         [OpenApiOperation("UpdateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Update sample domain")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainUpdateDto))]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]

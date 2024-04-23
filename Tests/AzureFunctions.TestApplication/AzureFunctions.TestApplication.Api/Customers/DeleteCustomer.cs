@@ -20,7 +20,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Customers
 {
     public class DeleteCustomer
     {
@@ -33,7 +33,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("DeleteCustomer")]
+        [FunctionName("Customers_DeleteCustomer")]
         [OpenApiOperation("DeleteCustomerCommand", tags: new[] { "Customers" }, Description = "Delete customer command")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]

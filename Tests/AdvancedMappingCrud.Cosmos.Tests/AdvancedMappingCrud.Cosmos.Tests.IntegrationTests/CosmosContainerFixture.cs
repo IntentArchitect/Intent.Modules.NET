@@ -5,6 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.Azure.CosmosRepository.Options;
+using Microsoft.Azure.CosmosRepository.Providers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Testcontainers.CosmosDb;
@@ -20,8 +21,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
         private readonly string _accountKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
         private readonly CosmosDbContainer _dbContainer;
         private int _portNumber = 0;
-        private CosmosClient? _cosmosClient;
-        private Type? _cosmosProviderType;
 
         public CosmosContainerFixture()
         {
@@ -76,21 +75,11 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
                 PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
             });
 
-            _cosmosClient = cosmosClientBuilder.Build();
-            _cosmosProviderType = services.Single(s => s.ServiceType.Name == "ICosmosClientProvider").ServiceType;
+            services.AddSingleton<ICosmosClientProvider>(new ContainerCosmosClientProvider(cosmosClientBuilder.Build()));
         }
 
         public void OnHostCreation(IServiceProvider services)
         {
-            SwapCosmosClientToTestVersion(services);
-        }
-
-        private void SwapCosmosClientToTestVersion(IServiceProvider services)
-        {
-            var cosmosClientProvider = services.GetRequiredService(_cosmosProviderType!);
-            var privateField = cosmosClientProvider.GetType().GetField("_lazyCosmosClient", BindingFlags.NonPublic | BindingFlags.Instance);
-            if (privateField is null) throw new Exception("Unable to inject testing CosmosClient. Can't find _lazyCosmosClient");
-            privateField.SetValue(cosmosClientProvider, new Lazy<CosmosClient>(_cosmosClient!));
         }
 
         public async Task InitializeAsync()

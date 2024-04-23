@@ -14,14 +14,14 @@ namespace Intent.AzureFunctions.Api
     {
         public static AzureFunction GetAzureFunction(this AzureFunctionModel model)
         {
-            var stereotype = model.GetStereotype("Azure Function");
+            var stereotype = model.GetStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89");
             return stereotype != null ? new AzureFunction(stereotype) : null;
         }
 
 
         public static bool HasAzureFunction(this AzureFunctionModel model)
         {
-            return model.HasStereotype("Azure Function");
+            return model.HasStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89");
         }
 
         public static bool TryGetAzureFunction(this AzureFunctionModel model, out AzureFunction stereotype)
@@ -32,20 +32,20 @@ namespace Intent.AzureFunctions.Api
                 return false;
             }
 
-            stereotype = new AzureFunction(model.GetStereotype("Azure Function"));
+            stereotype = new AzureFunction(model.GetStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"));
             return true;
         }
 
         public static CosmosDBTrigger GetCosmosDBTrigger(this AzureFunctionModel model)
         {
-            var stereotype = model.GetStereotype("Cosmos DB Trigger");
+            var stereotype = model.GetStereotype("78edaf9d-bc43-4792-b483-408fcd630261");
             return stereotype != null ? new CosmosDBTrigger(stereotype) : null;
         }
 
 
         public static bool HasCosmosDBTrigger(this AzureFunctionModel model)
         {
-            return model.HasStereotype("Cosmos DB Trigger");
+            return model.HasStereotype("78edaf9d-bc43-4792-b483-408fcd630261");
         }
 
         public static bool TryGetCosmosDBTrigger(this AzureFunctionModel model, out CosmosDBTrigger stereotype)
@@ -56,20 +56,20 @@ namespace Intent.AzureFunctions.Api
                 return false;
             }
 
-            stereotype = new CosmosDBTrigger(model.GetStereotype("Cosmos DB Trigger"));
+            stereotype = new CosmosDBTrigger(model.GetStereotype("78edaf9d-bc43-4792-b483-408fcd630261"));
             return true;
         }
 
         public static QueueOutputBinding GetQueueOutputBinding(this AzureFunctionModel model)
         {
-            var stereotype = model.GetStereotype("Queue Output Binding");
+            var stereotype = model.GetStereotype("ec293aa6-7120-4870-800f-7db01391376f");
             return stereotype != null ? new QueueOutputBinding(stereotype) : null;
         }
 
         public static IReadOnlyCollection<QueueOutputBinding> GetQueueOutputBindings(this AzureFunctionModel model)
         {
             var stereotypes = model
-                .GetStereotypes("Queue Output Binding")
+                .GetStereotypes("ec293aa6-7120-4870-800f-7db01391376f")
                 .Select(stereotype => new QueueOutputBinding(stereotype))
                 .ToArray();
 
@@ -79,7 +79,7 @@ namespace Intent.AzureFunctions.Api
 
         public static bool HasQueueOutputBinding(this AzureFunctionModel model)
         {
-            return model.HasStereotype("Queue Output Binding");
+            return model.HasStereotype("ec293aa6-7120-4870-800f-7db01391376f");
         }
 
         public static bool TryGetQueueOutputBinding(this AzureFunctionModel model, out QueueOutputBinding stereotype)
@@ -90,7 +90,7 @@ namespace Intent.AzureFunctions.Api
                 return false;
             }
 
-            stereotype = new QueueOutputBinding(model.GetStereotype("Queue Output Binding"));
+            stereotype = new QueueOutputBinding(model.GetStereotype("ec293aa6-7120-4870-800f-7db01391376f"));
             return true;
         }
 

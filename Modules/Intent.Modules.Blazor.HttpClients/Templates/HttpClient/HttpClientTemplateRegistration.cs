@@ -29,6 +29,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
 
         public override string TemplateId => HttpClientTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceProxyModel model)
         {
             return new HttpClientTemplate(outputTarget, model);

@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.AzureFunctions.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
-    public class AzureFunctionModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IAzureFunctionModel
+    public class AzureFunctionModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference, IHasFolder, IAzureFunctionModel, IElementWrapper
     {
         public const string SpecializationType = "Azure Function";
         public const string SpecializationTypeId = "702f57ca-3b5a-413b-a084-9f2d154154e7";

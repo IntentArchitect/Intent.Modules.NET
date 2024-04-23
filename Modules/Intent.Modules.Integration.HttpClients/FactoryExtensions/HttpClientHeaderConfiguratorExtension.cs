@@ -1,22 +1,22 @@
+using System;
+using System.Buffers;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Contracts.Clients.Http.Shared;
+using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
+using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Contracts.Clients.Http.Shared;
-using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
-using System.Buffers;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Modules.Common.Templates;
-using System;
-using Intent.Modules.Integration.HttpClients.Shared;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -31,7 +31,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
 

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{BB1CD631-E7AD-413A-B66D-B2A83D383A34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.Serilog.Api", "Standard.AspNetCore.Serilog.Api\Standard.AspNetCore.Serilog.Api.csproj", "{5647B8AF-7A47-4482-91BA-D04FCA2D56BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8F8FEFA3-7646-4C5B-A143-49A20685316D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.Serilog.Application", "Standard.AspNetCore.Serilog.Application\Standard.AspNetCore.Serilog.Application.csproj", "{6B33FD3E-9263-4CA8-A555-99E32DF4EA03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{04E25309-79B6-4DB2-A04B-EF2714BF5B39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.Serilog.Domain", "Standard.AspNetCore.Serilog.Domain\Standard.AspNetCore.Serilog.Domain.csproj", "{46A67BBC-1D72-4A44-8CA6-CF99337D334A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E6489B82-A3AB-490E-9B63-6A1F3C3BA498}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Standard.AspNetCore.Serilog.Infrastructure", "Standard.AspNetCore.Serilog.Infrastructure\Standard.AspNetCore.Serilog.Infrastructure.csproj", "{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5647B8AF-7A47-4482-91BA-D04FCA2D56BC} = {BB1CD631-E7AD-413A-B66D-B2A83D383A34}
+		{6B33FD3E-9263-4CA8-A555-99E32DF4EA03} = {8F8FEFA3-7646-4C5B-A143-49A20685316D}
+		{46A67BBC-1D72-4A44-8CA6-CF99337D334A} = {04E25309-79B6-4DB2-A04B-EF2714BF5B39}
+		{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0} = {E6489B82-A3AB-490E-9B63-6A1F3C3BA498}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5647B8AF-7A47-4482-91BA-D04FCA2D56BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5647B8AF-7A47-4482-91BA-D04FCA2D56BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5647B8AF-7A47-4482-91BA-D04FCA2D56BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5647B8AF-7A47-4482-91BA-D04FCA2D56BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B33FD3E-9263-4CA8-A555-99E32DF4EA03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B33FD3E-9263-4CA8-A555-99E32DF4EA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B33FD3E-9263-4CA8-A555-99E32DF4EA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B33FD3E-9263-4CA8-A555-99E32DF4EA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46A67BBC-1D72-4A44-8CA6-CF99337D334A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A67BBC-1D72-4A44-8CA6-CF99337D334A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A67BBC-1D72-4A44-8CA6-CF99337D334A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A67BBC-1D72-4A44-8CA6-CF99337D334A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18ECA6AE-2FFE-4F0C-A52F-EDEC5C9917D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

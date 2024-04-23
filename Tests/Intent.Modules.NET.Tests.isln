@@ -7,23 +7,19 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.38" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.42" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
     <application id="83f258e8-1f5c-4785-9c9b-c679a771126f" name="CleanArchitecture.TestApplication" relativePath="CleanArchitecture.TestApplication/CleanArchitecture.TestApplication.application.config" />
-    <application id="506d60a4-4600-442c-aedb-ce930d9a064d" name="EntityFrameworkCore.SqlServer.TestApplication" relativePath="EntityFrameworkCore.SqlServer.TestApplication/EntityFrameworkCore.SqlServer.TestApplication.application.config" />
     <application id="91f282fa-515e-4580-b0ea-4c849d546cdc" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
     <application id="794893b1-0854-4d56-ab58-82e53b116290" name="EntityFrameworkCore.CosmosDb.TestApplication" relativePath="EntityFrameworkCore.CosmosDb.TestApplication/EntityFrameworkCore.CosmosDb.TestApplication.application.config" />
     <application id="8ebf5599-97b8-49b0-9b9a-7ade23c96882" name="Finbuckle.SeparateDatabase.TestApplication" relativePath="Finbuckle.SeparateDatabase.TestApplication/Finbuckle.SeparateDatabase.TestApplication.application.config" />
     <application id="8913a8a9-4b21-4c49-8bd1-bc4ab2ef443b" name="Finbuckle.SharedDatabase.TestApplication" relativePath="Finbuckle.SharedDatabase.TestApplication/Finbuckle.SharedDatabase.TestApplication.application.config" />
     <application id="dbd2618d-2650-47a1-9fdc-1a1c18aecf53" name="Publish.CleanArch.MassTransit.OutboxNone.TestApplication" relativePath="Publish.CleanArch.MassTransit.OutboxNone.TestApplication/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.application.config" />
     <application id="cb6c20ce-8d48-4013-ae35-4e3310784497" name="Publish.CleanArch.MassTransit.OutboxEF.TestApplication" relativePath="Publish.CleanArch.MassTransit.OutboxEF.TestApplication/Publish.CleanArch.MassTransit.OutboxEF.TestApplication.application.config" />
-    <application id="b42d6fb3-5b52-4389-916b-0f344d6e9369" name="Publish.CleanArch.GooglePubSub.TestApplication" relativePath="Publish.CleanArch.GooglePubSub.TestApplication/Publish.CleanArch.GooglePubSub.TestApplication.application.config" />
-    <application id="e86bd942-4892-4dbf-8884-7d0e92a0d162" name="Publish.AspNetCore.GooglePubSub.TestApplication" relativePath="Publish.AspNetCore.GooglePubSub.TestApplication/Publish.AspNetCore.GooglePubSub.TestApplication.application.config" />
     <application id="5ffa2a75-821a-41f2-8232-af7df2460b0b" name="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication/Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.application.config" />
     <application id="71eac626-755a-4c5d-89f1-e66511d4df64" name="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.application.config" />
-    <application id="a0ff54fb-ecb8-4dfd-9389-f476f4047fc5" name="Subscribe.GooglePubSub.TestApplication" relativePath="Subscribe.GooglePubSub.TestApplication/Subscribe.GooglePubSub.TestApplication.application.config" />
     <application id="be4b0466-617b-4d2d-beb1-5ef601d11ec9" name="MongoDb.TestApplication" relativePath="MongoDb.TestApplication/MongoDb.TestApplication.application.config" />
     <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
     <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
@@ -102,5 +98,10 @@
     <application id="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" name="Kafka.Consumer" relativePath="Kafka.Consumer/Kafka.Consumer.application.config" />
     <application id="f829f9a9-22e7-4c53-b644-4254eacfb4e8" name="EfCore.SecondLevelCaching" relativePath="EfCore.SecondLevelCaching/EfCore.SecondLevelCaching.application.config" />
     <application id="a5bda094-e905-46f8-8348-5afef353db68" name="SqlServerImporterTests" relativePath="SqlServerImporterTests/SqlServerImporterTests.application.config" />
+    <application id="d9d69a96-1190-44a7-bc7d-8a992b0218b4" name="EntityFrameworkCore.SqlServer.EF8" relativePath="EntityFrameworkCore.SqlServer.EF8/EntityFrameworkCore.SqlServer.EF8.application.config" />
+    <application id="6533a96e-1ae3-47fb-8637-9e4768f42103" name="EntityFrameworkCore.SqlServer.EF7" relativePath="EntityFrameworkCore.SqlServer.EF7/EntityFrameworkCore.SqlServer.EF7.application.config" />
+    <application id="6e5e03eb-f608-4392-9a67-c392120303a3" name="Standard.AspNetCore.Serilog" relativePath="Standard.AspNetCore.Serilog/Standard.AspNetCore.Serilog.application.config" />
+    <application id="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" name="CosmosDB.MultiTenancy.SeperateDB" relativePath="CosmosDB.MultiTenancy.SeperateDB/CosmosDB.MultiTenancy.SeperateDB.application.config" />
+    <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
   </applications>
 </solution>

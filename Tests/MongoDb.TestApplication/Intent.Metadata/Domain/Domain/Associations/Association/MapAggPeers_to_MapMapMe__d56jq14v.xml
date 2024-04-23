@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="67da0fb0-2f14-4370-bc7a-7b5c1a656bf0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapMapMe</name>
-    <display>MapMapMe: MapMapMe   [* --&gt; 1]</display>
+    <display>MapMapMe: MapMapMe</display>
     <order>6</order>
     <typeReference id="37a757d5-650b-406b-b805-92933566c144">
       <typeId>aa1f16ff-9b95-4367-8a3f-06baf5e08cfb</typeId>

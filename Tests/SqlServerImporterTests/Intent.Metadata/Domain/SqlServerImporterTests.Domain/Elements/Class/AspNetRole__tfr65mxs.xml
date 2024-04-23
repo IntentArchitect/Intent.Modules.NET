@@ -202,7 +202,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b395cc23-2e50-4ed2-b818-5c401cd2c158" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="e1fa3a4f-34a0-41ba-ba8b-ddbd1960d8d8" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedName</name>
           <display>NormalizedName</display>
           <isAbstract>false</isAbstract>

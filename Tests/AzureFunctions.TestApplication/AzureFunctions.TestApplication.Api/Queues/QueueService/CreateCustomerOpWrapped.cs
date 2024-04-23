@@ -15,7 +15,7 @@ using Microsoft.Azure.WebJobs;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Queues.QueueService
 {
     public class CreateCustomerOpWrapped
     {
@@ -28,7 +28,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CreateCustomerOpWrapped")]
+        [FunctionName("Queues_QueueService_CreateCustomerOpWrapped")]
         public async Task Run([QueueTrigger("customers")] QueueMessage rawMessage, CancellationToken cancellationToken)
         {
             var dto = JsonSerializer.Deserialize<CustomerDto>(rawMessage.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;

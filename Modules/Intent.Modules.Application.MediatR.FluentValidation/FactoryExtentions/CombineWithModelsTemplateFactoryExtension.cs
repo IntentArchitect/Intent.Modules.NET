@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
             var queryValidatorTemplates = application.FindTemplateInstances<QueryValidatorTemplate>(TemplateDependency.OnTemplate(QueryValidatorTemplate.TemplateId));
             foreach (var validatorTemplate in queryValidatorTemplates)
             {
-                QueryValidatorTemplate.Configure(queryModelTemplatesByModelId[validatorTemplate.Model.Id]);
+                QueryValidatorTemplate.Configure(queryModelTemplatesByModelId[validatorTemplate.Model.Id], null);
             }
 
             var commandModelTemplatesByModelId = application
@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
                 .FindTemplateInstances<CommandValidatorTemplate>(TemplateDependency.OnTemplate(CommandValidatorTemplate.TemplateId));
             foreach (var validatorTemplate in commandValidatorTemplates)
             {
-                CommandValidatorTemplate.Configure(commandModelTemplatesByModelId[validatorTemplate.Model.Id]);
+                CommandValidatorTemplate.Configure(commandModelTemplatesByModelId[validatorTemplate.Model.Id], null);
             }
         }
     }

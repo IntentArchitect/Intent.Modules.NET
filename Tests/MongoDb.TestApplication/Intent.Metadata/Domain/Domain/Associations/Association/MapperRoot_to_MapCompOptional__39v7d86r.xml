@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71d20030-ef54-46a3-913d-6b4b61822be2">
+  <sourceEnd id="d79e618d-307c-40ff-8db8-5b932ecb1e09" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapperRoot</name>
+    <display>MapperRoot: MapperRoot</display>
+    <order>0</order>
+    <typeReference id="5aabcbbf-57fd-416e-a790-3ad526c301eb">
+      <typeId>4a893db3-b806-4922-8dc0-41e37018b0da</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71d20030-ef54-46a3-913d-6b4b61822be2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapCompOptional</name>
+    <display>MapCompOptional: MapCompOptional?</display>
+    <order>8</order>
+    <typeReference id="6c1579cc-aa09-4be6-be68-0202c6037b3c">
+      <typeId>3e9e7cdd-c6dd-484a-b716-877f7f20e27e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

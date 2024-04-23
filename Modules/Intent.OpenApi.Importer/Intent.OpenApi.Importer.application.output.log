@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>86b08c05-fea8-40cb-b37e-122ad0491b3a</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#268be8c1-222a-4b88-9b90-a8c0a1561d61</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>950d5deb-551d-4f10-9272-2b780a9e0c0a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#b894aafd-02e1-4697-9371-6b7b669022c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/Api/NewElementExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewElementExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/Intent.Modules.OpenApi.Importer.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.OpenApi.Importer.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/Intent.OpenApi.Importer.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.OpenApi.Importer.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6036fc6f-b77e-41cb-aee1-8bbcb0e6ad4c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#da0fdebd-ad29-48ee-a644-737cfe11ef83</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/modelers/Service Designer Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Service Designer Extensions.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

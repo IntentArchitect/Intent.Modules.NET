@@ -105,7 +105,15 @@ namespace Intent.Modules.CosmosDB.Templates
 
         }
 
-        public static void AddCosmosDBMappingMethods<TModel>(
+		internal static bool IsSeparateDatabaseMultiTenancy(IApplicationSettingsProvider settings)
+		{
+			const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+			const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+
+			return settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
+		}
+
+		public static void AddCosmosDBMappingMethods<TModel>(
             this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d938afce-4f7e-46bc-ac67-0ffaa21a5f8d" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>Company</name>
+  <display>Company</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>35b17407-2bef-4869-aaf2-d62cb6fe6ded</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dc65a610-d8b1-4728-9ebf-6a87c6184d06" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>CompanyA</name>
+      <display>CompanyA = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="414238a0-ea40-4c6a-bf2f-7e8d62c33491" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>CompanyB</name>
+      <display>CompanyB = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

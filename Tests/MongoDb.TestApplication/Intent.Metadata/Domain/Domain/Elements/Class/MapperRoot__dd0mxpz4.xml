@@ -37,7 +37,9 @@
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
           <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata>
@@ -139,6 +141,43 @@
       <metadata>
         <entry key="fk-original-name" value="MapAggPeerId" />
         <entry key="association" value="ebffa9f6-e210-4773-8512-adb07364e590" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="72ba1ece-4e9b-47b8-8c7f-cfa68b9f73ce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>MapperM2MSIds</name>
+      <display>MapperM2MSIds: string[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7083632c-bbb6-48ae-9d27-c72b6b232cfe">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4a893db3-b806-4922-8dc0-41e37018b0da</parentFolderId>
+      <packageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ced3e970-e900-4f99-bd04-b993228fe17d" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="9e1a5430-b594-405e-9129-dcc188923265" display="Association" value="5deb4397-af3c-4bca-a636-003ecc30de40" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="MapperM2MSIds" />
+        <entry key="association" value="5deb4397-af3c-4bca-a636-003ecc30de40" />
         <entry key="is-managed-key" value="true" />
       </metadata>
       <childElements />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -31,5 +32,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
+
+        private string NullableStringDefinition => OutputTarget.GetProject().IsNullableAwareContext() ? "string?" : "[AllowNull] string";
     }
 }

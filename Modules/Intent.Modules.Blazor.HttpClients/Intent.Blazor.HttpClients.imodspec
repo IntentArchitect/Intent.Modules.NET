@@ -67,6 +67,14 @@
       <role>Blazor.HttpClient.PagedResult</role>
       <location>Common</location>
     </template>
+    <template id="Intent.Blazor.HttpClients.ProblemDetailsWithErrors" externalReference="9c33352d-d0c8-414d-8335-6b5c28318ae5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.HttpClient.RequestException</role>
+      <location>Common</location>
+    </template>
     <template id="Intent.Blazor.HttpClients.ServiceContract" externalReference="25beaf48-777a-4ccd-bd1c-7c64df00b41d">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -83,7 +91,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.2.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.0" />

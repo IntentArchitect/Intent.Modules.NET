@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3c4ee549-68cb-4583-b6b8-2fa57b38857d">
+  <sourceEnd id="4b0088dd-ca1e-44c0-b356-803a483a12c2" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <display>publisher: CleanArchitecture.TestApplication</display>
+    <order>0</order>
+    <typeReference id="19cf4ca6-01d1-4159-92e2-9ea07a1dddb4">
+      <typeId>64005771-f36f-4127-b15c-e2267c4bd933</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Eventing</typePackageName>
+      <typePackageId>8bd5ab71-0f22-4a02-b5b3-ca4d4217102d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3c4ee549-68cb-4583-b6b8-2fa57b38857d" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <display>publish: IntegrationTriggeringUpdated</display>
+    <order>1</order>
+    <typeReference id="379d0f67-cd16-4dea-872a-ff1244fd4dbb">
+      <typeId>26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>c07640e3-d918-45e2-b43d-93d04c45400c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

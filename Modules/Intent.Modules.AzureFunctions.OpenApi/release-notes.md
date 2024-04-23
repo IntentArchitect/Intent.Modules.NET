@@ -1,3 +1,8 @@
+### Version 1.1.0
+
+- Improvement: Module project updated to .NET 8.
+- Fixed: `OpenApiParameter` will only mark parameters as mandatory that are not nullable.
+
 ### Version 1.0.4
 
 - Improvement: Updated icon to SVG format.

@@ -3,7 +3,7 @@
   <ApplicationId>8f7ee5f1-6a37-4f38-b129-6c5d6898c355</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#9c0c86bf-e925-4574-bc6b-f89d266acfe5</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9c0c86bf-e925-4574-bc6b-f89d266acfe5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -158,6 +158,102 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBDocumentTypeExtensionMethods/CosmosDBDocumentTypeExtensionMethodsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f67fddba-c691-4020-8b01-d6f0d0d1ac43</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f67fddba-c691-4020-8b01-d6f0d0d1ac43</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenancyConfiguration/CosmosDBMultiTenancyConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f8fc6ca4-6b98-4d3d-b921-9552965c7e40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f8fc6ca4-6b98-4d3d-b921-9552965c7e40</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantClientProvider/CosmosDBMultiTenantClientProviderTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cc5f700a-f18c-4d26-ab50-2bd34e7dd8e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#cc5f700a-f18c-4d26-ab50-2bd34e7dd8e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultitenantContainerProvider/CosmosDBMultitenantContainerProviderTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9a0d9111-ec12-4d48-b382-711f9445f4c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#9a0d9111-ec12-4d48-b382-711f9445f4c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantMiddleware/CosmosDBMultiTenantMiddlewareTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0cfd0b86-e375-4d79-933c-7914d88fa2d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0cfd0b86-e375-4d79-933c-7914d88fa2d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantOptionsMonitor/CosmosDBMultiTenantOptionsMonitorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f48735b5-0f51-4e0e-be94-f58a230af749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f48735b5-0f51-4e0e-be94-f58a230af749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosDBMultiTenantRepositoryOptions/CosmosDBMultiTenantRepositoryOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

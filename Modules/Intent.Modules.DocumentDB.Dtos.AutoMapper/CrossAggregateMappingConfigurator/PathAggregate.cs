@@ -13,6 +13,5 @@
             public int Index { get; }
             public string Expression { get; }
         }
-
     }
 }

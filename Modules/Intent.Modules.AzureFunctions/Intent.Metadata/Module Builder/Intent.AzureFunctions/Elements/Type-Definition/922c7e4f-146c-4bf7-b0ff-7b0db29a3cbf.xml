@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="922c7e4f-146c-4bf7-b0ff-7b0db29a3cbf" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
   <name>ResourceLocation</name>
-  <display>ResourceLocation&lt;TPayload&gt;</display>
+  <display>ResourceLocation</display>
   <isAbstract>false</isAbstract>
   <genericTypes>
     <genericType id="758407b3-668c-4d47-8d65-28759234c132">

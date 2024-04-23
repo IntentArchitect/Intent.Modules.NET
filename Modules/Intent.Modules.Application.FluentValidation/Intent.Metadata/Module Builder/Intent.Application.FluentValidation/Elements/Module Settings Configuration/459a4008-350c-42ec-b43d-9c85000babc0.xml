@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="b4f27c80-7da3-4d7c-a55b-2ad41ab97dad" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Enabled by default</name>
-          <display>Enabled by default = default-enabled</display>
+          <display>Enabled by default</display>
           <isAbstract>false</isAbstract>
           <value>default-enabled</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="87c140ca-4c92-43ca-8865-723f972013a7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Disabled by default</name>
-          <display>Disabled by default = default-disabled</display>
+          <display>Disabled by default</display>
           <isAbstract>false</isAbstract>
           <value>default-disabled</value>
           <genericTypes />

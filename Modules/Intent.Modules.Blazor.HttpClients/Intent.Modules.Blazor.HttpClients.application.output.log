@@ -3,7 +3,7 @@
   <ApplicationId>f51fb36a-8aba-46a5-8c18-b9f9c8c496da</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#a13cf1c6-d208-41bc-bee9-4744a637ae71</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#a13cf1c6-d208-41bc-bee9-4744a637ae71</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,14 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -158,6 +150,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult/PagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c33352d-d0c8-414d-8335-6b5c28318ae5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e885a20-358a-4f12-85e8-65c50e7d2fe2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#9c33352d-d0c8-414d-8335-6b5c28318ae5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

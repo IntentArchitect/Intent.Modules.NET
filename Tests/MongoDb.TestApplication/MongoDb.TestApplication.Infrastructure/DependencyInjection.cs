@@ -40,6 +40,7 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
             services.AddTransient<IDerivedRepository, DerivedMongoRepository>();
             services.AddTransient<IDerivedOfTRepository, DerivedOfTMongoRepository>();
+            services.AddTransient<IMapperM2MRepository, MapperM2MMongoRepository>();
             services.AddTransient<IA_RequiredCompositeRepository, A_RequiredCompositeMongoRepository>();
             services.AddTransient<IB_OptionalAggregateRepository, B_OptionalAggregateMongoRepository>();
             services.AddTransient<IB_OptionalDependentRepository, B_OptionalDependentMongoRepository>();
@@ -81,6 +82,7 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddTransient<IMapAggPeerAggRepository, MapAggPeerAggMongoRepository>();
             services.AddTransient<IMapAggPeerAggMoreRepository, MapAggPeerAggMoreMongoRepository>();
             services.AddTransient<IMapCompChildAggRepository, MapCompChildAggMongoRepository>();
+            services.AddTransient<IMapImplyOptionalRepository, MapImplyOptionalMongoRepository>();
             services.AddTransient<IMapMapMeRepository, MapMapMeMongoRepository>();
             services.AddTransient<IMapPeerCompChildAggRepository, MapPeerCompChildAggMongoRepository>();
             services.AddTransient<IMapperRootRepository, MapperRootMongoRepository>();

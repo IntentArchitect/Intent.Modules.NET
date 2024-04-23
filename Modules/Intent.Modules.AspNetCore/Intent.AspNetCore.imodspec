@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore</id>
   <version>6.0.2</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
   <authors>Intent Architect</authors>

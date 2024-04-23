@@ -45,6 +45,16 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
+                    
+                    if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
+                    {
+                        dependencyInjection.AddNugetDependency(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget));
+                    }
+                    else
+                    {
+                        application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget).Name, dependencyInjection.OutputTarget));
+                    }
+                    
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
                         connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjection.OutputTarget.GetProject())}",
@@ -116,11 +126,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             var enableSplitQueriesGlobally = dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().EnableSplitQueriesGlobally();
 
             var migrationsAssemblyStatement = $"MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)";
-            var dbContextOptionsBuilderStatement = enableSplitQueriesGlobally
-                ? new CSharpLambdaBlock("b")
-                    .AddStatement($"b.{migrationsAssemblyStatement};")
-                    .AddStatement("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);")
-                : new CSharpStatement($"b => b.{migrationsAssemblyStatement}");
+
+            var dbContextOptionsBuilderStatement = new CSharpLambdaBlock("b");
+            var builderStatements = new List<CSharpStatement>();
+            builderStatements.Add($"b.{migrationsAssemblyStatement}");
+            if (enableSplitQueriesGlobally)
+            {
+                builderStatements.Add("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)");
+            }
 
             switch (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
@@ -137,6 +150,11 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
+                    
+                    if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
+                    {
+                        builderStatements.Add("b.UseDateOnlyTimeOnly()");
+                    }
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
@@ -173,6 +191,18 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");
+            }
+            
+            if (builderStatements.Count == 1)
+            {
+                dbContextOptionsBuilderStatement.WithExpressionBody(builderStatements.First());
+            }
+            else
+            {
+                foreach (var statement in builderStatements)
+                {
+                    dbContextOptionsBuilderStatement.AddStatement(statement.WithSemicolon());
+                }
             }
 
             if (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().LazyLoadingWithProxies())

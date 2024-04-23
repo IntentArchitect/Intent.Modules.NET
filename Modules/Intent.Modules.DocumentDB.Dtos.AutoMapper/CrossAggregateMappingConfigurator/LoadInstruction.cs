@@ -16,8 +16,9 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
             public string Variable { get; }
 
             public bool IsOptional { get; }
+			public bool IsExpressionOptional { get; }
 
-            public LoadInstruction(RepositoryInfo repository, AssociationEndModel associationEnd, string pathExpression, string parentAggregatePath, string fieldPathExpression)
+			public LoadInstruction(RepositoryInfo repository, AssociationEndModel associationEnd, string pathExpression, string parentAggregatePath, string fieldPathExpression)
             {
                 Repository = repository;
                 AssociationEndModel = associationEnd;
@@ -25,7 +26,9 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
                 Variable = pathExpression.ToCSharpIdentifier().ToCamelCase();
                 FieldPath = parentAggregatePath.ToCSharpIdentifier().ToCamelCase() + fieldPathExpression;
                 IsOptional = associationEnd.IsNullable;
-            }
+                //This mechanism could be more comprehensive but this is ok for now
+                IsExpressionOptional = fieldPathExpression.Contains('?');
+			}
         }
 
     }

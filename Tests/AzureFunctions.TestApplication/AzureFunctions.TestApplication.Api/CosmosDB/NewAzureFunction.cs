@@ -13,7 +13,7 @@ using Microsoft.Azure.WebJobs;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.CosmosDB
 {
     public class NewAzureFunction
     {
@@ -24,7 +24,7 @@ namespace AzureFunctions.TestApplication.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("NewAzureFunction")]
+        [FunctionName("CosmosDB_NewAzureFunction")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "MyDB", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeDto> rawCollection,
             CancellationToken cancellationToken)

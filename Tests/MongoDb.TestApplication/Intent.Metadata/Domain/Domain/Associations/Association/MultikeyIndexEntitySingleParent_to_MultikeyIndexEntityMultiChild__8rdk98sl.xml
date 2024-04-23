@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="371c1604-9c71-4fd1-8a0b-188d45d87ea1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MultikeyIndexEntityMultiChild</name>
-    <display>MultikeyIndexEntityMultiChild: MultikeyIndexEntityMultiChild[*]   [1 --&gt; *]</display>
-    <order>3</order>
+    <display>MultikeyIndexEntityMultiChild: MultikeyIndexEntityMultiChild[*]</display>
+    <order>2</order>
     <typeReference id="eb111e28-d4c0-4eb8-9e1d-ce2c787eb5ce">
       <typeId>6227a520-3099-45e2-b263-d2ca9ce36da1</typeId>
       <isNavigable>true</isNavigable>

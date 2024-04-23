@@ -44,6 +44,20 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 template.AddNugetDependency(NugetPackages.SerilogSinksGraylog);
                 template.AddNugetDependency(NugetPackages.SerilogEnrichersSpan);
             }
+            else
+            {
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksGraylog.Name, template.OutputTarget));
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogEnrichersSpan.Name, template.OutputTarget));
+            }
+
+            if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsApplicationInsights()))
+            {
+                template.AddNugetDependency(NugetPackages.SerilogSinksApplicationInsights);
+            }
+            else
+            {
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksApplicationInsights.Name, template.OutputTarget));
+            }
 
             application.EventDispatcher.Publish(
                 ApplicationBuilderRegistrationRequest.ToRegister(

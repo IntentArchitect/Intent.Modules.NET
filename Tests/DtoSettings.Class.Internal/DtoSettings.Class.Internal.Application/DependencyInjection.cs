@@ -15,6 +15,10 @@ namespace DtoSettings.Class.Internal.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IInvoicesService, InvoicesService>();
             return services;

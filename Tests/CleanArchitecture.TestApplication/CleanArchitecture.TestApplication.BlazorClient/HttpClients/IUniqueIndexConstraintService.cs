@@ -20,5 +20,6 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
         Task<List<AggregateWithUniqueConstraintIndexElementDto>> GetAggregateWithUniqueConstraintIndexElementsAsync(CancellationToken cancellationToken = default);
         Task<AggregateWithUniqueConstraintIndexStereotypeDto> GetAggregateWithUniqueConstraintIndexStereotypeByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<AggregateWithUniqueConstraintIndexStereotypeDto>> GetAggregateWithUniqueConstraintIndexStereotypesAsync(CancellationToken cancellationToken = default);
+        Task CreateViaContructorAsync(CreateViaContructorCommand command, CancellationToken cancellationToken = default);
     }
 }

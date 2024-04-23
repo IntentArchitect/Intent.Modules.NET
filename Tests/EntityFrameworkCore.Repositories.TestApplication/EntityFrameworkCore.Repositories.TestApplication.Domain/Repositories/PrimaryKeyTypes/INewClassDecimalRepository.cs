@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.PrimaryKeyTypes;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
+
+namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.PrimaryKeyTypes
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public interface INewClassDecimalRepository : IEFRepository<NewClassDecimal, NewClassDecimal>
+    {
+        [IntentManaged(Mode.Fully)]
+        Task<NewClassDecimal?> FindByIdAsync(decimal id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<NewClassDecimal>> FindByIdsAsync(decimal[] ids, CancellationToken cancellationToken = default);
+    }
+}

@@ -38,12 +38,14 @@ namespace SqlServerImporterTests.Infrastructure.Persistence
         public DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
         public DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Child> Children { get; set; }
         public DbSet<Domain.Entities.Dbo.Customer> DboCustomers { get; set; }
         public DbSet<LegacyTable> LegacyTables { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<VwOrder> VwOrders { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Parent> Parents { get; set; }
         public DbSet<Price> Prices { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Bank> Bank { get; set; }
@@ -79,10 +81,12 @@ namespace SqlServerImporterTests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new AspNetUserRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AspNetUserTokenConfiguration());
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.Dbo.CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new LegacyTableConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
+            modelBuilder.ApplyConfiguration(new ParentConfiguration());
             modelBuilder.ApplyConfiguration(new PriceConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new BankConfiguration());

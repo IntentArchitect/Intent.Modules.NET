@@ -9,7 +9,7 @@ namespace CleanArchitecture.TestApplication.BlazorClient.HttpClients
 {
     public interface IValidationService : IDisposable
     {
-        Task<ValidatedResultDto> ResultValidationsAsync(CancellationToken cancellationToken = default);
-        Task ValidatedAsync(ValidatedCommand command, CancellationToken cancellationToken = default);
+        Task InboundValidationAsync(InboundValidationCommand command, CancellationToken cancellationToken = default);
+        Task<DummyResultDto> InboundValidationAsync(string rangeStr, string minStr, string maxStr, int rangeInt, int minInt, int maxInt, string isRequired, string isRequiredEmpty, decimal decimalRange, decimal decimalMin, decimal decimalMax, string? stringOption, string? stringOptionNonEmpty, EnumDescriptions myEnum, string regexField, CancellationToken cancellationToken = default);
     }
 }

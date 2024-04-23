@@ -56,7 +56,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.UniqueIdentifier,
-                ParameterName = "id",
+                ParameterName = "@id",
                 Value = id
             };
 

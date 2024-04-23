@@ -40,10 +40,12 @@ namespace SqlServerImporterTests.Infrastructure
             services.AddTransient<IAspNetUserRoleRepository, AspNetUserRoleRepository>();
             services.AddTransient<IAspNetUserTokenRepository, AspNetUserTokenRepository>();
             services.AddTransient<IBrandRepository, BrandRepository>();
+            services.AddTransient<IChildRepository, ChildRepository>();
             services.AddTransient<Domain.Repositories.Dbo.ICustomerRepository, Repositories.Dbo.CustomerRepository>();
             services.AddTransient<ILegacyTableRepository, LegacyTableRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderItemRepository, OrderItemRepository>();
+            services.AddTransient<IParentRepository, ParentRepository>();
             services.AddTransient<IPriceRepository, PriceRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IBankRepository, BankRepository>();

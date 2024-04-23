@@ -17,8 +17,6 @@ namespace Intent.Modules.DocumentDB.Dtos.AutoMapper.CrossAggregateMappingConfigu
             public DTOFieldModel Field { get; }
             public IAssociationEnd MappedFrom { get; }
             public int PathIndex { get; }
-
         }
-
     }
 }

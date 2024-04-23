@@ -1,3 +1,8 @@
+### Version 4.2.0
+
+- Improvement: Added Regular Expressions for Validation.
+- Improvement: Module project updated to .NET 8.
+
 ### Version 4.1.7
 
 - Improvement: Updated icon to SVG format.

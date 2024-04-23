@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CosmosDB.PrivateSetters.Application.Common.Mappings;
+using CosmosDB.PrivateSetters.Domain.Common.Exceptions;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -71,6 +72,11 @@ namespace CosmosDB.PrivateSetters.Application.Invoices
             public void Process(Invoice source, InvoiceDto destination, ResolutionContext context)
             {
                 var client = _clientRepository.FindByIdAsync(source.ClientIdentifier).Result;
+
+                if (client == null)
+                {
+                    throw new NotFoundException($"Unable to load required relationship for Id({source.ClientIdentifier}). (Invoice)->(Client)");
+                }
                 destination.Client = client.MapToInvoiceClientDto(_mapper);
             }
         }

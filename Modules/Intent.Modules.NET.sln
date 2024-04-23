@@ -34,7 +34,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.VisualStudio.Projects.Tests", "Intent.Modules.VisualStudio.Projects.Tests\Intent.Modules.VisualStudio.Projects.Tests.csproj", "{F5097140-962E-4CD2-A778-585DC913D87A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore", "Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj", "{E3054741-163B-4DF0-8AE0-EAB74A57341D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore", "Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj", "{E3054741-163B-4DF0-8AE0-EAB74A57341D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.X509CertSigning", "Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.csproj", "{FFF1A74E-FF1B-40C7-ACB7-BDC8BF1C302D}"
 EndProject
@@ -66,7 +66,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.DependencyInjection", "Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj", "{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.FluentValidation", "Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj", "{F70DF819-B1A1-460C-AD99-567CF48A1A99}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.FluentValidation", "Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj", "{F70DF819-B1A1-460C-AD99-567CF48A1A99}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MediatR.DomainEvents", "Intent.Modules.MediatR.DomainEvents\Intent.Modules.MediatR.DomainEvents.csproj", "{E70FC8AE-5EFF-42C7-8F04-E1F44947B9C0}"
 EndProject
@@ -98,19 +98,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL.AspNetCore", "Intent.Modules.HotChocolate.GraphQL.AspNetCore\Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj", "{77BDC12B-E2D3-481D-BBE6-FEA16B5BF39E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Logging.Serilog", "Intent.Modules.AspNetCore.Logging.Serilog\Intent.Modules.AspNetCore.Logging.Serilog.csproj", "{A58A2FC1-5444-4388-8BE7-0231516CE1D2}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Logging.Serilog", "Intent.Modules.AspNetCore.Logging.Serilog\Intent.Modules.AspNetCore.Logging.Serilog.csproj", "{A58A2FC1-5444-4388-8BE7-0231516CE1D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
@@ -156,8 +156,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.GoogleCloud.PubSub", "Intent.Modules.Eventing.GoogleCloud.PubSub\Intent.Modules.Eventing.GoogleCloud.PubSub.csproj", "{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing", "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing\Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.csproj", "{4B8347B4-3AC3-49B2-8E72-2C7B10476943}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.HttpClients.Shared", "Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.shproj", "{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17}"
@@ -170,7 +168,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR", "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR\Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj", "{482C7EA6-B975-4CEA-A0A0-7D915685568E}"
 EndProject
@@ -180,7 +178,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Enums.Shared
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenTelemetry", "Intent.Modules.OpenTelemetry\Intent.Modules.OpenTelemetry.csproj", "{4C241E0E-B274-4D98-A0BB-C0D94F310661}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Dispatch.MediatR", "Intent.Modules.AzureFunctions.Dispatch.MediatR\Intent.Modules.AzureFunctions.Dispatch.MediatR.csproj", "{F906B59C-4DFE-4F6E-8366-E3254C358E62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obsolete", "Obsolete", "{1595E08E-BAD2-4F90-8BD9-65F6A846526B}"
 EndProject
@@ -194,7 +192,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Constants", "Intent.Modules.Entities.Constants\Intent.Modules.Entities.Constants.csproj", "{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.KeyVault", "Intent.Modules.Azure.KeyVault\Intent.Modules.Azure.KeyVault.csproj", "{31D61C32-3B68-497E-83E6-F30D7A862894}"
 EndProject
@@ -206,7 +204,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.DocumentDB.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
 EndProject
@@ -230,7 +228,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
 EndProject
@@ -281,6 +279,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.DistributedCaching", "Intent.Modules.AspNetCore.DistributedCaching\Intent.Modules.AspNetCore.DistributedCaching.csproj", "{6755D512-DE99-44B6-B3B8-29BC0878EE25}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenApi.Importer", "Intent.Modules.OpenApi.Importer\Intent.Modules.OpenApi.Importer.csproj", "{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.Components.Core", "Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj", "{7FD68940-2B43-492D-BFB0-E37982918D79}"
 EndProject
@@ -572,10 +572,6 @@ Global
 		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -776,6 +772,10 @@ Global
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97A4546B-440F-472D-910E-475B0E90B26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -859,7 +859,6 @@ Global
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{84B0552E-7C31-4F40-9023-C2AFB16304E2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
@@ -922,6 +921,7 @@ Global
 		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{97A4546B-440F-472D-910E-475B0E90B26B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7FD68940-2B43-492D-BFB0-E37982918D79} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B48CE5F1-4B14-40DC-B45E-B775E460FAC1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection

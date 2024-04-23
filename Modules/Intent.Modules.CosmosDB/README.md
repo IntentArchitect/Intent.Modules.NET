@@ -42,6 +42,27 @@ If the "Partition Key" is left blank the class's "id" is used, if specified then
 
 If no `Container` stereotype is found as per the above method for a particular `Class`, it uses a default container called "Container" with `id` for the partition key.
 
+## Multi Tenancy with Separate Database
+
+By default all tenants will have a default database and default container names in line with the `appsettings.json` configuration.
+
+```json
+{
+  "RepositoryOptions": {
+    "ContainerId": "{Default Container Name}",
+    "DatabaseId": "{Default Database Name}"
+  }
+}
+```
+
+These can be changed per tenant by using configuring them in the tenant connection strings using the following syntax.
+
+Connection String Example
+
+```text
+AccountEndpoint={End Point};AccountKey={Key};Database={TenantDb};Container={Default Container};
+```
+
 ## Related Modules
 
 ### Intent.Metadata.DocumentDB

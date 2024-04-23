@@ -5,11 +5,14 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -43,36 +46,68 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             AddTypeSource(TemplateRoles.Application.Contracts.Dto, "List<{0}>");
             AddTypeSource(TemplateRoles.Application.Command);
             AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
-            CSharpFile = new CSharpFile(GetNamespace(), GetRelativeLocation())
+            CSharpFile = new CSharpFile(this.GetNamespace(), GetRelativeLocation())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.IO")
                 .AddUsing("System.Threading.Tasks")
                 .AddClass(Model.Name, @class =>
                 {
-                    @class.AddConstructor(ctor =>
-                    {
-                    });
+                    @class.AddConstructor(ctor => { });
 
                     @class.AddMethod(GetRunMethodReturnType(), "Run", method =>
                     {
                         method.Async();
-                        method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{Model.Name}"""));
+                        method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
                         _triggerStrategyHandler.ApplyMethodParameters(method);
                         _triggerStrategyHandler.ApplyMethodStatements(method);
                     });
                 });
         }
 
-        private string GetNamespace()
+        private string GetFunctionName()
         {
-            return ((CSharpTemplateBase<IAzureFunctionModel>)this).GetNamespace();
+            if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionNames())
+            {
+                var path = string.Join("_", Model.GetParentFolderNames());
+                if (!string.IsNullOrWhiteSpace(path))
+                {
+                    return $"{path}_{Model.Name}";
+                }
+            }
+
+            return Model.Name;
         }
 
         private string GetRelativeLocation()
         {
             return ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath();
+        }
+
+        string GetNamespace(
+            params string[] additionalFolders)
+        {
+            return string.Join(".", new[]
+                {
+                    OutputTarget.GetNamespace()
+                }
+                .Concat(Model.GetParentFolders()
+                    .Where(x =>
+                    {
+                        if (string.IsNullOrWhiteSpace(x.Name))
+                            return false;
+
+                        if (x is FolderModel fm)
+                        {
+                            return !fm.HasFolderOptions() || fm.GetFolderOptions().NamespaceProvider();
+                        }
+
+                        return true;
+                    })
+                    .Select(x => x.Name))
+                .Concat(additionalFolders));
         }
 
         [IntentManaged(Mode.Fully)]

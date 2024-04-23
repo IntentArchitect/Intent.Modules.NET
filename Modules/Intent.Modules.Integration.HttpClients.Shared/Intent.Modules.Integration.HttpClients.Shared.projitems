@@ -21,5 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClient\HttpClientTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\IServiceProxyModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\ProblemDetailsWithErrors\ProblemDetailsWithErrorsBase.cs" />
   </ItemGroup>
 </Project>

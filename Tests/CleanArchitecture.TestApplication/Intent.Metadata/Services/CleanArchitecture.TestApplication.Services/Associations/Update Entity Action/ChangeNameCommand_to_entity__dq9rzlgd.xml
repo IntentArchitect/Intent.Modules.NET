@@ -59,7 +59,7 @@
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
         <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.TestApplication].[Services].[ChangeNameCommand]" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Domain].[Customer]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{ChangeNameCommand}</expression>
@@ -77,7 +77,7 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{name}</expression>
+            <expression>{Name}</expression>
             <path>
               <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
               <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
@@ -85,7 +85,7 @@
               <target id="9e69a9da-95e3-4757-bb5a-f6829d968895" name="name" type="element" specialization="Parameter" />
             </path>
             <sources>
-              <source identifier="name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
                   <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
                   <target id="663445a0-5fc3-4036-b724-ab37e7ebbe89" name="Name" type="element" specialization="DTO-Field" />
@@ -94,7 +94,7 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{surname}</expression>
+            <expression>{Surname}</expression>
             <path>
               <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
               <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
@@ -102,7 +102,7 @@
               <target id="0879fc77-5600-4c64-a1e3-6502f26f7bfb" name="surname" type="element" specialization="Parameter" />
             </path>
             <sources>
-              <source identifier="surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
                   <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
                   <target id="c3389722-dd8f-4558-aa4d-5f9334643c3d" name="Surname" type="element" specialization="DTO-Field" />

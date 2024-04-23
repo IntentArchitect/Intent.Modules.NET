@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5deb4397-af3c-4bca-a636-003ecc30de40">
+  <sourceEnd id="0d8d55d6-78f0-4a5b-ac6a-61964cd65bbe" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapperRoots</name>
+    <display>MapperRoots: MapperRoot[*]</display>
+    <order>0</order>
+    <typeReference id="15172465-daf3-4bf7-8155-aa01fc03535d">
+      <typeId>4a893db3-b806-4922-8dc0-41e37018b0da</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5deb4397-af3c-4bca-a636-003ecc30de40" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapperM2MS</name>
+    <display>MapperM2MS: MapperM2M[*]</display>
+    <order>9</order>
+    <typeReference id="da46d826-b123-49bc-beb6-587c58f7bf64">
+      <typeId>993d4727-86c5-4488-857a-83310b378be7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="b6072412-f2a3-44aa-9b00-04a5a32a6e71" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>B_OptionalDependent</name>
-    <display>B_OptionalDependent: B_OptionalDependent?   [0..1 --&gt; 0..1]</display>
+    <display>B_OptionalDependent: B_OptionalDependent?</display>
     <sort-children>by-type-then-manually</sort-children>
     <order>3</order>
     <typeReference id="38050f5d-d549-4eb9-84a7-aa8d1d665fa5">
@@ -65,6 +65,7 @@
             <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
             <properties>
               <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+              <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
             </properties>
           </stereotype>
         </stereotypes>

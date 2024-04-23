@@ -64,8 +64,10 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
         public MongoDbSet<MapAggPeerAgg> MapAggPeerAggs { get; set; }
         public MongoDbSet<MapAggPeerAggMore> MapAggPeerAggMores { get; set; }
         public MongoDbSet<MapCompChildAgg> MapCompChildAggs { get; set; }
+        public MongoDbSet<MapImplyOptional> MapImplyOptionals { get; set; }
         public MongoDbSet<MapMapMe> MapMapMes { get; set; }
         public MongoDbSet<MapPeerCompChildAgg> MapPeerCompChildAggs { get; set; }
+        public MongoDbSet<MapperM2M> MapperM2Ms { get; set; }
         public MongoDbSet<MapperRoot> MapperRoots { get; set; }
         public MongoDbSet<MultikeyIndexEntity> MultikeyIndexEntities { get; set; }
         public MongoDbSet<MultikeyIndexEntityMultiParent> MultikeyIndexEntityMultiParents { get; set; }
@@ -225,10 +227,16 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence
             mappingBuilder.Entity<MapCompChildAgg>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
+            mappingBuilder.Entity<MapImplyOptional>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
             mappingBuilder.Entity<MapMapMe>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<MapPeerCompChildAgg>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
+
+            mappingBuilder.Entity<MapperM2M>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator));
 
             mappingBuilder.Entity<MapperRoot>()

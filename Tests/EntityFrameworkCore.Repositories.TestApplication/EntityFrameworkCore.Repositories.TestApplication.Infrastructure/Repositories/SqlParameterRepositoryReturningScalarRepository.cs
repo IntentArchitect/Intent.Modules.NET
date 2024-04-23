@@ -42,7 +42,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param1",
+                ParameterName = "@param1",
                 Value = param1
             };
 
@@ -59,7 +59,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param1",
+                ParameterName = "@param1",
                 Value = param1
             };
 
@@ -77,7 +77,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param1",
+                ParameterName = "@param1",
                 Value = param1
             };
 
@@ -85,7 +85,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param2",
+                ParameterName = "@param2",
                 Value = param2
             };
 
@@ -103,7 +103,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param1",
+                ParameterName = "@param1",
                 Value = param1
             };
 
@@ -111,7 +111,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             {
                 Direction = ParameterDirection.Input,
                 SqlDbType = SqlDbType.VarChar,
-                ParameterName = "param2",
+                ParameterName = "@param2",
                 Value = param2
             };
 

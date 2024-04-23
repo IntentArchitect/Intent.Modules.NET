@@ -1,3 +1,11 @@
+### Version 6.0.6
+
+- Fixed: `ExceptionFilter` will now return `UnauthorizedResult` when `UnauthorizedAccessException` is caught.
+
+### Version 6.0.5
+
+- Improvement: Swagger Schema Filter support, specifically for `DateOnly`.
+
 ### Version 6.0.4
 
 - Improvement: Swagger Schema Filter support, specifically for `TimeSpan`.

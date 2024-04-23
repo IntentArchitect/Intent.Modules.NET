@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="2dab3782-7e89-4707-aa2a-90b5ff3aed69" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>NestedCompositionA</name>
-    <display>NestedCompositionA: NestedCompositionA   [1 --&gt; 1]</display>
+    <display>NestedCompositionA: NestedCompositionA</display>
     <order>2</order>
     <typeReference id="44b9f5b3-a1b4-49f5-8226-323eea9bb840">
       <typeId>3d1547cf-95f6-4993-8e48-8a138bd06000</typeId>

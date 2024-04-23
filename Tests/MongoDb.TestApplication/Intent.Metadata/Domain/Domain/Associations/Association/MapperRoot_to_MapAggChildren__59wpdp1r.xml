@@ -21,8 +21,8 @@
   </sourceEnd>
   <targetEnd id="fb9ef64c-cab1-4fa3-883e-477472dca4ef" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>MapAggChildren</name>
-    <display>MapAggChildren: MapAggChild[*]   [0..1 --&gt; *]</display>
-    <order>4</order>
+    <display>MapAggChildren: MapAggChild[*]</display>
+    <order>5</order>
     <typeReference id="57f620fe-0ec8-4699-be73-d4f842dd3a82">
       <typeId>e90f339a-6dae-4683-b9bb-fed0b2f099fe</typeId>
       <isNavigable>true</isNavigable>

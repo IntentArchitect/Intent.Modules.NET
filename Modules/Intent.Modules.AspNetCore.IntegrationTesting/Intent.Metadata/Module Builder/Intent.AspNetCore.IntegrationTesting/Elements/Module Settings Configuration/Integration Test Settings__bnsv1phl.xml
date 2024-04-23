@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="fbb0f00a-027b-4c30-9f23-d32dc92f80b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Container per Test Class</name>
-          <display>Container per Test Class = container-per-test-class</display>
+          <display>Container per Test Class</display>
           <isAbstract>false</isAbstract>
           <value>container-per-test-class</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="dbfe567d-4a25-4a47-954b-949fe1372e25" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Shared Container</name>
-          <display>Shared Container = shared-container</display>
+          <display>Shared Container</display>
           <isAbstract>false</isAbstract>
           <value>shared-container</value>
           <genericTypes />

@@ -191,7 +191,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                 // Etag implementation:
                 @class.AddField("string?", "_etag", field =>
                 {
-                    field.Protected(); 
+                    field.Protected();
                     field.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"_etag\")");
                 });
 

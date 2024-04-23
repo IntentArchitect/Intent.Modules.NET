@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e2005b82-cd25-48bc-b71a-df8533f1ddd1" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
   <name>IQueryable</name>
-  <display>IQueryable&lt;T&gt;</display>
+  <display>IQueryable</display>
   <isAbstract>false</isAbstract>
   <genericTypes>
     <genericType id="904129b0-5234-45f0-a92d-f8b9736ac626">

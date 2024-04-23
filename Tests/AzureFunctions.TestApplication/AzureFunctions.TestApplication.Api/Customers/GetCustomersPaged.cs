@@ -20,7 +20,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
 
-namespace AzureFunctions.TestApplication.Api
+namespace AzureFunctions.TestApplication.Api.Customers
 {
     public class GetCustomersPaged
     {
@@ -31,7 +31,7 @@ namespace AzureFunctions.TestApplication.Api
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("GetCustomersPaged")]
+        [FunctionName("Customers_GetCustomersPaged")]
         [OpenApiOperation("GetCustomersPagedQuery", tags: new[] { "CustomersPaged" }, Description = "Get customers paged query")]
         [OpenApiParameter(name: "pageNo", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
         [OpenApiParameter(name: "pageSize", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
