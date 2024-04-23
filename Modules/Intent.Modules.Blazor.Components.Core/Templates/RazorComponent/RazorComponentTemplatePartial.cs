@@ -83,9 +83,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
     {
-        private readonly IRazorComponentBuilderProvider _componentResolver;
-
-
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Components.Core.RazorComponentTemplate";
 
@@ -97,15 +94,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             AddTypeSource(TemplateId);
             BlazorFile = new BlazorFile(this);
             BindingManager = new BindingManager(this, Model.View.InternalElement.Mappings.FirstOrDefault());
-            _componentResolver = DefaultRazorComponentBuilderProvider.Create(this);// new RazorComponentBuilderProvider(this);
-
-            //_componentResolver.Register(FormModel.SpecializationTypeId, new FormComponentRenderer(_componentResolver, this));
-            //_componentResolver.Register(TextInputModel.SpecializationTypeId, new TextInputComponentRenderer(_componentResolver, this));
-            //_componentResolver.Register(ButtonModel.SpecializationTypeId, new ButtonRenderer(_componentResolver, this));
-            //_componentResolver.Register(ContainerModel.SpecializationTypeId, new ContainerRenderer(_componentResolver, this));
-            //_componentResolver.Register(TableModel.SpecializationTypeId, new TableRenderer(_componentResolver, this));
-            //_componentResolver.Register(TextModel.SpecializationTypeId, new TextRenderer(_componentResolver, this));
-            //_componentResolver.Register(DisplayComponentModel.SpecializationTypeId, new CustomComponentRenderer(_componentResolver, this));
+            ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);// new RazorComponentBuilderProvider(this);
 
             BlazorFile.Configure(file =>
             {
@@ -116,12 +105,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
                 foreach (var component in Model.View.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(component).BuildComponent(component, BlazorFile);
+                    ComponentBuilderProvider.ResolveFor(component).BuildComponent(component, BlazorFile);
                 }
 
                 file.AddCodeBlock(block =>
                 {
-                    AddCodeBlockMembers(this, block, Model.InternalElement);
+                    block.AddCodeBlockMembers(this, Model.InternalElement);
                     if (Model.HasPage())
                     {
                         foreach (var declaration in block.Declarations)
@@ -138,167 +127,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
         public BindingManager BindingManager { get; }
         public BlazorFile BlazorFile { get; set; }
-        public IRazorComponentBuilderProvider ComponentBuilderResolver => _componentResolver;
+        public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
         RazorFile IRazorComponentTemplate.BlazorFile => BlazorFile;
 
         public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
         {
             BlazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
-        }
-
-
-        private static void AddCodeBlockMembers(IRazorComponentTemplate template, IBuildsCSharpMembers block, IElement componentElement)
-        {
-            foreach (var child in componentElement.ChildElements)
-            {
-                if (child.IsPropertyModel())
-                {
-                    block.AddProperty(template.GetTypeName(child.TypeReference), child.Name.ToPropertyName(), property =>
-                    {
-                        if (!string.IsNullOrWhiteSpace(child.Value))
-                        {
-                            property.WithInitialValue(child.Value);
-                        }
-                        if (child.AsPropertyModel().HasBindable())
-                        {
-                            property.AddAttribute("Parameter");
-                        }
-                    });
-                }
-
-                if (child.IsEventEmitterModel())
-                {
-                    block.AddProperty($"EventCallback{(child.TypeReference.Element != null ? $"<{template.GetTypeName(child.TypeReference)}>" : "")}", child.Name.ToPropertyName(), property =>
-                    {
-                        if (child.AsEventEmitterModel().HasBindable())
-                        {
-                            property.AddAttribute("Parameter");
-                        }
-                    });
-                }
-
-                if (child.IsComponentOperationModel())
-                {
-                    var operation = child.AsComponentOperationModel();
-                    block.AddMethod(template.GetTypeName(operation.TypeReference), operation.Name.ToPropertyName(), method =>
-                    {
-                        method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
-                        if (operation.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            method.Async();
-                        }
-
-                        if (operation.Name is "OnInitializedAsync" or "OnInitialized")
-                        {
-                            method.Protected().Override();
-                        }
-                        foreach (var parameter in operation.Parameters)
-                        {
-                            method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
-                            {
-                                if (parameter.Value != null)
-                                {
-                                    param.WithDefaultValue(parameter.Value);
-                                }
-                            });
-                        }
-
-                        var mappingManager = template.CreateMappingManager();
-
-                        foreach (var serviceCall in operation.CallServiceOperationActionTargets())
-                        {
-                            method.Async();
-                            var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                            template.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
-                            var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
-                            if (serviceCall.GetMapResponseMapping() != null)
-                            {
-                                if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == serviceCall.Id)
-                                {
-                                    method.AddStatement(new CSharpAssignmentStatement(mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()), new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                }
-                                else
-                                {
-                                    method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                    var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                    method.AddStatements(response);
-                                }
-                            }
-                            else
-                            {
-                                method.AddStatement(new CSharpAccessMemberStatement($"await {serviceName}", invocation));
-                            }
-                        }
-
-                        foreach (var navigationModel in operation.NavigateToComponents())
-                        {
-                            method.Private();
-                            var route = $"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"";
-                            if (route.Contains("{"))
-                            {
-                                route = $"${route}";
-                            }
-                            foreach (var parameter in navigationModel.Parameters)
-                            {
-                                method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
-                                {
-                                    if (parameter.Value != null)
-                                    {
-                                        param.WithDefaultValue(parameter.Value);
-                                    }
-                                });
-                                var replaceIndex = route.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
-                                    ? route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
-                                    : route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
-                                if (replaceIndex != -1)
-                                {
-                                    route = route.Remove(replaceIndex, route.IndexOf('}', replaceIndex) + 1 - replaceIndex)
-                                        .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
-                                }
-                            }
-
-                            template.AddInjectDirective("NavigationManager");
-                            method.AddStatement($"NavigationManager.NavigateTo({route});");
-                        }
-                    });
-                }
-            }
-
-            foreach (var associationEnd in componentElement.AssociatedElements)
-            {
-                if (associationEnd.IsNavigationTargetEndModel())
-                {
-                    var navigationModel = associationEnd.AsNavigationTargetEndModel();
-                    block.AddMethod("void", associationEnd.Name.ToPropertyName(), method =>
-                    {
-                        method.Private();
-                        var routeManager = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
-                        foreach (var parameter in navigationModel.Parameters)
-                        {
-                            method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
-                            {
-                                if (parameter.Value != null)
-                                {
-                                    param.WithDefaultValue(parameter.Value);
-                                }
-                            });
-                            if (routeManager.HasParameterExpression(parameter.Name))
-                            {
-                                routeManager.ReplaceParameterExpression(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
-                            }
-                        }
-
-                        var route = routeManager.Route;
-                        if (route.Contains("{"))
-                        {
-                            route = $"${route}";
-                        }
-
-                        template.AddInjectDirective("NavigationManager");
-                        method.AddStatement($"NavigationManager.NavigateTo({route});");
-                    });
-                }
-            }
         }
 
         public CSharpClassMappingManager CreateMappingManager()

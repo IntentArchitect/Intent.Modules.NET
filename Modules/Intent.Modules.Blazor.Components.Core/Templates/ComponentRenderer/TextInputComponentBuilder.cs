@@ -24,6 +24,6 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
             {
                 inputText.AddAttribute("@bind-Value", textInput.Value.Trim('{', '}'));
             });
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

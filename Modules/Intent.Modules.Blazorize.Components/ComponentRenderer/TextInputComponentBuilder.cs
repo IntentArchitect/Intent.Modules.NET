@@ -32,6 +32,6 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
                         .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
                 });
             });
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

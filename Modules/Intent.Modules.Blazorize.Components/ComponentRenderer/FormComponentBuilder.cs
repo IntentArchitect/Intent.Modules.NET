@@ -79,7 +79,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             });
         });
 
-        node.AddNode(codeBlock);
+        node.AddChildNode(codeBlock);
 
     }
 }

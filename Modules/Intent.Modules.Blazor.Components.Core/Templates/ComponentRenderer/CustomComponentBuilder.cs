@@ -69,6 +69,6 @@ public class CustomComponentBuilder : IRazorComponentBuilder
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

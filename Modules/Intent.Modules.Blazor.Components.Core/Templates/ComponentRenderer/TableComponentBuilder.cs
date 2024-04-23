@@ -31,7 +31,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     .WithText("Loading...");
             });
         });
-        node.AddNode(loadingCode);
+        node.AddChildNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _template.BlazorFile);
         tableCode.AddHtmlElement("table", htmlTable =>
         {
@@ -85,6 +85,6 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 });
         });
 
-        node.AddNode(tableCode);
+        node.AddChildNode(tableCode);
     }
 }

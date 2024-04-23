@@ -23,6 +23,6 @@ public class TextComponentBuilder : IRazorComponentBuilder
         var valueMapping = _bindingManager.GetMappedEndFor(textInput);
         var htmlElement = new HtmlElement("label", _template.BlazorFile)
             .WithText(valueMapping != null ? _bindingManager.GetCodeDirective(valueMapping) : textInput.Value);
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

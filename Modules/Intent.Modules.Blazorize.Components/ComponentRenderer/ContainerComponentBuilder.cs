@@ -27,6 +27,6 @@ public class ContainerComponentBuilder : IRazorComponentBuilder
                     _componentResolver.ResolveFor(child).BuildComponent(child, column);
                 }
             });
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

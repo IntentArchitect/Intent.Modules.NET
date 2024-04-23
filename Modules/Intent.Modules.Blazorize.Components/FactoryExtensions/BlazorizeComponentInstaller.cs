@@ -24,34 +24,14 @@ namespace Intent.Modules.Blazorize.Components.FactoryExtensions
 
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            DefaultRazorComponentBuilderProvider.Register(FormModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.FormComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(TextInputModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.TextInputComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(ButtonModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.ButtonComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(ContainerModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.ContainerComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(TableModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.TableComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(TextModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentRenderer.TextComponentBuilder(provider, componentTemplate));
-        }
-
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
-            //var componentTemplates = application.FindTemplateInstances<RazorComponentTemplate>(RazorComponentTemplate.TemplateId);
-            //foreach (var componentTemplate in componentTemplates)
-            //{
-            //    componentTemplate.ComponentBuilderResolver.Register(FormModel.SpecializationTypeId, new FormComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //    componentTemplate.ComponentBuilderResolver.Register(TextInputModel.SpecializationTypeId, new TextInputComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //    componentTemplate.ComponentBuilderResolver.Register(ButtonModel.SpecializationTypeId, new ButtonComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //    componentTemplate.ComponentBuilderResolver.Register(ContainerModel.SpecializationTypeId, new ContainerComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //    componentTemplate.ComponentBuilderResolver.Register(TableModel.SpecializationTypeId, new TableComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //    componentTemplate.ComponentBuilderResolver.Register(TextModel.SpecializationTypeId, new TextComponentBuilder(componentTemplate.ComponentBuilderResolver, componentTemplate));
-            //}
+            DefaultRazorComponentBuilderProvider.Register(FormModel.SpecializationTypeId, (provider, componentTemplate) => new FormComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(TextInputModel.SpecializationTypeId, (provider, componentTemplate) => new TextInputComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(ButtonModel.SpecializationTypeId, (provider, componentTemplate) => new ButtonComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(ContainerModel.SpecializationTypeId, (provider, componentTemplate) => new ContainerComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(TableModel.SpecializationTypeId, (provider, componentTemplate) => new TableComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(TextModel.SpecializationTypeId, (provider, componentTemplate) => new TextComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(LayoutModel.SpecializationTypeId, (provider, componentTemplate) => new LayoutComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(NavigationBarModel.SpecializationTypeId, (provider, componentTemplate) => new NavigationBarComponentBuilder(provider, componentTemplate));
         }
     }
 }

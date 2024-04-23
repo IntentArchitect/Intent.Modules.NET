@@ -28,14 +28,41 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
         {
             BlazorFile = new BlazorFile(this);
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
+            ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);
+
+            BlazorFile.Configure(file =>
+            {
+                ComponentBuilderProvider.ResolveFor(Model.InternalElement)
+                    .BuildComponent(Model.InternalElement, BlazorFile);
+
+                file.AddCodeBlock(block =>
+                {
+                    block.AddCodeBlockMembers(this, Model.InternalElement);
+                });
+            });
         }
 
         public BlazorFile BlazorFile { get; set; }
-        public IRazorComponentBuilderProvider ComponentBuilderResolver { get; }
+        public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
         RazorFile IRazorComponentTemplate.BlazorFile => BlazorFile;
 
         public BindingManager BindingManager { get; }
+
+        public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
+        {
+            BlazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
+        }
+
+        public CSharpClassMappingManager CreateMappingManager()
+        {
+            var mappingManager = new CSharpClassMappingManager(this);
+            mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
+            mappingManager.SetFromReplacement(Model, null);
+            mappingManager.SetToReplacement(Model, null);
+            return mappingManager;
+        }
+
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -65,16 +92,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
         public override string RunTemplate()
         {
             return TransformText();
-        }
-
-        public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CSharpClassMappingManager CreateMappingManager()
-        {
-            throw new NotImplementedException();
         }
     }
 }

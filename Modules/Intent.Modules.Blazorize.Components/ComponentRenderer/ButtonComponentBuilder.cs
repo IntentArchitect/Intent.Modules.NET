@@ -45,6 +45,6 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         //{
         //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
         //}
-        node.AddNode(htmlElement);
+        node.AddChildNode(htmlElement);
     }
 }

@@ -18,7 +18,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
     public class BlazorFile : RazorFile
     {
         private Action<BlazorFile> _configure;
-        public IList<RazorCodeBlock> CodeBlocks => Nodes.OfType<RazorCodeBlock>().Where(x => x.Expression == null).ToList();
+        public IList<RazorCodeBlock> CodeBlocks => ChildNodes.OfType<RazorCodeBlock>().Where(x => x.Expression == null).ToList();
 
         public BlazorFile(ICSharpTemplate template) : base(template)
         {
@@ -43,7 +43,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public BlazorFile AddCodeBlock(Action<RazorCodeBlock> configure = null)
         {
             var razorCodeBlock = new RazorCodeBlock(RazorFile);
-            Nodes.Add(razorCodeBlock);
+            ChildNodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return this;
         }
@@ -130,7 +130,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
                 }
             }
 
-            foreach (var node in Nodes)
+            foreach (var node in ChildNodes)
             {
                 sb.Append(node.GetText(""));
             }
@@ -142,7 +142,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
     public interface IRazorFileNode
     {
         string GetText(string indentation);
-        void AddNode(IRazorFileNode node);
+        void AddChildNode(IRazorFileNode node);
     }
 
     public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>,  IRazorFileNode where T : RazorFileNodeBase<T>
@@ -155,26 +155,26 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         public RazorFile RazorFile { get; protected set; }
 
-        public IList<IRazorFileNode> Nodes { get; } = new List<IRazorFileNode>();
+        public IList<IRazorFileNode> ChildNodes { get; } = new List<IRazorFileNode>();
 
         public T AddHtmlElement(string name, Action<HtmlElement> configure = null)
         {
             var htmlElement = new HtmlElement(name, RazorFile);
-            Nodes.Add(htmlElement);
+            ChildNodes.Add(htmlElement);
             configure?.Invoke(htmlElement);
             return (T)this;
         }
 
         public T AddHtmlElement(HtmlElement htmlElement)
         {
-            Nodes.Add(htmlElement);
+            ChildNodes.Add(htmlElement);
             return (T)this;
         }
 
         public T AddCodeBlock(CSharpStatement expression, Action<RazorCodeDirective> configure = null)
         {
             var razorCodeBlock = new RazorCodeDirective(expression, RazorFile);
-            Nodes.Add(razorCodeBlock);
+            ChildNodes.Add(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return (T)this;
         }
@@ -182,9 +182,9 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public abstract string GetText(string indentation);
 
 
-        public void AddNode(IRazorFileNode node)
+        public void AddChildNode(IRazorFileNode node)
         {
-            Nodes.Add(node);
+            ChildNodes.Add(node);
         }
     }
 
@@ -239,7 +239,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public override string GetText(string indentation)
         {
             return $@"{indentation}@{Expression.GetText(indentation)?.TrimStart()} {{
-{string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}
+{string.Join("", ChildNodes.Select(x => x.GetText($"{indentation}    ")))}
 {indentation}}}
 ";
         }
@@ -293,7 +293,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public override string GetText(string indentation)
         {
             return $@"{indentation}@code {{
-{string.Join("", Nodes.Select(x => x.GetText($"{indentation}    ")))}{string.Join(@"
+{string.Join("", ChildNodes.Select(x => x.GetText($"{indentation}    ")))}{string.Join(@"
 ", Declarations.ConcatCode(indentation + "    "))}
 {indentation}}}
 ";
@@ -311,7 +311,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             Name = name;
         }
 
-        public HtmlElement AddAttribute(string name, string value)
+        public HtmlElement AddAttribute(string name, string value = null)
         {
             Attributes[name] = value;
             return this;
@@ -335,12 +335,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public override string GetText(string indentation)
         {
             var sb = new StringBuilder();
-            var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || Nodes.Any();
-            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(Nodes.Any() || Attributes.Count > 1 ? Environment.NewLine : "")}");
+            var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || ChildNodes.Any();
+            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(ChildNodes.Any() || Attributes.Count > 1 ? Environment.NewLine : "")}");
 
             if (!string.IsNullOrWhiteSpace(Text))
             {
-                if (Nodes.Any() || Attributes.Count > 1)
+                if (ChildNodes.Any() || Attributes.Count > 1)
                 {
                     sb.AppendLine($"{indentation}    {Text}");
                 }
@@ -350,16 +350,16 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
                 }
             }
 
-            foreach (var e in Nodes)
+            foreach (var e in ChildNodes)
             {
                 sb.Append(e.GetText($"{indentation}    "));
             }
 
             if (requiresEndTag)
             {
-                if (Attributes.Count > 1 || Nodes.Any())
+                if (Attributes.Count > 1 || ChildNodes.Any())
                 {
-                    sb.Append($"{(!Nodes.Any() && Attributes.Count <= 1 ? Environment.NewLine : "")}{indentation}</{Name}>");
+                    sb.Append($"{(!ChildNodes.Any() && Attributes.Count <= 1 ? Environment.NewLine : "")}{indentation}</{Name}>");
                 }
                 else
                 {
@@ -374,7 +374,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         private string FormatAttributes(string indentation)
         {
-            return string.Join($"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}", Attributes.Select(attribute => $" {attribute.Key}=\"{attribute.Value}\""));
+            return string.Join($"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}", Attributes.Select(attribute => $" {attribute.Key}{(attribute.Value != null ? $"=\"{attribute.Value}\"" : "")}"));
         }
 
         public override string ToString()

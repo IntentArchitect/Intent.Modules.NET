@@ -6,7 +6,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 {
     public interface IRazorComponentTemplate : ICSharpTemplate
     {
-        IRazorComponentBuilderProvider ComponentBuilderResolver { get; }
+        IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
         BindingManager BindingManager { get; }
         // TODO: Make interface:
         RazorFile BlazorFile { get; }

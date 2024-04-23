@@ -34,7 +34,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
-        node.AddNode(codeBlock);
+        node.AddChildNode(codeBlock);
 
     }
 }
