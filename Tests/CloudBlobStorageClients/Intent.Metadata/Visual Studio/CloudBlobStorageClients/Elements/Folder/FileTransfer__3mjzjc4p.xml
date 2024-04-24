@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79068834-3f00-4cf5-bd94-62db2011e3bc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>FileTransfer</name>
+  <display>FileTransfer</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d20f20f5-88fb-4846-aaf0-d9b4475a20e4</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6bde0b2d-2112-4a06-8548-f9ae4ee31658" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentAttribute</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentAttribute</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79068834-3f00-4cf5-bd94-62db2011e3bc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

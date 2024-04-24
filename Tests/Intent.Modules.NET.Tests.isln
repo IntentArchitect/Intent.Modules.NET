@@ -103,5 +103,6 @@
     <application id="6e5e03eb-f608-4392-9a67-c392120303a3" name="Standard.AspNetCore.Serilog" relativePath="Standard.AspNetCore.Serilog/Standard.AspNetCore.Serilog.application.config" />
     <application id="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" name="CosmosDB.MultiTenancy.SeperateDB" relativePath="CosmosDB.MultiTenancy.SeperateDB/CosmosDB.MultiTenancy.SeperateDB.application.config" />
     <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
+    <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients" relativePath="CloudBlobStorageClients/CloudBlobStorageClients.application.config" />
   </applications>
 </solution>
