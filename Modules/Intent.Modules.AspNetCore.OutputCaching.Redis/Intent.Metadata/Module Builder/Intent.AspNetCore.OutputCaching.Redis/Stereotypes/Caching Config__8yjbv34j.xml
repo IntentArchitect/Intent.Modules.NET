@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="56f48881-3e17-43bf-aead-e222a8f725fd" version="3.1.0">
+  <name>Caching Config</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="1425f74f-3aa9-4dfd-8676-baa7e8d00a17">Caching Policy</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>bf2555fa-08da-4a33-b203-c29cd6302ffc</parentFolderId>
+  <order>0</order>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <properties>
+    <property id="8f9a025a-fc3c-4e50-a42c-d4b004c7f47b">
+      <name>Duration</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="1370668f-ac9c-4909-bbbf-8d3be6045b44">
+      <name>Tags</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="918474b5-0dc9-42e0-bf60-f59cef4024ef">
+      <name>Vary By Query Keys</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="83b5eeb6-8937-45a8-8d08-c2a5f0a662d0">
+      <name>Vary By Header Names</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="6910f48f-1454-49c6-ac7b-553b439f91d4">
+      <name>Vary By Route Value Names</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="85f804e7-4357-48c3-adcf-340aaf376ffe">
+      <name>No Caching</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

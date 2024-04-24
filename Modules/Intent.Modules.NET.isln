@@ -138,6 +138,7 @@
     <application id="23a2e556-4b65-4e09-b1b6-be706e425f17" name="Intent.Modules.AspNetCore.DistributedCaching" relativePath="Intent.Modules.AspNetCore.DistributedCaching/Intent.Modules.AspNetCore.DistributedCaching.application.config" />
     <application id="004cfd62-cf66-4e52-8da3-881422ea54c4" name="Intent.Modules.EntityFrameworkCore.SecondLevelCaching" relativePath="Intent.Modules.EntityFrameworkCore.SecondLevelCaching/Intent.Modules.EntityFrameworkCore.SecondLevelCaching.application.config" />
     <application id="86b08c05-fea8-40cb-b37e-122ad0491b3a" name="Intent.OpenApi.Importer" relativePath="Intent.OpenApi.Importer/Intent.OpenApi.Importer.application.config" />
+    <application id="672867be-508c-4d6f-955a-d59b79ad1470" name="Intent.Modules.AspNetCore.OutputCaching.Redis" relativePath="Intent.Modules.AspNetCore.OutputCaching.Redis/Intent.Modules.AspNetCore.OutputCaching.Redis.application.config" />
     <application id="902ec392-3140-4eb3-b2f4-3127866b8423" name="Intent.Modules.AmazonS3.ObjectStorage" relativePath="Intent.Modules.AmazonS3.ObjectStorage/Intent.Modules.AmazonS3.ObjectStorage.application.config" />
   </applications>
 </solution>

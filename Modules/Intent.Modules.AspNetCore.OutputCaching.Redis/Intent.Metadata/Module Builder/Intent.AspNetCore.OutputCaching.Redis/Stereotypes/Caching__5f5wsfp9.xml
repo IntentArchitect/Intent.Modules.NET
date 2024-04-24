@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="c090804e-8e1c-4121-8209-488982ce6a22" version="3.1.0">
+  <name>Caching</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+    <type id="b16578a5-27b1-4047-a8df-f0b783d706bd">Service</type>
+    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
+    <type id="e71b0662-e29d-4db2-868b-8a12464b25d0">Query</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>bf2555fa-08da-4a33-b203-c29cd6302ffc</parentFolderId>
+  <order>0</order>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <properties>
+    <property id="bfc1f7b7-0848-4e90-8534-07aea3ae048c">
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <valueOptions>
+        <option>Policy</option>
+        <option>Custom</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="7ec3af88-3e9e-4574-bbbb-f793482e0a2d">
+      <name>Policy</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>1425f74f-3aa9-4dfd-8676-baa7e8d00a17</type>
+      </lookupTypes>
+      <isActiveFunction>return Type=== "Policy";</isActiveFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

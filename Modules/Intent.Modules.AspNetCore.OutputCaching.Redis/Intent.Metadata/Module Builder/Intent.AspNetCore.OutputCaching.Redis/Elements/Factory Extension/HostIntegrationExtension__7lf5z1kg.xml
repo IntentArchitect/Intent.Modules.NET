@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6553e26d-49f1-482b-9358-d1039056c177" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>HostIntegrationExtension</name>
+  <display>HostIntegrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bf2555fa-08da-4a33-b203-c29cd6302ffc</parentFolderId>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
