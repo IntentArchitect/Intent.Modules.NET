@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates;

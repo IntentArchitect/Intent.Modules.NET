@@ -2,6 +2,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
@@ -10,20 +11,20 @@ namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 public class NavigationBarComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
     private readonly BindingManager _bindingManager;
 
     public NavigationBarComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var navigationModel = new NavigationBarModel(component);
-        var htmlElement = new HtmlElement("Bar", _template.BlazorFile);
+        var htmlElement = new HtmlElement("Bar", _componentTemplate.RazorFile);
         htmlElement.AddAttribute("Breakpoint", "Breakpoint.Desktop");
         if (navigationModel.NavigationItems.Any())
         {

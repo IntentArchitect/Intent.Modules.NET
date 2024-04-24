@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.FactoryExtensions;
@@ -25,11 +26,11 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 {
     public class BindingManager
     {
-        private readonly IRazorComponentTemplate _template;
+        private readonly IRazorComponentTemplate _componentTemplate;
 
         public BindingManager(IRazorComponentTemplate template, IElementToElementMapping viewBinding)
         {
-            _template = template;
+            _componentTemplate = template;
             ViewBinding = viewBinding;
         }
 
@@ -54,7 +55,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                 return null;
             }
 
-            return (mappingManager ?? _template.CreateMappingManager()).GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
+            return (mappingManager ?? _componentTemplate.CreateMappingManager()).GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
         }
 
         public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model)
@@ -81,13 +82,13 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
+    public class RazorComponentComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Components.Core.RazorComponentTemplate";
 
         [IntentManaged(Mode.Merge)]
-        public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
+        public RazorComponentComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource("Intent.Blazor.HttpClients.DtoContract");
             AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");

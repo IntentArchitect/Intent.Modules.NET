@@ -1,5 +1,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
@@ -9,20 +10,20 @@ namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 public class TableComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
     private readonly BindingManager _bindingManager;
 
     public TableComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template; 
+        _componentTemplate = template; 
         _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _template.BlazorFile);
+        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
         loadingCode.AddHtmlElement("div", rowDiv =>
         {
             rowDiv.AddAttribute("class", "row");
@@ -33,7 +34,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             });
         });
         node.AddChildNode(loadingCode);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _template.BlazorFile);
+        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("Table", htmlTable =>
         {
             htmlTable.AddHtmlElement("TableHeader", tableHeader =>
@@ -48,7 +49,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             });
             htmlTable.AddHtmlElement("TableBody", tbody =>
             {
-                var mappingManager = _template.CreateMappingManager();
+                var mappingManager = _componentTemplate.CreateMappingManager();
                 var mappedEnd = _bindingManager.GetMappedEndFor(table);
                 tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, mappingManager)})", block =>
                 {

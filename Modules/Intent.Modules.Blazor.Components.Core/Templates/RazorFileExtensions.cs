@@ -2,6 +2,7 @@
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 

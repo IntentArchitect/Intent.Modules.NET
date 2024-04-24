@@ -24,13 +24,13 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => RazorComponentTemplate.TemplateId;
+        public override string TemplateId => RazorComponentComponentTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ComponentModel model)
         {
             // [IntentIgnore(Match = "return")]
-            return new RazorComponentTemplate(outputTarget, model);
+            return new RazorComponentComponentTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]

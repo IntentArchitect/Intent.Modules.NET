@@ -24,12 +24,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => RazorLayoutTemplate.TemplateId;
+        public override string TemplateId => RazorComponentLayoutTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, LayoutModel model)
         {
-            return new RazorLayoutTemplate(outputTarget, model);
+            return new RazorComponentLayoutTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

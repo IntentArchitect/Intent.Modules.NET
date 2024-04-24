@@ -1,4 +1,5 @@
 ﻿using Intent.Metadata.Models;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
@@ -6,12 +7,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 public class EmptyElementRenderer : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
 
     public EmptyElementRenderer(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _componentTemplate = template;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)

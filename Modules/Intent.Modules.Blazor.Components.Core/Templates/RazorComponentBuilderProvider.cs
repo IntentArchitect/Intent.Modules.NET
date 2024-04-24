@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
@@ -19,12 +20,12 @@ public interface IRazorComponentBuilder
 
 public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
 {
-    public IRazorComponentTemplate Template { get; }
+    public IRazorComponentTemplate ComponentTemplate { get; }
     private Dictionary<string, IRazorComponentBuilder> _componentRenderers = new();
 
     public RazorComponentBuilderProvider(IRazorComponentTemplate template)
     {
-        Template = template;
+        ComponentTemplate = template;
     }
 
     public void Register(string elementSpecializationId, IRazorComponentBuilder componentBuilder)
@@ -36,7 +37,7 @@ public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
     {
         if (!_componentRenderers.ContainsKey(component.SpecializationTypeId))
         {
-            return new EmptyElementRenderer(this, Template);
+            return new EmptyElementRenderer(this, ComponentTemplate);
         }
         return _componentRenderers[component.SpecializationTypeId];
     }

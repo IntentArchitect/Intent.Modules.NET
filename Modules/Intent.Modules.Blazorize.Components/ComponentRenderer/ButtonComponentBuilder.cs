@@ -1,6 +1,7 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
@@ -9,20 +10,20 @@ namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 public class ButtonComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
     private BindingManager _bindingManager;
 
     public ButtonComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var button = new ButtonModel(component);
-        var htmlElement = new HtmlElement("Button", _template.BlazorFile)
+        var htmlElement = new HtmlElement("Button", _componentTemplate.RazorFile)
             .AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
             .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);

@@ -140,5 +140,6 @@
     <application id="86b08c05-fea8-40cb-b37e-122ad0491b3a" name="Intent.OpenApi.Importer" relativePath="Intent.OpenApi.Importer/Intent.OpenApi.Importer.application.config" />
     <application id="04bdf667-67c6-44b6-abd6-11cc0d134e4a" name="Intent.Modules.Blazor.Components.Core" relativePath="Intent.Modules.Blazor.Components.Core/Intent.Modules.Blazor.Components.Core.application.config" />
     <application id="1353682e-b7ca-44bc-ac90-af83855dd4a9" name="Intent.Modules.Blazorize.Components" relativePath="Intent.Modules.Blazorize.Components/Intent.Modules.Blazorize.Components.application.config" />
+    <application id="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040" name="Intent.Modules.Blazor" relativePath="Intent.Modules.Blazor/Intent.Modules.Blazor.application.config" />
   </applications>
 </solution>

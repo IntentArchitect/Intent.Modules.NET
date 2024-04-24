@@ -4,26 +4,27 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using System.Linq;
+using Intent.Modules.Blazor.Api;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
 public class LayoutComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
     private readonly BindingManager _bindingManager;
 
     public LayoutComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var layoutModel = new LayoutModel(component);
-        var layoutHtml = new HtmlElement("Layout", _template.BlazorFile);
+        var layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
         if (layoutModel.Header != null)
         {
             layoutHtml.AddHtmlElement("LayoutHeader", layoutHeader =>

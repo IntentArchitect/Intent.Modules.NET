@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -18,13 +19,13 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class RazorLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
+    partial class RazorComponentLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Components.Core.RazorLayoutTemplate";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
+        public RazorComponentLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
         {
             BlazorFile = new BlazorFile(this);
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());

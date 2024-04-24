@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common.CSharp.Templates;
 
@@ -9,20 +10,20 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
 public class CustomComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
-    private readonly IRazorComponentTemplate _template;
+    private readonly IRazorComponentTemplate _componentTemplate;
     private readonly BindingManager _bindingManager;
 
     public CustomComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _template = template;
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var model = new ComponentModel((IElement)component.TypeReference.Element);
-        var htmlElement = new HtmlElement(_template.GetTypeName(component.TypeReference), _template.BlazorFile);
+        var htmlElement = new HtmlElement(_componentTemplate.GetTypeName(component.TypeReference), _componentTemplate.RazorFile);
 
         foreach (var modelProperty in model.Properties.Where(x => x.HasBindable()))
         {

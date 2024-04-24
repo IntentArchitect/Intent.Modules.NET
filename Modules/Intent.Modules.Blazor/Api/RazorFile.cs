@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -13,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Components.Core.Templates
+namespace Intent.Modules.Blazor.Api
 {
     public class BlazorFile : RazorFile
     {
@@ -54,8 +53,9 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             return this;
         }
 
-        public new RazorFile Build()
+        public override RazorFile Build()
         {
+            _isBuilt = true;
             _configure?.Invoke(this);
             return this;
         }
@@ -108,14 +108,20 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
             return GetText("");
         }
 
-        public RazorFile Build()
+        protected bool _isBuilt = false;
+        public virtual RazorFile Build()
         {
             _configure(this);
+            _isBuilt = true;
             return this;
         }
 
         public override string GetText(string indentation)
         {
+            if (!_isBuilt)
+            {
+                throw new Exception("RazorFile has not been built. Call .Build() before this invocation.");
+            }
             var sb = new StringBuilder();
 
             var orderedDirectives = Directives.OrderBy(x => x.Order).ToList();
@@ -145,7 +151,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         void AddChildNode(IRazorFileNode node);
     }
 
-    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>,  IRazorFileNode where T : RazorFileNodeBase<T>
+    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>, IRazorFileNode where T : RazorFileNodeBase<T>
     {
         public RazorFileNodeBase(RazorFile file)
         {
@@ -168,6 +174,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public T AddHtmlElement(HtmlElement htmlElement)
         {
             ChildNodes.Add(htmlElement);
+            return (T)this;
+        }
+
+        public T AddEmptyLine()
+        {
+            ChildNodes.Add(new EmptyLine());
             return (T)this;
         }
 
@@ -300,6 +312,19 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         }
     }
 
+    public class EmptyLine : IRazorFileNode
+    {
+        public string GetText(string indentation)
+        {
+            return Environment.NewLine;
+        }
+
+        public void AddChildNode(IRazorFileNode node)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class HtmlElement : RazorFileNodeBase<HtmlElement>, IRazorFileNode
     {
         public string Name { get; set; }
@@ -335,8 +360,8 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
         public override string GetText(string indentation)
         {
             var sb = new StringBuilder();
-            var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || ChildNodes.Any();
-            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? "/" : "")}>{(ChildNodes.Any() || Attributes.Count > 1 ? Environment.NewLine : "")}");
+            var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || ChildNodes.Any() || Name is "script";
+            sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? " /" : "")}>{(requiresEndTag && (ChildNodes.Any() || Attributes.Count > 1) ? Environment.NewLine : "")}");
 
             if (!string.IsNullOrWhiteSpace(Text))
             {
@@ -374,7 +399,8 @@ namespace Intent.Modules.Blazor.Components.Core.Templates
 
         private string FormatAttributes(string indentation)
         {
-            return string.Join($"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}", Attributes.Select(attribute => $" {attribute.Key}{(attribute.Value != null ? $"=\"{attribute.Value}\"" : "")}"));
+            var separateLines = Name is not "link" and not "meta";
+            return string.Join(separateLines ? $"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}" : "", Attributes.Select(attribute => $" {attribute.Key}{(attribute.Value != null ? $"=\"{attribute.Value}\"" : "")}"));
         }
 
         public override string ToString()
