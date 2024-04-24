@@ -15,11 +15,10 @@ namespace CloudBlobStorageClients.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IBlobStorage, AzureBlobStorage>();
-            services.AddTransient<IAzureBlobStorage, AzureBlobStorage>();
             
             services.AddDefaultAWSOptions(configuration.GetAWSOptions());
             services.AddAWSService<IAmazonS3>();
-            services.AddTransient<IAwsS3BlobStorage, AwsS3BlobStorage>();
+            services.AddTransient<IObjectStorage, AwsS3BlobStorage>();
             
             return services;
         }

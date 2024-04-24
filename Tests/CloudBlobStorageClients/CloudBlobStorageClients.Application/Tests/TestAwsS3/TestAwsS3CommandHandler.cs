@@ -14,13 +14,13 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestAwsS3CommandHandler : IRequestHandler<TestAwsS3Command>
     {
-        private readonly IAwsS3BlobStorage _aws;
+        private readonly IObjectStorage _objectStorage;
         private readonly ILogger<TestAwsS3CommandHandler> _logger;
 
         [IntentManaged(Mode.Merge)]
-        public TestAwsS3CommandHandler(IAwsS3BlobStorage aws, ILogger<TestAwsS3CommandHandler> logger)
+        public TestAwsS3CommandHandler(IObjectStorage objectStorage, ILogger<TestAwsS3CommandHandler> logger)
         {
-            _aws = aws;
+            _objectStorage = objectStorage;
             _logger = logger;
         }
 
@@ -29,20 +29,20 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
         {
             const string bucketName = "dan-test-bucket-4-24";
 
-            var url = await _aws.UploadStringAsync(bucketName, "test-file", "This is a test string", cancellationToken);
+            var url = await _objectStorage.UploadStringAsync(bucketName, "test-file", "This is a test string", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
 
-            var url2 = await _aws.GetAsync(bucketName, "test-file", cancellationToken);
+            var url2 = await _objectStorage.GetAsync(bucketName, "test-file", cancellationToken);
             _logger.LogInformation("GET: {Ur}", url2);
 
-            await foreach (var item in _aws.ListAsync(bucketName, cancellationToken))
+            await foreach (var item in _objectStorage.ListAsync(bucketName, cancellationToken))
             {
                 _logger.LogInformation("LIST: {Url}", item);
-                var content = await _aws.DownloadAsStringAsync(item, cancellationToken);
+                var content = await _objectStorage.DownloadAsStringAsync(item, cancellationToken);
                 _logger.LogInformation("CONTENT: {Content}", content);
             }
 
-            await _aws.DeleteAsync(bucketName, "test-file", cancellationToken);
+            await _objectStorage.DeleteAsync(bucketName, "test-file", cancellationToken);
         }
     }
 }

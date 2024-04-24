@@ -15,7 +15,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CloudBlobStorageClients.Infrastructure.BlobStorage
 {
-    public class AzureBlobStorage : IAzureBlobStorage
+    public class AzureBlobStorage : IBlobStorage
     {
         private const PublicAccessType ContainerPublicAccessType = PublicAccessType.None;
         private readonly BlobServiceClient _client;

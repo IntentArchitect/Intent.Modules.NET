@@ -14,13 +14,13 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestAzureCommandHandler : IRequestHandler<TestAzureCommand>
     {
-        private readonly IAzureBlobStorage _aws;
+        private readonly IBlobStorage _blobStorage;
         private readonly ILogger<TestAzureCommandHandler> _logger;
 
         [IntentManaged(Mode.Merge)]
-        public TestAzureCommandHandler(IAzureBlobStorage aws, ILogger<TestAzureCommandHandler> logger)
+        public TestAzureCommandHandler(IBlobStorage blobStorage, ILogger<TestAzureCommandHandler> logger)
         {
-            _aws = aws;
+            _blobStorage = blobStorage;
             _logger = logger;
         }
 
@@ -29,20 +29,20 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
         {
             const string containerName = "dan-test-bucket";
             
-            var url = await _aws.UploadStringAsync(containerName, "test-file", "This is a test string", cancellationToken);
+            var url = await _blobStorage.UploadStringAsync(containerName, "test-file", "This is a test string", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
 
-            var url2 = await _aws.GetAsync(containerName, "test-file", cancellationToken);
+            var url2 = await _blobStorage.GetAsync(containerName, "test-file", cancellationToken);
             _logger.LogInformation("GET: {Ur}", url2);
 
-            await foreach (var item in _aws.ListAsync(containerName, cancellationToken))
+            await foreach (var item in _blobStorage.ListAsync(containerName, cancellationToken))
             {
                 _logger.LogInformation("LIST: {Url}", item);
-                var content = await _aws.DownloadAsStringAsync(item, cancellationToken);
+                var content = await _blobStorage.DownloadAsStringAsync(item, cancellationToken);
                 _logger.LogInformation("CONTENT: {Content}", content);
             }
 
-            await _aws.DeleteAsync(containerName, "test-file", cancellationToken);
+            await _blobStorage.DeleteAsync(containerName, "test-file", cancellationToken);
         }
     }
 }

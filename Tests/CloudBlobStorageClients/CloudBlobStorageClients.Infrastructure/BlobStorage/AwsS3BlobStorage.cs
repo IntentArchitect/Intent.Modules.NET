@@ -10,7 +10,7 @@ using CloudBlobStorageClients.Application.Common.Storage;
 
 namespace CloudBlobStorageClients.Infrastructure.BlobStorage;
 
-public class AwsS3BlobStorage : IAwsS3BlobStorage
+public class AwsS3BlobStorage : IObjectStorage
 {
     private readonly IAmazonS3 _client;
 
@@ -19,12 +19,12 @@ public class AwsS3BlobStorage : IAwsS3BlobStorage
         _client = client;
     }
 
-    public async Task<Uri> GetAsync(string containerName, string blobName, CancellationToken cancellationToken = default)
+    public async Task<Uri> GetAsync(string bucketName, string key, CancellationToken cancellationToken = default)
     {
         var request = new GetPreSignedUrlRequest
         {
-            BucketName = containerName,
-            Key = blobName,
+            BucketName = bucketName,
+            Key = key,
             Expires = DateTime.Now.AddMinutes(5) // Adjust expiration as needed
         };
 
@@ -32,17 +32,17 @@ public class AwsS3BlobStorage : IAwsS3BlobStorage
         return new Uri(url);
     }
 
-    public async IAsyncEnumerable<Uri> ListAsync(string containerName, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<Uri> ListAsync(string bucketName, CancellationToken cancellationToken = default)
     {
         var request = new ListObjectsV2Request
         {
-            BucketName = containerName
+            BucketName = bucketName
         };
 
         var response = await _client.ListObjectsV2Async(request, cancellationToken).ConfigureAwait(false);
         foreach (var s3Object in response.S3Objects)
         {
-            yield return await GetAsync(containerName, s3Object.Key, cancellationToken);
+            yield return await GetAsync(bucketName, s3Object.Key, cancellationToken);
         }
     }
 
@@ -52,24 +52,24 @@ public class AwsS3BlobStorage : IAwsS3BlobStorage
         return UploadAsync(s3Uri.Bucket, s3Uri.Key, dataStream, cancellationToken);
     }
 
-    public async Task<Uri> UploadAsync(string containerName, string blobName, Stream dataStream, CancellationToken cancellationToken = default)
+    public async Task<Uri> UploadAsync(string bucketName, string key, Stream dataStream, CancellationToken cancellationToken = default)
     {
         var putRequest = new PutObjectRequest
         {
-            BucketName = containerName,
-            Key = blobName,
+            BucketName = bucketName,
+            Key = key,
             InputStream = dataStream
         };
 
         await _client.PutObjectAsync(putRequest, cancellationToken).ConfigureAwait(false);
-        return await GetAsync(containerName, blobName, cancellationToken);
+        return await GetAsync(bucketName, key, cancellationToken);
     }
 
-    public async IAsyncEnumerable<Uri> BulkUploadAsync(string containerName, IEnumerable<BulkBlobItem> blobs, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<Uri> BulkUploadAsync(string bucketName, IEnumerable<BulkObjectItem> objects, CancellationToken cancellationToken = default)
     {
-        foreach (var blob in blobs)
+        foreach (var blob in objects)
         {
-            yield return await UploadAsync(containerName, blob.Name, blob.DataStream, cancellationToken);
+            yield return await UploadAsync(bucketName, blob.Name, blob.DataStream, cancellationToken);
         }
     }
 
@@ -79,12 +79,12 @@ public class AwsS3BlobStorage : IAwsS3BlobStorage
         return DownloadAsync(s3Uri.Bucket, s3Uri.Key, cancellationToken);
     }
 
-    public async Task<Stream> DownloadAsync(string containerName, string blobName, CancellationToken cancellationToken = default)
+    public async Task<Stream> DownloadAsync(string bucketName, string key, CancellationToken cancellationToken = default)
     {
         var getRequest = new GetObjectRequest
         {
-            BucketName = containerName,
-            Key = blobName
+            BucketName = bucketName,
+            Key = key
         };
 
         var response = await _client.GetObjectAsync(getRequest, cancellationToken).ConfigureAwait(false);
@@ -97,12 +97,12 @@ public class AwsS3BlobStorage : IAwsS3BlobStorage
         return DeleteAsync(s3Uri.Bucket, s3Uri.Key, cancellationToken);
     }
 
-    public async Task DeleteAsync(string containerName, string blobName, CancellationToken cancellationToken = default)
+    public async Task DeleteAsync(string bucketName, string key, CancellationToken cancellationToken = default)
     {
         var deleteRequest = new DeleteObjectRequest
         {
-            BucketName = containerName,
-            Key = blobName
+            BucketName = bucketName,
+            Key = key
         };
 
         await _client.DeleteObjectAsync(deleteRequest, cancellationToken).ConfigureAwait(false);
