@@ -30,7 +30,7 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
             const string bucketName = "dan-test-bucket-4-24";
 
             Uri url;
-            
+
             url = await _objectStorage.UploadStringAsync(bucketName, "test-file", "This is a test string", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
             url = await _objectStorage.UploadStringAsync(url, "This is a test string 2", cancellationToken);

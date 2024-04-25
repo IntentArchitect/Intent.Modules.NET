@@ -30,7 +30,7 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
             const string containerName = "dan-test-bucket";
 
             Uri url;
-            
+
             url = await _blobStorage.UploadStringAsync(containerName, "test-file", "This is a test string", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
             url = await _blobStorage.UploadStringAsync(url, "This is a test string 2", cancellationToken);
