@@ -16,7 +16,7 @@ namespace CloudBlobStorageClients.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddDefaultAWSOptions(configuration.GetAWSOptions());
+            services.AddDefaultAWSOptions(configuration.GetAWSOptions<AmazonS3Config>());
             services.AddAWSService<IAmazonS3>();
             services.AddTransient<IObjectStorage, AmazonS3ObjectStorage>();
 

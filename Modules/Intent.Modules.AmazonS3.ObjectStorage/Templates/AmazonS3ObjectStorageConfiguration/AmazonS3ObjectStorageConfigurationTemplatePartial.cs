@@ -33,7 +33,7 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.AmazonS3ObjectStorageC
                         method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", param => param.WithThisModifier());
                         method.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
-                        method.AddStatement($"services.AddDefaultAWSOptions(configuration.GetAWSOptions());");
+                        method.AddStatement($"services.AddDefaultAWSOptions(configuration.GetAWSOptions<AmazonS3Config>());");
                         method.AddStatement($"services.AddAWSService<IAmazonS3>();");
                         method.AddStatement($"services.AddTransient<{this.GetObjectStorageInterfaceName()}, {this.GetAmazonS3ObjectStorageImplementationName()}>();");
 

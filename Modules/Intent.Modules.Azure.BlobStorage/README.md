@@ -1,4 +1,4 @@
-# Azure Blob Storage Module
+# Azure Blob Storage
 
 The Azure Blob Storage module simplifies working with Azure Blob Storage in .NET applications by providing a robust C# client wrapper. This module includes an integration of the `Azure.Storage.Blobs` NuGet package, facilitating direct interactions with Azure Blob Storage services.
 
