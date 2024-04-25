@@ -14,7 +14,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Merge)]
     public partial class AppRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Server.AppRazorTemplate";

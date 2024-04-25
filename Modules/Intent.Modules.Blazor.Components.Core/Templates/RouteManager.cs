@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
+namespace Intent.Modules.Blazor.Components.Core.Templates;
 
-public class RouteManager(string route)
+public class RouteManager
 {
-    public string Route { get; private set; } = route;
+    public RouteManager(string route)
+    {
+        Route = route;
+    }
+
+    public string Route { get; private set; }
 
     public bool HasParameterExpression(string parameterName)
     {

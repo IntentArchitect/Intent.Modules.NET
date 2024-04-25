@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
+using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common.Templates;
@@ -22,6 +23,11 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetProgramTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ProgramTemplate.TemplateId);
+        }
+
+        public static string GetRoutesRazorTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(RoutesRazorTemplate.TemplateId);
         }
 
         public static string GetAppRazorTemplateName(this IIntentTemplate template)

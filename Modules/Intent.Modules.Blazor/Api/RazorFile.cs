@@ -14,57 +14,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Api
 {
-    public class BlazorFile : RazorFile
-    {
-        private Action<BlazorFile> _configure;
-        public IList<RazorCodeBlock> CodeBlocks => ChildNodes.OfType<RazorCodeBlock>().Where(x => x.Expression == null).ToList();
-
-        public BlazorFile(ICSharpTemplate template) : base(template)
-        {
-        }
-
-        public RazorFile AddPageDirective(string route)
-        {
-            Directives.Insert(0, new RazorDirective("page", new CSharpStatement($"\"{route}\"")));
-            return this;
-        }
-
-        public RazorFile AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
-        {
-            var serviceDeclaration = $"{Template.UseType(fullyQualifiedTypeName)} {propertyName ?? Template.UseType(fullyQualifiedTypeName)}";
-            if (!Directives.Any(x => x.Keyword == "inject" && x.Expression.ToString() == serviceDeclaration))
-            {
-                Directives.Add(new RazorDirective("inject", new CSharpStatement(serviceDeclaration)));
-            }
-            return this;
-        }
-
-        public BlazorFile AddCodeBlock(Action<RazorCodeBlock> configure = null)
-        {
-            var razorCodeBlock = new RazorCodeBlock(RazorFile);
-            ChildNodes.Add(razorCodeBlock);
-            configure?.Invoke(razorCodeBlock);
-            return this;
-        }
-
-        public BlazorFile Configure(Action<BlazorFile> configure)
-        {
-            _configure = configure;
-            return this;
-        }
-
-        public override RazorFile Build()
-        {
-            _isBuilt = true;
-            _configure?.Invoke(this);
-            return this;
-        }
-    }
-
     public class RazorFile : RazorFileNodeBase<RazorFile>, ICSharpFile
     {
         private Action<RazorFile> _configure;
-
+        private readonly IList<(Action Invoke, int Order)> _configurations = new List<(Action Invoke, int Order)>();
+        private readonly IList<(Action Invoke, int Order)> _configurationsAfter = new List<(Action Invoke, int Order)>();
         public RazorFile(ICSharpTemplate template) : base(null)
         {
             Template = template;
@@ -109,10 +63,24 @@ namespace Intent.Modules.Blazor.Api
         }
 
         protected bool _isBuilt = false;
+        private bool _afterBuildRun;
         public virtual RazorFile Build()
         {
+            // TODO: Need to address same concerns as the CSharpFileBuilderFactoryExtension does for the CSharpFile:
             _configure(this);
+            while (_configurations.Count > 0)
+            {
+                var configuration = _configurations.MinBy(x => x.Order);
+                configuration.Invoke();
+                _configurations.Remove(configuration);
+            }
             _isBuilt = true;
+            while (_configurationsAfter.Count > 0)
+            {
+                var configuration = _configurationsAfter.MinBy(x => x.Order);
+                configuration.Invoke();
+                _configurationsAfter.Remove(configuration);
+            }
             return this;
         }
 
@@ -143,17 +111,44 @@ namespace Intent.Modules.Blazor.Api
 
             return sb.ToString();
         }
+
+        public RazorFile OnBuild(Action<RazorFile> configure, int order = 0)
+        {
+            if (_isBuilt)
+            {
+                throw new Exception("This file has already been built. " +
+                                    "Consider registering your configuration in the AfterBuild(...) method.");
+            }
+
+            _configurations.Add((() => configure(this), order));
+            return this;
+        }
+
+        public RazorFile AfterBuild(Action<RazorFile> configure, int order = 0)
+        {
+            if (_afterBuildRun)
+            {
+                throw new Exception("The AfterBuild step has already been run for this file.");
+            }
+
+            _configurationsAfter.Add((() => configure(this), order));
+            return this;
+        }
     }
 
     public interface IRazorFileNode
     {
         string GetText(string indentation);
         void AddChildNode(IRazorFileNode node);
+        void InsertChildNode(int index, IRazorFileNode node);
+        IList<IRazorFileNode> ChildNodes { get; }
+        IRazorFileNode Parent { get; internal set; }
     }
 
-    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>, IRazorFileNode where T : RazorFileNodeBase<T>
+    public abstract class RazorFileNodeBase<T> : CSharpMetadataBase<T>, IRazorFileNode 
+        where T : RazorFileNodeBase<T>
     {
-        public RazorFileNodeBase(RazorFile file)
+        protected RazorFileNodeBase(RazorFile file)
         {
             File = file;
             RazorFile = file;
@@ -166,27 +161,27 @@ namespace Intent.Modules.Blazor.Api
         public T AddHtmlElement(string name, Action<HtmlElement> configure = null)
         {
             var htmlElement = new HtmlElement(name, RazorFile);
-            ChildNodes.Add(htmlElement);
+            AddChildNode(htmlElement);
             configure?.Invoke(htmlElement);
             return (T)this;
         }
 
         public T AddHtmlElement(HtmlElement htmlElement)
         {
-            ChildNodes.Add(htmlElement);
+            AddChildNode(htmlElement);
             return (T)this;
         }
 
         public T AddEmptyLine()
         {
-            ChildNodes.Add(new EmptyLine());
+            AddChildNode(new EmptyLine(RazorFile));
             return (T)this;
         }
 
         public T AddCodeBlock(CSharpStatement expression, Action<RazorCodeDirective> configure = null)
         {
             var razorCodeBlock = new RazorCodeDirective(expression, RazorFile);
-            ChildNodes.Add(razorCodeBlock);
+            AddChildNode(razorCodeBlock);
             configure?.Invoke(razorCodeBlock);
             return (T)this;
         }
@@ -196,8 +191,16 @@ namespace Intent.Modules.Blazor.Api
 
         public void AddChildNode(IRazorFileNode node)
         {
-            ChildNodes.Add(node);
+            InsertChildNode(ChildNodes.Count, node);
         }
+
+        public void InsertChildNode(int index, IRazorFileNode node)
+        {
+            node.Parent = this;
+            ChildNodes.Insert(index, node);
+        }
+
+        public new IRazorFileNode Parent { get; set; }
     }
 
     public class RazorDirective
@@ -312,16 +315,14 @@ namespace Intent.Modules.Blazor.Api
         }
     }
 
-    public class EmptyLine : IRazorFileNode
+    public class EmptyLine : RazorFileNodeBase<HtmlElement>
     {
-        public string GetText(string indentation)
+        public EmptyLine(RazorFile file) : base(file)
+        {
+        }
+        public override string GetText(string indentation)
         {
             return Environment.NewLine;
-        }
-
-        public void AddChildNode(IRazorFileNode node)
-        {
-            throw new NotImplementedException();
         }
     }
 
@@ -329,7 +330,7 @@ namespace Intent.Modules.Blazor.Api
     {
         public string Name { get; set; }
         public string Text { get; set; }
-        public Dictionary<string, string> Attributes { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, HtmlAttribute> Attributes { get; set; } = new Dictionary<string, HtmlAttribute>();
 
         public HtmlElement(string name, RazorFile file) : base(file)
         {
@@ -338,7 +339,7 @@ namespace Intent.Modules.Blazor.Api
 
         public HtmlElement AddAttribute(string name, string value = null)
         {
-            Attributes[name] = value;
+            Attributes.Add(name, new HtmlAttribute(name, value));
             return this;
         }
 
@@ -351,10 +352,62 @@ namespace Intent.Modules.Blazor.Api
             return AddAttribute(name, value);
         }
 
+        public HtmlElement SetAttribute(string name, string value = null)
+        {
+            Attributes[name] = new HtmlAttribute(name, value);
+            return this;
+        }
+
+        public HtmlAttribute GetAttribute(string name)
+        {
+            return Attributes.TryGetValue(name, out var attribute) ? attribute : null;
+        }
+
+        public bool HasAttribute(string name, string value = null)
+        {
+            return Attributes.TryGetValue(name, out var attribute) && (value == null || attribute.Value == value);
+        }
+
         public HtmlElement WithText(string text)
         {
             Text = text;
             return this;
+        }
+
+
+        public HtmlElement AddAbove(IRazorFileNode node)
+        {
+            Parent.InsertChildNode(Parent.ChildNodes.IndexOf(this), node);
+            return this;
+        }
+
+        public HtmlElement AddAbove(params IRazorFileNode[] nodes)
+        {
+            foreach (var node in nodes)
+            {
+                AddAbove(node);
+            }
+            return this;
+        }
+
+        public HtmlElement AddBelow(IRazorFileNode node)
+        {
+            Parent.InsertChildNode(Parent.ChildNodes.IndexOf(this) + 1, node);
+            return this;
+        }
+
+        public HtmlElement AddBelow(params IRazorFileNode[] nodes)
+        {
+            foreach (var node in nodes.Reverse())
+            {
+                AddBelow(node);
+            }
+            return this;
+        }
+
+        public void Remove()
+        {
+            Parent.ChildNodes.Remove(this);
         }
 
         public override string GetText(string indentation)
@@ -400,12 +453,47 @@ namespace Intent.Modules.Blazor.Api
         private string FormatAttributes(string indentation)
         {
             var separateLines = Name is not "link" and not "meta";
-            return string.Join(separateLines ? $"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}" : "", Attributes.Select(attribute => $" {attribute.Key}{(attribute.Value != null ? $"=\"{attribute.Value}\"" : "")}"));
+            return string.Join(separateLines 
+                    ? $"{Environment.NewLine}{indentation}{new string(' ', Name.Length + 1)}" 
+                    : "", 
+                Attributes.Values.Select(attribute => $" {attribute.Name}{(attribute.Value != null ? $"=\"{attribute.Value}\"" : "")}"));
         }
 
         public override string ToString()
         {
             return GetText("");
+        }
+    }
+
+    public class HtmlAttribute : IEquatable<HtmlAttribute>
+    {
+        public HtmlAttribute(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public bool Equals(HtmlAttribute other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Name == other.Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((HtmlAttribute)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (Name != null ? Name.GetHashCode() : 0);
         }
     }
 }

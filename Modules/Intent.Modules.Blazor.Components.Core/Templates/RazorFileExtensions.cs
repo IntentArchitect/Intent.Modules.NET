@@ -72,7 +72,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                         {
                             method.Async();
                             var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                            template.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                            template.RazorFile.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
                             var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                             if (serviceCall.GetMapResponseMapping() != null)
                             {
@@ -120,7 +120,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                                 }
                             }
 
-                            template.AddInjectDirective("NavigationManager");
+                            template.RazorFile.AddInjectDirective("NavigationManager");
                             method.AddStatement($"NavigationManager.NavigateTo({route});");
                         }
                     });
@@ -157,7 +157,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
                             route = $"${route}";
                         }
 
-                        template.AddInjectDirective("NavigationManager");
+                        template.RazorFile.AddInjectDirective("NavigationManager");
                         method.AddStatement($"NavigationManager.NavigateTo({route});");
                     });
                 }

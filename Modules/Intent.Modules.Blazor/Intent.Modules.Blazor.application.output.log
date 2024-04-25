@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#92022c0f-33eb-40fd-9d2a-88fb20eefaac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RoutesRazor/RoutesRazorTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RoutesRazor/RoutesRazorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e1e2dd2f-3a07-4fb2-8b52-d7534109d77b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/StaticContentTemplateRegistrations/ClientStaticStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>

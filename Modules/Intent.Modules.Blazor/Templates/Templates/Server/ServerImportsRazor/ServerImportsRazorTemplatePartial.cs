@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -13,7 +14,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Merge)]
     public partial class ServerImportsRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Server.ServerImportsRazorTemplate";
@@ -21,7 +22,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServerImportsRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = new BlazorFile(this).Configure(file =>
+            RazorFile = new RazorFile(this).Configure(file =>
             {
                 file.AddUsing("System.Net.Http");
                 file.AddUsing("System.Net.Http.Json");
@@ -32,6 +33,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
                 file.AddUsing("Microsoft.AspNetCore.Components.Web.Virtualization");
                 file.AddUsing("Microsoft.JSInterop");
                 file.AddUsing("Microsoft.AspNetCore.Http");
+                file.AddUsing(GetTemplate<IRazorFileTemplate>(ClientImportsRazorTemplate.TemplateId).Namespace);
             });
         }
 

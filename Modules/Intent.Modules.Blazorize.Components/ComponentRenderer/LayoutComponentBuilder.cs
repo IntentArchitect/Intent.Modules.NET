@@ -36,38 +36,38 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 }
             });
         }
-        layoutHtml.AddHtmlElement("Layout", layoutHtml =>
+        //layoutHtml.AddHtmlElement("Layout", layoutHtml =>
+        //{
+        if (layoutModel.Sider != null)
         {
-            if (layoutModel.Sider != null)
-            {
-                layoutHtml.AddAttribute("Sider");
-                layoutHtml.AddHtmlElement("LayoutSider", layoutSider =>
-                {
-                    if (layoutModel.Sider.GetContent().Body())
-                    {
-                        layoutSider.AddHtmlElement("LayoutSiderContent", layoutSiderContent =>
-                        {
-                            foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
-                            {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, layoutSiderContent);
-                            }
-                        });
-                    }
-                });
-            }
-            layoutHtml.AddHtmlElement("LayoutContent", layoutContent =>
+            layoutHtml.AddAttribute("Sider");
+            layoutHtml.AddHtmlElement("LayoutSider", layoutSider =>
             {
                 if (layoutModel.Sider.GetContent().Body())
                 {
-                    foreach (var child in layoutModel.Body.InternalElement.ChildElements)
+                    layoutSider.AddHtmlElement("LayoutSiderContent", layoutSiderContent =>
                     {
-                        _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
-                    }
+                        foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
+                        {
+                            _componentResolver.ResolveFor(child).BuildComponent(child, layoutSiderContent);
+                        }
+                    });
                 }
-                layoutContent.AddAttribute("Padding", "Padding.Is4.OnX.Is4.FromTop");
-                layoutContent.WithText("@Body");
             });
+        }
+        layoutHtml.AddHtmlElement("LayoutContent", layoutContent =>
+        {
+            if (layoutModel.Sider?.GetContent().Body() == true)
+            {
+                foreach (var child in layoutModel.Body.InternalElement.ChildElements)
+                {
+                    _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
+                }
+            }
+            layoutContent.AddAttribute("Padding", "Padding.Is4.OnX.Is4.FromTop");
+            layoutContent.WithText("@Body");
         });
+        //});
 
         node.AddChildNode(layoutHtml);
     }

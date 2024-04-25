@@ -10,7 +10,8 @@
   <templates></templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Blazorize.Components.BlazorizeComponentInstaller" externalReference="69609b46-9db4-49a2-b7f9-bfc666782826" />
+    <factoryExtension id="Intent.Blazorize.Components.BlazoriseComponentInstaller" externalReference="69609b46-9db4-49a2-b7f9-bfc666782826" />
+    <factoryExtension id="Intent.Blazorize.Components.BlazoriseInstaller" externalReference="a1abad60-72b7-4d28-ab81-60d5226b11d6" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

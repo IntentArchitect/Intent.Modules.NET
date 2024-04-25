@@ -7,8 +7,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
     {
         IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
         BindingManager BindingManager { get; }
-        // TODO: Make interface:
-        void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null);
         CSharpClassMappingManager CreateMappingManager();
     }
 }

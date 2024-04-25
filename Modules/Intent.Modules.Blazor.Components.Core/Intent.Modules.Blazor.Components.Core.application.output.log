@@ -34,15 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#7f9ebfb0-13fc-4f33-9dae-a76b003d5d3e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7f9ebfb0-13fc-4f33-9dae-a76b003d5d3e</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#493bcc68-11d2-49e2-9110-25bc91a456b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplatePartial.cs</ProjectRelativeFilePath>
@@ -50,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7f9ebfb0-13fc-4f33-9dae-a76b003d5d3e</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#493bcc68-11d2-49e2-9110-25bc91a456b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -58,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#0f6e4032-0b13-4409-ab3b-2ad987d469be</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27f7c3bc-2e23-415b-8f01-adb9edac84d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorLayout/RazorLayoutTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorLayout/RazorLayoutTemplatePartial.cs</ProjectRelativeFilePath>
@@ -66,10 +58,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#0f6e4032-0b13-4409-ab3b-2ad987d469be</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#27f7c3bc-2e23-415b-8f01-adb9edac84d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RazorLayout/RazorLayoutTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorLayout/RazorLayoutTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

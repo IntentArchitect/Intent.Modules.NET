@@ -19,22 +19,24 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class RazorComponentLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
+    public partial class RazorLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Components.Core.RazorLayoutTemplate";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public RazorComponentLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
         {
-            BlazorFile = new BlazorFile(this);
+            RazorFile = new RazorFile(this);
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
             ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);
 
-            BlazorFile.Configure(file =>
+            RazorFile.Configure(file =>
             {
+                file.AddInheritsDirective("LayoutComponentBase");
+
                 ComponentBuilderProvider.ResolveFor(Model.InternalElement)
-                    .BuildComponent(Model.InternalElement, BlazorFile);
+                    .BuildComponent(Model.InternalElement, RazorFile);
 
                 file.AddCodeBlock(block =>
                 {
@@ -43,16 +45,14 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
             });
         }
 
-        public BlazorFile BlazorFile { get; set; }
+        public RazorFile RazorFile { get; set; }
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
-
-        RazorFile IRazorComponentTemplate.BlazorFile => BlazorFile;
 
         public BindingManager BindingManager { get; }
 
         public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
         {
-            BlazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
+            RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
         }
 
         public CSharpClassMappingManager CreateMappingManager()
@@ -78,7 +78,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
 
         public override string TransformText()
         {
-            var razorFile = BlazorFile.Build();
+            var razorFile = RazorFile.Build();
             foreach (var @using in this.ResolveAllUsings(
                              "System",
                              "System.Collections.Generic"

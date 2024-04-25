@@ -15,9 +15,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Blazorize.Components.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class BlazorizeComponentInstaller : FactoryExtensionBase
+    public class BlazoriseComponentInstaller : FactoryExtensionBase
     {
-        public override string Id => "Intent.Blazorize.Components.BlazorizeComponentInstaller";
+        public override string Id => "Intent.Blazorize.Components.BlazoriseComponentInstaller";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

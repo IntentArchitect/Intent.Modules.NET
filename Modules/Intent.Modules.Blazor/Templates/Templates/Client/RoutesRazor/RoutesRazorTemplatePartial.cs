@@ -11,26 +11,28 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
+namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
 {
     [IntentManaged(Mode.Merge)]
-    public partial class ClientImportsRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
+    public partial class RoutesRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
     {
-        public const string TemplateId = "Intent.Blazor.Templates.Client.ClientImportsRazorTemplate";
+        public const string TemplateId = "Intent.Blazor.Templates.Client.RoutesRazorTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ClientImportsRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public RoutesRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             RazorFile = new RazorFile(this).Configure(file =>
             {
-                file.AddUsing("System.Net.Http");
-                file.AddUsing("System.Net.Http.Json");
-                file.AddUsing("Microsoft.AspNetCore.Components.Forms");
-                file.AddUsing("Microsoft.AspNetCore.Components.Routing");
-                file.AddUsing("Microsoft.AspNetCore.Components.Web");
-                file.AddUsing("static Microsoft.AspNetCore.Components.Web.RenderMode");
-                file.AddUsing("Microsoft.AspNetCore.Components.Web.Virtualization");
-                file.AddUsing("Microsoft.JSInterop");
+                file.AddHtmlElement("Router", router =>
+                {
+                    router.AddAttribute("AppAssembly", $"typeof({this.GetProgramTemplateName()}).Assembly");
+                    router.AddHtmlElement("Found", found =>
+                    {
+                        found.AddAttribute("Context", "routeData");
+                        found.AddHtmlElement("RouteView", html => html.AddAttribute("RouteData", "routeData").AddAttribute("DefaultLayout", $"typeof(Layout.MainLayout)"));
+                        found.AddHtmlElement("FocusOnNavigate", html => html.AddAttribute("RouteData", "routeData").AddAttribute("Selector", $"h1"));
+                    });
+                });
             });
         }
 
@@ -40,7 +42,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"_Imports",
+                className: $"Routes",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}",
                 fileExtension: "razor");
@@ -51,5 +53,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
         {
             return RazorFile.Build().ToString();
         }
+
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -24,89 +23,36 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 {
-    public class BindingManager
-    {
-        private readonly IRazorComponentTemplate _componentTemplate;
-
-        public BindingManager(IRazorComponentTemplate template, IElementToElementMapping viewBinding)
-        {
-            _componentTemplate = template;
-            ViewBinding = viewBinding;
-        }
-
-        public IElementToElementMapping ViewBinding { get; }
-
-        
-        public string GetCodeDirective(IElementToElementMappedEnd mappedEnd, CSharpClassMappingManager mappingManager = null)
-        {
-            if (mappedEnd == null)
-            {
-                return null;
-            }
-
-            var binding = GetBinding(mappedEnd, mappingManager);
-            return binding.Contains(' ') ? $"@({binding})" : $"@{binding}";
-        }
-
-        public string GetBinding(IElementToElementMappedEnd mappedEnd, CSharpClassMappingManager mappingManager = null)
-        {
-            if (mappedEnd == null)
-            {
-                return null;
-            }
-
-            return (mappingManager ?? _componentTemplate.CreateMappingManager()).GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
-        }
-
-        public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model)
-        {
-            return ViewBinding.MappedEnds.SingleOrDefault(x => x.TargetElement?.Id == model.Id);
-        }
-
-        public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model, string stereotypePropertyName)
-        {
-            return ViewBinding.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && x.TargetPath.Last().Name == stereotypePropertyName);
-        }
-
-        public string GetElementBinding(IMetadataModel model, CSharpClassMappingManager mappingManager = null)
-        {
-            var mappedEnd = GetMappedEndFor(model);
-            return GetBinding(mappedEnd, mappingManager);
-        }
-
-        public string GetStereotypePropertyBinding(IMetadataModel model, string propertyName, CSharpClassMappingManager mappingManager = null)
-        {
-            var mappedEnd = GetMappedEndFor(model, propertyName);
-            return GetBinding(mappedEnd, mappingManager);
-        }
-    }
-
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
+    public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Components.Core.RazorComponentTemplate";
 
         [IntentManaged(Mode.Merge)]
-        public RazorComponentComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
+        public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource("Intent.Blazor.HttpClients.DtoContract");
             AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");
             AddTypeSource(TemplateId);
-            BlazorFile = new BlazorFile(this);
+            RazorFile = new RazorFile(this);
             BindingManager = new BindingManager(this, Model.View.InternalElement.Mappings.FirstOrDefault());
             ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);// new RazorComponentBuilderProvider(this);
 
-            BlazorFile.Configure(file =>
+            RazorFile.Configure(file =>
             {
                 if (Model.HasPage())
                 {
-                    BlazorFile.AddPageDirective(Model.GetPage().Route());
+                    RazorFile.AddPageDirective(Model.GetPage().Route());
+                    if (!string.IsNullOrWhiteSpace(Model.GetPage().Title()))
+                    {
+                        RazorFile.AddHtmlElement("PageTitle", x => x.WithText(Model.GetPage().Title()));
+                    }
                 }
 
                 foreach (var component in Model.View.InternalElement.ChildElements)
                 {
-                    ComponentBuilderProvider.ResolveFor(component).BuildComponent(component, BlazorFile);
+                    ComponentBuilderProvider.ResolveFor(component).BuildComponent(component, RazorFile);
                 }
 
                 file.AddCodeBlock(block =>
@@ -127,13 +73,12 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         }
 
         public BindingManager BindingManager { get; }
-        public BlazorFile BlazorFile { get; set; }
+        public RazorFile RazorFile { get; set; }
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
-        RazorFile IRazorComponentTemplate.BlazorFile => BlazorFile;
 
         public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
         {
-            BlazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
+            RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
         }
 
         public CSharpClassMappingManager CreateMappingManager()
@@ -158,7 +103,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
 
         public override string TransformText()
         {
-            var razorFile = BlazorFile.Build();
+            var razorFile = RazorFile.Build();
             foreach (var @using in this.ResolveAllUsings(
                              "System",
                              "System.Collections.Generic"

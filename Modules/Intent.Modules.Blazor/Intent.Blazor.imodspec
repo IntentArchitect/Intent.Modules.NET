@@ -24,6 +24,14 @@
       <role>Blazor.Client</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.Client.RoutesRazorTemplate" externalReference="92022c0f-33eb-40fd-9d2a-88fb20eefaac">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.Server.AppRazorTemplate" externalReference="b7665695-e7e7-4a21-883a-da6fa2d84710">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
