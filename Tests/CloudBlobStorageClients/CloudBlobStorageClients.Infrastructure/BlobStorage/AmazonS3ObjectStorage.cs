@@ -7,14 +7,18 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using CloudBlobStorageClients.Application.Common.Storage;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageImplementation", Version = "1.0")]
 
 namespace CloudBlobStorageClients.Infrastructure.BlobStorage;
 
-public class AwsS3BlobStorage : IObjectStorage
+public class AmazonS3ObjectStorage : IObjectStorage
 {
     private readonly IAmazonS3 _client;
 
-    public AwsS3BlobStorage(IAmazonS3 client)
+    public AmazonS3ObjectStorage(IAmazonS3 client)
     {
         _client = client;
     }

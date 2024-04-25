@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Azure.BlobStorage.BlobStorageExtensions", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AmazonS3.ObjectStorage.ObjectStorageExtensions", Version = "1.0")]
 
 namespace CloudBlobStorageClients.Application.Common.Storage
 {
@@ -30,14 +30,14 @@ namespace CloudBlobStorageClients.Application.Common.Storage
         }
 
         /// <summary>
-        /// Uploads a string content to a specific object in a given container.
+        /// Uploads a string content to a specific object in a given bucket.
         /// </summary>
         /// <param name="storage">The object storage instance to which the string will be uploaded.</param>
         /// <param name="bucketName">The name of the bucket.</param>
         /// <param name="key">The name of the object.</param>
         /// <param name="stringContent">The string content to be uploaded.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
-        /// <returns>The URI of the uploaded blob.</returns>
+        /// <returns>The URI of the uploaded object.</returns>
         public static Task<Uri> UploadStringAsync(this IObjectStorage storage, string bucketName, string key, string stringContent, CancellationToken cancellationToken = default)
         {
             var stream = new MemoryStream(Encoding.UTF8.GetBytes(stringContent));
@@ -45,10 +45,10 @@ namespace CloudBlobStorageClients.Application.Common.Storage
         }
 
         /// <summary>
-        /// Downloads the content of a blob from a specified cloud storage location as a string.
+        /// Downloads the content of a object from a specified cloud storage location as a string.
         /// </summary>
-        /// <param name="storage">The blob storage instance from which the string will be downloaded.</param>
-        /// <param name="cloudStorageLocation">The URI specifying the blob to be downloaded.</param>
+        /// <param name="storage">The object storage instance from which the string will be downloaded.</param>
+        /// <param name="cloudStorageLocation">The URI specifying the object to be downloaded.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
         /// <returns>The downloaded string content.</returns>
         public static async Task<string> DownloadAsStringAsync(this IObjectStorage storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)
@@ -59,9 +59,9 @@ namespace CloudBlobStorageClients.Application.Common.Storage
         }
 
         /// <summary>
-        /// Downloads the content of a specific blob in a given container as a string.
+        /// Downloads the content of a specific object in a given container as a string.
         /// </summary>
-        /// <param name="storage">The blob storage instance from which the string will be downloaded.</param>
+        /// <param name="storage">The object storage instance from which the string will be downloaded.</param>
         /// <param name="bucketName">The name of the bucket.</param>
         /// <param name="key">The name of the object.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>

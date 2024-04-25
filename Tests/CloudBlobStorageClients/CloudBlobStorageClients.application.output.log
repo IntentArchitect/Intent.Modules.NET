@@ -251,6 +251,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0193e214-8621-4bdb-b032-31c24280f219</ProjectId>
+      <CorrelationId>Intent.AmazonS3.ObjectStorage.ObjectStorageInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Storage/IObjectStorage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IObjectStorage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0193e214-8621-4bdb-b032-31c24280f219</ProjectId>
+      <CorrelationId>Intent.AmazonS3.ObjectStorage.ObjectStorageExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Storage/ObjectStorageExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ObjectStorageExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b53a2da8-240c-4249-b4d0-58e680b1177d</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -332,6 +348,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2c8e19e9-46d9-4b1c-a9a8-16c63c6c33a7</ProjectId>
+      <CorrelationId>Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageImplementation</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/BlobStorage/AmazonS3ObjectStorage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AmazonS3ObjectStorage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c8e19e9-46d9-4b1c-a9a8-16c63c6c33a7</ProjectId>
       <CorrelationId>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/BlobStorage/AzureBlobStorage.cs</ApplicationRelativeFilePath>
@@ -347,12 +371,20 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bd3e6c19-f94b-4564-9dfc-fc8857416d8f</ProjectId>
+      <CorrelationId>Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/Configuration/AmazonS3ObjectStorageConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AmazonS3ObjectStorageConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>eb3583a0-4159-472a-a493-6d8c8b4b1cd9</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#62b340d7-6049-4668-9e56-7f1575ce29ea</CorrelationId>

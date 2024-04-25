@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="2f777a90-7eef-47f9-8f05-45a0aed41b74" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageImplementation</name>
+      <display>Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageImplementation</display>
+      <externalReference>Intent.AmazonS3.ObjectStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2c8e19e9-46d9-4b1c-a9a8-16c63c6c33a7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

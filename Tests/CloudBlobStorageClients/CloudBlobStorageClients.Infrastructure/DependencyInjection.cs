@@ -1,6 +1,6 @@
-using Amazon.S3;
 using CloudBlobStorageClients.Application.Common.Storage;
 using CloudBlobStorageClients.Infrastructure.BlobStorage;
+using CloudBlobStorageClients.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,11 +15,7 @@ namespace CloudBlobStorageClients.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IBlobStorage, AzureBlobStorage>();
-            
-            services.AddDefaultAWSOptions(configuration.GetAWSOptions());
-            services.AddAWSService<IAmazonS3>();
-            services.AddTransient<IObjectStorage, AwsS3BlobStorage>();
-            
+            services.AddAmazonS3ObjectStorage(configuration);
             return services;
         }
     }
