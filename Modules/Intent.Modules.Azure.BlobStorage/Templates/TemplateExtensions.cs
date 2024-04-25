@@ -13,17 +13,17 @@ namespace Intent.Modules.Azure.BlobStorage.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAzureBlobStorageImplementationName<T>(this IntentTemplateBase<T> template)
+        public static string GetAzureBlobStorageImplementationName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureBlobStorageImplementationTemplate.TemplateId);
         }
 
-        public static string GetBlobStorageExtensionsName<T>(this IntentTemplateBase<T> template)
+        public static string GetBlobStorageExtensionsName(this IIntentTemplate template)
         {
             return template.GetTypeName(BlobStorageExtensionsTemplate.TemplateId);
         }
 
-        public static string GetBlobStorageInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetBlobStorageInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(BlobStorageInterfaceTemplate.TemplateId);
         }

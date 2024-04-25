@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d2c20998-fb57-4c68-b78b-6faf943c99a3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6c3788bc-6eb0-445b-b622-22c78db244a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -126,7 +134,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

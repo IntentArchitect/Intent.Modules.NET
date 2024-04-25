@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace <#= Namespace #>
 {
     /// <summary>
-    /// Contains extension methods for the <see cref="IBlobStorage"/> interface.
+    /// Contains extension methods for the <see cref="<#= this.GetBlobStorageInterfaceName() #>"/> interface.
     /// </summary>
     public static class <#= ClassName #>
     {
@@ -30,7 +30,7 @@ namespace <#= Namespace #>
         /// <param name="stringContent">The string content to be uploaded.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
         /// <returns>The URI of the uploaded blob.</returns>
-        public static Task<Uri> UploadStringAsync(this IBlobStorage storage, Uri cloudStorageLocation, string stringContent, CancellationToken cancellationToken = default)
+        public static Task<Uri> UploadStringAsync(this <#= this.GetBlobStorageInterfaceName() #> storage, Uri cloudStorageLocation, string stringContent, CancellationToken cancellationToken = default)
         {
             var stream = new MemoryStream(Encoding.UTF8.GetBytes(stringContent));
             return storage.UploadAsync(cloudStorageLocation, stream, cancellationToken);
@@ -45,7 +45,7 @@ namespace <#= Namespace #>
         /// <param name="stringContent">The string content to be uploaded.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
         /// <returns>The URI of the uploaded blob.</returns>
-        public static Task<Uri> UploadStringAsync(this IBlobStorage storage, string containerName, string blobName, string stringContent, CancellationToken cancellationToken = default)
+        public static Task<Uri> UploadStringAsync(this <#= this.GetBlobStorageInterfaceName() #> storage, string containerName, string blobName, string stringContent, CancellationToken cancellationToken = default)
         {
             var stream = new MemoryStream(Encoding.UTF8.GetBytes(stringContent));
             return storage.UploadAsync(containerName, blobName, stream, cancellationToken);
@@ -58,7 +58,7 @@ namespace <#= Namespace #>
         /// <param name="cloudStorageLocation">The URI specifying the blob to be downloaded.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
         /// <returns>The downloaded string content.</returns>
-        public static async Task<string> DownloadAsStringAsync(this IBlobStorage storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)
+        public static async Task<string> DownloadAsStringAsync(this <#= this.GetBlobStorageInterfaceName() #> storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)
         {
             var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken).ConfigureAwait(false);
             var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
@@ -73,7 +73,7 @@ namespace <#= Namespace #>
         /// <param name="blobName">The name of the blob.</param>
         /// <param name="cancellationToken">An optional token to cancel the asynchronous operation.</param>
         /// <returns>The downloaded string content.</returns>
-        public static async Task<string> DownloadAsStringAsync(this IBlobStorage storage, string containerName, string blobName, CancellationToken cancellationToken = default)
+        public static async Task<string> DownloadAsStringAsync(this <#= this.GetBlobStorageInterfaceName() #> storage, string containerName, string blobName, CancellationToken cancellationToken = default)
         {
             var result = await storage.DownloadAsync(containerName, blobName, cancellationToken).ConfigureAwait(false);
             var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
