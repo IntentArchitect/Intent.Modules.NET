@@ -7,7 +7,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <icon type="FontAwesome" source="cogs" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -21,6 +21,7 @@
   <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
   <properties>
     <property id="8f9a025a-fc3c-4e50-a42c-d4b004c7f47b">
+      <hint>Time to cache for in seconds</hint>
       <name>Duration</name>
       <type>string</type>
       <controlType>number</controlType>
@@ -31,6 +32,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="1370668f-ac9c-4909-bbbf-8d3be6045b44">
+      <hint>Tags to apply. (comma separated list)</hint>
       <name>Tags</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -41,6 +43,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="918474b5-0dc9-42e0-bf60-f59cef4024ef">
+      <hint>(comma separated list)</hint>
       <name>Vary By Query Keys</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -51,6 +54,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="83b5eeb6-8937-45a8-8d08-c2a5f0a662d0">
+      <hint>(comma separated list)</hint>
       <name>Vary By Header Names</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -61,6 +65,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="6910f48f-1454-49c6-ac7b-553b439f91d4">
+      <hint>(comma separated list)</hint>
       <name>Vary By Route Value Names</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -71,6 +76,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="85f804e7-4357-48c3-adcf-340aaf376ffe">
+      <hint>Disable caching.</hint>
       <name>No Caching</name>
       <type>string</type>
       <controlType>checkbox</controlType>
