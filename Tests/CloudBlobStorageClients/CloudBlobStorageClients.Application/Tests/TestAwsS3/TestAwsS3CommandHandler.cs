@@ -29,11 +29,15 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
         {
             const string bucketName = "dan-test-bucket-4-24";
 
-            var url = await _objectStorage.UploadStringAsync(bucketName, "test-file", "This is a test string", cancellationToken);
+            Uri url;
+            
+            url = await _objectStorage.UploadStringAsync(bucketName, "test-file", "This is a test string", cancellationToken);
+            _logger.LogInformation("UPLOAD: {Ur}", url);
+            url = await _objectStorage.UploadStringAsync(url, "This is a test string 2", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
 
-            var url2 = await _objectStorage.GetAsync(bucketName, "test-file", cancellationToken);
-            _logger.LogInformation("GET: {Ur}", url2);
+            url = await _objectStorage.GetAsync(bucketName, "test-file", cancellationToken);
+            _logger.LogInformation("GET: {Ur}", url);
 
             await foreach (var item in _objectStorage.ListAsync(bucketName, cancellationToken))
             {

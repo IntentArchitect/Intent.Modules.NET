@@ -28,12 +28,16 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
         public async Task Handle(TestAzureCommand request, CancellationToken cancellationToken)
         {
             const string containerName = "dan-test-bucket";
+
+            Uri url;
             
-            var url = await _blobStorage.UploadStringAsync(containerName, "test-file", "This is a test string", cancellationToken);
+            url = await _blobStorage.UploadStringAsync(containerName, "test-file", "This is a test string", cancellationToken);
+            _logger.LogInformation("UPLOAD: {Ur}", url);
+            url = await _blobStorage.UploadStringAsync(url, "This is a test string 2", cancellationToken);
             _logger.LogInformation("UPLOAD: {Ur}", url);
 
-            var url2 = await _blobStorage.GetAsync(containerName, "test-file", cancellationToken);
-            _logger.LogInformation("GET: {Ur}", url2);
+            url = await _blobStorage.GetAsync(containerName, "test-file", cancellationToken);
+            _logger.LogInformation("GET: {Ur}", url);
 
             await foreach (var item in _blobStorage.ListAsync(containerName, cancellationToken))
             {
