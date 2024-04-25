@@ -1,3 +1,8 @@
+### Version 3.4.1
+
+- Improvement: Updated `BlobStorageExtensions` with more `ConfigureAwait` configurations.
+- Improvement: Updated module project to .NET 8.
+
 ### Version 3.4.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

@@ -60,8 +60,8 @@ namespace <#= Namespace #>
         /// <returns>The downloaded string content.</returns>
         public static async Task<string> DownloadAsStringAsync(this IBlobStorage storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)
         {
-            var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken);
-            var text = await new StreamReader(result).ReadToEndAsync();
+            var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken).ConfigureAwait(false);
+            var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
             return text;
         }
 
@@ -75,8 +75,8 @@ namespace <#= Namespace #>
         /// <returns>The downloaded string content.</returns>
         public static async Task<string> DownloadAsStringAsync(this IBlobStorage storage, string containerName, string blobName, CancellationToken cancellationToken = default)
         {
-            var result = await storage.DownloadAsync(containerName, blobName, cancellationToken);
-            var text = await new StreamReader(result).ReadToEndAsync();
+            var result = await storage.DownloadAsync(containerName, blobName, cancellationToken).ConfigureAwait(false);
+            var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
             return text;
         }
     }
