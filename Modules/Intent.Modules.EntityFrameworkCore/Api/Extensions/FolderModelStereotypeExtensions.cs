@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Api
     {
         public static CosmosDBContainerSettings GetCosmosDBContainerSettings(this FolderModel model)
         {
-            var stereotype = model.GetStereotype("Cosmos DB Container Settings");
+            var stereotype = model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
             return stereotype != null ? new CosmosDBContainerSettings(stereotype) : null;
         }
 
 
         public static bool HasCosmosDBContainerSettings(this FolderModel model)
         {
-            return model.HasStereotype("Cosmos DB Container Settings");
+            return model.HasStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
         }
 
         public static bool TryGetCosmosDBContainerSettings(this FolderModel model, out CosmosDBContainerSettings stereotype)
@@ -33,7 +33,7 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new CosmosDBContainerSettings(model.GetStereotype("Cosmos DB Container Settings"));
+            stereotype = new CosmosDBContainerSettings(model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5"));
             return true;
         }
 

@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                 .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", _ =>
                 {
                 });
-            
+
             var storedProcedures = Model.GetStoredProcedureModels();
             if (!storedProcedures.Any())
             {

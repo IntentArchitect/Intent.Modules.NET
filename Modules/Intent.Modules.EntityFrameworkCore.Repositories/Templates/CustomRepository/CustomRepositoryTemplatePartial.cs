@@ -34,7 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                         ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
                     });
                 });
-            
+
             var storedProcedures = Model.GetStoredProcedureModels();
             if (!storedProcedures.Any())
             {

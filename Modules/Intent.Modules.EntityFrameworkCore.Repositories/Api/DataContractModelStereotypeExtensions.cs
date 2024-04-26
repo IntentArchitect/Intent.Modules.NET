@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
     {
         public static UserDefinedTableTypeSettings GetUserDefinedTableTypeSettings(this DataContractModel model)
         {
-            var stereotype = model.GetStereotype("User-Defined Table Type Settings");
+            var stereotype = model.GetStereotype("43937e01-7079-4ab1-b5c4-b3cb0dee9dcd");
             return stereotype != null ? new UserDefinedTableTypeSettings(stereotype) : null;
         }
 
 
         public static bool HasUserDefinedTableTypeSettings(this DataContractModel model)
         {
-            return model.HasStereotype("User-Defined Table Type Settings");
+            return model.HasStereotype("43937e01-7079-4ab1-b5c4-b3cb0dee9dcd");
         }
 
         public static bool TryGetUserDefinedTableTypeSettings(this DataContractModel model, out UserDefinedTableTypeSettings stereotype)
@@ -33,7 +33,7 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
                 return false;
             }
 
-            stereotype = new UserDefinedTableTypeSettings(model.GetStereotype("User-Defined Table Type Settings"));
+            stereotype = new UserDefinedTableTypeSettings(model.GetStereotype("43937e01-7079-4ab1-b5c4-b3cb0dee9dcd"));
             return true;
         }
 

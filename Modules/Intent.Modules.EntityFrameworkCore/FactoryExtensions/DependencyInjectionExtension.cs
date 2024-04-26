@@ -45,7 +45,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
-                    
+
                     if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
                     {
                         dependencyInjection.AddNugetDependency(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget));
@@ -54,7 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     {
                         application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget).Name, dependencyInjection.OutputTarget));
                     }
-                    
+
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
                         connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjection.OutputTarget.GetProject())}",
@@ -150,7 +150,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
-                    
+
                     if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
                     {
                         builderStatements.Add("b.UseDateOnlyTimeOnly()");
@@ -192,7 +192,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");
             }
-            
+
             if (builderStatements.Count == 1)
             {
                 dbContextOptionsBuilderStatement.WithExpressionBody(builderStatements.First());

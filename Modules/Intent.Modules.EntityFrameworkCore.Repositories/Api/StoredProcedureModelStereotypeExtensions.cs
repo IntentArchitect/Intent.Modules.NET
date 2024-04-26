@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
     {
         public static StoredProcedureSettings GetStoredProcedureSettings(this StoredProcedureModel model)
         {
-            var stereotype = model.GetStereotype("Stored Procedure Settings");
+            var stereotype = model.GetStereotype("8ca606b1-406a-4b16-a7e7-8ffe1a215ecf");
             return stereotype != null ? new StoredProcedureSettings(stereotype) : null;
         }
 
 
         public static bool HasStoredProcedureSettings(this StoredProcedureModel model)
         {
-            return model.HasStereotype("Stored Procedure Settings");
+            return model.HasStereotype("8ca606b1-406a-4b16-a7e7-8ffe1a215ecf");
         }
 
         public static bool TryGetStoredProcedureSettings(this StoredProcedureModel model, out StoredProcedureSettings stereotype)
@@ -33,7 +33,7 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
                 return false;
             }
 
-            stereotype = new StoredProcedureSettings(model.GetStereotype("Stored Procedure Settings"));
+            stereotype = new StoredProcedureSettings(model.GetStereotype("8ca606b1-406a-4b16-a7e7-8ffe1a215ecf"));
             return true;
         }
 

@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.VisualStudio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Templates", "Application Templates", "{02E19E01-F2C6-4FAC-A57B-2A496B6129AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Repositories", "Intent.Modules.EntityFrameworkCore.Repositories\Intent.Modules.EntityFrameworkCore.Repositories.csproj", "{3695D671-4A21-4586-86F9-434602EA241C}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.Repositories", "Intent.Modules.EntityFrameworkCore.Repositories\Intent.Modules.EntityFrameworkCore.Repositories.csproj", "{3695D671-4A21-4586-86F9-434602EA241C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Repositories.Api", "Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj", "{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}"
 EndProject

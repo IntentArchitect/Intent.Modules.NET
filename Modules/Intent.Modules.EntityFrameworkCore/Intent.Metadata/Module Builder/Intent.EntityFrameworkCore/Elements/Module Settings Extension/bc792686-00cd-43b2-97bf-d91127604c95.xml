@@ -50,7 +50,7 @@
       <childElements>
         <childElement id="dd09aae1-4d24-4c87-802c-8cd04e96c918" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Cosmos DB</name>
-          <display>Cosmos DB = cosmos</display>
+          <display>Cosmos DB</display>
           <isAbstract>false</isAbstract>
           <value>cosmos</value>
           <genericTypes />
@@ -64,7 +64,7 @@
         </childElement>
         <childElement id="d98c64b2-cd82-4dde-90d3-a005d6a3f537" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In Memory</name>
-          <display>In Memory = in-memory</display>
+          <display>In Memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <genericTypes />
@@ -78,7 +78,7 @@
         </childElement>
         <childElement id="b960f1d1-aff6-4087-aacd-40377db94ed0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>MySQL</name>
-          <display>MySQL = my-sql</display>
+          <display>MySQL</display>
           <isAbstract>false</isAbstract>
           <value>my-sql</value>
           <genericTypes />
@@ -92,7 +92,7 @@
         </childElement>
         <childElement id="7b27523c-96d0-41a8-9029-74ed667bc52f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Oracle</name>
-          <display>Oracle = oracle</display>
+          <display>Oracle</display>
           <isAbstract>false</isAbstract>
           <value>oracle</value>
           <genericTypes />
@@ -106,7 +106,7 @@
         </childElement>
         <childElement id="ff177cb8-e33c-448a-a194-43ecf22ec70b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>PostgreSQL</name>
-          <display>PostgreSQL = postgresql</display>
+          <display>PostgreSQL</display>
           <isAbstract>false</isAbstract>
           <value>postgresql</value>
           <genericTypes />
@@ -120,7 +120,7 @@
         </childElement>
         <childElement id="4564e8c7-8c45-4852-a0be-6c69ebb533b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>SQL Server</name>
-          <display>SQL Server = sql-server</display>
+          <display>SQL Server</display>
           <isAbstract>false</isAbstract>
           <value>sql-server</value>
           <genericTypes />
@@ -161,7 +161,7 @@
       <childElements>
         <childElement id="2b162c57-4226-4d89-ab8a-45e29a5885a4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Pluralized</name>
-          <display>Pluralized = pluralized</display>
+          <display>Pluralized</display>
           <isAbstract>false</isAbstract>
           <value>pluralized</value>
           <genericTypes />
@@ -175,7 +175,7 @@
         </childElement>
         <childElement id="896dbc5e-10fd-4683-9fc8-5d53dc6bb8ec" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Singularized</name>
-          <display>Singularized = singularized</display>
+          <display>Singularized</display>
           <isAbstract>false</isAbstract>
           <value>singularized</value>
           <genericTypes />
@@ -189,7 +189,7 @@
         </childElement>
         <childElement id="7dcc1477-baca-4486-9bd2-353ee146e1e6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>None</name>
-          <display>None = none</display>
+          <display>None</display>
           <isAbstract>false</isAbstract>
           <value>none</value>
           <genericTypes />

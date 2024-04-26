@@ -7,6 +7,7 @@
 
 - Improvement: Added roles to interface template for easier location in other modules.
 - Improvement: Keyless entities will now have a manual insert SQL statement generated for them.
+- Improvement: Updated Module project to .NET 8.
 
 ### Version 4.5.2
 
