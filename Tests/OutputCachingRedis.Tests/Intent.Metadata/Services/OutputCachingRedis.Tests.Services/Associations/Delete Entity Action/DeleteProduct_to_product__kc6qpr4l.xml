@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b90636fb-5c56-4208-808d-1a9231f294ff">
+  <sourceEnd id="197a8cb1-2a26-47a1-88ac-b11b7678c83e" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ProductsService.DeleteProduct</display>
+    <order>0</order>
+    <typeReference id="b5da4d0a-1fb2-40f5-bb84-6c1200eaf26d">
+      <typeId>f1b9f1a2-d4f8-4c01-8848-3b2173f3a9ac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b90636fb-5c56-4208-808d-1a9231f294ff" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>product</name>
+    <display>[delete] product: Product</display>
+    <order>1</order>
+    <typeReference id="0ef6a286-25be-4a7e-955d-c4a09906d893">
+      <typeId>ceef3ffe-6700-483d-8ebd-21db1d96e0aa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f1b9f1a2-d4f8-4c01-8848-3b2173f3a9ac" location="[OutputCachingRedis.Tests].[Services].[DeleteProduct]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ceef3ffe-6700-483d-8ebd-21db1d96e0aa" location="[OutputCachingRedis.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="ceef3ffe-6700-483d-8ebd-21db1d96e0aa" name="Product" type="element" specialization="Class" />
+              <target id="edd5d468-f543-4b47-a3cc-01a56a56f68e" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f1b9f1a2-d4f8-4c01-8848-3b2173f3a9ac" name="DeleteProduct" type="element" specialization="Operation" />
+                  <target id="2238df7a-5ac8-4a46-97e4-781cbd58cb52" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

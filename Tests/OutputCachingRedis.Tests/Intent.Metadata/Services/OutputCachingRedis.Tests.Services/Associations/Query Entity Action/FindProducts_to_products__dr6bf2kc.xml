@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="eed675b8-2ac4-4cb7-95c4-d4341cd71fc5">
+  <sourceEnd id="86abea98-42f0-4f9f-a6ee-85e837e84f4a" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindProducts</display>
+    <order>0</order>
+    <typeReference id="58375f77-37f3-4ff5-ae7f-8272be8c8415">
+      <typeId>80493f69-51a0-4850-ae48-95f142dac16d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="eed675b8-2ac4-4cb7-95c4-d4341cd71fc5" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="71446e0a-5327-47dc-99c9-c9430869c475">
+      <typeId>ceef3ffe-6700-483d-8ebd-21db1d96e0aa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="80493f69-51a0-4850-ae48-95f142dac16d" location="[OutputCachingRedis.Tests].[Services].[FindProducts]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ceef3ffe-6700-483d-8ebd-21db1d96e0aa" location="[OutputCachingRedis.Tests].[Services].[Product]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

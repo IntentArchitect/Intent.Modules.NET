@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e687ac5b-744a-4ae0-934a-648099cf5c3d" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2278c2d2-2678-4601-8076-39089497d72b</parentFolderId>
+  <packageId>2278c2d2-2678-4601-8076-39089497d72b</packageId>
+  <packageName>OutputCachingRedis.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>2278c2d2-2678-4601-8076-39089497d72b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

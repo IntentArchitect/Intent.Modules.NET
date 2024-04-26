@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{B75ED9A0-A965-41BF-8448-919984A5AE70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutputCachingRedis.Tests.Api", "OutputCachingRedis.Tests.Api\OutputCachingRedis.Tests.Api.csproj", "{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{88859960-BA4F-4513-AD73-31F96CCA1CEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutputCachingRedis.Tests.Application", "OutputCachingRedis.Tests.Application\OutputCachingRedis.Tests.Application.csproj", "{B47AB40C-3E60-4441-9E11-49DCE158014C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{A82A788E-EE76-4FEC-99B2-50C8E265773E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutputCachingRedis.Tests.Domain", "OutputCachingRedis.Tests.Domain\OutputCachingRedis.Tests.Domain.csproj", "{D5370E2C-60B0-4B3D-A249-305EFAB634D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A8A729EA-6314-4D7D-83F6-97539EFF1777}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutputCachingRedis.Tests.Infrastructure", "OutputCachingRedis.Tests.Infrastructure\OutputCachingRedis.Tests.Infrastructure.csproj", "{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1} = {B75ED9A0-A965-41BF-8448-919984A5AE70}
+		{B47AB40C-3E60-4441-9E11-49DCE158014C} = {88859960-BA4F-4513-AD73-31F96CCA1CEA}
+		{D5370E2C-60B0-4B3D-A249-305EFAB634D8} = {A82A788E-EE76-4FEC-99B2-50C8E265773E}
+		{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48} = {A8A729EA-6314-4D7D-83F6-97539EFF1777}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E824BC0-2BC0-422C-BBA4-DA72A19EA1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B47AB40C-3E60-4441-9E11-49DCE158014C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B47AB40C-3E60-4441-9E11-49DCE158014C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B47AB40C-3E60-4441-9E11-49DCE158014C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B47AB40C-3E60-4441-9E11-49DCE158014C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5370E2C-60B0-4B3D-A249-305EFAB634D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5370E2C-60B0-4B3D-A249-305EFAB634D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5370E2C-60B0-4B3D-A249-305EFAB634D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5370E2C-60B0-4B3D-A249-305EFAB634D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F34DBA5-A890-49D1-9DE8-01B55BAF5F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

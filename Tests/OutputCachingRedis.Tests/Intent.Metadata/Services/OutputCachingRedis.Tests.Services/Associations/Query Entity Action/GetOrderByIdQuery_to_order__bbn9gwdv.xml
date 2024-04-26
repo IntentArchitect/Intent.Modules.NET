@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4426aa95-c9f3-4661-84c8-61fc6b001197">
+  <sourceEnd id="1ab4c535-696d-4269-bc44-d2544d68d788" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderByIdQuery</display>
+    <order>0</order>
+    <typeReference id="40438a2f-fa4d-4701-967b-7e5ca020a0d9">
+      <typeId>00964502-f625-47a3-bd57-5d3f556b1087</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4426aa95-c9f3-4661-84c8-61fc6b001197" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>1</order>
+    <typeReference id="dc2a439e-1fbf-4d5d-9114-fd8178493e5f">
+      <typeId>98e99498-3dc3-4e87-b8ea-4704fe083923</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="00964502-f625-47a3-bd57-5d3f556b1087" location="[OutputCachingRedis.Tests].[Services].[GetOrderByIdQuery]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="98e99498-3dc3-4e87-b8ea-4704fe083923" location="[OutputCachingRedis.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="98e99498-3dc3-4e87-b8ea-4704fe083923" name="Order" type="element" specialization="Class" />
+              <target id="b2ecdab5-eed3-4e37-8f4d-7d9e2b3dc544" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="00964502-f625-47a3-bd57-5d3f556b1087" name="GetOrderByIdQuery" type="element" specialization="Query" />
+                  <target id="5c06070e-d66e-408e-a4ce-e619af0942f0" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

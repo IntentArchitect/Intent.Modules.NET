@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4ee28a8d-4d41-45e4-b424-bce1100157de" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5abf22d-82d1-4d08-aacc-e166e045b0c5</parentFolderId>
+  <packageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</packageId>
+  <packageName>OutputCachingRedis.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>e5abf22d-82d1-4d08-aacc-e166e045b0c5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

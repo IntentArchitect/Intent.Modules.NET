@@ -38,7 +38,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.FactoryExtensions
                     .Where(x => x.HasStereotype("Http Settings"))
                     .Select(x => x.InternalElement));
 
-            var controllers = new Dictionary<string, List< (IElement Element, CachingAggregate CachingConfig)>>();
+            var controllers = new Dictionary<string, List<(IElement Element, CachingAggregate CachingConfig)>>();
             foreach (var operation in alloperations)
             {
                 if (operation.TryGetCaching(out var cachingSettings))
@@ -48,54 +48,54 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.FactoryExtensions
                         operations = new List<(IElement, CachingAggregate)>();
                         controllers.Add(operation.ParentElement.Id, operations);
                     }
-                    operations.Add(new (operation, cachingSettings));
-				}
-			}
+                    operations.Add(new(operation, cachingSettings));
+                }
+            }
             foreach (var controller in controllers)
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Distribution.WebApi.Controller, controller.Key);
                 var endpoints = controller.Value;
-                template.CSharpFile.OnBuild(file => 
+                template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();
                     foreach (var endpoint in endpoints)
                     {
                         file.AddUsing("Microsoft.AspNetCore.OutputCaching");
                         var method = @class.FindMethod(m => m.HasMetadata("modelId") && m.GetMetadata<string>("modelId") == endpoint.Element.Id);
-                        method.AddAttribute("OutputCache", att => 
+                        method.AddAttribute("OutputCache", att =>
                         {
-							if (endpoint.CachingConfig.Policy != null)
+                            if (endpoint.CachingConfig.Policy != null)
                             {
-								att.AddArgument($"PolicyName = \"{endpoint.CachingConfig.Policy}\"");
-							}
-							if (endpoint.CachingConfig.Duration != null)
-							{
-								att.AddArgument($"Duration = {endpoint.CachingConfig.Duration}");
-							}
-							if (endpoint.CachingConfig.Tags != null)
-                            {
-								var value = string.Join(", ", endpoint.CachingConfig.Tags.Split(",").Select(x => $"\"{x.Trim()}\""));
-								att.AddArgument($"Tags = [{value}]");
+                                att.AddArgument($"PolicyName = \"{endpoint.CachingConfig.Policy}\"");
                             }
-							if (endpoint.CachingConfig.VaryByRouteValueNames != null)
-							{
-								var value = string.Join(", ", endpoint.CachingConfig.VaryByRouteValueNames.Split(",").Select(x => $"\"{x.Trim()}\""));
-								att.AddArgument($"VaryByRouteValueNames = [{value}]");
-							}
-							if (endpoint.CachingConfig.VaryByQueryKeys != null)
-							{
-								var value = string.Join(", ", endpoint.CachingConfig.VaryByQueryKeys.Split(",").Select(x => $"\"{x.Trim()}\""));
-								att.AddArgument($"VaryByQueryKeys = [{value}]");
-							}
-							if (endpoint.CachingConfig.VaryByHeaderNames != null)
-							{
-								var value = string.Join(", ", endpoint.CachingConfig.VaryByHeaderNames.Split(",").Select(x => $"\"{x.Trim()}\""));
-								att.AddArgument($"VaryByHeaderNames = [{value}]");
-							}
-						});
+                            if (endpoint.CachingConfig.Duration != null)
+                            {
+                                att.AddArgument($"Duration = {endpoint.CachingConfig.Duration}");
+                            }
+                            if (endpoint.CachingConfig.Tags != null)
+                            {
+                                var value = string.Join(", ", endpoint.CachingConfig.Tags.Split(",").Select(x => $"\"{x.Trim()}\""));
+                                att.AddArgument($"Tags = [{value}]");
+                            }
+                            if (endpoint.CachingConfig.VaryByRouteValueNames != null)
+                            {
+                                var value = string.Join(", ", endpoint.CachingConfig.VaryByRouteValueNames.Split(",").Select(x => $"\"{x.Trim()}\""));
+                                att.AddArgument($"VaryByRouteValueNames = [{value}]");
+                            }
+                            if (endpoint.CachingConfig.VaryByQueryKeys != null)
+                            {
+                                var value = string.Join(", ", endpoint.CachingConfig.VaryByQueryKeys.Split(",").Select(x => $"\"{x.Trim()}\""));
+                                att.AddArgument($"VaryByQueryKeys = [{value}]");
+                            }
+                            if (endpoint.CachingConfig.VaryByHeaderNames != null)
+                            {
+                                var value = string.Join(", ", endpoint.CachingConfig.VaryByHeaderNames.Split(",").Select(x => $"\"{x.Trim()}\""));
+                                att.AddArgument($"VaryByHeaderNames = [{value}]");
+                            }
+                        });
                     }
                 });
             }
-		}
-	}
+        }
+    }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d0995458-4421-4f94-9fda-bb33d53ddfff">
+  <sourceEnd id="6c2ea92d-8e37-46fd-af2f-d8b7812c1bd1" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="3bcc5c86-f8c7-4c20-a7e0-eed8465f7f6e">
+      <typeId>ff5f0460-77d9-4c51-920d-fee6969f3422</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d0995458-4421-4f94-9fda-bb33d53ddfff" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>2</order>
+    <typeReference id="febafe54-ce8e-4d4e-8649-147b0a0a15e4">
+      <typeId>5385562b-8635-4601-978d-a7f20bd628d9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ff5f0460-77d9-4c51-920d-fee6969f3422" location="[OutputCachingRedis.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5385562b-8635-4601-978d-a7f20bd628d9" location="[OutputCachingRedis.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="5385562b-8635-4601-978d-a7f20bd628d9" name="Customer" type="element" specialization="Class" />
+              <target id="6c36ef3c-db4c-4263-a6d8-6955d98497ca" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ff5f0460-77d9-4c51-920d-fee6969f3422" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="2dc09232-1ca9-462d-a7b9-f78aeac7862d" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ff5f0460-77d9-4c51-920d-fee6969f3422" location="[OutputCachingRedis.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5385562b-8635-4601-978d-a7f20bd628d9" location="[OutputCachingRedis.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="5385562b-8635-4601-978d-a7f20bd628d9" name="Customer" type="element" specialization="Class" />
+              <target id="86270fc8-e548-4e08-a547-60d0d3fb8527" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="ff5f0460-77d9-4c51-920d-fee6969f3422" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="741ac5c0-a6fa-46b0-9ad8-70198be787ea" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

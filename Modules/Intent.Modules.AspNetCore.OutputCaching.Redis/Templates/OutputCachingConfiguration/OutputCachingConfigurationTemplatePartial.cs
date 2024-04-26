@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -27,8 +28,12 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
         public OutputCachingConfigurationTemplate(IOutputTarget outputTarget, IList<CachingPolicyModel> models = null) : base(TemplateId, outputTarget, models)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"OutputCachingConfiguration", @class =>
                 {
+                    AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOutputCachingStackExchangeRedis);
                     @class.Static();
                     @class.AddMethod("IServiceCollection", "ConfigureOutputCaching", method =>
                     {
@@ -37,8 +42,8 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                             .AddParameter("IServiceCollection", "services", p => p.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration")
                             ;
-                        method.AddStatement("var redisConfig = configuration.GetSection(\"OuputCaching\").Get<OutputCachingConfig>();");
-                        method.AddIfStatement("redisConfig == null", stmt => { stmt.AddStatement("throw new Exception(\"Missing 'OuputCaching' configuration in appsettings.json \");"); });
+                        method.AddStatement("var redisConfig = configuration.GetSection(\"OutputCaching\").Get<OutputCachingConfig>();");
+                        method.AddIfStatement("redisConfig == null", stmt => { stmt.AddStatement("throw new Exception(\"Missing 'OutputCaching' configuration in appsettings.json \");"); });
                         method.AddInvocationStatement("services.AddStackExchangeRedisOutputCache", stmt => stmt
                             .AddArgument(new CSharpLambdaBlock("options")
                                 .AddStatement($@"options.Configuration = redisConfig.Configuration;")
@@ -109,6 +114,13 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                 });
         }
 
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Redis.Name)
+                .WithProperty(Infrastructure.Redis.Property.ConnectionStringSettingPath, "OutputCaching:Configuration"));
+        }
+
         public override void BeforeTemplateExecution()
         {
             if (!CanRunTemplate()) { return; }
@@ -123,8 +135,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                 .ToRegister("UseOutputCache")
                 .WithPriority(-1));
 
-
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("OuputCaching", new
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("OutputCaching", new
             {
                 Configuration = "localhost:6379",
                 InstanceName = "SampleInstance",
