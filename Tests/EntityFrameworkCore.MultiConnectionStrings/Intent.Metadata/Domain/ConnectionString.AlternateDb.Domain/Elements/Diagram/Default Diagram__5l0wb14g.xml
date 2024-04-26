@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d3abc250-87b7-4b72-b6b5-29d012cac552" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f2f2e4f5-0e0f-484e-91ea-914594ecd226</parentFolderId>
+  <packageId>f2f2e4f5-0e0f-484e-91ea-914594ecd226</packageId>
+  <packageName>ConnectionString.AlternateDb.Domain</packageName>
+  <diagram>
+    <targetPackageId>f2f2e4f5-0e0f-484e-91ea-914594ecd226</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
