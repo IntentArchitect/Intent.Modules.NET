@@ -47,6 +47,18 @@ public class MarketingMaterialService
 
 This service class simplifies all functions related to storing and retrieving marketing materials, enhancing the manageability and cleanliness of the overall codebase.
 
+## Pre-Signed Expiry Urls
+
+Performing a `GetAsync` will give you back a link that you can use to gain access to an object for a limited amount of time ([link](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)).
+
+To configure this expiry time you can add this entry in your `appsettings.json` file and specify the expiry duration as a TimeSpan.
+
+```json
+"AWS": {
+  "PreSignedUrlExpiry": "00:00:15" // Expire 15 seconds from now
+}
+```
+
 ## Local Configuration
 
 For local development, developers can simulate an Amazon S3 environment using an emulator, avoiding the need for real S3 buckets. One useful tool for this purpose is `S3 Ninja`, which can be set up using Docker. Here are the steps to configure and use `S3 Ninja` for local development:

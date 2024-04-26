@@ -23,10 +23,12 @@ namespace <#= Namespace #>;
 public class <#= ClassName #> : <#= this.GetObjectStorageInterfaceName() #>
 {
     private readonly IAmazonS3 _client;
+    private readonly IConfiguration _configuration;
 
-    public <#= ClassName #>(IAmazonS3 client)
+    public <#= ClassName #>(IAmazonS3 client, IConfiguration configuration)
     {
         _client = client;
+        _configuration = configuration;
     }
 
     public async Task<Uri> GetAsync(string bucketName, string key, CancellationToken cancellationToken = default)
@@ -35,7 +37,7 @@ public class <#= ClassName #> : <#= this.GetObjectStorageInterfaceName() #>
         {
             BucketName = bucketName,
             Key = key,
-            Expires = DateTime.Now.AddMinutes(5) // Adjust expiration as needed
+            Expires = DateTime.Now.Add(_configuration.GetValue<TimeSpan?>("AWS:PreSignedUrlExpiry") ?? TimeSpan.FromMinutes(5))
         };
 
         var url = await _client.GetPreSignedURLAsync(request).ConfigureAwait(false);

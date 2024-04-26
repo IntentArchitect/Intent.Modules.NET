@@ -8,6 +8,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Util;
 using CloudBlobStorageClients.Application.Common.Storage;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageImplementation", Version = "1.0")]
@@ -17,10 +18,12 @@ namespace CloudBlobStorageClients.Infrastructure.BlobStorage;
 public class AmazonS3ObjectStorage : IObjectStorage
 {
     private readonly IAmazonS3 _client;
+    private readonly IConfiguration _configuration;
 
-    public AmazonS3ObjectStorage(IAmazonS3 client)
+    public AmazonS3ObjectStorage(IAmazonS3 client, IConfiguration configuration)
     {
         _client = client;
+        _configuration = configuration;
     }
 
     public async Task<Uri> GetAsync(string bucketName, string key, CancellationToken cancellationToken = default)
@@ -29,7 +32,7 @@ public class AmazonS3ObjectStorage : IObjectStorage
         {
             BucketName = bucketName,
             Key = key,
-            Expires = DateTime.Now.AddMinutes(5) // Adjust expiration as needed
+            Expires = DateTime.Now.Add(_configuration.GetValue<TimeSpan?>("AWS:PreSignedUrlExpiry") ?? TimeSpan.FromMinutes(5))
         };
 
         var url = await _client.GetPreSignedURLAsync(request).ConfigureAwait(false);
