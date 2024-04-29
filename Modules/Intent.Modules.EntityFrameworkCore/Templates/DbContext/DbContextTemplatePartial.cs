@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                 FulfillsRole(TemplateRoles.Infrastructure.Data.DbContext);
             }
 
-            FulfillsRole("Infrastructure.Data.AlternateDb_DbContext");
+            FulfillsRole(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
 
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddClass(Model.DbContextName, @class =>

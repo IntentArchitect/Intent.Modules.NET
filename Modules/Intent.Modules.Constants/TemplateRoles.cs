@@ -72,6 +72,7 @@ namespace Intent.Modules.Constants
             public static class Common
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
+                public const string ConnectionStringDbContextInterface = "Application.Common.ConnectionStringDbContextInterface";
                 public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
                 public const string PagedList = "Application.Common.PagedList";
             }
@@ -120,6 +121,7 @@ namespace Intent.Modules.Constants
             public static class Data
             {
                 public const string DbContext = "Infrastructure.Data.DbContext";
+                public const string ConnectionStringDbContext = "Infrastructure.Data.ConnectionStringDbContext";
                 [Obsolete("This template has been moved Application.Common.PagedList")]
                 public const string PagedList = "Infrastructure.Data.PagedList";
             }

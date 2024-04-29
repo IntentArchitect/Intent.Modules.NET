@@ -19,6 +19,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Api.Configuration
         {
             var hcBuilder = services.AddHealthChecks();
             hcBuilder.AddSqlServer(configuration.GetConnectionString("DefaultConnection")!, name: "SqlServer", tags: new[] { "database" });
+            hcBuilder.AddSqlServer(configuration.GetConnectionString("AlternateDbConnectionString")!, name: "SqlServer", tags: new[] { "database" });
 
             return services;
         }

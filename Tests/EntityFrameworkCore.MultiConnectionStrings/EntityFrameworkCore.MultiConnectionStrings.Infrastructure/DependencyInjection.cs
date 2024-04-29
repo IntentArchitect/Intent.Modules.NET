@@ -18,7 +18,13 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            //TransactionManager.ImplicitDistributedTransactions = true;
+            services.AddDbContext<AlternateDbDbContext>((sp, options) =>
+            {
+                options.UseSqlServer(
+                    configuration.GetConnectionString("AlternateDbConnectionString"),
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                options.UseLazyLoadingProxies();
+            });
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
@@ -26,18 +32,9 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.AddDbContext<AlternateDbDbContext>((sp, options) =>
-            {
-                options.UseSqlServer(
-                    configuration.GetConnectionString("AlternateDbConnectionString"),
-                    b => b.MigrationsAssembly(typeof(AlternateDbDbContext).Assembly.FullName));
-                options.UseLazyLoadingProxies();
-            });
-            //services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IClassARepository, ClassARepository>();
             services.AddTransient<IClassBRepository, ClassBRepository>();
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ApplicationUnitOfWork<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AlternateDbUnitOfWork<,>));
             return services;
         }
     }

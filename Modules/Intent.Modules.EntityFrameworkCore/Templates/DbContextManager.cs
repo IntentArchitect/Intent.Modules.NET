@@ -7,8 +7,10 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using DomainPackageModelStereotypeExtensions = Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions;
 
 #nullable enable
@@ -17,9 +19,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates;
 
 public static class DbContextManager
 {
-    public static IList<DbContextInstance> GetDbContexts(IMetadataManager metadataManager, IApplication application)
+    public static IList<DbContextInstance> GetDbContexts(IApplication application)
     {
-        return GetDbContexts(metadataManager.Domain(application));
+        return GetDbContexts(application.MetadataManager.Domain(application));
     }
 
     public static DbContextInstance GetDbContext(ClassModel classModel)
@@ -58,23 +60,27 @@ public static class DbContextManager
 public class DbContextInstance : IMetadataModel
 {
     private const string ApplicationDbContext = "ApplicationDbContext";
+    private const string DefaultConnection = "DefaultConnection";
     
     public DbContextInstance(DomainPackageModel domainPackageModel)
     {
         var dbSettings = domainPackageModel.GetDatabaseSettings();
-        ConnectionStringName = dbSettings?.ConnectionStringName();
-        if (string.IsNullOrWhiteSpace(ConnectionStringName))
+        
+        var connectionStringInput = dbSettings?.ConnectionStringName();
+        if (string.IsNullOrWhiteSpace(connectionStringInput))
         {
-            ConnectionStringName = null;
+            connectionStringInput = DefaultConnection;
         }
-        Id = ConnectionStringName ?? "";
+        ConnectionStringName = connectionStringInput;
+        
+        Id = ConnectionStringName;
         DbProvider = dbSettings?.DatabaseProvider().AsEnum();
         DomainPackageModel = domainPackageModel;
     }
     
     public string Id { get; }
 
-    public string? ConnectionStringName { get; }
+    public string ConnectionStringName { get; }
     public DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum? DbProvider { get; }
     public DomainPackageModel DomainPackageModel { get; }
 
@@ -91,7 +97,7 @@ public class DbContextInstance : IMetadataModel
                 return _dbContextName;
             }
 
-            if (ConnectionStringName is null)
+            if (ConnectionStringName == DefaultConnection)
             {
                 _dbContextName = ApplicationDbContext;
                 return _dbContextName;
@@ -99,15 +105,16 @@ public class DbContextInstance : IMetadataModel
 
             _dbContextName = ConnectionStringName
                 .Replace("ConnectionString", string.Empty)
+                .Replace("Connection", string.Empty)
                 .ToPascalCase()
                 .RemoveSuffix("DbContext") + "DbContext";
             return _dbContextName;
         }
     }
     
-    public string GetTypeName(IntentTemplateBase template, string? defaultDbContextName = null)
+    public string GetTypeName(IIntentTemplate template, string? defaultDbContextName = null)
     {
-        return template.TryGetTypeName("Infrastructure.Data.AlternateDb_DbContext", this, out var dbContextName) ? dbContextName : (defaultDbContextName ?? string.Empty);
+        return template.TryGetTypeName(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, this, out var dbContextName) ? dbContextName : (defaultDbContextName ?? string.Empty);
     }
 
     protected bool Equals(DbContextInstance other)

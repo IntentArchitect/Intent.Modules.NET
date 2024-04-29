@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
                 FulfillsRole(TemplateRoles.Application.Common.DbContextInterface);
             }
 
-            FulfillsRole("Application.Common.AlternateDb_DbContextInterface");
+            FulfillsRole(TemplateRoles.Application.Common.ConnectionStringDbContextInterface);
 
             // NOTE: This interface will get its DbSet fields injected into it from the DbContextTemplate
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

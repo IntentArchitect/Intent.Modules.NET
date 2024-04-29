@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>56ad996f-59d5-47e1-8717-5e573979ede6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext#</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

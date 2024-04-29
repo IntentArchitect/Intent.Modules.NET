@@ -26,7 +26,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dbContextTemplates = application.FindTemplateInstances<DbContextTemplate>("Infrastructure.Data.AlternateDb_DbContext");
+            var dbContextTemplates = application.FindTemplateInstances<DbContextTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
             foreach (var dbContextTemplate in dbContextTemplates)
             {
                 dbContextTemplate.CSharpFile.OnBuild(file =>
