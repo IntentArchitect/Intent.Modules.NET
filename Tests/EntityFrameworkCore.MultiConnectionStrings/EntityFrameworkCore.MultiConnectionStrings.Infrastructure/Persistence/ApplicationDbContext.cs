@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Infrastructure.Persistence
         }
 
         public DbSet<ClassA> ClassAs { get; set; }
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

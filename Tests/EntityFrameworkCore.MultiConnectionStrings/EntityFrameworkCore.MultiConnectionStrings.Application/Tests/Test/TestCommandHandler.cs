@@ -29,7 +29,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Application.Tests.Test
         {
             _classARepository.Add(new ClassA() { Message = request.Message });
             _classBRepository.Add(new ClassB() { Message = request.Message });
-            
+
             await _classARepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             await _classBRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 

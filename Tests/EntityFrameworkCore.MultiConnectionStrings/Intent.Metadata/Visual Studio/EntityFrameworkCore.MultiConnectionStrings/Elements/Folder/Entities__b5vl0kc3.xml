@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="97c8a4d2-87d8-4c87-ad67-c59eebf50a8f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Validation</name>
-  <display>Validation</display>
+<class id="e5e66c93-14c8-4d66-89e2-ca8ae1d37c4a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Entities</name>
+  <display>Entities</display>
+  <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>f6c3152e-254c-4d80-b6c0-43e2491e1c84</parentFolderId>
+  <parentFolderId>e3421fc6-5b90-47b2-94d7-1db976e27346</parentFolderId>
   <packageId>85cb814d-d877-466c-a258-9ce8da2bda64</packageId>
   <packageName>EntityFrameworkCore.MultiConnectionStrings</packageName>
   <stereotypes>
@@ -21,14 +22,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ef3f637d-ff06-4967-8e4d-0ed4dfa087a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="f79662e7-4fbd-4ba4-900e-9bc8092cdbca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntity</name>
+      <display>Intent.Entities.DomainEntity</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>97c8a4d2-87d8-4c87-ad67-c59eebf50a8f</parentFolderId>
+      <parentFolderId>e5e66c93-14c8-4d66-89e2-ca8ae1d37c4a</parentFolderId>
       <packageId>85cb814d-d877-466c-a258-9ce8da2bda64</packageId>
       <packageName>EntityFrameworkCore.MultiConnectionStrings</packageName>
       <stereotypes />
@@ -37,14 +38,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="fe7b3ec3-d294-4364-b7d3-ce0b9c99747f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="cf5f9fd4-756c-4785-aed5-16f190209c1b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityInterface</name>
+      <display>Intent.Entities.DomainEntityInterface</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>97c8a4d2-87d8-4c87-ad67-c59eebf50a8f</parentFolderId>
+      <parentFolderId>e5e66c93-14c8-4d66-89e2-ca8ae1d37c4a</parentFolderId>
       <packageId>85cb814d-d877-466c-a258-9ce8da2bda64</packageId>
       <packageName>EntityFrameworkCore.MultiConnectionStrings</packageName>
       <stereotypes />
@@ -53,14 +54,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6ee76d3e-9d61-4994-b630-4bb8057d19c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="3180bdec-8d01-4202-9fb0-633b9490a875" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityState</name>
+      <display>Intent.Entities.DomainEntityState</display>
+      <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>97c8a4d2-87d8-4c87-ad67-c59eebf50a8f</parentFolderId>
+      <parentFolderId>e5e66c93-14c8-4d66-89e2-ca8ae1d37c4a</parentFolderId>
       <packageId>85cb814d-d877-466c-a258-9ce8da2bda64</packageId>
       <packageName>EntityFrameworkCore.MultiConnectionStrings</packageName>
       <stereotypes />
@@ -69,20 +70,18 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="55073b74-20d7-426d-bca9-76ef0ee9bcf2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
-      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
-      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+    <childElement id="deb6da25-09f7-4392-9ffa-e56314c9219b" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Domain.Entity</name>
+      <display>Domain.Entity</display>
+      <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>97c8a4d2-87d8-4c87-ad67-c59eebf50a8f</parentFolderId>
+      <parentFolderId>e5e66c93-14c8-4d66-89e2-ca8ae1d37c4a</parentFolderId>
       <packageId>85cb814d-d877-466c-a258-9ce8da2bda64</packageId>
       <packageName>EntityFrameworkCore.MultiConnectionStrings</packageName>
       <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

@@ -160,7 +160,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>71e9b92a-986f-4fb5-8f74-7f00bb4d1928</ProjectId>
@@ -280,7 +280,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6a69e6b8-d6e0-43d0-a34a-eae899f1f31e</ProjectId>
@@ -416,7 +416,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bbf9a75e-8046-41d3-b731-09cc77929038</ProjectId>
@@ -428,11 +428,19 @@
     </FileLog>
     <FileLog>
       <ProjectId>56ad996f-59d5-47e1-8717-5e573979ede6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#AlternateDbConnectionString</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Infrastructure/Persistence/AlternateDbDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AlternateDbDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>56ad996f-59d5-47e1-8717-5e573979ede6</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f532c66d-2e12-49c7-bdcc-95cbed260608</ProjectId>
@@ -472,7 +480,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiConnectionStrings.Infrastructure/Repositories/ClassBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClassBRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>829c6b8e-f748-4206-b82e-744bb5c69c56</ProjectId>

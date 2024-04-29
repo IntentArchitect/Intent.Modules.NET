@@ -14,7 +14,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Infrastructure.Persistence
         public AlternateDbDbContext(DbContextOptions<AlternateDbDbContext> options) : base(options)
         {
         }
-        
+
         public DbSet<ClassB> ClassBs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
