@@ -62,11 +62,11 @@
   </decorators>
   <interoperability></interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.4" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.1.0" />
-    <dependency id="Intent.EntityFrameworkCore" version="5.0.2" />
+    <dependency id="Intent.EntityFrameworkCore" version="5.0.4-pre.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.6.0" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.Domain.Repositories" version="3.4.0" />
@@ -94,6 +94,7 @@
     </groupExtension>
   </moduleSettingsExtensions>
   <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.DbContextInterfaceExtension" externalReference="1cf00c3d-11a6-4a5b-b6f8-ba684a21be4a" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.EntityRepositoryInterfaceSyncExtension" externalReference="03e4264c-744e-4b91-a96d-ae175d36008b" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.StoredProcedureFactoryExtension" externalReference="9e59c198-59ae-4bda-ab55-caa7830d951f" />
   </factoryExtensions>

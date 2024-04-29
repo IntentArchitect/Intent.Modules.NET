@@ -42,6 +42,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1cf00c3d-11a6-4a5b-b6f8-ba684a21be4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DbContextInterfaceExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterfaceExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#03e4264c-744e-4b91-a96d-ae175d36008b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs</ApplicationRelativeFilePath>

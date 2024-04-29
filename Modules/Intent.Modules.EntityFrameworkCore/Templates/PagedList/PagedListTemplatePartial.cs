@@ -46,28 +46,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                     @class.AddProperty("int", "PageCount", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageNo", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageSize", prop => prop.PrivateSetter());
-                    //@class.AddConstructor(ctor =>
-                    //{
-                    //    ctor.AddParameter($"IQueryable<{T}>", "source")
-                    //        .AddParameter("int", "pageNo")
-                    //        .AddParameter("int", "pageSize");
-
-                    //    var aggregator = new CSharpStatementAggregator();
-                    //    aggregator.Add($"TotalCount = source.Count();");
-                    //    aggregator.Add($"PageCount = GetPageCount(pageSize, TotalCount);");
-                    //    aggregator.Add($"PageNo = pageNo;");
-                    //    aggregator.Add($"PageSize = pageSize;");
-                    //    aggregator.Add($"var skip = ((PageNo - 1) * PageSize);");
-                    //    aggregator.Add($"");
-
-                    //    aggregator.Add(new CSharpInvocationStatement("AddRange")
-                    //        .AddArgument(new CSharpMethodChainStatement("source")
-                    //            .AddChainStatement("Skip(skip)")
-                    //            .AddChainStatement("Take(PageSize)")
-                    //            .AddChainStatement("ToList()")
-                    //            .WithoutSemicolon(), arg => arg.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines));
-                    //    ctor.AddStatements(aggregator.ToList());
-                    //});
 
                     @class.AddConstructor(ctor =>
                     {
@@ -94,28 +72,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                             var remainder = totalCount % pageSize;
                             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
                     });
-
-                    //file.AddUsing("Microsoft.EntityFrameworkCore");
-                    //@class.AddMethod($"Task<{PagedResultInterfaceName ?? ClassName}<{T}>>", "CreateAsync", method =>
-                    //{
-                    //    method.Static();
-                    //    method.Async();
-                    //    method.AddParameter($"IQueryable<{T}>", "source")
-                    //        .AddParameter("int", "pageNo")
-                    //        .AddParameter("int", "pageSize")
-                    //        .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
-                    //    method.AddStatement("var count = await source.CountAsync(cancellationToken);");
-                    //    method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
-                    //    method.AddStatement(new CSharpMethodChainStatement("var results = await source")
-                    //        .AddChainStatement("Skip(skip)")
-                    //        .AddChainStatement("Take(pageSize)")
-                    //        .AddChainStatement("ToListAsync(cancellationToken)"));
-                    //    method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
-                    //});
                 })
                 .AfterBuild(file =>
                 {
-                    var dbContextInterface = GetTemplate<DbContextInterfaceTemplate>(TemplateDependency.OnTemplate(DbContextInterfaceTemplate.TemplateId));
+                    var dbContextInterface = GetTemplate<DbContextInterfaceTemplate>(TemplateRoles.Application.Common.DbContextInterface);
                     if (dbContextInterface.IsEnabled)
                     {
                         file.AddUsing("Microsoft.EntityFrameworkCore");

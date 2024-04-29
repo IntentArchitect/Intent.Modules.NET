@@ -48,6 +48,34 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="d98c64b2-cd82-4dde-90d3-a005d6a3f537" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>In Memory</name>
+          <display>In Memory</display>
+          <isAbstract>false</isAbstract>
+          <value>in-memory</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4564e8c7-8c45-4852-a0be-6c69ebb533b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SQL Server</name>
+          <display>SQL Server</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-server</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="dd09aae1-4d24-4c87-802c-8cd04e96c918" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Cosmos DB</name>
           <display>Cosmos DB</display>
@@ -62,11 +90,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d98c64b2-cd82-4dde-90d3-a005d6a3f537" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>In Memory</name>
-          <display>In Memory</display>
+        <childElement id="ff177cb8-e33c-448a-a194-43ecf22ec70b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>PostgreSQL</name>
+          <display>PostgreSQL</display>
           <isAbstract>false</isAbstract>
-          <value>in-memory</value>
+          <value>postgresql</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
@@ -95,34 +123,6 @@
           <display>Oracle</display>
           <isAbstract>false</isAbstract>
           <value>oracle</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ff177cb8-e33c-448a-a194-43ecf22ec70b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>PostgreSQL</name>
-          <display>PostgreSQL</display>
-          <isAbstract>false</isAbstract>
-          <value>postgresql</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4564e8c7-8c45-4852-a0be-6c69ebb533b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>SQL Server</name>
-          <display>SQL Server</display>
-          <isAbstract>false</isAbstract>
-          <value>sql-server</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>

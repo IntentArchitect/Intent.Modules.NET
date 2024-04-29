@@ -12,7 +12,7 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
     <template id="Intent.EntityFrameworkCore.DbContext" externalReference="96f7b6e6-79da-4f5e-b095-3d603777968b">
-      <role>Infrastructure.Data.DbContext</role>
+      <role>Infrastructure</role>
       <location>Persistence</location>
       <config>
         <add key="Entity Template Id" description="The template Id for the template producing the Domain Entities" default="Intent.Entities.DomainEntityState" />
@@ -24,7 +24,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.DbContextInterface</role>
+      <role>Application</role>
       <location>Common/Interfaces</location>
     </template>
     <template id="Intent.EntityFrameworkCore.DbInitializationExtensions" externalReference="b4d54e09-830a-449a-850c-ecac88577f06">
@@ -76,6 +76,11 @@
         <package id="Intent.Entities" version="4.4.2" />
       </install>
     </detect>
+    <detect id="Intent.AspNetCore.HealthChecks">
+      <install>
+        <package id="Intent.AspNetCore.HealthChecks" version="2.0.3" />
+      </install>
+    </detect>
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
@@ -85,13 +90,6 @@
     <dependency id="Intent.Modelers.Domain" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
-  <interoperability>
-    <detect id="Intent.AspNetCore.HealthChecks">
-      <install>
-        <package id="Intent.AspNetCore.HealthChecks" version="2.0.3" />
-      </install>
-    </detect>
-  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
@@ -109,12 +107,12 @@
           <hint>Underlying database technology.</hint>
           <defaultValue>in-memory</defaultValue>
           <options>
-            <option value="cosmos" description="Cosmos DB" />
             <option value="in-memory" description="In Memory" />
+            <option value="sql-server" description="SQL Server" />
+            <option value="cosmos" description="Cosmos DB" />
+            <option value="postgresql" description="PostgreSQL" />
             <option value="my-sql" description="MySQL" />
             <option value="oracle" description="Oracle" />
-            <option value="postgresql" description="PostgreSQL" />
-            <option value="sql-server" description="SQL Server" />
           </options>
         </setting>
         <setting id="49b09c68-e86a-4e15-96ab-cd482168ef22" title="Table naming convention" type="select">
