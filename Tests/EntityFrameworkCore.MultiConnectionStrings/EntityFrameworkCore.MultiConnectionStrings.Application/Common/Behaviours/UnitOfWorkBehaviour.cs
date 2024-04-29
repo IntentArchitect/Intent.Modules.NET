@@ -21,11 +21,12 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Application.Common.Behaviou
     public class UnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull, ICommand
     {
+        private readonly IUnitOfWork _dataSource;
         //private readonly IUnitOfWork _dataSource;
 
-        public UnitOfWorkBehaviour(/*IUnitOfWork dataSource*/)
+        public UnitOfWorkBehaviour(IUnitOfWork dataSource)
         {
-            //_dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
+            _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
         public async Task<TResponse> Handle(
@@ -47,7 +48,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Application.Common.Behaviou
                 // By calling SaveChanges at the last point in the transaction ensures that write-
                 // locks in the database are created and then released as quickly as possible. This
                 // helps optimize the application to handle a higher degree of concurrency.
-                //await _dataSource.SaveChangesAsync(cancellationToken);
+                await _dataSource.SaveChangesAsync(cancellationToken);
 
                 // Commit transaction if everything succeeds, transaction will auto-rollback when
                 // disposed if anything failed.
