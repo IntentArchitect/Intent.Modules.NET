@@ -1,4 +1,4 @@
-### Version 5.0.8
+### Version 6.0.8
 
 - Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.
 - 
