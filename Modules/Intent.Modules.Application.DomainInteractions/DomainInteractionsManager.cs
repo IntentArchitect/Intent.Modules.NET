@@ -328,56 +328,80 @@ public class DomainInteractionsManager
     }
 
     public IEnumerable<CSharpStatement> GetReturnStatements(ITypeReference returnType)
-    {
-        if (returnType.Element == null)
-        {
-            throw new Exception("No return type specified");
-        }
-        var statements = new List<CSharpStatement>();
-        var entitiesReturningPk = TrackedEntities.Values
-            .Where(x => x.VariableType.ClassModel?.GetTypesInHierarchy()
-                .SelectMany(c => c.Attributes)
-                .Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
-            .ToList();
-        foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.VariableType.ClassModel.Id).Select(x => x.First()))
-        {
-            statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
-        }
+	{
+		if (returnType.Element == null)
+		{
+			throw new Exception("No return type specified");
+		}
+		var statements = new List<CSharpStatement>();
+		
+        var entitiesReturningPk = GetEntitiesReturningPK(returnType);
 
-        if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
-        {
-            var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
-            var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel?.Id == mappedElementId || x.VariableType.DataContractModel?.Id == mappedElementId);
-            var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
-            string nullable = returnType.IsNullable ? "?" : "";
-            statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
-        }
-        else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
-        {
-            var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
-            var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
-            statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
-        }
-        else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
-        {
-            var entityDetails = entitiesReturningPk.Single();
-            var entity = entityDetails.VariableType.ClassModel;
-            statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
-        }
-        else if (returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id))
-        {
-            var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id);
-            statements.Add($"return {entityDetails.VariableName};");
-        }
-        else
-        {
-            statements.Add(new CSharpStatement("throw new NotImplementedException(\"Implement return type mapping...\");").SeparatedFromPrevious());
-        }
+		foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.VariableType.ClassModel.Id).Select(x => x.First()))
+		{
+			statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
+		}
 
-        return statements;
-    }
+		if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
+		{
+			var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
+			var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel?.Id == mappedElementId || x.VariableType.DataContractModel?.Id == mappedElementId);
+			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
+			string nullable = returnType.IsNullable ? "?" : "";
+			statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
+		}
+		else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
+		{
+			var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
+			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
+			statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
+		}
+		else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
+		{
+			var entityDetails = entitiesReturningPk.Single();
+			var entity = entityDetails.VariableType.ClassModel;
+			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+		}
+		else if (returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id))
+		{
+			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id);
+			statements.Add($"return {entityDetails.VariableName};");
+		}
+		else
+		{
+			statements.Add(new CSharpStatement("throw new NotImplementedException(\"Implement return type mapping...\");").SeparatedFromPrevious());
+		}
 
-    public IEnumerable<CSharpStatement> CreateEntity(CreateEntityActionTargetEndModel createAction)
+		return statements;
+	}
+
+	private List<EntityDetails> GetEntitiesReturningPK(ITypeReference returnType)
+	{
+        if (returnType.Element.IsDTOModel())
+        {
+            var dto = returnType.Element.AsDTOModel();
+
+            var mappedPks = dto.Fields
+                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey())
+                .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
+                .Distinct() 
+                .ToList();
+            if (mappedPks.Any())
+            {
+                return TrackedEntities.Values
+                .Where(x => x.VariableType.ClassModel != null && mappedPks.Contains(x.VariableType.ClassModel.Id))
+                .ToList();
+            }
+            return new List<EntityDetails>();
+		}
+		return TrackedEntities.Values
+			.Where(x => x.VariableType.ClassModel?.GetTypesInHierarchy()
+				.SelectMany(c => c.Attributes)
+				.Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+			.ToList();
+	}
+
+	public IEnumerable<CSharpStatement> CreateEntity(CreateEntityActionTargetEndModel createAction)
     {
         try
         {

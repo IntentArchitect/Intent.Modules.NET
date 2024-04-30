@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -12,18 +13,20 @@ using MediatR;
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Contracts.CreateContract
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateContractCommandHandler : IRequestHandler<CreateContractCommand, Guid>
+    public class CreateContractCommandHandler : IRequestHandler<CreateContractCommand, ContractDto>
     {
         private readonly IContractRepository _contractRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public CreateContractCommandHandler(IContractRepository contractRepository)
+        public CreateContractCommandHandler(IContractRepository contractRepository, IMapper mapper)
         {
             _contractRepository = contractRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> Handle(CreateContractCommand request, CancellationToken cancellationToken)
+        public async Task<ContractDto> Handle(CreateContractCommand request, CancellationToken cancellationToken)
         {
             var contract = new Contract
             {
@@ -33,7 +36,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Contracts.CreateCon
 
             _contractRepository.Add(contract);
             await _contractRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return contract.Id;
+            return contract.MapToContractDto(_mapper);
         }
     }
 }

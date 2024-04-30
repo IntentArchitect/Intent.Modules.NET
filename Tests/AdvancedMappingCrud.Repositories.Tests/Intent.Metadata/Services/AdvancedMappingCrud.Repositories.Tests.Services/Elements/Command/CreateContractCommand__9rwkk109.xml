@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="895d5f8d-d4ae-4a83-882f-ed0ad942c316" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateContractCommand</name>
-  <display>CreateContractCommand: guid</display>
+  <display>CreateContractCommand: ContractDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="e4b7ec55-99bb-4959-a955-527534f42a5e">
-    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <typeId>c65d8ef2-07d6-4cce-8baa-d635563ad1e5</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Common.Types</typePackageName>
-    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

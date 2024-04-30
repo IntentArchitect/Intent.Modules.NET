@@ -1,6 +1,7 @@
 ### Version 5.0.6
 
 - Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.
+- Improvement: Service calls returning DTO's with primary keys on newly created entities now force a UOW save to ensure key is populated.
 
 ### Version 5.0.5
 

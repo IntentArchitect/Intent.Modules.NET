@@ -1,4 +1,3 @@
-using System;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -8,7 +7,7 @@ using MediatR;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Contracts.CreateContract
 {
-    public class CreateContractCommand : IRequest<Guid>, ICommand
+    public class CreateContractCommand : IRequest<ContractDto>, ICommand
     {
         public CreateContractCommand(string name, bool isActive)
         {
