@@ -12,8 +12,8 @@ using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Templates.Startup
 {

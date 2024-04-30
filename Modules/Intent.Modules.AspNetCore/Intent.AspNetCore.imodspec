@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.2</version>
+  <version>6.1.0-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -39,9 +39,9 @@
   <factoryExtensions></factoryExtensions>
   <interoperability>
     <!-- Minimum Compatible Versions -->
-    <detect id="Intent.AspNetCore.Controllers ">
+    <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers " version="6.0.0-beta.0" />
+        <package id="Intent.AspNetCore.Controllers" version="6.1.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.HealthChecks">
@@ -125,7 +125,7 @@
     <dependency id="Intent.Common" version="3.6.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.6.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.5.0" />
   </dependencies>
   <files>
@@ -135,6 +135,35 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore/Intent.AspNetCore.pkg.config" externalReference="9d83d9d6-7718-4b4a-b78b-725535182de3" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb" title="API Settings" externalReference="4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb">
+      <settings>
+        <setting id="061a559a-0d54-4eb1-8c70-ed0baa238a59" title="Default API Security" type="select">
+          <isRequired>true</isRequired>
+          <hint>Whether a controller is secured or not by default.</hint>
+          <defaultValue>unsecured</defaultValue>
+          <options>
+            <option value="secured" description="Secured by default" />
+            <option value="unsecured" description="Unsecured by default" />
+          </options>
+        </setting>
+        <setting id="07c796c5-ff1c-4fb4-b9a4-bc9000439fec" title="Default API Route Prefix" type="text">
+          <isRequired>false</isRequired>
+          <hint>API Route Prefix for newly created Services.</hint>
+          <defaultValue>api/</defaultValue>
+        </setting>
+        <setting id="97f3a1e3-2455-41e8-b28e-709f2db04230" title="Serialize Enums as Strings" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Configures whether to serialize/deserialze enum's as strings instead of ints</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="905d0eaa-b32c-4b3d-a6a5-05de63cb5f71" title="On Serialization ignore JSON reference cycles" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Controls whether to ignore JSON reference cycles.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
 </package>

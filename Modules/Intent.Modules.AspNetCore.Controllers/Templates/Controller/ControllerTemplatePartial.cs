@@ -8,7 +8,7 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.AspNetCore.Controllers.Settings;
+using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;

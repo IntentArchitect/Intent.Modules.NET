@@ -3,7 +3,7 @@
   <ApplicationId>27e8a783-da35-4755-af82-e7f54eff0eb2</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b934e701-e930-440b-9d23-2be9380c2987</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b934e701-e930-440b-9d23-2be9380c2987</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -25,11 +25,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ProjectId>6d273f75-5d8d-40d7-bc5a-75a999b9c021</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#9d83d9d6-7718-4b4a-b78b-725535182de3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

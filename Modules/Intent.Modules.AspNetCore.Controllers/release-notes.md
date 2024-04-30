@@ -1,3 +1,7 @@
+### Version 6.1.0
+
+- Improvement: Moved some settings to `ASP.Net Core` module, so they are more accessible for things like Minimal API.
+
 ### Version 6.0.6
 
 - Fixed: `ExceptionFilter` will now return `UnauthorizedResult` when `UnauthorizedAccessException` is caught.

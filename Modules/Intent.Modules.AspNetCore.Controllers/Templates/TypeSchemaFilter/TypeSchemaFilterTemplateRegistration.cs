@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter
     {
         public override string TemplateId => TypeSchemaFilterTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new TypeSchemaFilterTemplate(outputTarget);

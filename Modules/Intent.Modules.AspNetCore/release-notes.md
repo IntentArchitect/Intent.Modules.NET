@@ -1,7 +1,10 @@
-﻿### Version 6.0.2
+﻿### Version 6.1.0
+
+- Improvement: Moved some settings from the `Controllers` modules to this module, so they are more accessible for things like Minimal API.
+
+### Version 6.0.2
 
 - Improvement: Dependent modules changed, version bumped.
-
 
 ### Version 6.0.1
 

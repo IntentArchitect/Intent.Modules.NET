@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.Settings
+namespace Intent.Modules.AspNetCore.Settings
 {
     public static class ModuleSettingsExtensions
     {
@@ -38,7 +38,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
         {
             return _groupSettings.GetSetting(settingId);
         }
-
         public DefaultAPISecurityOptions DefaultAPISecurity() => new DefaultAPISecurityOptions(_groupSettings.GetSetting("061a559a-0d54-4eb1-8c70-ed0baa238a59")?.Value);
 
         public class DefaultAPISecurityOptions

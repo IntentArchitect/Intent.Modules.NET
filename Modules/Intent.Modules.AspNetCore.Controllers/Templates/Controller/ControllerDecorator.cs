@@ -10,8 +10,8 @@ using Intent.Templates;
 using OperationModelExtensions = Intent.Metadata.WebApi.Api.OperationModelExtensions;
 using ServiceModelExtensions = Intent.Metadata.WebApi.Api.ServiceModelExtensions;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorContract", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorContract", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {

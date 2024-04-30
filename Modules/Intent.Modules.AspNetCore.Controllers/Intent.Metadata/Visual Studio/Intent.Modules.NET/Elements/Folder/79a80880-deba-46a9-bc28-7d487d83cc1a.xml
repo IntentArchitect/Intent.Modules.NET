@@ -3,6 +3,7 @@
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</parentFolderId>
