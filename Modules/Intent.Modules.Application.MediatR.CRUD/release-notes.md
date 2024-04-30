@@ -1,3 +1,7 @@
+### Version 5.0.8
+
+- Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.
+- 
 ### Version 6.0.7
 
 - Fixed: Issue around CRUD with nullable return types.
