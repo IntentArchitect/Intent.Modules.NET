@@ -1,8 +1,6 @@
 ﻿using Intent.Metadata.Models;
-using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Api;
 
 public class EmptyElementRenderer : IRazorComponentBuilder
 {

@@ -12,7 +12,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
+namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class RazorLayoutTemplateRegistration : FilePerModelTemplateRegistration<LayoutModel>

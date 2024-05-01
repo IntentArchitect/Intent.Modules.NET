@@ -1,7 +1,6 @@
-﻿using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp.Mapping;
+﻿using Intent.Modules.Common.CSharp.Mapping;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
+namespace Intent.Modules.Blazor.Api
 {
     public interface IRazorComponentTemplate : IRazorFileTemplate
     {

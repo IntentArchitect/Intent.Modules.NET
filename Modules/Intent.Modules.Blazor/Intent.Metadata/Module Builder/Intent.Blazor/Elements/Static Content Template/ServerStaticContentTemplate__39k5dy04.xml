@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e1e2dd2f-3a07-4fb2-8b52-d7534109d77b" type="Static Content Template" typeId="b795a763-296d-476f-ab0a-1a52710444db">
-  <name>ClientStaticContentTemplate</name>
-  <display>ClientStaticContentTemplate</display>
+  <name>ServerStaticContentTemplate</name>
+  <display>ServerStaticContentTemplate</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>7b97f119-983f-479a-a3bd-0199bf1c8d33</parentFolderId>
+  <parentFolderId>c21c5704-d9b4-4ef7-9ac8-8ef0c687d396</parentFolderId>
   <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
   <packageName>Intent.Blazor</packageName>
   <stereotypes>

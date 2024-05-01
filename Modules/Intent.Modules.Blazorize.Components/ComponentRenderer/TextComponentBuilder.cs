@@ -2,7 +2,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
@@ -22,8 +21,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
         var textInput = new TextModel(component);
-        var valueMapping = _bindingManager.GetMappedEndFor(textInput);
-        var textValue = textInput.Value;
+        var textValue = _bindingManager.GetElementBinding(textInput);
         if (textValue.StartsWith("#"))
         {
             var size = 0;
@@ -33,7 +31,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
                 size++;
             }
             var htmlElement = new HtmlElement("Heading", _componentTemplate.RazorFile)
-                .WithText(valueMapping != null ? _bindingManager.GetCodeDirective(valueMapping) : textValue)
+                .WithText(textValue)
                 .AddAttribute("Size", $"HeadingSize.Is{size}")
                 .AddAttribute("TextColor", "TextColor.Primary");
             node.AddChildNode(htmlElement);
@@ -41,7 +39,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
         else
         {
             var htmlElement = new HtmlElement("Paragraph", _componentTemplate.RazorFile)
-                .WithText(valueMapping != null ? _bindingManager.GetCodeDirective(valueMapping) : textInput.Value);
+                .WithText(textValue);
             node.AddChildNode(htmlElement);
         }
     }

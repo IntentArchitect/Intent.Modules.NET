@@ -6,13 +6,13 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations
+namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
-    public class ClientStaticStaticContentTemplateRegistration : StaticContentTemplateRegistration
+    public class ServerStaticStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.ClientStaticStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.ServerStaticStaticContentTemplateRegistration";
 
-        public ClientStaticStaticContentTemplateRegistration() : base(TemplateId)
+        public ServerStaticStaticContentTemplateRegistration() : base(TemplateId)
         {
         }
 

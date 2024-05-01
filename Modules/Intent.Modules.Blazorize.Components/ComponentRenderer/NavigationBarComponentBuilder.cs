@@ -4,7 +4,6 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
@@ -36,14 +35,31 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                     {
                         barStart.AddHtmlElement("BarItem", barItem =>
                         {
-                            if (navigationItemModel.NavigationItems.Any())
+                            if (!navigationItemModel.NavigationItems.Any())
+                            {
+                                barItem.AddHtmlElement("BarLink", barLink =>
+                                {
+                                    barLink.WithText(navigationItemModel.Value ?? navigationItemModel.Name);
+                                    if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
+                                    {
+                                        var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
+                                        barLink.AddAttribute("To", pageRoute);
+                                    }
+                                    else
+                                    {
+                                        var mappingEnd = _bindingManager.GetMappedEndFor(navigationItemModel, "Link To");
+                                        if (mappingEnd != null)
+                                        {
+                                            barLink.AddAttribute("To", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
+                                        }
+                                    }
+                                });
+                            }
+                            else
                             {
                                 barItem.AddHtmlElement("BarDropdown", barDropdown =>
                                 {
-                                    barDropdown.AddHtmlElement("BarDropdownToggle", barDropdownToggle =>
-                                    {
-                                        barDropdownToggle.WithText(navigationItemModel.Value ?? navigationItemModel.Name);
-                                    });
+                                    barDropdown.AddHtmlElement("BarDropdownToggle", barDropdownToggle => { barDropdownToggle.WithText(navigationItemModel.Value ?? navigationItemModel.Name); });
                                     barDropdown.AddHtmlElement("BarDropdownMenu", barDropdownMenu =>
                                     {
                                         foreach (var dropdownItemModel in navigationModel.NavigationItems)
@@ -59,18 +75,6 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                                             });
                                         }
                                     });
-                                });
-                            }
-                            else
-                            {
-                                barItem.AddHtmlElement("BarLink", barLink =>
-                                {
-                                    barLink.WithText(navigationItemModel.Value ?? navigationItemModel.Name);
-                                    if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
-                                    {
-                                        var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
-                                        barLink.AddAttribute("To", pageRoute);
-                                    }
                                 });
                             }
                         });

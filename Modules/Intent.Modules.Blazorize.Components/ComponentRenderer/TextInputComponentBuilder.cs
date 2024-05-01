@@ -2,7 +2,6 @@
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
@@ -10,11 +9,13 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
+    private readonly BindingManager _bindingManager;
 
     public TextInputComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _componentTemplate = template;
+        _bindingManager = template.BindingManager;
     }
 
     public void BuildComponent(IElement component, IRazorFileNode node)
@@ -29,7 +30,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
                 });
                 field.AddHtmlElement("TextEdit", textEdit =>
                 {
-                    textEdit.AddAttribute("@bind-Text", textInput.Value.Trim('{', '}'))
+                    textEdit.AddAttribute("@bind-Text", _bindingManager.GetElementBinding(textInput))
                         .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
                 });
             });

@@ -24,6 +24,22 @@
       <role>Blazor.Client</role>
       <location></location>
     </template>
+    <template id="Intent.Blazor.Templates.Client.RazorComponentTemplate" externalReference="1132514b-15dd-4dac-b602-462278e1128d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutTemplate" externalReference="4220376c-a610-4599-b89c-83599b2f49f0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.Client.RoutesRazorTemplate" externalReference="92022c0f-33eb-40fd-9d2a-88fb20eefaac">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -48,7 +64,7 @@
       <role>Blazor.Server</role>
       <location></location>
     </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.ClientStaticStaticContentTemplateRegistration" externalReference="e1e2dd2f-3a07-4fb2-8b52-d7534109d77b">
+    <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.ServerStaticStaticContentTemplateRegistration" externalReference="e1e2dd2f-3a07-4fb2-8b52-d7534109d77b">
       <role>Blazor.Client</role>
       <location></location>
     </template>
@@ -59,9 +75,10 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.6.1-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

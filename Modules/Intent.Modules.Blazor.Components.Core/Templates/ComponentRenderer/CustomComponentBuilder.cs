@@ -2,7 +2,6 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;

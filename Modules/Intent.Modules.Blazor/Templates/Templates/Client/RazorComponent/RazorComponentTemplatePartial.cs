@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
-using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Api.Mappings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.FactoryExtensions;
@@ -19,19 +19,20 @@ using Intent.Templates;
 using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
+namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IDeclareUsings, IRazorComponentTemplate
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    public partial class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Components.Core.RazorComponentTemplate";
+        public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
 
         [IntentManaged(Mode.Merge)]
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Intent.Blazor.HttpClients.DtoContract");
             AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");
             AddTypeSource(TemplateId);
@@ -85,6 +86,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         {
             var mappingManager = new CSharpClassMappingManager(this);
             mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
+            mappingManager.AddMappingResolver(new RazorBindingMappingResolver(this));
             mappingManager.SetFromReplacement(Model, null);
             mappingManager.SetToReplacement(Model, null);
             return mappingManager;
@@ -101,13 +103,14 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
             );
         }
 
+        [IntentManaged(Mode.Fully)]
         public override string TransformText()
         {
             var razorFile = RazorFile.Build();
             foreach (var @using in this.ResolveAllUsings(
-                             "System",
-                             "System.Collections.Generic"
-                             ).Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                         "System",
+                         "System.Collections.Generic"
+                     ).Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
             {
                 razorFile.AddUsing(@using);
             }
@@ -118,30 +121,6 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorComponent
         public override string RunTemplate()
         {
             return TransformText();
-        }
-    }
-
-    public class CallServiceOperationMappingResolver : IMappingTypeResolver
-    {
-        private readonly ICSharpTemplate _template;
-
-        public CallServiceOperationMappingResolver(ICSharpTemplate template)
-        {
-            _template = template;
-        }
-
-        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-        {
-            if (mappingModel.Model.SpecializationType == "Operation")
-            {
-                return new MethodInvocationMapping(mappingModel, _template);
-            }
-
-            if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "Command")
-            {
-                return new ObjectInitializationMapping(mappingModel, _template);
-            }
-            return null;
         }
     }
 }

@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,6 +31,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
         private void RegisterStartup(IApplication application)
         {
             var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            startup?.AddNugetDependency(new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.Server", "8.0.3"));
 
             startup?.CSharpFile.AfterBuild(file =>
             {
@@ -40,6 +42,8 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         .AddChainStatement("AddInteractiveWebAssemblyComponents()")
                         .WithSemicolon();
                     statements.AddStatement(addRazorComponents);
+                    // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
+                    statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
                 });
 
                 startup.StartupFile.ConfigureApp((statements, context) =>

@@ -45,14 +45,14 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                             .AddAttribute("rel", "icon")
                             .AddAttribute("type", "image/png")
                             .AddAttribute("href", $"favicon.png"));
-                        head.AddHtmlElement("HeadOutlet");
+                        head.AddHtmlElement("HeadOutlet", t => t.AddAttribute("@rendermode", "InteractiveAuto"));
                     });
 
                     file.AddEmptyLine();
 
                     file.AddHtmlElement("body", body =>
                     {
-                        body.AddHtmlElement("Routes");
+                        body.AddHtmlElement("Routes", t => t.AddAttribute("@rendermode", "InteractiveAuto"));
                         body.AddHtmlElement("script", t => t.AddAttribute("src", "_framework/blazor.web.js"));
                     });
                 });

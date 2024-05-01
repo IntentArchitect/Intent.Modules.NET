@@ -2,7 +2,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
@@ -51,6 +50,10 @@ public class TableComponentBuilder : IRazorComponentBuilder
             {
                 var mappingManager = _componentTemplate.CreateMappingManager();
                 var mappedEnd = _bindingManager.GetMappedEndFor(table);
+                if (mappedEnd == null)
+                {
+                    return;
+                }
                 tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, mappingManager)})", block =>
                 {
                     mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
@@ -58,7 +61,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     {
                         if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                         {
-                            tr.AddAttribute("@onclick", $"() => {_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
+                            tr.AddAttributeIfNotEmpty("@onclick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
                         }
                         foreach (var column in table.Columns)
                         {

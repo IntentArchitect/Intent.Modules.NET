@@ -3,7 +3,6 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
@@ -11,7 +10,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
-    private BindingManager _bindingManager;
+    private readonly BindingManager _bindingManager;
 
     public ButtonComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
@@ -22,7 +21,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode node)
     {
-        var button = new ButtonModel(component);
+        var button = new ButtonModel(component); 
         var htmlElement = new HtmlElement("Button", _componentTemplate.RazorFile)
             .AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
             .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
@@ -34,7 +33,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
             {
                 var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("Clicked", $"() => {_bindingManager.GetBinding(onClickMapping)}()");
+                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping)}");
             }
             else
             {

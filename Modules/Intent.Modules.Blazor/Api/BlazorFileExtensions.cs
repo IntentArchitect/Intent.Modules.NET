@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Modules.Common.CSharp.Builder;
 
@@ -36,36 +35,5 @@ public static class BlazorFileExtensions
         razorFile.ChildNodes.Add(razorCodeBlock);
         configure?.Invoke(razorCodeBlock);
         return razorFile;
-    }
-}
-
-public static class RazorFileExtensions
-{
-    public static HtmlElement SelectHtmlElement(this RazorFile razorFile, string selector)
-    {
-        return razorFile.SelectHtmlElements(selector).SingleOrDefault();
-    }
-
-    public static IEnumerable<HtmlElement> SelectHtmlElements(this RazorFile razorFile, string selector)
-    {
-        return razorFile.ChildNodes.OfType<HtmlElement>().SelectHtmlElements(selector.Split("/", StringSplitOptions.RemoveEmptyEntries));
-    }
-
-    public static IEnumerable<HtmlElement> SelectHtmlElements(this IEnumerable<HtmlElement> nodes, string[] parts)
-    {
-        var firstPart = parts.FirstOrDefault();
-        var foundNodes = nodes.Where(x => x.Name == firstPart).ToList();
-        foreach (var found in foundNodes)
-        {
-            if (parts.Length == 1)
-            {
-                yield return found;
-            }
-
-            foreach (var foundChildren in found.ChildNodes.OfType<HtmlElement>().SelectHtmlElements(parts.Skip(1).ToArray()))
-            {
-                yield return foundChildren;
-            }
-        }
     }
 }

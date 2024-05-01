@@ -124,5 +124,13 @@ namespace Intent.Modules.Constants
                 public const string PagedList = "Infrastructure.Data.PagedList";
             }
         }
+
+        public static class Blazor
+        {
+            public static class WebAssembly
+            {
+                public const string Program = "Blazor.WebAssembly.Program";
+            }
+        }
     }
 }

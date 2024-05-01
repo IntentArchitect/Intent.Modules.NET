@@ -1,8 +1,7 @@
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
-using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazorize.Components.ComponentRenderer;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;

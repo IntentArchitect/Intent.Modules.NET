@@ -2,7 +2,6 @@
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Components.Core.Templates;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
 using System.Linq;
 using Intent.Modules.Blazor.Api;
 
@@ -25,6 +24,8 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     {
         var layoutModel = new LayoutModel(component);
         var layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
+        node.AddChildNode(layoutHtml);
+
         if (layoutModel.Header != null)
         {
             layoutHtml.AddHtmlElement("LayoutHeader", layoutHeader =>
@@ -40,6 +41,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         //{
         if (layoutModel.Sider != null)
         {
+            layoutHtml.AddHtmlElement("Layout", layout => layoutHtml = layout);
             layoutHtml.AddAttribute("Sider");
             layoutHtml.AddHtmlElement("LayoutSider", layoutSider =>
             {
@@ -69,6 +71,5 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         });
         //});
 
-        node.AddChildNode(layoutHtml);
     }
 }

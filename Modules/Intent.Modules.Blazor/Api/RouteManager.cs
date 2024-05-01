@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates;
+namespace Intent.Modules.Blazor.Api;
 
 public class RouteManager
 {

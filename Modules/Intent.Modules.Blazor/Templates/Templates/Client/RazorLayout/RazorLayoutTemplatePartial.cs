@@ -5,8 +5,10 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Components.Core.Templates.RazorComponent;
+using Intent.Modules.Blazor.Api.Mappings;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -14,15 +16,15 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
+namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public partial class RazorLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Blazor.Components.Core.RazorLayoutTemplate";
+        public const string TemplateId = "Intent.Blazor.Templates.Client.RazorLayoutTemplate";
 
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
@@ -37,6 +39,11 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
 
                 ComponentBuilderProvider.ResolveFor(Model.InternalElement)
                     .BuildComponent(Model.InternalElement, RazorFile);
+
+                if (file.ChildNodes.All(x => x is not HtmlElement))
+                {
+                    file.AddHtmlElement("div", div => div.WithText("@Body"));
+                }
 
                 file.AddCodeBlock(block =>
                 {
@@ -59,6 +66,7 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
         {
             var mappingManager = new CSharpClassMappingManager(this);
             mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
+            mappingManager.AddMappingResolver(new RazorBindingMappingResolver(this));
             mappingManager.SetFromReplacement(Model, null);
             mappingManager.SetToReplacement(Model, null);
             return mappingManager;
@@ -76,18 +84,10 @@ namespace Intent.Modules.Blazor.Components.Core.Templates.RazorLayout
             );
         }
 
+        [IntentManaged(Mode.Fully)]
         public override string TransformText()
         {
-            var razorFile = RazorFile.Build();
-            foreach (var @using in this.ResolveAllUsings(
-                             "System",
-                             "System.Collections.Generic"
-                             ).Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
-            {
-                razorFile.AddUsing(@using);
-            }
-
-            return razorFile.ToString();
+            return RazorFile.Build().ToString();
         }
 
         public override string RunTemplate()

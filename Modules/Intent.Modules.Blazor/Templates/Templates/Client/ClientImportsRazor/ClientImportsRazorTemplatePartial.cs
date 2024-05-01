@@ -4,7 +4,9 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -32,6 +34,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
                 file.AddUsing("Microsoft.AspNetCore.Components.Web.Virtualization");
                 file.AddUsing("Microsoft.JSInterop");
             });
+
+
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            OutputTarget.GetProject().AddProperty("NoDefaultLaunchSettingsFile", "true");
+            OutputTarget.GetProject().AddProperty("StaticWebAssetProjectMode", "Default");
         }
 
         public RazorFile RazorFile { get; }

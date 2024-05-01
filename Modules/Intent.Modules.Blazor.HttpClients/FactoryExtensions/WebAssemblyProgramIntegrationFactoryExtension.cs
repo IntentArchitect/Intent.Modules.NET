@@ -31,7 +31,7 @@ namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
 
         private void RegisterHttpClients(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Blazor.WebAssembly.ProgramTemplate");
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.WebAssembly.Program);
             if (template is null)
             {
                 return;

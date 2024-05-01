@@ -17,6 +17,9 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Blazor" version="1.0.0-alpha.0" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.0" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-alpha.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

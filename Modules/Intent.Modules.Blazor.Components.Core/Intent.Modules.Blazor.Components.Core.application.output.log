@@ -32,45 +32,5 @@
       <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.Core.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#493bcc68-11d2-49e2-9110-25bc91a456b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#493bcc68-11d2-49e2-9110-25bc91a456b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RazorComponent/RazorComponentTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorComponent/RazorComponentTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27f7c3bc-2e23-415b-8f01-adb9edac84d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RazorLayout/RazorLayoutTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorLayout/RazorLayoutTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#27f7c3bc-2e23-415b-8f01-adb9edac84d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RazorLayout/RazorLayoutTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RazorLayout/RazorLayoutTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3d836e70-ed10-4e4c-9667-0cdb3e1321ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>
