@@ -17,13 +17,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
 {
     public static class TemplateExtensions
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static string GetDbContextName(this IIntentTemplate template)
         {
             return template.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static string GetDbContextInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(TemplateRoles.Application.Common.DbContextInterface);

@@ -84,6 +84,10 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                             method.AddStatement(connectionStringStatement);
                             method.AddStatement(@"optionsBuilder.UseMySql(connectionString, ServerVersion.Parse(""8.0""));");
                             break;
+                        case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle:
+                            method.AddStatement(connectionStringStatement);
+                            method.AddStatement("optionsBuilder.UseOracle(connectionString);");
+                            break;
                         case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                         default:
                             // NO OP
@@ -135,6 +139,11 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
             className: $"DesignTimeDbContextFactory",
             @namespace: $"{this.GetNamespace()}",
             relativeLocation: $"{this.GetFolderPath()}");
+    }
+
+    public override bool CanRunTemplate()
+    {
+        return ExecutionContext.FindTemplateInstance("Infrastructure.Data.DbContext", TemplateDiscoveryOptions.DoNotThrow) is not null;
     }
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

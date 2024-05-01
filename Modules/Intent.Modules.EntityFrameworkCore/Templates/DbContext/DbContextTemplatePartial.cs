@@ -222,7 +222,8 @@ modelBuilder.Entity<Car>().HasData(
             }
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         public override void BeforeTemplateExecution()
         {

@@ -135,6 +135,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         {
             return dbProvider switch
             {
+                null => defaultDbProvider,
+                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default => defaultDbProvider,
                 DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer =>
                     DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer,
                 DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL =>
@@ -145,8 +147,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle,
                 DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory =>
                     DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default => defaultDbProvider,
-                _ => throw new ArgumentOutOfRangeException()
+                _ => throw new ArgumentOutOfRangeException($"DbProvider option '{dbProvider}' is not supported")
             };
         }
 
@@ -156,7 +157,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 ? ";Encrypt=False"
                 : string.Empty;
         }
-        
+
         private static void ApplyConfigurationStatements(ICSharpFileBuilderTemplate dependencyInjectionTemplate, IEnumerable<DbContextInstance> dbContexts)
         {
             dependencyInjectionTemplate.CSharpFile.OnBuild(file =>
@@ -175,7 +176,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             DatabaseSettingsExtensions.DatabaseProviderOptionsEnum defaultDbProvider)
         {
             var connectionString = $@"""{dbContextInstance.ConnectionStringName}""";
-            
+
             var addDbContext = new AddDbContextStatement(dbContextInstance.GetTypeName(dependencyInjection));
             var statements = new List<CSharpStatement>();
 
@@ -190,7 +191,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             {
                 builderStatements.Add("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)");
             }
-            
+
             var targetDbProvider = GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
             switch (targetDbProvider)
             {

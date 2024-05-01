@@ -56,12 +56,15 @@ public static class ConsumerHelper
                 // This assumes two modes of implementation:
                 // 1. The Consumer will handle everything.
                 // 2. The Consumer uses a dispatcher with its own middleware that will do everything.
-                if (applyStandardUnitOfWorkLogic && template.SystemUsesPersistenceUnitOfWork())
+                if (applyStandardUnitOfWorkLogic)
                 {
                     method.AddStatement($"await eventBus.FlushAllAsync(context.CancellationToken);",
                         stmt => stmt.AddMetadata("event-bus-flush", true));
-                    
-                    ApplyUnitOfWorkSaves(template, @class, method);
+
+                    if (template.SystemUsesPersistenceUnitOfWork())
+                    {
+                        ApplyUnitOfWorkSaves(template, @class, method);
+                    }
                 }
             });
         });

@@ -75,7 +75,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             }
             return false;
         })?.Name ?? "UNKNOWN";
-        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN";
+        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "DBCONTEXT_NAME";
 
         public override void BeforeTemplateExecution()
         {

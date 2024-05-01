@@ -75,30 +75,32 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                 })
                 .AfterBuild(file =>
                 {
-                    var dbContextInterface = GetTemplate<DbContextInterfaceTemplate>(TemplateRoles.Application.Common.DbContextInterface);
-                    if (dbContextInterface.IsEnabled)
+                    var dbContextInterface = GetTemplate<DbContextInterfaceTemplate>(TemplateRoles.Application.Common.DbContextInterface, TemplateDiscoveryOptions.DoNotThrow);
+                    if (dbContextInterface?.IsEnabled != true)
                     {
-                        file.AddUsing("Microsoft.EntityFrameworkCore");
-                        file.AddClass("QueryablePaginationExtension", @class =>
-                        {
-                            @class.Static();
-                            @class.AddMethod($"{ClassName}<T>", "ToPagedListAsync<T>", method =>
-                            {
-                                method.Static().Async();
-                                method.AddParameter($"IQueryable<T>", "queryable", p => p.WithThisModifier());
-                                method.AddParameter($"int", "pageNo");
-                                method.AddParameter($"int", "pageSize");
-                                method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                                method.AddStatement("var count = await queryable.CountAsync(cancellationToken);");
-                                method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
-                                method.AddStatement(new CSharpMethodChainStatement("var results = await queryable")
-                                    .AddChainStatement("Skip(skip)")
-                                    .AddChainStatement("Take(pageSize)")
-                                    .AddChainStatement("ToListAsync(cancellationToken)"));
-                                method.AddStatement($"return new {ClassName}<T>(count, pageNo, pageSize, results);");
-                            });
-                        });
+                        return;
                     }
+                    
+                    file.AddUsing("Microsoft.EntityFrameworkCore");
+                    file.AddClass("QueryablePaginationExtension", @class =>
+                    {
+                        @class.Static();
+                        @class.AddMethod($"{ClassName}<T>", "ToPagedListAsync<T>", method =>
+                        {
+                            method.Static().Async();
+                            method.AddParameter($"IQueryable<T>", "queryable", p => p.WithThisModifier());
+                            method.AddParameter($"int", "pageNo");
+                            method.AddParameter($"int", "pageSize");
+                            method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                            method.AddStatement("var count = await queryable.CountAsync(cancellationToken);");
+                            method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+                            method.AddStatement(new CSharpMethodChainStatement("var results = await queryable")
+                                .AddChainStatement("Skip(skip)")
+                                .AddChainStatement("Take(pageSize)")
+                                .AddChainStatement("ToListAsync(cancellationToken)"));
+                            method.AddStatement($"return new {ClassName}<T>(count, pageNo, pageSize, results);");
+                        });
+                    });
                 });
         }
 

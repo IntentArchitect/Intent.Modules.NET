@@ -40,6 +40,7 @@ public static class DbContextManager
         var dbContextInstances = domainDesigner.GetDomainPackageModels()
             .Where(p => p.HasRelationalDatabase())
             .Select(pkg => new DbContextInstance(pkg))
+            .Distinct()
             .ToArray();
 
         var dbContextInstanceWithSameConnStr = dbContextInstances

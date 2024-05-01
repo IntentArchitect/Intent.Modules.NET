@@ -3,42 +3,18 @@
   <ApplicationId>9a4086c7-0093-4ffd-9f3b-8f7d1b2b1466</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e45cc947-f4f6-478a-bde8-20824eadfc92</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e45cc947-f4f6-478a-bde8-20824eadfc92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#0ce0087a-0174-4234-a8c3-89d81863f950</CorrelationId>
+      <ProjectId>7364596f-fd76-44b4-983d-ecb376388566</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f653fdec-357c-4143-bf9e-acf2229f4c60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DomainEventsConfigurationsDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsConfigurationsDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/DomainEventsDbContextExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventsDbContextExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#0ce0087a-0174-4234-a8c3-89d81863f950</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DomainEventsConfigurationsDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsConfigurationsDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b5514200-bd04-4f58-b300-743e5b2aac2a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DomainEventsDbContextDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsDbContextDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#b5514200-bd04-4f58-b300-743e5b2aac2a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DomainEventsDbContextDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0ece1fc5-4ac8-4a07-bf27-b756e8809992</ProjectId>
@@ -51,17 +27,9 @@
     <FileLog>
       <ProjectId>0ece1fc5-4ac8-4a07-bf27-b756e8809992</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#0ece1fc5-4ac8-4a07-bf27-b756e8809992</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0ece1fc5-4ac8-4a07-bf27-b756e8809992</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
