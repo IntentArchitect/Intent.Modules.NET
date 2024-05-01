@@ -4,14 +4,6 @@
   <FileLogs>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#49ef480c-5283-4205-a1d7-6f81515098ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/AzureBlobStorageService/TestOperation.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureBlobStorageService/TestOperation.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/AzureFunctionHelper.cs</ApplicationRelativeFilePath>
@@ -515,22 +507,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5c777be4-2417-45d0-91e9-e3d0eb441d59</ProjectId>
-      <CorrelationId>Intent.Azure.BlobStorage.BlobStorageExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Storage/BlobStorageExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BlobStorageExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5c777be4-2417-45d0-91e9-e3d0eb441d59</ProjectId>
-      <CorrelationId>Intent.Azure.BlobStorage.BlobStorageInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Storage/IBlobStorage.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IBlobStorage.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>4375edd1-df12-4255-aea8-c2fa07e483d8</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -716,14 +692,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6809b53c-7ebb-429a-91d7-5947b0868682</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/AzureBlobStorageService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureBlobStorageService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6078c0c2-19ff-4cb4-af21-c1cf0672fda3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/CosmosDB/ChangeHandlerService.cs</ApplicationRelativeFilePath>
@@ -784,14 +752,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/Enums/IEnumService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Enums/IEnumService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#6809b53c-7ebb-429a-91d7-5947b0868682</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/IAzureBlobStorageService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IAzureBlobStorageService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1360,14 +1320,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/AzureFunctions.TestApplication.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.TestApplication.Infrastructure.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f259f9ca-03d1-4c69-b8c3-7b4e79541e45</ProjectId>
-      <CorrelationId>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/BlobStorage/AzureBlobStorage.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureBlobStorage.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

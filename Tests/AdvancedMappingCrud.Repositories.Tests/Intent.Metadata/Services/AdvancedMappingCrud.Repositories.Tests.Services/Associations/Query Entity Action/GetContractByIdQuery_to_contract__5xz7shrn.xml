@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1dbfde55-19c3-45c1-a43c-20a9b730ab39">
+  <sourceEnd id="9cb6df4b-b19f-42e2-a4c0-3aaa0cb1622e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetContractByIdQuery</display>
+    <order>0</order>
+    <typeReference id="f07c883a-84ab-4da7-a265-bd86951d98a8">
+      <typeId>617a7358-4e8f-4aab-ba58-0c6559f72b91</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1dbfde55-19c3-45c1-a43c-20a9b730ab39" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>contract</name>
+    <display>[query] contract: Contract</display>
+    <order>1</order>
+    <typeReference id="eebc74fb-5463-4087-b08a-5996916bd090">
+      <typeId>492eec1f-13ec-425c-88ed-04666d2c7a7b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="617a7358-4e8f-4aab-ba58-0c6559f72b91" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetContractByIdQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="492eec1f-13ec-425c-88ed-04666d2c7a7b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Contract]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="492eec1f-13ec-425c-88ed-04666d2c7a7b" name="Contract" type="element" specialization="Class" />
+              <target id="533951aa-9ba8-4372-89b5-cd4ad1addaf3" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="617a7358-4e8f-4aab-ba58-0c6559f72b91" name="GetContractByIdQuery" type="element" specialization="Query" />
+                  <target id="fa520c71-4647-427c-97e9-3cbaabb9d698" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

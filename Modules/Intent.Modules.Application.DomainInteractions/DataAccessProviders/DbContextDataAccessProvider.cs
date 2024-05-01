@@ -190,8 +190,8 @@ public static class CSharpStatementMappingExtensions
 {
     public static string GetPredicateExpression(this CSharpClassMappingManager mappingManager, IElementToElementMapping queryMapping)
     {
-        var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
-            .Select(x => x.IsOneToOne()
+        var queryFields = queryMapping.MappedEnds.Where(x => x.SourceElement == null || !x.SourceElement.TypeReference.IsNullable)
+            .Select(x => x.SourceElement == null || x.IsOneToOne()
                 ? $"x.{x.TargetElement.Name} == {mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}"
                 : $"x.{x.TargetElement.Name}.{mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}")
             .ToList();

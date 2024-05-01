@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>c94dde06-fcac-41c0-b28f-a320e772629c</id>
+  <name>Caching Policy Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
+      <requiredPackages />
+      <creationOptions>
+        <option type="element">
+          <text>New Caching Policy</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAvZJREFUeF7tnL9LXEEQx2f1zHtwJ3hBIo8jiCRBsUvjIdcEJam0Umz8J+xSWeUfSP6HWFpprZWQ2KYQQgqb5CBgxHgXnz/gBUOQ0/jcyc3s3nu+79Uzs7Of/c7O3IpnCB8RASPyhjMBoFAEAAiAQgJCdygQAIUEhO5QoC+AM2utDeFazt0TMrvby+U3zhfqWICtwJm1duIzse7WSja3livz3fl25wWA3XG78gJAAOwkgBIW6gEAAVBIQOheAAUOhYaCfiGnFPcH/Wb3+aMBlTlwpV7a5GTpvQvXoz4aqfRxcuupzcpUwGLDMrrcidYgDYBCXQAgAF4jgBJOEQTuQGGleAf4ff8b/TpuWdOen35MY9Gg1a7XBt4B7n/6TMcHR9Z9L72aoGejVatdrw0AUHgC3gGihC0nhkH6dkAYYzDGCC+7rABEFxbegVoA2/EFNQ9jdVlF1ZDKYYkd13sX1gL4pdmi9Z2v7I1yDRcaNXoaVbjm5B3gyc82XZydWxN8MTFItWqQaldYgFZyfw1sz1kAaCFpA8g9CNd2uS1h12C48b0D1Goi3A26tsstwOaPmHb2DpzyiaoBNSaH71wjtwBdNZFOWk+iCi02atkCyJWMrYkAoLALF7aEtRTIjePazvsdiAfVjDwmuFYWN753BWrNgZpN5PXiOJfXP3beAWqVcGEBco/a5xiTKwVqAdR8UP2f97+b+XsvYS2A3Diu7bwD1GoirsFw4+cWoGYJp8EqByWKHobZ+i6spUDNLpxGKJOPCVn/mwheY7iXF8Mukwpk5P3HxDYHcuO4tvPeRLgbAkAuqRQ7AHQMUPNB1fZsf9dWclvCmmNMIb8LA6ClxG13IEpYCFB4xaq5q9+Bs+/jOY3sXo6Z1XCApjRiuYyhDlAr2bcf4w0yRuUwtHK6LQ4ACukCIAAKCQjdoUAAFBIQukOB9xXguw+nq4lJsj8H1kPWr8Cx/1dOeKD31h0AhUcLgAAoJCB0hwIBUEhA6A4FAqCQgND9NxYvBG8ubNiXAAAAAElFTkSuQmCC" />
+          <specializationType>Caching Policy</specializationType>
+          <specializationTypeId>1425f74f-3aa9-4dfd-8676-baa7e8d00a17</specializationTypeId>
+          <defaultName>NewCachingPolicy</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type>Caching Policy</type>
+      </typeOrder>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings>
+    <elementSetting type="Caching Policy" typeId="1425f74f-3aa9-4dfd-8676-baa7e8d00a17">
+      <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAvZJREFUeF7tnL9LXEEQx2f1zHtwJ3hBIo8jiCRBsUvjIdcEJam0Umz8J+xSWeUfSP6HWFpprZWQ2KYQQgqb5CBgxHgXnz/gBUOQ0/jcyc3s3nu+79Uzs7Of/c7O3IpnCB8RASPyhjMBoFAEAAiAQgJCdygQAIUEhO5QoC+AM2utDeFazt0TMrvby+U3zhfqWICtwJm1duIzse7WSja3livz3fl25wWA3XG78gJAAOwkgBIW6gEAAVBIQOheAAUOhYaCfiGnFPcH/Wb3+aMBlTlwpV7a5GTpvQvXoz4aqfRxcuupzcpUwGLDMrrcidYgDYBCXQAgAF4jgBJOEQTuQGGleAf4ff8b/TpuWdOen35MY9Gg1a7XBt4B7n/6TMcHR9Z9L72aoGejVatdrw0AUHgC3gGihC0nhkH6dkAYYzDGCC+7rABEFxbegVoA2/EFNQ9jdVlF1ZDKYYkd13sX1gL4pdmi9Z2v7I1yDRcaNXoaVbjm5B3gyc82XZydWxN8MTFItWqQaldYgFZyfw1sz1kAaCFpA8g9CNd2uS1h12C48b0D1Goi3A26tsstwOaPmHb2DpzyiaoBNSaH71wjtwBdNZFOWk+iCi02atkCyJWMrYkAoLALF7aEtRTIjePazvsdiAfVjDwmuFYWN753BWrNgZpN5PXiOJfXP3beAWqVcGEBco/a5xiTKwVqAdR8UP2f97+b+XsvYS2A3Diu7bwD1GoirsFw4+cWoGYJp8EqByWKHobZ+i6spUDNLpxGKJOPCVn/mwheY7iXF8Mukwpk5P3HxDYHcuO4tvPeRLgbAkAuqRQ7AHQMUPNB1fZsf9dWclvCmmNMIb8LA6ClxG13IEpYCFB4xaq5q9+Bs+/jOY3sXo6Z1XCApjRiuYyhDlAr2bcf4w0yRuUwtHK6LQ4ACukCIAAKCQjdoUAAFBIQukOB9xXguw+nq4lJsj8H1kPWr8Cx/1dOeKD31h0AhUcLgAAoJCB0hwIBUEhA6A4FAqCQgND9NxYvBG8ubNiXAAAAAElFTkSuQmCC" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder />
+      <creationOptions />
+      <scriptOptions />
+      <mappingOptions />
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>let cachingConfigurationStereoTypeId = "56f48881-3e17-43bf-aead-e222a8f725fd";
+element.addStereotype(cachingConfigurationStereoTypeId);</script>
+        </macro>
+      </macros>
+      <childElementSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions>
+    <elementExtension type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <creationOptions>
+        <option type="element">
+          <text>New Caching Policy</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAvZJREFUeF7tnL9LXEEQx2f1zHtwJ3hBIo8jiCRBsUvjIdcEJam0Umz8J+xSWeUfSP6HWFpprZWQ2KYQQgqb5CBgxHgXnz/gBUOQ0/jcyc3s3nu+79Uzs7Of/c7O3IpnCB8RASPyhjMBoFAEAAiAQgJCdygQAIUEhO5QoC+AM2utDeFazt0TMrvby+U3zhfqWICtwJm1duIzse7WSja3livz3fl25wWA3XG78gJAAOwkgBIW6gEAAVBIQOheAAUOhYaCfiGnFPcH/Wb3+aMBlTlwpV7a5GTpvQvXoz4aqfRxcuupzcpUwGLDMrrcidYgDYBCXQAgAF4jgBJOEQTuQGGleAf4ff8b/TpuWdOen35MY9Gg1a7XBt4B7n/6TMcHR9Z9L72aoGejVatdrw0AUHgC3gGihC0nhkH6dkAYYzDGCC+7rABEFxbegVoA2/EFNQ9jdVlF1ZDKYYkd13sX1gL4pdmi9Z2v7I1yDRcaNXoaVbjm5B3gyc82XZydWxN8MTFItWqQaldYgFZyfw1sz1kAaCFpA8g9CNd2uS1h12C48b0D1Goi3A26tsstwOaPmHb2DpzyiaoBNSaH71wjtwBdNZFOWk+iCi02atkCyJWMrYkAoLALF7aEtRTIjePazvsdiAfVjDwmuFYWN753BWrNgZpN5PXiOJfXP3beAWqVcGEBco/a5xiTKwVqAdR8UP2f97+b+XsvYS2A3Diu7bwD1GoirsFw4+cWoGYJp8EqByWKHobZ+i6spUDNLpxGKJOPCVn/mwheY7iXF8Mukwpk5P3HxDYHcuO4tvPeRLgbAkAuqRQ7AHQMUPNB1fZsf9dWclvCmmNMIb8LA6ClxG13IEpYCFB4xaq5q9+Bs+/jOY3sXo6Z1XCApjRiuYyhDlAr2bcf4w0yRuUwtHK6LQ4ACukCIAAKCQjdoUAAFBIQukOB9xXguw+nq4lJsj8H1kPWr8Cx/1dOeKD31h0AhUcLgAAoJCB0hwIBUEhA6A4FAqCQgND9NxYvBG8ubNiXAAAAAElFTkSuQmCC" />
+          <specializationType>Caching Policy</specializationType>
+          <specializationTypeId>1425f74f-3aa9-4dfd-8676-baa7e8d00a17</specializationTypeId>
+          <defaultName>NewCachingPolicy</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <mappingOptions />
+      <typeOrder>
+        <type>Caching Policy</type>
+      </typeOrder>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

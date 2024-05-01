@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="c090804e-8e1c-4121-8209-488982ce6a22" version="3.1.0">
+  <name>Caching</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+    <type id="b16578a5-27b1-4047-a8df-f0b783d706bd">Service</type>
+    <type id="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">Command</type>
+    <type id="e71b0662-e29d-4db2-868b-8a12464b25d0">Query</type>
+    <type id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAACLtJREFUeF7tnH9wVFcVx7/f+3bzA4FQkixJdlNCC1bRGR2BATvD0LQ0SUGhU6UjTgcHaeWPYqtMrfxoKa12xiqMxnZaOw6VzqgzRsehjk2TEAyOI+0otg51sNoUQhJ+ZJONQCjNZvfd47yF1LBssu/tyy4xvPvv3nPuuZ977rn3nnvfEl5xRYCupD1heABdOoEH0APokoBLcc8DPYAuCbgU9zzQA+iSgEvxnHigCNhxsCq/6raOKAlxafOEEs86QAtepDm0iJCq8/n+382p7hicUARcGpN1gJHmiltF+JIWtmgV21pW2/O+S5snlHjWAB5vqyqYEo2vpMjLJD8iIs9rFX/UA2hj/M80zwr44P+q1txKynRLxANoA5xVJfxqVRmN+HcArAFQNCzmAbQBsLsxGMojf0ViEQD/SBEP4BgAD7+4wF8ZPL3I8Ku9IpiXqqoHcBSA0jg3v88Y/KJo2UHyo6Nx9gCmIPNu49z86Sr6qIJ8DUBorFnuAUyi07//piJtDj2rgTUECtKFSA/gZULWyaJ3f2guTdlFcqUARjp43jZmBKFwU+VSQu8AeDsAZQdeAiBkPwS/JCRqV8ZpPROADyoqomPQvGAUMGJq9pX4u8KsRtypPjv1bZ9EpAFGZFpoLYitAsy3ozypjtU/M5upBCGEIkMkhyC4IES/CHqF8h4hfzWI1uLaU10Z2D6qiC2AXQ2hwvwiPAzBIwSKx9OAHOmyBu8DEZxThrSYGvWBupNHaE0MlyUtwHNNoZkxyjdFuBnAFJftTQhxERkg1c/9fuxubw90Ltz4t1imho0JMNwUmgtwOyH3JcLLZCuCY6JQT/I3pTVdpzLpXkqAO3dCbVwYXOb3cbsQt0Mm7/2xEB9Qyyua+F6g9uQRpwnfqwCKQPW9GrwLPuwGEieLtNM8k5GbSDIE4hpyVJu8r2xl99tObLsKjhXzosAvCCyflNN2zOMSTseU+nz5651vcSe0HZCpvIt9zVW3COLbRRKnjHw7iiZPHfmXoYwNNxzqfN0OxFGnZ29LZYUp2GSIPJKcmpo8sFL0RBKed5A+c1PJnaf/ma6vY8a3rkOhwoIB3CMmnqPCjHTKJtHvcQF+ohnbku4KIu0CYZ1AwjNCq6jxfQI3Xw+LymVHiIky7g7UnGgcyzHSArSEZSdUz+JgtUE+IYKltCX1/++PQrytEVteVtsTHq03jlBEGm+cr5XeQspaETraWBPoF7KHl2JMVoqGGIDcQKiZgFxxpZBxg6KfLL3r1M5xAWgpOd8aLI7G+G0QX4eNPOBwwyKyVyvfUzTUxYw7k0aQUaEqiBuMqqK4YS4DsE4Jl7hpj5AO02fcMWt557FUehx54IcwDoUKewe4WYlsFmCmHQOvVUI13HLjGoh+nIKPZ7ivvQjI9pLak/WpTikZAbSAHT4Mf6i3Yp1B9S0At6SDeK0ACsDI/tkfgzafEsHqDLZkIoJ9UeL+yrru/uR+ZgwwsbgI2NcUWgbiSQBLx1qhrxXA4Q6f/f2NN8V85osArROW03I0Dqwvr+v+y7gCtJRZiYcHF1fMA9UuCFaAqbPU1xqgZWukuaLS1HyTZIlDgu8rJeuLa07+etwBDivsbg0W+2N4geSqVMe/iQDQsrWvKbRJBPWjDfToYLkjfH7aM5+49+jQyDqupnByY3IoVBgZkG2iuQFE+cjfJwpA64gKU9pAjHqHnRKiYI8URL8RqO69kDWAibjYVlUQicbu1eBjxP9eKUwUgOG20qmM5v8QwP1OprEImqPEl5MXknH1wGGDrKcesyt7bhXKXpJVlxacifG8ra0Nvk/GKh+Clt0OAb5hSnxV+YozvVn1wJHKzzbPnhPTZgOIT4nITyfK+8Dwa8GvEHzJYRw8oqP+mlmrj/fkDKDVkBVzROunITyjVey76bIbTrwik7qJfWFzcJ0I98Dmo4DL7RzR0aGaWavDuQVoNW69GQSHyksD5f/gwsxvwDIBliyTmMKDwYdAOpvCxBummeMpfOUqDDq9sBkPYMk6EovIYP6PQGxwol8ELVFibU4WESeG5bpupDEY0gqtANMeP5McYA9ysY3JNRCn7fW1VD4opv4xSAfveqxDKh/rPTftB1ndSDvtTK7rR1rL5psxXzM59lvGq+2SAZPywKyaUw3JYSgr+8Bcg7HTnrWQiRH7rQI/a6d+Up3sJRMyMCanItZ1RO+C0M3w6WdItcrh1sV6ViCisS/PVBtmfK7zP8nGT1oPTKTammeXQfRtULIRkki32Y57I0BdFGBboK67PtXIpwXYdyAUpMQ//N5jWIkZ9w2V5nd3WA8XLWP7XwsGkWcmPqoZWXRMmWdlSse8Fe2Jh5VZ1xczisTHcm3KZwguILFEJPMrWREcy1PG8hm1J45nBDDcFHoWEOujmeTyrmb8C9aN1aWX+tF6EX13ciUlDPuJe4rqutut37KuT2iQ8BMoFCDPbbygyOPFdSefHm0Pm9YDw83Blylcl2yIAO/A9FUHVnacsb6LmzoU+xmEX0ph8BlSV5fUnnonATBH+tyCS8hrvCeF0z8dqD56RQprpG4P4GikibME15fUdu0bazA8gCnpMCYiL2gV25Yu+eEBTO1eBwV4IHA5bnse6CAgWquuz1DrZtZ0/tmOmOeBIygROAqoh0vqOlvtwLPqeAAvQdAC+aNAPRGo6/qTXXgeQIuAwBTglXwDW6bf2d3uNGd53XrgpYfljEDwXGmBsYsZ/pvI9QfQel5HnADxB4jxfGndiTedTNnkutcNQCKxt/s7KE3QPKBw8a3iFf3n3cCb/DGQGBQR67uPFojRVKii/55qTjvHy4kNt/BsAYzsDy7RouZc1ZjogZI8f6sVOxoaYNxRVLFY05h9tYvLIOMFB4pXtCdGO9v6CBlEXM5pH7tK/d3Hs/WZ63A/007h8RilyazDA+hydD2AHkCXBFyKex7oAXRJwKW454EeQJcEXIp7HugBdEnApbjngS4B/hcLZ9Kc8IDjsAAAAABJRU5ErkJggg==" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return ! (properties["Override"]?.value === true &amp;&amp; properties["No Caching"]?.value === true);
+</displayIconFunction>
+  <displayFunction>return (properties["Override"]?.value === true &amp;&amp; properties["No Caching"]?.value === true) ? "Caching - No Caching" :
+ `Caching Policy -[` + (properties["Policy"].value ?  lookup( properties["Policy"].value).getName() : "None") 
++ "]" + (properties["Override"].value === true ?  " (override)" : "") ;</displayFunction>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>bf2555fa-08da-4a33-b203-c29cd6302ffc</parentFolderId>
+  <order>10</order>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <properties>
+    <property id="191622f4-df2a-4e74-9c6b-86b833cdcc3c">
+      <hint>Tags to apply. (comma separated list)</hint>
+      <name>Tags</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+    </property>
+    <property id="7ec3af88-3e9e-4574-bbbb-f793482e0a2d">
+      <name>Policy</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>1425f74f-3aa9-4dfd-8676-baa7e8d00a17</type>
+      </lookupTypes>
+      <isActiveFunction />
+      <isRequiredFunction />
+    </property>
+    <property id="bfc1f7b7-0848-4e90-8534-07aea3ae048c">
+      <name>Override</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions>
+        <option>Policy</option>
+        <option>Custom</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="fc4ee53b-4485-4004-9407-8e78fa34451a">
+      <hint>Time to cache for in seconds</hint>
+      <name>Duration</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="740cbede-5de3-4cee-bb9d-d6f3a131e5dd">
+      <hint>(comma separated list)</hint>
+      <name>Vary By Query Keys</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="4b650ffb-0fd9-4576-89c1-afc3d7410eef">
+      <hint>(comma separated list)</hint>
+      <name>Vary By Header Names</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="9e317ac8-58d5-40a1-bc63-3388537d2612">
+      <hint>(comma separated list)</hint>
+      <name>Vary By Route Value Names</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
+    </property>
+    <property id="13ebf11c-f242-4989-8e7f-0e70be5d9254">
+      <hint>Disable caching.</hint>
+      <name>No Caching</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Override === true ;</isActiveFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

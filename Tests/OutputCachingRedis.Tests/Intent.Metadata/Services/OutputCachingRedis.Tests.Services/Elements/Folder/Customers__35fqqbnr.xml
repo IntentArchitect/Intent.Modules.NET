@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5abf22d-82d1-4d08-aacc-e166e045b0c5" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</parentFolderId>
+  <packageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</packageId>
+  <packageName>OutputCachingRedis.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="c090804e-8e1c-4121-8209-488982ce6a22" name="Caching">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.OutputCaching.Redis</definitionPackageName>
+      <definitionPackageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</definitionPackageId>
+      <properties>
+        <property name="191622f4-df2a-4e74-9c6b-86b833cdcc3c" display="Tags" value="customer" isActive="true" />
+        <property name="7ec3af88-3e9e-4574-bbbb-f793482e0a2d" display="Policy" value="6b1ad8fe-dcef-4393-a881-179f4378e766" isActive="true" />
+        <property name="bfc1f7b7-0848-4e90-8534-07aea3ae048c" display="Override" value="true" isActive="true" />
+        <property name="fc4ee53b-4485-4004-9407-8e78fa34451a" display="Duration" isActive="true" />
+        <property name="740cbede-5de3-4cee-bb9d-d6f3a131e5dd" display="Vary By Query Keys" isActive="true" />
+        <property name="4b650ffb-0fd9-4576-89c1-afc3d7410eef" display="Vary By Header Names" isActive="true" />
+        <property name="9e317ac8-58d5-40a1-bc63-3388537d2612" display="Vary By Route Value Names" value="id" isActive="true" />
+        <property name="13ebf11c-f242-4989-8e7f-0e70be5d9254" display="No Caching" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

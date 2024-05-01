@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="571ead6c-e8ab-4f94-9cb0-05eca4884dad" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ControllerExtension</name>
+  <display>ControllerExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bf2555fa-08da-4a33-b203-c29cd6302ffc</parentFolderId>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -34,6 +34,7 @@ namespace IntegrationTesting.Tests.Application.DtoReturns.CreateDtoReturn
             };
 
             _dtoReturnRepository.Add(dtoReturn);
+            await _dtoReturnRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return dtoReturn.MapToDtoReturnDto(_mapper);
         }
     }

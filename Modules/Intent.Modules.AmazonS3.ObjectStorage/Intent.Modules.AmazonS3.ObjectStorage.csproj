@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AmazonS3ObjectStorageImplementationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ObjectStorageExtensions\ObjectStorageExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObjectStorageExtensionsTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ObjectStorageInterface\ObjectStorageInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObjectStorageInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AmazonS3ObjectStorageImplementationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ObjectStorageExtensions\ObjectStorageExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ObjectStorageExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ObjectStorageInterface\ObjectStorageInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ObjectStorageInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.5.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.2" />
+    <PackageReference Include="Intent.Packager" Version="3.4.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.5.0" />
+  </ItemGroup>
+
+</Project>

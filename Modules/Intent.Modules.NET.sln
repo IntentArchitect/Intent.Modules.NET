@@ -116,7 +116,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.BlobStorage", "Intent.Modules.Azure.BlobStorage\Intent.Modules.Azure.BlobStorage.csproj", "{D2C20998-FB57-4C68-B78B-6FAF943C99A3}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Azure.BlobStorage", "Intent.Modules.Azure.BlobStorage\Intent.Modules.Azure.BlobStorage.csproj", "{D2C20998-FB57-4C68-B78B-6FAF943C99A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit", "Intent.Modules.Eventing.MassTransit\Intent.Modules.Eventing.MassTransit.csproj", "{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5}"
 EndProject
@@ -281,6 +281,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.OpenApi.Importer", "Intent.Modules.OpenApi.Importer\Intent.Modules.OpenApi.Importer.csproj", "{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.OutputCaching.Redis", "Intent.Modules.AspNetCore.OutputCaching.Redis\Intent.Modules.AspNetCore.OutputCaching.Redis.csproj", "{A1838A89-12C1-4144-A8F0-86D9BEB3437B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AmazonS3.ObjectStorage", "Intent.Modules.AmazonS3.ObjectStorage\Intent.Modules.AmazonS3.ObjectStorage.csproj", "{18E64221-DACC-4B81-BCA2-23668FAD1841}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.Components.Core", "Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj", "{7FD68940-2B43-492D-BFB0-E37982918D79}"
 EndProject
@@ -778,6 +782,14 @@ Global
 		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E64221-DACC-4B81-BCA2-23668FAD1841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E64221-DACC-4B81-BCA2-23668FAD1841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E64221-DACC-4B81-BCA2-23668FAD1841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E64221-DACC-4B81-BCA2-23668FAD1841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1838A89-12C1-4144-A8F0-86D9BEB3437B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1838A89-12C1-4144-A8F0-86D9BEB3437B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1838A89-12C1-4144-A8F0-86D9BEB3437B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1838A89-12C1-4144-A8F0-86D9BEB3437B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -928,6 +940,8 @@ Global
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{97A4546B-440F-472D-910E-475B0E90B26B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{1B22E40E-D1A3-41AC-8A7C-9B21C33526F7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{18E64221-DACC-4B81-BCA2-23668FAD1841} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{A1838A89-12C1-4144-A8F0-86D9BEB3437B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7FD68940-2B43-492D-BFB0-E37982918D79} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B48CE5F1-4B14-40DC-B45E-B775E460FAC1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}

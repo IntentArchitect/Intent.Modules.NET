@@ -29,6 +29,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IContractRepository, ContractRepository>();
             services.AddTransient<ICorporateFuneralCoverQuoteRepository, CorporateFuneralCoverQuoteRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IFileUploadRepository, FileUploadRepository>();

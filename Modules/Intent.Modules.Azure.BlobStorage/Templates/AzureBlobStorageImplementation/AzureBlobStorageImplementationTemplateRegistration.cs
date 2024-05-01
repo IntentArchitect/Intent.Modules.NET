@@ -18,6 +18,7 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.AzureBlobStorageImplementat
     {
         public override string TemplateId => AzureBlobStorageImplementationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AzureBlobStorageImplementationTemplate(outputTarget);

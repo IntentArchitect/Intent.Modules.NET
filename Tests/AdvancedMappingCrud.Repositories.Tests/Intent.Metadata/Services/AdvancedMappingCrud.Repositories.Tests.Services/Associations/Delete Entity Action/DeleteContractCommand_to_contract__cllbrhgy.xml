@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0199d6a7-12ff-4077-91da-e3e7dff3aecd">
+  <sourceEnd id="c1eb3aa4-9504-4ee5-a085-6ddb66fc2be6" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Contracts.DeleteContractCommand</display>
+    <order>0</order>
+    <typeReference id="d25fa814-9ac6-4a3c-aef5-4330ac81b6cd">
+      <typeId>80dfc043-0a00-4549-ab7d-7a82448188db</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0199d6a7-12ff-4077-91da-e3e7dff3aecd" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>contract</name>
+    <display>[delete] contract: Contract</display>
+    <order>1</order>
+    <typeReference id="4e12d9eb-2f89-4e24-9654-1e9fa96c3c0d">
+      <typeId>492eec1f-13ec-425c-88ed-04666d2c7a7b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="80dfc043-0a00-4549-ab7d-7a82448188db" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteContractCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="492eec1f-13ec-425c-88ed-04666d2c7a7b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Contract]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="492eec1f-13ec-425c-88ed-04666d2c7a7b" name="Contract" type="element" specialization="Class" />
+              <target id="533951aa-9ba8-4372-89b5-cd4ad1addaf3" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="80dfc043-0a00-4549-ab7d-7a82448188db" name="DeleteContractCommand" type="element" specialization="Command" />
+                  <target id="fd460b27-2bf3-4fc4-a947-60fb534c53e0" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

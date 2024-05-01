@@ -27,6 +27,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Contract> Contracts { get; set; }
+
         public DbSet<CorporateFuneralCoverQuote> CorporateFuneralCoverQuotes { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
@@ -64,6 +66,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ContractConfiguration());
             modelBuilder.ApplyConfiguration(new CorporateFuneralCoverQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new FileUploadConfiguration());

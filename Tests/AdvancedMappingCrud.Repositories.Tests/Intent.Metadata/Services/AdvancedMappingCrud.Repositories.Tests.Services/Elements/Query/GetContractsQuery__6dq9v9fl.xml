@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5979c05c-5032-4e35-9972-c785e989e118" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetContractsQuery</name>
+  <display>GetContractsQuery: ContractDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c07bcad2-bbdf-46b5-aaf2-3ede20b60687">
+    <typeId>c65d8ef2-07d6-4cce-8baa-d635563ad1e5</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ac17ce78-ac1e-4394-aedf-5ef7ec74bb1b</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Contracts" />
+  </metadata>
+  <childElements />
+</class>

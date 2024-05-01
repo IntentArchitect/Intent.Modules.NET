@@ -20,38 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="a5ec216e-4a81-4d16-a14f-9201b3f2c6f4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Azure.BlobStorage.BlobStorageExtensions</name>
-      <display>Intent.Azure.BlobStorage.BlobStorageExtensions</display>
-      <externalReference>Intent.Azure.BlobStorage</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5c777be4-2417-45d0-91e9-e3d0eb441d59</parentFolderId>
-      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
-      <packageName>AzureFunctions.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="19b1da4d-adb8-41d6-9fef-0a55097798ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Azure.BlobStorage.BlobStorageInterface</name>
-      <display>Intent.Azure.BlobStorage.BlobStorageInterface</display>
-      <externalReference>Intent.Azure.BlobStorage</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5c777be4-2417-45d0-91e9-e3d0eb441d59</parentFolderId>
-      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
-      <packageName>AzureFunctions.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

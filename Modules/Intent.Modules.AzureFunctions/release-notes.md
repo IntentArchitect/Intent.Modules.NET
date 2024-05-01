@@ -1,8 +1,8 @@
 ### Version 4.1.0
 
 - Improvement: Module project updated to .NET 8.
-- Improvement: Introduced setting to generate Function names with pull path to avoid conflicting names.
-- Fixed: Namespace generation fully defined to avoid unnecessary conflicting class names.
+- Improvement: Introduced setting to generate Function names with full path to avoid conflicting names.
+- Fixed: Namespace generation takes folders into account to avoid possible class name conflicts and to bring it into alignment with the other module patterns.
 - Fixed: Enums can now be supplied as route parameters and parsed correctly.
 
 ### Version 4.0.16

@@ -20,22 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="77a56fd8-194b-47f0-bf38-36f08207e9b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</name>
-      <display>Intent.Azure.BlobStorage.AzureBlobStorageImplementation</display>
-      <externalReference>Intent.Azure.BlobStorage</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f259f9ca-03d1-4c69-b8c3-7b4e79541e45</parentFolderId>
-      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
-      <packageName>AzureFunctions.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

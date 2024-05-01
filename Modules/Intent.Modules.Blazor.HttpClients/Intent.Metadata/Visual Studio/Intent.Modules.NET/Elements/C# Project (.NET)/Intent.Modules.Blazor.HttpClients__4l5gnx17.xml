@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
 <class id="f9445c42-cadb-4936-b862-88e050ac5488" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
-========
-<class id="d6590fbb-ca39-4ff7-91d4-69c21d40ba54" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
   <name>Intent.Modules.Blazor.HttpClients</name>
   <display>Intent.Modules.Blazor.HttpClients</display>
   <isAbstract>false</isAbstract>
@@ -60,7 +56,6 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
@@ -78,9 +73,6 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -96,11 +88,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -116,11 +104,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -136,11 +120,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -156,11 +136,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -176,11 +152,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -196,11 +168,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -214,11 +182,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -232,11 +196,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -250,11 +210,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -268,11 +224,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__4l5gnx17.xml
       <parentFolderId>f9445c42-cadb-4936-b862-88e050ac5488</parentFolderId>
-========
-      <parentFolderId>d6590fbb-ca39-4ff7-91d4-69c21d40ba54</parentFolderId>
->>>>>>>> development:Modules/Intent.Modules.Blazor.HttpClients/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/Intent.Modules.Blazor.HttpClients__dxrzxzbk.xml
       <packageId>a13cf1c6-d208-41bc-bee9-4744a637ae71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
