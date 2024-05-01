@@ -22,11 +22,11 @@ namespace RichDomain.Infrastructure.Persistence
         private readonly ICurrentUserService _currentUserService;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IDomainEventService domainEventService,
-            ICurrentUserService currentUserService) : base(options)
+            ICurrentUserService currentUserService,
+            IDomainEventService domainEventService) : base(options)
         {
-            _domainEventService = domainEventService;
             _currentUserService = currentUserService;
+            _domainEventService = domainEventService;
         }
 
         public DbSet<BaseClass> BaseClasses { get; set; }

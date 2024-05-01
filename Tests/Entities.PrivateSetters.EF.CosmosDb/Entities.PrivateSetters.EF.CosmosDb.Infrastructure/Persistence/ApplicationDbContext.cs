@@ -44,7 +44,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Persistence
         }
 
         /// <summary>
-        /// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model. 
+        /// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model.
         /// However EnsureCreatedAsync should only be called during deployment, not normal operation, as it may cause performance issues.
         /// </summary>
         public async Task EnsureDbCreatedAsync()

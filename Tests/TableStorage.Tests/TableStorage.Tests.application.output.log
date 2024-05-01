@@ -884,14 +884,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>TableStorage.Tests.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>

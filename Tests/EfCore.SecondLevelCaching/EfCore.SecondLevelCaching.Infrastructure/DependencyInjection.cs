@@ -35,8 +35,8 @@ namespace EfCore.SecondLevelCaching.Infrastructure
             {
                 options.UseCustomCacheProvider<DistributedCacheServiceProvider>();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             return services;
         }

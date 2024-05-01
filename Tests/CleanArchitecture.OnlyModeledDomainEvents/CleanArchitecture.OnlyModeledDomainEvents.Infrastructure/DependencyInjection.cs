@@ -24,9 +24,9 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<ICustomerRepository, CustomerCosmosDBRepository>();
             services.AddScoped<IOrderRepository, OrderCosmosDBRepository>();
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
             services.AddTransient<IAgg1Repository, Agg1Repository>();

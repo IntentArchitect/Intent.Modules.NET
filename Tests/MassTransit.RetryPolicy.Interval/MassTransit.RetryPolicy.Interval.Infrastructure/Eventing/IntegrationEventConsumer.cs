@@ -26,6 +26,7 @@ namespace MassTransit.RetryPolicy.Interval.Infrastructure.Eventing
             eventBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
             await handler.HandleAsync(context.Message, context.CancellationToken);
+            await eventBus.FlushAllAsync(context.CancellationToken);
         }
     }
 
