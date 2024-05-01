@@ -1,6 +1,10 @@
-﻿### Version 5.0.3
+﻿### Version 5.0.4
 
-- Fixed: Enabled non conventional ordinal types as primary keys
+- New Feature: Introduce multiple Db Contexts by making use of the `Database Settings` stereotype on a Domain Package and giving a unique connection string name.
+
+### Version 5.0.3
+
+- Fixed: Enabled non-conventional ordinal types as primary keys.
 
 ### Version 5.0.2
 

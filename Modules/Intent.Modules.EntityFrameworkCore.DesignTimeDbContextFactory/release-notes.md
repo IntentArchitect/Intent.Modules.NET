@@ -1,3 +1,8 @@
+### Version 4.2.0
+
+- Improvement: Added support for Oracle db configurations.
+- Improvement: Only installs when ApplicationDbContext is present.
+
 ### Version 4.1.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

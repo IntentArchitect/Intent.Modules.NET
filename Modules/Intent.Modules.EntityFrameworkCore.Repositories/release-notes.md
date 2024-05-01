@@ -1,3 +1,7 @@
+### Version 4.5.5
+
+- Improvement: Class that is in a Domain package for a different DB will now apply the relevant DbContext to the Repository.
+
 ### Version 4.5.4
 
 - Fixed: Stored Procedures will generate execution parameter names with `@` prefix symbols.

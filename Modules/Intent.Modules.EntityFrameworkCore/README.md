@@ -45,7 +45,7 @@ For more info on decimal types check out [SQL Server decimal](https://learn.micr
 
 ### Database Settings - `Lazy loading with proxies`
 
-This setting allows you to configure whether or not you would like like to use Entity Frameworks, Lazy loading with proxies feature.
+This setting allows you to configure whether you would like to use Entity Frameworks, Lazy loading with proxies feature.
 This setting is on by default, but can be turned off if you don't want this behaviour.
 
 For more info on lazy loading with proxies check out [the official documentation](https://learn.microsoft.com/ef/core/querying/related-data/lazy#lazy-loading-with-proxies).
@@ -83,7 +83,7 @@ The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `
 
 In this diagram you can see the `CustomerId` attribute has been introduced, with the `Foreign Key` stereotype, as a result of the many-to-one relationship between `Basket` and `Customer`.
 
-The `Foreign Key` stereotype's are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
+The `Foreign Key` stereotypes are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
 
 ### Text Constraint - Attribute Stereotype
 
@@ -247,7 +247,13 @@ Resulting database structure:
 
 ![Table per concrete type database tables](./docs/images/tpc-db.png)
 
-## Code Generation Artifacts (Templates, Decorators, Factory Extensions)
+## Database Settings
+
+### Multiple Database support
+
+Applying the `Database Settings` stereotype on a Domain package will allow you to specify a specific database connection for the classes found in a Domain package. You can adjust the connection string name as well as the type of database provider.
+
+## Code Generation Artifacts (Templates, Factory Extensions)
 
 ### Template : Database context
 
