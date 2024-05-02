@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>824b24be-2884-489b-afd4-db3e107761d9</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Interfaces/IApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
@@ -1068,7 +1068,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2c6d4c4-6e5f-4bd2-8e3e-209786e55c39</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2eb511d5-05ad-4c6b-82cc-718305d53215" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1413292e-52f8-4923-8660-a960c3b29a1c</parentFolderId>
+  <packageId>1413292e-52f8-4923-8660-a960c3b29a1c</packageId>
+  <packageName>AppDbContextDomainPackage</packageName>
+  <diagram>
+    <targetPackageId>1413292e-52f8-4923-8660-a960c3b29a1c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

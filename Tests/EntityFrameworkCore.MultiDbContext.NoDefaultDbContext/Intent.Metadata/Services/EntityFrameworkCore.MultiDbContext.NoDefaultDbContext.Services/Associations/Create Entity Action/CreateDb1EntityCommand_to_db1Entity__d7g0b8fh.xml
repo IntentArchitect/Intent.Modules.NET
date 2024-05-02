@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4fa01bb1-84f8-4f4d-a282-498cbdab201d">
+  <sourceEnd id="85aa140b-f663-4fd2-bfda-4b5c3ad01ebc" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Db1Entities.CreateDb1EntityCommand</display>
+    <order>0</order>
+    <typeReference id="35a90ea5-50a7-4c4e-9408-cabf10a6dd9f">
+      <typeId>05167370-76d1-4a41-90bf-1faa49169dac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</typePackageName>
+      <typePackageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4fa01bb1-84f8-4f4d-a282-498cbdab201d" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>db1Entity</name>
+    <display>[create] db1Entity: Db1Entity</display>
+    <order>1</order>
+    <typeReference id="984ad1e7-05fa-4374-8aea-5562e10fd2fb">
+      <typeId>508c6d92-56a1-4838-8da0-392c2aff2fe1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Db1DomainPackage</typePackageName>
+      <typePackageId>7c221de3-e077-4dc1-8aa0-71e5833c3109</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="05167370-76d1-4a41-90bf-1faa49169dac" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[CreateDb1EntityCommand]" />
+        <target applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="508c6d92-56a1-4838-8da0-392c2aff2fe1" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[Db1Entity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateDb1EntityCommand}</expression>
+            <path>
+              <target id="508c6d92-56a1-4838-8da0-392c2aff2fe1" name="Db1Entity" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateDb1EntityCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="05167370-76d1-4a41-90bf-1faa49169dac" name="CreateDb1EntityCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="508c6d92-56a1-4838-8da0-392c2aff2fe1" name="Db1Entity" type="element" specialization="Class" />
+              <target id="edc5251c-f658-46dd-b0e1-6ad9fd761945" name="Message" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="05167370-76d1-4a41-90bf-1faa49169dac" name="CreateDb1EntityCommand" type="element" specialization="Command" />
+                  <target id="91a51522-203c-4d84-8af1-20dc16688215" name="Message" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

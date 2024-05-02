@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dbbae662-ffa5-41b2-b7db-5688628448c3">
+  <sourceEnd id="dbaaea85-40bb-443f-b468-9e5c98cd11f9" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Db1Entities.UpdateDb1EntityCommand</display>
+    <order>0</order>
+    <typeReference id="7a5ba679-1f16-4ef0-9f4f-77eeddb8060e">
+      <typeId>6cdb3ad8-91f1-4ef1-93bc-896c8f078d8f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</typePackageName>
+      <typePackageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dbbae662-ffa5-41b2-b7db-5688628448c3" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>db1Entity</name>
+    <display>[update] db1Entity: Db1Entity</display>
+    <order>2</order>
+    <typeReference id="b2596cfd-8f0f-48f7-b940-6e2532fc78cf">
+      <typeId>508c6d92-56a1-4838-8da0-392c2aff2fe1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Db1DomainPackage</typePackageName>
+      <typePackageId>7c221de3-e077-4dc1-8aa0-71e5833c3109</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6cdb3ad8-91f1-4ef1-93bc-896c8f078d8f" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[UpdateDb1EntityCommand]" />
+        <target applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="508c6d92-56a1-4838-8da0-392c2aff2fe1" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[Db1Entity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="508c6d92-56a1-4838-8da0-392c2aff2fe1" name="Db1Entity" type="element" specialization="Class" />
+              <target id="cf9f9d4e-97e9-4726-bfb3-b60282a88626" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6cdb3ad8-91f1-4ef1-93bc-896c8f078d8f" name="UpdateDb1EntityCommand" type="element" specialization="Command" />
+                  <target id="32b72603-8104-47d9-86ab-2e3756afb079" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6cdb3ad8-91f1-4ef1-93bc-896c8f078d8f" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[UpdateDb1EntityCommand]" />
+        <target applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="508c6d92-56a1-4838-8da0-392c2aff2fe1" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[Db1Entity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="508c6d92-56a1-4838-8da0-392c2aff2fe1" name="Db1Entity" type="element" specialization="Class" />
+              <target id="edc5251c-f658-46dd-b0e1-6ad9fd761945" name="Message" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6cdb3ad8-91f1-4ef1-93bc-896c8f078d8f" name="UpdateDb1EntityCommand" type="element" specialization="Command" />
+                  <target id="5f65d880-6f18-4517-96e8-a74aed848bb0" name="Message" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

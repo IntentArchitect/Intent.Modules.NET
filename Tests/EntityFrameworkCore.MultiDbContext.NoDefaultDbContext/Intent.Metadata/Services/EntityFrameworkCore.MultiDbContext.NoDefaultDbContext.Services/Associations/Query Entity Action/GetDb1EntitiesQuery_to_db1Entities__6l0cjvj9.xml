@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6dcf385f-868f-45fe-8117-2169c44878de">
+  <sourceEnd id="098cd6fe-783f-4655-b76e-db3f1f9dc207" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDb1EntitiesQuery</display>
+    <order>0</order>
+    <typeReference id="84c61921-6f9b-400f-bf26-e1aa7983b064">
+      <typeId>98d82d90-0b19-4ece-ada4-d3007d5244a8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</typePackageName>
+      <typePackageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6dcf385f-868f-45fe-8117-2169c44878de" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>db1Entities</name>
+    <display>[query] db1Entities: Db1Entity[*]</display>
+    <order>0</order>
+    <typeReference id="1607f995-cbcb-47aa-b1c4-cc1135b73b92">
+      <typeId>508c6d92-56a1-4838-8da0-392c2aff2fe1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Db1DomainPackage</typePackageName>
+      <typePackageId>7c221de3-e077-4dc1-8aa0-71e5833c3109</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="98d82d90-0b19-4ece-ada4-d3007d5244a8" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[GetDb1EntitiesQuery]" />
+        <target applicationId="52adfd77-8ba4-4570-940a-61cf3d6c85f6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="508c6d92-56a1-4838-8da0-392c2aff2fe1" location="[EntityFrameworkCore.MultiDbContext.NoDefaultDbContext].[Services].[Db1Entity]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

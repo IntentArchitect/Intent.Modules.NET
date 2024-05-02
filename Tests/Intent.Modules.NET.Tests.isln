@@ -105,5 +105,8 @@
     <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
     <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients" relativePath="CloudBlobStorageClients/CloudBlobStorageClients.application.config" />
     <application id="555d779f-5d5d-49fd-b0eb-598c02922aeb" name="OutputCachingRedis.Tests" relativePath="OutputCachingRedis.Tests/OutputCachingRedis.Tests.application.config" />
+    <application id="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" name="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.application.config" />
+    <application id="52adfd77-8ba4-4570-940a-61cf3d6c85f6" name="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.application.config" />
+    <application id="e7456ee2-9246-463c-8bb7-92b3baad3dc7" name="EntityFrameworkCore.MultiDbContext.DbContextInterface" relativePath="EntityFrameworkCore.MultiDbContext.DbContextInterface/EntityFrameworkCore.MultiDbContext.DbContextInterface.application.config" />
   </applications>
 </solution>

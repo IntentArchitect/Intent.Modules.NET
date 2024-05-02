@@ -18,7 +18,7 @@ namespace MongoDb.TestApplication.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDb", tags: new[] { "database" });
+            hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDbConnection", tags: new[] { "database", "MongoDb" });
 
             return services;
         }

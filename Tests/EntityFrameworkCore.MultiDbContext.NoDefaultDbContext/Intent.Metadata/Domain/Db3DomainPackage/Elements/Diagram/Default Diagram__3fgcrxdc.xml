@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c20fb131-828f-4996-b746-4fe3892f81c0" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>43e241be-9a89-4cfd-8dfc-612182b90123</parentFolderId>
+  <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+  <packageName>Db3DomainPackage</packageName>
+  <diagram>
+    <targetPackageId>43e241be-9a89-4cfd-8dfc-612182b90123</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

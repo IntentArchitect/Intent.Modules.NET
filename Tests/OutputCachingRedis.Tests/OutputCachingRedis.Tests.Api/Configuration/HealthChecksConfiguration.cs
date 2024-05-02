@@ -18,7 +18,7 @@ namespace OutputCachingRedis.Tests.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddRedis(configuration["OutputCaching:Configuration"]!, name: "Redis", tags: new[] { "database" });
+            hcBuilder.AddRedis(configuration["OutputCaching:Configuration"]!, name: "OutputCaching:Configuration", tags: new[] { "database", "Redis" });
 
             return services;
         }
