@@ -105,6 +105,5 @@
     <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
     <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients" relativePath="CloudBlobStorageClients/CloudBlobStorageClients.application.config" />
     <application id="555d779f-5d5d-49fd-b0eb-598c02922aeb" name="OutputCachingRedis.Tests" relativePath="OutputCachingRedis.Tests/OutputCachingRedis.Tests.application.config" />
-    <application id="4527eee4-0303-4592-9b3b-3e1fed768387" name="EntityFrameworkCore.MultiConnectionStrings" relativePath="EntityFrameworkCore.MultiConnectionStrings/EntityFrameworkCore.MultiConnectionStrings.application.config" />
   </applications>
 </solution>
