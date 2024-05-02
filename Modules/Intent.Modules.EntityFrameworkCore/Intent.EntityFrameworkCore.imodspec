@@ -78,7 +78,7 @@
     </detect>
     <detect id="Intent.AspNetCore.HealthChecks">
       <install>
-        <package id="Intent.AspNetCore.HealthChecks" version="2.0.3" />
+        <package id="Intent.AspNetCore.HealthChecks" version="2.0.4-pre.0" />
       </install>
     </detect>
     <!-- Remove after 30 June 2024 -->
