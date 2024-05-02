@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Infrastructure
             {
                 options.UseSqlServer(
                     configuration.GetConnectionString("AlternateDbConnectionString"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                    b => b.MigrationsAssembly(typeof(AlternateDbDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddDbContext<ApplicationDbContext>((sp, options) =>

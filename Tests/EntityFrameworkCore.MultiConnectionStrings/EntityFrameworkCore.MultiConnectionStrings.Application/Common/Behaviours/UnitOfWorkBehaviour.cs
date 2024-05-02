@@ -22,7 +22,6 @@ namespace EntityFrameworkCore.MultiConnectionStrings.Application.Common.Behaviou
         where TRequest : notnull, ICommand
     {
         private readonly IUnitOfWork _dataSource;
-        //private readonly IUnitOfWork _dataSource;
 
         public UnitOfWorkBehaviour(IUnitOfWork dataSource)
         {

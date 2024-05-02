@@ -71,7 +71,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         }
 
                         application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: "DefaultConnection",
+                            name: dbContextInstance.ConnectionStringName,
                             connectionString:
                             $"Server=.;Initial Catalog={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjectionTemplate.OutputTarget.GetProject())}",
                             providerName: "System.Data.SqlClient"));
@@ -82,7 +82,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: "DefaultConnection",
+                            name: dbContextInstance.ConnectionStringName,
                             connectionString:
                             $"Host=127.0.0.1;Port=5432;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
                             providerName: ""));
@@ -93,7 +93,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: "DefaultConnection",
+                            name: dbContextInstance.ConnectionStringName,
                             connectionString: $"Server=localhost;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
                             providerName: ""));
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.MySql.Name)
@@ -115,7 +115,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.OracleEntityFrameworkCore(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: "DefaultConnection",
+                            name: dbContextInstance.ConnectionStringName,
                             connectionString:
                             $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()};User Id=myUsername;Password=myPassword;Integrated Security=no;",
                             providerName: ""));
@@ -182,7 +182,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
             var enableSplitQueriesGlobally = dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().EnableSplitQueriesGlobally();
 
-            var migrationsAssemblyStatement = $"MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)";
+            var migrationsAssemblyStatement = $"MigrationsAssembly(typeof({dbContextInstance.DbContextName}).Assembly.FullName)";
 
             var dbContextOptionsBuilderStatement = new CSharpLambdaBlock("b");
             var builderStatements = new List<CSharpStatement>();
