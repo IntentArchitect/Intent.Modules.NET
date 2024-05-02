@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Fixed: Console logging format didn't write out Exceptions with their Stack traces in the Console sink.
+
 ### Version 5.1.1
 
 - Improvement: Added `Application Insights` sink option.
