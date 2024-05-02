@@ -2,6 +2,10 @@
 
 - New Feature: Introduce multiple Db Contexts by making use of the `Database Settings` stereotype on a Domain Package and giving a unique connection string name.
 
+> ⚠️ **NOTE**
+> 
+> The DbContext template signature has changed, if you are building your own modules while referencing this one you will need to update your code.
+
 ### Version 5.0.3
 
 - Fixed: Enabled non-conventional ordinal types as primary keys.
