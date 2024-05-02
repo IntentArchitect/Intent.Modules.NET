@@ -251,7 +251,19 @@ Resulting database structure:
 
 ### Multiple Database support
 
-Applying the `Database Settings` stereotype on a Domain package will allow you to specify a specific database connection for the classes found in a Domain package. You can adjust the connection string name as well as the type of database provider.
+Applying the `Database Settings` stereotype on a Domain package will allow you to specify a Connection String Name as well as a Database Provider that will make a DbContext type that will contain all the Classes in that Domain package as DbSets.
+
+![Database Settings Stereotype](docs/images/database-settings-stereotype.png)
+
+Having a `(default)` Connection String Name will make use of the connection string `DefaultConnection` and will generate the `ApplicationDbContext` type. The `Default` Database Provider will defer to the Module Database setting to determine which Database Provider to use.
+
+Changing the Connection String name will allow you to specify a connection string for connecting to another database and you may alter the Database Provider by choose the specific one in the dropdown menu. This will also generate a DbContext type specifically for that Connection String.
+
+> [!NOTE]
+>
+> We are currently in the process of refining this feature. The first iteration does not automatically provide you with Unit of work or transactional assistance for queries done against DbContexts that are **NOT** `ApplicationDbContext`.
+> Should you have any questions or suggestions around this feel free to contact us at [Intent Architect Support](mailto:support@intentarchitect.com).
+
 
 ## Code Generation Artifacts (Templates, Factory Extensions)
 
