@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 return;
             }
 
-            var dbContexts = DbContextManager.GetDbContexts(application);
+            var dbContexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
             ApplyApplicationSettings(dependencyInjectionTemplate, application, dbContexts);
             ApplyConfigurationStatements(dependencyInjectionTemplate, dbContexts);
         }

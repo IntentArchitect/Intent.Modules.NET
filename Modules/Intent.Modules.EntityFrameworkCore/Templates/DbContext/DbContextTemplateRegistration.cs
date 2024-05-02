@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DbContextInstance> GetModels(IApplication application)
         {
-            return DbContextManager.GetDbContexts(application);
+            return DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
         }
     }
 }

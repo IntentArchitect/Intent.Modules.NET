@@ -19,9 +19,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates;
 
 public static class DbContextManager
 {
-    public static IList<DbContextInstance> GetDbContexts(IApplication application)
+    public static IList<DbContextInstance> GetDbContexts(string applicationId, IMetadataManager metadataManager)
     {
-        return GetDbContexts(application.MetadataManager.Domain(application));
+        return GetDbContexts(metadataManager.Domain(applicationId));
     }
 
     public static DbContextInstance GetDbContext(ClassModel classModel)
@@ -75,14 +75,14 @@ public class DbContextInstance : IMetadataModel
         ConnectionStringName = connectionStringInput;
         
         Id = ConnectionStringName;
-        DbProvider = dbSettings?.DatabaseProvider().AsEnum();
+        DbProvider = dbSettings?.DatabaseProvider().AsEnum() ?? DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default;
         DomainPackageModel = domainPackageModel;
     }
     
     public string Id { get; }
 
     public string ConnectionStringName { get; }
-    public DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum? DbProvider { get; }
+    public DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum DbProvider { get; }
     public DomainPackageModel DomainPackageModel { get; }
 
     public bool IsApplicationDbContext => DbContextName == ApplicationDbContext;

@@ -291,7 +291,7 @@ modelBuilder.Entity<Car>().HasData(
                 var interfaces = new List<string>();
                 if (_interfaceTemplate.Value.IsEnabled)
                 {
-                    interfaces.Add(this.GetDbContextInterfaceName());
+                    interfaces.Add(GetTypeName(TemplateRoles.Application.Common.ConnectionStringDbContextInterface, Model));
                 }
 
                 return interfaces;
