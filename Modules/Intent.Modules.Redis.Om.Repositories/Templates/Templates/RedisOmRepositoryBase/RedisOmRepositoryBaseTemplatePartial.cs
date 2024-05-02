@@ -359,9 +359,10 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
-            this.ApplyConnectionString("REDIS_CONNECTION_STRING", "redis://localhost:6379");
+            this.ApplyConnectionString(Constants.RedisConnectionStringName, "localhost:6379");
+            
             ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Redis.Name)
-                .WithProperty(Infrastructure.Redis.Property.ConnectionStringName, "REDIS_CONNECTION_STRING"));
+                .WithProperty(Infrastructure.Redis.Property.ConnectionStringName, Constants.RedisConnectionStringName));
         }
 
         private string GetNullablePostfix(bool isNullable)
