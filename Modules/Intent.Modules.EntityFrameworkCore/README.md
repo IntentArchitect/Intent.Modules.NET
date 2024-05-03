@@ -261,8 +261,7 @@ Changing the Connection String name will allow you to specify a connection strin
 
 > [!NOTE]
 >
-> We are currently in the process of refining this feature. The first iteration does not automatically provide you with Unit of work or transactional assistance for queries done against DbContexts that are **NOT** `ApplicationDbContext`.
-> Should you have any questions or suggestions around this feel free to contact us at [Intent Architect Support](mailto:support@intentarchitect.com).
+> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
 
 
 ## Code Generation Artifacts (Templates, Factory Extensions)
