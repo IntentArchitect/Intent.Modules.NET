@@ -1,3 +1,7 @@
+### Version 4.1.0
+
+- Improvement: Converted Decorators into Factory Extensions.
+
 ### Version 4.0.9
 
 - Fixed: Added more explicit typing in around `Task`.

@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Api
     {
         public static PartitionKey GetPartitionKey(this AttributeModel model)
         {
-            var stereotype = model.GetStereotype("Partition Key");
+            var stereotype = model.GetStereotype("3a203a3e-116e-4a7c-b375-e690570efc3f");
             return stereotype != null ? new PartitionKey(stereotype) : null;
         }
 
 
         public static bool HasPartitionKey(this AttributeModel model)
         {
-            return model.HasStereotype("Partition Key");
+            return model.HasStereotype("3a203a3e-116e-4a7c-b375-e690570efc3f");
         }
 
         public static bool TryGetPartitionKey(this AttributeModel model, out PartitionKey stereotype)
@@ -33,19 +33,19 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new PartitionKey(model.GetStereotype("Partition Key"));
+            stereotype = new PartitionKey(model.GetStereotype("3a203a3e-116e-4a7c-b375-e690570efc3f"));
             return true;
         }
         public static RowVersion GetRowVersion(this AttributeModel model)
         {
-            var stereotype = model.GetStereotype("Row Version");
+            var stereotype = model.GetStereotype("41adb04f-ad7d-4969-8954-265e1ba8a783");
             return stereotype != null ? new RowVersion(stereotype) : null;
         }
 
 
         public static bool HasRowVersion(this AttributeModel model)
         {
-            return model.HasStereotype("Row Version");
+            return model.HasStereotype("41adb04f-ad7d-4969-8954-265e1ba8a783");
         }
 
         public static bool TryGetRowVersion(this AttributeModel model, out RowVersion stereotype)
@@ -56,7 +56,7 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new RowVersion(model.GetStereotype("Row Version"));
+            stereotype = new RowVersion(model.GetStereotype("41adb04f-ad7d-4969-8954-265e1ba8a783"));
             return true;
         }
 

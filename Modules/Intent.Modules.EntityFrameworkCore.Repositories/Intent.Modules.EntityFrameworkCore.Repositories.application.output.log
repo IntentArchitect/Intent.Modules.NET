@@ -3,7 +3,7 @@
   <ApplicationId>95c39cbb-fdbb-46ee-806b-2392da2438bd</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#78b93fa2-4a87-49bf-8d3f-8527deb7f90f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#78b93fa2-4a87-49bf-8d3f-8527deb7f90f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +38,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/StoredProcedureParameterModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StoredProcedureParameterModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1cf00c3d-11a6-4a5b-b6f8-ba684a21be4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DbContextInterfaceExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterfaceExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f773760e-d8b2-4ee9-bb94-21c2762b94ce" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b35d0e51-68dd-44e0-bd89-433c44f3356d</parentFolderId>
+  <packageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</packageId>
+  <packageName>AlternateConnStrDefaultDbDomainPackage</packageName>
+  <diagram>
+    <targetPackageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

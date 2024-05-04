@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7624723b-bac2-4213-ada0-ee79ee528dc8">
+  <sourceEnd id="38c32b33-5d03-42c6-b6d3-49cd21e41a25" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : EntityAlternates.UpdateEntityAlternateCommand</display>
+    <order>0</order>
+    <typeReference id="196abbad-4869-4939-8ba2-eff499fa2481">
+      <typeId>83ee27bb-73d7-4b6f-925f-3996f2e9db0a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Services</typePackageName>
+      <typePackageId>6012f803-9699-417a-a3d4-1adbc75edf1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7624723b-bac2-4213-ada0-ee79ee528dc8" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>entityAlternate</name>
+    <display>[update] entityAlternate: EntityAlternate</display>
+    <order>2</order>
+    <typeReference id="3580d33a-252f-49b3-82f3-bd578870d9d4">
+      <typeId>a3ccf494-b77a-4c38-89d0-15c39668dfab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AlternateConnStrDefaultDbDomainPackage</typePackageName>
+      <typePackageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="83ee27bb-73d7-4b6f-925f-3996f2e9db0a" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[UpdateEntityAlternateCommand]" />
+        <target applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3ccf494-b77a-4c38-89d0-15c39668dfab" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[EntityAlternate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a3ccf494-b77a-4c38-89d0-15c39668dfab" name="EntityAlternate" type="element" specialization="Class" />
+              <target id="ff33a2e3-deb2-4464-9bbb-f2f33456c02b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="83ee27bb-73d7-4b6f-925f-3996f2e9db0a" name="UpdateEntityAlternateCommand" type="element" specialization="Command" />
+                  <target id="42eb8943-ef0f-4a92-81c7-650cb55b9129" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="83ee27bb-73d7-4b6f-925f-3996f2e9db0a" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[UpdateEntityAlternateCommand]" />
+        <target applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3ccf494-b77a-4c38-89d0-15c39668dfab" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[EntityAlternate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="a3ccf494-b77a-4c38-89d0-15c39668dfab" name="EntityAlternate" type="element" specialization="Class" />
+              <target id="77666aa7-7d8a-42ca-b90f-11eb714bc953" name="Message" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="83ee27bb-73d7-4b6f-925f-3996f2e9db0a" name="UpdateEntityAlternateCommand" type="element" specialization="Command" />
+                  <target id="37f43bef-6013-4d06-95e4-a727adc77632" name="Message" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1684,14 +1684,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0ac0b03d-647e-40ce-bef7-82f84087c75f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0ac0b03d-647e-40ce-bef7-82f84087c75f</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>

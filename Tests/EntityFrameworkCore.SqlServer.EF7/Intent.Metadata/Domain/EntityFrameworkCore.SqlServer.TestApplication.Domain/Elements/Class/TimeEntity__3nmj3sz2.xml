@@ -50,7 +50,7 @@
     </childElement>
     <childElement id="7d07a7cb-efda-4caf-8092-a056126cfba0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Date</name>
-      <display>Date: date</display>
+      <display>Date: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5b954539-a54e-4c43-b8cf-fcb387e3d4e5">

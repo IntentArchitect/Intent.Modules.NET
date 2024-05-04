@@ -45,7 +45,7 @@ For more info on decimal types check out [SQL Server decimal](https://learn.micr
 
 ### Database Settings - `Lazy loading with proxies`
 
-This setting allows you to configure whether or not you would like like to use Entity Frameworks, Lazy loading with proxies feature.
+This setting allows you to configure whether you would like to use Entity Frameworks, Lazy loading with proxies feature.
 This setting is on by default, but can be turned off if you don't want this behaviour.
 
 For more info on lazy loading with proxies check out [the official documentation](https://learn.microsoft.com/ef/core/querying/related-data/lazy#lazy-loading-with-proxies).
@@ -83,7 +83,7 @@ The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `
 
 In this diagram you can see the `CustomerId` attribute has been introduced, with the `Foreign Key` stereotype, as a result of the many-to-one relationship between `Basket` and `Customer`.
 
-The `Foreign Key` stereotype's are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
+The `Foreign Key` stereotypes are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
 
 ### Text Constraint - Attribute Stereotype
 
@@ -247,7 +247,24 @@ Resulting database structure:
 
 ![Table per concrete type database tables](./docs/images/tpc-db.png)
 
-## Code Generation Artifacts (Templates, Decorators, Factory Extensions)
+## Database Settings
+
+### Multiple Database support
+
+Applying the `Database Settings` stereotype on a Domain package will allow you to specify a Connection String Name as well as a Database Provider that will make a DbContext type that will contain all the Classes in that Domain package as DbSets.
+
+![Database Settings Stereotype](docs/images/database-settings-stereotype.png)
+
+Having a `(default)` Connection String Name will make use of the connection string `DefaultConnection` and will generate the `ApplicationDbContext` type. The `Default` Database Provider will defer to the Module Database setting to determine which Database Provider to use.
+
+Changing the Connection String name will allow you to specify a connection string for connecting to another database and you may alter the Database Provider by choose the specific one in the dropdown menu. This will also generate a DbContext type specifically for that Connection String.
+
+> [!NOTE]
+>
+> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
+
+
+## Code Generation Artifacts (Templates, Factory Extensions)
 
 ### Template : Database context
 

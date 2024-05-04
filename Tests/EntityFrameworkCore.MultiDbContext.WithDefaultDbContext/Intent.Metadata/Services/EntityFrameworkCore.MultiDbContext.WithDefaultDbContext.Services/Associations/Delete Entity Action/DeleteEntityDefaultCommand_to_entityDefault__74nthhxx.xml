@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="51ea7667-adcd-4cd9-a127-e5f46d7fb324">
+  <sourceEnd id="51c0df91-6ca8-4b25-9c09-e6e2260af6a8" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : EntityDefaults.DeleteEntityDefaultCommand</display>
+    <order>0</order>
+    <typeReference id="522e1a98-8685-4379-ac5c-154cdb115622">
+      <typeId>e27c8bbb-a2fb-4e74-b88a-71b8f817f03b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Services</typePackageName>
+      <typePackageId>6012f803-9699-417a-a3d4-1adbc75edf1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="51ea7667-adcd-4cd9-a127-e5f46d7fb324" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>entityDefault</name>
+    <display>[delete] entityDefault: EntityDefault</display>
+    <order>1</order>
+    <typeReference id="2f88d7e9-41a8-4f04-82b7-47a915a69294">
+      <typeId>1490c2de-1743-46f1-86b6-3b6c818f1df5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DefaultDomainPackage</typePackageName>
+      <typePackageId>ee56881e-1557-45f2-8185-178fd0a00772</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e27c8bbb-a2fb-4e74-b88a-71b8f817f03b" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[DeleteEntityDefaultCommand]" />
+        <target applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="1490c2de-1743-46f1-86b6-3b6c818f1df5" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[EntityDefault]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="1490c2de-1743-46f1-86b6-3b6c818f1df5" name="EntityDefault" type="element" specialization="Class" />
+              <target id="74881ee1-8697-44ff-8e3d-3c6ff3a97afd" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e27c8bbb-a2fb-4e74-b88a-71b8f817f03b" name="DeleteEntityDefaultCommand" type="element" specialization="Command" />
+                  <target id="23e5c12f-64e2-4271-b33b-82a4a56af3db" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef03b679-da59-4fb9-87e3-2a2ffc2ccee2" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Db2Entities</name>
+  <display>Db2Entities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>984933da-3b5d-45c4-8e2f-64a9be2e33b0</parentFolderId>
+  <packageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</packageName>
+  <diagram>
+    <targetPackageId>984933da-3b5d-45c4-8e2f-64a9be2e33b0</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

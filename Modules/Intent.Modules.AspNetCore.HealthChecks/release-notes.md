@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Fixed: Disambiguation when multiple connection strings point to the same Persistence technology (i.e. SQL Server, Cosmos DB, etc.) by using the `connection string name` as the **health check entry name**. 
+
 ### Version 2.0.3
 
 - Improvement: Updated Interoperable dependency versions.

@@ -1,11 +1,20 @@
-﻿### Version 5.0.3
+﻿### Version 5.0.4
 
-- Fixed: Enabled non conventional ordinal types as primary keys
+- New Feature: Introduce multiple Db Contexts by making use of the `Database Settings` stereotype on a Domain Package and giving a unique connection string name.
+
+> ⚠️ **NOTE**
+> 
+> The DbContext template signature has changed, if you are building your own modules while referencing this one you will need to update your code.
+
+### Version 5.0.3
+
+- Fixed: Enabled non-conventional ordinal types as primary keys.
 
 ### Version 5.0.2
 
 - Fixed: Resolved several issues around TPC Inheritance hierarchies with ForeignKeys.
-- Improved: For EF 6 & 7 the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package will be installed to introduce `DateOnly` support for SQL Server.
+- Improvement: For EF 6 & 7 the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package will be installed to introduce `DateOnly` support for SQL Server.
+- Improvement: Updated to .NET 8 for Module project.
 - Fixed: `Pomelo.EntityFrameworkCore.MySql` will now install its appropriate version compatible for EF 8.
 
 ### Version 5.0.1

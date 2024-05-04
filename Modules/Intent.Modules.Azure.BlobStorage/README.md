@@ -88,3 +88,7 @@ A typical Azure connection string looks like this:
 ```
 
 This connection string should replace `"UseDevelopmentStorage=true"` in your `appsettings.json` for production deployments.
+
+## Azure Storage Explorer
+
+Connect to either your production Azure Blob Storage or Azurite using [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/) for previewing and managing your storage containers and blobs.

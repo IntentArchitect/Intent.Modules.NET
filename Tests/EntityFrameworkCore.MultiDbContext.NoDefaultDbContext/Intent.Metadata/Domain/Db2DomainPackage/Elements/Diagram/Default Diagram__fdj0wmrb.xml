@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04f1f0c1-ca72-421d-a71e-24c5ba9c8e54" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>34c0f6dd-391d-4546-93cd-f6f01b395940</parentFolderId>
+  <packageId>34c0f6dd-391d-4546-93cd-f6f01b395940</packageId>
+  <packageName>Db2DomainPackage</packageName>
+  <diagram>
+    <targetPackageId>34c0f6dd-391d-4546-93cd-f6f01b395940</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

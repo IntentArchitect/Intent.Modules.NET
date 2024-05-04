@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="98d82d90-0b19-4ece-ada4-d3007d5244a8" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetDb1EntitiesQuery</name>
+  <display>GetDb1EntitiesQuery: Db1EntityDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="2bf6ec93-6019-4e65-8e01-69ad92a2b651">
+    <typeId>762d6824-a695-4c66-b7f5-1816e293774a</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</typePackageName>
+    <typePackageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ca8423c9-5313-4327-8ba2-f13696bb0b27</parentFolderId>
+  <packageId>68f80ec7-a85e-4d8e-9e6c-cecec337bfc8</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/db1-entity" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Db1Entities" />
+  </metadata>
+  <childElements />
+</class>

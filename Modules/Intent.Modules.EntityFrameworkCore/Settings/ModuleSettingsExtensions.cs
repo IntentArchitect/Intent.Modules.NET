@@ -29,12 +29,12 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             {
                 return Value switch
                 {
-                    "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
                     "in-memory" => DatabaseProviderOptionsEnum.InMemory,
+                    "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
+                    "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
+                    "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
                     "my-sql" => DatabaseProviderOptionsEnum.MySql,
                     "oracle" => DatabaseProviderOptionsEnum.Oracle,
-                    "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
-                    "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }

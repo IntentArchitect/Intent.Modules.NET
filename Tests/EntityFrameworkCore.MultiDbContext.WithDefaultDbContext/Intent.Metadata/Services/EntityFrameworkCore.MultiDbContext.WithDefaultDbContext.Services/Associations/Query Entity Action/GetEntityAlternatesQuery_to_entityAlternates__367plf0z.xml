@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="59e4522e-9296-4f57-aa73-f6789da8f8fb">
+  <sourceEnd id="4b50440d-4acc-4e82-8ea3-8116503faa0f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetEntityAlternatesQuery</display>
+    <order>0</order>
+    <typeReference id="2af73c86-5528-427e-8f02-f9e3bb457fc1">
+      <typeId>c0a418a6-bf1b-40ce-a6b7-a61acf5f0641</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Services</typePackageName>
+      <typePackageId>6012f803-9699-417a-a3d4-1adbc75edf1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="59e4522e-9296-4f57-aa73-f6789da8f8fb" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entityAlternates</name>
+    <display>[query] entityAlternates: EntityAlternate[*]</display>
+    <order>0</order>
+    <typeReference id="4bf5bad1-3bc4-4320-947a-ec0baedeeded">
+      <typeId>a3ccf494-b77a-4c38-89d0-15c39668dfab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AlternateConnStrDefaultDbDomainPackage</typePackageName>
+      <typePackageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c0a418a6-bf1b-40ce-a6b7-a61acf5f0641" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[GetEntityAlternatesQuery]" />
+        <target applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3ccf494-b77a-4c38-89d0-15c39668dfab" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[EntityAlternate]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

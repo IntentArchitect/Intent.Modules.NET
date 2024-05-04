@@ -18,7 +18,7 @@ namespace Redis.Om.Repositories.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddRedis(configuration.GetConnectionString("REDIS_CONNECTION_STRING")!, name: "Redis", tags: new[] { "database" });
+            hcBuilder.AddRedis(configuration.GetConnectionString("RedisOmConnectionString")!, name: "RedisOmConnectionString", tags: new[] { "database", "Redis" });
 
             return services;
         }

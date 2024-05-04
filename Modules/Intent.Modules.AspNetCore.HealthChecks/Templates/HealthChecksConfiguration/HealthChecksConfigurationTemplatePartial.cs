@@ -239,12 +239,30 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             var arg = GetConnectionStringArgument(@event, connectionStringNameVar, connectionStringSettingPathVar);
 
             configStmt.AddArgument(arg);
-            configStmt.AddArgument($@"name: ""{@event.InfrastructureComponent}""");
-            configStmt.AddArgument($@"tags: new[] {{ ""database"" }}");
+            configStmt.AddArgument($@"name: ""{GetName(@event, connectionStringNameVar, connectionStringSettingPathVar)}""");
+            configStmt.AddArgument($@"tags: new[] {{ ""database"", ""{@event.InfrastructureComponent}"" }}");
 
             yield return configStmt;
         }
 
+        private static string GetName(
+            InfrastructureRegisteredEvent @event,
+            string connectionStringNameVar,
+            string connectionStringSettingPathVar)
+        {
+            if (@event.Properties.TryGetValue(connectionStringNameVar, out var connectionStringName))
+            {
+                return connectionStringName;
+            }
+
+            if (@event.Properties.TryGetValue(connectionStringSettingPathVar, out var connectionStringSettingPath))
+            {
+                return connectionStringSettingPath;
+            }
+
+            return null;
+        }
+        
         private static string GetConnectionStringArgument(
             InfrastructureRegisteredEvent @event,
             string connectionStringNameVar,

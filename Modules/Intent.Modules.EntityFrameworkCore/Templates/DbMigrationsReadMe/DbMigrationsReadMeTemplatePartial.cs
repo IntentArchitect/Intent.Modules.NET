@@ -27,10 +27,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
         public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            IncludeDbContextArguments = DbContextManager.GetDbContexts(ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Count > 1;
         }
 
         public bool IncludeStartupProjectArguments { get; set; } = true;
-        public bool IncludeDbContextArguments { get; set; } = false;
+        public bool IncludeDbContextArguments { get; set; }
         public List<string> ExtraArguments { get; } = new();
         public string ExtraComments { get; set; } = string.Empty;
 
@@ -75,7 +76,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             }
             return false;
         })?.Name ?? "UNKNOWN";
-        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId)?.ClassName ?? "UNKNOWN";
+        public string DbContext => ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateRoles.Infrastructure.Data.DbContext)?.ClassName ?? "DBCONTEXT_NAME";
 
         public override void BeforeTemplateExecution()
         {

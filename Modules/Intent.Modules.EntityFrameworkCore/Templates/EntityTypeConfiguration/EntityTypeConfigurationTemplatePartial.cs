@@ -30,7 +30,7 @@ using ClassExtensionModel = Intent.Metadata.RDBMS.Api.ClassExtensionModel;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    [IntentManaged(Mode.Merge)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         private IIntentTemplate _entityTemplate;

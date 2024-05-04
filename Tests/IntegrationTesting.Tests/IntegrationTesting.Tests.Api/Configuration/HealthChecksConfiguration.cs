@@ -18,7 +18,7 @@ namespace IntegrationTesting.Tests.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddNpgSql(configuration.GetConnectionString("DefaultConnection")!, name: "PostgreSql", tags: new[] { "database" });
+            hcBuilder.AddNpgSql(configuration.GetConnectionString("DefaultConnection")!, name: "DefaultConnection", tags: new[] { "database", "PostgreSql" });
 
             return services;
         }

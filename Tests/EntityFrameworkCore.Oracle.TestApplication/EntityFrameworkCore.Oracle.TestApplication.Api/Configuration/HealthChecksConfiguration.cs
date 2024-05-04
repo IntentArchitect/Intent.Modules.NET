@@ -18,7 +18,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddOracle(configuration.GetConnectionString("DefaultConnection")!, name: "Oracle", tags: new[] { "database" });
+            hcBuilder.AddOracle(configuration.GetConnectionString("DefaultConnection")!, name: "DefaultConnection", tags: new[] { "database", "Oracle" });
 
             return services;
         }

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{DAE011E8-F702-4279-931B-4C6F94CF5501}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Api", "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Api\EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Api.csproj", "{CA8F6116-B0B1-456A-9E73-2EF589FE523C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D3A106E1-153D-460D-83F6-CB475458F6FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application", "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application\EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.csproj", "{182C1C48-9344-4F63-AF95-BA26A70BDC0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{B959A3D2-DDA6-4978-8918-B9EF499BDCDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain", "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain\EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.csproj", "{8AF0696C-321B-43E3-B58B-36231EE09B5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{253D44B4-DC59-45A4-9B1A-4A3E71A33FB4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure", "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure\EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.csproj", "{B883B1B8-B427-449E-A1E5-9E2FA7555AE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA8F6116-B0B1-456A-9E73-2EF589FE523C} = {DAE011E8-F702-4279-931B-4C6F94CF5501}
+		{182C1C48-9344-4F63-AF95-BA26A70BDC0A} = {D3A106E1-153D-460D-83F6-CB475458F6FE}
+		{8AF0696C-321B-43E3-B58B-36231EE09B5D} = {B959A3D2-DDA6-4978-8918-B9EF499BDCDA}
+		{B883B1B8-B427-449E-A1E5-9E2FA7555AE1} = {253D44B4-DC59-45A4-9B1A-4A3E71A33FB4}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA8F6116-B0B1-456A-9E73-2EF589FE523C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8F6116-B0B1-456A-9E73-2EF589FE523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8F6116-B0B1-456A-9E73-2EF589FE523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8F6116-B0B1-456A-9E73-2EF589FE523C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182C1C48-9344-4F63-AF95-BA26A70BDC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182C1C48-9344-4F63-AF95-BA26A70BDC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182C1C48-9344-4F63-AF95-BA26A70BDC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182C1C48-9344-4F63-AF95-BA26A70BDC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF0696C-321B-43E3-B58B-36231EE09B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF0696C-321B-43E3-B58B-36231EE09B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF0696C-321B-43E3-B58B-36231EE09B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF0696C-321B-43E3-B58B-36231EE09B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B883B1B8-B427-449E-A1E5-9E2FA7555AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B883B1B8-B427-449E-A1E5-9E2FA7555AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B883B1B8-B427-449E-A1E5-9E2FA7555AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B883B1B8-B427-449E-A1E5-9E2FA7555AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

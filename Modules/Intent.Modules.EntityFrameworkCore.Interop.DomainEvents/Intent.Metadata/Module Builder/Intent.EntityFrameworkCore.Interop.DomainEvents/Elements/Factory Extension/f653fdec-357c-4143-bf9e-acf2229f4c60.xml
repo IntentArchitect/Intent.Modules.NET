@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f653fdec-357c-4143-bf9e-acf2229f4c60" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainEventsDbContextExtension</name>
+  <display>DomainEventsDbContextExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a5033b02-4c16-4147-a551-888d3d582f7d</parentFolderId>
+  <packageId>a5033b02-4c16-4147-a551-888d3d582f7d</packageId>
+  <packageName>Intent.EntityFrameworkCore.Interop.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

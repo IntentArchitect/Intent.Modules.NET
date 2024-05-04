@@ -106,7 +106,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 switch (serilogSink.AsEnum())
                 {
                     case SerilogSettings.SinksOptionsEnum.Console:
-                        args["outputTemplate"] = "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Category:0} - {Message}{NewLine:1}";
+                        args["outputTemplate"] = "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Category:0} - {Message}{NewLine:1}{Exception}";
                         args["restrictedToMinimumLevel"] = "Information";
                         break;
                     case SerilogSettings.SinksOptionsEnum.File:

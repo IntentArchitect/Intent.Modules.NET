@@ -26,6 +26,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmConfig
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Redis.OM")
+                .AddUsing("StackExchange.Redis")
                 .AddClass($"RedisOmConfiguration", @class =>
                 {
                     @class.Static();
@@ -34,7 +35,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmConfig
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement(@"services.AddSingleton(new RedisConnectionProvider(configuration.GetConnectionString(""REDIS_CONNECTION_STRING"")!));");
+                        method.AddStatement($@"services.AddSingleton(sp => new RedisConnectionProvider(ConnectionMultiplexer.Connect(configuration.GetConnectionString(""{Constants.RedisConnectionStringName}"")!)));");
                         method.AddStatement($"services.AddHostedService<{this.GetIndexCreationServiceName()}>();");
                         method.AddStatement("return services;");
                     });
@@ -43,7 +44,6 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmConfig
 
         public override void BeforeTemplateExecution()
         {
-
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureRedisOm", ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
                 .HasDependency(this));

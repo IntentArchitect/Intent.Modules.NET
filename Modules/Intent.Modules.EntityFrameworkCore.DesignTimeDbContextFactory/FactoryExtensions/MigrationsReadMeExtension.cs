@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Plugins.FactoryExtensions;

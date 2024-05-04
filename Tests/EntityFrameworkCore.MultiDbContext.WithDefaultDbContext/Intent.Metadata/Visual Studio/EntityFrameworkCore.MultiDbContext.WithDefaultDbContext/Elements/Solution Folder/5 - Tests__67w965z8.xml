@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d43a7e5a-c5cf-4fad-bd48-1f941d6f098a" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>5 - Tests</name>
+  <display>5 - Tests</display>
+  <externalReference>2eec150a-ef65-4692-858c-cbea692eca44</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>5</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d431f5ce-182f-49ae-bce3-355b0bb892ee</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="366017f3-2e36-4c33-8b6d-f0048a2ee3a7" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+      <name>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTests</name>
+      <display>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTests</display>
+      <externalReference>87f39267-3853-4ca9-a7db-53a667d293a1</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d43a7e5a-c5cf-4fad-bd48-1f941d6f098a</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+            <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+            <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
+            <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
+            <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
+            <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
+            <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
+            <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" value="" isActive="false" />
+            <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
+            <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" isActive="true" />
+            <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" isActive="true" />
+            <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" isActive="true" />
+            <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" isActive="true" />
+            <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
+            <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
+            <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="enable" isActive="true" />
+            <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
+            <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+            <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+            <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+            <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="enable" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8f61148d-a784-4f7c-b105-f792bd3351f9" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>HttpClients</name>
+          <display>HttpClients</display>
+          <externalReference>a8789b61-65c2-46f5-a32c-4ff2d92f763d</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+              <properties>
+                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="4d14b772-a2a5-4d46-ade8-a24b6ce1e952" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>IntegrationTests.HttpClients</name>
+              <display>IntegrationTests.HttpClients</display>
+              <externalReference>d4443416-18f0-408a-810b-726906b4e418</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="0386586e-0b67-4b6a-bfb0-ada527cb2043" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.HttpClient</name>
+              <display>Intent.AspNetCore.IntegrationTesting.HttpClient</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="8bd376ac-a03b-424d-a519-6440cf19fae4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.HttpClientRequestException</name>
+              <display>Intent.AspNetCore.IntegrationTesting.HttpClientRequestException</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="d8f81a63-c986-474b-8ac6-7499f84d20e3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.JsonResponse</name>
+              <display>Intent.AspNetCore.IntegrationTesting.JsonResponse</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="c5a45b37-feae-4fda-b241-1713805dc824" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract</name>
+              <display>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+            <childElement id="83eb7de2-95b0-46d6-8e17-f35df119f066" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</name>
+              <display>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>8f61148d-a784-4f7c-b105-f792bd3351f9</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="42851bbf-b71b-4722-90cd-f3a6702fc857" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>Services</name>
+          <display>Services</display>
+          <externalReference>c9dbc4de-f90f-4970-a858-3908ee6d9a3e</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+              <properties>
+                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="c8139121-5edd-4dbe-b0e4-7d66cd67dd31" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>IntegrationTests.PagedResult</name>
+              <display>IntegrationTests.PagedResult</display>
+              <externalReference>31f47c80-d53b-484a-8ba1-d463ec54e5bf</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>42851bbf-b71b-4722-90cd-f3a6702fc857</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="2fd0154a-ffd5-4626-875f-d65f73dab56b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.PagedResult</name>
+              <display>Intent.AspNetCore.IntegrationTesting.PagedResult</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>42851bbf-b71b-4722-90cd-f3a6702fc857</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="3cf49f69-aeae-4d38-936a-58b43cd12514" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>Tests</name>
+          <display>Tests</display>
+          <externalReference>2173c93e-11d2-4750-99c2-2f5a83dd35b9</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+              <properties>
+                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="3a815605-9814-4b5c-a4c3-87737e471c66" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+              <name>IntegrationTests.Tests</name>
+              <display>IntegrationTests.Tests</display>
+              <externalReference>219e8b45-a2a8-48a5-aeb9-a3c77eeb64a7</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>3cf49f69-aeae-4d38-936a-58b43cd12514</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="60bd8568-d851-4562-8524-8f1ecf70a104" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</name>
+              <display>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest</display>
+              <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>3cf49f69-aeae-4d38-936a-58b43cd12514</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="af09a162-e383-4962-88e5-d2a265cceedb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>IntegrationTests</name>
+          <display>IntegrationTests</display>
+          <externalReference>ab3b904b-9eb4-429e-a710-d03e2fb89072</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6d99506d-d370-43fa-8837-6dc06433c9ec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.BaseIntegrationTest</name>
+          <display>Intent.AspNetCore.IntegrationTesting.BaseIntegrationTest</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="1d925c4d-a00f-445c-8c04-16544e1c6688" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.CosmosContainerFixture</name>
+          <display>Intent.AspNetCore.IntegrationTesting.CosmosContainerFixture</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="122b97c9-f715-4fab-922f-73b94ec4a837" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.DtoContract</name>
+          <display>Intent.AspNetCore.IntegrationTesting.DtoContract</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="48473f29-9776-4b14-b2e9-e5b8bd362d3d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.EFContainerFixture</name>
+          <display>Intent.AspNetCore.IntegrationTesting.EFContainerFixture</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="f5c64ead-9bcf-44d9-ac52-a724d3c51237" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.EnumContract</name>
+          <display>Intent.AspNetCore.IntegrationTesting.EnumContract</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2475e936-6ade-4387-ae19-8e5cd91b4204" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory</name>
+          <display>Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="b1aba4e4-666f-45f3-b3bf-6c407b59d2c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</name>
+          <display>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="29d3f2b7-b0cb-43cf-81dd-255cf4562817" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Modules.AspNetCore.IntegrationTesting.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration</name>
+          <display>Intent.Modules.AspNetCore.IntegrationTesting.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="62cff8c9-08f4-4731-ba32-721492d9993d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTests.CRUD.PopulateIdsSpecimenBuilder</name>
+          <display>Intent.AspNetCore.IntegrationTests.CRUD.PopulateIdsSpecimenBuilder</display>
+          <externalReference>Intent.AspNetCore.IntegrationTests.CRUD</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="ec33a707-41f6-44fd-8db9-b233e7ba6ca8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory</name>
+          <display>Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory</display>
+          <externalReference>Intent.AspNetCore.IntegrationTests.CRUD</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="74bbeb20-f2d8-4065-9a85-0039fcb5275d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.IntegrationTesting.ContainerCosmosClientProvider</name>
+          <display>Intent.AspNetCore.IntegrationTesting.ContainerCosmosClientProvider</display>
+          <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>366017f3-2e36-4c33-8b6d-f0048a2ee3a7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

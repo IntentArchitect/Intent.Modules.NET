@@ -138,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContext/DbContextTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContext/DbContextTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>

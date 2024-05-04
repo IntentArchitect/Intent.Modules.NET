@@ -19,7 +19,7 @@ namespace MultipleDocumentStores.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDb", tags: new[] { "database" });
+            hcBuilder.AddMongoDb(configuration.GetConnectionString("MongoDbConnection")!, name: "MongoDbConnection", tags: new[] { "database", "MongoDb" });
             hcBuilder.Services.AddSingleton(_ => new CosmosClient(configuration["RepositoryOptions:CosmosConnectionString"]!));
             hcBuilder.AddAzureCosmosDB(name: "CosmosDb", tags: new[] { "database" });
 

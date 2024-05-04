@@ -28,10 +28,10 @@ namespace CleanArchitecture.SingleFiles.Infrastructure
             });
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
-            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<ICosmosInvoiceRepository, CosmosInvoiceCosmosDBRepository>();
             services.AddScoped<IDaprInvoiceRepository, DaprInvoiceDaprStateStoreRepository>();
             services.AddTransient<IMongoInvoiceRepository, MongoInvoiceMongoRepository>();
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());

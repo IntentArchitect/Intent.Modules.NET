@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9588cc06-24c7-405f-88ea-2560ef024f56">
+  <sourceEnd id="cb765057-f213-4443-bc0a-24c7ef2fd5da" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetEntityAlternateByIdQuery</display>
+    <order>0</order>
+    <typeReference id="e1dc8f68-94eb-4c46-8c31-420826c83f97">
+      <typeId>0f578988-3131-4cea-bf36-fc47e413eda0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Services</typePackageName>
+      <typePackageId>6012f803-9699-417a-a3d4-1adbc75edf1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9588cc06-24c7-405f-88ea-2560ef024f56" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entityAlternate</name>
+    <display>[query] entityAlternate: EntityAlternate</display>
+    <order>1</order>
+    <typeReference id="d9acb590-ecb5-4535-9416-67ee4e4ed85b">
+      <typeId>a3ccf494-b77a-4c38-89d0-15c39668dfab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AlternateConnStrDefaultDbDomainPackage</typePackageName>
+      <typePackageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0f578988-3131-4cea-bf36-fc47e413eda0" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[GetEntityAlternateByIdQuery]" />
+        <target applicationId="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a3ccf494-b77a-4c38-89d0-15c39668dfab" location="[EntityFrameworkCore.MultiDbContext.WithDefaultDbContext].[Services].[EntityAlternate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a3ccf494-b77a-4c38-89d0-15c39668dfab" name="EntityAlternate" type="element" specialization="Class" />
+              <target id="ff33a2e3-deb2-4464-9bbb-f2f33456c02b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="0f578988-3131-4cea-bf36-fc47e413eda0" name="GetEntityAlternateByIdQuery" type="element" specialization="Query" />
+                  <target id="6a68945b-4737-4c4a-b245-8565e1c7664a" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

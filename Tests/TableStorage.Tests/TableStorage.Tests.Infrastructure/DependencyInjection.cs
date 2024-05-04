@@ -20,12 +20,6 @@ namespace TableStorage.Tests.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<TableServiceClient>(provider => new TableServiceClient(configuration["TableStorageConnectionString"]));
-            services.AddDbContext<ApplicationDbContext>((sp, options) =>
-            {
-                options.UseInMemoryDatabase("DefaultConnection");
-                options.UseLazyLoadingProxies();
-            });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IInvoiceRepository, InvoiceTableStorageRepository>();
             services.AddScoped<IOrderRepository, OrderTableStorageRepository>();
             services.AddScoped<TableStorageUnitOfWork>();

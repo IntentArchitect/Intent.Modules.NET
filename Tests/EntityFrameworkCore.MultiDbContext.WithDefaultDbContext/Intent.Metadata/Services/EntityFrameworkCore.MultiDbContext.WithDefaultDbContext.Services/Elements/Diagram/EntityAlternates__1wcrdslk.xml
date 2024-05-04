@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="39903f1b-3421-4ea4-ada7-180eaf0e760e" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>EntityAlternates</name>
+  <display>EntityAlternates</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>432c0c00-4e6d-4f5b-b95e-9e0f295672b2</parentFolderId>
+  <packageId>6012f803-9699-417a-a3d4-1adbc75edf1e</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Services</packageName>
+  <diagram>
+    <targetPackageId>432c0c00-4e6d-4f5b-b95e-9e0f295672b2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

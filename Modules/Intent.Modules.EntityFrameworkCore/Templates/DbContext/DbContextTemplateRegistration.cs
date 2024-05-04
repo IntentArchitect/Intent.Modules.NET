@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
+using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -12,12 +13,12 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DbContextTemplateRegistration : SingleFileListModelTemplateRegistration<ClassModel>
+    public class DbContextTemplateRegistration : FilePerModelTemplateRegistration<DbContextInstance>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -29,17 +30,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public override string TemplateId => DbContextTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DbContextInstance model)
         {
             return new DbContextTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IList<ClassModel> GetModels(IApplication application)
+        public override IEnumerable<DbContextInstance> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
-                .ToList();
+            return DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
-  <version>4.0.9</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.1.0-pre.0</version>
+  <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Supplies Domain Event publishing capability within Entity Framework Core</summary>
   <description>Supplies Domain Event publishing capability within Entity Framework Core</description>
   <authors>Intent Architect</authors>
@@ -11,13 +11,13 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet entityframework ef domain-events</tags>
   <decorators>
-    <decorator id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsConfigurationsDecorator" externalReference="0ce0087a-0174-4234-a8c3-89d81863f950" />
-    <decorator id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDbContextDecorator" externalReference="b5514200-bd04-4f58-b300-743e5b2aac2a" />
     <decorator id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsEntityStateDecorator" />
   </decorators>
-  <factoryExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDbContextExtension" externalReference="f653fdec-357c-4143-bf9e-acf2229f4c60" />
+  </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.1" />
+    <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.3.42" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.DomainEvents" version="4.1.1" />

@@ -38,15 +38,15 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
-        private readonly ICurrentUserService _currentUserService;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IDomainEventService domainEventService,
-            ICurrentUserService currentUserService) : base(options)
+            ICurrentUserService currentUserService,
+            IDomainEventService domainEventService) : base(options)
         {
-            _domainEventService = domainEventService;
             _currentUserService = currentUserService;
+            _domainEventService = domainEventService;
         }
+        private readonly ICurrentUserService _currentUserService;
 
         [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -212,7 +212,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         }
 
         /// <summary>
-        /// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model. 
+        /// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model.
         /// However EnsureCreatedAsync should only be called during deployment, not normal operation, as it may cause performance issues.
         /// </summary>
         public async Task EnsureDbCreatedAsync()

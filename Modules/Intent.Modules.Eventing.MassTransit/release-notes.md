@@ -1,6 +1,10 @@
+### Version 6.1.3
+
+- Fixed: EventBus flush all would not have been invoked if there wasn't a DbContext present.
+
 ### Version 6.1.2
 
-- - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
+- Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
 
 ### Version 6.1.1
 

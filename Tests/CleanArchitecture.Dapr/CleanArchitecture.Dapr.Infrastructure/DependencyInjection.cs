@@ -24,12 +24,6 @@ namespace CleanArchitecture.Dapr.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>((sp, options) =>
-            {
-                options.UseInMemoryDatabase("DefaultConnection");
-                options.UseLazyLoadingProxies();
-            });
-            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IClientRepository, ClientDaprStateStoreRepository>();
             services.AddScoped<IDerivedRepository, DerivedDaprStateStoreRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTDaprStateStoreRepository>();
