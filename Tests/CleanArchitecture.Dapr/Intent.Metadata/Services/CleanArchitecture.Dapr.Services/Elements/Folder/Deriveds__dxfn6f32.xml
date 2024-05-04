@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>54dc2464-246c-461d-9fbd-d03956c25688</parentFolderId>
+  <parentFolderId>20aa6ac5-ed17-415e-9e0d-665c18170613</parentFolderId>
   <packageId>54dc2464-246c-461d-9fbd-d03956c25688</packageId>
   <packageName>CleanArchitecture.Dapr.Services</packageName>
   <stereotypes>

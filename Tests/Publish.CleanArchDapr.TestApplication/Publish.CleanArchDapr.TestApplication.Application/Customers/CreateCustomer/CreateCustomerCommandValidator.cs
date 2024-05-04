@@ -19,6 +19,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.CreateCust
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            RuleFor(v => v.Name)
+                .NotNull();
         }
     }
 }

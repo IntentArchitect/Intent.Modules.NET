@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerController;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
+using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventInterface;
 using Intent.RoslynWeaver.Attributes;
 
@@ -14,27 +17,37 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDaprEventHandlerControllerName<T>(this IntentTemplateBase<T> template)
+        public static string GetDaprEventHandlerControllerName(this IIntentTemplate template)
         {
             return template.GetTypeName(DaprEventHandlerControllerTemplate.TemplateId);
         }
 
-        public static string GetEventBusImplementationName<T>(this IntentTemplateBase<T> template)
+        public static string GetEventBusImplementationName(this IIntentTemplate template)
         {
             return template.GetTypeName(EventBusImplementationTemplate.TemplateId);
         }
 
-        public static string GetEventHandlerName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
+        public static string GetEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
             return template.GetTypeName(EventHandlerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEventHandlerName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageModel model)
+        public static string GetEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
         {
             return template.GetTypeName(EventHandlerTemplate.TemplateId, model);
         }
 
-        public static string GetEventInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : MessageModel
+        {
+            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEventHandlerImplementationName(this IIntentTemplate template, MessageModel model)
+        {
+            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, model);
+        }
+
+        public static string GetEventInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(EventInterfaceTemplate.TemplateId);
         }

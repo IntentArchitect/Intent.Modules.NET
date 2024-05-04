@@ -32,6 +32,8 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");
             }
 
+            existingCustomer.Name = request.Name;
+
         }
     }
 }

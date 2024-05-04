@@ -11,8 +11,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.CreateCust
 {
     public class CreateCustomerCommand : IRequest<Guid>, ICommand
     {
-        public CreateCustomerCommand()
+        public CreateCustomerCommand(string name)
         {
+            Name = name;
         }
+
+        public string Name { get; set; }
     }
 }

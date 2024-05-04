@@ -15,14 +15,14 @@ namespace Intent.Dapr.AspNetCore.Pubsub.Api
     {
         public static DaprSettings GetDaprSettings(this MessageModel model)
         {
-            var stereotype = model.GetStereotype("Dapr Settings");
+            var stereotype = model.GetStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7");
             return stereotype != null ? new DaprSettings(stereotype) : null;
         }
 
 
         public static bool HasDaprSettings(this MessageModel model)
         {
-            return model.HasStereotype("Dapr Settings");
+            return model.HasStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7");
         }
 
         public static bool TryGetDaprSettings(this MessageModel model, out DaprSettings stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Dapr.AspNetCore.Pubsub.Api
                 return false;
             }
 
-            stereotype = new DaprSettings(model.GetStereotype("Dapr Settings"));
+            stereotype = new DaprSettings(model.GetStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7"));
             return true;
         }
 

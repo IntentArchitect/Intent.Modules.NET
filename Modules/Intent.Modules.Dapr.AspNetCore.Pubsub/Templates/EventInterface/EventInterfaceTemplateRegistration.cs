@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventInterface
     {
         public override string TemplateId => EventInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new EventInterfaceTemplate(outputTarget);

@@ -11,11 +11,13 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
 {
     public class UpdateCustomerCommand : IRequest, ICommand
     {
-        public UpdateCustomerCommand(Guid id)
+        public UpdateCustomerCommand(Guid id, string name)
         {
             Id = id;
+            Name = name;
         }
         public Guid Id { get; set; }
+        public string Name { get; set; }
 
     }
 }

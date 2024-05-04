@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
     {
         public override string TemplateId => DaprEventHandlerControllerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DaprEventHandlerControllerTemplate(outputTarget);

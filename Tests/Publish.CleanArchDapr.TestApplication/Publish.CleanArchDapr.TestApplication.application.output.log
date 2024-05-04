@@ -508,6 +508,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3e2c5d5d-050d-4908-83db-ae5c5275ea43</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#115837d7-a8d5-4f87-befe-c68fbab0d6f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEvents/CustomerCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e2c5d5d-050d-4908-83db-ae5c5275ea43</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#7b93e001-85a0-4e3d-8333-9777a4789c9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEvents/OrderCreatedEvent.cs</ApplicationRelativeFilePath>
@@ -868,7 +876,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9837918-1f27-4bd6-b37b-e10285231ec9</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

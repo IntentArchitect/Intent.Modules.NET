@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="de39a8bb-d1ab-418c-9c5b-522a9381eaab">
   <sourceEnd id="584701eb-b10c-46ca-b412-c97474d5c016" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
-    <name>Publish.CleanArchDapr.TestApplication</name>
     <display>publisher: Publish.CleanArchDapr.TestApplication</display>
     <order>0</order>
     <typeReference id="cb43f1d4-8642-4978-9b52-bd3ba9568623">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="de39a8bb-d1ab-418c-9c5b-522a9381eaab" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
-    <name>OrderCreated</name>
     <display>publish: OrderCreated</display>
     <order>0</order>
     <typeReference id="d219eb2a-69c1-4fbc-8c45-82b54cdfbf30">

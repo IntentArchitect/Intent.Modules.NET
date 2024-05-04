@@ -4,9 +4,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -16,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EventHandlerTemplateRegistration : FilePerModelTemplateRegistration<MessageModel>
+    public class EventHandlerTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -27,15 +28,16 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
 
         public override string TemplateId => EventHandlerTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageModel model)
+        [IntentManaged(Mode.Fully)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
         {
             return new EventHandlerTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<MessageModel> GetModels(IApplication application)
+        public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetSubscribedToMessageModels(application);
+            return _metadataManager.Services(application).GetIntegrationEventHandlerModels();
         }
     }
 }

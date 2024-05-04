@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="f740cfc1-6366-45b8-a3ff-c5ca811d7360">
   <sourceEnd id="99a96e44-efda-4556-85e4-e2a584d6d859" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
-    <name>Subscribe.CleanArchDapr.TestApplication</name>
     <display>subscriber: Subscribe.CleanArchDapr.TestApplication</display>
     <order>0</order>
     <typeReference id="96bbfdf5-35c8-43b7-ab50-ad1b3c2561fc">
@@ -20,7 +19,6 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="f740cfc1-6366-45b8-a3ff-c5ca811d7360" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
-    <name>OrderCreated</name>
     <display>subscribe: OrderCreated</display>
     <order>0</order>
     <typeReference id="b0ed663a-c6d6-4458-b13d-1bb0dd8ff68e">

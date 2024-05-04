@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="115837d7-a8d5-4f87-befe-c68fbab0d6f5" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>CustomerCreated</name>
+  <display>CustomerCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</parentFolderId>
+  <packageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ec96e452-9084-49bb-a883-aa42eb327fe7" name="Dapr Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Dapr.AspNetCore.Pubsub</definitionPackageName>
+      <definitionPackageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</definitionPackageId>
+      <properties>
+        <property name="059416d7-133b-4053-ab32-35412a06f670" display="Pubsub Name" isActive="true" />
+        <property name="a15b6899-7366-4fd7-b018-47a482e05432" display="Topic Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="53987996-5cf4-4fb3-9a69-2b11c35d6b4c" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="426007c4-1ee2-45ae-a16f-3170cd265043">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>115837d7-a8d5-4f87-befe-c68fbab0d6f5</parentFolderId>
+      <packageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
