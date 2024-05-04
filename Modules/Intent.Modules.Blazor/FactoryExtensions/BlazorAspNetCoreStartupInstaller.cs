@@ -42,8 +42,6 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         .AddChainStatement("AddInteractiveWebAssemblyComponents()")
                         .WithSemicolon();
                     statements.AddStatement(addRazorComponents);
-                    // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
-                    statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
                 });
 
                 startup.StartupFile.ConfigureApp((statements, context) =>

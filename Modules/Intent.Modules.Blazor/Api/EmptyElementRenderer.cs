@@ -13,12 +13,12 @@ public class EmptyElementRenderer : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         //var htmlElement = new HtmlElement(component.Name, _template.BlazorFile);
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).BuildComponent(child, node);
+            _componentResolver.ResolveFor(child).BuildComponent(child, parentNode);
         }
         //node.AddNode(htmlElement);
     }

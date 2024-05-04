@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="5390c64a-b598-4e25-ba4f-c881b4e93140" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Client</name>
-  <display>Client</display>
+<class id="6008721e-d891-44af-a711-4159af9f4c10" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Components</name>
+  <display>Components</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d707ee61-4652-4a0a-8f80-f273363b33cf</parentFolderId>
@@ -21,19 +19,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="fac884ab-46cc-4d7b-8db9-f165a949ed3d" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Blazor.Client</name>
-      <display>Blazor.Client</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5390c64a-b598-4e25-ba4f-c881b4e93140</parentFolderId>
-      <packageId>915db132-3fe9-40ba-8d3b-79ca38203475</packageId>
-      <packageName>${application.name}</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

@@ -20,11 +20,11 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
         var layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
-        node.AddChildNode(layoutHtml);
+        parentNode.AddChildNode(layoutHtml);
 
         if (layoutModel.Header != null)
         {
@@ -45,26 +45,20 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
             layoutHtml.AddAttribute("Sider");
             layoutHtml.AddHtmlElement("LayoutSider", layoutSider =>
             {
-                if (layoutModel.Sider.GetContent().Body())
+                layoutSider.AddHtmlElement("LayoutSiderContent", layoutSiderContent =>
                 {
-                    layoutSider.AddHtmlElement("LayoutSiderContent", layoutSiderContent =>
+                    foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
                     {
-                        foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
-                        {
-                            _componentResolver.ResolveFor(child).BuildComponent(child, layoutSiderContent);
-                        }
-                    });
-                }
+                        _componentResolver.ResolveFor(child).BuildComponent(child, layoutSiderContent);
+                    }
+                });
             });
         }
         layoutHtml.AddHtmlElement("LayoutContent", layoutContent =>
         {
-            if (layoutModel.Sider?.GetContent().Body() == true)
+            foreach (var child in layoutModel.Body.InternalElement.ChildElements)
             {
-                foreach (var child in layoutModel.Body.InternalElement.ChildElements)
-                {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
-                }
+                _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
             }
             layoutContent.AddAttribute("Padding", "Padding.Is4.OnX.Is4.FromTop");
             layoutContent.WithText("@Body");

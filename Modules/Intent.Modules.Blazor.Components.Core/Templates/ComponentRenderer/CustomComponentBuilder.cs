@@ -19,7 +19,7 @@ public class CustomComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var model = new ComponentModel((IElement)component.TypeReference.Element);
         var htmlElement = new HtmlElement(_componentTemplate.GetTypeName(component.TypeReference), _componentTemplate.RazorFile);
@@ -69,6 +69,6 @@ public class CustomComponentBuilder : IRazorComponentBuilder
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

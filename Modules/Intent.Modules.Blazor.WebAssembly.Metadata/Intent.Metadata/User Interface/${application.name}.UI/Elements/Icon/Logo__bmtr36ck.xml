@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e97ff299-f4e7-4e05-a8d5-6d7ea557a719" type="Icon" typeId="3c5f8ea8-061a-4e71-826f-59f9281abe71">
+  <name>Logo</name>
+  <display>Logo</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1bc6d5d7-d57b-4097-bebb-448aab991e78</parentFolderId>
+  <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+  <packageName>${application.name}.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b71f0a4d-82b4-4685-b58f-a31ea77c45dd" name="Icon Appearance">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+      <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+      <properties>
+        <property name="07f92b63-f47b-4245-9078-ed32749dc82c" display="Name" value="{&quot;source&quot;:&quot;bars&quot;,&quot;type&quot;:2,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

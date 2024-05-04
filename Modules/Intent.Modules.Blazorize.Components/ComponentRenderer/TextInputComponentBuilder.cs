@@ -18,7 +18,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("Validation", _componentTemplate.RazorFile)
@@ -34,6 +34,6 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
                         .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
                 });
             });
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

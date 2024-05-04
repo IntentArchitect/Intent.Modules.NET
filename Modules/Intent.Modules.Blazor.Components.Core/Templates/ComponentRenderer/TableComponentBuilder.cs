@@ -18,7 +18,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
         var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
@@ -31,7 +31,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     .WithText("Loading...");
             });
         });
-        node.AddChildNode(loadingCode);
+        parentNode.AddChildNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("table", htmlTable =>
         {
@@ -51,22 +51,21 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 })
                 .AddHtmlElement("tbody", tbody =>
                 {
-                    var mappingManager = _componentTemplate.CreateMappingManager();
                     var mappedEnd = _bindingManager.GetMappedEndFor(table);
-                    tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, mappingManager)})", block =>
+                    tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
                     {
-                        mappingManager.SetFromReplacement(mappedEnd.SourceElement, "item");
+                        parentNode.AddMappingReplacement(mappedEnd.SourceElement, "item");
                         block.AddHtmlElement("tr", tr =>
                         {
                             if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                             {
-                                tr.AddAttribute("@onclick", $"() => {_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mappingManager)}");
+                                tr.AddAttribute("@onclick", $"() => {_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", parentNode)}");
                             }
                             foreach (var column in table.Columns)
                             {
                                 tr.AddHtmlElement("td", td =>
                                 {
-                                    var columnMapping = _bindingManager.GetElementBinding(column, mappingManager);
+                                    var columnMapping = _bindingManager.GetElementBinding(column, parentNode);
                                     if (columnMapping != null)
                                     {
                                         td.WithText($"@{columnMapping}");
@@ -85,6 +84,6 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 });
         });
 
-        node.AddChildNode(tableCode);
+        parentNode.AddChildNode(tableCode);
     }
 }

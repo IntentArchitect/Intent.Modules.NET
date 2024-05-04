@@ -15,7 +15,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("label", _componentTemplate.RazorFile)
@@ -24,6 +24,6 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
             {
                 inputText.AddAttribute("@bind-Value", textInput.Value.Trim('{', '}'));
             });
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

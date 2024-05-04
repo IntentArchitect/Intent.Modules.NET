@@ -4,7 +4,9 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Blazor.Api;
 
@@ -71,15 +73,16 @@ public static class RazorFileExtensions
             if (child.IsComponentOperationModel())
             {
                 var operation = child.AsComponentOperationModel();
-                block.AddMethod(template.GetTypeName(operation.TypeReference), operation.Name.ToPropertyName(), method =>
+                var methodName = operation.CallServiceOperationActionTargets().Any() ? $"{operation.Name.ToPropertyName().RemoveSuffix("Async")}Async" : operation.Name.ToPropertyName();
+                block.AddMethod(template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
-                    if (operation.Name.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
+                    if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
                     {
                         method.Async();
                     }
 
-                    if (operation.Name is "OnInitializedAsync" or "OnInitialized")
+                    if (methodName is "OnInitializedAsync" or "OnInitialized")
                     {
                         method.Protected().Override();
                     }
@@ -95,7 +98,7 @@ public static class RazorFileExtensions
                     }
 
                     var mappingManager = template.CreateMappingManager();
-
+                    mappingManager.SetFromReplacement(operation, null);
                     foreach (var serviceCall in operation.CallServiceOperationActionTargets())
                     {
                         method.Async();
@@ -104,13 +107,17 @@ public static class RazorFileExtensions
                         var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                         if (serviceCall.GetMapResponseMapping() != null)
                         {
-                            if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == serviceCall.Id)
+
+                            if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
                             {
-                                method.AddStatement(new CSharpAssignmentStatement(mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()), new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                method.AddStatement(new CSharpAssignmentStatement(
+                                    lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()), 
+                                    rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
                             }
                             else
                             {
                                 method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
                                 var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
                                 method.AddStatements(response);
                             }
@@ -191,4 +198,49 @@ public static class RazorFileExtensions
             }
         }
     }
+
+    public static void AddMappingReplacement(this IRazorFileNode node, IMetadataModel model, string replacementString)
+    {
+        var registry = node.HasMetadata("mapping-replacements")
+            ? node.GetMetadata<IDictionary<IMetadataModel, string>>("mapping-replacements")
+            : new Dictionary<IMetadataModel, string>();
+
+        registry.TryAdd(model, replacementString);
+
+        node.AddMetadata("mapping-replacements", registry);
+    }
+
+    public static IDictionary<IMetadataModel, string> GetMappingReplacements(this IRazorFileNode node)
+    {
+        var result = new Dictionary<IMetadataModel, string>();
+        foreach (var n in GetAllNodesInHierarchy(node))
+        {
+            if (n.HasMetadata("mapping-replacements"))
+            {
+                foreach (var mappingReplacement in n.GetMetadata<IDictionary<IMetadataModel, string>>("mapping-replacements"))
+                {
+                    result.TryAdd(mappingReplacement.Key, mappingReplacement.Value);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private static IEnumerable<IRazorFileNode> GetAllNodesInHierarchy(this IRazorFileNode node)
+    {
+        yield return node;
+        if (node.Parent != null)
+        {
+            foreach (var parentNode in GetAllNodesInHierarchy(node.Parent))
+            {
+                yield return parentNode;
+            }
+        }
+    }
+}
+
+public record StaticMetadata(string id) : IMetadataModel
+{
+    public string Id { get; } = id;
 }

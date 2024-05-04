@@ -18,7 +18,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("button", _componentTemplate.RazorFile)
@@ -43,6 +43,6 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         //{
         //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
         //}
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

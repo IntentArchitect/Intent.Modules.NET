@@ -18,10 +18,10 @@ public class TextComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextModel(component);
-        var textValue = _bindingManager.GetElementBinding(textInput);
+        var textValue = _bindingManager.GetElementBinding(textInput) ?? textInput.Value;
         if (textValue.StartsWith("#"))
         {
             var size = 0;
@@ -34,13 +34,13 @@ public class TextComponentBuilder : IRazorComponentBuilder
                 .WithText(textValue)
                 .AddAttribute("Size", $"HeadingSize.Is{size}")
                 .AddAttribute("TextColor", "TextColor.Primary");
-            node.AddChildNode(htmlElement);
+            parentNode.AddChildNode(htmlElement);
         }
         else
         {
             var htmlElement = new HtmlElement("Paragraph", _componentTemplate.RazorFile)
                 .WithText(textValue);
-            node.AddChildNode(htmlElement);
+            parentNode.AddChildNode(htmlElement);
         }
     }
 }

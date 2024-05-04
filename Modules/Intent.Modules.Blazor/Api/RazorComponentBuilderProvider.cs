@@ -11,7 +11,7 @@ public interface IRazorComponentBuilderProvider
 
 public interface IRazorComponentBuilder
 {
-    void BuildComponent(IElement component, IRazorFileNode node);
+    void BuildComponent(IElement component, IRazorFileNode parentNode);
 }
 
 public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider

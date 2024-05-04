@@ -136,7 +136,7 @@ namespace Intent.Modules.Blazor.Api
         }
     }
 
-    public interface IRazorFileNode
+    public interface IRazorFileNode : ICSharpCodeContext
     {
         string GetText(string indentation);
         void AddChildNode(IRazorFileNode node);
@@ -416,6 +416,11 @@ namespace Intent.Modules.Blazor.Api
             var requiresEndTag = !string.IsNullOrWhiteSpace(Text) || ChildNodes.Any() || Name is "script";
             sb.Append($"{indentation}<{Name}{FormatAttributes(indentation)}{(!requiresEndTag ? " /" : "")}>{(requiresEndTag && (ChildNodes.Any() || Attributes.Count > 1) ? Environment.NewLine : "")}");
 
+            foreach (var e in ChildNodes)
+            {
+                sb.Append(e.GetText($"{indentation}    "));
+            }
+
             if (!string.IsNullOrWhiteSpace(Text))
             {
                 if (ChildNodes.Any() || Attributes.Count > 1)
@@ -426,11 +431,6 @@ namespace Intent.Modules.Blazor.Api
                 {
                     sb.Append(Text);
                 }
-            }
-
-            foreach (var e in ChildNodes)
-            {
-                sb.Append(e.GetText($"{indentation}    "));
             }
 
             if (requiresEndTag)

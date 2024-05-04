@@ -17,7 +17,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextModel(component);
         var textValue = _bindingManager.GetElementBinding(textInput);
@@ -32,13 +32,13 @@ public class TextComponentBuilder : IRazorComponentBuilder
 
             var htmlElement = new HtmlElement($"h{size}", _componentTemplate.RazorFile)
                 .WithText(textValue);
-            node.AddChildNode(htmlElement);
+            parentNode.AddChildNode(htmlElement);
         }
         else
         {
             var htmlElement = new HtmlElement("p", _componentTemplate.RazorFile)
                 .WithText(textValue);
-            node.AddChildNode(htmlElement);
+            parentNode.AddChildNode(htmlElement);
         }
 
     }

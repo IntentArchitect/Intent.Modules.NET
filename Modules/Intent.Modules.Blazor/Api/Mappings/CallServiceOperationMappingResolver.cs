@@ -14,12 +14,12 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.Model.SpecializationType == "Operation")
+        if (mappingModel.Model?.SpecializationType == "Operation")
         {
             return new MethodInvocationMapping(mappingModel, _template);
         }
 
-        if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "Command")
+        if (mappingModel.Model?.TypeReference?.Element?.SpecializationType is "Command" or "DTO" or "Model Definition")
         {
             return new ObjectInitializationMapping(mappingModel, _template);
         }

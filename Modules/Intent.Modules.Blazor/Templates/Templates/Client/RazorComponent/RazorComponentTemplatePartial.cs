@@ -23,13 +23,13 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
     public partial class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
 
-        [IntentManaged(Mode.Merge)]
+        [IntentIgnoreBody]
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
@@ -73,6 +73,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             });
         }
 
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
         public BindingManager BindingManager { get; }
         public RazorFile RazorFile { get; set; }
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
@@ -103,7 +106,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             );
         }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         public override string TransformText()
         {
             var razorFile = RazorFile.Build();

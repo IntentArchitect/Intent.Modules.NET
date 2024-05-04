@@ -53,20 +53,16 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.Server</role>
-      <location></location>
+      <role>Startup</role>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" externalReference="f4e96c35-f23e-49b2-ae25-151ec6564357">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.Server</role>
-      <location></location>
-    </template>
-    <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.ServerStaticStaticContentTemplateRegistration" externalReference="e1e2dd2f-3a07-4fb2-8b52-d7534109d77b">
-      <role>Blazor.Client</role>
-      <location></location>
+      <role>Startup</role>
+      <location>Components</location>
     </template>
   </templates>
   <decorators></decorators>
@@ -79,7 +75,7 @@
     <dependency id="Intent.Common.CSharp" version="3.6.1-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-alpha.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -87,5 +83,7 @@
   </files>
   <tags />
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
+  </metadata>
 </package>

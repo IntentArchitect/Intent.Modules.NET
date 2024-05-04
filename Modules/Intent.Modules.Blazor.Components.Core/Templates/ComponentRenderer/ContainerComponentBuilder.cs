@@ -15,7 +15,7 @@ public class ContainerComponentBuilder : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ContainerModel(component);
         var htmlElement = new HtmlElement("div", _componentTemplate.RazorFile);
@@ -23,6 +23,6 @@ public class ContainerComponentBuilder : IRazorComponentBuilder
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

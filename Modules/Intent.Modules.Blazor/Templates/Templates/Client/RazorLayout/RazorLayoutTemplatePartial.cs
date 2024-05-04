@@ -20,7 +20,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
     public partial class RazorLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
@@ -51,6 +51,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
                 });
             });
         }
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         public RazorFile RazorFile { get; set; }
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
@@ -84,7 +87,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
             );
         }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         public override string TransformText()
         {
             return RazorFile.Build().ToString();

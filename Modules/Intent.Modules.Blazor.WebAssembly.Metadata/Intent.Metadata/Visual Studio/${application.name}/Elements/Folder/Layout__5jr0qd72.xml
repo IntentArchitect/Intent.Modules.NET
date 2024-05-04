@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="26761c2b-b0d3-4f0c-b644-10ad9730533d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Shared</name>
-  <display>Shared</display>
+<class id="890a2950-fab7-4823-8a84-8f7012e5d9e8" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Layout</name>
+  <display>Layout</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d707ee61-4652-4a0a-8f80-f273363b33cf</parentFolderId>

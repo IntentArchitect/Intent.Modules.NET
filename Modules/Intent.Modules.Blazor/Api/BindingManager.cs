@@ -16,14 +16,24 @@ public class BindingManager
 
     public IElementToElementMapping ViewBinding { get; }
 
-    public string GetBinding(IElementToElementMappedEnd mappedEnd, CSharpClassMappingManager mappingManager = null)
+    public string GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
     {
         if (mappedEnd == null)
         {
             return null;
         }
 
-        return (mappingManager ?? _componentTemplate.CreateMappingManager()).GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
+        var mappingManager = _componentTemplate.CreateMappingManager();
+        if (razorNode != null)
+        {
+            foreach (var mappingReplacement in razorNode.GetMappingReplacements())
+            {
+                mappingManager.SetFromReplacement(mappingReplacement.Key, mappingReplacement.Value);
+                mappingManager.SetToReplacement(mappingReplacement.Key, mappingReplacement.Value);
+            }
+        }
+
+        return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
     }
 
     public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model)
@@ -36,15 +46,15 @@ public class BindingManager
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && x.TargetPath.Last().Name == stereotypePropertyName);
     }
 
-    public string GetElementBinding(IMetadataModel model, CSharpClassMappingManager mappingManager = null)
+    public string GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model);
-        return GetBinding(mappedEnd, mappingManager);
+        return GetBinding(mappedEnd, razorNode);
     }
 
-    public string GetStereotypePropertyBinding(IMetadataModel model, string propertyName, CSharpClassMappingManager mappingManager = null)
+    public string GetStereotypePropertyBinding(IMetadataModel model, string propertyName, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model, propertyName);
-        return GetBinding(mappedEnd, mappingManager);
+        return GetBinding(mappedEnd, razorNode);
     }
 }

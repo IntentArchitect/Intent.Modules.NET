@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -29,7 +32,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
                     router.AddHtmlElement("Found", found =>
                     {
                         found.AddAttribute("Context", "routeData");
-                        found.AddHtmlElement("RouteView", html => html.AddAttribute("RouteData", "routeData").AddAttribute("DefaultLayout", $"typeof(Layout.MainLayout)"));
+                        found.AddHtmlElement("RouteView", html =>
+                        {
+                            html.AddAttribute("RouteData", "routeData");
+                            var defaultLayoutModel = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
+                                .GetElementsOfType(LayoutModel.SpecializationTypeId)
+                                .Select(x => new LayoutModel(x))
+                                .FirstOrDefault(x => x.Name is "MainLayout" or "DefaultLayout");
+                            if (defaultLayoutModel != null)
+                            {
+                                html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
+                            }
+                        });
                         found.AddHtmlElement("FocusOnNavigate", html => html.AddAttribute("RouteData", "routeData").AddAttribute("Selector", $"h1"));
                     });
                 });

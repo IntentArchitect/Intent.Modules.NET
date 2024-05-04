@@ -15,7 +15,7 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.Model.SpecializationType == "Text")
+        if (mappingModel.Model?.SpecializationType == "Text")
         {
             return new RazorTextDirectiveMapping(mappingModel, _template);
         }
@@ -26,6 +26,11 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 
-        return new RazorPropertyBindingMapping(mappingModel, _template);
+        if (mappingModel.Mapping != null)
+        {
+            return new RazorPropertyBindingMapping(mappingModel, _template);
+        }
+
+        return null;
     }
 }

@@ -1,4 +1,5 @@
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -21,13 +22,18 @@ public class FormComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
-        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _componentTemplate.RazorFile);
+        var modelBinding = _bindingManager.GetStereotypePropertyBinding(formModel, "Model");
+        if (modelBinding == null)
+        {
+            throw new ElementException(component, "Form component's Model is required and has not been specified.");
+        }
+        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {
-            htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model"));
+            htmlElement.AddAttributeIfNotEmpty("Model", modelBinding);
             htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
             htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
 
@@ -79,7 +85,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             });
         });
 
-        node.AddChildNode(codeBlock);
+        parentNode.AddChildNode(codeBlock);
 
     }
 }

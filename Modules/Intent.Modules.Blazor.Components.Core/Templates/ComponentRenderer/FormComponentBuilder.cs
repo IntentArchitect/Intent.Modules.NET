@@ -20,7 +20,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
         var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _componentTemplate.RazorFile);
@@ -34,7 +34,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
-        node.AddChildNode(codeBlock);
+        parentNode.AddChildNode(codeBlock);
 
     }
 }

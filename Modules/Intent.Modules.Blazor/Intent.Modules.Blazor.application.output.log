@@ -9,11 +9,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dab870d2-16e4-46ee-82d9-e78558ed569d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#e1e2dd2f-3a07-4fb2-8b52-d7534109d77b</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>content/static-content/readme.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>content/static-content/readme.txt</ProjectRelativeFilePath>
+      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#4d7a8813-e8fd-474c-9271-09640cd508c5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ComponentExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ComponentExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -38,6 +38,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>228d3f25-7f3c-447c-975d-aa1ca8a15c3a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#07ebdd16-a83c-401c-95bc-0ec02d4c7daf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Blazor UI Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Blazor UI Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -158,14 +166,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e1e2dd2f-3a07-4fb2-8b52-d7534109d77b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Server/StaticContentTemplateRegistrations/ServerStaticStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Server/StaticContentTemplateRegistrations/ServerStaticStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

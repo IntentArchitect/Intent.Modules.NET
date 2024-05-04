@@ -1,3 +1,4 @@
+using System.Data.Common;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -20,11 +21,31 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode node)
+    public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var navigationModel = new NavigationBarModel(component);
         var htmlElement = new HtmlElement("Bar", _componentTemplate.RazorFile);
         htmlElement.AddAttribute("Breakpoint", "Breakpoint.Desktop");
+
+        if (parentNode is HtmlElement htmlParent && htmlParent.Name is "LayoutHeader")
+        {
+            htmlElement.AddAttribute("ThemeContrast", "ThemeContrast.Light");
+            htmlElement.AddAttribute("Background", "Background.Light");
+        }
+
+        if (navigationModel.BrandLogo != null)
+        {
+            htmlElement.AddHtmlElement("BarBrand", barBrand =>
+            {
+                foreach (var child in navigationModel.BrandLogo.InternalElement.ChildElements)
+                {
+                    _componentResolver.ResolveFor(child).BuildComponent(child, barBrand);
+                }
+
+                barBrand.WithText(navigationModel.BrandLogo.Value);
+            });
+        }
+
         if (navigationModel.NavigationItems.Any())
         {
             htmlElement.AddHtmlElement("BarMenu", barMenu =>
@@ -39,6 +60,10 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                             {
                                 barItem.AddHtmlElement("BarLink", barLink =>
                                 {
+                                    foreach (var child in navigationItemModel.InternalElement.ChildElements)
+                                    {
+                                        _componentResolver.ResolveFor(child).BuildComponent(child, barLink);
+                                    }
                                     barLink.WithText(navigationItemModel.Value ?? navigationItemModel.Name);
                                     if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
                                     {
@@ -82,6 +107,6 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                 });
             });
         }
-        node.AddChildNode(htmlElement);
+        parentNode.AddChildNode(htmlElement);
     }
 }

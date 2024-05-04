@@ -3,9 +3,11 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.HttpClients.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -49,6 +51,18 @@ namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
                 if (lastStatement == null)
                     return;
                 lastStatement.InsertAbove("builder.Services.AddHttpClients(builder.Configuration);");
+            });
+
+            var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            startup?.AddNugetDependency(new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.Server", "8.0.3"));
+
+            startup?.CSharpFile.AfterBuild(file =>
+            {
+                startup.StartupFile.ConfigureServices((statements, context) =>
+                {
+                    // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
+                    statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
+                });
             });
         }
     }

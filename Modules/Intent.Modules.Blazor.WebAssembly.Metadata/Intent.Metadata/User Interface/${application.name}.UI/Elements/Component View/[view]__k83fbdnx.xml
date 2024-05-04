@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fb620d93-23a7-4a7c-b7a4-a6e45839d64d</parentFolderId>
+  <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+  <packageName>${application.name}.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source elementId="fb620d93-23a7-4a7c-b7a4-a6e45839d64d" location="[Blazor.WebAssembly.Metadata].[User Interface].[Home]" />
+      <target elementId="4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb" location="[Blazor.WebAssembly.Metadata].[User Interface].[[view]]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="72a6938d-d404-493f-aadd-d2b231fabdb1" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Head</name>
+      <display>Head</display>
+      <isAbstract>false</isAbstract>
+      <value>###Hello, world!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb</parentFolderId>
+      <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+      <packageName>${application.name}.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c2ebf3f0-a5be-4e70-82d7-baffdd4abd1e" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text</name>
+      <display>Text</display>
+      <isAbstract>false</isAbstract>
+      <value>Welcome to your new app, powered by MudBlazor and the .NET 8 Template!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb</parentFolderId>
+      <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+      <packageName>${application.name}.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
