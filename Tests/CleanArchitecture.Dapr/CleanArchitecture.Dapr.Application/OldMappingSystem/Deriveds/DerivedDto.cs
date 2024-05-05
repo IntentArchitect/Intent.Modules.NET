@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CleanArchitecture.Dapr.Application.Deriveds
+namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Deriveds
 {
     public class DerivedDto : IMapFrom<Derived>
     {

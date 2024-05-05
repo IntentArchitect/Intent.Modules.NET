@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fce227ae-d276-4bb2-ad2d-607485db926b">
+  <sourceEnd id="07bb98b0-5f8e-4b67-be5c-0533c5c594cf" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Clients.DeleteClientCommand</display>
+    <order>0</order>
+    <typeReference id="c4ff8ca3-e2c0-4e38-8dcf-0ff1488cf579">
+      <typeId>517dfb62-e912-4f59-bcae-e3d81ce28d08</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fce227ae-d276-4bb2-ad2d-607485db926b" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>client</name>
+    <display>[delete] client: Client</display>
+    <order>1</order>
+    <typeReference id="39fa3d49-1c65-4992-a22a-c6e3cc7c9ca8">
+      <typeId>9257c32a-49d8-4f04-8e4b-840b89ebdf14</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="517dfb62-e912-4f59-bcae-e3d81ce28d08" location="[CleanArchitecture.Dapr].[Services].[DeleteClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9257c32a-49d8-4f04-8e4b-840b89ebdf14" location="[CleanArchitecture.Dapr].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="9257c32a-49d8-4f04-8e4b-840b89ebdf14" name="Client" type="element" specialization="Class" />
+              <target id="aafae53e-d2df-4712-ac63-aa410f3fb491" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="517dfb62-e912-4f59-bcae-e3d81ce28d08" name="DeleteClientCommand" type="element" specialization="Command" />
+                  <target id="15d4d7a3-3a38-487e-86bd-5c342dcd1957" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>
