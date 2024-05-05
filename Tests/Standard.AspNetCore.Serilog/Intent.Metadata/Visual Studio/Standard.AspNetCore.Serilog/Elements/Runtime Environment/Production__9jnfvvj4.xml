@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3c84ff89-8b4b-4f4f-a0d2-3a0920c3d5d6" type="Runtime Environment" typeId="9edf270e-3f38-406c-ac94-07b9737bb531">
+  <name>Production</name>
+  <display>Production</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5647b8af-7a47-4482-91ba-d04fca2d56bc</parentFolderId>
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

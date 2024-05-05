@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ec6c6459-7498-4c6f-96a0-6083ff7df3e9" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>ResponseTypes</name>
-  <display>ResponseTypes</display>
+<class id="1a1265fe-e5f7-44d9-82c0-3d93acb2c836" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Entities</name>
+  <display>Entities</display>
+  <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>4241e7b0-0b03-49a8-a8e9-af6abd1854b2</parentFolderId>
+  <parentFolderId>46a67bbc-1d72-4a44-8ca6-cf99337d334a</parentFolderId>
   <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
   <packageName>Standard.AspNetCore.Serilog</packageName>
   <stereotypes>
@@ -21,20 +22,18 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="50351c10-0a3c-4aa3-a5ae-79c2c3f62b8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.JsonResponse</name>
-      <display>Intent.AspNetCore.Controllers.JsonResponse</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="576463cf-f2c2-4960-82b0-170034c32fb8" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Domain.Entity</name>
+      <display>Domain.Entity</display>
+      <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>ec6c6459-7498-4c6f-96a0-6083ff7df3e9</parentFolderId>
+      <parentFolderId>1a1265fe-e5f7-44d9-82c0-3d93acb2c836</parentFolderId>
       <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
       <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

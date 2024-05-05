@@ -51,6 +51,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4241e7b0-0b03-49a8-a8e9-af6abd1854b2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#14fabf97-8018-4a60-a19e-b8944224e201</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5ef036c0-0e35-42ee-9769-6b03a2f80767</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -216,6 +224,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Standard.AspNetCore.Serilog.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.Serilog.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/Test/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/Test/TestCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
