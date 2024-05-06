@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{1F7148D3-D890-4E02-A239-E6D83D944469}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ardalis.Api", "Ardalis.Api\Ardalis.Api.csproj", "{4C1916A1-A656-487E-AFF5-AD4D0FF2868A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A69DCF40-5C7F-443A-B1EE-8F0674761DCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ardalis.Application", "Ardalis.Application\Ardalis.Application.csproj", "{724905E4-11D4-4E82-A8B6-222C65BFBD53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{4440EBD1-501E-4F5F-BB7D-B0BB04F862CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ardalis.Domain", "Ardalis.Domain\Ardalis.Domain.csproj", "{CEA18431-54E0-4B93-821E-60980756E067}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7D1B1DA1-200B-4335-862C-0E5C5A073BDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ardalis.Infrastructure", "Ardalis.Infrastructure\Ardalis.Infrastructure.csproj", "{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C1916A1-A656-487E-AFF5-AD4D0FF2868A} = {1F7148D3-D890-4E02-A239-E6D83D944469}
+		{724905E4-11D4-4E82-A8B6-222C65BFBD53} = {A69DCF40-5C7F-443A-B1EE-8F0674761DCB}
+		{CEA18431-54E0-4B93-821E-60980756E067} = {4440EBD1-501E-4F5F-BB7D-B0BB04F862CF}
+		{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC} = {7D1B1DA1-200B-4335-862C-0E5C5A073BDB}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C1916A1-A656-487E-AFF5-AD4D0FF2868A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1916A1-A656-487E-AFF5-AD4D0FF2868A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1916A1-A656-487E-AFF5-AD4D0FF2868A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1916A1-A656-487E-AFF5-AD4D0FF2868A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724905E4-11D4-4E82-A8B6-222C65BFBD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724905E4-11D4-4E82-A8B6-222C65BFBD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724905E4-11D4-4E82-A8B6-222C65BFBD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724905E4-11D4-4E82-A8B6-222C65BFBD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA18431-54E0-4B93-821E-60980756E067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA18431-54E0-4B93-821E-60980756E067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA18431-54E0-4B93-821E-60980756E067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA18431-54E0-4B93-821E-60980756E067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2DAC92-E4B7-47E4-9DB6-FD06D04E58DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

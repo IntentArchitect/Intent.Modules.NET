@@ -1,3 +1,8 @@
+### Version 4.1.0
+
+- Improvement: Updated module project to .NET 8.
+- Fixed: Compilation error due to missing `ToPagedListAsync` method in `RepositoryBase`.
+
 ### Version 4.0.4
 
 - Improvement: Fixed the optional filters for queries that access the data with the DbContext; Refactored the way the query filters are constructed.

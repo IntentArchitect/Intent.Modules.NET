@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5e35196c-5c88-41ba-a383-2c95a755b6fe" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Mappings</name>
+  <display>Mappings</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e8e58a99-6312-413d-aea8-47fb0c67705f</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2d02d9c3-a6a8-40b1-a9b4-3a26a2656bef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.AutoMapper.MapFromInterface</name>
+      <display>Intent.Application.AutoMapper.MapFromInterface</display>
+      <externalReference>Intent.Application.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5e35196c-5c88-41ba-a383-2c95a755b6fe</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="26d5cea7-bdf4-4af9-83f0-f0fe77d42c30" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.AutoMapper.MappingProfile</name>
+      <display>Intent.Application.AutoMapper.MappingProfile</display>
+      <externalReference>Intent.Application.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5e35196c-5c88-41ba-a383-2c95a755b6fe</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

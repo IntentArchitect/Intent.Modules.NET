@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a9717278-d047-4574-a2ce-b30bdc089081" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetClientsQuery</name>
+  <display>GetClientsQuery: ClientDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="57727c7f-b374-4cbe-8474-154c863291b5">
+    <typeId>340c9c33-e3b6-48c2-bbda-25591a18fb04</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Ardalis.Services</typePackageName>
+    <typePackageId>3594c148-8174-4d9e-9f70-5d2fba034681</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>638963ee-9ccc-49bf-a535-b3b0ed7b570f</parentFolderId>
+  <packageId>3594c148-8174-4d9e-9f70-5d2fba034681</packageId>
+  <packageName>Ardalis.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/client" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Clients" />
+  </metadata>
+  <childElements />
+</class>

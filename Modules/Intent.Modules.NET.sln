@@ -142,9 +142,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Swashbuckle.Security", "Intent.Modules.AspNetCore.Swashbuckle.Security\Intent.Modules.AspNetCore.Swashbuckle.Security.csproj", "{09C2DEE1-C9C4-4798-BCFD-DCC9836E6823}"
 EndProject

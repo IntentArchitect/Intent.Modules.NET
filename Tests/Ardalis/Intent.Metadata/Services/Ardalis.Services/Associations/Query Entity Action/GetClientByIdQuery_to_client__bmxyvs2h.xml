@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4be7fe99-363a-4a82-b4db-8edc1b125958">
+  <sourceEnd id="edf86128-9e76-4ed5-8f18-743e86453b22" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientByIdQuery</display>
+    <order>0</order>
+    <typeReference id="57b8bf2f-0b10-446a-8425-1d014a66a4e7">
+      <typeId>d13fe108-1c58-4c32-a405-a9630236469c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Services</typePackageName>
+      <typePackageId>3594c148-8174-4d9e-9f70-5d2fba034681</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4be7fe99-363a-4a82-b4db-8edc1b125958" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>client</name>
+    <display>[query] client: Client</display>
+    <order>1</order>
+    <typeReference id="34996513-0750-49a5-9391-06b8efaf96a8">
+      <typeId>bea45036-f306-433e-99e0-abeebfe8180f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Domain</typePackageName>
+      <typePackageId>1129d147-9b7b-44b6-9fbe-9ff2d3bbc184</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d13fe108-1c58-4c32-a405-a9630236469c" location="[Ardalis].[Services].[GetClientByIdQuery]" />
+        <target applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bea45036-f306-433e-99e0-abeebfe8180f" location="[Ardalis].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bea45036-f306-433e-99e0-abeebfe8180f" name="Client" type="element" specialization="Class" />
+              <target id="63f09a53-26c0-4985-b563-9d57212f3cfe" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d13fe108-1c58-4c32-a405-a9630236469c" name="GetClientByIdQuery" type="element" specialization="Query" />
+                  <target id="4bc8d68f-ac64-43b8-b42c-0f902f0887e4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
