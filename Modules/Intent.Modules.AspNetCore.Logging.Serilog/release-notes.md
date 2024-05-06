@@ -1,3 +1,7 @@
+### Versopm 5.1.3
+
+- Improvement: Adding the Application Insights sink will only "force" you to specify a connection string when a environment is added to your appsettings.json that is non-Development. Gives a hassle-free out the box experience when running your application while ensuring that when deploying to a non-Development environment it ensures you specify a connection string.
+
 ### Version 5.1.2
 
 - Fixed: Console logging format didn't write out Exceptions with their Stack traces in the Console sink.

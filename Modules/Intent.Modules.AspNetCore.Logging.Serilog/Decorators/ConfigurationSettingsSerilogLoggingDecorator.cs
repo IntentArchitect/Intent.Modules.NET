@@ -120,7 +120,14 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                         args["transportType"] = "Udp";
                         break;
                     case SerilogSettings.SinksOptionsEnum.ApplicationInsights:
-                        args["connectionString"] = "[your connection string here]";
+                        if (_template.Model.RuntimeEnvironment is not null && _template.Model.RuntimeEnvironment.Name != "Development")
+                        {
+                            args["connectionString"] = "[your connection string here]";   
+                        }
+                        else
+                        {
+                            args["connectionString"] = "";
+                        }
                         args["telemetryConverter"] = "Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights";
                         break;
                     default:

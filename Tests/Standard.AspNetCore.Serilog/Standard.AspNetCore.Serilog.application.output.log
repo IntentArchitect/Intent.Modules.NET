@@ -4,10 +4,34 @@
   <FileLogs>
     <FileLog>
       <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Development#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.Development.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.Development.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Production#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.Production.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.Production.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-UAT#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.UAT.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.UAT.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
