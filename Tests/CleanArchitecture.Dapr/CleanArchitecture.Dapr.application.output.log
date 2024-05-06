@@ -1691,14 +1691,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0ac0b03d-647e-40ce-bef7-82f84087c75f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>4c1f4933-bb7d-4a6a-9e41-5ec7b3d49cf3</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository#9257c32a-49d8-4f04-8e4b-840b89ebdf14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
