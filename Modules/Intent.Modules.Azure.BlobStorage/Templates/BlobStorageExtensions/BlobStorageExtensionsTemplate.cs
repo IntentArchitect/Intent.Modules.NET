@@ -74,14 +74,28 @@ namespace Intent.Modules.Azure.BlobStorage.Templates.BlobStorageExtensions
             
             #line default
             #line hidden
-            this.Write(" storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)\r\n        {\r\n            var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken).ConfigureAwait(false);\r\n            var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);\r\n            return text;\r\n        }\r\n\r\n        /// <summary>\r\n        /// Downloads the content of a specific blob in a given container as a string.\r\n        /// </summary>\r\n        /// <param name=\"storage\">The blob storage instance from which the string will be downloaded.</param>\r\n        /// <param name=\"containerName\">The name of the blob container.</param>\r\n        /// <param name=\"blobName\">The name of the blob.</param>\r\n        /// <param name=\"cancellationToken\">An optional token to cancel the asynchronous operation.</param>\r\n        /// <returns>The downloaded string content.</returns>\r\n        public static async Task<string> DownloadAsStringAsync(this ");
+            this.Write(" storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)\r\n        {\r\n            var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken).ConfigureAwait(false);\r\n            var text = await new StreamReader(result).");
+            
+            #line 64 "E:\Intent.Modules.NET\Modules\Intent.Modules.Azure.BlobStorage\Templates\BlobStorageExtensions\BlobStorageExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetReadToEndMethodCall()));
+            
+            #line default
+            #line hidden
+            this.Write(".ConfigureAwait(false);\r\n            return text;\r\n        }\r\n\r\n        /// <summary>\r\n        /// Downloads the content of a specific blob in a given container as a string.\r\n        /// </summary>\r\n        /// <param name=\"storage\">The blob storage instance from which the string will be downloaded.</param>\r\n        /// <param name=\"containerName\">The name of the blob container.</param>\r\n        /// <param name=\"blobName\">The name of the blob.</param>\r\n        /// <param name=\"cancellationToken\">An optional token to cancel the asynchronous operation.</param>\r\n        /// <returns>The downloaded string content.</returns>\r\n        public static async Task<string> DownloadAsStringAsync(this ");
             
             #line 76 "E:\Intent.Modules.NET\Modules\Intent.Modules.Azure.BlobStorage\Templates\BlobStorageExtensions\BlobStorageExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetBlobStorageInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" storage, string containerName, string blobName, CancellationToken cancellationToken = default)\r\n        {\r\n            var result = await storage.DownloadAsync(containerName, blobName, cancellationToken).ConfigureAwait(false);\r\n            var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);\r\n            return text;\r\n        }\r\n    }\r\n}");
+            this.Write(" storage, string containerName, string blobName, CancellationToken cancellationToken = default)\r\n        {\r\n            var result = await storage.DownloadAsync(containerName, blobName, cancellationToken).ConfigureAwait(false);\r\n            var text = await new StreamReader(result).");
+            
+            #line 79 "E:\Intent.Modules.NET\Modules\Intent.Modules.Azure.BlobStorage\Templates\BlobStorageExtensions\BlobStorageExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetReadToEndMethodCall()));
+            
+            #line default
+            #line hidden
+            this.Write(".ConfigureAwait(false);\r\n            return text;\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

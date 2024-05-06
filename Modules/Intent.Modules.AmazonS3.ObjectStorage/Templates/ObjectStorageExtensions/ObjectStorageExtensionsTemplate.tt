@@ -61,7 +61,7 @@ public static class <#= ClassName #>
     public static async Task<string> DownloadAsStringAsync(this <#= this.GetObjectStorageInterfaceName() #> storage, Uri cloudStorageLocation, CancellationToken cancellationToken = default)
     {
         var result = await storage.DownloadAsync(cloudStorageLocation, cancellationToken).ConfigureAwait(false);
-        var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
+        var text = await new StreamReader(result).<#= GetReadToEndMethodCall() #>.ConfigureAwait(false);
         return text;
     }
 
@@ -76,7 +76,7 @@ public static class <#= ClassName #>
     public static async Task<string> DownloadAsStringAsync(this <#= this.GetObjectStorageInterfaceName() #> storage, string bucketName, string key, CancellationToken cancellationToken = default)
     {
         var result = await storage.DownloadAsync(bucketName, key, cancellationToken).ConfigureAwait(false);
-        var text = await new StreamReader(result).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
+        var text = await new StreamReader(result).<#= GetReadToEndMethodCall() #>.ConfigureAwait(false);
         return text;
     }
 }

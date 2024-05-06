@@ -33,7 +33,7 @@ namespace CloudBlobStorageClients.Api.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "CloudBlobStorageClients API",
+                Title = "CloudBlobStorageClients.NET8 API",
                 Version = description.ApiVersion.ToString()
             };
 
