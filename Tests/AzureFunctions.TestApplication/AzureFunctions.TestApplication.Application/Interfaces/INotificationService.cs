@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Domain;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,6 +11,6 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
 {
     public interface INotificationService : IDisposable
     {
-        Task SendNotification(Guid entityId, string subject, string template, T model, DomainNotificationType type, CancellationToken cancellationToken = default);
+        Task SendNotification<T>(Guid entityId, string subject, string template, T model, DomainNotificationType type, CancellationToken cancellationToken = default);
     }
 }

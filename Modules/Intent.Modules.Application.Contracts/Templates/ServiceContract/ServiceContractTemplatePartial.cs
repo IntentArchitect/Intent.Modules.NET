@@ -31,6 +31,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     {
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        AddTypeSource(TemplateRoles.Domain.Enum);
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
@@ -43,6 +44,11 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
                 {
                     @interface.AddMethod(operation, method =>
                     {
+                        foreach (var genericType in operation.GenericTypes)
+                        {
+                            @method.AddGenericParameter(genericType);
+                        }
+                        
                         method.TryAddXmlDocComments(operation.InternalElement);
 
                         foreach (var parameterModel in operation.Parameters)
