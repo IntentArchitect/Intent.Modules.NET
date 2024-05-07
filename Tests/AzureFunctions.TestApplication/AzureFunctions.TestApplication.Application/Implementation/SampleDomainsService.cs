@@ -137,6 +137,17 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             return entity.MapToSampleDomainDtoList(_mapper);
         }
 
+        /// <summary>
+        /// This is not meant to be implemented automatically
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<SampleDomainDto> FindSampleDomainByAttribute(
+            string attribute,
+            CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException("Write your implementation for this service here...");
+        }
+
         public void Dispose()
         {
         }

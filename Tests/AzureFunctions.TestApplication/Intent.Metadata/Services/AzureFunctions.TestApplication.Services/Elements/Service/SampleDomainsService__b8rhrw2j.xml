@@ -738,5 +738,56 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="363e383c-97c0-4d34-af10-fa7f4c88667b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>This is not meant to be implemented automatically</comment>
+      <name>FindSampleDomainByAttribute</name>
+      <display>FindSampleDomainByAttribute(attribute: string): SampleDomainDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="117ee485-1cd3-4bd7-8571-8226082863f7">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="44a88d27-6863-4725-9804-f70d819369ed" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>attribute</name>
+          <display>in : attribute: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f50ad0e3-5bd5-45d2-95f4-a750ee25d319">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>363e383c-97c0-4d34-af10-fa7f4c88667b</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

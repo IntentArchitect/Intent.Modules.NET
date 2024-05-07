@@ -25,5 +25,9 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         /// </summary>
         Task<List<SampleDomainDto>> FindByNameForSingleSampleDomainMapToCollection(string name, CancellationToken cancellationToken = default);
         Task<List<SampleDomainDto>> FindSampleDomainsByName(string name, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// This is not meant to be implemented automatically
+        /// </summary>
+        Task<SampleDomainDto> FindSampleDomainByAttribute(string attribute, CancellationToken cancellationToken = default);
     }
 }
