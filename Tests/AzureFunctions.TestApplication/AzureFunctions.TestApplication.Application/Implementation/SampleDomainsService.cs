@@ -140,7 +140,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
         /// <summary>
         /// This is not meant to be implemented automatically
         /// </summary>
-        /// <param name="attribute">>Comment for this parameter</param>
+        /// <param name="attribute">Comment for this parameter</param>
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<SampleDomainDto> FindSampleDomainByAttribute(
             string attribute,
