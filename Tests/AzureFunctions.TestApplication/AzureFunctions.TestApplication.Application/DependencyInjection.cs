@@ -41,6 +41,7 @@ namespace AzureFunctions.TestApplication.Application
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IListedUnlistedServicesService, ListedUnlistedServicesService>();
+            services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<ISampleDomainsService, SampleDomainsService>();
             services.AddTransient<IChangeHandlerService, ChangeHandlerService>();
             services.AddTransient<IEnumService, EnumService>();

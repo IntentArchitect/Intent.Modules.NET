@@ -716,6 +716,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#8f064291-5a12-4f63-9a13-4626b67ad402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/NotificationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotificationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#398493fa-60d5-4242-a895-4e20eb24562a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Queues/Bindings/BindingService.cs</ApplicationRelativeFilePath>
@@ -760,6 +768,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/IListedUnlistedServicesService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IListedUnlistedServicesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#8f064291-5a12-4f63-9a13-4626b67ad402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/INotificationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INotificationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
