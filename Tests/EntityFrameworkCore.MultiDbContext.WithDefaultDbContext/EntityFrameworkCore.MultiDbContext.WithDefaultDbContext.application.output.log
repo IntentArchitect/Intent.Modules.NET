@@ -836,6 +836,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#8fcdae88-2f0b-41bf-81de-d899c3b0934f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/ICustomAlternateRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomAlternateRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#881f029b-72c7-4778-9f6e-22c5ea05c420</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/ICustomAppDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomAppDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#1ee493f2-45b8-4456-89ec-64d81f760dfb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/ICustomDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
@@ -944,6 +968,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#8fcdae88-2f0b-41bf-81de-d899c3b0934f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/CustomAlternateRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomAlternateRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#881f029b-72c7-4778-9f6e-22c5ea05c420</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/CustomAppDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomAppDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#1ee493f2-45b8-4456-89ec-64d81f760dfb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/CustomDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomDefaultRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

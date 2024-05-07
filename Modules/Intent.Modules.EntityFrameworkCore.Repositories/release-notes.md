@@ -1,3 +1,7 @@
+### Version 4.5.6
+
+- Fixed: `CustomRepositoryTemplate` did not take `DbContextInstance` into account when there are multiple DbContexts.
+
 ### Version 4.5.5
 
 - Improvement: Class that is in a Domain package for a different DB will now apply the relevant DbContext to the Repository.

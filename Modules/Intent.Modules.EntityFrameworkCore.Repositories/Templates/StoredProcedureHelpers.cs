@@ -13,6 +13,7 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
@@ -63,7 +64,8 @@ internal static class StoredProcedureHelpers
 
     public static void ApplyImplementationMethods<TTemplate, TModel>(
         TTemplate template,
-        IReadOnlyCollection<StoredProcedureModel> storedProcedures)
+        IReadOnlyCollection<StoredProcedureModel> storedProcedures,
+        DbContextInstance dbContextInstance)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
         template.AddTypeSource(TemplateRoles.Domain.Enum);
@@ -225,7 +227,7 @@ internal static class StoredProcedureHelpers
             })
             .AfterBuild(file =>
             {
-                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
+                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, dbContextInstance);
                 var dbSetPropertiesByModelId = dbContextTemplate.CSharpFile.Classes.Single().Properties
                     .Where(x => x.HasMetadata("model"))
                     .ToDictionary(x => x.GetMetadata("model") switch

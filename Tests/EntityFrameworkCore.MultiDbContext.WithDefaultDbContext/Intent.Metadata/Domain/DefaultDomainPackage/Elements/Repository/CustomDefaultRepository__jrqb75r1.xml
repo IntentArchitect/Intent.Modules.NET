@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ee493f2-45b8-4456-89ec-64d81f760dfb" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>CustomDefaultRepository</name>
+  <display>CustomDefaultRepository</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="4e48585b-88e2-44c5-8697-78659f23c0c6">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ee56881e-1557-45f2-8185-178fd0a00772</parentFolderId>
+  <packageId>ee56881e-1557-45f2-8185-178fd0a00772</packageId>
+  <packageName>DefaultDomainPackage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="79c8e2e7-97a3-4816-a3a1-9864ffa2f9d8" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>TestProc</name>
+      <display>TestProc(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc5857be-8788-4206-a3ae-67ad4d16e5eb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ee493f2-45b8-4456-89ec-64d81f760dfb</parentFolderId>
+      <packageId>ee56881e-1557-45f2-8185-178fd0a00772</packageId>
+      <packageName>DefaultDomainPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

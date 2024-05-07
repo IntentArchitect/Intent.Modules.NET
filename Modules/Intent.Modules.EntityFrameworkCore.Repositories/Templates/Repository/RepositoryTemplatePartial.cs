@@ -207,7 +207,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 return dbContextInstance.GetTypeName(this);
             }
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
