@@ -28,6 +28,7 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         /// <summary>
         /// This is not meant to be implemented automatically
         /// </summary>
+        /// <param name="attribute">>Comment for this parameter</param>
         Task<SampleDomainDto> FindSampleDomainByAttribute(string attribute, CancellationToken cancellationToken = default);
     }
 }

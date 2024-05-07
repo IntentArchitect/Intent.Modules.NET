@@ -764,6 +764,7 @@
       <metadata />
       <childElements>
         <childElement id="44a88d27-6863-4725-9804-f70d819369ed" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <comment>Comment for this parameter</comment>
           <name>attribute</name>
           <display>in : attribute: string</display>
           <isAbstract>false</isAbstract>
