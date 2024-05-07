@@ -14,7 +14,7 @@
   <childElements>
     <childElement id="c3ff1f60-6932-45a2-973c-5979fbcb1c2a" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>SendNotification</name>
-      <display>SendNotification&lt;T&gt;(entityId: guid, subject: string, template: string, model: T): void</display>
+      <display>SendNotification&lt;T&gt;(entityId: guid, subject: string, template: string, model: T, type: DomainNotificationType): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes>
@@ -120,6 +120,30 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="626ab64f-ce41-4168-91be-07d5deaa4dc5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>type</name>
+          <display>in : type: DomainNotificationType</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="168a6237-7ab2-49b8-a4c4-0bf6891b54b3">
+            <typeId>56136eaf-0a5e-4e56-9452-25cf80aa1135</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.TestApplication.Domain</typePackageName>
+            <typePackageId>0e55483e-a292-48d7-8851-88928666394f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

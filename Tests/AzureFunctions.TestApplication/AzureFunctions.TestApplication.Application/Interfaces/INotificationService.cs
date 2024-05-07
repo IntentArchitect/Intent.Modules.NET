@@ -10,6 +10,6 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
 {
     public interface INotificationService : IDisposable
     {
-        Task SendNotification(Guid entityId, string subject, string template, T model, CancellationToken cancellationToken = default);
+        Task SendNotification(Guid entityId, string subject, string template, T model, DomainNotificationType type, CancellationToken cancellationToken = default);
     }
 }

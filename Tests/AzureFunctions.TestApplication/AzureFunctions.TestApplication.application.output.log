@@ -1267,6 +1267,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e5d3200-9e61-478e-ab3c-cfac8b793bbe</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#56136eaf-0a5e-4e56-9452-25cf80aa1135</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/DomainNotificationType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainNotificationType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7b80e27b-3b32-4a5a-9034-4c9086797d5d</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7434dfda-7ada-49d6-8a4d-c50f345cc011</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

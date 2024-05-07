@@ -24,6 +24,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             string subject,
             string template,
             T model,
+            DomainNotificationType type,
             CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Write your implementation for this service here...");
