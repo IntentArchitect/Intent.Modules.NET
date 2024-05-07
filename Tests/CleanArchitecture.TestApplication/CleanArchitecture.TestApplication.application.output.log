@@ -6852,7 +6852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

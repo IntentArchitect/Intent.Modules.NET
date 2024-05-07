@@ -16,7 +16,7 @@ namespace CleanArchitecture.TestApplication.Application.Interfaces.Comments
         /// <summary>
         /// My Op Comments
         /// </summary>
-        /// <param name="param1">>Param 1 Comment</param>
+        /// <param name="param1">Param 1 Comment</param>
         Task MyOp(string param1, CancellationToken cancellationToken = default);
     }
 }
