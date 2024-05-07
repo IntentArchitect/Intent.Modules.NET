@@ -111,6 +111,19 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<SampleDomainDto>> FindSampleDomainsByName(
+            string name,
+            CancellationToken cancellationToken = default)
+        {
+            var entity = await _sampleDomainRepository.FindAsync(x => x.Name == name, cancellationToken);
+            if (entity is null)
+            {
+                throw new NotFoundException($"Could not find SampleDomain '{name}'");
+            }
+            return entity.MapToSampleDomainDtoList(_mapper);
+        }
+
         public void Dispose()
         {
         }

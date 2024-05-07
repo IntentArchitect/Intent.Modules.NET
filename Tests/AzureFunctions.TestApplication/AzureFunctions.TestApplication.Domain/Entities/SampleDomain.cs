@@ -12,5 +12,7 @@ namespace AzureFunctions.TestApplication.Domain.Entities
         public Guid Id { get; set; }
 
         public string Attribute { get; set; }
+
+        public string Name { get; set; }
     }
 }

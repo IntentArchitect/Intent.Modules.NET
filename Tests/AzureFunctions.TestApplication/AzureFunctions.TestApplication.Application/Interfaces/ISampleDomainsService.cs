@@ -20,5 +20,6 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default);
         Task<string> MappedAzureFunction(SampleMappedRequest request, CancellationToken cancellationToken = default);
         Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<List<SampleDomainDto>> FindSampleDomainsByName(string name, CancellationToken cancellationToken = default);
     }
 }

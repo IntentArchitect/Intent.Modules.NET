@@ -637,5 +637,55 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="05980be9-7579-494e-b39f-8ef224f993b0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainsByName</name>
+      <display>FindSampleDomainsByName(name: string): SampleDomainDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4e137692-ea05-4534-a20a-8470669fbb54">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="df93754e-0cd7-4ac3-8820-5744345b4194" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e65c350b-d172-46b1-9543-32833f302df6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05980be9-7579-494e-b39f-8ef224f993b0</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
