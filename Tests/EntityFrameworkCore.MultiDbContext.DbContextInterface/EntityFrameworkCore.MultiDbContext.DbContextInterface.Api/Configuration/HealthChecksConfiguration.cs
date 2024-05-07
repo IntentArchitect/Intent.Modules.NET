@@ -18,6 +18,8 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Api.Configuratio
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
+            hcBuilder.AddSqlServer(configuration.GetConnectionString("ConnStr")!, name: "ConnStr", tags: new[] { "database", "SqlServer" });
+            hcBuilder.AddSqlServer(configuration.GetConnectionString("DefaultConnection")!, name: "DefaultConnection", tags: new[] { "database", "SqlServer" });
 
             return services;
         }

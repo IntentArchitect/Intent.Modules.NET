@@ -20,17 +20,24 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.UseInMemoryDatabase("DefaultConnection");
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddDbContext<ConnStrDbContext>((sp, options) =>
             {
-                options.UseInMemoryDatabase("ConnStr");
+                options.UseSqlServer(
+                    configuration.GetConnectionString("ConnStr"),
+                    b => b.MigrationsAssembly(typeof(ConnStrDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IConnStrDbContext>(provider => provider.GetRequiredService<ConnStrDbContext>());
+            services.AddTransient<ICustomAppDefaultRepository, CustomAppDefaultRepository>();
+            services.AddTransient<ICustomConnStrRepository, CustomConnStrRepository>();
+            services.AddTransient<ICustomDefaultRepository, CustomDefaultRepository>();
             services.AddTransient<IAppDbEntityRepository, AppDbEntityRepository>();
             services.AddTransient<IConnstrEntityRepository, ConnstrEntityRepository>();
             services.AddTransient<IDefaultEntityRepository, DefaultEntityRepository>();
