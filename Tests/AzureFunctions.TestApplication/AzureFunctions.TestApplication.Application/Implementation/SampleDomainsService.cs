@@ -111,8 +111,11 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<SampleDomainDto>> FindSampleDomainsByName(
+        /// <summary>
+        /// This should print out a warning to say that the query should also be set to a collection since the service operation expects to return a collection
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<List<SampleDomainDto>> FindByNameForSingleSampleDomainMapToCollection(
             string name,
             CancellationToken cancellationToken = default)
         {
@@ -121,6 +124,16 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             {
                 throw new NotFoundException($"Could not find SampleDomain '{name}'");
             }
+            // return entity.MapToSampleDomainDtoList(_mapper);
+            throw new NotSupportedException("See comment");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<SampleDomainDto>> FindSampleDomainsByName(
+            string name,
+            CancellationToken cancellationToken = default)
+        {
+            var entity = await _sampleDomainRepository.FindAllAsync(x => x.Name == name, cancellationToken);
             return entity.MapToSampleDomainDtoList(_mapper);
         }
 

@@ -20,6 +20,10 @@ namespace AzureFunctions.TestApplication.Application.Interfaces
         Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default);
         Task<string> MappedAzureFunction(SampleMappedRequest request, CancellationToken cancellationToken = default);
         Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// This should print out a warning to say that the query should also be set to a collection since the service operation expects to return a collection
+        /// </summary>
+        Task<List<SampleDomainDto>> FindByNameForSingleSampleDomainMapToCollection(string name, CancellationToken cancellationToken = default);
         Task<List<SampleDomainDto>> FindSampleDomainsByName(string name, CancellationToken cancellationToken = default);
     }
 }

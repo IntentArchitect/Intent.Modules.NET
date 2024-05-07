@@ -638,8 +638,9 @@
       </childElements>
     </childElement>
     <childElement id="05980be9-7579-494e-b39f-8ef224f993b0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>FindSampleDomainsByName</name>
-      <display>FindSampleDomainsByName(name: string): SampleDomainDto[*]</display>
+      <comment>This should print out a warning to say that the query should also be set to a collection since the service operation expects to return a collection</comment>
+      <name>FindByNameForSingleSampleDomainMapToCollection</name>
+      <display>FindByNameForSingleSampleDomainMapToCollection(name: string): SampleDomainDto[*]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -679,6 +680,56 @@
           </typeReference>
           <isMapped>false</isMapped>
           <parentFolderId>05980be9-7579-494e-b39f-8ef224f993b0</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a99328ad-c23e-4aac-b589-90b798e94bac" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainsByName</name>
+      <display>FindSampleDomainsByName(name: string): SampleDomainDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="dbeb848b-a6d1-4e69-893b-404225507dba">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="2483e25a-deba-4f97-96d8-5e6ed3631c04" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fe7d2730-7fa4-4240-912b-9af81261380e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a99328ad-c23e-4aac-b589-90b798e94bac</parentFolderId>
           <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
           <packageName>AzureFunctions.TestApplication.Services</packageName>
           <stereotypes />
