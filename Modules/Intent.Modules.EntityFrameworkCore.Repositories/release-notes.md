@@ -1,3 +1,7 @@
+### Version 4.5.7
+
+- Fixed: Output parameters now can specify their respective SQL types and character size to prevent exceptions being thrown due to a missing size value.
+
 ### Version 4.5.6
 
 - Fixed: `CustomRepositoryTemplate` did not take `DbContextInstance` into account when there are multiple DbContexts.

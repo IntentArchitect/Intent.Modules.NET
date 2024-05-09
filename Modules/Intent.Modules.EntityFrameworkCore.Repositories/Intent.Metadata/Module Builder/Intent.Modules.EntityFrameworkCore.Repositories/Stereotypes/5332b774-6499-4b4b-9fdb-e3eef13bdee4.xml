@@ -30,5 +30,36 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="dfa55cca-142e-4d76-b772-6f86a9c99b0f">
+      <name>SQL String Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>NVARCHAR</defaultValue>
+      <valueOptions>
+        <option>VarChar</option>
+        <option>NVarChar</option>
+        <option>Char</option>
+        <option>NChar</option>
+        <option>Text</option>
+        <option>NText</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == StringTypeId;</isActiveFunction>
+    </property>
+    <property id="febc9d55-6c43-4549-bef8-9f2aee7811c9">
+      <name>Size</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <defaultValue>255</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == StringTypeId;</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>
