@@ -1,3 +1,7 @@
+### Version 6.0.10
+
+- Improvement: Add support for Data Contract mappings with the Advanced mapping system.
+
 ### Version 6.0.9
 
 - Fixed: Resolved an issue causing syntax errors when mapping services onto Value Objects using the basic mapping configuration.
