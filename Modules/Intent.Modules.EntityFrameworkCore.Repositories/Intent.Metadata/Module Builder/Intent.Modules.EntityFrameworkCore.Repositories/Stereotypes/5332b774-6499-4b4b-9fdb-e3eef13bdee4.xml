@@ -36,7 +36,7 @@
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
-      <defaultValue>NVARCHAR</defaultValue>
+      <defaultValue>VarChar</defaultValue>
       <valueOptions>
         <option>VarChar</option>
         <option>NVarChar</option>
