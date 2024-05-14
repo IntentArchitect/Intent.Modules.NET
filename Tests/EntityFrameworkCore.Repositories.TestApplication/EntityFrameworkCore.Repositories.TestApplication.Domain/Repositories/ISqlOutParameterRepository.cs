@@ -11,5 +11,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
     {
         Task<int> Sp_out_params_int(CancellationToken cancellationToken = default);
         Task<string> Sp_out_params_string(CancellationToken cancellationToken = default);
+        Task<decimal> Sp_out_params_decimal_default(CancellationToken cancellationToken = default);
+        Task<decimal> Sp_out_params_decimal_specific(CancellationToken cancellationToken = default);
     }
 }

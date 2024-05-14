@@ -63,6 +63,16 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
                 return _stereotype.GetProperty<int?>("Size");
             }
 
+            public int? Precision()
+            {
+                return _stereotype.GetProperty<int?>("Precision");
+            }
+
+            public int? Scale()
+            {
+                return _stereotype.GetProperty<int?>("Scale");
+            }
+
             public class SQLStringTypeOptions
             {
                 public readonly string Value;
