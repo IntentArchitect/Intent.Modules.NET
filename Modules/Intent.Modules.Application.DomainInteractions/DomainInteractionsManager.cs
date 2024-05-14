@@ -239,7 +239,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(new VariableType(foundEntity), entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }
@@ -337,7 +337,7 @@ public class DomainInteractionsManager
 		
         var entitiesReturningPk = GetEntitiesReturningPK(returnType);
 
-		foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.VariableType.ClassModel.Id).Select(x => x.First()))
+		foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
 		{
 			statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
 		}
@@ -345,26 +345,26 @@ public class DomainInteractionsManager
 		if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
 		{
 			var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
-			var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel?.Id == mappedElementId || x.VariableType.DataContractModel?.Id == mappedElementId);
+			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel?.Id == mappedElementId);
 			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
 			string nullable = returnType.IsNullable ? "?" : "";
 			statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
 		}
 		else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
 		{
-			var entityDetails = TrackedEntities.Values.First(x => x.VariableType.ClassModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
+			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
 			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
 			statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
 		}
 		else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
 		{
 			var entityDetails = entitiesReturningPk.Single();
-			var entity = entityDetails.VariableType.ClassModel;
+			var entity = entityDetails.ElementModel.AsClassModel();
 			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
 		}
-		else if (returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id))
+		else if (returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
 		{
-			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.VariableType.TypeDefinitionModel?.Id);
+			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.ElementModel.Id);
 			statements.Add($"return {entityDetails.VariableName};");
 		}
 		else
@@ -389,13 +389,13 @@ public class DomainInteractionsManager
             if (mappedPks.Any())
             {
                 return TrackedEntities.Values
-                .Where(x => x.VariableType.ClassModel != null && mappedPks.Contains(x.VariableType.ClassModel.Id))
+                .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
                 .ToList();
             }
             return new List<EntityDetails>();
 		}
 		return TrackedEntities.Values
-			.Where(x => x.VariableType.ClassModel?.GetTypesInHierarchy()
+			.Where(x => x.ElementModel.AsClassModel().GetTypesInHierarchy()
 				.SelectMany(c => c.Attributes)
 				.Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
 			.ToList();
@@ -410,7 +410,7 @@ public class DomainInteractionsManager
             var entityVariableName = createAction.Name;
             var dataAccess = InjectDataAccessProvider(entity);
 
-            TrackedEntities.Add(createAction.Id, new EntityDetails(new VariableType(entity), createAction.Name, dataAccess, true));
+            TrackedEntities.Add(createAction.Id, new EntityDetails(entity.InternalElement, createAction.Name, dataAccess, true));
 
             var mapping = createAction.Mappings.SingleOrDefault();
             var statements = new List<CSharpStatement>();
@@ -453,7 +453,7 @@ public class DomainInteractionsManager
         try
         {
             var entityDetails = TrackedEntities[updateAction.Id];
-            var entity = entityDetails.VariableType.ClassModel;
+            var entity = entityDetails.ElementModel.AsClassModel();
             var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
 
             var statements = new List<CSharpStatement>();
@@ -476,15 +476,16 @@ public class DomainInteractionsManager
             else
             {
                 if (updateMapping != null)
-                {
-                    var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
+				{
+					var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
+					AdjustOperationInvocationWithReturnType(updateMapping, updateStatements);
 
 					WireupDomainServicesForOperations(updateAction, updateStatements);
 
 					statements.AddRange(updateStatements);
-                }
+				}
 
-                if (RepositoryRequiresExplicitUpdate(entity))
+				if (RepositoryRequiresExplicitUpdate(entity))
                 {
                     statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                         .SeparatedFromPrevious());
@@ -504,6 +505,29 @@ public class DomainInteractionsManager
             throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
     }
+
+	private void AdjustOperationInvocationWithReturnType(IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
+	{
+        
+		if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement) 
+            && me.TargetElement.TypeReference != null))
+		{
+            foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement) && me.TargetElement.TypeReference != null))
+            {
+                var operationName = ((IElement)invocation.TargetElement).Name;
+				var variableName = $"{operationName.ToCamelCase()}Result";
+                for (int i = 0; i < updateStatements.Count; i++)
+                {
+                    if (updateStatements[i].GetText("").Contains($".{operationName}("))
+                    {
+                        updateStatements[i] = new CSharpAssignmentStatement($"var {variableName}", updateStatements[i]);
+					}
+                }
+
+				TrackedEntities.Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, invocation.TargetElement.TypeReference.IsCollection));
+            }
+		}
+	}
 
 	public IEnumerable<CSharpStatement> DeleteEntity(DeleteEntityActionTargetEndModel deleteAction)
     {
@@ -565,18 +589,8 @@ public class DomainInteractionsManager
                 _csharpMapping.SetToReplacement(callServiceOperation, variableName);
                 statements.Add(new CSharpAssignmentStatement($"var {variableName}", invoke));
 
-                if (operationModel.TypeReference.Element.AsClassModel() is { } entityModel)
-                {
-                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(new VariableType(entityModel), variableName, null, false, operationModel.TypeReference.IsCollection));
-                }
-                else if (operationModel.TypeReference.Element.AsDataContractModel() is {} dataContractModel)
-                {
-                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(new VariableType(dataContractModel), variableName, null, false, operationModel.TypeReference.IsCollection));
-                }
-                else if (operationModel.TypeReference.Element.AsTypeDefinitionModel() is {} typeDefinitionModel)
-                {
-                    TrackedEntities.Add(callServiceOperation.Id, new EntityDetails(new VariableType(typeDefinitionModel), variableName, null, false, operationModel.TypeReference.IsCollection));
-                }
+
+				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, operationModel.TypeReference.IsCollection));
             }
             else
             {
@@ -901,38 +915,7 @@ public class DomainInteractionsManager
     }
 }
 
-public record VariableType
-{
-    private VariableType()
-    {
-    }
-    
-    public VariableType(ClassModel classModel)
-    {
-        ClassModel = classModel;
-    }
-
-    public VariableType(DataContractModel dataContractModel)
-    {
-        DataContractModel = dataContractModel;
-    }
-
-    public VariableType(TypeDefinitionModel typeDefinitionModel)
-    {
-        TypeDefinitionModel = typeDefinitionModel;
-    }
-
-    public static VariableType UnknownType()
-    {
-        return new VariableType();
-    }
-
-    public ClassModel ClassModel { get; private set; }
-    public DataContractModel DataContractModel { get; private set; }
-    public TypeDefinitionModel TypeDefinitionModel { get; private set; }
-}
-
-public record EntityDetails([NotNull] VariableType VariableType, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
+public record EntityDetails(IElement ElementModel, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
 
 internal static class AttributeModelExtensions
 {
