@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ea521efb-a5fa-4076-adac-154b24c0c10a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MudBlazorComponentInstaller</name>
+  <display>MudBlazorComponentInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

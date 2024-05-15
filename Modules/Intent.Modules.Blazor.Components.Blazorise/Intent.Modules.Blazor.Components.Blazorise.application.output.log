@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>cf9b952f-44f4-4ce0-b734-eb4ea2ea9087</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#31974528-12ab-48b1-b3d7-1f08fbe867aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>41fbe7c9-2fd3-4e71-b513-6980335dc8c4</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#82097cb9-e814-4a8c-8251-8f938be2b9b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/BlazoriseComponentInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlazoriseComponentInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>41fbe7c9-2fd3-4e71-b513-6980335dc8c4</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#d3691ded-2c70-4d94-83a1-6858fbac7978</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/BlazoriseInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BlazoriseInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>46252589-6311-452f-b4aa-3268d4bb4985</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Blazor.Components.Blazorise.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Blazor.Components.Blazorise.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>46252589-6311-452f-b4aa-3268d4bb4985</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#46252589-6311-452f-b4aa-3268d4bb4985</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.Blazorise.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.Blazorise.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

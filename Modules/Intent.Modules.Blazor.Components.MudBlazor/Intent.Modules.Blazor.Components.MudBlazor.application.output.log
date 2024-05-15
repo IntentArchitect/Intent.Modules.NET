@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>9a7240ce-a75e-4913-8630-d06afa4e7cae</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ff01128f-6865-43bc-8c0b-848a5ac9e671</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2bda8633-69d4-4d31-a183-4e938c79f6a8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ea521efb-a5fa-4076-adac-154b24c0c10a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MudBlazorComponentInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MudBlazorComponentInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2bda8633-69d4-4d31-a183-4e938c79f6a8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd277b16-0158-4a95-ac69-c6ffaa4c9612</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MudBlazorInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MudBlazorInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3844f12-304a-475a-99d2-b54e8d202e97</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Blazor.Components.MudBlazor.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Blazor.Components.MudBlazor.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3844f12-304a-475a-99d2-b54e8d202e97</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b3844f12-304a-475a-99d2-b54e8d202e97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.MudBlazor.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.MudBlazor.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>
