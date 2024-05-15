@@ -91,15 +91,3 @@ public class FormComponentBuilder : IRazorComponentBuilder
 
 
 }
-public static class EventBindingHelper
-{
-    public static string ToLambda(this ICSharpExpression invocation, string parameter = null)
-    {
-        if (invocation == null)
-        {
-            return null;
-        }
-
-        return $"({parameter ?? ""}) => {invocation}";
-    }
-}

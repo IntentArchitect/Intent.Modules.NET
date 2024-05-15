@@ -4,13 +4,13 @@ using Intent.Modules.Blazor.Api;
 
 namespace Intent.Modules.Blazorize.Components.ComponentRenderer;
 
-public class TextInputComponentBuilder : IRazorComponentBuilder
+public class CheckboxComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
     private readonly BindingManager _bindingManager;
 
-    public TextInputComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
+    public CheckboxComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
         _componentTemplate = template;
@@ -19,18 +19,15 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var textInput = new TextInputModel(component);
+        var model = new CheckboxModel(component);
         var htmlElement = new HtmlElement("Validation", _componentTemplate.RazorFile)
             .AddHtmlElement("Field", field =>
             {
-                field.AddHtmlElement("FieldLabel", label =>
+                field.AddHtmlElement("Check", textEdit =>
                 {
-                    label.WithText(textInput.GetLabelAddon()?.Label());
-                });
-                field.AddHtmlElement("TextEdit", textEdit =>
-                {
-                    textEdit.AddAttributeIfNotEmpty("@bind-Text", _bindingManager.GetElementBinding(textInput)?.ToString())
-                        .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
+                    textEdit.AddAttributeIfNotEmpty("@bind-Checked", _bindingManager.GetElementBinding(model, parentNode)?.ToString())
+                        .AddAttributeIfNotEmpty("Placeholder", model.GetLabelAddon()?.Label().TrimEnd(':'))
+                        .WithText(model.GetLabelAddon()?.Label());
                 });
             });
         parentNode.AddChildNode(htmlElement);

@@ -73,11 +73,15 @@ public static class RazorFileExtensions
             if (child.IsComponentOperationModel())
             {
                 var operation = child.AsComponentOperationModel();
-                var methodName = operation.CallServiceOperationActionTargets().Any() ? $"{operation.Name.ToPropertyName().RemoveSuffix("Async")}Async" : operation.Name.ToPropertyName();
+                var methodName =  operation.Name.ToPropertyName();
+                if (methodName is "OnInitialized" && operation.CallServiceOperationActionTargets().Any())
+                {
+                    methodName += "Async";
+                }
                 block.AddMethod(template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
-                    if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase))
+                    if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase) && operation.CallServiceOperationActionTargets().Any())
                     {
                         method.Async();
                     }

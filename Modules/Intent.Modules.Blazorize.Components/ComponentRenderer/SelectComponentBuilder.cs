@@ -44,8 +44,8 @@ public class SelectComponentBuilder : IRazorComponentBuilder
                         code.AddHtmlElement("SelectItem", selectItem =>
                         {
                             // TODO: Use bindings:
-                            selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Key", select)?.ToString())
-                                .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Value", select)?.ToString());
+                            selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Value", select)?.ToString())
+                                .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Text", select)?.ToString());
                         });
                     });
                 });

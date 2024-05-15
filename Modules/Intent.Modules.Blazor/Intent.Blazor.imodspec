@@ -72,7 +72,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.6.1-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-alpha.0" />

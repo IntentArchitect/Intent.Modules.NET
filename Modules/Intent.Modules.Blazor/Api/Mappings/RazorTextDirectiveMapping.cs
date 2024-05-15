@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -42,8 +43,11 @@ public class RazorEventBindingMapping : CSharpMappingBase
 
     public override CSharpStatement GetSourceStatement()
     {
-        var invocation = new CSharpInvocationStatement(base.GetSourceStatement())
-            .WithoutSemicolon();
+        var invocation = Mapping.SourceElement.IsEventEmitterModel()
+            ? new CSharpInvocationStatement(base.GetSourceStatement(), "InvokeAsync")
+                .WithoutSemicolon()
+            : new CSharpInvocationStatement(base.GetSourceStatement())
+                .WithoutSemicolon();
         foreach (var argumentMapping in Children)
         {
             var argument = argumentMapping.GetSourceStatement();

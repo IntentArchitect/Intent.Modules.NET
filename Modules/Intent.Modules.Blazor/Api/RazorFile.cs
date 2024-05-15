@@ -355,6 +355,22 @@ namespace Intent.Modules.Blazor.Api
             return this;
         }
 
+        public HtmlElement AddClass(string className)
+        {
+            if (!Attributes.TryGetValue("class", out var classAttr))
+            {
+                Attributes.Add("class", new HtmlAttribute("class", className));
+            }
+            else
+            {
+                if (classAttr.Value.Split(' ', StringSplitOptions.RemoveEmptyEntries).All(x => x != className))
+                {
+                    classAttr.Value += $" {classAttr}";
+                }
+            }
+            return this;
+        }
+
         public HtmlElement AddAttributeIfNotEmpty(string name, string value)
         {
             if (string.IsNullOrWhiteSpace(value))

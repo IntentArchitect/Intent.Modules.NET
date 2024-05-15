@@ -64,7 +64,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                                     {
                                         _componentResolver.ResolveFor(child).BuildComponent(child, barLink);
                                     }
-                                    barLink.WithText(navigationItemModel.Value ?? navigationItemModel.Name);
+                                    barLink.WithText(!string.IsNullOrWhiteSpace(navigationItemModel.Value) ? navigationItemModel.Value : navigationItemModel.Name);
                                     if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
                                     {
                                         var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
