@@ -167,6 +167,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     endpoint.EnableBatchedOperations = true;
                     endpoint.EnableDeadLetteringOnMessageExpiration = true;
                     endpoint.MaxSizeInMegabytes = 2048;
+                    endpoint.ConcurrentMessageLimit = 10;
                 });
         }
 

@@ -63,6 +63,11 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
         {
             yield return $@"{configVarName}.MaxDeliveryCount = {busConsumerSettings.MaxDeliveryCount()};";
         }
+        
+        if (busConsumerSettings.ConcurrentMessageLimit().HasValue)
+        {
+            yield return $@"{configVarName}.ConcurrentMessageLimit = {busConsumerSettings.ConcurrentMessageLimit()};";
+        }
     }
 
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)

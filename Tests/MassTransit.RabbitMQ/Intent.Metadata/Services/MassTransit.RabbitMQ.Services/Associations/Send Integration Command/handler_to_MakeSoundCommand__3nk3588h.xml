@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1bf7ff34-71e6-48e7-bd5d-1c9112bf147d">
   <sourceEnd id="06e72c88-09aa-41ee-b1dd-4dd4d8ccf3c7" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
-    <display>sent by : AnimalSoundRequestedEventHandler.</display>
+    <display>sent by : AnimalSoundRequestedEventHandler.handler</display>
     <order>0</order>
     <typeReference id="6357786b-8d2d-401d-a794-2618e84a7150">
       <typeId>1335bab6-d855-46e4-ba34-b6a68c180429</typeId>

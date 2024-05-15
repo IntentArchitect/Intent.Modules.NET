@@ -8,4 +8,5 @@ public interface IRabbitMQConsumerSettings
     bool Durable();
     bool PurgeOnStartup();
     bool Exclusive();
+    int? ConcurrentMessageLimit();
 }

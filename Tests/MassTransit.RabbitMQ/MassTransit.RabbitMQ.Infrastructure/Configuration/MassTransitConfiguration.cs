@@ -162,6 +162,7 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
                     endpoint.Durable = true;
                     endpoint.PurgeOnStartup = true;
                     endpoint.Exclusive = true;
+                    endpoint.ConcurrentMessageLimit = 10;
                 });
         }
 

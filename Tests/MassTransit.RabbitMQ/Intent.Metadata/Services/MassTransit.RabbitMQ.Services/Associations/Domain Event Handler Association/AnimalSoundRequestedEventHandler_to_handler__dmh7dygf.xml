@@ -19,6 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="1335bab6-d855-46e4-ba34-b6a68c180429" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
     <display>handles : AnimalSoundRequestedEvent</display>
     <order>0</order>
     <typeReference id="baebd281-2672-4a84-bd4e-0718f2ef67a7">

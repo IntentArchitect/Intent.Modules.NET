@@ -1,3 +1,7 @@
+### Version 6.1.4
+
+- Improvement: Concurrent Message Limit setting was introduced for Azure Service Bus and RabbitMQ.
+
 ### Version 6.1.3
 
 - Fixed: EventBus flush all would not have been invoked if there wasn't a DbContext present.

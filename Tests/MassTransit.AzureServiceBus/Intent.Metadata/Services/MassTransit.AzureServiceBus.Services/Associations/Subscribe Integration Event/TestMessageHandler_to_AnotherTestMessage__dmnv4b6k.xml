@@ -48,6 +48,7 @@
           <property name="94ed3877-3876-4fa2-bc45-ae679ec6cd21" display="Enable Dead-lettering On Message Expiration" value="true" isActive="true" />
           <property name="23748e16-ae82-41e6-9bc5-bfeae97ba89e" display="Max Queue Size" value="2048" isActive="true" />
           <property name="8482cf1b-82b7-4d47-a5b1-564e699df9ea" display="Max Delivery Count" isActive="true" />
+          <property name="67d129a7-691b-4999-a8be-bc326d7a28a5" display="Concurrent Message Limit" value="10" isActive="true" />
         </properties>
       </stereotype>
     </stereotypes>
@@ -72,6 +73,7 @@
         <property name="94ed3877-3876-4fa2-bc45-ae679ec6cd21" display="Enable Dead-lettering On Message Expiration" value="true" isActive="true" />
         <property name="23748e16-ae82-41e6-9bc5-bfeae97ba89e" display="Max Queue Size" value="2048" isActive="true" />
         <property name="8482cf1b-82b7-4d47-a5b1-564e699df9ea" display="Max Delivery Count" isActive="true" />
+        <property name="67d129a7-691b-4999-a8be-bc326d7a28a5" display="Concurrent Message Limit" value="10" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

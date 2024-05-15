@@ -43,6 +43,7 @@
           <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
           <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
           <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+          <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" value="10" isActive="true" />
         </properties>
       </stereotype>
     </stereotypes>
@@ -62,6 +63,7 @@
         <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
         <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
         <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+        <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" value="10" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

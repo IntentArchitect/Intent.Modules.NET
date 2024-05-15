@@ -75,5 +75,15 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="24c1edb4-8136-4588-97db-cd9f4849c6ba">
+      <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration#receive-endpoints)</hint>
+      <name>Concurrent Message Limit</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

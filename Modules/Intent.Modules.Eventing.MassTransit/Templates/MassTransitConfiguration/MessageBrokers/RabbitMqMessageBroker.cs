@@ -35,6 +35,11 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
         yield return $@"{configVarName}.Durable = {busConsumerSettings.Durable().ToString().ToLower()};";
         yield return $@"{configVarName}.PurgeOnStartup = {busConsumerSettings.PurgeOnStartup().ToString().ToLower()};";
         yield return $@"{configVarName}.Exclusive = {busConsumerSettings.Exclusive().ToString().ToLower()};";
+
+        if (busConsumerSettings.ConcurrentMessageLimit().HasValue)
+        {
+            yield return $@"{configVarName}.ConcurrentMessageLimit = {busConsumerSettings.ConcurrentMessageLimit()};";
+        }
     }
 
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)

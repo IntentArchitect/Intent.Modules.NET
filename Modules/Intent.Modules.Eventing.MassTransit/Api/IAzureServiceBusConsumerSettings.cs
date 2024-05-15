@@ -13,4 +13,5 @@ public interface IAzureServiceBusConsumerSettings
     bool EnableDeadLetteringOnMessageExpiration();
     int? MaxQueueSize();
     int? MaxDeliveryCount();
+    int? ConcurrentMessageLimit();
 }

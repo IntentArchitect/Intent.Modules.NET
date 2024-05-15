@@ -19,6 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="8fb60f58-f84d-4ba5-b325-55c2fe58edce" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
     <display>handles : TalkToPersonRequested</display>
     <order>0</order>
     <typeReference id="e0ed6d6b-66a4-494f-982d-dd2d4698263d">

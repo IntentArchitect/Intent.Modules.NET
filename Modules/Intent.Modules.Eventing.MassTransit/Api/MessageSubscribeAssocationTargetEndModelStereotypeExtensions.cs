@@ -123,6 +123,11 @@ namespace Intent.Eventing.MassTransit.Api
                 return _stereotype.GetProperty<int?>("Max Delivery Count");
             }
 
+            public int? ConcurrentMessageLimit()
+            {
+                return _stereotype.GetProperty<int?>("Concurrent Message Limit");
+            }
+
         }
 
         [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
@@ -160,6 +165,11 @@ namespace Intent.Eventing.MassTransit.Api
             public bool Exclusive()
             {
                 return _stereotype.GetProperty<bool>("Exclusive");
+            }
+
+            public int? ConcurrentMessageLimit()
+            {
+                return _stereotype.GetProperty<int?>("Concurrent Message Limit");
             }
 
         }

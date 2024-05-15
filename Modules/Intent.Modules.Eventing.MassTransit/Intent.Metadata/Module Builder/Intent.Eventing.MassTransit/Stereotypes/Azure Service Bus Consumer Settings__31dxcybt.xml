@@ -126,5 +126,15 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="67d129a7-691b-4999-a8be-bc326d7a28a5">
+      <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <name>Concurrent Message Limit</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>
