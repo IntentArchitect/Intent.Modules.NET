@@ -21,7 +21,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextModel(component);
-        var textValue = _bindingManager.GetElementBinding(textInput) ?? textInput.Value;
+        var textValue = _bindingManager.GetElementBinding(textInput)?.ToString() ?? textInput.Value;
         if (textValue.StartsWith("#"))
         {
             var size = 0;

@@ -37,7 +37,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");
             AddTypeSource(TemplateId);
             RazorFile = new RazorFile(this);
-            BindingManager = new BindingManager(this, Model.View.InternalElement.Mappings.FirstOrDefault());
+            BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
             ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);// new RazorComponentBuilderProvider(this);
 
             RazorFile.Configure(file =>

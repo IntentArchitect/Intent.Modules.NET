@@ -10,6 +10,32 @@
   <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
   <packageName>${application.name}.UI</packageName>
   <stereotypes />
+  <mappings>
+    <mapping type="Layout Binding" typeId="98598d41-6a2e-4c33-bf62-cb99a4bb18fd">
+      <source applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a562c507-f367-435c-8c93-a236dd3f7070" location="[Blazor.WebAssembly.Metadata].[User Interface].[MainLayout]" />
+      <target applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a562c507-f367-435c-8c93-a236dd3f7070" location="[Blazor.WebAssembly.Metadata].[User Interface].[MainLayout]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{NavigateTo}</expression>
+          <path>
+            <target id="a562c507-f367-435c-8c93-a236dd3f7070" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="3f20a5fb-d577-4f17-a04e-a77ad3f1e9ce" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="bbb814d0-6892-40a2-8539-d0de0adb98d0" name="Navigation Bar" type="element" specialization="Navigation Bar" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="39b249f7-ae57-433e-9db2-08b1f5197213" name="Home" type="element" specialization="Navigation Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateTo" mappingType="Invokable Mapping" mappingTypeId="313a3da8-fd70-4129-8456-0b8f6160ec06">
+              <path>
+                <target id="a562c507-f367-435c-8c93-a236dd3f7070" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="19f142a9-239c-4971-9728-1833092ad7e9" name="NavigateTo" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
   <metadata />
   <childElements>
     <childElement id="3f20a5fb-d577-4f17-a04e-a77ad3f1e9ce" type="Layout Header" typeId="a6c3a89e-5932-4ab6-a406-75444f05beee">
@@ -71,7 +97,7 @@
               <name>Home</name>
               <display>Home</display>
               <isAbstract>false</isAbstract>
-              <value>/</value>
+              <value />
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>bbb814d0-6892-40a2-8539-d0de0adb98d0</parentFolderId>

@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 
 namespace Intent.Modules.Blazor.Api;
@@ -16,7 +17,7 @@ public class BindingManager
 
     public IElementToElementMapping ViewBinding { get; }
 
-    public string GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
+    public CSharpStatement GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
     {
         if (mappedEnd == null)
         {
@@ -46,13 +47,13 @@ public class BindingManager
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && x.TargetPath.Last().Name == stereotypePropertyName);
     }
 
-    public string GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null)
+    public CSharpStatement GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model);
         return GetBinding(mappedEnd, razorNode);
     }
 
-    public string GetStereotypePropertyBinding(IMetadataModel model, string propertyName, IRazorFileNode razorNode = null)
+    public CSharpStatement GetStereotypePropertyBinding(IMetadataModel model, string propertyName, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model, propertyName);
         return GetBinding(mappedEnd, razorNode);

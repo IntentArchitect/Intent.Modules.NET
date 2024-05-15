@@ -33,9 +33,9 @@ public class FormComponentBuilder : IRazorComponentBuilder
         var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {
-            htmlElement.AddAttributeIfNotEmpty("Model", modelBinding);
-            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
-            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
+            htmlElement.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
+            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
+            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
 
             htmlElement.AddHtmlElement("Card", card =>
             {
@@ -60,7 +60,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
                     {
                         cardBody.AddHtmlElement("Validations", validations =>
                         {
-                            validations.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model"));
+                            validations.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model").ToString());
                             validations.AddAttribute("Mode", "ValidationMode.Auto");
                             validations.AddAttribute("ValidateOnLoad", "false");
                             foreach (var child in bodyModel.InternalElement.ChildElements)
@@ -87,5 +87,19 @@ public class FormComponentBuilder : IRazorComponentBuilder
 
         parentNode.AddChildNode(codeBlock);
 
+    }
+
+
+}
+public static class EventBindingHelper
+{
+    public static string ToLambda(this ICSharpExpression invocation, string parameter = null)
+    {
+        if (invocation == null)
+        {
+            return null;
+        }
+
+        return $"({parameter ?? ""}) => {invocation}";
     }
 }

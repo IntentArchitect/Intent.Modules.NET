@@ -305,6 +305,18 @@ namespace Intent.Modules.Blazor.Api
             return this;
         }
 
+        public IBuildsCSharpMembers AddClass(string name, Action<CSharpClass> configure = null)
+        {
+            var @class = new CSharpClass(name, RazorFile)
+            {
+                BeforeSeparator = CSharpCodeSeparatorType.EmptyLines,
+                AfterSeparator = CSharpCodeSeparatorType.EmptyLines
+            };
+            Declarations.Add(@class);
+            configure?.Invoke(@class);
+            return this;
+        }
+
         public override string GetText(string indentation)
         {
             return $@"{indentation}@code {{

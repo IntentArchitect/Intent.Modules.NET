@@ -111,14 +111,15 @@ public static class RazorFileExtensions
                             if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
                             {
                                 method.AddStatement(new CSharpAssignmentStatement(
-                                    lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()), 
-                                    rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                    lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
+                                    rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)).WithSemicolon());
                             }
                             else
                             {
                                 method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
                                 mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
                                 var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
+                                response.Last().WithSemicolon(); // Need to find out why this is necessary.
                                 method.AddStatements(response);
                             }
                         }
@@ -157,6 +158,18 @@ public static class RazorFileExtensions
 
                         template.RazorFile.AddInjectDirective("NavigationManager");
                         method.AddStatement($"NavigationManager.NavigateTo({route});");
+                    }
+                });
+            }
+
+            if (child.IsModelDefinitionModel())
+            {
+                var modelDefinition = child.AsModelDefinitionModel();
+                block.AddClass(modelDefinition.Name, @class =>
+                {
+                    foreach (var propertyModel in modelDefinition.Properties)
+                    {
+                        @class.AddProperty(propertyModel);
                     }
                 });
             }

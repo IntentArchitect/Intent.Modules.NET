@@ -20,9 +20,9 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorTextDirectiveMapping(mappingModel, _template);
         }
 
-        if (mappingModel.Model.SpecializationType == "Static Mappable Settings"
-            && mappingModel.Mapping.MappingTypeId == "e4f0c63b-0f00-42bd-a703-00adf44f3364") // Invokable Mapping
+        if (mappingModel.Mapping?.MappingTypeId == "e4f0c63b-0f00-42bd-a703-00adf44f3364") // Invokable Mapping
         {
+            //return new MethodInvocationMapping(mappingModel, _template);
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 

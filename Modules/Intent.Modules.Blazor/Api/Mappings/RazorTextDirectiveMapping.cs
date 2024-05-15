@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -41,11 +42,13 @@ public class RazorEventBindingMapping : CSharpMappingBase
 
     public override CSharpStatement GetSourceStatement()
     {
-        var source = base.GetSourceStatement(); 
-        if (source.ToString().EndsWith(")"))
+        var invocation = new CSharpInvocationStatement(base.GetSourceStatement())
+            .WithoutSemicolon();
+        foreach (var argumentMapping in Children)
         {
-            return $"() => {source}";
+            var argument = argumentMapping.GetSourceStatement();
+            invocation.AddArgument(argument);
         }
-        return source;
+        return invocation;
     }
 }

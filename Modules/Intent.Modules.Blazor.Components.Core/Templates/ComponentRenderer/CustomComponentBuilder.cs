@@ -32,7 +32,7 @@ public class CustomComponentBuilder : IRazorComponentBuilder
                 continue;
             }
 
-            htmlElement.AddAttributeIfNotEmpty(modelProperty.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd));
+            htmlElement.AddAttributeIfNotEmpty(modelProperty.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd)?.ToString());
         }
 
         foreach (var eventEmitter in model.EventEmitters.Where(x => x.HasBindable()))
@@ -50,7 +50,7 @@ public class CustomComponentBuilder : IRazorComponentBuilder
             }
             else
             {
-                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd));
+                htmlElement.AddAttributeIfNotEmpty(eventEmitter.Name.ToPropertyName(), _bindingManager.GetBinding(mappedEnd)?.ToString());
             }
 
         }

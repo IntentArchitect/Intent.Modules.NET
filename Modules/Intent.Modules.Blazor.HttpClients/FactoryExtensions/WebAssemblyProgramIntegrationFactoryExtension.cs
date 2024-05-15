@@ -61,6 +61,7 @@ namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
                 startup.StartupFile.ConfigureServices((statements, context) =>
                 {
                     // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
+                    startup.UseType(startup.GetHttpClientConfigurationName());
                     statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
                 });
             });
