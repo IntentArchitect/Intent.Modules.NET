@@ -356,10 +356,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#7b93e001-85a0-4e3d-8333-9777a4789c9e</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#5744ece4-a6a6-490b-9a17-82f4186183a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/CustomerCreatedHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerCreatedHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation#7b93e001-85a0-4e3d-8333-9777a4789c9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5859abb3-18a6-4572-bdb6-5f82468844a4</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#115837d7-a8d5-4f87-befe-c68fbab0d6f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEvents/CustomerCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerCreatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -548,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e1b7c2a1-0a11-47ab-9fce-c37ffb96e6cc</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

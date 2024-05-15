@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>d4e2dacd-90bd-4d8e-829b-bed69f1b8631</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
@@ -35,7 +35,7 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
-        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/clients" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/old-mapping-system/client" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
       </properties>
     </stereotype>

@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
     {
         public override string TemplateId => EventBusImplementationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new EventBusImplementationTemplate(outputTarget);

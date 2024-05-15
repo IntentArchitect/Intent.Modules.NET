@@ -716,6 +716,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#8f064291-5a12-4f63-9a13-4626b67ad402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/NotificationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotificationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#398493fa-60d5-4242-a895-4e20eb24562a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/Queues/Bindings/BindingService.cs</ApplicationRelativeFilePath>
@@ -760,6 +768,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/IListedUnlistedServicesService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IListedUnlistedServicesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#8f064291-5a12-4f63-9a13-4626b67ad402</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/INotificationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INotificationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1251,6 +1267,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e5d3200-9e61-478e-ab3c-cfac8b793bbe</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#56136eaf-0a5e-4e56-9452-25cf80aa1135</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/DomainNotificationType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainNotificationType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7b80e27b-3b32-4a5a-9034-4c9086797d5d</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7434dfda-7ada-49d6-8a4d-c50f345cc011</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1352,6 +1376,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/Configurations/SampleDomainConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8e0e95e6-5032-4cc1-87be-e30908cabac1</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DesignTimeDbContextFactory.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

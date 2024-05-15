@@ -3,10 +3,22 @@
   <name>ResponseTypes</name>
   <display>ResponseTypes</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4241e7b0-0b03-49a8-a8e9-af6abd1854b2</parentFolderId>
-  <stereotypes />
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="50351c10-0a3c-4aa3-a5ae-79c2c3f62b8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ec6c6459-7498-4c6f-96a0-6083ff7df3e9</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

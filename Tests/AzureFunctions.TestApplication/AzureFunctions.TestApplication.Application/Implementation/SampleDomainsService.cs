@@ -111,6 +111,44 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
         }
 
+        /// <summary>
+        /// This should print out a warning to say that the query should also be set to a collection since the service operation expects to return a collection
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<List<SampleDomainDto>> FindByNameForSingleSampleDomainMapToCollection(
+            string name,
+            CancellationToken cancellationToken = default)
+        {
+            var entity = await _sampleDomainRepository.FindAsync(x => x.Name == name, cancellationToken);
+            if (entity is null)
+            {
+                throw new NotFoundException($"Could not find SampleDomain '{name}'");
+            }
+            // return entity.MapToSampleDomainDtoList(_mapper);
+            throw new NotSupportedException("See comment");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<SampleDomainDto>> FindSampleDomainsByName(
+            string name,
+            CancellationToken cancellationToken = default)
+        {
+            var entity = await _sampleDomainRepository.FindAllAsync(x => x.Name == name, cancellationToken);
+            return entity.MapToSampleDomainDtoList(_mapper);
+        }
+
+        /// <summary>
+        /// This is not meant to be implemented automatically
+        /// </summary>
+        /// <param name="attribute">Comment for this parameter</param>
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<SampleDomainDto> FindSampleDomainByAttribute(
+            string attribute,
+            CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException("Write your implementation for this service here...");
+        }
+
         public void Dispose()
         {
         }

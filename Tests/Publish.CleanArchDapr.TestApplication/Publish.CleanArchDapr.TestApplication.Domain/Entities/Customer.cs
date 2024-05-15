@@ -12,6 +12,8 @@ namespace Publish.CleanArchDapr.TestApplication.Domain.Entities
     {
         public Guid Id { get; set; }
 
+        public string Name { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

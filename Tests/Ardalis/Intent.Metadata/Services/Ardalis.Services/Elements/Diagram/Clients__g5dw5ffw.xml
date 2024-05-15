@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a47b18cd-1a4c-4107-964e-d00c01ee2024" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Clients</name>
+  <display>Clients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>638963ee-9ccc-49bf-a535-b3b0ed7b570f</parentFolderId>
+  <packageId>3594c148-8174-4d9e-9f70-5d2fba034681</packageId>
+  <packageName>Ardalis.Services</packageName>
+  <diagram>
+    <targetPackageId>638963ee-9ccc-49bf-a535-b3b0ed7b570f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

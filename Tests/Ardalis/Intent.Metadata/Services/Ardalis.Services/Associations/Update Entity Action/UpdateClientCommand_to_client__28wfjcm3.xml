@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c9d91521-b6e3-4699-82ac-75729f785de7">
+  <sourceEnd id="cad8a37f-22af-4cd4-ba30-9564f8f2ac7f" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Clients.UpdateClientCommand</display>
+    <order>0</order>
+    <typeReference id="fe47e293-0cfd-4eaa-ba54-41e33f4aaa59">
+      <typeId>cf63590c-e2ef-46d3-a985-d8098660056e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Services</typePackageName>
+      <typePackageId>3594c148-8174-4d9e-9f70-5d2fba034681</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c9d91521-b6e3-4699-82ac-75729f785de7" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>client</name>
+    <display>[update] client: Client</display>
+    <order>2</order>
+    <typeReference id="606cd9be-dd35-40ed-b4c0-332b11876613">
+      <typeId>bea45036-f306-433e-99e0-abeebfe8180f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Domain</typePackageName>
+      <typePackageId>1129d147-9b7b-44b6-9fbe-9ff2d3bbc184</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cf63590c-e2ef-46d3-a985-d8098660056e" location="[Ardalis].[Services].[UpdateClientCommand]" />
+        <target applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bea45036-f306-433e-99e0-abeebfe8180f" location="[Ardalis].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bea45036-f306-433e-99e0-abeebfe8180f" name="Client" type="element" specialization="Class" />
+              <target id="63f09a53-26c0-4985-b563-9d57212f3cfe" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="cf63590c-e2ef-46d3-a985-d8098660056e" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="7c86509d-b2e8-4f1b-970e-38f172d5c285" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cf63590c-e2ef-46d3-a985-d8098660056e" location="[Ardalis].[Services].[UpdateClientCommand]" />
+        <target applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bea45036-f306-433e-99e0-abeebfe8180f" location="[Ardalis].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="bea45036-f306-433e-99e0-abeebfe8180f" name="Client" type="element" specialization="Class" />
+              <target id="933f6cab-f730-400b-80dc-0d883a306f4f" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="cf63590c-e2ef-46d3-a985-d8098660056e" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="2a781e52-4df9-4758-8858-a5f8887dca4b" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

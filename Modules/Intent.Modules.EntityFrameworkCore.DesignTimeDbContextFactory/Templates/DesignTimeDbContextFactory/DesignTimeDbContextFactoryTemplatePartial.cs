@@ -143,7 +143,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
 
     public override bool CanRunTemplate()
     {
-        return ExecutionContext.FindTemplateInstance("Infrastructure.Data.DbContext", TemplateDiscoveryOptions.DoNotThrow) is not null;
+        return ExecutionContext.FindTemplateInstances(TemplateRoles.Infrastructure.Data.DbContext).Any();
     }
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

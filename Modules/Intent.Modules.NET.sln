@@ -142,9 +142,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Swashbuckle.Security", "Intent.Modules.AspNetCore.Swashbuckle.Security\Intent.Modules.AspNetCore.Swashbuckle.Security.csproj", "{09C2DEE1-C9C4-4798-BCFD-DCC9836E6823}"
 EndProject
@@ -162,7 +162,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.ServiceInvocation", "Intent.Modules.Dapr.AspNetCore.ServiceInvocation\Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj", "{84B0552E-7C31-4F40-9023-C2AFB16304E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Pubsub", "Intent.Modules.Dapr.AspNetCore.Pubsub\Intent.Modules.Dapr.AspNetCore.Pubsub.csproj", "{8857D329-9CB0-449A-9C01-94EB3DFB73E0}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.Pubsub", "Intent.Modules.Dapr.AspNetCore.Pubsub\Intent.Modules.Dapr.AspNetCore.Pubsub.csproj", "{8857D329-9CB0-449A-9C01-94EB3DFB73E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore", "Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj", "{66E8A974-5617-4DD2-8D46-A35BF0587A20}"
 EndProject

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9b51bc35-d326-4f92-9589-459b33f7cad1">
+  <sourceEnd id="094db11c-d325-472d-8b0c-bae0a5701f87" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientsQuery</display>
+    <order>0</order>
+    <typeReference id="bb773c64-7b5f-41e3-81b6-4b4f8d62a004">
+      <typeId>956f521c-4c19-481b-b0b8-98286980ef87</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9b51bc35-d326-4f92-9589-459b33f7cad1" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>clients</name>
+    <display>[query] clients: Client[*]</display>
+    <order>0</order>
+    <typeReference id="12172593-3fdd-4610-8877-148e8df8752a">
+      <typeId>9257c32a-49d8-4f04-8e4b-840b89ebdf14</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="956f521c-4c19-481b-b0b8-98286980ef87" location="[CleanArchitecture.Dapr].[Services].[GetClientsQuery]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9257c32a-49d8-4f04-8e4b-840b89ebdf14" location="[CleanArchitecture.Dapr].[Services].[Client]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

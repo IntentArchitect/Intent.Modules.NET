@@ -38,6 +38,9 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure
                     b => b.MigrationsAssembly(typeof(Db3DbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
+            services.AddTransient<ICustomDb1Repository, CustomDb1Repository>();
+            services.AddTransient<ICustomDb2Repository, CustomDb2Repository>();
+            services.AddTransient<ICustomDb3Repository, CustomDb3Repository>();
             services.AddTransient<IDb1EntityRepository, Db1EntityRepository>();
             services.AddTransient<IDb2EntityRepository, Db2EntityRepository>();
             services.AddTransient<IDb3EntityRepository, Db3EntityRepository>();

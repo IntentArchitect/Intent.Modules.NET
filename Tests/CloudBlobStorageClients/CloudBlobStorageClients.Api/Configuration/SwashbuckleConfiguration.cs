@@ -56,7 +56,7 @@ namespace CloudBlobStorageClients.Api.Configuration
                 options =>
                 {
                     options.RoutePrefix = "swagger";
-                    options.OAuthAppName("CloudBlobStorageClients API");
+                    options.OAuthAppName("CloudBlobStorageClients.NET8 API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
                     options.DefaultModelsExpandDepth(2);

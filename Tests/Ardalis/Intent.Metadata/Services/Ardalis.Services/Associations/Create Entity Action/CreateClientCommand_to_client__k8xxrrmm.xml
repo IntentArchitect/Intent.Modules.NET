@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c51d25fa-b737-4d1b-88b2-5d16a60bcc3a">
+  <sourceEnd id="66e44704-1775-42ed-a403-eb0b9d5e4aad" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Clients.CreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="8921e028-74d3-4f38-8d74-542b3bc59867">
+      <typeId>43f624db-4c27-4c63-9989-f28efb402b75</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Services</typePackageName>
+      <typePackageId>3594c148-8174-4d9e-9f70-5d2fba034681</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c51d25fa-b737-4d1b-88b2-5d16a60bcc3a" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>client</name>
+    <display>[create] client: Constructor</display>
+    <order>1</order>
+    <typeReference id="cafcf3d8-44c6-4505-b0b6-b8cd7d88b459">
+      <typeId>9e32b580-9772-4e88-8169-0ce3406c461d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Ardalis.Domain</typePackageName>
+      <typePackageId>1129d147-9b7b-44b6-9fbe-9ff2d3bbc184</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="43f624db-4c27-4c63-9989-f28efb402b75" location="[Ardalis].[Services].[CreateClientCommand]" />
+        <target applicationId="8448a896-d79f-4fe0-9cc3-24130286676f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bea45036-f306-433e-99e0-abeebfe8180f" location="[Ardalis].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateClientCommand}</expression>
+            <path>
+              <target id="bea45036-f306-433e-99e0-abeebfe8180f" name="Client" type="element" specialization="Class" />
+              <target id="9e32b580-9772-4e88-8169-0ce3406c461d" name="Constructor" type="element" specialization="Class Constructor" />
+            </path>
+            <sources>
+              <source identifier="CreateClientCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="43f624db-4c27-4c63-9989-f28efb402b75" name="CreateClientCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="bea45036-f306-433e-99e0-abeebfe8180f" name="Client" type="element" specialization="Class" />
+              <target id="9e32b580-9772-4e88-8169-0ce3406c461d" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="84d71a70-0acf-4595-9043-6d47db267299" name="name" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="43f624db-4c27-4c63-9989-f28efb402b75" name="CreateClientCommand" type="element" specialization="Command" />
+                  <target id="47fed3f3-4eb0-4dcb-b9ec-48051011dfad" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

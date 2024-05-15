@@ -883,14 +883,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>10b6f2e4-bfe2-467e-bdb6-ef4713a6d2e6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>TableStorage.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>eeaa8713-74b3-459e-a8c6-6b27009ec832</ProjectId>
       <CorrelationId>Intent.Azure.TableStorage.TableStorageTableEntity#d2bce3e0-08f3-42ec-a4df-f03d7dfa8f79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="956f521c-4c19-481b-b0b8-98286980ef87" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetClientsQuery</name>
+  <display>GetClientsQuery: ClientDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="e27bcd1e-e502-4da2-8fa4-983305f935de">
+    <typeId>981c709f-5edf-41f7-a521-6080901dd733</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+    <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>fbae979d-5945-4aac-83d9-624bf4477430</parentFolderId>
+  <packageId>54dc2464-246c-461d-9fbd-d03956c25688</packageId>
+  <packageName>CleanArchitecture.Dapr.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/advanced-mapping-system/client" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Clients" />
+  </metadata>
+  <childElements />
+</class>

@@ -1,4 +1,8 @@
-﻿### Version 5.0.4
+﻿### Version 5.0.5
+
+- Improvement: Updated the `Database Settings` stereotype icon.
+
+### Version 5.0.4
 
 - New Feature: Introduce multiple Db Contexts by making use of the `Database Settings` stereotype on a Domain Package and giving a unique connection string name.
 

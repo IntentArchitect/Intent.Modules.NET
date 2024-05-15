@@ -8,7 +8,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices;
 using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Publish.CleanArchDapr.TestApplication.Services.Orders;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation", Version = "2.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {

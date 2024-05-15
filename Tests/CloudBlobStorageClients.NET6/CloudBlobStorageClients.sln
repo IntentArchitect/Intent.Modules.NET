@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{32D13A98-675E-4B8A-8E97-704D21549C6A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudBlobStorageClients.Api", "CloudBlobStorageClients.Api\CloudBlobStorageClients.Api.csproj", "{A37D4C20-C284-4250-B74B-920BDB7141F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3EBB43E0-CE3E-4BC6-934B-DF5AC19B2A6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudBlobStorageClients.Application", "CloudBlobStorageClients.Application\CloudBlobStorageClients.Application.csproj", "{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6C40EC5C-6D85-4677-9622-5061B8AE84C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudBlobStorageClients.Domain", "CloudBlobStorageClients.Domain\CloudBlobStorageClients.Domain.csproj", "{6BA84FC1-6166-482F-AA0A-03297107648F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{B7807DD1-5F50-4969-9C9F-A7F27DEC86DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudBlobStorageClients.Infrastructure", "CloudBlobStorageClients.Infrastructure\CloudBlobStorageClients.Infrastructure.csproj", "{EB3583A0-4159-472A-A493-6D8C8B4B1CD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A37D4C20-C284-4250-B74B-920BDB7141F5} = {32D13A98-675E-4B8A-8E97-704D21549C6A}
+		{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3} = {3EBB43E0-CE3E-4BC6-934B-DF5AC19B2A6F}
+		{6BA84FC1-6166-482F-AA0A-03297107648F} = {6C40EC5C-6D85-4677-9622-5061B8AE84C0}
+		{EB3583A0-4159-472A-A493-6D8C8B4B1CD9} = {B7807DD1-5F50-4969-9C9F-A7F27DEC86DF}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A37D4C20-C284-4250-B74B-920BDB7141F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37D4C20-C284-4250-B74B-920BDB7141F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37D4C20-C284-4250-B74B-920BDB7141F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37D4C20-C284-4250-B74B-920BDB7141F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB9D44F-4B2D-42FE-92E9-671E032C3EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BA84FC1-6166-482F-AA0A-03297107648F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA84FC1-6166-482F-AA0A-03297107648F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA84FC1-6166-482F-AA0A-03297107648F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA84FC1-6166-482F-AA0A-03297107648F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3583A0-4159-472A-A493-6D8C8B4B1CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3583A0-4159-472A-A493-6D8C8B4B1CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3583A0-4159-472A-A493-6D8C8B4B1CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3583A0-4159-472A-A493-6D8C8B4B1CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

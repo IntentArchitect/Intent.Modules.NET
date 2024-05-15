@@ -16,6 +16,9 @@ namespace AzureFunctions.TestApplication.Infrastructure.Persistence.Configuratio
 
             builder.Property(x => x.Attribute)
                 .IsRequired();
+
+            builder.Property(x => x.Name)
+                .IsRequired();
         }
     }
 }

@@ -33,6 +33,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Domain.Enum);
             SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")
@@ -53,6 +54,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     {
                         priClass.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(), method =>
                         {
+                            foreach (var genericType in operation.GenericTypes)
+                            {
+                                @method.AddGenericParameter(genericType);
+                            }
+                            
                             method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
                             method.RepresentsModel(operation);

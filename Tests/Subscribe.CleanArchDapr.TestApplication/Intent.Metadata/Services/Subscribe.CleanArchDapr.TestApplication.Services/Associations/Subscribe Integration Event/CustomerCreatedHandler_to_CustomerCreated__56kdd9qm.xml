@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b27e684b-4502-4d40-8337-085e74f0e8c8">
+  <sourceEnd id="74f127f1-71c4-42b7-8b5c-269c767d9662" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Subscribe.CleanArchDapr.TestApplication.Services.CustomerCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="39534a56-94bd-42af-8461-5cba42297488">
+      <typeId>5744ece4-a6a6-490b-9a17-82f4186183a0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.CleanArchDapr.TestApplication.Services</typePackageName>
+      <typePackageId>1711e8b9-ebdd-4b06-882e-9cd7ef38ad0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b27e684b-4502-4d40-8337-085e74f0e8c8" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: CustomerCreated</display>
+    <order>0</order>
+    <typeReference id="c4355520-e390-4294-908d-d2950de63535">
+      <typeId>115837d7-a8d5-4f87-befe-c68fbab0d6f5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

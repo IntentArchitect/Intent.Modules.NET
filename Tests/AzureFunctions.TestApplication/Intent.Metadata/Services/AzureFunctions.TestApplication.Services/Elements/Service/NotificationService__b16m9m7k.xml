@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8f064291-5a12-4f63-9a13-4626b67ad402" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>NotificationService</name>
+  <display>NotificationService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d334321a-377b-4cd9-ae64-2aec501e2a55</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c3ff1f60-6932-45a2-973c-5979fbcb1c2a" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendNotification</name>
+      <display>SendNotification&lt;T&gt;(entityId: guid, subject: string, template: string, model: T, type: DomainNotificationType): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes>
+        <genericType id="bf00d4ab-01bc-482f-ada2-dd4cd210dfb3">
+          <name>T</name>
+        </genericType>
+      </genericTypes>
+      <typeReference id="8936651f-05b6-44c1-8bb3-8bb9264644cb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8f064291-5a12-4f63-9a13-4626b67ad402</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="352e21c9-699d-4d9d-8a80-34a3111e108a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>entityId</name>
+          <display>in : entityId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="85ee9d40-7d4a-4da2-b54d-e2df5a0b0d1e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bf3c581c-211d-43a1-bbfd-86fbf164816c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>subject</name>
+          <display>in : subject: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="95e09ab1-f79b-41a9-a4db-fe78adb14134">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4bad1689-faff-4494-96dd-465763bc7eb6" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>template</name>
+          <display>in : template: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2c327fac-5b3b-40c5-9a9a-5048421e5889">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="488f3f15-df2b-4493-9514-83aebf45241a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>model</name>
+          <display>in : model: T</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a9495f69-70f8-4ae7-8b5c-00f07a3a49bf">
+            <typeId>bf00d4ab-01bc-482f-ada2-dd4cd210dfb3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="626ab64f-ce41-4168-91be-07d5deaa4dc5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>type</name>
+          <display>in : type: DomainNotificationType</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="168a6237-7ab2-49b8-a4c4-0bf6891b54b3">
+            <typeId>56136eaf-0a5e-4e56-9452-25cf80aa1135</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.TestApplication.Domain</typePackageName>
+            <typePackageId>0e55483e-a292-48d7-8851-88928666394f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c3ff1f60-6932-45a2-973c-5979fbcb1c2a</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

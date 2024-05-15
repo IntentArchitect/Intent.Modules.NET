@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5b4b8240-c38a-4a4a-a510-8d8714b2faf1">
+  <sourceEnd id="2fa2a582-5fde-4e9c-aa8f-b5b6f952d62d" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Customers.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="aaaf9d16-40c7-4b82-a9ac-7ea7eabbe0f0">
+      <typeId>a84d074b-cae3-4709-9de2-57eed7071fae</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Services</typePackageName>
+      <typePackageId>3f763df0-a134-4460-b12c-76f0df862016</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5b4b8240-c38a-4a4a-a510-8d8714b2faf1" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] CustomerCreated</display>
+    <order>1</order>
+    <typeReference id="8793a1bd-028c-423b-9e42-6c121cb435be">
+      <typeId>115837d7-a8d5-4f87-befe-c68fbab0d6f5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source elementId="a84d074b-cae3-4709-9de2-57eed7071fae" location="[Publish.CleanArchDapr.TestApplication].[Services].[CreateCustomerCommand]" />
+        <target applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="115837d7-a8d5-4f87-befe-c68fbab0d6f5" location="[Publish.CleanArchDapr.TestApplication].[Services].[CustomerCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="115837d7-a8d5-4f87-befe-c68fbab0d6f5" name="CustomerCreated" type="element" specialization="Message" />
+              <target id="53987996-5cf4-4fb3-9a69-2b11c35d6b4c" name="Name" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="a84d074b-cae3-4709-9de2-57eed7071fae" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="ed6f288a-c7d0-4f62-af7d-d6af21585b21" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

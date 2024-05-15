@@ -27,6 +27,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
         }
         public override string TemplateId => ReadRepositoryInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new ReadRepositoryInterfaceTemplate(outputTarget, model);

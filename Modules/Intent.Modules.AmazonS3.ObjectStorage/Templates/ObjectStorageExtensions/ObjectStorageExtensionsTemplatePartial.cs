@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +31,17 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.ObjectStorageExtension
                 className: $"ObjectStorageExtensions",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+        
+        private string GetReadToEndMethodCall()
+        {
+            return OutputTarget switch
+            {
+                _ when OutputTarget.GetProject().IsNetApp(5) => "ReadToEndAsync()",
+                _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
+                _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadToEndAsync()",
+                _ => "ReadToEndAsync(cancellationToken)"
+            }; 
         }
     }
 }

@@ -4,10 +4,34 @@
   <FileLogs>
     <FileLog>
       <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Development#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.Development.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.Development.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Production#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.Production.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.Production.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-UAT#5647b8af-7a47-4482-91ba-d04fca2d56bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/appsettings.UAT.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>appsettings.UAT.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -48,6 +72,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4241e7b0-0b03-49a8-a8e9-af6abd1854b2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#14fabf97-8018-4a60-a19e-b8944224e201</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -216,6 +248,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Standard.AspNetCore.Serilog.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Standard.AspNetCore.Serilog.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/Test/TestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Test/Test/TestCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

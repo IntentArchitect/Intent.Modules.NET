@@ -468,6 +468,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fe9b651a-889b-46db-8aa9-f637faad84b9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DesignTimeDbContextFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fe9b651a-889b-46db-8aa9-f637faad84b9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>

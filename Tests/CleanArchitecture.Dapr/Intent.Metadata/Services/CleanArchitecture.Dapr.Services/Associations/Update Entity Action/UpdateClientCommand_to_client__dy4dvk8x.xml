@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="325b3bbb-ebe7-4fb5-a738-59cbc1c62db4">
+  <sourceEnd id="7c6682f5-7104-47bd-a488-11bee4adb042" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Clients.UpdateClientCommand</display>
+    <order>0</order>
+    <typeReference id="ae5dd4af-71d7-4b4a-b5d7-960f15a9e743">
+      <typeId>ccbb300d-1b56-4e3f-a18e-952b9abab339</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="325b3bbb-ebe7-4fb5-a738-59cbc1c62db4" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>client</name>
+    <display>[update] client: Client</display>
+    <order>3</order>
+    <typeReference id="46adfbb9-e2ac-4c61-9873-215544f87d10">
+      <typeId>9257c32a-49d8-4f04-8e4b-840b89ebdf14</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Domain</typePackageName>
+      <typePackageId>115c384e-2212-4690-a788-c55bbe9a2ec2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ccbb300d-1b56-4e3f-a18e-952b9abab339" location="[CleanArchitecture.Dapr].[Services].[UpdateClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9257c32a-49d8-4f04-8e4b-840b89ebdf14" location="[CleanArchitecture.Dapr].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="9257c32a-49d8-4f04-8e4b-840b89ebdf14" name="Client" type="element" specialization="Class" />
+              <target id="aafae53e-d2df-4712-ac63-aa410f3fb491" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="707ce680-7670-4765-91b3-259b7348f8f0" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ccbb300d-1b56-4e3f-a18e-952b9abab339" location="[CleanArchitecture.Dapr].[Services].[UpdateClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9257c32a-49d8-4f04-8e4b-840b89ebdf14" location="[CleanArchitecture.Dapr].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="9257c32a-49d8-4f04-8e4b-840b89ebdf14" name="Client" type="element" specialization="Class" />
+              <target id="cd58a933-c43e-4725-bad7-052d212a1f9c" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="fe0a7f0f-b89f-4ee5-84fd-f270a05554e8" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{TagsIds}</expression>
+            <path>
+              <target id="9257c32a-49d8-4f04-8e4b-840b89ebdf14" name="Client" type="element" specialization="Class" />
+              <target id="487bd20a-bb40-4d92-b166-4b546bbc8f33" name="TagsIds" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="TagsIds" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="de599311-c583-4bcb-b1bc-d4db3717ace7" name="TagsIds" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

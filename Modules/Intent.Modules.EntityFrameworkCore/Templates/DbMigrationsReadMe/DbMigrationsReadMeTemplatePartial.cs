@@ -84,6 +84,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             ExecutionContext.EventDispatcher.Publish(new DbMigrationsReadMeCreatedEvent(this));
         }
 
+        public override bool CanRunTemplate()
+        {
+            return DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Any();
+        }
+
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {

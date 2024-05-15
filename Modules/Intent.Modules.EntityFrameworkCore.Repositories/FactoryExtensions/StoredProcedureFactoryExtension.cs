@@ -12,6 +12,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -145,7 +146,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     });
                 }
 
-                StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures);
+                StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures, DbContextManager.GetDbContext(entity));
             }
         }
 

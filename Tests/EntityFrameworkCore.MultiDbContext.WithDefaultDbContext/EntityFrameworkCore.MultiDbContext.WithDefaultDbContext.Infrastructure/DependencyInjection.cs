@@ -33,6 +33,9 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<ICustomAlternateRepository, CustomAlternateRepository>();
+            services.AddTransient<ICustomAppDefaultRepository, CustomAppDefaultRepository>();
+            services.AddTransient<ICustomDefaultRepository, CustomDefaultRepository>();
             services.AddTransient<IEntityAlternateRepository, EntityAlternateRepository>();
             services.AddTransient<IEntityAppDefaultRepository, EntityAppDefaultRepository>();
             services.AddTransient<IEntityDefaultRepository, EntityDefaultRepository>();

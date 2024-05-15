@@ -13,6 +13,7 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
@@ -63,7 +64,8 @@ internal static class StoredProcedureHelpers
 
     public static void ApplyImplementationMethods<TTemplate, TModel>(
         TTemplate template,
-        IReadOnlyCollection<StoredProcedureModel> storedProcedures)
+        IReadOnlyCollection<StoredProcedureModel> storedProcedures,
+        DbContextInstance dbContextInstance)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
         template.AddTypeSource(TemplateRoles.Domain.Enum);
@@ -71,14 +73,14 @@ internal static class StoredProcedureHelpers
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
         var complexReturnTypeImplementations = new List<ComplexReturnTypeImplRecord>();
-        
+
         template.CSharpFile
             .AddUsing("System.Threading")
             .AddUsing("System.Threading.Tasks")
             .OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                
+
                 foreach (var storedProcedure in storedProcedures)
                 {
                     storedProcedure.Validate();
@@ -195,7 +197,7 @@ internal static class StoredProcedureHelpers
                                         s.AddArgument($"{parameter.VariableName}");
                                     }
                                 });
-                            
+
                             AddReturnStatement(returnTupleProperties, method);
                         }
                         else if (returnTypeElement == null)
@@ -204,13 +206,13 @@ internal static class StoredProcedureHelpers
 
                             file.AddUsing("Microsoft.EntityFrameworkCore");
                             method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
-                            
+
                             AddReturnStatement(returnTupleProperties, method);
                         }
                         else
                         {
                             var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.Output}"))}\"";
-                            
+
                             complexReturnTypeImplementations.Add(new ComplexReturnTypeImplRecord(
                                 Method: method,
                                 StoredProcedure: storedProcedure,
@@ -225,7 +227,7 @@ internal static class StoredProcedureHelpers
             })
             .AfterBuild(file =>
             {
-                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
+                var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, dbContextInstance);
                 var dbSetPropertiesByModelId = dbContextTemplate.CSharpFile.Classes.Single().Properties
                     .Where(x => x.HasMetadata("model"))
                     .ToDictionary(x => x.GetMetadata("model") switch
@@ -259,14 +261,14 @@ internal static class StoredProcedureHelpers
                                 ? "SingleOrDefault()"
                                 : "Single()");
                         }
-                        
+
                         AddReturnStatement(implRecord.ReturnTupleProperties, implRecord.Method);
                     });
                 }
             });
     }
 
-    private static void AddReturnStatement(IReadOnlyList<string> returnTupleProperties, CSharpClassMethod method) 
+    private static void AddReturnStatement(IReadOnlyList<string> returnTupleProperties, CSharpClassMethod method)
     {
         switch (returnTupleProperties.Count)
         {
@@ -415,6 +417,11 @@ internal static class StoredProcedureHelpers
 
             statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Output");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
+            var size = parameter.GetStoredProcedureParameterSettings()?.Size();
+            if (size.HasValue)
+            {
+                statement.AddObjectInitStatement("Size", size.ToString());
+            }
             statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
             statement.WithSemicolon();
 
@@ -452,7 +459,7 @@ internal static class StoredProcedureHelpers
             _template.GetDataContractExtensionMethodsName(dataContractModel);
 
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
-        
+
             statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.Structured");
             statement.AddObjectInitStatement("Value", $"{parameter.Name.ToLocalVariableName()}.ToDataTable()");
@@ -463,7 +470,7 @@ internal static class StoredProcedureHelpers
         }
 
         private static string GetSqlDbType(StoredProcedureParameterModel parameter)
-        {
+        { 
             // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
             return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
             {
@@ -480,8 +487,18 @@ internal static class StoredProcedureHelpers
                 "int" => "Int",
                 "long" => "BigInt",
                 "short" => "SmallInt",
-                "string" => "VarChar",
+                "string" => GetStringSqlType(parameter),
                 _ => throw new ArgumentOutOfRangeException(nameof(parameter), parameter.TypeReference.Element.Name, null)
+            };
+        }
+
+        private static string GetStringSqlType(StoredProcedureParameterModel parameter)
+        {
+            var sqlStringType = parameter.GetStoredProcedureParameterSettings()?.SQLStringType();
+            return sqlStringType?.Value switch
+            {
+                null => "VarChar",
+                var value => value
             };
         }
     }

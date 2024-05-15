@@ -80,7 +80,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                     {
                         return;
                     }
-                    
+
                     file.AddUsing("Microsoft.EntityFrameworkCore");
                     file.AddClass("QueryablePaginationExtension", @class =>
                     {

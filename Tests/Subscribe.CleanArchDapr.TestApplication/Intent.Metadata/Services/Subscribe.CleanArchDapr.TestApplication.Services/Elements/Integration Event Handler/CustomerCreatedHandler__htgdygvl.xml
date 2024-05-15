@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5744ece4-a6a6-490b-9a17-82f4186183a0" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CustomerCreatedHandler</name>
+  <display>CustomerCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1711e8b9-ebdd-4b06-882e-9cd7ef38ad0c</parentFolderId>
+  <packageId>1711e8b9-ebdd-4b06-882e-9cd7ef38ad0c</packageId>
+  <packageName>Subscribe.CleanArchDapr.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

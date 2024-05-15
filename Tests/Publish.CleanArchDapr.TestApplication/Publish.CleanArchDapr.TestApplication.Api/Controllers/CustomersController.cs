@@ -36,14 +36,18 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPost("api/customers")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomer(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomer(
+            [FromBody] CreateCustomerCommand command,
+            CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new CreateCustomerCommand(), cancellationToken);
-            return Created(string.Empty, new JsonResponse<Guid>(result));
+            var result = await _mediator.Send(command, cancellationToken);
+            return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
@@ -72,10 +76,22 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> UpdateCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> UpdateCustomer(
+            [FromRoute] Guid id,
+            [FromBody] UpdateCustomerCommand command,
+            CancellationToken cancellationToken = default)
         {
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
 
-            await _mediator.Send(new UpdateCustomerCommand(id: id), cancellationToken);
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await _mediator.Send(command, cancellationToken);
             return NoContent();
         }
 

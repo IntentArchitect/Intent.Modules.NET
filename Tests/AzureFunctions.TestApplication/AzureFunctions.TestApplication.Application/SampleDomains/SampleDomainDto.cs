@@ -15,17 +15,20 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         public SampleDomainDto()
         {
             Attribute = null!;
+            Name = null!;
         }
 
         public Guid Id { get; set; }
         public string Attribute { get; set; }
+        public string Name { get; set; }
 
-        public static SampleDomainDto Create(Guid id, string attribute)
+        public static SampleDomainDto Create(Guid id, string attribute, string name)
         {
             return new SampleDomainDto
             {
                 Id = id,
-                Attribute = attribute
+                Attribute = attribute,
+                Name = name
             };
         }
 

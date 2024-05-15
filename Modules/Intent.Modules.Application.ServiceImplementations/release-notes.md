@@ -1,3 +1,8 @@
+### Version 4.5.3
+
+- Fixed: Service Operations didn't generate generic type parameters.
+- Fixed: Referencing Domain Enums will now add their respective using directives.
+
 ### Version 4.5.2
 
 - Fixed: Enums using directives will now be resolved.

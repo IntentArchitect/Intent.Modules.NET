@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
+using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -48,7 +49,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                             .AddParameter("ISender", "mediatr", p => p.IntroduceReadonlyField())
                         );
 
-                    var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+                    var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
                         .ToArray();
 
                     foreach (var eventHandler in eventHandlerTemplates)
@@ -95,7 +96,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
 
         public override bool CanRunTemplate()
         {
-            var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+            var eventHandlerTemplates = ExecutionContext
+                .FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
                 .ToArray();
 
             return eventHandlerTemplates.Any() && base.CanRunTemplate();

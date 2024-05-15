@@ -28,7 +28,7 @@ namespace CloudBlobStorageClients.Application.Common.Behaviours
             var userId = _currentUserService.UserId ?? string.Empty;
             var userName = _currentUserService.UserName ?? string.Empty;
 
-            _logger.LogInformation("CloudBlobStorageClients Request: {Name} {@UserId} {@UserName} {@Request}",
+            _logger.LogInformation("CloudBlobStorageClients.NET8 Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
             return Task.CompletedTask;
         }

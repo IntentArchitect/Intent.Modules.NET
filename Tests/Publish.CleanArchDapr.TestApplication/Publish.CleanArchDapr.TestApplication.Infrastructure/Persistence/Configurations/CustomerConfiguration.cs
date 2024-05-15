@@ -14,6 +14,9 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Persistence.Confi
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Name)
+                .IsRequired();
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

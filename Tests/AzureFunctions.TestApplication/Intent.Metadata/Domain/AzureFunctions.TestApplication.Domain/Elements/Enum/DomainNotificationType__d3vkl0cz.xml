@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="56136eaf-0a5e-4e56-9452-25cf80aa1135" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>DomainNotificationType</name>
+  <display>DomainNotificationType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0e55483e-a292-48d7-8851-88928666394f</parentFolderId>
+  <packageId>0e55483e-a292-48d7-8851-88928666394f</packageId>
+  <packageName>AzureFunctions.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9689c7f8-bad7-48ef-844f-1ac3ae280de8" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeA</name>
+      <display>TypeA = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56136eaf-0a5e-4e56-9452-25cf80aa1135</parentFolderId>
+      <packageId>0e55483e-a292-48d7-8851-88928666394f</packageId>
+      <packageName>AzureFunctions.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d8165145-0c4a-4dd5-9f63-8b8628bee8d0" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeB</name>
+      <display>TypeB = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56136eaf-0a5e-4e56-9452-25cf80aa1135</parentFolderId>
+      <packageId>0e55483e-a292-48d7-8851-88928666394f</packageId>
+      <packageName>AzureFunctions.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
