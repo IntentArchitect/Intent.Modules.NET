@@ -63,7 +63,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                     {
                         foreach (var declaration in block.Declarations)
                         {
-                            if (declaration is CSharpProperty property && new RouteManager(Model.GetPage().Route()).HasParameterExpression(property.Name))
+                            if (declaration is CSharpProperty property && new RouteManager(Model.GetPage().Route()).HasParameterExpression(property.Name)
+                                && property.Attributes.All(x => x.Name != "Parameter"))
                             {
                                 property.AddAttribute("Parameter");
                             }

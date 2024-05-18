@@ -61,7 +61,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     {
                         if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                         {
-                            tr.AddAttributeIfNotEmpty("@onclick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", tbody)}");
+                            tr.AddAttributeIfNotEmpty("@onclick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", tbody).ToLambda()}");
                         }
                         foreach (var column in table.Columns)
                         {

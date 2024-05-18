@@ -111,7 +111,6 @@ public static class RazorFileExtensions
                         var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                         if (serviceCall.GetMapResponseMapping() != null)
                         {
-
                             if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
                             {
                                 method.AddStatement(new CSharpAssignmentStatement(
@@ -123,7 +122,7 @@ public static class RazorFileExtensions
                                 method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
                                 mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
                                 var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                response.Last().WithSemicolon(); // Need to find out why this is necessary.
+                                response.LastOrDefault()?.WithSemicolon(); // Need to find out why this is necessary.
                                 method.AddStatements(response);
                             }
                         }
