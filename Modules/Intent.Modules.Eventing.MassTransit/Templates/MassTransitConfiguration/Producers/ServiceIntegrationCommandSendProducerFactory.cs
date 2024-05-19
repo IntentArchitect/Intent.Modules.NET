@@ -34,10 +34,12 @@ internal class ServiceIntegrationCommandSendProducerFactory : IProducerFactory
                 {
                     queueName = "queue:" + queueName;
                 }
-                
-                return new Producer(
-                    MessageTypeName: _template.GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
-                    Urn: queueName);
+
+                return new Producer
+                {
+                    MessageTypeName = _template.GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
+                    Urn = queueName
+                };
             })
             .ToArray();
         return results;

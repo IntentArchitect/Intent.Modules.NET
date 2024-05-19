@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.MassTransit.Api;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -18,6 +19,7 @@ using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Consumers;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.MessageBrokers;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Producers;
+using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -47,7 +49,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
         AddTypeSource(IntegrationCommandTemplate.TemplateId);
 
-        _messagesWithSettings = GetMessagesWithSettings();
+        _applicableMessages = GetApplicableMessages();
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
@@ -86,7 +88,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     private readonly MessageBrokerBase _messageBroker;
     private IReadOnlyCollection<Consumer> _consumers;
     private IReadOnlyCollection<Producer> _producers;
-    private readonly IReadOnlyList<MessageModel> _messagesWithSettings;
+    private readonly IReadOnlyList<MessageModel> _applicableMessages;
 
     private MessageBrokerBase GetMessageBroker()
     {
@@ -128,15 +130,24 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return producers;
     }
 
-    private IReadOnlyList<MessageModel> GetMessagesWithSettings()
+    private IReadOnlyList<MessageModel> GetApplicableMessages()
     {
         var eventApplications = ExecutionContext.MetadataManager.Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels().ToList();
-        return eventApplications.SelectMany(x => x.SubscribedMessages())
-            .Select(x => x.TypeReference.Element.AsMessageModel())
-            .Union(eventApplications.SelectMany(x => x.PublishedMessages())
-                .Select(x => x.TypeReference.Element.AsMessageModel()))
-            .Where(p => p.HasMessageTopologySettings() && !string.IsNullOrWhiteSpace(p.GetMessageTopologySettings().EntityName()))
-            .ToList();
+        var legacySubscriptionMessages = eventApplications.SelectMany(x => x.SubscribedMessages())
+            .Select(x => x.TypeReference.Element.AsMessageModel());
+        var legacyPublishMessages = eventApplications.SelectMany(x => x.PublishedMessages())
+            .Select(x => x.TypeReference.Element.AsMessageModel());
+
+        var serviceIntegrationMessages = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
+            .GetMessageModels()
+            .Where(p => p.InternalElement.AssociatedElements.Any());
+
+        var filtered = legacySubscriptionMessages
+            .Union(legacyPublishMessages)
+            .Union(serviceIntegrationMessages);
+
+        var result = filtered.ToList();
+        return result;
     }
 
     private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
@@ -188,7 +199,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
         }
 
-        if (_messagesWithSettings.Any())
+        if (ShouldConfigureMessageTopologies())
         {
             yield return new CSharpStatement($"{factoryConfigVarName}.AddMessageTopologyConfiguration();");
         }
@@ -204,32 +215,50 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
     }
 
-    private bool ShouldConfigureNonDefaultEndpoints()
+    private bool ShouldConfigureMessageTopologies()
     {
-        return _consumers.Any(ShouldConfigureNonDefaultEndpoints);
+        return _applicableMessages.Any(ShouldConfigureMessageTopology);
     }
 
-    private bool ShouldConfigureNonDefaultEndpoints(Consumer consumer)
+    private bool ShouldConfigureMessageTopology(MessageModel message)
     {
-        return consumer.RabbitMqConsumerSettings is not null ||
-               consumer.AzureConsumerSettings is not null;
+        return HasMessageTopologySettings(message);// || !ShouldAutoSetupPublisher();
+    }
+
+    // private bool ShouldAutoSetupPublisher()
+    // {
+    //     return ExecutionContext.Settings.GetEventingSettings().AutoSetupConsumersAndPublishers();
+    // }
+
+    private static bool HasMessageTopologySettings(MessageModel message)
+    {
+        return message.HasMessageTopologySettings() && !string.IsNullOrWhiteSpace(message.GetMessageTopologySettings().EntityName());
+    }
+
+    private bool ShouldConfigureNonDefaultEndpoints()
+    {
+        return _consumers.Any(ShouldConfigureNonDefaultEndpoint);
+    }
+
+    private static bool ShouldConfigureNonDefaultEndpoint(Consumer consumer)
+    {
+        return consumer.Settings.RabbitMqConsumerSettings is not null ||
+               consumer.Settings.AzureConsumerSettings is not null;
     }
 
     private bool ShouldAddReceiveEndpoints()
     {
-        return _consumers.Any(ShouldAddReceiveEndpoints);
+        return _consumers.Any(ShouldAddReceiveEndpoint);
     }
 
-    private bool ShouldAddReceiveEndpoints(Consumer consumer)
+    private static bool ShouldAddReceiveEndpoint(Consumer consumer)
     {
-        return consumer.ConfigureConsumeTopology == false &&
-               consumer.RabbitMqConsumerSettings is null &&
-               consumer.AzureConsumerSettings is null;
+        return consumer.IsSpecificMessageConsumer;
     }
 
     private void AddMessageTopologyConfiguration(CSharpClass @class)
     {
-        if (!_messagesWithSettings.Any())
+        if (!ShouldConfigureMessageTopologies())
         {
             return;
         }
@@ -238,8 +267,20 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         {
             method.Private().Static();
             method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
-            method.AddStatements(_messagesWithSettings.Select(messageModel =>
-                $@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));"));
+
+            foreach (var messageModel in _applicableMessages)
+            {
+                if (HasMessageTopologySettings(messageModel))
+                {
+                    method.AddStatement(
+                        $@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));");
+                }
+
+                // if (!ShouldAutoSetupPublisher())
+                // {
+                //     method.AddStatement($@"cfg.Publish<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.Exclude = true);");
+                // }
+            }
         });
     }
 
@@ -261,19 +302,19 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         var addConsumer = $"{configParamName}.AddConsumer<{consumer.ConsumerTypeName}>"
                           + $"(typeof({consumer.ConsumerDefinitionTypeName}))";
 
-        if (ShouldConfigureNonDefaultEndpoints(consumer))
+        if (ShouldConfigureNonDefaultEndpoint(consumer))
         {
             addConsumer += $@".ExcludeFromConfigureEndpoints()";
         }
         else
         {
-            if (consumer.ConfigureConsumeTopology)
+            if (consumer.IsSpecificMessageConsumer)
             {
-                addConsumer += $@".Endpoint(config => config.InstanceId = ""{sanitizedAppName}"")";
+                addConsumer += $@".ExcludeFromConfigureEndpoints()";
             }
             else
             {
-                addConsumer += $@".ExcludeFromConfigureEndpoints()";
+                addConsumer += $@".Endpoint(config => config.InstanceId = ""{sanitizedAppName}"")";
             }
         }
 
@@ -294,12 +335,12 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
-            foreach (var consumerGroup in _consumers.Where(ShouldAddReceiveEndpoints).GroupBy(key =>
+            foreach (var consumerGroup in _consumers.Where(ShouldAddReceiveEndpoint).GroupBy(key =>
                      {
                          var destinationAddress = key.DestinationAddress;
                          if (string.IsNullOrWhiteSpace(destinationAddress))
                          {
-                             destinationAddress = $"{key.MessageTypeFullName.ToKebabCase()}";
+                             destinationAddress = $"{key.Message.MessageTypeFullName.ToKebabCase()}";
                          }
 
                          return destinationAddress;
@@ -342,48 +383,34 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             return;
         }
 
+        bool hasGeneratedConfigStatements = false;
+
         @class.AddMethod("void", "ConfigureNonDefaultEndpoints", method =>
         {
             method.Private().Static();
             method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
             method.AddParameter("IBusRegistrationContext", "context");
 
-            foreach (var consumer in _consumers.Where(ShouldConfigureNonDefaultEndpoints))
+            foreach (var consumer in _consumers.Where(ShouldConfigureNonDefaultEndpoint))
             {
                 var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace("_", "-").Replace(" ", "-")
                     .Replace(".", "-");
 
-                method.AddInvocationStatement($"cfg.AddCustomConsumerEndpoint<{consumer.ConsumerTypeName}>", inv => inv
-                    .AddArgument("context")
-                    .AddArgument($@"""{sanitizedAppName}""")
-                    .AddArgument(new CSharpLambdaBlock("endpoint")
-                        .AddStatements(_messageBroker.AddBespokeConsumerConfigurationStatements("endpoint", consumer))
-                    )
-                    .WithArgumentsOnNewLines());
+                var statements = _messageBroker.GetCustomConfigurationStatements(consumer, sanitizedAppName).ToList();
+                hasGeneratedConfigStatements |= statements.Count != 0;
+                method.AddStatements(statements);
             }
         });
 
-        @class.AddMethod("void", "AddCustomConsumerEndpoint", method =>
+        if (!hasGeneratedConfigStatements)
         {
-            method.Private().Static();
-            method.AddGenericParameter("TConsumer", out var tConsumer);
-            method.AddGenericTypeConstraint(tConsumer, c => c.AddType("class").AddType("IConsumer"));
-            method.AddParameter(_messageBroker.GetMessageBrokerBusFactoryConfiguratorName(), "cfg", param => param.WithThisModifier());
-            method.AddParameter("IBusRegistrationContext", "context");
-            method.AddParameter("string", "instanceId");
-            method.AddParameter($"Action<{_messageBroker.GetMessageBrokerReceiveEndpointConfiguratorName()}>", "configuration");
+            return;
+        }
 
-            method.AddInvocationStatement($"cfg.ReceiveEndpoint", stmt => stmt
-                .AddArgument(new CSharpInvocationStatement($"new ConsumerEndpointDefinition<{tConsumer}>")
-                    .WithoutSemicolon()
-                    .AddArgument(new CSharpObjectInitializerBlock($@"new EndpointSettings<IEndpointDefinition<{tConsumer}>>")
-                        .AddInitStatement("InstanceId", "instanceId")))
-                .AddArgument("KebabCaseEndpointNameFormatter.Instance")
-                .AddArgument(new CSharpLambdaBlock("endpoint")
-                    .AddStatement("configuration.Invoke(endpoint);")
-                    .AddStatement($"endpoint.ConfigureConsumer<{tConsumer}>(context);"))
-                .WithArgumentsOnNewLines());
-        });
+        foreach (var helperMethod in _messageBroker.GetCustomConfigurationHelperMethods(@class))
+        {
+            @class.Methods.Add(helperMethod);
+        }
     }
 
     private CSharpStatement GetMessageRetryStatement(string configParamName, string configurationVarName)

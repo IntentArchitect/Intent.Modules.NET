@@ -40,15 +40,27 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
+                    cfg.AddMessageTopologyConfiguration();
                     cfg.AddReceiveEndpoints(context);
                     EndpointConventionRegistration();
                 });
             });
         }
 
+        private static void AddMessageTopologyConfiguration(this IServiceBusBusFactoryConfigurator cfg)
+        {
+            cfg.Message<OverrideMessageCustomSubscribeEvent>(x => x.SetEntityName("another-overridden-message-topic"));
+            cfg.Message<OverrideMessageStandardSubscribeEvent>(x => x.SetEntityName("overridden-message-topic"));
+        }
+
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>)).Endpoint(config => config.InstanceId = "MassTransit-AzureServiceBus");
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).ExcludeFromConfigureEndpoints();
@@ -140,9 +152,9 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             this IServiceBusBusFactoryConfigurator cfg,
             IBusRegistrationContext context)
         {
-            cfg.AddCustomConsumerEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
                 context,
-                "MassTransit-AzureServiceBus",
+                definition => definition.InstanceId = "MassTransit-AzureServiceBus",
                 endpoint =>
                 {
                     endpoint.PrefetchCount = 15;
@@ -154,9 +166,43 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     endpoint.EnableDeadLetteringOnMessageExpiration = true;
                     endpoint.MaxSizeInMegabytes = 2048;
                 });
-            cfg.AddCustomConsumerEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(
                 context,
-                "MassTransit-AzureServiceBus",
+                definition => definition.Name = "custom-receive-endpoint",
+                endpoint =>
+                {
+                    endpoint.RequiresSession = false;
+                    endpoint.RequiresDuplicateDetection = false;
+                    endpoint.EnableBatchedOperations = true;
+                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                });
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(
+                context,
+                definition => definition.Name = "another-receiver-endpoint",
+                endpoint =>
+                {
+                    endpoint.RequiresSession = false;
+                    endpoint.RequiresDuplicateDetection = false;
+                    endpoint.EnableBatchedOperations = true;
+                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                });
+            cfg.SubscriptionEndpoint<StandardMessageCustomSubscribeEvent>("custom-subscription-endpoint", endpoint =>
+            {
+                endpoint.RequiresSession = false;
+                endpoint.EnableBatchedOperations = true;
+                endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                endpoint.ConfigureConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(context);
+            });
+            cfg.SubscriptionEndpoint("another-subscription-endpoint", "another-overridden-message-topic", endpoint =>
+            {
+                endpoint.RequiresSession = false;
+                endpoint.EnableBatchedOperations = true;
+                endpoint.EnableDeadLetteringOnMessageExpiration = true;
+                endpoint.ConfigureConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(context);
+            });
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
+                context,
+                definition => definition.InstanceId = "MassTransit-AzureServiceBus",
                 endpoint =>
                 {
                     endpoint.PrefetchCount = 15;
@@ -171,22 +217,22 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 });
         }
 
-        private static void AddCustomConsumerEndpoint<TConsumer>(
+        private static void AddConsumerReceiveEndpoint<TConsumer>(
             this IServiceBusBusFactoryConfigurator cfg,
             IBusRegistrationContext context,
-            string instanceId,
-            Action<IServiceBusReceiveEndpointConfigurator> configuration)
+            Action<EndpointSettings<IEndpointDefinition<TConsumer>>> endpointDefinitionConfig,
+            Action<IServiceBusReceiveEndpointConfigurator> receiveEndpointConfig)
             where TConsumer : class, IConsumer
         {
+            var settings = new EndpointSettings<IEndpointDefinition<TConsumer>>();
+            endpointDefinitionConfig(settings);
+
             cfg.ReceiveEndpoint(
-                new ConsumerEndpointDefinition<TConsumer>(new EndpointSettings<IEndpointDefinition<TConsumer>>
-                {
-                    InstanceId = instanceId
-                }),
+                new ConsumerEndpointDefinition<TConsumer>(settings),
                 KebabCaseEndpointNameFormatter.Instance,
                 endpoint =>
                 {
-                    configuration.Invoke(endpoint);
+                    receiveEndpointConfig.Invoke(endpoint);
                     endpoint.ConfigureConsumer<TConsumer>(context);
                 });
         }

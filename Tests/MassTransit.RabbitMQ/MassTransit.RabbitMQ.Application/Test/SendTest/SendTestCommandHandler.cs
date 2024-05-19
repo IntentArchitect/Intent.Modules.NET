@@ -29,7 +29,7 @@ namespace MassTransit.RabbitMQ.Application.Test.SendTest
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(SendTestCommand request, CancellationToken cancellationToken)
         {
-            _eventBus.Publish(new TestMessageEvent() { Message = request.Message });
+            //_eventBus.Publish(new TestMessageEvent() { Message = request.Message });
             var response = await _cqrsService.CommandDtoReturnAsync(CommandDtoReturn.Create(request.Message), cancellationToken);
         }
     }

@@ -73,6 +73,22 @@ namespace Intent.Eventing.MassTransit.Api
 
             public string Name => _stereotype.Name;
 
+            public string EndpointName()
+            {
+                return _stereotype.GetProperty<string>("Endpoint Name");
+            }
+
+            [IntentIgnore]
+            public EndpointTypeOptionsAdapted EndpointTypeSelection()
+            {
+                return new EndpointTypeOptionsAdapted(EndpointType().Value);
+            }
+
+            public EndpointTypeOptions EndpointType()
+            {
+                return new EndpointTypeOptions(_stereotype.GetProperty<string>("Endpoint Type"));
+            }
+
             public int? PrefetchCount()
             {
                 return _stereotype.GetProperty<int?>("Prefetch Count");
@@ -128,6 +144,49 @@ namespace Intent.Eventing.MassTransit.Api
                 return _stereotype.GetProperty<int?>("Concurrent Message Limit");
             }
 
+            public int? MaxConcurrentCallsPerSession()
+            {
+                return _stereotype.GetProperty<int?>("Max Concurrent Calls Per Session");
+            }
+
+            public class EndpointTypeOptions
+            {
+                public readonly string Value;
+
+                public EndpointTypeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public EndpointTypeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Receive Endpoint":
+                            return EndpointTypeOptionsEnum.ReceiveEndpoint;
+                        case "Subscription Endpoint":
+                            return EndpointTypeOptionsEnum.SubscriptionEndpoint;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsReceiveEndpoint()
+                {
+                    return Value == "Receive Endpoint";
+                }
+                public bool IsSubscriptionEndpoint()
+                {
+                    return Value == "Subscription Endpoint";
+                }
+            }
+
+            public enum EndpointTypeOptionsEnum
+            {
+                ReceiveEndpoint,
+                SubscriptionEndpoint
+            }
+
         }
 
         [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
@@ -141,6 +200,11 @@ namespace Intent.Eventing.MassTransit.Api
             }
 
             public string Name => _stereotype.Name;
+
+            public string EndpointName()
+            {
+                return _stereotype.GetProperty<string>("Endpoint Name");
+            }
 
             public int? PrefetchCount()
             {

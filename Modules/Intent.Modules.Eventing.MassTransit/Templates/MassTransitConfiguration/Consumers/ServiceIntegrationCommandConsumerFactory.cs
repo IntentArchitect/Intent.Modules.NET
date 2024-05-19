@@ -30,14 +30,19 @@ internal class ServiceIntegrationCommandConsumerFactory : IConsumerFactory
                 var consumerDefinitionType =
                     $@"{_template.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
 
-                return new Consumer(
-                    MessageTypeFullName: _template.GetFullyQualifiedTypeName(commandModel.InternalElement),
-                    ConsumerTypeName: $@"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
-                    ConsumerDefinitionTypeName: $"{_template.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>",
-                    ConfigureConsumeTopology: false,
-                    DestinationAddress: subscription.GetCommandConsumption()?.QueueName(),
-                    AzureConsumerSettings: null,
-                    RabbitMqConsumerSettings: null);
+                return new Consumer
+                {
+                    Message = new MessageDetail
+                    {
+                        MessageName = commandModel.Name,
+                        MessageTypeFullName = _template.GetFullyQualifiedTypeName(commandModel.InternalElement),
+                        TopicNameOverride = null
+                    },
+                    ConsumerTypeName = $@"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
+                    ConsumerDefinitionTypeName = $"{_template.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>",
+                    IsSpecificMessageConsumer = true,
+                    DestinationAddress = subscription.GetCommandConsumption()?.QueueName()
+                };
             })
             .ToList();
         return consumers;

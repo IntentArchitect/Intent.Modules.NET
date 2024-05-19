@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2432dd11-b060-4bb3-8394-1dcfd0a67248">
+  <sourceEnd id="e43b3489-28e7-4b50-a77c-a5c7ea022d04" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NamingOverrides.StandardMessageCustomSubscribeHandler</display>
+    <order>0</order>
+    <typeReference id="e3a891a8-4627-4d87-96e1-4c74f06bd959">
+      <typeId>d0ffd2d0-a6ae-412e-9a51-6edfaef24a5c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2432dd11-b060-4bb3-8394-1dcfd0a67248" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: StandardMessageCustomSubscribe</display>
+    <order>0</order>
+    <typeReference id="a3566b6d-c611-4068-ab2e-b84873dac120">
+      <typeId>7c3f42be-642f-4c25-ba8a-bf49ba1297da</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="43ff81bf-7e41-40c9-a1cd-041b4195cade" name="Rabbit MQ Consumer Settings">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="943e9e82-65b1-4c25-b5d1-4cb884128285" display="Endpoint Name" value="custom-receive-endpoint" isActive="true" />
+          <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" isActive="true" />
+          <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="false" isActive="true" />
+          <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="false" isActive="true" />
+          <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="false" isActive="true" />
+          <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="false" isActive="true" />
+          <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="43ff81bf-7e41-40c9-a1cd-041b4195cade" name="Rabbit MQ Consumer Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="943e9e82-65b1-4c25-b5d1-4cb884128285" display="Endpoint Name" value="custom-receive-endpoint" isActive="true" />
+        <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" isActive="true" />
+        <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="false" isActive="true" />
+        <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="false" isActive="true" />
+        <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="false" isActive="true" />
+        <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="false" isActive="true" />
+        <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

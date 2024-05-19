@@ -92,7 +92,8 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
 
         private string NullableEnabled => OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

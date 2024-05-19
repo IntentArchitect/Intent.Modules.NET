@@ -48,14 +48,19 @@ internal class MediatRConsumerFactory : IConsumerFactory
                     destinationAddress = $"{namespaceProvider.GetFileNamespace(t)}.{t.ClassName}".ToKebabCase();
                 }
 
-                return new Consumer(
-                    MessageTypeFullName: fullTypeName,
-                    ConsumerTypeName: $@"{_template.GetMediatRConsumerName()}<{fullTypeName}>",
-                    ConsumerDefinitionTypeName: $"{_template.GetMediatRConsumerName()}Definition<{fullTypeName}>",
-                    ConfigureConsumeTopology: false,
-                    DestinationAddress: destinationAddress,
-                    AzureConsumerSettings: null,
-                    RabbitMqConsumerSettings: null);
+                return new Consumer
+                {
+                    Message = new MessageDetail
+                    {
+                        MessageName = commandQuery.Name,
+                        MessageTypeFullName = fullTypeName,
+                        TopicNameOverride = null
+                    },
+                    ConsumerTypeName = $@"{_template.GetMediatRConsumerName()}<{fullTypeName}>",
+                    ConsumerDefinitionTypeName = $"{_template.GetMediatRConsumerName()}Definition<{fullTypeName}>",
+                    IsSpecificMessageConsumer = true,
+                    DestinationAddress = destinationAddress
+                };
             })
             .ToList();
         return consumers;

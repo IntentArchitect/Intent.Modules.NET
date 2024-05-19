@@ -262,7 +262,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Redis.Om.Rep
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Contracts.Clients.Http.Shared", "Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.shproj", "{27FDE92A-FE7D-4E94-A888-4758EBE227A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.RequestResponse", "Intent.Modules.Eventing.MassTransit.RequestResponse\Intent.Modules.Eventing.MassTransit.RequestResponse.csproj", "{B5A0ABB8-FDF9-4B1A-A8B7-9F362738E38D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.RequestResponse", "Intent.Modules.Eventing.MassTransit.RequestResponse\Intent.Modules.Eventing.MassTransit.RequestResponse.csproj", "{B5A0ABB8-FDF9-4B1A-A8B7-9F362738E38D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.WindowsServiceHost", "Intent.Modules.WindowsServiceHost\Intent.Modules.WindowsServiceHost.csproj", "{EAA223B1-DE69-45BA-8877-516C26E65C2B}"
 EndProject

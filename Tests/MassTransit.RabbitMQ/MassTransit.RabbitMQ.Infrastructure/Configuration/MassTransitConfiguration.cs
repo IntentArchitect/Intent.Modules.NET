@@ -7,6 +7,7 @@ using MassTransit.Configuration;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Infrastructure.Eventing;
+using MassTransit.RabbitMQ.Services;
 using MassTransit.RabbitMQ.Services.Animals;
 using MassTransit.RabbitMQ.Services.People;
 using MassTransit.RabbitMqTransport.Configuration;
@@ -44,16 +45,26 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
                     cfg.ConfigureEndpoints(context);
                     cfg.ConfigureNonDefaultEndpoints(context);
+                    cfg.AddMessageTopologyConfiguration();
                     cfg.AddReceiveEndpoints(context);
                     EndpointConventionRegistration();
                 });
             });
         }
 
+        private static void AddMessageTopologyConfiguration(this IRabbitMqBusFactoryConfigurator cfg)
+        {
+            cfg.Message<OverrideMessageCustomSubscribeEvent>(x => x.SetEntityName("another-overridden-message-topic"));
+            cfg.Message<OverrideMessageStandardSubscribeEvent>(x => x.SetEntityName("overridden-message-topic"));
+        }
+
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>)).Endpoint(config => config.InstanceId = "MassTransit-RabbitMQ");
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).ExcludeFromConfigureEndpoints();
@@ -141,9 +152,9 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
             this IRabbitMqBusFactoryConfigurator cfg,
             IBusRegistrationContext context)
         {
-            cfg.AddCustomConsumerEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(
                 context,
-                "MassTransit-RabbitMQ",
+                definition => definition.InstanceId = "MassTransit-RabbitMQ",
                 endpoint =>
                 {
                     endpoint.PrefetchCount = 15;
@@ -152,9 +163,9 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
                     endpoint.PurgeOnStartup = true;
                     endpoint.Exclusive = true;
                 });
-            cfg.AddCustomConsumerEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
                 context,
-                "MassTransit-RabbitMQ",
+                definition => definition.InstanceId = "MassTransit-RabbitMQ",
                 endpoint =>
                 {
                     endpoint.PrefetchCount = 15;
@@ -164,24 +175,44 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
                     endpoint.Exclusive = true;
                     endpoint.ConcurrentMessageLimit = 10;
                 });
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(
+                context,
+                definition => definition.Name = "custom-receive-endpoint",
+                endpoint =>
+                {
+                    endpoint.Lazy = false;
+                    endpoint.Durable = false;
+                    endpoint.PurgeOnStartup = false;
+                    endpoint.Exclusive = false;
+                });
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(
+                context,
+                definition => definition.Name = "another-receiver-endpoint",
+                endpoint =>
+                {
+                    endpoint.Lazy = false;
+                    endpoint.Durable = false;
+                    endpoint.PurgeOnStartup = false;
+                    endpoint.Exclusive = false;
+                });
         }
 
-        private static void AddCustomConsumerEndpoint<TConsumer>(
+        private static void AddConsumerReceiveEndpoint<TConsumer>(
             this IRabbitMqBusFactoryConfigurator cfg,
             IBusRegistrationContext context,
-            string instanceId,
-            Action<IRabbitMqReceiveEndpointConfigurator> configuration)
+            Action<EndpointSettings<IEndpointDefinition<TConsumer>>> endpointDefinitionConfig,
+            Action<IRabbitMqReceiveEndpointConfigurator> receiveEndpointConfig)
             where TConsumer : class, IConsumer
         {
+            var settings = new EndpointSettings<IEndpointDefinition<TConsumer>>();
+            endpointDefinitionConfig(settings);
+
             cfg.ReceiveEndpoint(
-                new ConsumerEndpointDefinition<TConsumer>(new EndpointSettings<IEndpointDefinition<TConsumer>>
-                {
-                    InstanceId = instanceId
-                }),
+                new ConsumerEndpointDefinition<TConsumer>(settings),
                 KebabCaseEndpointNameFormatter.Instance,
                 endpoint =>
                 {
-                    configuration.Invoke(endpoint);
+                    receiveEndpointConfig.Invoke(endpoint);
                     endpoint.ConfigureConsumer<TConsumer>(context);
                 });
         }

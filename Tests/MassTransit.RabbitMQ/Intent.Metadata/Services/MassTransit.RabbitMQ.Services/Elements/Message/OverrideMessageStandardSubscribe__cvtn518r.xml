@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="21a5aeab-394d-4678-b56c-54ed6389acde" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OverrideMessageStandardSubscribe</name>
+  <display>OverrideMessageStandardSubscribe</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>00e3c548-ee83-4dbd-857d-6c142318f600</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="fc095295-eb25-470a-9ee5-19129919db2b" name="Message Topology Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="07825809-0d05-407b-a513-37be94fa114d" display="Entity Name" value="overridden-message-topic" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ec6f6d2b-f7fb-43c3-9d72-cd11c58f8486" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="66238a8e-de5a-4961-be47-97e1a377a6dd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21a5aeab-394d-4678-b56c-54ed6389acde</parentFolderId>
+      <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+      <packageName>MassTransit.RabbitMQ.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

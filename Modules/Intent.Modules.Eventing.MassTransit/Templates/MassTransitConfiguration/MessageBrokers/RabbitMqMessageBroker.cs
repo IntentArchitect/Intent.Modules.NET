@@ -17,30 +17,21 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
         return "IRabbitMqBusFactoryConfigurator";
     }
 
-    public override string GetMessageBrokerReceiveEndpointConfiguratorName()
-    {
-        return "IRabbitMqReceiveEndpointConfigurator";
-    }
-
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
-    {
-        var busConsumerSettings = consumer.RabbitMqConsumerSettings!;
-        
-        if (busConsumerSettings.PrefetchCount().HasValue)
-        {
-            yield return $@"{configVarName}.PrefetchCount = {busConsumerSettings.PrefetchCount()};";
-        }
-
-        yield return $@"{configVarName}.Lazy = {busConsumerSettings.Lazy().ToString().ToLower()};";
-        yield return $@"{configVarName}.Durable = {busConsumerSettings.Durable().ToString().ToLower()};";
-        yield return $@"{configVarName}.PurgeOnStartup = {busConsumerSettings.PurgeOnStartup().ToString().ToLower()};";
-        yield return $@"{configVarName}.Exclusive = {busConsumerSettings.Exclusive().ToString().ToLower()};";
-
-        if (busConsumerSettings.ConcurrentMessageLimit().HasValue)
-        {
-            yield return $@"{configVarName}.ConcurrentMessageLimit = {busConsumerSettings.ConcurrentMessageLimit()};";
-        }
-    }
+    // protected override string GetMessageBrokerReceiveEndpointConfiguratorName()
+    // {
+    //     return "IRabbitMqReceiveEndpointConfigurator";
+    // }
+    
+    // public override CSharpLambdaBlock GetConsumerEndpointDefinitionStatement(string definitionVarName, Consumer consumer, string sanitizedAppName)
+    // {
+    //     var lambda = base.GetConsumerEndpointDefinitionStatement(definitionVarName, consumer, sanitizedAppName);
+    //     if (!string.IsNullOrWhiteSpace(consumer.RabbitMqConsumerSettings!.EndpointName()))
+    //     {
+    //         lambda.Statements.Clear();
+    //         lambda.WithExpressionBody($@"{definitionVarName}.Name = ""{consumer.RabbitMqConsumerSettings!.EndpointName()}""");
+    //     }
+    //     return lambda;
+    // }
 
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
@@ -72,5 +63,42 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
     public override INugetPackageInfo? GetNugetDependency()
     {
         return NuGetPackages.MassTransitRabbitMq;
+    }
+
+    public override IEnumerable<CSharpStatement> GetCustomConfigurationStatements(Consumer consumer, string sanitizedAppName)
+    {
+        CSharpLambdaBlock? definitionBlock = null;
+        if (!string.IsNullOrWhiteSpace(consumer.Settings.RabbitMqConsumerSettings!.EndpointName()))
+        {
+            definitionBlock = new CSharpLambdaBlock("definition");
+            definitionBlock.WithExpressionBody($@"definition.Name = ""{consumer.Settings.RabbitMqConsumerSettings.EndpointName()}""");
+        }
+        
+        yield return CreateConsumerReceiveEndpointStatement(consumer, sanitizedAppName, definitionBlock, GetConfigurationStatements("endpoint", consumer), _template);
+    }
+
+    public override IEnumerable<CSharpClassMethod> GetCustomConfigurationHelperMethods(CSharpClass configurationClass)
+    {
+        yield return CreateConsumerReceiveEndpointMethod(configurationClass, GetMessageBrokerBusFactoryConfiguratorName(), "IRabbitMqReceiveEndpointConfigurator");
+    }
+    
+    private IEnumerable<CSharpStatement> GetConfigurationStatements(string configVarName, Consumer consumer)
+    {
+        var busConsumerSettings = consumer.Settings.RabbitMqConsumerSettings!;
+        
+        if (busConsumerSettings.PrefetchCount().HasValue)
+        {
+            yield return $@"{configVarName}.PrefetchCount = {busConsumerSettings.PrefetchCount()};";
+        }
+    
+        yield return $@"{configVarName}.Lazy = {busConsumerSettings.Lazy().ToString().ToLower()};";
+        yield return $@"{configVarName}.Durable = {busConsumerSettings.Durable().ToString().ToLower()};";
+        yield return $@"{configVarName}.PurgeOnStartup = {busConsumerSettings.PurgeOnStartup().ToString().ToLower()};";
+        yield return $@"{configVarName}.Exclusive = {busConsumerSettings.Exclusive().ToString().ToLower()};";
+    
+        if (busConsumerSettings.ConcurrentMessageLimit().HasValue)
+        {
+            yield return $@"{configVarName}.ConcurrentMessageLimit = {busConsumerSettings.ConcurrentMessageLimit()};";
+        }
     }
 }

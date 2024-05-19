@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b9124997-7c8c-4afb-8a85-2ae96f788dc2">
+  <sourceEnd id="add90ebd-4637-4617-8ba9-b33760053dc7" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : NamingOverrides.TestOverrideCommand</display>
+    <order>0</order>
+    <typeReference id="a128a119-3abb-4566-aac8-db26efdb894d">
+      <typeId>40c9c87b-a7c0-43cb-b919-c458e34df326</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b9124997-7c8c-4afb-8a85-2ae96f788dc2" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] StandardMessageCustomSubscribe</display>
+    <order>1</order>
+    <typeReference id="b7222359-f4d0-4b26-a950-7b2d799d427c">
+      <typeId>0ad22131-102e-4f14-bde1-33b7e815f054</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="40c9c87b-a7c0-43cb-b919-c458e34df326" location="[MassTransit.AzureServiceBus].[Services].[TestOverrideCommand]" />
+        <target applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0ad22131-102e-4f14-bde1-33b7e815f054" location="[MassTransit.AzureServiceBus].[Services].[StandardMessageCustomSubscribe]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="0ad22131-102e-4f14-bde1-33b7e815f054" name="StandardMessageCustomSubscribe" type="element" specialization="Message" />
+              <target id="a7684b46-a6c0-4973-a0df-7d0639fac0d1" name="Message" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="40c9c87b-a7c0-43cb-b919-c458e34df326" name="TestOverrideCommand" type="element" specialization="Command" />
+                  <target id="cd6fb8b6-c684-4ad3-bb76-8d9bd3a418b6" name="Message" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

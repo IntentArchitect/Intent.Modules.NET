@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0f6067f-b87c-4c76-a190-ecb04b2bd707</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#00e3c548-ee83-4dbd-857d-6c142318f600</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Controllers/NamingOverridesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverridesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0f6067f-b87c-4c76-a190-ecb04b2bd707</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#62ed4c1c-0df7-4e5e-9191-c8efb7a5d90c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Controllers/PeopleController.cs</ApplicationRelativeFilePath>
@@ -428,10 +436,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#d0ffd2d0-a6ae-412e-9a51-6edfaef24a5c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/NamingOverrides/StandardMessageCustomSubscribeHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/StandardMessageCustomSubscribeHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/Test/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Test/AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#f02bffd4-76a9-439c-968e-85a2670f9eba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/NamingOverrides/OverrideMessageCustomSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/OverrideMessageCustomSubscribeEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#21a5aeab-394d-4678-b56c-54ed6389acde</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/NamingOverrides/OverrideMessageStandardSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/OverrideMessageStandardSubscribeEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#7c3f42be-642f-4c25-ba8a-bf49ba1297da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/NamingOverrides/StandardMessageCustomSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/StandardMessageCustomSubscribeEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -528,6 +568,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/MassTransit.RabbitMQ.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.RabbitMQ.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/TestOverride/TestOverrideCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/TestOverride/TestOverrideCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/TestOverride/TestOverrideCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

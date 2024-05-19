@@ -21,6 +21,30 @@
   <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
   <packageName>Intent.Eventing.MassTransit</packageName>
   <properties>
+    <property id="3b089016-1e06-4dfc-96f2-de6393cbc264">
+      <hint>Provide a custom name for the subscriber endpoint.</hint>
+      <name>Endpoint Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return EndpointType == "Subscription Endpoint";</isRequiredFunction>
+    </property>
+    <property id="20b3004c-94ce-4aa8-bee7-a45d2bc94d68">
+      <name>Endpoint Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Receive Endpoint</defaultValue>
+      <valueOptions>
+        <option>Receive Endpoint</option>
+        <option>Subscription Endpoint</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
     <property id="2084d89a-d4d7-4c2c-815b-1eba6eb53f50">
       <hint>Specify the number of messages to prefetch from the message broker. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
       <name>Prefetch Count</name>
@@ -30,6 +54,7 @@
       <placeholder>(default)</placeholder>
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction />
     </property>
     <property id="6f645454-16eb-4a6b-97ca-2192d26b0eae">
       <hint>Sets the queue in session mode, requiring a session for inbound messages. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -72,6 +97,7 @@
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
       <hint>Format - hh:mm:ss</hint>
@@ -115,6 +141,7 @@
       <placeholder>(default)</placeholder>
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="8482cf1b-82b7-4d47-a5b1-564e699df9ea">
       <hint>Sets the maximum delivery count. A message is automatically dead-lettered after this number of deliveries. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -129,6 +156,17 @@
     <property id="67d129a7-691b-4999-a8be-bc326d7a28a5">
       <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
       <name>Concurrent Message Limit</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+    </property>
+    <property id="69347757-81c6-4e36-b089-a073083e8b2b">
+      <hint>Sets the maximum number of concurrent calls per session.</hint>
+      <name>Max Concurrent Calls Per Session</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
