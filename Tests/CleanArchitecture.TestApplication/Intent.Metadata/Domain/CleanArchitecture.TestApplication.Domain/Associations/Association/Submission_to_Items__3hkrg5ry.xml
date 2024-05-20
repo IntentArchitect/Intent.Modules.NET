@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4d7ca201-5d20-4d27-8d5d-b5720ae5a9b6">
+  <sourceEnd id="20d240ba-a8a4-439d-960b-01ff30ab808a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Submission</name>
+    <display>Submission: Submission</display>
+    <order>0</order>
+    <typeReference id="efdf1633-9313-4133-9a95-3567bbe11189">
+      <typeId>418c755c-ad12-4f6e-8998-c530e8eb5dce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4d7ca201-5d20-4d27-8d5d-b5720ae5a9b6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Items</name>
+    <display>Items: Item[*]</display>
+    <order>2</order>
+    <typeReference id="f375b2b4-21cc-44f7-b863-48a6e2819614">
+      <typeId>2bc2fa48-7837-46f8-a12b-c4d6859d0b08</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
