@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>6.2.0-pre.0</version>
+  <version>6.2.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -110,7 +110,7 @@
     <!-- Remove after 30 June 2024 -->
     <detect id="Intent.Eventing.MassTransit.RequestResponse">
       <install>
-        <package id="Intent.Eventing.MassTransit.RequestResponse" version="1.1.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.RequestResponse" version="1.1.0" />
       </install>
     </detect>
     <!-- Remove after 30 June 2024 -->
