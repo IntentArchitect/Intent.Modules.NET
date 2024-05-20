@@ -510,9 +510,9 @@ public class DomainInteractionsManager
 	{
         
 		if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement) 
-            && me.TargetElement.TypeReference != null))
+            && me.TargetElement.TypeReference?.Element != null))
 		{
-            foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement) && me.TargetElement.TypeReference != null))
+            foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement) && me.TargetElement.TypeReference?.Element != null))
             {
                 var operationName = ((IElement)invocation.TargetElement).Name;
 				var variableName = $"{operationName.ToCamelCase()}Result";

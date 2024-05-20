@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="47025a5e-9c9a-4449-b092-86f6a0efec1e">
+  <sourceEnd id="ef7dd874-60ce-4948-ba00-ef3207461a91" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Users.TestDCUserCommand</display>
+    <order>0</order>
+    <typeReference id="301bc23f-2912-484d-9a01-9017b703e747">
+      <typeId>a9901a16-ebe2-430e-8c21-2c57620a10c4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="47025a5e-9c9a-4449-b092-86f6a0efec1e" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>user</name>
+    <display>[update] user: TestDC</display>
+    <order>2</order>
+    <typeReference id="685699e3-33a7-4cc0-adb3-22c9ef9bf46e">
+      <typeId>10a859f5-9537-4d80-97f0-082ae19cc3c4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a9901a16-ebe2-430e-8c21-2c57620a10c4" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[TestDCUserCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="a3c1ba5c-26fb-483f-b772-6c6dc261d475" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a9901a16-ebe2-430e-8c21-2c57620a10c4" name="TestDCUserCommand" type="element" specialization="Command" />
+                  <target id="391394c6-900e-41b3-8bad-151a8d9e8cbd" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a9901a16-ebe2-430e-8c21-2c57620a10c4" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[TestDCUserCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{TestDCUserCommand}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="10a859f5-9537-4d80-97f0-082ae19cc3c4" name="TestDC" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="TestDCUserCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="a9901a16-ebe2-430e-8c21-2c57620a10c4" name="TestDCUserCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Index}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="10a859f5-9537-4d80-97f0-082ae19cc3c4" name="TestDC" type="element" specialization="Operation" />
+              <target id="de74d92e-e7fe-4e19-aa74-b2ca3c5bb4e4" name="index" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Index" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a9901a16-ebe2-430e-8c21-2c57620a10c4" name="TestDCUserCommand" type="element" specialization="Command" />
+                  <target id="0be96b60-d04e-4992-8f8b-b5762e8a3d26" name="Index" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

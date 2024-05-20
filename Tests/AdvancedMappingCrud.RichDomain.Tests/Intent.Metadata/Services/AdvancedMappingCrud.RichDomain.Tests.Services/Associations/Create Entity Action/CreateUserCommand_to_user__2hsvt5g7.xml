@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5c595024-1037-4537-ae9f-bcd154d8d7d2">
+  <sourceEnd id="f4332711-2ee1-4fb7-a8a2-f1f4e452344a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Users.CreateUserCommand</display>
+    <order>0</order>
+    <typeReference id="52ba3a46-1e5e-47bb-bab6-9cd06c742dd5">
+      <typeId>f5d3b373-d71a-41f9-92a7-8b2c80f11bac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5c595024-1037-4537-ae9f-bcd154d8d7d2" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>user</name>
+    <display>[create] user: Constructor</display>
+    <order>3</order>
+    <typeReference id="4945e960-6106-49c1-b715-d73ec254a52b">
+      <typeId>84f5588b-74fa-4de0-b052-150a5cf507bc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[CreateUserCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateUserCommand}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+            </path>
+            <sources>
+              <source identifier="CreateUserCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompanyId}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="546d0737-19cf-48c0-abc8-09fb2d6ce88d" name="companyId" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="CompanyId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="27775896-6561-4722-ac9b-fe8a935ef6a3" name="CompanyId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContactDetailsVO.Cell}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="675596de-2e11-43a3-821c-601a41c80180" name="contactDetailsVO" type="element" specialization="Parameter" />
+              <target id="d8b6ceb4-76c2-49b6-b57b-a9ed79ebd946" name="Cell" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ContactDetailsVO.Cell" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="fedb92c8-6239-4356-80a4-9d22eac8c361" name="ContactDetailsVO" type="element" specialization="DTO-Field" />
+                  <target id="4c7767d6-8128-4fc9-a402-9b246ebeec0f" name="Cell" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContactDetailsVO.Email}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="675596de-2e11-43a3-821c-601a41c80180" name="contactDetailsVO" type="element" specialization="Parameter" />
+              <target id="e73ba1bb-d738-4110-a4bf-00360d8daf55" name="Email" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ContactDetailsVO.Email" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="fedb92c8-6239-4356-80a4-9d22eac8c361" name="ContactDetailsVO" type="element" specialization="DTO-Field" />
+                  <target id="40ec9aca-6da7-4953-bb69-ffb3d7caa76e" name="Email" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Addresses}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="ab1e6807-fe59-4aa5-b380-75fae2474b5b" name="addresses" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Addresses" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="52cc4ab1-8f57-4178-8715-39e78cceddfe" name="Addresses" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Addresses.Line1}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="ab1e6807-fe59-4aa5-b380-75fae2474b5b" name="addresses" type="element" specialization="Parameter" />
+              <target id="62a1c723-75b0-40ed-a2c3-195e836adea7" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Addresses.Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="52cc4ab1-8f57-4178-8715-39e78cceddfe" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="4ae368c2-0dbf-4398-a457-410636567eb6" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Addresses.Line2}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="ab1e6807-fe59-4aa5-b380-75fae2474b5b" name="addresses" type="element" specialization="Parameter" />
+              <target id="dcd641db-5eb2-47c2-8131-fe163475b344" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Addresses.Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="52cc4ab1-8f57-4178-8715-39e78cceddfe" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="6a6b7abe-c214-4de7-8197-4151125a4f87" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Addresses.City}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="ab1e6807-fe59-4aa5-b380-75fae2474b5b" name="addresses" type="element" specialization="Parameter" />
+              <target id="431c86f5-d218-4b71-9979-ecc615597969" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Addresses.City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="52cc4ab1-8f57-4178-8715-39e78cceddfe" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="774ce046-3061-49c2-8a9b-9c6dc17ec3ca" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Addresses.Postal}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="84f5588b-74fa-4de0-b052-150a5cf507bc" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="ab1e6807-fe59-4aa5-b380-75fae2474b5b" name="addresses" type="element" specialization="Parameter" />
+              <target id="0e3f0299-8008-4bde-96ba-1e510245db6b" name="Postal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Addresses.Postal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f5d3b373-d71a-41f9-92a7-8b2c80f11bac" name="CreateUserCommand" type="element" specialization="Command" />
+                  <target id="52cc4ab1-8f57-4178-8715-39e78cceddfe" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="c3b2090a-0df7-49cb-bd3d-861e3c78c4e8" name="Postal" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

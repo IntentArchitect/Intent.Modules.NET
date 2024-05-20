@@ -111,5 +111,6 @@
     <application id="7f3699ed-e203-4f0b-998e-5f8b125d1de4" name="CloudBlobStorageClients.NET7" relativePath="CloudBlobStorageClients.NET7/CloudBlobStorageClients.NET7.application.config" />
     <application id="1ba0fd66-402d-4cd5-af9c-7e6da7de1a98" name="CloudBlobStorageClients.NET6" relativePath="CloudBlobStorageClients.NET6/CloudBlobStorageClients.NET6.application.config" />
     <application id="8448a896-d79f-4fe0-9cc3-24130286676f" name="Ardalis" relativePath="Ardalis/Ardalis.application.config" />
+    <application id="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" name="AdvancedMappingCrud.RichDomain.Tests" relativePath="AdvancedMappingCrud.RichDomain.Tests/AdvancedMappingCrud.RichDomain.Tests.application.config" />
   </applications>
 </solution>
