@@ -45,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</parentFolderId>
+      <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
+      <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
