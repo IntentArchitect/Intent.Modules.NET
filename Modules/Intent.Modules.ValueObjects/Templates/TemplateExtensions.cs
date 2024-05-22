@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.ValueObjects.Templates.ValueObject;
 using Intent.Modules.ValueObjects.Templates.ValueObjectBase;
@@ -12,12 +13,12 @@ namespace Intent.Modules.ValueObjects.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetValueObjectName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel
+        public static string GetValueObjectName<T>(this IIntentTemplate<T> template) where T : ValueObjectModel
         {
             return template.GetTypeName(ValueObjectTemplate.TemplateId, template.Model);
         }
 
-        public static string GetValueObjectName(this IIntentTemplate template, Intent.Modelers.Domain.ValueObjects.Api.ValueObjectModel model)
+        public static string GetValueObjectName(this IIntentTemplate template, ValueObjectModel model)
         {
             return template.GetTypeName(ValueObjectTemplate.TemplateId, model);
         }

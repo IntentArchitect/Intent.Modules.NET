@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.44" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.45" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -112,5 +112,6 @@
     <application id="1ba0fd66-402d-4cd5-af9c-7e6da7de1a98" name="CloudBlobStorageClients.NET6" relativePath="CloudBlobStorageClients.NET6/CloudBlobStorageClients.NET6.application.config" />
     <application id="8448a896-d79f-4fe0-9cc3-24130286676f" name="Ardalis" relativePath="Ardalis/Ardalis.application.config" />
     <application id="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" name="AdvancedMappingCrud.RichDomain.Tests" relativePath="AdvancedMappingCrud.RichDomain.Tests/AdvancedMappingCrud.RichDomain.Tests.application.config" />
+    <application id="0f20f746-bcad-4e1e-b944-7df6806d0f40" name="ValueObjects.Class" relativePath="ValueObjects.Class/ValueObjects.Class.application.config" />
   </applications>
 </solution>

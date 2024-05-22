@@ -7,6 +7,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Modules.ValueObjects.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,50 +28,84 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValueObjectTemplate(IOutputTarget outputTarget, ValueObjectModel model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass(Model.Name, @class =>
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+
+            var type = ExecutionContext.Settings.GetValueObjectSettings().ValueObjectType().AsEnum();
+            switch (type)
+            {
+                case ValueObjectSettings.ValueObjectTypeOptionsEnum.Class:
+                    DeclareValueObjectClassType();
+                    break;
+                case ValueObjectSettings.ValueObjectTypeOptionsEnum.Record:
+                    DeclareValueObjectRecordType();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"Invalid Value Object Type: {type}");
+            }
+        }
+
+        private void DeclareValueObjectClassType()
+        {
+            CSharpFile.AddClass(Model.Name, @class =>
+            {
+                @class.WithBaseType(this.GetValueObjectBaseName());
+                if (Model.HasSerializationSettings())
                 {
-                    @class.WithBaseType(this.GetValueObjectBaseName());
-                    if (Model.HasSerializationSettings())
-                    {
-                        @class.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
-                    }
+                    @class.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
+                }
 
-                    if (Model.Attributes.Any())
-                    {
-                        @class.AddConstructor(ctor =>
+                if (Model.Attributes.Any())
+                {
+                    @class.AddConstructor(ctor => { ctor.Protected(); });
+                }
+
+                @class.AddConstructor(ctor =>
+                {
+                    @class.AddMethod(
+                        returnType: $"{UseType("System.Collections.Generic.IEnumerable")}<object>",
+                        name: "GetEqualityComponents", method =>
                         {
-                            ctor.Protected();
-                        });
-                    }
-
-                    @class.AddConstructor(ctor =>
-                    {
-                        @class.AddMethod(
-                            returnType: $"{UseType("System.Collections.Generic.IEnumerable")}<object>",
-                            name: "GetEqualityComponents", method =>
+                            method.Protected()
+                                .Override()
+                                .AddStatement("// Using a yield return statement to return each element one at a time");
+                            if (!Model.Attributes.Any())
                             {
-                                method.Protected()
-                                    .Override()
-                                    .AddStatement("// Using a yield return statement to return each element one at a time");
-                                if (!Model.Attributes.Any())
+                                method.AddStatement("yield break;");
+                            }
+
+                            foreach (var attribute in Model.Attributes)
+                            {
+                                ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>
                                 {
-                                    method.AddStatement("yield break;");
-                                }
-                                foreach (var attribute in Model.Attributes)
-                                {
-                                    ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>
+                                    param.IntroduceProperty(prop =>
                                     {
-                                        param.IntroduceProperty(prop =>
-                                        {
-                                            prop.PrivateSetter();
-                                            method.AddStatement($"yield return {prop.Name};");
-                                        });
+                                        prop.PrivateSetter();
+                                        method.AddStatement($"yield return {prop.Name};");
                                     });
-                                }
-                            });
-                    });
+                                });
+                            }
+                        });
                 });
+            });
+        }
+
+        private void DeclareValueObjectRecordType()
+        {
+            CSharpFile.AddRecord(Model.Name, record =>
+            {
+                if (Model.HasSerializationSettings())
+                {
+                    record.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
+                }
+
+                record.AddPrimaryConstructor(ctor =>
+                {
+                    foreach (var modelAttribute in Model.Attributes)
+                    {
+                        ctor.AddParameter(GetTypeName(modelAttribute), modelAttribute.Name);
+                    }
+                });
+            });
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

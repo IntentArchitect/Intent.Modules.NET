@@ -243,7 +243,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private static bool HasSerializationType(ICSharpFileBuilderTemplate valueObjectTemplate, out string serializationType)
         {
-            return valueObjectTemplate.CSharpFile.Classes.First().TryGetMetadata<string>("serialization", out serializationType);
+            return valueObjectTemplate.CSharpFile.TypeDeclarations.First().TryGetMetadata<string>("serialization", out serializationType);
         }
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)

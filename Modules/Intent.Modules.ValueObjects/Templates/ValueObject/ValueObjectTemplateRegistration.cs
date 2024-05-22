@@ -27,6 +27,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
 
         public override string TemplateId => ValueObjectTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ValueObjectModel model)
         {
             return new ValueObjectTemplate(outputTarget, model);
