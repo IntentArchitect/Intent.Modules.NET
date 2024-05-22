@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ff1facc7-1567-4080-82d6-e7fe54926eb8" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetTestEntitiesQuery</name>
+  <display>GetTestEntitiesQuery: TestEntityDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="ee06954c-baf8-4b11-b45a-dec17807d879">
+    <typeId>19f36603-0666-4ed4-8ec4-63d65c66f9df</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>ValueObjects.Record.Services</typePackageName>
+    <typePackageId>45a8f57c-155e-4b94-9eab-b0b382e7d882</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>41a5b784-0b78-44c7-aa9b-5affc4f0da23</parentFolderId>
+  <packageId>45a8f57c-155e-4b94-9eab-b0b382e7d882</packageId>
+  <packageName>ValueObjects.Record.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/test-entity" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="TestEntities" />
+  </metadata>
+  <childElements />
+</class>

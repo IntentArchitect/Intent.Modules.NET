@@ -113,5 +113,6 @@
     <application id="8448a896-d79f-4fe0-9cc3-24130286676f" name="Ardalis" relativePath="Ardalis/Ardalis.application.config" />
     <application id="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" name="AdvancedMappingCrud.RichDomain.Tests" relativePath="AdvancedMappingCrud.RichDomain.Tests/AdvancedMappingCrud.RichDomain.Tests.application.config" />
     <application id="0f20f746-bcad-4e1e-b944-7df6806d0f40" name="ValueObjects.Class" relativePath="ValueObjects.Class/ValueObjects.Class.application.config" />
+    <application id="57cbc783-32a2-4c58-ae6d-13990cf7482c" name="ValueObjects.Record" relativePath="ValueObjects.Record/ValueObjects.Record.application.config" />
   </applications>
 </solution>

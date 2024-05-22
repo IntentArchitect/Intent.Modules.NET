@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8bf83f3a-6598-427d-ba54-e65faad48b22">
+  <sourceEnd id="e167d3ac-96df-4ea0-9932-eaeee2620422" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : TestEntities.UpdateTestEntityCommand</display>
+    <order>0</order>
+    <typeReference id="be467f84-d6eb-4c69-b6ec-c944709808ae">
+      <typeId>977fdd20-7706-4602-861b-aec31735c6a7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Class.Services</typePackageName>
+      <typePackageId>45a8f57c-155e-4b94-9eab-b0b382e7d882</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8bf83f3a-6598-427d-ba54-e65faad48b22" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>testEntity</name>
+    <display>[update] testEntity: TestEntity</display>
+    <order>4</order>
+    <typeReference id="aea938f6-086f-457e-8248-bcb82ffcc8bb">
+      <typeId>6c84aa10-0ed5-41d3-83bb-2259a474b62f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Class.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="977fdd20-7706-4602-861b-aec31735c6a7" location="[ValueObjects.Class].[Services].[UpdateTestEntityCommand]" />
+        <target applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6c84aa10-0ed5-41d3-83bb-2259a474b62f" location="[ValueObjects.Class].[Services].[TestEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="ceffae1c-9a06-4bf5-a2ef-4d265789b569" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="29b37383-cdb2-4891-ad57-b4532269b0f4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="977fdd20-7706-4602-861b-aec31735c6a7" location="[ValueObjects.Class].[Services].[UpdateTestEntityCommand]" />
+        <target applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6c84aa10-0ed5-41d3-83bb-2259a474b62f" location="[ValueObjects.Class].[Services].[TestEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="85b75427-3d77-4cc6-a975-a11948174d89" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="bb54acd0-6c8b-4411-a61c-e808e0b51a78" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Amount}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="84ec9dc7-8fe1-4e95-89f5-0f34691e80bd" name="Amount" type="element" specialization="Attribute" />
+              <target id="cc2455f4-12f1-4ba4-a62c-b65420808b2d" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Amount" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="6f484566-bc27-4907-9d49-36425a0b5c89" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="c35e9526-8e53-4b9c-bcb3-c0f806cd609f" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Currency}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="84ec9dc7-8fe1-4e95-89f5-0f34691e80bd" name="Amount" type="element" specialization="Attribute" />
+              <target id="bc226dd1-2ba5-4c55-a819-d6d1a8b3ffc3" name="Currency" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Currency" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="6f484566-bc27-4907-9d49-36425a0b5c89" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="3289342c-f4e4-4040-8cb8-2d9243b9affe" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line1}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="5da813a8-eb20-47c0-b76a-7eda5a4b9a8a" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="459bbc38-2833-4e0d-8582-5ba1f82cc317" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="1f38117c-e6d1-4629-8a8a-cdb54643fedc" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line2}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="09fb8735-cb04-4e27-beb5-a0bae1095397" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="459bbc38-2833-4e0d-8582-5ba1f82cc317" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="ea4de21d-097f-45e0-a4fc-df2887f61c30" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.City}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="d802a4c0-4717-467f-90cb-9769db975d33" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="459bbc38-2833-4e0d-8582-5ba1f82cc317" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="3f9b491e-e66c-43d9-b610-1d9ec3d2dd59" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Country}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="5acb2933-2c1b-4002-a046-958502fafc29" name="Country" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Country" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="459bbc38-2833-4e0d-8582-5ba1f82cc317" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="07f309bf-4119-4b03-ba47-572d6eea4502" name="Country" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.AddressType}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="7aad9df3-6462-4dcf-a9fa-7367621bc57e" name="AddressType" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.AddressType" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="977fdd20-7706-4602-861b-aec31735c6a7" name="UpdateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="459bbc38-2833-4e0d-8582-5ba1f82cc317" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="dd1fc5fc-97ad-4557-95b4-7db7d0fa5826" name="AddressType" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

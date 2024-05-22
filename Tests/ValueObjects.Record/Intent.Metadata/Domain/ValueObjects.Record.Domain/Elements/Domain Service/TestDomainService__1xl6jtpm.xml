@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="16efcf1b-039a-4956-925d-33bf34cfea19" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>TestDomainService</name>
+  <display>TestDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</parentFolderId>
+  <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+  <packageName>ValueObjects.Record.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="94fac11c-493a-4c14-8b7a-28e14ec0e4e1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>TestOperation</name>
+      <display>TestOperation(amount: Money, address: Address): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bc2e5f58-3c1f-44ab-8c56-d08af4f6175b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>16efcf1b-039a-4956-925d-33bf34cfea19</parentFolderId>
+      <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+      <packageName>ValueObjects.Record.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e90181b5-7c22-4cf9-aa66-5830e286202d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>amount</name>
+          <display>in : amount: Money</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f8ee8502-3c40-4208-a582-ada6cb1cf0a6">
+            <typeId>bb3bcd97-a4d4-4069-b657-137fab230c63</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ValueObjects.Class.Domain</typePackageName>
+            <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>94fac11c-493a-4c14-8b7a-28e14ec0e4e1</parentFolderId>
+          <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+          <packageName>ValueObjects.Record.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="32e1686b-4844-45f8-beda-22935ae38169" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>address</name>
+          <display>in : address: Address</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2a02f382-3902-4a01-8019-2f7b8a30b182">
+            <typeId>495416b6-0596-47e0-804e-8c9238fe2b77</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ValueObjects.Class.Domain</typePackageName>
+            <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>94fac11c-493a-4c14-8b7a-28e14ec0e4e1</parentFolderId>
+          <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+          <packageName>ValueObjects.Record.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

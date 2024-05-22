@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="68afa187-3da9-4625-81f8-baf3f2f5d9e6" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>14644780-87bf-4f5b-a4c7-a924424cccf9</parentFolderId>
+  <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+  <packageName>ValueObjects.Record</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

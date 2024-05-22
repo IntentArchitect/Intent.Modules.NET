@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b23755c1-8a68-47b1-b26b-fe0b5ddaea0a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>AddressType</name>
+  <display>AddressType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</parentFolderId>
+  <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+  <packageName>ValueObjects.Class.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="16a4ba46-8556-4e87-a346-84b7350b9356" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Residential</name>
+      <display>Residential</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b23755c1-8a68-47b1-b26b-fe0b5ddaea0a</parentFolderId>
+      <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+      <packageName>ValueObjects.Class.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d64d46d1-0218-43bc-bd97-111b0333049f" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Office</name>
+      <display>Office</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b23755c1-8a68-47b1-b26b-fe0b5ddaea0a</parentFolderId>
+      <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+      <packageName>ValueObjects.Class.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

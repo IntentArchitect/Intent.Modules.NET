@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fb048aeb-152e-4fbb-96bd-a8bff985793d" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>TestEvent</name>
+  <display>TestEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</parentFolderId>
+  <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+  <packageName>ValueObjects.Class.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="91294aab-cfc4-45ad-b7fc-81f35c983d92" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Address</name>
+      <display>Address: Address</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="153bfd19-d420-4afe-8db1-0ef9b05b6b9d">
+        <typeId>495416b6-0596-47e0-804e-8c9238fe2b77</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ValueObjects.Class.Domain</typePackageName>
+        <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fb048aeb-152e-4fbb-96bd-a8bff985793d</parentFolderId>
+      <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+      <packageName>ValueObjects.Class.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="88e2fb1b-dfa9-4bfa-9dc6-ddf176a0d297" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Amount</name>
+      <display>Amount: Money</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ca22bacf-2590-428c-8348-42562e07dfce">
+        <typeId>bb3bcd97-a4d4-4069-b657-137fab230c63</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ValueObjects.Class.Domain</typePackageName>
+        <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fb048aeb-152e-4fbb-96bd-a8bff985793d</parentFolderId>
+      <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
+      <packageName>ValueObjects.Class.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
