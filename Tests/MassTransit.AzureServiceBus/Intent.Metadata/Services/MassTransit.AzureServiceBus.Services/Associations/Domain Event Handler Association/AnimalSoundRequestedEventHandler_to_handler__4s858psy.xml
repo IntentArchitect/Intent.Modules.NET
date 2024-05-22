@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="68963345-14e8-4dc7-aea7-04eb1bbcf563">
+  <sourceEnd id="7e70e9e3-2b39-40d5-8872-466bc32efefd" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: AnimalSoundRequestedEventHandler</display>
+    <order>0</order>
+    <typeReference id="cc4df0d5-ecc6-4aea-a983-75f972a10125">
+      <typeId>0633cc57-1655-4be9-a184-fdfdd45a4239</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="68963345-14e8-4dc7-aea7-04eb1bbcf563" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : AnimalSoundRequestedEvent</display>
+    <order>0</order>
+    <typeReference id="78669657-72c6-4a13-9963-0e119778a562">
+      <typeId>787afc0a-f6fc-4d08-84fd-82a1d61f2242</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Domain</typePackageName>
+      <typePackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

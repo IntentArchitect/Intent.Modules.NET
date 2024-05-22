@@ -20,11 +20,11 @@ internal class CommandQueryProducerFactory : IProducerFactory
     {
         _template = template;
     }
-    
+
     public IReadOnlyCollection<Producer> CreateProducers()
     {
         var proxyMappedService = new MassTransitServiceProxyMappedService();
-        
+
         var serviceProxies = _template.ExecutionContext.MetadataManager
             .ServiceProxies(_template.ExecutionContext.GetApplicationConfig().Id)
             .GetServiceProxyModels();
@@ -32,7 +32,7 @@ internal class CommandQueryProducerFactory : IProducerFactory
             .Select(endpoint =>
             {
                 var dtoFullName = _template.GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, endpoint.Id);
-                
+
                 var queueName = endpoint switch
                 {
                     var element when endpoint.InternalElement.SpecializationType == CommandModel.SpecializationType => new CommandModel(endpoint.InternalElement)
@@ -41,18 +41,22 @@ internal class CommandQueryProducerFactory : IProducerFactory
                         ?.QueueName(),
                     _ => null
                 };
-                
+
                 if (string.IsNullOrWhiteSpace(queueName))
                 {
                     queueName = $"{dtoFullName.ToKebabCase()}";
                 }
-                
+
                 if (!queueName.StartsWith("queue:"))
                 {
                     queueName = "queue:" + queueName;
                 }
-                
-                return new Producer(dtoFullName, queueName);
+
+                return new Producer
+                {
+                    MessageTypeName = dtoFullName,
+                    Urn = queueName
+                };
             })
             .ToArray();
         return results;

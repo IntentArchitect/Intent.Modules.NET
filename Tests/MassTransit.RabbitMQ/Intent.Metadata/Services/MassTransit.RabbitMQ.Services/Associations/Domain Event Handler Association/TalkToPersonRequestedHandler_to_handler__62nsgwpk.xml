@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8fb60f58-f84d-4ba5-b325-55c2fe58edce">
+  <sourceEnd id="48cf454c-1c8a-44c3-a1e1-ba6004d4cc1e" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: TalkToPersonRequestedHandler</display>
+    <order>0</order>
+    <typeReference id="e715827d-a548-48a3-8169-e902e33ed561">
+      <typeId>246e8e98-2c5b-4881-8765-f79ab761f1ec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8fb60f58-f84d-4ba5-b325-55c2fe58edce" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : TalkToPersonRequested</display>
+    <order>0</order>
+    <typeReference id="e0ed6d6b-66a4-494f-982d-dd2d4698263d">
+      <typeId>31b635b7-35bf-456b-acb1-bf0365d5993c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Domain</typePackageName>
+      <typePackageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

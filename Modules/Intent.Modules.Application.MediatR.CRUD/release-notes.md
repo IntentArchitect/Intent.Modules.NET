@@ -1,3 +1,7 @@
+### Version 6.0.9
+
+- Fixed: Resolved an issue causing syntax errors when mapping services onto Value Objects using the basic mapping configuration.
+
 ### Version 6.0.8
 
 - Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.

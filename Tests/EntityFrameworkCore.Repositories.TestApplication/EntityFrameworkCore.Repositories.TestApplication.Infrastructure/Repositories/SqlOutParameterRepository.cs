@@ -49,5 +49,37 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
 
             return (string)outputParameter.Value;
         }
+
+        public async Task<decimal> Sp_out_params_decimal_default(CancellationToken cancellationToken = default)
+        {
+            var outputParameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Output,
+                SqlDbType = SqlDbType.Decimal,
+                Precision = 18,
+                Scale = 2,
+                ParameterName = "@output"
+            };
+
+            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE sp_out_params_decimal_default {outputParameter} OUTPUT", cancellationToken);
+
+            return (decimal)outputParameter.Value;
+        }
+
+        public async Task<decimal> Sp_out_params_decimal_specific(CancellationToken cancellationToken = default)
+        {
+            var outputParameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Output,
+                SqlDbType = SqlDbType.Decimal,
+                Precision = 16,
+                Scale = 4,
+                ParameterName = "@output"
+            };
+
+            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE sp_out_params_decimal_specific {outputParameter} OUTPUT", cancellationToken);
+
+            return (decimal)outputParameter.Value;
+        }
     }
 }

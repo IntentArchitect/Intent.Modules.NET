@@ -38,11 +38,13 @@
         <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
         <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
         <properties>
+          <property name="943e9e82-65b1-4c25-b5d1-4cb884128285" display="Endpoint Name" isActive="true" />
           <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" value="15" isActive="true" />
           <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="true" isActive="true" />
           <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
           <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
           <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+          <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" value="10" isActive="true" />
         </properties>
       </stereotype>
     </stereotypes>
@@ -57,11 +59,13 @@
       <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
       <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
       <properties>
+        <property name="943e9e82-65b1-4c25-b5d1-4cb884128285" display="Endpoint Name" isActive="true" />
         <property name="53f8ff4a-6b37-41aa-af03-6f88457a4ab9" display="Prefetch Count" value="15" isActive="true" />
         <property name="e158d458-ae1b-486a-a3d4-d231a35e79de" display="Lazy" value="true" isActive="true" />
         <property name="36cef3c0-9be1-4885-a96f-193aec2d576d" display="Durable" value="true" isActive="true" />
         <property name="5e5f2079-b866-4650-bf3c-6e03b65ffac8" display="Purge On Startup" value="true" isActive="true" />
         <property name="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813" display="Exclusive" value="true" isActive="true" />
+        <property name="24c1edb4-8136-4588-97db-cd9f4849c6ba" display="Concurrent Message Limit" value="10" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

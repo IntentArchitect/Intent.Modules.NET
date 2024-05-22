@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d2f26128-04b3-4365-955e-913409fa1b5e">
+  <sourceEnd id="b528fcac-c56e-4916-8ce1-8ddcaa61baaf" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: TalkToPersonRequestedHandler</display>
+    <order>0</order>
+    <typeReference id="016f5095-006d-46b7-a0fc-1da62c5f6bac">
+      <typeId>c96379a3-0189-44f0-8b0d-a568319c282d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d2f26128-04b3-4365-955e-913409fa1b5e" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : TalkToPersonRequested</display>
+    <order>0</order>
+    <typeReference id="5ce1f90f-b0fa-458f-95d0-410a39ad3e97">
+      <typeId>47ad9563-8a53-4ca2-b83c-62a1d846649d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Domain</typePackageName>
+      <typePackageId>5ed0cdda-82da-48f7-b30f-de2dad9ebbb6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

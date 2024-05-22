@@ -20,7 +20,6 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandDtoReturn
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<CommandResponseDto> Handle(CommandDtoReturn request, CancellationToken cancellationToken)
         {
-            throw new InvalidOperationException("Order not found");
             return CommandResponseDto.Create($"{request.Input} - {DateTime.Now:s}");
         }
     }

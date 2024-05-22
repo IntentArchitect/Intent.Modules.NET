@@ -93,7 +93,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
                 _ => type
             };
         }
-        
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

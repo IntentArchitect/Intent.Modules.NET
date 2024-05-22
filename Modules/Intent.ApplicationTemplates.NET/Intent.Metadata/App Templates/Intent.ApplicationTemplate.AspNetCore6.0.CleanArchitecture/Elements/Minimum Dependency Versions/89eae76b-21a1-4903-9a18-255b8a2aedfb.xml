@@ -17,7 +17,7 @@
       <name>Intent.Application.Contracts</name>
       <display>Intent.Application.Contracts 5.0.5</display>
       <isAbstract>false</isAbstract>
-      <value>5.0.5</value>
+      <value>5.0.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -101,7 +101,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.6.1</display>
       <isAbstract>false</isAbstract>
-      <value>3.6.1</value>
+      <value>3.6.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -213,7 +213,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.7.1</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.1</value>
+      <value>3.7.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>

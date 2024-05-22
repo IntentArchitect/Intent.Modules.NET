@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1335bab6-d855-46e4-ba34-b6a68c180429">
+  <sourceEnd id="0ae4ec0b-2eb6-40b4-a4ae-e212cd4a01d1" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: AnimalSoundRequestedEventHandler</display>
+    <order>0</order>
+    <typeReference id="3f4ca2a8-cf12-4000-a313-eba6efa4b210">
+      <typeId>7dde8913-9cbb-4f8e-8671-3a501be2619f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1335bab6-d855-46e4-ba34-b6a68c180429" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : AnimalSoundRequestedEvent</display>
+    <order>0</order>
+    <typeReference id="baebd281-2672-4a84-bd4e-0718f2ef67a7">
+      <typeId>14880fed-ddf6-4029-a8de-17923a6c6a86</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Domain</typePackageName>
+      <typePackageId>8a3d1b7f-ba5c-4ab3-b868-3ef4a28966fd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

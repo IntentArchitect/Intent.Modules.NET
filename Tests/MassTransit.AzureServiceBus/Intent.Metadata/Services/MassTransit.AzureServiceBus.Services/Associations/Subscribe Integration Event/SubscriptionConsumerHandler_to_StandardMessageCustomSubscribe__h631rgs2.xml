@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="46d01707-87db-4afd-aaca-9cd8848688e1">
+  <sourceEnd id="094774ea-f1c8-4d79-9288-d0c7868ff1c8" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NamingOverrides.SubscriptionConsumerHandler</display>
+    <order>0</order>
+    <typeReference id="998c6ec2-6430-4ec9-adc8-32c2bb48085c">
+      <typeId>f92fc69e-e991-454b-8284-cb05344ca518</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="46d01707-87db-4afd-aaca-9cd8848688e1" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: StandardMessageCustomSubscribe</display>
+    <order>0</order>
+    <typeReference id="1af0d53d-64a1-45f5-9eef-894a8c40846a">
+      <typeId>0ad22131-102e-4f14-bde1-33b7e815f054</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="a592112c-5f85-4755-b07c-cfa293fce8df" name="Azure Service Bus Consumer Settings">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="3b089016-1e06-4dfc-96f2-de6393cbc264" display="Endpoint Name" value="custom-subscription-endpoint" isActive="true" />
+          <property name="20b3004c-94ce-4aa8-bee7-a45d2bc94d68" display="Endpoint Type" value="Subscription Endpoint" isActive="true" />
+          <property name="2084d89a-d4d7-4c2c-815b-1eba6eb53f50" display="Prefetch Count" isActive="true" />
+          <property name="6f645454-16eb-4a6b-97ca-2192d26b0eae" display="Requires Session" value="false" isActive="true" />
+          <property name="3b7d1adc-528b-4e29-8705-187b87deb246" display="Default Message Time To Live" isActive="true" />
+          <property name="e2fb328a-79d4-4de1-b206-656a30fbcfbd" display="Lock Duration" isActive="true" />
+          <property name="a6667529-102d-4e86-8623-c71464606f58" display="Requires Duplicate Detection" value="false" isActive="false" />
+          <property name="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a" display="Duplicate Detection History Time Window" isActive="false" />
+          <property name="dbdcb5ed-3e63-46f9-941f-b7c578fe05db" display="Enable Batched Operations" value="true" isActive="true" />
+          <property name="94ed3877-3876-4fa2-bc45-ae679ec6cd21" display="Enable Dead-lettering On Message Expiration" value="true" isActive="true" />
+          <property name="23748e16-ae82-41e6-9bc5-bfeae97ba89e" display="Max Queue Size" isActive="false" />
+          <property name="8482cf1b-82b7-4d47-a5b1-564e699df9ea" display="Max Delivery Count" isActive="true" />
+          <property name="67d129a7-691b-4999-a8be-bc326d7a28a5" display="Concurrent Message Limit" isActive="true" />
+          <property name="69347757-81c6-4e36-b089-a073083e8b2b" display="Max Concurrent Calls Per Session" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a592112c-5f85-4755-b07c-cfa293fce8df" name="Azure Service Bus Consumer Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="3b089016-1e06-4dfc-96f2-de6393cbc264" display="Endpoint Name" value="custom-subscription-endpoint" isActive="true" />
+        <property name="20b3004c-94ce-4aa8-bee7-a45d2bc94d68" display="Endpoint Type" value="Subscription Endpoint" isActive="true" />
+        <property name="2084d89a-d4d7-4c2c-815b-1eba6eb53f50" display="Prefetch Count" isActive="true" />
+        <property name="6f645454-16eb-4a6b-97ca-2192d26b0eae" display="Requires Session" value="false" isActive="true" />
+        <property name="3b7d1adc-528b-4e29-8705-187b87deb246" display="Default Message Time To Live" isActive="true" />
+        <property name="e2fb328a-79d4-4de1-b206-656a30fbcfbd" display="Lock Duration" isActive="true" />
+        <property name="a6667529-102d-4e86-8623-c71464606f58" display="Requires Duplicate Detection" value="false" isActive="false" />
+        <property name="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a" display="Duplicate Detection History Time Window" isActive="false" />
+        <property name="dbdcb5ed-3e63-46f9-941f-b7c578fe05db" display="Enable Batched Operations" value="true" isActive="true" />
+        <property name="94ed3877-3876-4fa2-bc45-ae679ec6cd21" display="Enable Dead-lettering On Message Expiration" value="true" isActive="true" />
+        <property name="23748e16-ae82-41e6-9bc5-bfeae97ba89e" display="Max Queue Size" isActive="false" />
+        <property name="8482cf1b-82b7-4d47-a5b1-564e699df9ea" display="Max Delivery Count" isActive="true" />
+        <property name="67d129a7-691b-4999-a8be-bc326d7a28a5" display="Concurrent Message Limit" isActive="true" />
+        <property name="69347757-81c6-4e36-b089-a073083e8b2b" display="Max Concurrent Calls Per Session" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

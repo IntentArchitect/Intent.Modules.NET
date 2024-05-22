@@ -209,7 +209,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 }
                                 else
                                 {
-                                    codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList()),");
+                                    codeLines.Add($"{property} = {dtoVarName}.{field.Name.ToPascalCase()}.Select(x => {updateMethodName}(x)).ToList(),");
                                 }
                                 ((ICSharpFileBuilderTemplate)_template).AddValueObjectFactoryMethod(updateMethodName, targetValueObject, field);
                                 break;

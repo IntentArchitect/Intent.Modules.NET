@@ -29,14 +29,19 @@ internal class LegacyEventingConsumerFactory : IConsumerFactory
                 var consumerDefinitionType =
                     $@"{_template.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
 
-                return new Consumer(
-                    MessageTypeFullName: _template.GetFullyQualifiedTypeName(messageModel.InternalElement),
-                    ConsumerTypeName: $@"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
-                    ConsumerDefinitionTypeName: $"{_template.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>",
-                    ConfigureConsumeTopology: true,
-                    DestinationAddress: null,
-                    AzureConsumerSettings: subscription.GetAzureServiceBusConsumerSettings(),
-                    RabbitMqConsumerSettings: subscription.GetRabbitMQConsumerSettings());
+                return new Consumer
+                {
+                    Message = MessageDetail.CreateFrom(messageModel, _template),
+                    Settings = new ConsumerSettings
+                    {
+                        AzureConsumerSettings = subscription.GetAzureServiceBusConsumerSettings(),
+                        RabbitMqConsumerSettings = subscription.GetRabbitMQConsumerSettings()
+                    },
+                    ConsumerTypeName = $@"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
+                    ConsumerDefinitionTypeName = $"{_template.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>",
+                    IsSpecificMessageConsumer = false,
+                    DestinationAddress = null
+                };
             })
             .ToList();
         return consumers;

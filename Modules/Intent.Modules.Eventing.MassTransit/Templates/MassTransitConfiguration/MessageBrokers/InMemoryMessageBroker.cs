@@ -18,16 +18,6 @@ internal class InMemoryMessageBroker : MessageBrokerBase
         return "IInMemoryBusFactoryConfigurator";
     }
 
-    public override string GetMessageBrokerReceiveEndpointConfiguratorName()
-    {
-        return "IInMemoryReceiveEndpointConfigurator";
-    }
-
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
-    {
-        return Enumerable.Empty<CSharpStatement>();
-    }
-
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingInMemory")
@@ -45,5 +35,15 @@ internal class InMemoryMessageBroker : MessageBrokerBase
     public override INugetPackageInfo? GetNugetDependency()
     {
         return default;
+    }
+
+    public override IEnumerable<CSharpStatement> GetCustomConfigurationStatements(Consumer consumer, string sanitizedAppName)
+    {
+        yield return CreateConsumerReceiveEndpointStatement(consumer, sanitizedAppName, null, [], _template);
+    }
+
+    public override IEnumerable<CSharpClassMethod> GetCustomConfigurationHelperMethods(CSharpClass configurationClass)
+    {
+        yield return CreateConsumerReceiveEndpointMethod(configurationClass, GetMessageBrokerBusFactoryConfiguratorName(), "IInMemoryReceiveEndpointConfigurator");
     }
 }

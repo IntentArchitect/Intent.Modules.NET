@@ -6,6 +6,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -15,6 +16,7 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
 
@@ -417,10 +419,32 @@ internal static class StoredProcedureHelpers
 
             statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Output");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
-            var size = parameter.GetStoredProcedureParameterSettings()?.Size();
-            if (size.HasValue)
+            if (parameter.TypeReference.HasStringType())
             {
-                statement.AddObjectInitStatement("Size", size.ToString());
+                var size = parameter.GetStoredProcedureParameterSettings()?.Size();
+                if (size.HasValue)
+                {
+                    statement.AddObjectInitStatement("Size", size.ToString());
+                }
+            }
+            if (parameter.TypeReference.HasDecimalType())
+            {
+                var precision = parameter.GetStoredProcedureParameterSettings()?.Precision();
+                var scale = parameter.GetStoredProcedureParameterSettings()?.Scale();
+                if (_template.ExecutionContext.Settings.GetDatabaseSettings().TryGetDecimalPrecisionAndScale(out var constraints))
+                {
+                    precision ??= constraints.Precision;
+                    scale ??= constraints.Scale;
+                }
+                else
+                {
+                    // Built-in defaults for EF SQL Server
+                    precision ??= 18;
+                    scale ??= 2;
+                }
+
+                statement.AddObjectInitStatement("Precision", precision.ToString());
+                statement.AddObjectInitStatement("Scale", scale.ToString());
             }
             statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
             statement.WithSemicolon();

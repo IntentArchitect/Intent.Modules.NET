@@ -94,7 +94,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>

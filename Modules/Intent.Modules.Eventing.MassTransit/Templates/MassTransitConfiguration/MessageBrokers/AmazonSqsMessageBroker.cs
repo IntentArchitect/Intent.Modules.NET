@@ -18,16 +18,6 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
         return "IAmazonSqsBusFactoryConfigurator";
     }
 
-    public override string GetMessageBrokerReceiveEndpointConfiguratorName()
-    {
-        return "IAmazonSqsReceiveEndpointConfigurator";
-    }
-
-    public override IEnumerable<CSharpStatement> AddBespokeConsumerConfigurationStatements(string configVarName, Consumer consumer)
-    {
-        return Enumerable.Empty<CSharpStatement>();
-    }
-
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingAmazonSqs")
@@ -56,5 +46,15 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
     public override INugetPackageInfo? GetNugetDependency()
     {
         return NuGetPackages.MassTransitAmazonSqs;
+    }
+
+    public override IEnumerable<CSharpStatement> GetCustomConfigurationStatements(Consumer consumer, string sanitizedAppName)
+    {
+        yield return CreateConsumerReceiveEndpointStatement(consumer, sanitizedAppName, null, [], _template);
+    }
+
+    public override IEnumerable<CSharpClassMethod> GetCustomConfigurationHelperMethods(CSharpClass configurationClass)
+    {
+        yield return CreateConsumerReceiveEndpointMethod(configurationClass, GetMessageBrokerBusFactoryConfiguratorName(), "IAmazonSqsReceiveEndpointConfigurator");
     }
 }

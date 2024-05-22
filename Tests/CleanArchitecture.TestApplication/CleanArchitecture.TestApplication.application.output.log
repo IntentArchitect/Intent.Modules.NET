@@ -596,6 +596,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#e7ee14b8-f8ac-497f-9070-6f115ab4b694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/CreateSubmissionCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmissionCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#e7ee14b8-f8ac-497f-9070-6f115ab4b694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/CreateSubmissionCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmissionCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#b0e671e9-48ce-465a-b898-dd5971d352c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/DeleteSubmissionCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/DeleteSubmissionCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests#2126bf42-35be-4770-980e-c62e71813c90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/GetSubmissionByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissionByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests#0f6bd618-1bf9-4922-b41b-977c7b0a9593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/GetSubmissionsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissionsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#418c755c-ad12-4f6e-8998-c530e8eb5dce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/Submissions/SubmissionAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/Submissions/SubmissionAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests#ce64f803-6c6e-4389-a03b-d0b59beeea91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/UpdateSubmissionCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmissionCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#ce64f803-6c6e-4389-a03b-d0b59beeea91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/BasicMappingMapToValueObjects/UpdateSubmissionCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmissionCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#88eecac4-a125-40af-8b50-3fdfef92bd50</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ClassWithEnums/CreateClassWithEnumsCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -2208,6 +2272,174 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AsyncOperationsClasses/ImplicitAsyncWithReturn/ImplicitAsyncWithReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e7ee14b8-f8ac-497f-9070-6f115ab4b694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e7ee14b8-f8ac-497f-9070-6f115ab4b694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e7ee14b8-f8ac-497f-9070-6f115ab4b694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmission/CreateSubmissionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#85e09ca8-25bb-4d3d-8d87-b68dc3179853</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/CreateSubmissionItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmissionItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#85e09ca8-25bb-4d3d-8d87-b68dc3179853</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/CreateSubmissionItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/CreateSubmissionItemDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b0e671e9-48ce-465a-b898-dd5971d352c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b0e671e9-48ce-465a-b898-dd5971d352c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b0e671e9-48ce-465a-b898-dd5971d352c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/DeleteSubmission/DeleteSubmissionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2126bf42-35be-4770-980e-c62e71813c90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2126bf42-35be-4770-980e-c62e71813c90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2126bf42-35be-4770-980e-c62e71813c90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissionById/GetSubmissionByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#0f6bd618-1bf9-4922-b41b-977c7b0a9593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#0f6bd618-1bf9-4922-b41b-977c7b0a9593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0f6bd618-1bf9-4922-b41b-977c7b0a9593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/GetSubmissions/GetSubmissionsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e975d3e4-f32a-4c36-8f1d-95bf94c30227</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/SubmissionDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/SubmissionDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e975d3e4-f32a-4c36-8f1d-95bf94c30227</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/SubmissionDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/SubmissionDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ce64f803-6c6e-4389-a03b-d0b59beeea91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ce64f803-6c6e-4389-a03b-d0b59beeea91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ce64f803-6c6e-4389-a03b-d0b59beeea91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmission/UpdateSubmissionCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#bb133eee-ef33-489d-a8ce-b563831b266e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/UpdateSubmissionItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmissionItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#bb133eee-ef33-489d-a8ce-b563831b266e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/BasicMappingMapToValueObjects/UpdateSubmissionItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/UpdateSubmissionItemDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5940,6 +6172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c52e41d4-d2e2-492c-8f52-d8f26d532ff8</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#2bc2fa48-7837-46f8-a12b-c4d6859d0b08</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/BasicMappingMapToValueObjects/Item.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/Item.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c52e41d4-d2e2-492c-8f52-d8f26d532ff8</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c52e41d4-d2e2-492c-8f52-d8f26d532ff8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/CleanArchitecture.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
@@ -6024,6 +6264,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/Async/AsyncOperationsClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/AsyncOperationsClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#418c755c-ad12-4f6e-8998-c530e8eb5dce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/BasicMappingMapToValueObjects/Submission.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/Submission.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6408,6 +6656,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/Async/IAsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/IAsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#418c755c-ad12-4f6e-8998-c530e8eb5dce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/BasicMappingMapToValueObjects/ISubmissionRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/ISubmissionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6868,6 +7124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#418c755c-ad12-4f6e-8998-c530e8eb5dce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/BasicMappingMapToValueObjects/SubmissionConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/SubmissionConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d5a0886-9612-4b87-8bbb-cc2b11c56e80</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/BugFixes/BankConfiguration.cs</ApplicationRelativeFilePath>
@@ -7152,6 +7416,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/Async/AsyncOperationsClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Async/AsyncOperationsClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#418c755c-ad12-4f6e-8998-c530e8eb5dce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/BasicMappingMapToValueObjects/SubmissionRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMappingMapToValueObjects/SubmissionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

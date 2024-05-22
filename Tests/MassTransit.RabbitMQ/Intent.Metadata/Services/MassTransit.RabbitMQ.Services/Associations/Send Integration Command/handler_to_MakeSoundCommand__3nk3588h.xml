@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1bf7ff34-71e6-48e7-bd5d-1c9112bf147d">
+  <sourceEnd id="06e72c88-09aa-41ee-b1dd-4dd4d8ccf3c7" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AnimalSoundRequestedEventHandler.handler</display>
+    <order>0</order>
+    <typeReference id="6357786b-8d2d-401d-a794-2618e84a7150">
+      <typeId>1335bab6-d855-46e4-ba34-b6a68c180429</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1bf7ff34-71e6-48e7-bd5d-1c9112bf147d" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] MakeSoundCommand</display>
+    <order>0</order>
+    <typeReference id="613a25c2-20e0-4608-a453-945dfe5c580e">
+      <typeId>55fd5346-5936-4b7f-bcea-cc4c70b4bd59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1335bab6-d855-46e4-ba34-b6a68c180429" location="[MassTransit.RabbitMQ].[Services].[]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="55fd5346-5936-4b7f-bcea-cc4c70b4bd59" location="[MassTransit.RabbitMQ].[Services].[MakeSoundCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="55fd5346-5936-4b7f-bcea-cc4c70b4bd59" name="MakeSoundCommand" type="element" specialization="Integration Command" />
+              <target id="987b26f6-ec86-47e7-9b71-beaf38a199e5" name="Name" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="1335bab6-d855-46e4-ba34-b6a68c180429" name="" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="7da3eb24-aeb4-4fd1-8058-a892303970dc" name="Name" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Type}</expression>
+            <path>
+              <target id="55fd5346-5936-4b7f-bcea-cc4c70b4bd59" name="MakeSoundCommand" type="element" specialization="Integration Command" />
+              <target id="68f7f083-1a8c-44ec-a2f0-ee77100fc410" name="Type" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="1335bab6-d855-46e4-ba34-b6a68c180429" name="" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="390cbf0c-f9bd-4792-aed5-59df8276c9e4" name="Type" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

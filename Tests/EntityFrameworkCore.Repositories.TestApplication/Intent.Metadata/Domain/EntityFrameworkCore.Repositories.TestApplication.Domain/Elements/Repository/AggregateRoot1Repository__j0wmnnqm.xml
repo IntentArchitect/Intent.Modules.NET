@@ -409,6 +409,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -479,6 +481,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -549,6 +553,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -619,6 +625,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -689,6 +697,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -759,6 +769,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -829,6 +841,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -899,6 +913,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -966,6 +982,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1033,6 +1051,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1103,6 +1123,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1138,6 +1160,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1208,6 +1232,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1243,6 +1269,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1313,6 +1341,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1348,6 +1378,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1418,6 +1450,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1453,6 +1487,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1523,6 +1559,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1558,6 +1596,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1628,6 +1668,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1663,6 +1705,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1733,6 +1777,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1768,6 +1814,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1838,6 +1886,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1873,6 +1923,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1940,6 +1992,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -1975,6 +2029,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -2042,6 +2098,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -2077,6 +2135,8 @@
                 <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
                 <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VARCHAR" isActive="false" />
                 <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>

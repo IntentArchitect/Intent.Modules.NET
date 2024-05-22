@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>818292e8-7c2b-4519-9d83-43e7c168d9ca</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#ed09a467-a165-4b52-a757-8a105cf8def3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Controllers/NamingOverridesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverridesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>818292e8-7c2b-4519-9d83-43e7c168d9ca</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#de5e012f-721f-48d9-a454-0f1909ba73ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Controllers/PeopleController.cs</ApplicationRelativeFilePath>
@@ -428,10 +436,50 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#effa18ca-c6b0-48d1-8ff9-b21cdb9503fa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/NamingOverrides/ReceiveConsumerHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/ReceiveConsumerHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#f92fc69e-e991-454b-8284-cb05344ca518</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/NamingOverrides/SubscriptionConsumerHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/SubscriptionConsumerHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#df0cda32-18b9-4436-9c12-5d89f3ef2c4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/Test/TestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Test/TestMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee86121e-4f26-4e17-8282-6638358ca87f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#1564dee6-26f9-4579-b177-f0af114880f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/NamingOverrides/OverrideMessageCustomSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/OverrideMessageCustomSubscribeEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee86121e-4f26-4e17-8282-6638358ca87f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#6b2ba5ba-e365-424a-9a2f-6bd1d9e5e955</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/NamingOverrides/OverrideMessageStandardSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/OverrideMessageStandardSubscribeEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee86121e-4f26-4e17-8282-6638358ca87f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#0ad22131-102e-4f14-bde1-33b7e815f054</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/NamingOverrides/StandardMessageCustomSubscribeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/StandardMessageCustomSubscribeEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -528,6 +576,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/MassTransit.AzureServiceBus.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransit.AzureServiceBus.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#40c9c87b-a7c0-43cb-b919-c458e34df326</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/NamingOverrides/TestOverride/TestOverrideCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#40c9c87b-a7c0-43cb-b919-c458e34df326</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/NamingOverrides/TestOverride/TestOverrideCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#40c9c87b-a7c0-43cb-b919-c458e34df326</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/NamingOverrides/TestOverride/TestOverrideCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/TestOverride/TestOverrideCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1044,7 +1116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dd7b6221-ff55-44e0-8134-aa943e8f0a46</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

@@ -1,3 +1,12 @@
+### Version 6.2.0
+
+- Improvement: Concurrent Message Limit setting was introduced for Azure Service Bus and RabbitMQ.
+- Improvement: Override the subscription endpoint names through the Consumer Settings stereotypes.
+
+> ⚠️ **NOTE**
+>
+> There generated code that introduces the `AddCustomConsumerEndpoint` method in the `MassTransitConfiguration` class has been updated in case you've manually overridden for custom configuration.
+
 ### Version 6.1.3
 
 - Fixed: EventBus flush all would not have been invoked if there wasn't a DbContext present.

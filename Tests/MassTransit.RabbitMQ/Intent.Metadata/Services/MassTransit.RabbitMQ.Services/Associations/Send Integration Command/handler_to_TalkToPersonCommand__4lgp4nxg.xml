@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b6c37f42-69d8-4aff-ae94-da4d1a690149">
+  <sourceEnd id="b86465cc-01f5-4971-9397-9f37e05bc60a" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : TalkToPersonRequestedHandler.handler</display>
+    <order>0</order>
+    <typeReference id="a98fc41e-52bc-485a-a0da-1e72247a5dbd">
+      <typeId>8fb60f58-f84d-4ba5-b325-55c2fe58edce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b6c37f42-69d8-4aff-ae94-da4d1a690149" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] TalkToPersonCommand</display>
+    <order>0</order>
+    <typeReference id="f1bc3273-5cb5-46f5-a528-146dccf88bf4">
+      <typeId>a328603f-6198-4260-9f91-dffe794a6cc0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+        <addedByDefault>true</addedByDefault>
+        <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+        <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+        <properties>
+          <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" value="Person" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8fb60f58-f84d-4ba5-b325-55c2fe58edce" location="[MassTransit.RabbitMQ].[Services].[]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a328603f-6198-4260-9f91-dffe794a6cc0" location="[MassTransit.RabbitMQ].[Services].[TalkToPersonCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="a328603f-6198-4260-9f91-dffe794a6cc0" name="TalkToPersonCommand" type="element" specialization="Integration Command" />
+              <target id="f1c72057-f4c3-4198-ab5f-5b5eb16b0dfc" name="Message" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="8fb60f58-f84d-4ba5-b325-55c2fe58edce" name="" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="ede82482-6486-412a-b069-0aca6a2bd992" name="Message" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="a328603f-6198-4260-9f91-dffe794a6cc0" name="TalkToPersonCommand" type="element" specialization="Integration Command" />
+              <target id="8f3b36b1-e62f-4e31-82d9-85c347dab738" name="FirstName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="8fb60f58-f84d-4ba5-b325-55c2fe58edce" name="" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="98a3fcea-2eb6-44e9-b027-e03a77d25ef3" name="FirstName" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="a328603f-6198-4260-9f91-dffe794a6cc0" name="TalkToPersonCommand" type="element" specialization="Integration Command" />
+              <target id="2a66a7e8-9120-48a6-8236-b2d8025ef119" name="LastName" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="8fb60f58-f84d-4ba5-b325-55c2fe58edce" name="" type="association" specialization="Domain Event Handler Association Target End" />
+                  <target id="66e7baab-8cd7-4e93-98cb-ff3c37749cf7" name="LastName" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5cae1c25-cc30-4af8-8955-30af001c981d" name="Command Distribution">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="4126ee48-4a50-41a8-9419-504e7f677bea" display="Destination Queue Name" value="Person" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

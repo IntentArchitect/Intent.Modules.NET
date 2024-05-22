@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="429b373b-25be-4d5b-9ff2-310e0c93ee70">
+  <sourceEnd id="121b8ee6-2628-482c-9604-992691f14d54" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : NamingOverrides.TestOverrideCommand</display>
+    <order>0</order>
+    <typeReference id="1bccb644-4080-4739-b797-b5cf8adfe187">
+      <typeId>2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="429b373b-25be-4d5b-9ff2-310e0c93ee70" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OverrideMessageCustomSubscribe</display>
+    <order>3</order>
+    <typeReference id="b2d5ec91-2edf-4675-9f6b-f8195dbf993c">
+      <typeId>f02bffd4-76a9-439c-968e-85a2670f9eba</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb" location="[MassTransit.RabbitMQ].[Services].[TestOverrideCommand]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f02bffd4-76a9-439c-968e-85a2670f9eba" location="[MassTransit.RabbitMQ].[Services].[OverrideMessageCustomSubscribe]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="f02bffd4-76a9-439c-968e-85a2670f9eba" name="OverrideMessageCustomSubscribe" type="element" specialization="Message" />
+              <target id="fc8560ed-a262-417f-ad7e-328ff6235a45" name="Message" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb" name="TestOverrideCommand" type="element" specialization="Command" />
+                  <target id="5a7a15d7-c810-41ec-ab35-d792a05e34e9" name="Message" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

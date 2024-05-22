@@ -7,6 +7,7 @@ using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Application.Common.Validation;
 using MassTransit.RabbitMQ.Application.IntegrationEventHandlers;
 using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers;
+using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.NamingOverrides;
 using MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Test;
 using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Services;
@@ -43,6 +44,9 @@ namespace MassTransit.RabbitMQ.Application
             services.AddTransient<IIntegrationEventHandler<MakeSoundCommand>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<CreatePersonIdentity>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<TalkToPersonCommand>, CatchAllHandler>();
+            services.AddTransient<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeHandler>();
+            services.AddTransient<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, StandardMessageCustomSubscribeHandler>();
+            services.AddTransient<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeHandler>();
             services.AddTransient<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageHandler>();
             services.AddTransient<IIntegrationEventHandler<TestMessageEvent>, TestMessageEventHandler>();
             return services;
