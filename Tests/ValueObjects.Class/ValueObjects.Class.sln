@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueObjects.Class.Infrastructure", "ValueObjects.Class.Infrastructure\ValueObjects.Class.Infrastructure.csproj", "{FCE3B3F2-E215-4749-9B3B-AF9369363FFB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{63D346DA-A893-4028-A267-9A9AEF958803}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueObjects.Class.IntegrationTests", "ValueObjects.Class.IntegrationTests\ValueObjects.Class.IntegrationTests.csproj", "{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,7 @@ Global
 		{5D3DB4B4-8539-4175-81D7-E2CF636FF0F6} = {09F63DA4-E458-47DE-8CBD-9C8DD02253D0}
 		{9D7E6677-EE37-4DA8-BA46-757F8E8EB286} = {68AFA187-3DA9-4625-81F8-BAF3F2F5D9E6}
 		{FCE3B3F2-E215-4749-9B3B-AF9369363FFB} = {5A4BC06A-AB68-4651-8D7F-4624FC562491}
+		{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD} = {63D346DA-A893-4028-A267-9A9AEF958803}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{118F24E1-4E76-4382-A99B-74127F18EBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,5 +54,9 @@ Global
 		{FCE3B3F2-E215-4749-9B3B-AF9369363FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE3B3F2-E215-4749-9B3B-AF9369363FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE3B3F2-E215-4749-9B3B-AF9369363FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0DC054-2E4E-485E-AC90-93EA4AE5E8BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
