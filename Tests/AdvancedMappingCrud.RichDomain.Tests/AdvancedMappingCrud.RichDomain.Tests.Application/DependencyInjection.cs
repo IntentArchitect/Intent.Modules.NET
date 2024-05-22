@@ -1,6 +1,7 @@
 using System.Reflection;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Common.Validation;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Services;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -30,6 +31,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
             return services;
         }
     }

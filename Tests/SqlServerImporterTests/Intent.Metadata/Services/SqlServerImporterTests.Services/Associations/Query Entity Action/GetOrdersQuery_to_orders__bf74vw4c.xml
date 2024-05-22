@@ -28,8 +28,6 @@
       <isNullable>false</isNullable>
       <isCollection>true</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>SqlServerImporterTests</typePackageName>
-      <typePackageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

@@ -2,7 +2,7 @@
 <association id="a2d79d05-77e7-49ca-af4e-80ced1303c05">
   <sourceEnd id="f7cdf0a8-2fc8-48dd-998c-f65a2882edb5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Children</name>
-    <display>: Child[*]</display>
+    <display>Children: Child[*]</display>
     <order>0</order>
     <typeReference id="69693251-f7f5-44ca-8548-8d306155382a">
       <typeId>c31e5440-c1be-47d5-a398-1a0843b00571</typeId>

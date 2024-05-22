@@ -23,8 +23,11 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Category> Categories { get; set; }
+
         public DbSet<Company> Companies { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -46,8 +49,10 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 

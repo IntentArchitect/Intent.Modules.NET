@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="af503c8e-b21b-4bd1-b41e-92d49b571611">
+  <sourceEnd id="f34010c9-1ed2-434f-8fef-deb7a1579af4" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="64e7cb67-60aa-4e77-b421-021c17ac1311">
+      <typeId>fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="af503c8e-b21b-4bd1-b41e-92d49b571611" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Categories</name>
+    <display>Categories: Category[*]</display>
+    <order>5</order>
+    <typeReference id="b9eab6d7-f346-472b-be71-725bb0378c33">
+      <typeId>d53bb23e-4305-43ac-a0cf-7480a156fff6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
