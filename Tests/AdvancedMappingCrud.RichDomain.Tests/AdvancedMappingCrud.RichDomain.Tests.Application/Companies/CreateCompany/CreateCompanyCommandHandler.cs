@@ -30,7 +30,9 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Companies.CreateCompa
             var company = new Company(
                 name: request.Name,
                 contactDetailsVOS: request.ContactDetailsVOS
-                    .Select(dvos => new ContactDetailsVO(cell: dvos.Cell, email: dvos.Email))
+                    .Select(dvos => new ContactDetailsVO(
+                        cell: dvos.Cell,
+                        email: dvos.Email))
                     .ToList());
 
             _companyRepository.Add(company);

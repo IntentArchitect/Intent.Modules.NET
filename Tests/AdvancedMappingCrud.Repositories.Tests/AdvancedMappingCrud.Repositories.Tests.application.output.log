@@ -1668,6 +1668,174 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#aaf0d2ac-94ac-4827-9592-0f8203157ace</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParent/CreateNestingParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/CreateNestingParent/CreateNestingParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#aaf0d2ac-94ac-4827-9592-0f8203157ace</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParent/CreateNestingParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/CreateNestingParent/CreateNestingParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#aaf0d2ac-94ac-4827-9592-0f8203157ace</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParent/CreateNestingParentCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/CreateNestingParent/CreateNestingParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6fd3af05-9929-4a25-8b70-32bdb7a3639a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParentCommandNestingChildrenDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/CreateNestingParentCommandNestingChildrenDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6fd3af05-9929-4a25-8b70-32bdb7a3639a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParentCommandNestingChildrenDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/CreateNestingParentCommandNestingChildrenDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5eb27a30-d316-4915-ab26-6f41d45649ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/DeleteNestingParent/DeleteNestingParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/DeleteNestingParent/DeleteNestingParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5eb27a30-d316-4915-ab26-6f41d45649ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/DeleteNestingParent/DeleteNestingParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/DeleteNestingParent/DeleteNestingParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5eb27a30-d316-4915-ab26-6f41d45649ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/DeleteNestingParent/DeleteNestingParentCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/DeleteNestingParent/DeleteNestingParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5faff2a2-edd7-4ee4-a381-883732c9f5ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParentById/GetNestingParentByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParentById/GetNestingParentByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5faff2a2-edd7-4ee4-a381-883732c9f5ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParentById/GetNestingParentByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParentById/GetNestingParentByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#5faff2a2-edd7-4ee4-a381-883732c9f5ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParentById/GetNestingParentByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParentById/GetNestingParentByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c4593aa3-4011-411b-9971-9755ed08d133</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParents/GetNestingParentsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParents/GetNestingParentsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c4593aa3-4011-411b-9971-9755ed08d133</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParents/GetNestingParentsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParents/GetNestingParentsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c4593aa3-4011-411b-9971-9755ed08d133</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParents/GetNestingParentsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/GetNestingParents/GetNestingParentsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c9a3d41d-a64f-49ff-8e6c-dbc3b936b897</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/ManualChildChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/ManualChildChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c9a3d41d-a64f-49ff-8e6c-dbc3b936b897</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/ManualChildChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/ManualChildChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4b7c788b-be6d-4fa4-9421-6ec1f7243c23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/NestingParentDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/NestingParentDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#4b7c788b-be6d-4fa4-9421-6ec1f7243c23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/NestingParentDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/NestingParentDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#36bc20da-42c2-4a9a-9c96-0af15b7c4b9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/UpdateNestingParent/UpdateNestingParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/UpdateNestingParent/UpdateNestingParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#36bc20da-42c2-4a9a-9c96-0af15b7c4b9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/UpdateNestingParent/UpdateNestingParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/UpdateNestingParent/UpdateNestingParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#36bc20da-42c2-4a9a-9c96-0af15b7c4b9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/UpdateNestingParent/UpdateNestingParentCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestingParents/UpdateNestingParent/UpdateNestingParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#88ee006b-4107-4e77-9f18-913e60d6e2b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Optionals/CreateOptional/CreateOptionalCommand.cs</ApplicationRelativeFilePath>
@@ -2556,6 +2724,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#35819992-256b-484e-a42e-4a2748e734c5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/NestingChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#2cab39ba-069c-493f-95e5-df85a13164cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChildChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/NestingChildChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/NestingParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#25b33f68-88fc-468d-9954-f9d67b53c057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Optional.cs</ApplicationRelativeFilePath>
@@ -2819,6 +3011,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/MappingTests/INestingParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/INestingParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7ea1b9a3-5b8c-40c0-9252-888bf4b09fac</ProjectId>
       <CorrelationId>Intent.DomainServices.DomainServiceImplementation#72a486f2-1098-4369-bfd3-3ef22ec1de9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2988,7 +3188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>486950aa-60cc-49a6-8678-b4a6a22bb8fd</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
@@ -3080,6 +3280,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/FuneralCoverQuoteConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FuneralCoverQuoteConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/MappingTests/NestingParentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/NestingParentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3224,6 +3432,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/FuneralCoverQuoteRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FuneralCoverQuoteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/MappingTests/NestingParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappingTests/NestingParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

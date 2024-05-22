@@ -42,16 +42,14 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             {
                 return new MethodInvocationMapping(mappingModel, _template);
             }
-            
+
             if (model.SpecializationType == "Parameter" &&
-                model.TypeReference.Element?.SpecializationType is "Data Contract" or "Class")
-            {
-                _template.AddTypeSource("Domain.DataContract");
-                
+                model.TypeReference.Element?.SpecializationType is "Class")
+            {                
                 return new ObjectInitializationMapping(mappingModel, _template);
             }
 
-            return null;
+			return null;
         }
     }
 }

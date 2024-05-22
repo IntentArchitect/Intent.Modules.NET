@@ -395,7 +395,7 @@ public class DomainInteractionsManager
             return new List<EntityDetails>();
 		}
 		return TrackedEntities.Values
-			.Where(x => x.ElementModel.AsClassModel().GetTypesInHierarchy()
+			.Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
 				.SelectMany(c => c.Attributes)
 				.Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
 			.ToList();

@@ -63,5 +63,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
         {
             return ContactDetails;
         }
+
+        public void AddCoolections(IEnumerable<AddressDC> addresses, IEnumerable<ContactDetailsVO> contacts)
+        {
+            foreach (var a in addresses)
+            {
+                _addresses.Add(new Address(a.Line1, a.Line2, a.City, a.Postal));
+
+            }
+        }
     }
 }

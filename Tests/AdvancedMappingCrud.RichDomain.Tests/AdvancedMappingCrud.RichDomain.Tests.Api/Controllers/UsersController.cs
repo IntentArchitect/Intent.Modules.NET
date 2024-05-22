@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.RichDomain.Tests.Api.Controllers.ResponseTypes;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Users;
+using AdvancedMappingCrud.RichDomain.Tests.Application.Users.AddCoolectionsUser;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Users.CreateUser;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Users.DeleteUser;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Users.GetUserById;
@@ -33,6 +34,35 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
         public UsersController(ISender mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPost("api/user/{id}/coolections")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> AddCoolectionsUser(
+            [FromRoute] Guid id,
+            [FromBody] AddCoolectionsUserCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            if (command.Id == default)
+            {
+                command.Id = id;
+            }
+
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
 
         /// <summary>

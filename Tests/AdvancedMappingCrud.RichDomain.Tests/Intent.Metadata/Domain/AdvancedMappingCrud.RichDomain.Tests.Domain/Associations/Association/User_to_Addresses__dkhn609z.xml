@@ -22,7 +22,7 @@
   <targetEnd id="54d2ccb5-8734-4c2c-9b8a-8bb758bedbea" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Addresses</name>
     <display>Addresses: Address[*]</display>
-    <order>7</order>
+    <order>8</order>
     <typeReference id="2cfbf982-ae48-4dfa-ab68-0e67a46a0509">
       <typeId>3ecc716a-8ede-45fe-a235-d68ce85ded79</typeId>
       <isNavigable>true</isNavigable>

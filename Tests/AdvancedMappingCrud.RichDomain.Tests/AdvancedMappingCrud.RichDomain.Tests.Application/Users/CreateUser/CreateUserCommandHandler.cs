@@ -30,7 +30,9 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Users.CreateUser
         {
             var user = new User(
                 companyId: request.CompanyId,
-                contactDetailsVO: new ContactDetailsVO(cell: request.ContactDetailsVO.Cell, email: request.ContactDetailsVO.Email),
+                contactDetailsVO: new ContactDetailsVO(
+                    cell: request.ContactDetailsVO.Cell,
+                    email: request.ContactDetailsVO.Email),
                 addresses: request.Addresses
                     .Select(a => new AddressDC(
                         line1: a.Line1,

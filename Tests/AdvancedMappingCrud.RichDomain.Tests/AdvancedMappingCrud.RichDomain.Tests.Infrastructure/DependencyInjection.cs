@@ -25,6 +25,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICompanyRepository, CompanyRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;

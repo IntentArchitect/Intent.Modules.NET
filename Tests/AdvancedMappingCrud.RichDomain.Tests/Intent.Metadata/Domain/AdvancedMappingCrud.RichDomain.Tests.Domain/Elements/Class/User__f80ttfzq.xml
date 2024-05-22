@@ -293,5 +293,76 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="72296610-b85c-415b-8e95-c75f4552879a" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>AddCoolections</name>
+      <display>AddCoolections(addresses: AddressDC[*], contacts: ContactDetailsVO[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d683989d-8575-43c5-a8a4-0f1b18497ed9">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5bbdc114-d80e-463a-8230-3a2c0fa14988" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>addresses</name>
+          <display>in : addresses: AddressDC[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e81f8e81-25e5-4838-b73a-f6a5c9b1b02a">
+            <typeId>656e0f64-5e18-4a2e-8f0d-c318a1f87133</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+            <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>72296610-b85c-415b-8e95-c75f4552879a</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9ddde60c-f9f5-407d-8c24-48e3fe904f5d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>contacts</name>
+          <display>in : contacts: ContactDetailsVO[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="446c3e92-fbf5-4e77-8627-d40e0e6904e8">
+            <typeId>abe0f2b6-900e-4212-b2bc-e36d5d8cd907</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+            <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>72296610-b85c-415b-8e95-c75f4552879a</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

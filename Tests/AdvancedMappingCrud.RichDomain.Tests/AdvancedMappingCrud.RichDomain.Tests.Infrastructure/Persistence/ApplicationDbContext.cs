@@ -24,6 +24,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
         }
 
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<User> Users { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -46,6 +47,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 

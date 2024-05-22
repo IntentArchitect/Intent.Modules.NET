@@ -42,7 +42,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrder
                     })
                     .ToList(),
                 OrderTags = request.OrderTags
-                    .Select(ot => new OrderTags(name: ot.Name, value: ot.Value))
+                    .Select(ot => new OrderTags(
+                        name: ot.Name,
+                        value: ot.Value))
                     .ToList()
             };
 
