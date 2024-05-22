@@ -54,8 +54,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public void ChangeCategoriesSync(IEnumerable<string> categoryNames, ICategoriesService categoryService)
         {
-			var categories = categoryService.GetOrCreateCategoriesAsync(categoryNames).GetAwaiter().GetResult();
-			Categories = categories.ToList();
-		}
-	}
+            var categories = categoryService.GetOrCreateCategoriesAsync(categoryNames).GetAwaiter().GetResult();
+            Categories = categories.ToList();
+        }
+    }
 }
