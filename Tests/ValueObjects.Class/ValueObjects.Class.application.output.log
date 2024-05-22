@@ -812,6 +812,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>98c8739f-4190-4eb4-a873-22354160ba5d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ValueObjects.Class.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>98c8739f-4190-4eb4-a873-22354160ba5d</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#41a5b784-0b78-44c7-aa9b-5affc4f0da23</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.IntegrationTests/HttpClients/TestEntities/ITestEntitiesService.cs</ApplicationRelativeFilePath>

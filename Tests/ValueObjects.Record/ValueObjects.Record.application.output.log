@@ -804,6 +804,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>39547dc2-c175-4255-9f07-6c491e8ff5a4</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ValueObjects.Record.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>39547dc2-c175-4255-9f07-6c491e8ff5a4</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#41a5b784-0b78-44c7-aa9b-5affc4f0da23</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Record.IntegrationTests/HttpClients/TestEntities/ITestEntitiesService.cs</ApplicationRelativeFilePath>

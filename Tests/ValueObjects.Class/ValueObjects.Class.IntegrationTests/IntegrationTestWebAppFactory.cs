@@ -7,6 +7,7 @@ using ValueObjects.Class.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory", Version = "1.0")]
+
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace ValueObjects.Class.IntegrationTests
