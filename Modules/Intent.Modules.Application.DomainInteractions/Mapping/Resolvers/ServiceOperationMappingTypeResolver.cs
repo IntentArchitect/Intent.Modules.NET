@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modelers.Domain.Api;
@@ -46,6 +47,11 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             if (model.SpecializationType == "Parameter" &&
                 model.TypeReference.Element?.SpecializationType is "Class")
             {                
+                return new ObjectInitializationMapping(mappingModel, _template);
+            }
+
+            if (model.SpecializationType == "DTO-Field" && mappingModel.Children.Any())
+            {
                 return new ObjectInitializationMapping(mappingModel, _template);
             }
 
