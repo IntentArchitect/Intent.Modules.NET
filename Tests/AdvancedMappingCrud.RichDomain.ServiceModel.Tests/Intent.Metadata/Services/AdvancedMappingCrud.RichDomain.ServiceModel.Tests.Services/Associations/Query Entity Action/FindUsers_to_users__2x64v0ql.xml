@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f591192a-39db-48e3-b824-04d930ca77ac">
+  <sourceEnd id="0facb292-b605-458b-93e1-528c22ad8bb8" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindUsers</display>
+    <order>0</order>
+    <typeReference id="d19e0288-6fa6-49fa-aaca-a37aa61bb95d">
+      <typeId>eaefe2d1-d8f6-40d4-9ef5-0ec7a3448033</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f591192a-39db-48e3-b824-04d930ca77ac" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>users</name>
+    <display>[query] users: User[*]</display>
+    <order>0</order>
+    <typeReference id="88dce5ae-aa39-4898-8f9b-c0c21707bf31">
+      <typeId>fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eaefe2d1-d8f6-40d4-9ef5-0ec7a3448033" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[FindUsers]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[User]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

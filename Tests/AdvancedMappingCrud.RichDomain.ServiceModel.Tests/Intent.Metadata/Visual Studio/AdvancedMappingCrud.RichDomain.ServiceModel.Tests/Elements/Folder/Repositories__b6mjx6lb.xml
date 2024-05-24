@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3545c993-8692-4c66-aa19-838fad4a7436" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61c71e24-bfab-41c4-89bb-923c2dd28fc3</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5c074ed7-52d5-483e-8b2f-a843269cfd6e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
+      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3545c993-8692-4c66-aa19-838fad4a7436</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="889a4983-1e3b-4212-ad3c-d3b8ecfeac11" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
+      <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3545c993-8692-4c66-aa19-838fad4a7436</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5f586965-44bf-4594-a723-2cee675d0209" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.RepositoryBase</name>
+      <display>Intent.EntityFrameworkCore.Repositories.RepositoryBase</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3545c993-8692-4c66-aa19-838fad4a7436</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

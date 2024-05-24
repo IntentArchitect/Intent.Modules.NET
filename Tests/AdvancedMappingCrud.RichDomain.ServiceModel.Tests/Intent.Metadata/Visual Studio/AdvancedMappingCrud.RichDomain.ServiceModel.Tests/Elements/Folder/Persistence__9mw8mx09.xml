@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="314f808b-eb0e-425d-8da2-76de5f206772" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Persistence</name>
+  <display>Persistence</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61c71e24-bfab-41c4-89bb-923c2dd28fc3</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="62d604e1-1132-47e3-9f20-afbd0754c2a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbContext</name>
+      <display>Intent.EntityFrameworkCore.DbContext</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>314f808b-eb0e-425d-8da2-76de5f206772</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="111c0216-18e9-45fa-bce6-c1ade9c24789" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>314f808b-eb0e-425d-8da2-76de5f206772</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="259492ed-535b-404c-b608-643b88bf8526" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5f5f729d-834d-4a53-a40d-9d3fbbf37acc</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="45c3ae8d-e9dc-4c0b-a158-e9da59fa413a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.CurrentUserServiceInterface</name>
+      <display>Intent.Application.Identity.CurrentUserServiceInterface</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>259492ed-535b-404c-b608-643b88bf8526</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="49bc3c00-11e9-4c79-8269-5a42d692906b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CommandInterface</name>
+      <display>Intent.Application.MediatR.CommandInterface</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>259492ed-535b-404c-b608-643b88bf8526</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3dfde08d-70a5-4c4e-bcf4-815df8f21bd9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryInterface</name>
+      <display>Intent.Application.MediatR.QueryInterface</display>
+      <externalReference>Intent.Application.MediatR</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>259492ed-535b-404c-b608-643b88bf8526</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="977b5ee2-aacf-40a5-9095-9708a88db9b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.DomainEventServiceInterface</name>
+      <display>Intent.DomainEvents.DomainEventServiceInterface</display>
+      <externalReference>Intent.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>259492ed-535b-404c-b608-643b88bf8526</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1cd1d7a5-92d8-496f-b467-b2ad57a0da75" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbContextInterface</name>
+      <display>Intent.EntityFrameworkCore.DbContextInterface</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>259492ed-535b-404c-b608-643b88bf8526</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

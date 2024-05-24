@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="80fa4983-437c-43be-a122-91b268561714">
+  <sourceEnd id="a4b67f4e-0646-43b5-a995-7268e6eb26df" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindCompanyById</display>
+    <order>0</order>
+    <typeReference id="a4ac03d0-a50b-4204-9e7b-550f0c5ba5a4">
+      <typeId>b7d6b72d-5b32-4b97-99e9-a2cd2046776e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="80fa4983-437c-43be-a122-91b268561714" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>company</name>
+    <display>[query] company: Company</display>
+    <order>1</order>
+    <typeReference id="2550846a-7d85-4078-912d-5585db0de5e2">
+      <typeId>8251ab6c-2778-45a2-b726-6a11c7334e39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b7d6b72d-5b32-4b97-99e9-a2cd2046776e" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[FindCompanyById]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8251ab6c-2778-45a2-b726-6a11c7334e39" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Company]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="8251ab6c-2778-45a2-b726-6a11c7334e39" name="Company" type="element" specialization="Class" />
+              <target id="4d774477-ed95-4b91-a3d2-7e75797fec54" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b7d6b72d-5b32-4b97-99e9-a2cd2046776e" name="FindCompanyById" type="element" specialization="Operation" />
+                  <target id="20552986-f220-4ad6-a8f7-1421eaf60f45" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

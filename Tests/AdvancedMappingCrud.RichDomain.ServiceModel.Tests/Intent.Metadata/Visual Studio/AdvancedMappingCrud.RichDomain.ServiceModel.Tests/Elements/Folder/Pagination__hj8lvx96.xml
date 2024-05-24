@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f07da2e0-eec1-43d2-91b4-364084271ca7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Pagination</name>
+  <display>Pagination</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5f5f729d-834d-4a53-a40d-9d3fbbf37acc</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="849e7fe9-e1f7-4bbd-a3ef-35a4f38cf205" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResult</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResult</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f07da2e0-eec1-43d2-91b4-364084271ca7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ef6beda6-81eb-4d9f-9401-c5eb5a74f2e7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f07da2e0-eec1-43d2-91b4-364084271ca7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d5ae885c-8b00-4bd0-84eb-b07d270155a0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.PagedList</name>
+      <display>Intent.EntityFrameworkCore.PagedList</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f07da2e0-eec1-43d2-91b4-364084271ca7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

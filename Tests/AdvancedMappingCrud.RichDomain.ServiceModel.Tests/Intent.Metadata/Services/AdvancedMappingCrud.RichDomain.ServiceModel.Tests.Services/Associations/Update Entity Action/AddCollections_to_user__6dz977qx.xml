@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a43bdf5c-0598-4d80-8998-9f686db61956">
+  <sourceEnd id="08428558-0c9c-4902-bc90-af62ceb30d02" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : UsersService.AddCollections</display>
+    <order>0</order>
+    <typeReference id="dab1df6a-00fc-4777-95d8-157ef9190b76">
+      <typeId>9fa15803-7620-4768-9072-2beae624f5aa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a43bdf5c-0598-4d80-8998-9f686db61956" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>user</name>
+    <display>[update] user: AddCollections</display>
+    <order>2</order>
+    <typeReference id="4363a9d3-b98f-4bee-8398-b8cfa6c4c3f8">
+      <typeId>72296610-b85c-415b-8e95-c75f4552879a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9fa15803-7620-4768-9072-2beae624f5aa" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[AddCollections]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="a3c1ba5c-26fb-483f-b772-6c6dc261d475" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="e43542f8-f9ee-4aa6-9b31-70d344c5d6c3" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9fa15803-7620-4768-9072-2beae624f5aa" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[AddCollections]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{AddCollections}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="AddCollections" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Addresses}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="5bbdc114-d80e-463a-8230-3a2c0fa14988" name="addresses" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="dto.Addresses" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="d96d1cc3-4d61-4c16-b7c7-a33232a6156a" name="Addresses" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Addresses.Line1}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="5bbdc114-d80e-463a-8230-3a2c0fa14988" name="addresses" type="element" specialization="Parameter" />
+              <target id="62a1c723-75b0-40ed-a2c3-195e836adea7" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Addresses.Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="d96d1cc3-4d61-4c16-b7c7-a33232a6156a" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="2254f30e-41b3-4bbd-b939-726eca15f166" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Addresses.Line2}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="5bbdc114-d80e-463a-8230-3a2c0fa14988" name="addresses" type="element" specialization="Parameter" />
+              <target id="dcd641db-5eb2-47c2-8131-fe163475b344" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Addresses.Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="d96d1cc3-4d61-4c16-b7c7-a33232a6156a" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="5e8bcea1-6a38-4695-a39b-3d7c2a3ece42" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Addresses.City}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="5bbdc114-d80e-463a-8230-3a2c0fa14988" name="addresses" type="element" specialization="Parameter" />
+              <target id="431c86f5-d218-4b71-9979-ecc615597969" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Addresses.City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="d96d1cc3-4d61-4c16-b7c7-a33232a6156a" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="53efdbc1-324c-455f-9d53-5e47d597f068" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Addresses.Postal}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="5bbdc114-d80e-463a-8230-3a2c0fa14988" name="addresses" type="element" specialization="Parameter" />
+              <target id="0e3f0299-8008-4bde-96ba-1e510245db6b" name="Postal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Addresses.Postal" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="d96d1cc3-4d61-4c16-b7c7-a33232a6156a" name="Addresses" type="element" specialization="DTO-Field" />
+                  <target id="a3fafd71-cc7b-4582-855f-a7992e664e02" name="Postal" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Contacts}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="9ddde60c-f9f5-407d-8c24-48e3fe904f5d" name="contacts" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="dto.Contacts" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="3421942f-f2b8-40c5-9c69-a8fb55bef956" name="Contacts" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Contacts.Cell}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="9ddde60c-f9f5-407d-8c24-48e3fe904f5d" name="contacts" type="element" specialization="Parameter" />
+              <target id="d8b6ceb4-76c2-49b6-b57b-a9ed79ebd946" name="Cell" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Contacts.Cell" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="3421942f-f2b8-40c5-9c69-a8fb55bef956" name="Contacts" type="element" specialization="DTO-Field" />
+                  <target id="7b4d9387-2ba0-4ff3-b39c-bda1693d0417" name="Cell" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Contacts.Email}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="72296610-b85c-415b-8e95-c75f4552879a" name="AddCollections" type="element" specialization="Operation" />
+              <target id="9ddde60c-f9f5-407d-8c24-48e3fe904f5d" name="contacts" type="element" specialization="Parameter" />
+              <target id="e73ba1bb-d738-4110-a4bf-00360d8daf55" name="Email" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Contacts.Email" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9fa15803-7620-4768-9072-2beae624f5aa" name="AddCollections" type="element" specialization="Operation" />
+                  <target id="75b7d2e8-85d6-4d99-93b1-c63f923ee740" name="dto" type="element" specialization="Parameter" />
+                  <target id="3421942f-f2b8-40c5-9c69-a8fb55bef956" name="Contacts" type="element" specialization="DTO-Field" />
+                  <target id="b14b7e03-6a5a-4da0-93cf-738510b8fb0d" name="Email" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

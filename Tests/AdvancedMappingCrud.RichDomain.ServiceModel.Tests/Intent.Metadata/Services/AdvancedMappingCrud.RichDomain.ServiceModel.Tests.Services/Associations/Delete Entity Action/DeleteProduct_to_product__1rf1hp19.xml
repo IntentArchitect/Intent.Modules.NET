@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="90996619-4cc4-4721-a027-f17cefab2914">
+  <sourceEnd id="17134a7b-a83c-4411-9a85-99b85dd8bf29" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ProductsService.DeleteProduct</display>
+    <order>0</order>
+    <typeReference id="59324afa-1b92-4e17-98af-fc2a9af31e8c">
+      <typeId>ff09304c-e514-4763-bde9-23436a222ff9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="90996619-4cc4-4721-a027-f17cefab2914" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>product</name>
+    <display>[delete] product: Product</display>
+    <order>1</order>
+    <typeReference id="b6a8abe5-3760-49e6-a647-30ac4714246d">
+      <typeId>fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ff09304c-e514-4763-bde9-23436a222ff9" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[DeleteProduct]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" name="Product" type="element" specialization="Class" />
+              <target id="28305700-650e-4ae5-95aa-eff33d0609c6" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ff09304c-e514-4763-bde9-23436a222ff9" name="DeleteProduct" type="element" specialization="Operation" />
+                  <target id="58e962db-7872-434b-910c-4f0676682ba2" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

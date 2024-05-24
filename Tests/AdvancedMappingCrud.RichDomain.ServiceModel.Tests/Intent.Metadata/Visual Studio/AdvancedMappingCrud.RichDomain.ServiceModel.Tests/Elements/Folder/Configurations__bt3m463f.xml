@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb216a9c-c38f-4f4f-bcbf-66fcd25ba6a6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configurations</name>
+  <display>Configurations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>314f808b-eb0e-425d-8da2-76de5f206772</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="afdadb3c-356b-4688-8c47-a37f7ddc33aa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.EntityTypeConfiguration</name>
+      <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bb216a9c-c38f-4f4f-bcbf-66fcd25ba6a6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

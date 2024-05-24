@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3034ccd2-52f0-4ca1-90ae-8fedbc8ef78c">
+  <sourceEnd id="4ca80fd2-1fa0-487e-a743-e95b5ee33b7b" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : UsersService.TestVO</display>
+    <order>0</order>
+    <typeReference id="0f7cda3c-8c33-4d28-b80b-831f4b05059b">
+      <typeId>0337b043-71ba-44c1-9328-d22679d892dc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3034ccd2-52f0-4ca1-90ae-8fedbc8ef78c" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>user</name>
+    <display>[update] user: TestVO</display>
+    <order>2</order>
+    <typeReference id="af2e3d45-dd03-42f3-9870-33896b12c0c0">
+      <typeId>8a55c73b-d753-45e0-bca8-032dd258595a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0337b043-71ba-44c1-9328-d22679d892dc" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[TestVO]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="a3c1ba5c-26fb-483f-b772-6c6dc261d475" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="0337b043-71ba-44c1-9328-d22679d892dc" name="TestVO" type="element" specialization="Operation" />
+                  <target id="f7e3fba1-973d-466c-a4a8-18a68ab25062" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0337b043-71ba-44c1-9328-d22679d892dc" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[TestVO]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{TestVO}</expression>
+            <path>
+              <target id="fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe" name="User" type="element" specialization="Class" />
+              <target id="8a55c73b-d753-45e0-bca8-032dd258595a" name="TestVO" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="TestVO" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="0337b043-71ba-44c1-9328-d22679d892dc" name="TestVO" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

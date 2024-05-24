@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dc806882-1df8-45f3-ad7a-9bc237cfb368">
+  <sourceEnd id="9bccb634-7271-4198-a7e8-c03b38ddc4f6" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindCustomers</display>
+    <order>0</order>
+    <typeReference id="d4098a18-df16-42f1-aea2-be150f8f94f7">
+      <typeId>4a5813b0-8c04-4397-b333-857a5aab167c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dc806882-1df8-45f3-ad7a-9bc237cfb368" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <typeReference id="20de9909-715c-4d7f-9a20-6457690257f6">
+      <typeId>7b7cb885-2885-4024-a748-e59f24729938</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4a5813b0-8c04-4397-b333-857a5aab167c" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[FindCustomers]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7b7cb885-2885-4024-a748-e59f24729938" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

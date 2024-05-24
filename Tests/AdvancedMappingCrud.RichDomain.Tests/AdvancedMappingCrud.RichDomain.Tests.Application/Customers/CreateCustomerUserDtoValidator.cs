@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Customers
 
             RuleFor(v => v.Addresses)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCustomerUserAddressDCDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCustomerUserAddressesDto>()!));
         }
     }
 }

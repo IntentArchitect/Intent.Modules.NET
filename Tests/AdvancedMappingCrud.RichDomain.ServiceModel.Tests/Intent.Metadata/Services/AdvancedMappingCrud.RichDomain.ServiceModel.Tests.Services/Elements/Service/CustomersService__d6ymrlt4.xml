@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0e5fe0b0-1378-47bf-90a8-59662b0532ff" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>CustomersService</name>
+  <display>CustomersService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</parentFolderId>
+  <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/customers" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d42eda40-274a-49bb-a53d-ada904e9a81e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomer</name>
+      <display>CreateCustomer(dto: CustomerCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e19db745-df91-4673-ac07-1aeb3fc9d847">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e5fe0b0-1378-47bf-90a8-59662b0532ff</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="88673ea3-41be-4116-ae3e-ba7a7d81061f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CustomerCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1f6181ff-b998-4549-9425-a59215f2c1cb">
+            <typeId>a8ff5610-6b1d-44ff-bb27-3760bb1e25e5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+            <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d42eda40-274a-49bb-a53d-ada904e9a81e</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b12781a7-d3ed-4af6-ad52-3681197c35c0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindCustomerById</name>
+      <display>FindCustomerById(id: guid): CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4f13ff2e-c21f-4203-930a-3d07787b553c">
+        <typeId>66c37fdc-cc3d-4338-b1dd-f9f50beaa7b2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+        <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e5fe0b0-1378-47bf-90a8-59662b0532ff</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6e155579-6c30-4413-bf55-b90259752142" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6e7b9b74-f94d-4b10-b052-f9cd2353b768">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b12781a7-d3ed-4af6-ad52-3681197c35c0</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4a5813b0-8c04-4397-b333-857a5aab167c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindCustomers</name>
+      <display>FindCustomers(): CustomerDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c625a40e-2111-46c2-a512-f2c8738458c9">
+        <typeId>66c37fdc-cc3d-4338-b1dd-f9f50beaa7b2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+        <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e5fe0b0-1378-47bf-90a8-59662b0532ff</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7984781e-0205-4cc3-89cb-36d89f14e1f1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteCustomer</name>
+      <display>DeleteCustomer(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cfd4d3af-bac7-42ac-812d-604486f5d670">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e5fe0b0-1378-47bf-90a8-59662b0532ff</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d2aa64d1-2001-4369-9f65-f73a895b566f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b9b83c82-eb1c-42be-8902-d88ee7b907b7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7984781e-0205-4cc3-89cb-36d89f14e1f1</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

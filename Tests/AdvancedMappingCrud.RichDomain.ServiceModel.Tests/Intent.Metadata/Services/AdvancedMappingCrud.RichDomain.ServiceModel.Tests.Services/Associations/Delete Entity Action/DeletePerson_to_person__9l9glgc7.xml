@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cd2ec48a-38af-426d-a3d7-562937361ef7">
+  <sourceEnd id="fef033e3-84ef-4e5a-9762-6e271a713f51" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : PeopleService.DeletePerson</display>
+    <order>0</order>
+    <typeReference id="0ac9b899-a663-41dd-b51b-8e9e6e722ac7">
+      <typeId>49285c2d-6d19-45cf-8aaf-50c11b47ebda</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cd2ec48a-38af-426d-a3d7-562937361ef7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>person</name>
+    <display>[delete] person: Person</display>
+    <order>1</order>
+    <typeReference id="2e659ebb-cb9f-4eab-b5d3-67fd7ba86f70">
+      <typeId>64543361-23ff-4f7f-bcbb-0134267aa08d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="49285c2d-6d19-45cf-8aaf-50c11b47ebda" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[DeletePerson]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64543361-23ff-4f7f-bcbb-0134267aa08d" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="ef3f2be7-a840-466c-8890-61fd1e37a3d2" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="49285c2d-6d19-45cf-8aaf-50c11b47ebda" name="DeletePerson" type="element" specialization="Operation" />
+                  <target id="1a3a74a0-648e-42cc-bcaa-e4ca93e050f5" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>
