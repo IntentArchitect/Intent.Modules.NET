@@ -40,9 +40,9 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
         public async Task ChangeCategoriesAsync(
-    IEnumerable<string> categoryNames,
-    ICategoriesService categoryService,
-    CancellationToken cancellationToken = default)
+            IEnumerable<string> categoryNames,
+            ICategoriesService categoryService,
+            CancellationToken cancellationToken = default)
         {
             // [IntentFully]
             throw new NotImplementedException("Replace with your implementation...");
