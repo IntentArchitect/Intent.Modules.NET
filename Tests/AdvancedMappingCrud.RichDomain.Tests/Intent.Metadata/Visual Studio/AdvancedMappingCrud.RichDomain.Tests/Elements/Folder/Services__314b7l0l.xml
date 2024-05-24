@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5c7bf02b-05fb-47bf-bd03-86d78b8329b2" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Services</name>
+  <display>Services</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7e01d887-22b6-44f7-90b0-75a8d89238c0</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="21dd13ed-e078-498f-a3ae-23577ee52332" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainServices.DomainServiceImplementation</name>
+      <display>Intent.DomainServices.DomainServiceImplementation</display>
+      <externalReference>Intent.DomainServices</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8da2a2ae-9438-4383-b78b-82d559fbf625" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainServices.DomainServiceInterface</name>
+      <display>Intent.DomainServices.DomainServiceInterface</display>
+      <externalReference>Intent.DomainServices</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

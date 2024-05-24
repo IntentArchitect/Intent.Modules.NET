@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\IDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MappingExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\DataContractInheritedChildrenMapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\DataContractMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\InheritedChildrenMapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ServiceOperationMappingTypeResolver.cs" />

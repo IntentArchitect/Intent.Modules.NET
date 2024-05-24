@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82b8662d-4368-4dc6-9516-5acb1fa85464" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Value Object Settings</name>
+  <display>Value Object Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0253512-2e91-4079-9e6a-5710f7739cd9</parentFolderId>
+  <packageId>d0253512-2e91-4079-9e6a-5710f7739cd9</packageId>
+  <packageName>Intent.ValueObjects</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="704c2e3d-1a78-4af2-b363-533f2da2089b" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Value Object Type</name>
+      <display>Value Object Type</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>82b8662d-4368-4dc6-9516-5acb1fa85464</parentFolderId>
+      <packageId>d0253512-2e91-4079-9e6a-5710f7739cd9</packageId>
+      <packageName>Intent.ValueObjects</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="class" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="dad010ad-b9a3-4f8a-a88c-9012e883d69f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Class</name>
+          <display>Class</display>
+          <isAbstract>false</isAbstract>
+          <value>class</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>704c2e3d-1a78-4af2-b363-533f2da2089b</parentFolderId>
+          <packageId>d0253512-2e91-4079-9e6a-5710f7739cd9</packageId>
+          <packageName>Intent.ValueObjects</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cd2af224-eac7-4602-975d-b24fd80b0d14" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Record</name>
+          <display>Record</display>
+          <isAbstract>false</isAbstract>
+          <value>record</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>704c2e3d-1a78-4af2-b363-533f2da2089b</parentFolderId>
+          <packageId>d0253512-2e91-4079-9e6a-5710f7739cd9</packageId>
+          <packageName>Intent.ValueObjects</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

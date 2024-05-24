@@ -4,6 +4,8 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Modules.ValueObjects.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +31,11 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObjectBase
                 className: $"ValueObject",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return ExecutionContext.Settings.GetValueObjectSettings().ValueObjectType().IsClass();
         }
     }
 }

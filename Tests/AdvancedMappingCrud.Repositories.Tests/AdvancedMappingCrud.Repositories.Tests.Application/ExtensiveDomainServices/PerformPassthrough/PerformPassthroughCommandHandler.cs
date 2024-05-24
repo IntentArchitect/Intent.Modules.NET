@@ -25,7 +25,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.ExtensiveDomainServ
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(PerformPassthroughCommand request, CancellationToken cancellationToken)
         {
-            _extensiveDomainService.PerformPassthrough(new PassthroughObj(request.BaseAttr, request.ConcreteAttr));
+            _extensiveDomainService.PerformPassthrough(new PassthroughObj(
+                baseAttr: request.BaseAttr,
+                concreteAttr: request.ConcreteAttr));
         }
     }
 }

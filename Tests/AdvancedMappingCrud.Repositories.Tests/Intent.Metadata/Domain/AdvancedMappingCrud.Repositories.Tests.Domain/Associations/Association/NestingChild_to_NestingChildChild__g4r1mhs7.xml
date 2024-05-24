@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dc37c8cc-8bed-43f5-82db-b4a8881bee45">
+  <sourceEnd id="724b2ed3-d661-4cec-a1b2-17db180d96c1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>NestingChild</name>
+    <display>NestingChild: NestingChild</display>
+    <order>0</order>
+    <typeReference id="5135b2bf-c697-4f02-975c-04be17d38642">
+      <typeId>35819992-256b-484e-a42e-4a2748e734c5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dc37c8cc-8bed-43f5-82db-b4a8881bee45" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>NestingChildChild</name>
+    <display>NestingChildChild: NestingChildChild</display>
+    <order>3</order>
+    <typeReference id="ff33863e-a0ed-4442-9e23-0823e5c76f94">
+      <typeId>2cab39ba-069c-493f-95e5-df85a13164cd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

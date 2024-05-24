@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c4593aa3-4011-411b-9971-9755ed08d133" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetNestingParentsQuery</name>
+  <display>GetNestingParentsQuery: NestingParentDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="9c76af9b-dc59-4113-b0e0-1c5aa7a10c41">
+    <typeId>4b7c788b-be6d-4fa4-9421-6ec1f7243c23</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>104911f4-2225-4a6b-8184-bb4439813342</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="NestingParents" />
+  </metadata>
+  <childElements />
+</class>

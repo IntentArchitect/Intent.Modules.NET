@@ -1,3 +1,8 @@
+### Version 6.0.10
+
+- Improvement: Add support for Data Contract mappings with the Advanced mapping system.
+- Fixed: Generating code for advanced mappings where there is a nested target DTO will now properly instantiate that DTO before mapping values. 
+
 ### Version 6.0.9
 
 - Fixed: Resolved an issue causing syntax errors when mapping services onto Value Objects using the basic mapping configuration.

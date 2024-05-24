@@ -1,3 +1,7 @@
+### Version 5.0.8
+
+- Improvement: Add support for Data Contract mappings with the Advanced mapping system.
+
 ### Version 5.0.7
 
 - Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.

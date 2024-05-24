@@ -30,16 +30,16 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
             return mapping;
         }
 
-        if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
+		if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
         }
 
-        if (model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection)
-        {
-            return new ValueObjectCollectionCreationMapping(mappingModel, _sourceTemplate);
-        }
+		if ((model.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract") && model.TypeReference.IsCollection)
+		{
+			return new SelectToListMapping(mappingModel, _sourceTemplate);
+		}
 
-        return null;
+		return null;
     }
 }

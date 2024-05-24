@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3d73dfeb-7950-49f2-b774-e8a95684dcb4">
+  <sourceEnd id="5bf8de3f-6bdd-4c28-8ccb-dde0b4414d5e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetNestingParentByIdQuery</display>
+    <order>0</order>
+    <typeReference id="b7daa14b-0f8b-4a0b-aefe-2980a23a74f8">
+      <typeId>5faff2a2-edd7-4ee4-a381-883732c9f5ed</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3d73dfeb-7950-49f2-b774-e8a95684dcb4" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>nestingParent</name>
+    <display>[query] nestingParent: NestingParent</display>
+    <order>1</order>
+    <typeReference id="45cb6cbe-d33b-4a6e-bf7a-846694472bd3">
+      <typeId>f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5faff2a2-edd7-4ee4-a381-883732c9f5ed" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetNestingParentByIdQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[NestingParent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
+              <target id="e2a5c30f-fc67-47f8-9e9b-4e1c6e27b820" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5faff2a2-edd7-4ee4-a381-883732c9f5ed" name="GetNestingParentByIdQuery" type="element" specialization="Query" />
+                  <target id="ac97cd50-189a-489d-8eaa-d7bc504948f8" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

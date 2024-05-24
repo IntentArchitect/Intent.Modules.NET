@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0ec6a0ed-f00f-476c-a2d8-642f5659c361">
+  <sourceEnd id="8eda5ac7-c683-4e6d-8d0a-1815b9df752c" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : NestingParents.DeleteNestingParentCommand</display>
+    <order>0</order>
+    <typeReference id="78cf9b26-fadb-4e92-a50f-3f20a8fb021a">
+      <typeId>5eb27a30-d316-4915-ab26-6f41d45649ce</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0ec6a0ed-f00f-476c-a2d8-642f5659c361" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>nestingParent</name>
+    <display>[delete] nestingParent: NestingParent</display>
+    <order>1</order>
+    <typeReference id="ffcb0f74-27d3-4a65-9c26-a89a630eeac8">
+      <typeId>f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5eb27a30-d316-4915-ab26-6f41d45649ce" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteNestingParentCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[NestingParent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
+              <target id="e2a5c30f-fc67-47f8-9e9b-4e1c6e27b820" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5eb27a30-d316-4915-ab26-6f41d45649ce" name="DeleteNestingParentCommand" type="element" specialization="Command" />
+                  <target id="283c8e77-0b92-4e50-95f3-ec0d6aa218df" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

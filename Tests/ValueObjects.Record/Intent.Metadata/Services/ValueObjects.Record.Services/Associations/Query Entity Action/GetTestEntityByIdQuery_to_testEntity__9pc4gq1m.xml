@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="75b68504-be88-4143-b7db-b86c3f67e1e2">
+  <sourceEnd id="309eb4b6-3455-4750-83f0-3ae835eb5806" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetTestEntityByIdQuery</display>
+    <order>0</order>
+    <typeReference id="934ed44a-7751-4a1a-bfa7-098b5b7eabc7">
+      <typeId>0fc317b7-f2cd-46d0-ad02-e17d7e0a7258</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Services</typePackageName>
+      <typePackageId>45a8f57c-155e-4b94-9eab-b0b382e7d882</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="75b68504-be88-4143-b7db-b86c3f67e1e2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>testEntity</name>
+    <display>[query] testEntity: TestEntity</display>
+    <order>1</order>
+    <typeReference id="c87bfdff-98e4-47fe-b6e0-be5a34b8cfdf">
+      <typeId>6c84aa10-0ed5-41d3-83bb-2259a474b62f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Class.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0fc317b7-f2cd-46d0-ad02-e17d7e0a7258" location="[ValueObjects.Record].[Services].[GetTestEntityByIdQuery]" />
+        <target applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6c84aa10-0ed5-41d3-83bb-2259a474b62f" location="[ValueObjects.Record].[Services].[TestEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="ceffae1c-9a06-4bf5-a2ef-4d265789b569" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="0fc317b7-f2cd-46d0-ad02-e17d7e0a7258" name="GetTestEntityByIdQuery" type="element" specialization="Query" />
+                  <target id="a60077e6-1060-42a0-9fda-49ff50434550" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

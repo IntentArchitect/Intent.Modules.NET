@@ -41,7 +41,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             {
                 Name = dto.Name,
                 Tags = dto.Tags
-                    .Select(t => new Tag(name: t.Name, value: t.Value))
+                    .Select(t => new Tag(
+                        name: t.Name,
+                        value: t.Value))
                     .ToList()
             };
 
@@ -78,7 +80,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             }
 
             product.Name = dto.Name;
-            product.Tags = UpdateHelper.CreateOrUpdateCollection(product.Tags, dto.Tags, (e, d) => e.Equals(new Tag(name: d.Name, value: d.Value)), CreateOrUpdateTag);
+            product.Tags = UpdateHelper.CreateOrUpdateCollection(product.Tags, dto.Tags, (e, d) => e.Equals(new Tag(
+    name: d.Name,
+    value: d.Value)), CreateOrUpdateTag);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -113,7 +117,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
         {
             if (valueObject is null)
             {
-                return new Tag(name: dto.Name, value: dto.Value);
+                return new Tag(
+    name: dto.Name,
+    value: dto.Value);
             }
             return valueObject;
         }

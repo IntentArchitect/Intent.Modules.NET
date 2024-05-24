@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="54d2ccb5-8734-4c2c-9b8a-8bb758bedbea">
+  <sourceEnd id="61426637-6ad0-4833-a984-0aec44475e78" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="c7a03ac0-05e8-49b7-9626-acb340ec2536">
+      <typeId>fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="54d2ccb5-8734-4c2c-9b8a-8bb758bedbea" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Addresses</name>
+    <display>Addresses: Address[*]</display>
+    <order>8</order>
+    <typeReference id="2cfbf982-ae48-4dfa-ab68-0e67a46a0509">
+      <typeId>3ecc716a-8ede-45fe-a235-d68ce85ded79</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

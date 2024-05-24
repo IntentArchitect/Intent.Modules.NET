@@ -25,7 +25,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.ExtensiveDomainServ
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(PerformValueObjCommand request, CancellationToken cancellationToken)
         {
-            _extensiveDomainService.PerformValueObj(new SimpleVO(value1: request.Value1, value2: request.Value2));
+            _extensiveDomainService.PerformValueObj(new SimpleVO(
+                value1: request.Value1,
+                value2: request.Value2));
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ValueObjects</id>
-  <version>4.1.3</version>
-  <supportedClientVersions>[3.4.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.2.0-pre.0</version>
+  <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</summary>
   <description>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</description>
   <authors>Intent Architect</authors>
@@ -29,14 +29,27 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="82b8662d-4368-4dc6-9516-5acb1fa85464" title="Value Object Settings" externalReference="82b8662d-4368-4dc6-9516-5acb1fa85464">
+      <settings>
+        <setting id="704c2e3d-1a78-4af2-b363-533f2da2089b" title="Value Object Type" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>class</defaultValue>
+          <options>
+            <option value="class" description="Class" />
+            <option value="record" description="Record" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.4.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.6.3-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.2" />
-    <dependency id="Intent.Modelers.Domain.ValueObjects" version="3.4.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
+    <dependency id="Intent.Modelers.Domain.ValueObjects" version="3.5.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

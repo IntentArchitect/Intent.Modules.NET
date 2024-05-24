@@ -38,6 +38,12 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
             return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
         }
 
-        return null;
+		if ((model.TypeReference?.Element?.SpecializationType == "Value Object" || model.TypeReference?.Element?.SpecializationType == "Data Contract") && model.TypeReference.IsCollection)
+		{
+			return new SelectToListMapping(mappingModel, _sourceTemplate);
+		}
+
+
+		return null;
     }
 }

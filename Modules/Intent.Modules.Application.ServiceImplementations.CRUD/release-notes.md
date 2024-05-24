@@ -1,3 +1,8 @@
+### Version 5.0.7
+
+- Improvement: Add support for Data Contract mappings with the Advanced mapping system.
+- Fixed: Generating code for advanced mappings where there is a nested target DTO will now properly instantiate that DTO before mapping values.
+
 ### Version 5.0.6
 
 - Improvement: Adding mapped literals for `Query`s caused software factory errors this is now supported.

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2d5c7e73-9dee-43b0-8cfb-815e1be69328">
+  <sourceEnd id="389f38fe-821e-4361-8b1b-3943aabf44b7" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : TestEntities.CreateTestEntityCommand</display>
+    <order>0</order>
+    <typeReference id="5fb72e95-0af9-408a-845c-a166d92ba86a">
+      <typeId>4805afc3-a49b-4dad-8d2c-bb9ab1644366</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Class.Services</typePackageName>
+      <typePackageId>45a8f57c-155e-4b94-9eab-b0b382e7d882</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2d5c7e73-9dee-43b0-8cfb-815e1be69328" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>testEntity</name>
+    <display>[create] testEntity: TestEntity</display>
+    <order>3</order>
+    <typeReference id="18bcc69b-81d4-4fba-9c91-f76ae71f13e2">
+      <typeId>6c84aa10-0ed5-41d3-83bb-2259a474b62f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Class.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4805afc3-a49b-4dad-8d2c-bb9ab1644366" location="[ValueObjects.Class].[Services].[CreateTestEntityCommand]" />
+        <target applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6c84aa10-0ed5-41d3-83bb-2259a474b62f" location="[ValueObjects.Class].[Services].[TestEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateTestEntityCommand}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateTestEntityCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="85b75427-3d77-4cc6-a975-a11948174d89" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="f2430f27-0f85-4691-9c88-72cab4e698e0" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Amount}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="84ec9dc7-8fe1-4e95-89f5-0f34691e80bd" name="Amount" type="element" specialization="Attribute" />
+              <target id="cc2455f4-12f1-4ba4-a62c-b65420808b2d" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Amount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="32c39588-8662-456c-b66b-3cc7cea5d565" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="3c6927ff-9110-4027-9de4-f603732e8b6f" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Currency}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="84ec9dc7-8fe1-4e95-89f5-0f34691e80bd" name="Amount" type="element" specialization="Attribute" />
+              <target id="bc226dd1-2ba5-4c55-a819-d6d1a8b3ffc3" name="Currency" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Currency" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="32c39588-8662-456c-b66b-3cc7cea5d565" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="fd2ad210-cff6-4826-8d6f-614cc6239705" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line1}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="5da813a8-eb20-47c0-b76a-7eda5a4b9a8a" name="Line1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="e999e622-252c-460b-a429-a90758078104" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="e30c52fc-36c6-493a-9f1c-33af11c3c65e" name="Line1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line2}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="09fb8735-cb04-4e27-beb5-a0bae1095397" name="Line2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="e999e622-252c-460b-a429-a90758078104" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="06f50323-a4d5-4f86-87fe-d73d7e9eb51d" name="Line2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.City}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="d802a4c0-4717-467f-90cb-9769db975d33" name="City" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="e999e622-252c-460b-a429-a90758078104" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="fc26c75d-1f5b-407b-9aa8-74658c9791a0" name="City" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Country}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="5acb2933-2c1b-4002-a046-958502fafc29" name="Country" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.Country" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="e999e622-252c-460b-a429-a90758078104" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="4cfd1534-b000-4694-9d58-0cf50e52f228" name="Country" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.AddressType}</expression>
+            <path>
+              <target id="6c84aa10-0ed5-41d3-83bb-2259a474b62f" name="TestEntity" type="element" specialization="Class" />
+              <target id="179bf61b-4985-4d21-a3ce-ee71506ac628" name="Address" type="element" specialization="Attribute" />
+              <target id="7aad9df3-6462-4dcf-a9fa-7367621bc57e" name="AddressType" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Address.AddressType" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4805afc3-a49b-4dad-8d2c-bb9ab1644366" name="CreateTestEntityCommand" type="element" specialization="Command" />
+                  <target id="e999e622-252c-460b-a429-a90758078104" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="2e8f2bd5-77cd-4d37-a4c6-9c5f4c013bf1" name="AddressType" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,4 +1,8 @@
-﻿### Version 5.0.5
+﻿### Version 5.0.6
+
+- Fixed: Checking for types with serialization will also include Record types.
+
+### Version 5.0.5
 
 - Improvement: Updated the `Database Settings` stereotype icon.
 
