@@ -70,7 +70,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                                 var columnMapping = _bindingManager.GetElementBinding(column, tbody);
                                 if (columnMapping != null)
                                 {
-                                    td.WithText($"@{columnMapping}");
+                                    td.WithText(columnMapping.ToString().Contains(" ") ? $"@({columnMapping})" : $"@{columnMapping}");
                                 }
                                 else
                                 {
