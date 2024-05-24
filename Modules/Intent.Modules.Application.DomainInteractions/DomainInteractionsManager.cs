@@ -53,6 +53,7 @@ public class DomainInteractionsManager
     private const string ApplicationServiceSpecializationId = "b16578a5-27b1-4047-a8df-f0b783d706bd";
     private const string EntitySpecializationId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10";
     private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
+    private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
 
     public IEnumerable<CSharpStatement> CreateInteractionStatements(IProcessingHandlerModel model)
     {
@@ -635,6 +636,9 @@ public class DomainInteractionsManager
                     return true;
                 case EntitySpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, serviceModel, out var entityTemplate):
                     dependencyInfo = (entityTemplate, false);
+                    return true;
+                case ServiceProxySpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.ClientInterface, serviceModel, out var clientInterfaceTemplate):
+                    dependencyInfo = (clientInterfaceTemplate, true);
                     return true;
                 default:
                     dependencyInfo = default;
