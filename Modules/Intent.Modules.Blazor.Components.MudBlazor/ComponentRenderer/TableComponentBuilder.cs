@@ -2,6 +2,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.TypeResolution;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -14,7 +15,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public TableComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _componentTemplate = template; 
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
@@ -33,19 +34,22 @@ public class TableComponentBuilder : IRazorComponentBuilder
         });
         parentNode.AddChildNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
-        tableCode.AddHtmlElement("Table", htmlTable =>
+        tableCode.AddHtmlElement("MudTable", mudTable =>
         {
-            htmlTable.AddHtmlElement("TableHeader", tableHeader =>
+            mudTable.AddAttribute("T", _componentTemplate.GetTypeName(_bindingManager.GetMappedEndFor(table).SourceElement.TypeReference.Element.AsTypeReference()));
+            mudTable.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(table)}");
+            mudTable.AddAttribute("Hover", "true");
+            mudTable.AddHtmlElement("HeaderContent", tableHeader =>
             {
                 foreach (var column in table.Columns)
                 {
-                    tableHeader.AddHtmlElement("TableHeaderCell", headerCell =>
+                    tableHeader.AddHtmlElement("MudTh", headerCell =>
                     {
                         headerCell.WithText(column.Name);
                     });
                 }
             });
-            htmlTable.AddHtmlElement("TableBody", tbody =>
+            mudTable.AddHtmlElement("RowTemplate", rowTemplate =>
             {
                 var mappingManager = _componentTemplate.CreateMappingManager();
                 var mappedEnd = _bindingManager.GetMappedEndFor(table);
@@ -53,35 +57,32 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 {
                     return;
                 }
-                tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
+
+                rowTemplate.AddMappingReplacement(mappedEnd.SourceElement, "context");
+                if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
                 {
-                    tbody.AddMappingReplacement(mappedEnd.SourceElement, "item");
-                    block.AddHtmlElement("TableRow", tr =>
+                    rowTemplate.AddAttributeIfNotEmpty("OnClick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", rowTemplate).ToLambda()}");
+                }
+                foreach (var column in table.Columns)
+                {
+                    rowTemplate.AddHtmlElement("MudTd", td =>
                     {
-                        if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
+
+
+                        var columnMapping = _bindingManager.GetElementBinding(column, rowTemplate);
+                        if (columnMapping != null)
                         {
-                            tr.AddAttributeIfNotEmpty("@onclick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", tbody)}");
+                            td.WithText(columnMapping.ToString().Contains(" ") ? $"@({columnMapping})" : $"@{columnMapping}");
                         }
-                        foreach (var column in table.Columns)
+                        else
                         {
-                            tr.AddHtmlElement("TableRowCell", td =>
+                            foreach (var child in column.InternalElement.ChildElements)
                             {
-                                var columnMapping = _bindingManager.GetElementBinding(column, tbody);
-                                if (columnMapping != null)
-                                {
-                                    td.WithText(columnMapping.ToString().Contains(" ") ? $"@({columnMapping})" : $"@{columnMapping}");
-                                }
-                                else
-                                {
-                                    foreach (var child in column.InternalElement.ChildElements)
-                                    {
-                                        _componentResolver.ResolveFor(child).BuildComponent(child, td);
-                                    }
-                                }
-                            });
+                                _componentResolver.ResolveFor(child).BuildComponent(child, td);
+                            }
                         }
                     });
-                });
+                }
             });
         });
 

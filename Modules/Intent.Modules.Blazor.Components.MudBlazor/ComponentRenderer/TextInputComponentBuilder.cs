@@ -20,19 +20,9 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextInputModel(component);
-        var htmlElement = new HtmlElement("Validation", _componentTemplate.RazorFile)
-            .AddHtmlElement("Field", field =>
-            {
-                field.AddHtmlElement("FieldLabel", label =>
-                {
-                    label.WithText(textInput.GetLabelAddon()?.Label());
-                });
-                field.AddHtmlElement("TextEdit", textEdit =>
-                {
-                    textEdit.AddAttributeIfNotEmpty("@bind-Text", _bindingManager.GetElementBinding(textInput)?.ToString())
-                        .AddAttributeIfNotEmpty("Placeholder", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
-                });
-            });
+        var htmlElement = new HtmlElement("MudTextField ", _componentTemplate.RazorFile);
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetElementBinding(textInput)?.ToString())
+                        .AddAttributeIfNotEmpty("Label", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
         parentNode.AddChildNode(htmlElement);
     }
 }

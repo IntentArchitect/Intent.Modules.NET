@@ -36,14 +36,14 @@ public class FormComponentBuilder : IRazorComponentBuilder
             htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
             htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
 
-            htmlElement.AddHtmlElement("Card", card =>
+            htmlElement.AddHtmlElement("MudCard", card =>
             {
                 var headerModel = formModel.Containers.Single(x => x.Name == "Header");
                 if (headerModel != null)
                 {
-                    card.AddHtmlElement("CardHeader", cardHeader =>
+                    card.AddHtmlElement("MudCardHeader", cardHeader =>
                     {
-                        cardHeader.AddHtmlElement("CardTitle", cardTitle =>
+                        cardHeader.AddHtmlElement("CardHeaderContent", cardTitle =>
                         {
                             foreach (var child in headerModel.InternalElement.ChildElements)
                             {
@@ -55,25 +55,19 @@ public class FormComponentBuilder : IRazorComponentBuilder
                 var bodyModel = formModel.Containers.Single(x => x.Name == "Body");
                 if (bodyModel != null)
                 {
-                    card.AddHtmlElement("CardBody", cardBody =>
+                    card.AddHtmlElement("MudCardContent", cardBody =>
                     {
-                        cardBody.AddHtmlElement("Validations", validations =>
+                        foreach (var child in bodyModel.InternalElement.ChildElements)
                         {
-                            validations.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model").ToString());
-                            validations.AddAttribute("Mode", "ValidationMode.Auto");
-                            validations.AddAttribute("ValidateOnLoad", "false");
-                            foreach (var child in bodyModel.InternalElement.ChildElements)
-                            {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, validations);
-                            }
-                        });
+                            _componentResolver.ResolveFor(child).BuildComponent(child, cardBody);
+                        }
                     });
                 }
 
                 var footerModel = formModel.Containers.Single(x => x.Name == "Footer");
                 if (footerModel != null)
                 {
-                    card.AddHtmlElement("CardFooter", cardFooter =>
+                    card.AddHtmlElement("MudCardActions", cardFooter =>
                     {
                         foreach (var child in footerModel.InternalElement.ChildElements)
                         {

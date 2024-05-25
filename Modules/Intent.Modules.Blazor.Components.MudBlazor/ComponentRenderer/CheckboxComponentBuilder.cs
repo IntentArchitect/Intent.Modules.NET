@@ -20,16 +20,10 @@ public class CheckboxComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var model = new CheckboxModel(component);
-        var htmlElement = new HtmlElement("Validation", _componentTemplate.RazorFile)
-            .AddHtmlElement("Field", field =>
-            {
-                field.AddHtmlElement("Check", textEdit =>
-                {
-                    textEdit.AddAttributeIfNotEmpty("@bind-Checked", _bindingManager.GetElementBinding(model, parentNode)?.ToString())
-                        .AddAttributeIfNotEmpty("Placeholder", model.GetLabelAddon()?.Label().TrimEnd(':'))
-                        .WithText(model.GetLabelAddon()?.Label());
-                });
-            });
+        var htmlElement = new HtmlElement("MudCheckBox", _componentTemplate.RazorFile);
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetElementBinding(model, parentNode)?.ToString())
+            .AddAttributeIfNotEmpty("Label", model.GetLabelAddon()?.Label());
+
         parentNode.AddChildNode(htmlElement);
     }
 }

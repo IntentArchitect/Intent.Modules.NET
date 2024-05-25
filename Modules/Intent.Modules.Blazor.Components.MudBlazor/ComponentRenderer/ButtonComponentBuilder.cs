@@ -21,8 +21,8 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ButtonModel(component); 
-        var htmlElement = new HtmlElement("Button", _componentTemplate.RazorFile)
-            .AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
+        var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
+            .AddAttribute("Variant", "Variant.Filled")
             .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
@@ -37,11 +37,11 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
             {
                 var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+                htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
             }
             else
             {
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+                htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
             }
         }
 
