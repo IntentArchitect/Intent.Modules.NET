@@ -20,7 +20,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextModel(component);
-        var textValue = _bindingManager.GetElementBinding(textInput).ToString();
+        var textValue = _bindingManager.GetElementBinding(textInput)?.ToString() ?? textInput.Name;
         if (textValue.StartsWith("#"))
         {
             var size = 0;

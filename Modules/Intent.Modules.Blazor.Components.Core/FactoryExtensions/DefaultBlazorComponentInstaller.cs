@@ -20,7 +20,7 @@ namespace Intent.Modules.Blazor.Components.Core.FactoryExtensions
         public override string Id => "Intent.Blazor.Components.Core.DefaultBlazorComponentInstaller";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => -1;
 
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
