@@ -2,7 +2,7 @@
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class TextInputComponentBuilder : IRazorComponentBuilder
 {

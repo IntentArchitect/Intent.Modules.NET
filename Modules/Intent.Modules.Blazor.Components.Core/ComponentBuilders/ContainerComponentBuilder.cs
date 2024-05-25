@@ -2,7 +2,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class ContainerComponentBuilder : IRazorComponentBuilder
 {

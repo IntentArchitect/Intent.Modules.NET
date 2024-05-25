@@ -3,7 +3,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class ButtonComponentBuilder : IRazorComponentBuilder
 {
@@ -35,7 +35,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             }
             else
             {
-                htmlElement.AddAttribute("@onclick", $"{_bindingManager.GetBinding(onClickMapping)}");
+                htmlElement.AddAttribute("@onclick", $"{_bindingManager.GetEventEmitterBinding(onClickMapping)}");
             }
         }
 

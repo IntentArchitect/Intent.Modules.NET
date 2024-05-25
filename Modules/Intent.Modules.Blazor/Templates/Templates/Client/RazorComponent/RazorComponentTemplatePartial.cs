@@ -56,21 +56,19 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                     ComponentBuilderProvider.ResolveFor(component).BuildComponent(component, RazorFile);
                 }
 
-                file.AddCodeBlock(block =>
+                var block = GetCodeBlock();
+                block.AddCodeBlockMembers(this, Model.InternalElement);
+                if (Model.HasPage())
                 {
-                    block.AddCodeBlockMembers(this, Model.InternalElement);
-                    if (Model.HasPage())
+                    foreach (var declaration in block.Declarations)
                     {
-                        foreach (var declaration in block.Declarations)
+                        if (declaration is CSharpProperty property && new RouteManager(Model.GetPage().Route()).HasParameterExpression(property.Name)
+                            && property.Attributes.All(x => x.Name != "Parameter"))
                         {
-                            if (declaration is CSharpProperty property && new RouteManager(Model.GetPage().Route()).HasParameterExpression(property.Name)
-                                && property.Attributes.All(x => x.Name != "Parameter"))
-                            {
-                                property.AddAttribute("Parameter");
-                            }
+                            property.AddAttribute("Parameter");
                         }
                     }
-                });
+                }
             });
         }
 
@@ -94,6 +92,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             mappingManager.SetFromReplacement(Model, null);
             mappingManager.SetToReplacement(Model, null);
             return mappingManager;
+        }
+
+        private IBuildsCSharpMembers _codeBlock;
+        public IBuildsCSharpMembers GetCodeBlock()
+        {
+            if (_codeBlock == null)
+            {
+                RazorFile.AddCodeBlock(x => _codeBlock = x);
+            }
+            return _codeBlock;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

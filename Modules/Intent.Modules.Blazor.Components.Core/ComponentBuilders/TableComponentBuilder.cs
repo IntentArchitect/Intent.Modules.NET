@@ -3,7 +3,7 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class TableComponentBuilder : IRazorComponentBuilder
 {

@@ -17,6 +17,11 @@ public class BindingManager
 
     public IElementToElementMapping ViewBinding { get; }
 
+    public CSharpStatement GetEventEmitterBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
+    {
+        return GetBinding(mappedEnd, razorNode).ToLambda();
+    }
+
     public CSharpStatement GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
     {
         if (mappedEnd == null)

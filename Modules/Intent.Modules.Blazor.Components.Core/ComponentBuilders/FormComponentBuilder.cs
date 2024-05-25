@@ -1,11 +1,9 @@
-using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class FormComponentBuilder : IRazorComponentBuilder
 {
@@ -28,8 +26,9 @@ public class FormComponentBuilder : IRazorComponentBuilder
         
         codeBlock.AddHtmlElement(htmlElement);
         htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model")?.ToString());
-        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"async () => await {_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")}");
-        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"async () => await {_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")}");
+        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
+        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
+
         foreach (var child in component.ChildElements)
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);

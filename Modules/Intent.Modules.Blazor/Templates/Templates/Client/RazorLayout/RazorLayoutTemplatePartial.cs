@@ -45,20 +45,25 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
                     file.AddHtmlElement("div", div => div.WithText("@Body"));
                 }
 
-                file.AddCodeBlock(block =>
-                {
-                    block.AddCodeBlockMembers(this, Model.InternalElement);
-                });
+                var block = GetCodeBlock();
+                block.AddCodeBlockMembers(this, Model.InternalElement);
             });
         }
-
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
 
         public RazorFile RazorFile { get; set; }
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
         public BindingManager BindingManager { get; }
+
+        private IBuildsCSharpMembers _codeBlock;
+        public IBuildsCSharpMembers GetCodeBlock()
+        {
+            if (_codeBlock == null)
+            {
+                RazorFile.AddCodeBlock(x => _codeBlock = x);
+            }
+            return _codeBlock;
+        }
 
         public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
         {

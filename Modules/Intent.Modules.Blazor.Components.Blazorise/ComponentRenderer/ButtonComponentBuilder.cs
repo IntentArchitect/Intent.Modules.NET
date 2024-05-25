@@ -37,11 +37,11 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
             {
                 var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetEventEmitterBinding(onClickMapping, parentNode)}");
             }
             else
             {
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetEventEmitterBinding(onClickMapping, parentNode)}");
             }
         }
 

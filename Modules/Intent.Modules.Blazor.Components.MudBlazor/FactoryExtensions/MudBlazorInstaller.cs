@@ -112,10 +112,11 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             app.OnBuild(file =>
             {
                 // Add Blazorise dependencies
-                var baseElement = file.SelectHtmlElement("/head/link");
+                var baseElement = file.SelectHtmlElements("/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
                 if (baseElement != null)
                 {
-                    baseElement.AddBelow(
+                    baseElement.AddAbove(
+                        new EmptyLine(app),
                         new HtmlElement("link", app)
                             .AddAttribute("rel", "stylesheet")
                             .AddAttribute("href", "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"),
@@ -125,7 +126,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                         new EmptyLine(app));
                 }
 
-                var routes = file.SelectHtmlElement("/body/Routes");
+                var routes = file.SelectHtmlElements("/body/script").Last();
                 routes.AddBelow(new HtmlElement("script", app)
                     .AddAttribute("src", "_content/MudBlazor/MudBlazor.min.js"));
 

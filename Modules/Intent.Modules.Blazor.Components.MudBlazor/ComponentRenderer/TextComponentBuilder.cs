@@ -1,7 +1,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Components.Core.Templates;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -30,15 +29,15 @@ public class TextComponentBuilder : IRazorComponentBuilder
                 textValue = textValue.Substring(1);
                 size++;
             }
-            var htmlElement = new HtmlElement("Heading", _componentTemplate.RazorFile)
+            var htmlElement = new HtmlElement("MudText", _componentTemplate.RazorFile)
                 .WithText(textValue)
-                .AddAttribute("Size", $"HeadingSize.Is{size}")
-                .AddAttribute("TextColor", "TextColor.Primary");
+                .AddAttribute("Typo", $"Typo.h{size}")
+                .AddAttribute("GutterBottom", "true");
             parentNode.AddChildNode(htmlElement);
         }
         else
         {
-            var htmlElement = new HtmlElement("Paragraph", _componentTemplate.RazorFile)
+            var htmlElement = new HtmlElement("MudText", _componentTemplate.RazorFile)
                 .WithText(textValue);
             parentNode.AddChildNode(htmlElement);
         }

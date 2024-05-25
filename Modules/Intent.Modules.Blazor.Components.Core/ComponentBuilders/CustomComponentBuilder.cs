@@ -4,7 +4,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Templates;
 
-namespace Intent.Modules.Blazor.Components.Core.Templates.ComponentRenderer;
+namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
 public class CustomComponentBuilder : IRazorComponentBuilder
 {

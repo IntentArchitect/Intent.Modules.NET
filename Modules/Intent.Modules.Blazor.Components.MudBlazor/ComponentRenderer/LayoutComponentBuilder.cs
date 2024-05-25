@@ -1,7 +1,6 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
-using Intent.Modules.Blazor.Components.Core.Templates;
 using System.Linq;
 using Intent.Modules.Blazor.Api;
 
@@ -23,44 +22,80 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
-        var layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
+        parentNode.AddChildNode(new HtmlElement("MudThemingProvider", _componentTemplate.RazorFile));
+        parentNode.AddChildNode(new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile));
+        parentNode.AddChildNode(new HtmlElement("MudDialogProvider", _componentTemplate.RazorFile));
+        parentNode.AddChildNode(new HtmlElement("MudSnackbarProvider", _componentTemplate.RazorFile));
+        parentNode.AddChildNode(new EmptyLine(_componentTemplate.RazorFile));
+
+        var layoutHtml = new HtmlElement("MudLayout", _componentTemplate.RazorFile);
         parentNode.AddChildNode(layoutHtml);
+        var code = _componentTemplate.GetCodeBlock();
 
         if (layoutModel.Header != null)
         {
-            layoutHtml.AddHtmlElement("LayoutHeader", layoutHeader =>
+            layoutHtml.AddHtmlElement("MudAppBar", appBar =>
             {
-                layoutHeader.AddAttribute("Fixed");
+                appBar.AddAttribute("Elevation", "1");
+                if (layoutModel.Sider != null)
+                {
+                    appBar.AddHtmlElement("MudIconButton", drawerToggle =>
+                    {
+                        drawerToggle.AddAttribute("Icon", "@Icons.Material.Filled.Menu");
+                        drawerToggle.AddAttribute("Color", "Color.Inherit");
+                        drawerToggle.AddAttribute("Edge", "Edge.Start");
+
+                        code.AddField("bool", "_drawerOpen");
+                        code.AddMethod("void", "DrawerToggle", method =>
+                        {
+                            method.AddStatement("_drawerOpen = !_drawerOpen;");
+                        });
+
+                        drawerToggle.AddAttribute("OnClick", "@((e) => DrawerToggle())");
+                    });
+                }
                 foreach (var child in layoutModel.Header.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, layoutHeader);
+                    _componentResolver.ResolveFor(child).BuildComponent(child, appBar);
                 }
+                appBar.AddHtmlElement("MudSpacer");
+                appBar.AddHtmlElement("MudIconButton", icon =>
+                {
+                    icon.AddAttribute("Icon", "@Icons.Material.Filled.MoreVert");
+                    icon.AddAttribute("Color", "Color.Inherit");
+                    icon.AddAttribute("Edge", "Edge.End");
+                });
+
             });
         }
         //layoutHtml.AddHtmlElement("Layout", layoutHtml =>
         //{
         if (layoutModel.Sider != null)
         {
-            layoutHtml.AddHtmlElement("Layout", layout => layoutHtml = layout);
-            layoutHtml.AddAttribute("Sider");
-            layoutHtml.AddHtmlElement("LayoutSider", layoutSider =>
+            layoutHtml.AddHtmlElement("MudDrawer", mudDrawer =>
             {
-                layoutSider.AddHtmlElement("LayoutSiderContent", layoutSiderContent =>
+                if (layoutModel.Header != null)
                 {
-                    foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
-                    {
-                        _componentResolver.ResolveFor(child).BuildComponent(child, layoutSiderContent);
-                    }
-                });
+                    mudDrawer.AddAttribute("@bind-Open", "_drawerOpen");
+                }
+
+                mudDrawer.AddAttribute("ClipMode", "DrawerClipMode.Always");
+                mudDrawer.AddAttribute("Elevation", "2");
+
+                foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
+                {
+                    _componentResolver.ResolveFor(child).BuildComponent(child, mudDrawer);
+                }
             });
         }
-        layoutHtml.AddHtmlElement("LayoutContent", layoutContent =>
+        layoutHtml.AddHtmlElement("MudMainContent", layoutContent =>
         {
+            layoutContent.AddAttribute("Class", "mt-16 pa-4");
+
             foreach (var child in layoutModel.Body.InternalElement.ChildElements)
             {
                 _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
             }
-            layoutContent.AddAttribute("Padding", "Padding.Is4.OnX.Is4.FromTop");
             layoutContent.WithText("@Body");
         });
         //});
