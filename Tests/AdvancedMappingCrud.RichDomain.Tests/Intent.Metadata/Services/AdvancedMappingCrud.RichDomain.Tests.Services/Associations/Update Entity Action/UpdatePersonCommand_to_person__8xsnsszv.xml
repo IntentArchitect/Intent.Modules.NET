@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="758a3181-d9ff-479e-b48e-4300abf000fc">
+  <sourceEnd id="b4f600b0-9b08-410c-9ae2-e50ea1b11ec9" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : People.UpdatePersonCommand</display>
+    <order>0</order>
+    <typeReference id="3940dfcc-4b39-425b-b32f-0413cb9efccf">
+      <typeId>cf134c36-cb93-4ef5-a81e-d06fdea3c886</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="758a3181-d9ff-479e-b48e-4300abf000fc" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>person</name>
+    <display>[update] person: Update</display>
+    <order>2</order>
+    <typeReference id="5725111b-0702-48ba-94f2-36ce38da27bf">
+      <typeId>9f62ea3e-c49d-43c5-91dc-c42bd5c09524</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cf134c36-cb93-4ef5-a81e-d06fdea3c886" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[UpdatePersonCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64543361-23ff-4f7f-bcbb-0134267aa08d" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="ef3f2be7-a840-466c-8890-61fd1e37a3d2" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="cf134c36-cb93-4ef5-a81e-d06fdea3c886" name="UpdatePersonCommand" type="element" specialization="Command" />
+                  <target id="a98ece8c-cf1f-4a75-8222-6129c76e592e" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cf134c36-cb93-4ef5-a81e-d06fdea3c886" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[UpdatePersonCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64543361-23ff-4f7f-bcbb-0134267aa08d" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdatePersonCommand}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="9f62ea3e-c49d-43c5-91dc-c42bd5c09524" name="Update" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdatePersonCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="cf134c36-cb93-4ef5-a81e-d06fdea3c886" name="UpdatePersonCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Details.Name.First}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="9f62ea3e-c49d-43c5-91dc-c42bd5c09524" name="Update" type="element" specialization="Operation" />
+              <target id="c9591821-2040-4a32-92d9-0d0480d2e14d" name="details" type="element" specialization="Parameter" />
+              <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" />
+              <target id="83022d65-f0a3-48c4-9008-1ab808481015" name="First" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Details.Name.First" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="cf134c36-cb93-4ef5-a81e-d06fdea3c886" name="UpdatePersonCommand" type="element" specialization="Command" />
+                  <target id="bb821b60-fdc1-4c93-af40-e3e5e15f8d1a" name="Details" type="element" specialization="DTO-Field" />
+                  <target id="87f908f5-5fba-49e2-a9a2-ac3b7ac5f0a6" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="0f061319-9284-4e83-ba5e-31f96ec78d84" name="First" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Details.Name.Last}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="9f62ea3e-c49d-43c5-91dc-c42bd5c09524" name="Update" type="element" specialization="Operation" />
+              <target id="c9591821-2040-4a32-92d9-0d0480d2e14d" name="details" type="element" specialization="Parameter" />
+              <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" />
+              <target id="16008c63-57be-44f6-9f49-eb80c0421af5" name="Last" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Details.Name.Last" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="cf134c36-cb93-4ef5-a81e-d06fdea3c886" name="UpdatePersonCommand" type="element" specialization="Command" />
+                  <target id="bb821b60-fdc1-4c93-af40-e3e5e15f8d1a" name="Details" type="element" specialization="DTO-Field" />
+                  <target id="87f908f5-5fba-49e2-a9a2-ac3b7ac5f0a6" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="132d646e-89f3-4406-9048-8d8e87a8d3ef" name="Last" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

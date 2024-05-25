@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="50035d53-fd23-4881-b36a-200cf0711cdc">
+  <sourceEnd id="0a49233c-3026-42c9-9472-932e71beba73" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ProductsService.ChangeCategoriesAsync</display>
+    <order>0</order>
+    <typeReference id="64400801-c691-46d1-b49b-8ccf356afa90">
+      <typeId>6da7d465-e406-4055-8072-8ece6314afde</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="50035d53-fd23-4881-b36a-200cf0711cdc" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>product</name>
+    <display>[update] product: ChangeCategoriesAsync</display>
+    <order>2</order>
+    <typeReference id="d720ceaf-d094-4e18-896a-494d8c0f8938">
+      <typeId>5f3949d0-c462-40f7-967d-03e1e90963a7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6da7d465-e406-4055-8072-8ece6314afde" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[ChangeCategoriesAsync]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" name="Product" type="element" specialization="Class" />
+              <target id="28305700-650e-4ae5-95aa-eff33d0609c6" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6da7d465-e406-4055-8072-8ece6314afde" name="ChangeCategoriesAsync" type="element" specialization="Operation" />
+                  <target id="11379800-2c02-4cfb-b4dd-2ed5b9566914" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6da7d465-e406-4055-8072-8ece6314afde" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[ChangeCategoriesAsync]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ChangeCategoriesAsync}</expression>
+            <path>
+              <target id="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" name="Product" type="element" specialization="Class" />
+              <target id="5f3949d0-c462-40f7-967d-03e1e90963a7" name="ChangeCategoriesAsync" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ChangeCategoriesAsync" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="6da7d465-e406-4055-8072-8ece6314afde" name="ChangeCategoriesAsync" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.CategoryNames}</expression>
+            <path>
+              <target id="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" name="Product" type="element" specialization="Class" />
+              <target id="5f3949d0-c462-40f7-967d-03e1e90963a7" name="ChangeCategoriesAsync" type="element" specialization="Operation" />
+              <target id="e648874f-dec6-4094-bd01-0dc32631268e" name="categoryNames" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="dto.CategoryNames" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6da7d465-e406-4055-8072-8ece6314afde" name="ChangeCategoriesAsync" type="element" specialization="Operation" />
+                  <target id="40fb2815-7969-4745-9acf-c6aef3e6f7a6" name="dto" type="element" specialization="Parameter" />
+                  <target id="68f824cc-2396-495b-9b0f-b2956bb31201" name="CategoryNames" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

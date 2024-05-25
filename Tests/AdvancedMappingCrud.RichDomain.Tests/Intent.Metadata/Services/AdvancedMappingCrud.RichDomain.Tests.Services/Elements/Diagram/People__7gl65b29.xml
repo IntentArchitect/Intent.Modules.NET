@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="adac176c-5cff-41e9-9b6b-48c8951c7c66" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>People</name>
+  <display>People</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ec56f657-5708-4740-ae70-c0092adbcfd2</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>ec56f657-5708-4740-ae70-c0092adbcfd2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

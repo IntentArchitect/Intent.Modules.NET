@@ -1,6 +1,8 @@
 ### Version 5.0.8
 
 - Improvement: Add support for Data Contract mappings with the Advanced mapping system.
+- Fixed: Service Call Operations can also now invoke `Operations` on a `Class`.
+- Fixed: Service dependency substitutions can also occur on parameters of a Service Call Operation.
 
 ### Version 5.0.7
 

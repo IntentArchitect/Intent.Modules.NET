@@ -1,7 +1,9 @@
 ### Version 6.0.10
 
 - Improvement: Add support for Data Contract mappings with the Advanced mapping system.
-- Fixed: Generating code for advanced mappings where there is a nested target DTO will now properly instantiate that DTO before mapping values. 
+- Fixed: Generating code for advanced mappings where there is a nested target DTO will now properly instantiate that DTO before mapping values.
+- Fixed: Service Call Operations can also now invoke `Operations` on a `Class`.
+- Fixed: Service dependency substitutions can also occur on parameters of a Service Call Operation.
 
 ### Version 6.0.9
 

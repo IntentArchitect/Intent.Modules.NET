@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bb5291c1-7042-4ac2-8565-bc46babfb69d">
+  <sourceEnd id="6f81ab28-181e-4c12-9fe5-bd2cc71487cb" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : CompaniesService.DeleteCompany</display>
+    <order>0</order>
+    <typeReference id="1b417016-ce5f-4d27-84a3-37582e52e0cf">
+      <typeId>3de6fe16-4e27-4b07-b66b-ee1cc000ff70</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bb5291c1-7042-4ac2-8565-bc46babfb69d" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>company</name>
+    <display>[delete] company: Company</display>
+    <order>1</order>
+    <typeReference id="dfe05193-bf7f-4e31-ba76-0bf8718e4129">
+      <typeId>8251ab6c-2778-45a2-b726-6a11c7334e39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3de6fe16-4e27-4b07-b66b-ee1cc000ff70" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[DeleteCompany]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8251ab6c-2778-45a2-b726-6a11c7334e39" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Company]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="8251ab6c-2778-45a2-b726-6a11c7334e39" name="Company" type="element" specialization="Class" />
+              <target id="4d774477-ed95-4b91-a3d2-7e75797fec54" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3de6fe16-4e27-4b07-b66b-ee1cc000ff70" name="DeleteCompany" type="element" specialization="Operation" />
+                  <target id="fbd6150f-24f8-4f21-91ec-4f897cf64a6f" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

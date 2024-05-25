@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d5da9e40-d3e5-44fe-b536-232751219114" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Users</name>
+  <display>Users</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cab10cf4-5c34-4692-9776-7335abd2b78e</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>cab10cf4-5c34-4692-9776-7335abd2b78e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

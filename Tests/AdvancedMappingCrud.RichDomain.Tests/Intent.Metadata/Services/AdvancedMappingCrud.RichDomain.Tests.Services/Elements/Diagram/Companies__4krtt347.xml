@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e48b2b42-27e5-4263-8f2a-68b79fb6e3f9" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Companies</name>
+  <display>Companies</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6002b7d2-591f-4b12-81c2-1866399425db</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>6002b7d2-591f-4b12-81c2-1866399425db</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

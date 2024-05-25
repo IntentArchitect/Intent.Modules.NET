@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="882b71e3-22f8-4304-a792-2fda0639e3f4">
+  <sourceEnd id="0d3d92d4-916e-4324-96f6-7768aa18198e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindPersonById</display>
+    <order>0</order>
+    <typeReference id="02427da6-d92c-4dd4-8deb-14aad6b19885">
+      <typeId>6cc2fd7b-3bde-4af3-820b-7f683b17da8f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+      <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="882b71e3-22f8-4304-a792-2fda0639e3f4" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>person</name>
+    <display>[query] person: Person</display>
+    <order>1</order>
+    <typeReference id="d774d253-7456-4efa-b0b6-fbb529359e8a">
+      <typeId>64543361-23ff-4f7f-bcbb-0134267aa08d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="d4aae382-a4dd-4163-8a36-0d70e2881262" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6cc2fd7b-3bde-4af3-820b-7f683b17da8f" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[FindPersonById]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="64543361-23ff-4f7f-bcbb-0134267aa08d" location="[AdvancedMappingCrud.RichDomain.ServiceModel.Tests].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+              <target id="ef3f2be7-a840-466c-8890-61fd1e37a3d2" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6cc2fd7b-3bde-4af3-820b-7f683b17da8f" name="FindPersonById" type="element" specialization="Operation" />
+                  <target id="f6a2ce48-8e42-42a6-b6c4-aeef6e81d7c8" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

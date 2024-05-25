@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -47,6 +48,12 @@ public class DomainInteractionsManager
     }
 
     public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
+    
+    private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
+    private const string ApplicationServiceSpecializationId = "b16578a5-27b1-4047-a8df-f0b783d706bd";
+    private const string EntitySpecializationId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10";
+    private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
+    private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
 
     public IEnumerable<CSharpStatement> CreateInteractionStatements(IProcessingHandlerModel model)
     {
@@ -342,7 +349,7 @@ public class DomainInteractionsManager
 			statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
 		}
 
-		if (returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
+		if (TrackedEntities.Any() && returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
 		{
 			var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
 			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel?.Id == mappedElementId);
@@ -350,19 +357,19 @@ public class DomainInteractionsManager
 			string nullable = returnType.IsNullable ? "?" : "";
 			statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
 		}
-		else if (IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
+		else if (TrackedEntities.Any() && IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
 			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"));
 			statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
 		}
-		else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1)
+		else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1) // No need for TrackedEntities thus no check for it
 		{
 			var entityDetails = entitiesReturningPk.Single();
 			var entity = entityDetails.ElementModel.AsClassModel();
 			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
 		}
-		else if (returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
+		else if (TrackedEntities.Any() && returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.ElementModel.Id);
 			statements.Add($"return {entityDetails.VariableName};");
@@ -559,19 +566,24 @@ public class DomainInteractionsManager
         try
         {
             var statements = new List<CSharpStatement>();
-            var operationModel = (IElement)callServiceOperation.Element;
-            var serviceModel = operationModel.ParentElement;
-
-            
-            if (!HasServiceDependency(serviceModel, out var serviceInterfaceTemplate) || callServiceOperation.Mappings.Any() is false)
+            if (!HasServiceDependency(callServiceOperation, out var dependencyInfo) || callServiceOperation.Mappings.Any() is false)
             {
                 return Array.Empty<CSharpStatement>();
             }
 
             // So that the mapping system can resolve the name of the operation from the interface itself:
-            _template.AddTypeSource(serviceInterfaceTemplate.Id);
+            _template.AddTypeSource(dependencyInfo.ServiceInterfaceTemplate.Id);
 
-            var serviceField = InjectService(_template.GetTypeName(serviceInterfaceTemplate));
+            string serviceField;
+            if (dependencyInfo.Injectable)
+            {
+                serviceField = InjectService(_template.GetTypeName(dependencyInfo.ServiceInterfaceTemplate));
+            }
+            else
+            {
+                serviceField = this.TrackedEntities.Last().Value.VariableName;
+            }
+
             var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
             if (methodInvocation is CSharpInvocationStatement s)
@@ -582,6 +594,8 @@ public class DomainInteractionsManager
                     invoke = new CSharpAwaitExpression(invoke);
                 }
             }
+            
+            var operationModel = (IElement)callServiceOperation.Element;
             if (operationModel.TypeReference.Element != null)
             {
                 string variableName = callServiceOperation.Name.ToLocalVariableName();
@@ -596,6 +610,8 @@ public class DomainInteractionsManager
             {
                 statements.Add(invoke);
             }
+            
+            WireupDomainServicesForOperations(callServiceOperation, statements);
 
             return statements;
         }
@@ -604,14 +620,33 @@ public class DomainInteractionsManager
             throw new ElementException(callServiceOperation.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
 
-        bool HasServiceDependency(IElement serviceModel, out ICSharpFileBuilderTemplate serviceInterfaceTemplate)
+        bool HasServiceDependency(CallServiceOperationTargetEndModel callServiceOperation, out (ICSharpFileBuilderTemplate ServiceInterfaceTemplate, bool Injectable) dependencyInfo)
         {
-            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out serviceInterfaceTemplate) ||
-                   _template.TryGetTemplate(TemplateRoles.Application.Services.Interface, serviceModel, out serviceInterfaceTemplate) ||
-                   _template.TryGetTemplate(TemplateRoles.Repository.Interface.Entity, serviceModel, out serviceInterfaceTemplate);
+            var serviceModel = ((IElement)callServiceOperation.Element).ParentElement;
+            switch (serviceModel.SpecializationTypeId)
+            {
+                case DomainServiceSpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var domainServiceTemplate):
+                    dependencyInfo = (domainServiceTemplate, true);
+                    return true;
+                case ApplicationServiceSpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.Interface, serviceModel, out var applicationServiceTemplate):
+                    dependencyInfo = (applicationServiceTemplate, true);
+                    return true;
+                case RepositorySpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Repository.Interface.Entity, serviceModel, out var repositoryTemplate):
+                    dependencyInfo = (repositoryTemplate, true);
+                    return true;
+                case EntitySpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, serviceModel, out var entityTemplate):
+                    dependencyInfo = (entityTemplate, false);
+                    return true;
+                case ServiceProxySpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.ClientInterface, serviceModel, out var clientInterfaceTemplate):
+                    dependencyInfo = (clientInterfaceTemplate, true);
+                    return true;
+                default:
+                    dependencyInfo = default;
+                    return false;
+            }
         }
     }
-    
+
     private IDataAccessProvider InjectDataAccessProvider(ClassModel foundEntity)
     {
         if (TryInjectRepositoryForEntity(foundEntity, out var dataAccess))
@@ -659,9 +694,7 @@ public class DomainInteractionsManager
         }
         return fieldName;
     }
-
-	private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
-	private const string DomainServiceTemplateId = "Intent.DomainServices.DomainServiceInterface";
+    
 	private void WireupDomainServicesForConstructors(CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
 	{
 		var constructor = createAction.Element.AsClassConstructorModel();
@@ -677,7 +710,7 @@ public class DomainInteractionsManager
 					{
 						continue;
 					}
-					if (_template.TryGetTypeName(DomainServiceTemplateId, arg.TypeReference.Element.Id, out var domainServiceInterface))
+					if (_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
 					{
 						var fieldname = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
 						//Change `default` or `parameterName: default` into `_domainService` (fieldName)
@@ -689,36 +722,99 @@ public class DomainInteractionsManager
 	}
 
 	private void WireupDomainServicesForOperations(UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
-	{
-        var @operation = OperationModelExtensions.AsOperationModel( updateAction.Element);
-		if (@operation != null)
+    {
+        var operation = OperationModelExtensions.AsOperationModel(updateAction.Element);
+        if (operation == null)
         {
-			if (@operation.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)) // Domain Service
-			{
-                foreach (var updateStatement in updateStatements)
+            return;
+        }
+        if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
+        {
+            return; 
+        }
+        
+        foreach (var updateStatement in updateStatements)
+        {
+            if (updateStatement is not CSharpInvocationStatement invocation)
+            {
+                continue;
+            }
+            for (var i = 0; i < operation.Parameters.Count; i++)
+            {
+                var arg = operation.Parameters[i];
+                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
                 {
-					var invocation = updateStatement as CSharpInvocationStatement;
-                    if (invocation != null)
-                    {
-                        for (var i = 0; i < @operation.Parameters.Count; i++)
-                        {
-                            var arg = @operation.Parameters[i];
-                            if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-                            {
-                                continue;
-                            }
-                            if (_template.TryGetTypeName(DomainServiceTemplateId, arg.TypeReference.Element.Id, out var domainServiceInterface))
-                            {
-                                var fieldname = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
-                                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-                                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldname));
-                            }
-                        }
-                    }
-				}
-			}
-		}
-	}
+                    continue;
+                }
+
+                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
+                {
+                    continue;
+                }
+                var fieldName = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
+                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
+                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            }
+        }
+    }
+    
+    private void WireupDomainServicesForOperations(CallServiceOperationTargetEndModel callServiceOperation, List<CSharpStatement> statements)
+    {
+        var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.Element);
+        if (operation == null)
+        {
+            return;
+        }
+        if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
+        {
+            return; 
+        }
+        
+        foreach (var statement in statements)
+        {
+            SubstituteServiceParameters(statement);
+        }
+
+        return;
+        
+        void SubstituteServiceParameters(CSharpStatement statement)
+        {
+            switch (statement)
+            {
+                case CSharpAssignmentStatement assign:
+                    SubstituteServiceParameters(assign.Rhs);
+                    return;
+                case CSharpAccessMemberStatement access:
+                {
+                    SubstituteServiceParameters(access.Member);
+                    return;
+                }
+            }
+
+            var invocation = statement as CSharpInvocationStatement;
+            if (invocation is null)
+            {
+                return;
+            }
+            
+            for (var i = 0; i < operation.Parameters.Count; i++)
+            {
+                var arg = operation.Parameters[i];
+                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
+                {
+                    continue;
+                }
+
+                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
+                {
+                    continue;
+                }
+                var fieldName = InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
+                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
+                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            }
+        }
+    }
 
 	//private void InjectAutoMapper(out string fieldName)
 	//{

@@ -285,7 +285,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             if (!MethodExists(mappingMethodName, @class, targetDto))
             {
                 var createEntityInterfaces = _template.ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-                var implementationName = _template.GetTypeName(TemplateRoles.Domain.Entity.EntityImplementation, domain);
+                if (!_template.TryGetTypeName(TemplateRoles.Domain.Entity.EntityImplementation, domain, out var implementationName))
+                {
+                    if (!_template.TryGetTypeName("Intent.ValueObjects.ValueObject", domain, out implementationName))
+                    {
+                        throw new Exception("unexpected attribute type : " + domain.GetType().Name);
+                    }
+				}
                 var interfaceName = createEntityInterfaces ? _template.GetTypeName(TemplateRoles.Domain.Entity.Interface, domain) : implementationName;
 
                 @class.AddMethod(interfaceName, mappingMethodName, method =>
