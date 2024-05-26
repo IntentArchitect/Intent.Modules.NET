@@ -2,6 +2,7 @@
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.TypeResolution;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -21,34 +22,30 @@ public class SelectComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var selectModel = new SelectModel(component);
-        var htmlElement = new HtmlElement("Validation", _componentTemplate.RazorFile)
-            .AddHtmlElement("Field", field =>
+        var htmlElement = new HtmlElement("MudSelect", _componentTemplate.RazorFile);
+        var modelMapping = _bindingManager.GetMappedEndFor(selectModel);
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(modelMapping)?.ToString());
+        htmlElement.AddAttribute("Label", selectModel.TryGetLabelAddon(out var label) ? label.Label() : selectModel.Name);
+
+        var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
+        if (mappedEnd == null)
+        {
+            return;
+        }
+        htmlElement.AddCodeBlock($"foreach (var item in {_bindingManager.GetStereotypePropertyBinding(selectModel, "Options")})", code =>
+        {
+            htmlElement.AddMappingReplacement(mappedEnd.SourceElement, "item");
+            code.AddHtmlElement("MudSelectItem", selectItem =>
             {
-                field.AddHtmlElement("FieldLabel", label =>
-                {
-                    label.WithText(selectModel.GetLabelAddon()?.Label());
-                });
-                field.AddHtmlElement("Select", select =>
-                {
-                    select.AddAttributeIfNotEmpty("@bind-SelectedValue", _bindingManager.GetElementBinding(selectModel)?.ToString())
-                        .AddAttributeIfNotEmpty("Placeholder", selectModel.GetLabelAddon()?.Label().TrimEnd(':'));
-                    var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
-                    if (mappedEnd == null)
-                    {
-                        return;
-                    }
-                    select.AddCodeBlock($"foreach (var option in {_bindingManager.GetStereotypePropertyBinding(selectModel, "Options")})", code =>
-                    {
-                        select.AddMappingReplacement(mappedEnd.SourceElement, "option");
-                        code.AddHtmlElement("SelectItem", selectItem =>
-                        {
-                            // TODO: Use bindings:
-                            selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Value", select)?.ToString())
-                                .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Text", select)?.ToString());
-                        });
-                    });
-                });
+                var selectItemMapping = _bindingManager.GetMappedEndFor(selectModel, "Value");
+                selectItem.AddAttributeIfNotEmpty("T", !selectItemMapping.SourceElement.TypeReference.Equals(modelMapping.SourceElement.TypeReference)
+                    ? _componentTemplate.GetTypeName(modelMapping.SourceElement.TypeReference)
+                    : null);
+                // TODO: Use bindings:
+                selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Value", htmlElement)?.ToString())
+                    .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Text", htmlElement)?.ToString());
             });
+        });
         parentNode.AddChildNode(htmlElement);
     }
 }

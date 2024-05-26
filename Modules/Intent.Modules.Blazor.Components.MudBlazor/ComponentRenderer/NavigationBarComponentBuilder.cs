@@ -22,7 +22,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var navigationModel = new NavigationBarModel(component);
+        var navigationModel = new NavigationMenuModel(component);
         var htmlElement = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
 
         if (navigationModel.BrandLogo != null)
@@ -41,24 +41,28 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                 {
                     if (navigationItemModel.NavigationItems.Count == 0)
                     {
-                            foreach (var child in navigationItemModel.InternalElement.ChildElements)
-                            {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, navLink);
-                            }
+                        foreach (var child in navigationItemModel.InternalElement.ChildElements)
+                        {
+                            _componentResolver.ResolveFor(child).BuildComponent(child, navLink);
+                        }
+
+                        if (!navigationItemModel.InternalElement.ChildElements.Any())
+                        {
                             navLink.WithText(!string.IsNullOrWhiteSpace(navigationItemModel.Value) ? navigationItemModel.Value : navigationItemModel.Name);
-                            if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
+                        }
+                        if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
+                        {
+                            var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
+                            navLink.AddAttribute("Href", pageRoute);
+                        }
+                        else
+                        {
+                            var mappingEnd = _bindingManager.GetMappedEndFor(navigationItemModel, "Link To");
+                            if (mappingEnd != null)
                             {
-                                var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
-                                navLink.AddAttribute("Href", pageRoute);
+                                navLink.AddAttribute("Href", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
                             }
-                            else
-                            {
-                                var mappingEnd = _bindingManager.GetMappedEndFor(navigationItemModel, "Link To");
-                                if (mappingEnd != null)
-                                {
-                                    navLink.AddAttribute("Href", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
-                                }
-                            }
+                        }
                     }
                     //else
                     //{

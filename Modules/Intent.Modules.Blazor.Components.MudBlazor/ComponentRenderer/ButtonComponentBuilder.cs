@@ -24,6 +24,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")
             .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
+            .AddAttribute("Class", "my-2 mr-2")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         foreach (var child in component.ChildElements)

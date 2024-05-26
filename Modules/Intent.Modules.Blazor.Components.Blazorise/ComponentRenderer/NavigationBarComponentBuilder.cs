@@ -22,7 +22,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var navigationModel = new NavigationBarModel(component);
+        var navigationModel = new NavigationMenuModel(component);
         var htmlElement = new HtmlElement("Bar", _componentTemplate.RazorFile);
         htmlElement.AddAttribute("Breakpoint", "Breakpoint.Desktop");
 

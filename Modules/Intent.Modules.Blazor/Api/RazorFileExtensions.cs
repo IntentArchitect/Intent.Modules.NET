@@ -73,7 +73,7 @@ public static class RazorFileExtensions
             if (child.IsComponentOperationModel())
             {
                 var operation = child.AsComponentOperationModel();
-                var methodName =  operation.Name.ToPropertyName();
+                var methodName = operation.Name.ToPropertyName();
                 if (methodName is "OnInitialized" && operation.CallServiceOperationActionTargets().Any())
                 {
                     methodName += "Async";
@@ -135,32 +135,24 @@ public static class RazorFileExtensions
                     foreach (var navigationModel in operation.NavigateToComponents())
                     {
                         method.Private();
-                        var route = $"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"";
-                        if (route.Contains("{"))
+                        var route = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
+
+                        var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
+                        if (mapping != null)
                         {
-                            route = $"${route}";
-                        }
-                        foreach (var parameter in navigationModel.Parameters)
-                        {
-                            method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
+                            foreach (var mappedEnd in mapping.MappedEnds)
                             {
-                                if (parameter.Value != null)
+                                var routeParameter = mappedEnd.TargetElement;
+                                
+                                if (route.HasParameterExpression(routeParameter.Name))
                                 {
-                                    param.WithDefaultValue(parameter.Value);
+                                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd, template.RazorFile)}}}");
                                 }
-                            });
-                            var replaceIndex = route.ToLower().Contains($"{{{parameter.Name.ToLower()}}}")
-                                ? route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}}}", StringComparison.Ordinal)
-                                : route.ToLower().IndexOf($"{{{parameter.Name.ToLower()}:", StringComparison.Ordinal);
-                            if (replaceIndex != -1)
-                            {
-                                route = route.Remove(replaceIndex, route.IndexOf('}', replaceIndex) + 1 - replaceIndex)
-                                    .Insert(replaceIndex, $"{{{parameter.Name.ToParameterName()}}}");
                             }
                         }
 
                         template.RazorFile.AddInjectDirective("NavigationManager");
-                        method.AddStatement($"NavigationManager.NavigateTo({route});");
+                        method.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                     }
                 });
             }

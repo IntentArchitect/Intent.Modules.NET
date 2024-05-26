@@ -23,14 +23,11 @@ public class TableComponentBuilder : IRazorComponentBuilder
     {
         var table = new TableModel(component);
         var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
-        loadingCode.AddHtmlElement("div", rowDiv =>
+        loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
         {
-            rowDiv.AddAttribute("class", "row");
-            rowDiv.AddHtmlElement("div", alertDiv =>
-            {
-                alertDiv.AddAttribute("class", "col-12 alert alert-info")
-                    .WithText("Loading...");
-            });
+            loadingBar.AddAttribute("Color", "Color.Primary");
+            loadingBar.AddAttribute("Indeterminate", "true");
+            loadingBar.AddAttribute("Class", "my-7");
         });
         parentNode.AddChildNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
@@ -39,6 +36,14 @@ public class TableComponentBuilder : IRazorComponentBuilder
             mudTable.AddAttribute("T", _componentTemplate.GetTypeName(_bindingManager.GetMappedEndFor(table).SourceElement.TypeReference.Element.AsTypeReference()));
             mudTable.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(table)}");
             mudTable.AddAttribute("Hover", "true");
+
+            var mappedEnd = _bindingManager.GetMappedEndFor(table);
+
+            if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
+            {
+                mudTable.AddMappingReplacement(mappedEnd.SourceElement, "e.Item");
+                mudTable.AddAttributeIfNotEmpty("OnRowClick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", mudTable).ToLambda("e")}");
+            }
             mudTable.AddHtmlElement("HeaderContent", tableHeader =>
             {
                 foreach (var column in table.Columns)
@@ -51,18 +56,12 @@ public class TableComponentBuilder : IRazorComponentBuilder
             });
             mudTable.AddHtmlElement("RowTemplate", rowTemplate =>
             {
-                var mappingManager = _componentTemplate.CreateMappingManager();
-                var mappedEnd = _bindingManager.GetMappedEndFor(table);
                 if (mappedEnd == null)
                 {
                     return;
                 }
 
                 rowTemplate.AddMappingReplacement(mappedEnd.SourceElement, "context");
-                if (!string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()))
-                {
-                    rowTemplate.AddAttributeIfNotEmpty("OnClick", $"{_bindingManager.GetStereotypePropertyBinding(table, "On Row Click", rowTemplate).ToLambda()}");
-                }
                 foreach (var column in table.Columns)
                 {
                     rowTemplate.AddHtmlElement("MudTd", td =>

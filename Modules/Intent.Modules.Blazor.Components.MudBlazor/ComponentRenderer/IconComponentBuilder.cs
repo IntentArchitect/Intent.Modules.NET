@@ -27,8 +27,8 @@ public class IconComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var iconModel = new IconModel(component);
-        var htmlElement = new HtmlElement("Icon", _componentTemplate.RazorFile)
-            .AddAttribute("Name", $"IconName.{iconModel.GetIconAppearance().Name().Source.ToPascalCase()}");
+        var htmlElement = new HtmlElement("MudIcon ", _componentTemplate.RazorFile)
+            .AddAttribute("Icon", $"fab fa-{iconModel.GetIconAppearance().Name().Source}");
         ;
         foreach (var child in component.ChildElements)
         {

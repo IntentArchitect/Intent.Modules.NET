@@ -29,6 +29,17 @@ public class FormComponentBuilder : IRazorComponentBuilder
         {
             throw new ElementException(component, "Form component's Model is required and has not been specified.");
         }
+        if (_bindingManager.GetMappedEndFor(formModel, "Model").SourceElement?.TypeReference.IsNullable == true)
+        {
+            var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is null)"), _componentTemplate.RazorFile);
+            loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
+            {
+                loadingBar.AddAttribute("Color", "Color.Primary");
+                loadingBar.AddAttribute("Indeterminate", "true");
+                loadingBar.AddAttribute("Class", "my-7");
+            });
+            parentNode.AddChildNode(loadingCode);
+        }
         var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {

@@ -30,7 +30,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(TableModel.SpecializationTypeId, (provider, componentTemplate) => new TableComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(TextModel.SpecializationTypeId, (provider, componentTemplate) => new TextComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(LayoutModel.SpecializationTypeId, (provider, componentTemplate) => new LayoutComponentBuilder(provider, componentTemplate));
-            DefaultRazorComponentBuilderProvider.Register(NavigationBarModel.SpecializationTypeId, (provider, componentTemplate) => new NavigationBarComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(NavigationMenuModel.SpecializationTypeId, (provider, componentTemplate) => new NavigationBarComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(IconModel.SpecializationTypeId, (provider, componentTemplate) => new IconComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(SelectModel.SpecializationTypeId, (provider, componentTemplate) => new SelectComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(CheckboxModel.SpecializationTypeId, (provider, componentTemplate) => new CheckboxComponentBuilder(provider, componentTemplate));

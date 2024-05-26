@@ -3,6 +3,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using System.Linq;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -45,7 +46,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                         drawerToggle.AddAttribute("Color", "Color.Inherit");
                         drawerToggle.AddAttribute("Edge", "Edge.Start");
 
-                        code.AddField("bool", "_drawerOpen");
+                        code.AddField("bool", "_drawerOpen", field => field.WithAssignment(new CSharpStatement("true")));
                         code.AddMethod("void", "DrawerToggle", method =>
                         {
                             method.AddStatement("_drawerOpen = !_drawerOpen;");
