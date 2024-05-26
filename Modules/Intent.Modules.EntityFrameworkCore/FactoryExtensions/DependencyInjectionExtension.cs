@@ -192,6 +192,12 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 builderStatements.Add("b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)");
             }
 
+            if (dbContextInstance.IsApplicationDbContext && !string.IsNullOrWhiteSpace(dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()))
+            {
+                dependencyInjection.AddUsing("Microsoft.EntityFrameworkCore.Migrations");
+                builderStatements.Add($@"b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, ""{dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()}"");");
+            }
+
             var targetDbProvider = GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
             switch (targetDbProvider)
             {

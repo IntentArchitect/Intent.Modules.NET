@@ -132,5 +132,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
         public static bool EnableSplitQueriesGlobally(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("ef908c62-0692-405f-849e-ac09c30181dd")?.Value.ToPascalCase(), out var result) && result;
 
         public static bool StoreEnumsAsStrings(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("df567ad2-98a7-49ce-9952-4a26b6074410")?.Value.ToPascalCase(), out var result) && result;
+
+        public static string DefaultSchemaName(this DatabaseSettings groupSettings) => groupSettings.GetSetting("7e0f472d-6cf0-423e-872a-cd6b2e0614bc")?.Value;
     }
 }

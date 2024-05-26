@@ -18,6 +18,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("pgsql");
 
             ConfigureModel(modelBuilder);
         }

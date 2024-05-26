@@ -2,6 +2,7 @@ using EntityFrameworkCore.SplitQueries.SqlServer.Domain.Common.Interfaces;
 using EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +23,7 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure
                     {
                         b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                         b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                        b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "sqlserver");
                     });
                 options.UseLazyLoadingProxies();
             });

@@ -2484,7 +2484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f514a1e4-5f3f-4fff-8da6-fd13d5bc847c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>

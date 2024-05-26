@@ -2,6 +2,7 @@ using EntityFrameworkCore.SplitQueries.MySql.Domain.Common.Interfaces;
 using EntityFrameworkCore.SplitQueries.MySql.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +21,7 @@ namespace EntityFrameworkCore.SplitQueries.MySql.Infrastructure
                 {
                     b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                     b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                    b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "mysql");
                 });
                 options.UseLazyLoadingProxies();
             });

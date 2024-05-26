@@ -38,6 +38,7 @@ using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.TPT.Polymorp
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.ValueObjects;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
