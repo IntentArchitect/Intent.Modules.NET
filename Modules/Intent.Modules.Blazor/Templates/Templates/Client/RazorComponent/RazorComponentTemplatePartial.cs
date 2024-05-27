@@ -24,7 +24,7 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
-    public partial class RazorComponentTemplate : CSharpTemplateBase<ComponentModel>, IRazorComponentTemplate
+    public partial class RazorComponentTemplate : RazorTemplateBase<ComponentModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
@@ -105,13 +105,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        protected override RazorFileConfig DefineRazorConfig()
         {
-            return new CSharpFileConfig(
+            return new RazorFileConfig(
                 className: $"{Model.Name}",
                 @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath(),
-                fileExtension: "razor"
+                relativeLocation: this.GetFolderPath()
             );
         }
 

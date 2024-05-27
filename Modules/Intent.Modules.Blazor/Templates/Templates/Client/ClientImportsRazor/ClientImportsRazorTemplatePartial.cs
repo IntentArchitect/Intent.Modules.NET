@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
 {
     [IntentManaged(Mode.Merge)]
-    public partial class ClientImportsRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
+    public partial class ClientImportsRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Client.ClientImportsRazorTemplate";
 
@@ -34,8 +34,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
                 file.AddUsing("Microsoft.AspNetCore.Components.Web.Virtualization");
                 file.AddUsing("Microsoft.JSInterop");
             });
-
-
         }
 
         public override void AfterTemplateRegistration()
@@ -48,13 +46,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
         public RazorFile RazorFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        protected override RazorFileConfig DefineRazorConfig()
         {
-            return new CSharpFileConfig(
+            return new RazorFileConfig(
                 className: $"_Imports",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}",
-                fileExtension: "razor");
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath()
+            );
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

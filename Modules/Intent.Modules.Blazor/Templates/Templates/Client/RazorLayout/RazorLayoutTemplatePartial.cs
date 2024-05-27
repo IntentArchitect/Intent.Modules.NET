@@ -21,7 +21,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
-    public partial class RazorLayoutTemplate : CSharpTemplateBase<LayoutModel>, IRazorComponentTemplate
+    public partial class RazorLayoutTemplate : RazorTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorLayoutTemplate";
@@ -80,15 +80,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
             return mappingManager;
         }
 
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        protected override RazorFileConfig DefineRazorConfig()
         {
-            return new CSharpFileConfig(
+            return new RazorFileConfig(
                 className: $"{Model.Name}",
                 @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath(),
-                fileExtension: "razor"
+                relativeLocation: this.GetFolderPath()
             );
         }
 

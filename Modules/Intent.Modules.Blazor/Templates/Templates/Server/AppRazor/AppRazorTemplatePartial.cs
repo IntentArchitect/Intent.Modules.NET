@@ -15,7 +15,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 {
     [IntentManaged(Mode.Merge)]
-    public partial class AppRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
+    public partial class AppRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Server.AppRazorTemplate";
 
@@ -62,13 +62,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         public RazorFile RazorFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        protected override RazorFileConfig DefineRazorConfig()
         {
-            return new CSharpFileConfig(
+            return new RazorFileConfig(
                 className: $"App",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}",
-                fileExtension: "razor");
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath()
+            );
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

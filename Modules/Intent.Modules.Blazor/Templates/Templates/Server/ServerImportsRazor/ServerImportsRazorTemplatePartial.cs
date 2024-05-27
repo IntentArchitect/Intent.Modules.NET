@@ -15,7 +15,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
 {
     [IntentManaged(Mode.Merge)]
-    public partial class ServerImportsRazorTemplate : CSharpTemplateBase<object>, IRazorFileTemplate
+    public partial class ServerImportsRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Server.ServerImportsRazorTemplate";
 
@@ -40,13 +40,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
         public RazorFile RazorFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        protected override RazorFileConfig DefineRazorConfig()
         {
-            return new CSharpFileConfig(
+            return new RazorFileConfig(
                 className: $"_Imports",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}",
-                fileExtension: "razor");
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath()
+            );
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
