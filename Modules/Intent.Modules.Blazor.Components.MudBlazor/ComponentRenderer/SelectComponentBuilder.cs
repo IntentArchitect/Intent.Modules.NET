@@ -32,7 +32,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         {
             return;
         }
-        htmlElement.AddCodeBlock($"foreach (var item in {_bindingManager.GetStereotypePropertyBinding(selectModel, "Options")})", code =>
+        htmlElement.AddCodeBlock($"foreach (var item in {_bindingManager.GetBinding(selectModel, "Options")})", code =>
         {
             htmlElement.AddMappingReplacement(mappedEnd.SourceElement, "item");
             code.AddHtmlElement("MudSelectItem", selectItem =>
@@ -42,8 +42,8 @@ public class SelectComponentBuilder : IRazorComponentBuilder
                     ? _componentTemplate.GetTypeName(modelMapping.SourceElement.TypeReference)
                     : null);
                 // TODO: Use bindings:
-                selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Value", htmlElement)?.ToString())
-                    .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Text", htmlElement)?.ToString());
+                selectItem.AddAttribute("Value", _bindingManager.GetBinding(selectModel, "Value", htmlElement)?.ToString())
+                    .WithText(_bindingManager.GetBinding(selectModel, "Text", htmlElement)?.ToString());
             });
         });
         parentNode.AddChildNode(htmlElement);

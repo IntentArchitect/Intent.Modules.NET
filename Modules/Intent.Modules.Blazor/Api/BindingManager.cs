@@ -42,25 +42,25 @@ public class BindingManager
         return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
     }
 
+    public CSharpStatement GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null)
+    {
+        var mappedEnd = GetMappedEndFor(model, mappableNameOrId);
+        return GetBinding(mappedEnd, razorNode);
+    }
+
     public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model)
     {
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetElement?.Id == model.Id);
     }
 
-    public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model, string stereotypePropertyName)
+    public IElementToElementMappedEnd GetMappedEndFor(IMetadataModel model, string mappableNameOrId)
     {
-        return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && x.TargetPath.Last().Name == stereotypePropertyName);
+        return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && (x.TargetPath.Last().Name == mappableNameOrId || x.TargetPath.Last().Id == mappableNameOrId));
     }
 
     public CSharpStatement GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model);
-        return GetBinding(mappedEnd, razorNode);
-    }
-
-    public CSharpStatement GetStereotypePropertyBinding(IMetadataModel model, string propertyName, IRazorFileNode razorNode = null)
-    {
-        var mappedEnd = GetMappedEndFor(model, propertyName);
         return GetBinding(mappedEnd, razorNode);
     }
 }

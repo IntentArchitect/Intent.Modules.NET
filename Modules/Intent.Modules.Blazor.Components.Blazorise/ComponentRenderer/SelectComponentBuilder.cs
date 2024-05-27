@@ -37,14 +37,14 @@ public class SelectComponentBuilder : IRazorComponentBuilder
                     {
                         return;
                     }
-                    select.AddCodeBlock($"foreach (var option in {_bindingManager.GetStereotypePropertyBinding(selectModel, "Options")})", code =>
+                    select.AddCodeBlock($"foreach (var option in {_bindingManager.GetBinding(selectModel, "Options")})", code =>
                     {
                         select.AddMappingReplacement(mappedEnd.SourceElement, "option");
                         code.AddHtmlElement("SelectItem", selectItem =>
                         {
                             // TODO: Use bindings:
-                            selectItem.AddAttribute("Value", _bindingManager.GetStereotypePropertyBinding(selectModel, "Value", select)?.ToString())
-                                .WithText(_bindingManager.GetStereotypePropertyBinding(selectModel, "Text", select)?.ToString());
+                            selectItem.AddAttribute("Value", _bindingManager.GetBinding(selectModel, "Value", select)?.ToString())
+                                .WithText(_bindingManager.GetBinding(selectModel, "Text", select)?.ToString());
                         });
                     });
                 });

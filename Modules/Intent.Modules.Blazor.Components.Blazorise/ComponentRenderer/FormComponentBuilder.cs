@@ -24,7 +24,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
-        var modelBinding = _bindingManager.GetStereotypePropertyBinding(formModel, "Model");
+        var modelBinding = _bindingManager.GetBinding(formModel, "Model");
         if (modelBinding == null)
         {
             throw new ElementException(component, "Form component's Model is required and has not been specified.");
@@ -33,8 +33,8 @@ public class FormComponentBuilder : IRazorComponentBuilder
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {
             htmlElement.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
-            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
-            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
+            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
+            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
 
             htmlElement.AddHtmlElement("Card", card =>
             {
@@ -59,7 +59,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
                     {
                         cardBody.AddHtmlElement("Validations", validations =>
                         {
-                            validations.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model").ToString());
+                            validations.AddAttributeIfNotEmpty("Model", _bindingManager.GetBinding(formModel, "Model").ToString());
                             validations.AddAttribute("Mode", "ValidationMode.Auto");
                             validations.AddAttribute("ValidateOnLoad", "false");
                             foreach (var child in bodyModel.InternalElement.ChildElements)

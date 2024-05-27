@@ -25,9 +25,9 @@ public class FormComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement("EditForm", _componentTemplate.RazorFile);
         
         codeBlock.AddHtmlElement(htmlElement);
-        htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetStereotypePropertyBinding(formModel, "Model")?.ToString());
-        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
-        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
+        htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetBinding(formModel, "Model")?.ToString());
+        htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
+        htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
 
         foreach (var child in component.ChildElements)
         {

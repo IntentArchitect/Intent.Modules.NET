@@ -24,7 +24,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
-        var modelBinding = _bindingManager.GetStereotypePropertyBinding(formModel, "Model");
+        var modelBinding = _bindingManager.GetBinding(formModel, "Model");
         if (modelBinding == null)
         {
             throw new ElementException(component, "Form component's Model is required and has not been specified.");
@@ -44,8 +44,8 @@ public class FormComponentBuilder : IRazorComponentBuilder
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {
             htmlElement.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
-            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Valid Submit")?.ToLambda()}");
-            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetStereotypePropertyBinding(formModel, "On Invalid Submit")?.ToLambda()}");
+            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
+            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
 
             htmlElement.AddHtmlElement("MudCard", card =>
             {
