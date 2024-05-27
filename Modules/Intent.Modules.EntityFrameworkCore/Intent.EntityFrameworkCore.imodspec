@@ -163,7 +163,7 @@
         </setting>
         <setting id="7e0f472d-6cf0-423e-872a-cd6b2e0614bc" title="Default Schema Name" type="text">
           <isRequired>false</isRequired>
-          <hint>Override default schema name for application (relational DBs only)</hint>
+          <hint>Explicitly set the default schema name for application (relational DBs only)</hint>
         </setting>
       </settings>
     </groupExtension>
