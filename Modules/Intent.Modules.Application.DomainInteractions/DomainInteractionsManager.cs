@@ -1,6 +1,8 @@
 using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -485,9 +487,8 @@ public class DomainInteractionsManager
                 if (updateMapping != null)
 				{
 					var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
-					AdjustOperationInvocationWithReturnType(updateMapping, updateStatements);
-
 					WireupDomainServicesForOperations(updateAction, updateStatements);
+					AdjustOperationInvocationForAsyncAndReturn(updateMapping, updateStatements);
 
 					statements.AddRange(updateStatements);
 				}
@@ -513,23 +514,33 @@ public class DomainInteractionsManager
         }
     }
 
-	private void AdjustOperationInvocationWithReturnType(IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
+	private void AdjustOperationInvocationForAsyncAndReturn(IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
 	{
         
-		if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement) 
-            && me.TargetElement.TypeReference?.Element != null))
+		if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))             
 		{
-            foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement) && me.TargetElement.TypeReference?.Element != null))
+            foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))
             {
-                var operationName = ((IElement)invocation.TargetElement).Name;
+
+				var operationName = ((IElement)invocation.TargetElement).Name;
 				var variableName = $"{operationName.ToCamelCase()}Result";
+                bool hasReturn = invocation.TargetElement.TypeReference?.Element != null;
+
                 for (int i = 0; i < updateStatements.Count; i++)
                 {
-                    if (updateStatements[i].GetText("").Contains($".{operationName}("))
-                    {
-                        updateStatements[i] = new CSharpAssignmentStatement($"var {variableName}", updateStatements[i]);
+					if (updateStatements[i] is CSharpInvocationStatement s && s.Expression.Reference is ICSharpMethodDeclaration md && md.Name == operationName)
+					{
+						if (s.IsAsyncInvocation())
+						{
+							s.AddArgument("cancellationToken");
+							updateStatements[i] = new CSharpAwaitExpression(updateStatements[i]);
+						}
+                        if (hasReturn)
+                        {
+                            updateStatements[i] = new CSharpAssignmentStatement($"var {variableName}", updateStatements[i]);
+                        }
 					}
-                }
+				}
 
 				TrackedEntities.Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, invocation.TargetElement.TypeReference.IsCollection));
             }
@@ -586,17 +597,16 @@ public class DomainInteractionsManager
 
             var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
-            if (methodInvocation is CSharpInvocationStatement s)
-            {
-                if (s.Expression.Reference is ICSharpMethodDeclaration method && (method.IsAsync || method.ReturnType?.GetText("").Contains("Task") == true))
-                {
-                    s.AddArgument("cancellationToken");
-                    invoke = new CSharpAwaitExpression(invoke);
-                }
-            }
-            
-            var operationModel = (IElement)callServiceOperation.Element;
-            if (operationModel.TypeReference.Element != null)
+
+			if (methodInvocation is CSharpInvocationStatement s)
+			{
+				if (s.IsAsyncInvocation())
+				{
+					s.AddArgument("cancellationToken");
+					invoke = new CSharpAwaitExpression(invoke);
+				}
+			}
+			if (operationModel.TypeReference.Element != null)
             {
                 string variableName = callServiceOperation.Name.ToLocalVariableName();
                 _csharpMapping.SetFromReplacement(callServiceOperation, variableName);

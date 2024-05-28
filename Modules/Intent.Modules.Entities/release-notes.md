@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Improvement: Updated `Entity` template metadata that the c# class represents the model, so it can be inferred by the Advanced mapping system.
+
 ### Version 5.1.0
 
 - Improvement: `DataContractTemplate` update to include `RepresentsModel` to aid in advanced mapping detection scenarios.
