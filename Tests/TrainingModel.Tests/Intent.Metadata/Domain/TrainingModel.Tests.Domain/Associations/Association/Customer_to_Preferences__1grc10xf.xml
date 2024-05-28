@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cbf15a15-5bfc-4cba-8884-5b7911e163e5">
+  <sourceEnd id="fbda1553-9122-4c21-960c-0b0bd022469f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="8704d40a-e3fb-4103-b8f8-4dac0bb28db1">
+      <typeId>8c629227-e45a-42e7-afd9-e784fbf2b462</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cbf15a15-5bfc-4cba-8884-5b7911e163e5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Preferences</name>
+    <display>Preferences: Preferences?</display>
+    <order>5</order>
+    <typeReference id="49c451e0-5de4-4a41-b8cf-36800253e25b">
+      <typeId>50091b94-b72f-4f23-9d5c-1440fa03940d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

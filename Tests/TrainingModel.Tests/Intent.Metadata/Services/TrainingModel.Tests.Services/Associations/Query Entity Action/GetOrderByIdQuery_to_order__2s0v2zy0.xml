@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5c232728-83a9-4dc9-b25e-3271106bfb3b">
+  <sourceEnd id="4bb2d1c5-65f9-4733-bc05-2ac96551b755" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrderByIdQuery</display>
+    <order>0</order>
+    <typeReference id="93e46bd5-4eea-4969-a2d3-94a75de5d425">
+      <typeId>13a1204d-5b55-4b92-a249-3dcfec1c3e16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Services</typePackageName>
+      <typePackageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5c232728-83a9-4dc9-b25e-3271106bfb3b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>1</order>
+    <typeReference id="2288996a-e769-4820-8391-8f874d6c68f0">
+      <typeId>30662904-bb11-4a65-bf46-23acb7f0be40</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="13a1204d-5b55-4b92-a249-3dcfec1c3e16" location="[TrainingModel.Tests].[Services].[GetOrderByIdQuery]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="30662904-bb11-4a65-bf46-23acb7f0be40" location="[TrainingModel.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="30662904-bb11-4a65-bf46-23acb7f0be40" name="Order" type="element" specialization="Class" />
+              <target id="cbb99654-c530-40fd-90c5-ef69eaa2aa9d" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="13a1204d-5b55-4b92-a249-3dcfec1c3e16" name="GetOrderByIdQuery" type="element" specialization="Query" />
+                  <target id="e6d99151-8bf0-4903-8608-7b21e47b7303" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

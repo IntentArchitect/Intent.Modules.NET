@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a22155e6-ce75-458a-a65b-35ab9d6dd342" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>TrainingModel.Tests</name>
+  <display>TrainingModel.Tests</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d20ab388-9290-44dc-bbff-2e10ce6a934e</parentFolderId>
+  <diagram>
+    <targetPackageId>7cfffe8e-be9a-411e-bb66-853b2b96b908</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

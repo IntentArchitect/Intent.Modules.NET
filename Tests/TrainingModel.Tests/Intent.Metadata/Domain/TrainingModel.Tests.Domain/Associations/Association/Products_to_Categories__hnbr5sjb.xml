@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b1af88e2-e81f-44a7-8309-af999a9ae0da">
+  <sourceEnd id="c4bc4de3-09bb-44c9-b75d-adbf17160640" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="eb7f6190-7a39-4a50-92b8-f2816d51a343">
+      <typeId>a8c0300d-5cac-4eb7-9134-94ad43f24faa</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b1af88e2-e81f-44a7-8309-af999a9ae0da" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Categories</name>
+    <display>Categories: Category[*]</display>
+    <order>12</order>
+    <typeReference id="55a04b21-c728-4f4d-bc7a-000413524948">
+      <typeId>8aac8181-3af7-49da-be8e-c6b027daf67d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

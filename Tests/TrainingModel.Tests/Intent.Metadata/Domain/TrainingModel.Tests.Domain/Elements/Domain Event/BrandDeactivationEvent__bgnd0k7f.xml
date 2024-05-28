@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="de698897-84fb-4a1e-a0dc-8d961d2c3688" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>BrandDeactivationEvent</name>
+  <display>BrandDeactivationEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e64c4e3c-87a1-4909-b981-7dac32550081</parentFolderId>
+  <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+  <packageName>TrainingModel.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f9c91d35-dfdb-400a-a804-65c26f8cfe2b" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Brand</name>
+      <display>Brand: Brand</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b1a1943a-8b8d-4f4d-bbd4-27c0e045a140">
+        <typeId>0daeae1a-eaf1-4bee-8074-aac56af9ff2a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+        <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>de698897-84fb-4a1e-a0dc-8d961d2c3688</parentFolderId>
+      <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+      <packageName>TrainingModel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

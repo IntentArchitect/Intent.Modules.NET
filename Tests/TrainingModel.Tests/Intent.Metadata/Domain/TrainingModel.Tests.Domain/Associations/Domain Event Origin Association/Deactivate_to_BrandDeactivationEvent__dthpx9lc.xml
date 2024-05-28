@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b3ee88b9-70a9-47c8-a8fa-15276c9b283a">
+  <sourceEnd id="7907db04-24f4-403b-8c7e-aa1c1252f9bd" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Brand.Deactivate</display>
+    <order>1</order>
+    <typeReference id="0aab6884-e48c-45f5-b09d-6b272864f67d">
+      <typeId>3fa66f05-db3b-47d4-a158-be9a1dbfebea</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b3ee88b9-70a9-47c8-a8fa-15276c9b283a" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : BrandDeactivationEvent</display>
+    <order>0</order>
+    <typeReference id="5879a193-e247-4b83-9fc8-46db577fba50">
+      <typeId>de698897-84fb-4a1e-a0dc-8d961d2c3688</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" location="[TrainingModel.Tests].[Domain].[Brand]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="de698897-84fb-4a1e-a0dc-8d961d2c3688" location="[TrainingModel.Tests].[Domain].[BrandDeactivationEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Brand}</expression>
+            <path>
+              <target id="de698897-84fb-4a1e-a0dc-8d961d2c3688" name="BrandDeactivationEvent" type="element" specialization="Domain Event" />
+              <target id="f9c91d35-dfdb-400a-a804-65c26f8cfe2b" name="Brand" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="Brand" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" name="Brand" type="element" specialization="Class" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e367b37c-7a5a-4c93-844f-5f1236da6051" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Brands</name>
+  <display>Brands</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8fa0f94a-6ad2-4aa0-86ac-9c06ec1f9363</parentFolderId>
+  <packageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</packageId>
+  <packageName>TrainingModel.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>8fa0f94a-6ad2-4aa0-86ac-9c06ec1f9363</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

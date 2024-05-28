@@ -115,5 +115,6 @@
     <application id="0f20f746-bcad-4e1e-b944-7df6806d0f40" name="ValueObjects.Class" relativePath="ValueObjects.Class/ValueObjects.Class.application.config" />
     <application id="57cbc783-32a2-4c58-ae6d-13990cf7482c" name="ValueObjects.Record" relativePath="ValueObjects.Record/ValueObjects.Record.application.config" />
     <application id="d4aae382-a4dd-4163-8a36-0d70e2881262" name="AdvancedMappingCrud.RichDomain.ServiceModel.Tests" relativePath="AdvancedMappingCrud.RichDomain.ServiceModel.Tests/AdvancedMappingCrud.RichDomain.ServiceModel.Tests.application.config" />
+    <application id="535787bb-de12-40cc-bb4c-258d8c1d19b9" name="TrainingModel.Tests" relativePath="TrainingModel.Tests/TrainingModel.Tests.application.config" />
   </applications>
 </solution>
