@@ -606,6 +606,7 @@ public class DomainInteractionsManager
 					invoke = new CSharpAwaitExpression(invoke);
 				}
 			}
+			var operationModel = (IElement)callServiceOperation.Element;
 			if (operationModel.TypeReference.Element != null)
             {
                 string variableName = callServiceOperation.Name.ToLocalVariableName();
