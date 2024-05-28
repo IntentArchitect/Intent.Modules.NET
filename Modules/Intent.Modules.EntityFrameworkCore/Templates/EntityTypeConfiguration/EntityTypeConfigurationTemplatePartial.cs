@@ -580,7 +580,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         break;
                     case FilterOption.Custom:
                         sb.Append(@$"
-                .HasFilter(\""{index.Filter}"")");
+                .HasFilter(""{index.Filter.Replace("\"", "\\\"")}"")");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

@@ -2,6 +2,7 @@
 
 - Improved: Set your default schema name for your `ApplicationDbContext` and your HistoryTable.
 - Fixed: Checking for types with serialization will also include Record types.
+- Fixed: Index Filters were not escaping `"`s correctly.
 
 ### Version 5.0.5
 
