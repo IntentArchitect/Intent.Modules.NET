@@ -15,12 +15,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
 {
     public class DeleteMongoInvoiceCommand : IRequest, ICommand
     {
-        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
 
-        public DeleteMongoInvoiceCommand(string id, IMongoInvoiceRepository mongoInvoiceRepository)
+        public DeleteMongoInvoiceCommand(string id)
         {
             Id = id;
-            _mongoInvoiceRepository = mongoInvoiceRepository;
         }
 
         public string Id { get; set; }
@@ -29,9 +27,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteMongoInvoiceCommandHandler : IRequestHandler<DeleteMongoInvoiceCommand>
     {
+        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public DeleteMongoInvoiceCommandHandler()
+        public DeleteMongoInvoiceCommandHandler(IMongoInvoiceRepository mongoInvoiceRepository)
         {
+            _mongoInvoiceRepository = mongoInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

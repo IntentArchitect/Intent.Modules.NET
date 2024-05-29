@@ -16,14 +16,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
 {
     public class GetEfInvoiceByIdQuery : IRequest<EfInvoiceDto>, IQuery
     {
-        private readonly IEfInvoiceRepository _efInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetEfInvoiceByIdQuery(Guid id, IEfInvoiceRepository efInvoiceRepository, IMapper mapper)
+        public GetEfInvoiceByIdQuery(Guid id)
         {
             Id = id;
-            _efInvoiceRepository = efInvoiceRepository;
-            _mapper = mapper;
         }
 
         public Guid Id { get; set; }
@@ -32,9 +28,13 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetEfInvoiceByIdQueryHandler : IRequestHandler<GetEfInvoiceByIdQuery, EfInvoiceDto>
     {
+        private readonly IEfInvoiceRepository _efInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetEfInvoiceByIdQueryHandler()
+        public GetEfInvoiceByIdQueryHandler(IEfInvoiceRepository efInvoiceRepository, IMapper mapper)
         {
+            _efInvoiceRepository = efInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

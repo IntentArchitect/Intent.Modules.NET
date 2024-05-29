@@ -1,6 +1,6 @@
-using CleanArchitecture.TestApplication.Api.Configuration;
-using CleanArchitecture.TestApplication.Application.Common.Interfaces;
-using CleanArchitecture.TestApplication.Infrastructure.Configuration;
+using CleanArchitecture.Comprehensive.Api.Configuration;
+using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

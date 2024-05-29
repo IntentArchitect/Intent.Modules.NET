@@ -27,10 +27,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj" />
-      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj" />
-      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj" />
-      <ProjectReference Include="..\CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Api\CleanArchitecture.Comprehensive.Api.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Application\CleanArchitecture.Comprehensive.Application.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Domain\CleanArchitecture.Comprehensive.Domain.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Infrastructure\CleanArchitecture.Comprehensive.Infrastructure.csproj" />
       <ProjectReference Include="..\Intent.IntegrationTest.HttpClient.Common\Intent.IntegrationTest.HttpClient.Common.csproj" />
     </ItemGroup>
 

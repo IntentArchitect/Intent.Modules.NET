@@ -16,14 +16,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
 {
     public class GetMongoInvoiceByIdQuery : IRequest<MongoInvoiceDto>, IQuery
     {
-        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetMongoInvoiceByIdQuery(string id, IMongoInvoiceRepository mongoInvoiceRepository, IMapper mapper)
+        public GetMongoInvoiceByIdQuery(string id)
         {
             Id = id;
-            _mongoInvoiceRepository = mongoInvoiceRepository;
-            _mapper = mapper;
         }
 
         public string Id { get; set; }
@@ -32,9 +28,13 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetMongoInvoiceByIdQueryHandler : IRequestHandler<GetMongoInvoiceByIdQuery, MongoInvoiceDto>
     {
+        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetMongoInvoiceByIdQueryHandler()
+        public GetMongoInvoiceByIdQueryHandler(IMongoInvoiceRepository mongoInvoiceRepository, IMapper mapper)
         {
+            _mongoInvoiceRepository = mongoInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

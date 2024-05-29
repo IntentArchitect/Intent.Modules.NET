@@ -15,12 +15,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
 {
     public class CreateEfInvoiceCommand : IRequest<Guid>, ICommand
     {
-        private readonly IEfInvoiceRepository _efInvoiceRepository;
 
-        public CreateEfInvoiceCommand(string description, IEfInvoiceRepository efInvoiceRepository)
+        public CreateEfInvoiceCommand(string description)
         {
             Description = description;
-            _efInvoiceRepository = efInvoiceRepository;
         }
 
         public string Description { get; set; }
@@ -29,9 +27,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateEfInvoiceCommandHandler : IRequestHandler<CreateEfInvoiceCommand, Guid>
     {
+        private readonly IEfInvoiceRepository _efInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateEfInvoiceCommandHandler()
+        public CreateEfInvoiceCommandHandler(IEfInvoiceRepository efInvoiceRepository)
         {
+            _efInvoiceRepository = efInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

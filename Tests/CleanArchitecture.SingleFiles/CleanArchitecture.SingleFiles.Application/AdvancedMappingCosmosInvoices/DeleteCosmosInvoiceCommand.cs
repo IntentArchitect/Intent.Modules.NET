@@ -15,12 +15,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
 {
     public class DeleteCosmosInvoiceCommand : IRequest, ICommand
     {
-        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
 
-        public DeleteCosmosInvoiceCommand(string id, ICosmosInvoiceRepository cosmosInvoiceRepository)
+        public DeleteCosmosInvoiceCommand(string id)
         {
             Id = id;
-            _cosmosInvoiceRepository = cosmosInvoiceRepository;
         }
 
         public string Id { get; set; }
@@ -29,9 +27,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteCosmosInvoiceCommandHandler : IRequestHandler<DeleteCosmosInvoiceCommand>
     {
+        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public DeleteCosmosInvoiceCommandHandler()
+        public DeleteCosmosInvoiceCommandHandler(ICosmosInvoiceRepository cosmosInvoiceRepository)
         {
+            _cosmosInvoiceRepository = cosmosInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

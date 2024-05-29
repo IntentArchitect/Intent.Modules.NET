@@ -16,22 +16,22 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
 {
     public class GetEfInvoicesQuery : IRequest<List<EfInvoiceDto>>, IQuery
     {
-        private readonly IEfInvoiceRepository _efInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetEfInvoicesQuery(IEfInvoiceRepository efInvoiceRepository, IMapper mapper)
+        public GetEfInvoicesQuery()
         {
-            _efInvoiceRepository = efInvoiceRepository;
-            _mapper = mapper;
         }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetEfInvoicesQueryHandler : IRequestHandler<GetEfInvoicesQuery, List<EfInvoiceDto>>
     {
+        private readonly IEfInvoiceRepository _efInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetEfInvoicesQueryHandler()
+        public GetEfInvoicesQueryHandler(IEfInvoiceRepository efInvoiceRepository, IMapper mapper)
         {
+            _efInvoiceRepository = efInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

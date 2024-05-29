@@ -15,12 +15,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
 {
     public class DeleteEfInvoiceCommand : IRequest, ICommand
     {
-        private readonly IEfInvoiceRepository _efInvoiceRepository;
 
-        public DeleteEfInvoiceCommand(Guid id, IEfInvoiceRepository efInvoiceRepository)
+        public DeleteEfInvoiceCommand(Guid id)
         {
             Id = id;
-            _efInvoiceRepository = efInvoiceRepository;
         }
 
         public Guid Id { get; set; }
@@ -29,9 +27,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingEfInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteEfInvoiceCommandHandler : IRequestHandler<DeleteEfInvoiceCommand>
     {
+        private readonly IEfInvoiceRepository _efInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public DeleteEfInvoiceCommandHandler()
+        public DeleteEfInvoiceCommandHandler(IEfInvoiceRepository efInvoiceRepository)
         {
+            _efInvoiceRepository = efInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

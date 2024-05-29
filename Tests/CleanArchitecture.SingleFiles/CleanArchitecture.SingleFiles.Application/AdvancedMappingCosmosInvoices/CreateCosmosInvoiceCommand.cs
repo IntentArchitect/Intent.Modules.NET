@@ -15,12 +15,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
 {
     public class CreateCosmosInvoiceCommand : IRequest<string>, ICommand
     {
-        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
 
-        public CreateCosmosInvoiceCommand(string description, ICosmosInvoiceRepository cosmosInvoiceRepository)
+        public CreateCosmosInvoiceCommand(string description)
         {
             Description = description;
-            _cosmosInvoiceRepository = cosmosInvoiceRepository;
         }
 
         public string Description { get; set; }
@@ -29,9 +27,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateCosmosInvoiceCommandHandler : IRequestHandler<CreateCosmosInvoiceCommand, string>
     {
+        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateCosmosInvoiceCommandHandler()
+        public CreateCosmosInvoiceCommandHandler(ICosmosInvoiceRepository cosmosInvoiceRepository)
         {
+            _cosmosInvoiceRepository = cosmosInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

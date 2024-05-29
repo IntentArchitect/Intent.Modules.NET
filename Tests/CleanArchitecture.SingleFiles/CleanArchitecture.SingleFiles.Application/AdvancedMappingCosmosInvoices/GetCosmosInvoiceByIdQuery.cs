@@ -16,14 +16,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
 {
     public class GetCosmosInvoiceByIdQuery : IRequest<CosmosInvoiceDto>, IQuery
     {
-        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetCosmosInvoiceByIdQuery(string id, ICosmosInvoiceRepository cosmosInvoiceRepository, IMapper mapper)
+        public GetCosmosInvoiceByIdQuery(string id)
         {
             Id = id;
-            _cosmosInvoiceRepository = cosmosInvoiceRepository;
-            _mapper = mapper;
         }
 
         public string Id { get; set; }
@@ -32,9 +28,13 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingCosmosInvoice
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCosmosInvoiceByIdQueryHandler : IRequestHandler<GetCosmosInvoiceByIdQuery, CosmosInvoiceDto>
     {
+        private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetCosmosInvoiceByIdQueryHandler()
+        public GetCosmosInvoiceByIdQueryHandler(ICosmosInvoiceRepository cosmosInvoiceRepository, IMapper mapper)
         {
+            _cosmosInvoiceRepository = cosmosInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

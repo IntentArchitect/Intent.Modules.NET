@@ -1,13 +1,13 @@
-﻿using CleanArchitecture.TestApplication.Api.Configuration;
-using CleanArchitecture.TestApplication.Api.Controllers;
-using CleanArchitecture.TestApplication.Api.Services;
-using CleanArchitecture.TestApplication.Application;
-using CleanArchitecture.TestApplication.Application.Common.Eventing;
-using CleanArchitecture.TestApplication.Application.Common.Interfaces;
-using CleanArchitecture.TestApplication.Application.IntegrationServices;
-using CleanArchitecture.TestApplication.Application.Versioned.TestCommandV1;
-using CleanArchitecture.TestApplication.Application.Versioned.TestCommandV2;
-using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
+﻿using CleanArchitecture.Comprehensive.Api.Configuration;
+using CleanArchitecture.Comprehensive.Api.Controllers;
+using CleanArchitecture.Comprehensive.Api.Services;
+using CleanArchitecture.Comprehensive.Application;
+using CleanArchitecture.Comprehensive.Application.Common.Eventing;
+using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Application.IntegrationServices;
+using CleanArchitecture.Comprehensive.Application.Versioned.TestCommandV1;
+using CleanArchitecture.Comprehensive.Application.Versioned.TestCommandV2;
+using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
 using Intent.IntegrationTest.HttpClient.Common;
 using Microsoft.Extensions.Configuration;
@@ -15,8 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommandV1 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV1;
-using TestCommandV2 = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Versioned.TestCommandV2;
+using TestCommandV1 = CleanArchitecture.Comprehensive.Application.IntegrationServices.Services.Versioned.TestCommandV1;
+using TestCommandV2 = CleanArchitecture.Comprehensive.Application.IntegrationServices.Services.Versioned.TestCommandV2;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 

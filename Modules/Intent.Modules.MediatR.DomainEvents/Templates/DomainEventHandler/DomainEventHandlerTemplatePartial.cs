@@ -66,7 +66,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                     // TODO: MOVE TO FACTORY EXTENSION:
                     foreach (var handledDomainEvents in Model.HandledDomainEvents())
                     {
-                        var method = (CSharpClassMethod)file.Classes.First().GetReferenceForModel(handledDomainEvents);
+                        var @class = file.Classes.First();
+                        var method = (CSharpClassMethod)@class.GetReferenceForModel(handledDomainEvents);
                         var csharpMapping = new CSharpClassMappingManager(this);
                         csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
@@ -78,7 +79,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
                         method.AddMetadata("mapping-manager", csharpMapping);
 
-                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(handledDomainEvents));
+                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, handledDomainEvents));
                     }
                 })
                 .AfterBuild(file =>

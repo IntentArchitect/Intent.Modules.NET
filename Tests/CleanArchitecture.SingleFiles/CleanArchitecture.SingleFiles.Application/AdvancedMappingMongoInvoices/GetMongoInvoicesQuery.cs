@@ -16,22 +16,22 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingMongoInvoices
 {
     public class GetMongoInvoicesQuery : IRequest<List<MongoInvoiceDto>>, IQuery
     {
-        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetMongoInvoicesQuery(IMongoInvoiceRepository mongoInvoiceRepository, IMapper mapper)
+        public GetMongoInvoicesQuery()
         {
-            _mongoInvoiceRepository = mongoInvoiceRepository;
-            _mapper = mapper;
         }
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetMongoInvoicesQueryHandler : IRequestHandler<GetMongoInvoicesQuery, List<MongoInvoiceDto>>
     {
+        private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetMongoInvoicesQueryHandler()
+        public GetMongoInvoicesQueryHandler(IMongoInvoiceRepository mongoInvoiceRepository, IMapper mapper)
         {
+            _mongoInvoiceRepository = mongoInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -61,11 +61,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
-            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(_model));
+            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, _model));
 
             if (_model.TypeReference.Element != null)
             {
-                handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(_model.TypeReference));
+                handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(@class, _model.TypeReference));
             }
         }
     }

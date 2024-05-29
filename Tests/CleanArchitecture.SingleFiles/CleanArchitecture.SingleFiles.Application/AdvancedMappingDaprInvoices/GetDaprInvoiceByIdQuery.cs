@@ -16,14 +16,10 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingDaprInvoices
 {
     public class GetDaprInvoiceByIdQuery : IRequest<DaprInvoiceDto>, IQuery
     {
-        private readonly IDaprInvoiceRepository _daprInvoiceRepository;
-        private readonly IMapper _mapper;
 
-        public GetDaprInvoiceByIdQuery(string id, IDaprInvoiceRepository daprInvoiceRepository, IMapper mapper)
+        public GetDaprInvoiceByIdQuery(string id)
         {
             Id = id;
-            _daprInvoiceRepository = daprInvoiceRepository;
-            _mapper = mapper;
         }
 
         public string Id { get; set; }
@@ -32,9 +28,13 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingDaprInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetDaprInvoiceByIdQueryHandler : IRequestHandler<GetDaprInvoiceByIdQuery, DaprInvoiceDto>
     {
+        private readonly IDaprInvoiceRepository _daprInvoiceRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetDaprInvoiceByIdQueryHandler()
+        public GetDaprInvoiceByIdQueryHandler(IDaprInvoiceRepository daprInvoiceRepository, IMapper mapper)
         {
+            _daprInvoiceRepository = daprInvoiceRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

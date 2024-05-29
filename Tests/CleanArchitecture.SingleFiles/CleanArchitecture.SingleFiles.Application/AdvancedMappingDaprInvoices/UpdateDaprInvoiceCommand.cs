@@ -15,13 +15,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingDaprInvoices
 {
     public class UpdateDaprInvoiceCommand : IRequest, ICommand
     {
-        private readonly IDaprInvoiceRepository _daprInvoiceRepository;
 
-        public UpdateDaprInvoiceCommand(string description, string id, IDaprInvoiceRepository daprInvoiceRepository)
+        public UpdateDaprInvoiceCommand(string description, string id)
         {
             Description = description;
             Id = id;
-            _daprInvoiceRepository = daprInvoiceRepository;
         }
 
         public string Description { get; set; }
@@ -31,9 +29,11 @@ namespace CleanArchitecture.SingleFiles.Application.AdvancedMappingDaprInvoices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateDaprInvoiceCommandHandler : IRequestHandler<UpdateDaprInvoiceCommand>
     {
+        private readonly IDaprInvoiceRepository _daprInvoiceRepository;
         [IntentManaged(Mode.Merge)]
-        public UpdateDaprInvoiceCommandHandler()
+        public UpdateDaprInvoiceCommandHandler(IDaprInvoiceRepository daprInvoiceRepository)
         {
+            _daprInvoiceRepository = daprInvoiceRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
