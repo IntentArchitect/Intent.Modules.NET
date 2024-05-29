@@ -33,8 +33,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource("Intent.Blazor.HttpClients.DtoContract");
-            AddTypeSource("Intent.Blazor.HttpClients.ServiceContract");
+            //AddTypeSource("Intent.Blazor.HttpClients.PagedResult");
+            AddTypeSource("Blazor.HttpClient.Contracts.Dto");
+            AddTypeSource("Blazor.HttpClient.ServiceContract");
             AddTypeSource(TemplateId);
             RazorFile = new RazorFile(this);
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());

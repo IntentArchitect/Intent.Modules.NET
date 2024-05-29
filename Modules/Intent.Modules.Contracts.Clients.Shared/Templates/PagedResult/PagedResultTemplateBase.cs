@@ -17,7 +17,7 @@ public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSh
     protected PagedResultTemplateBase(
         string templateId, 
         IOutputTarget outputTarget,
-        IServiceProxyMappedService serviceProxyMappedService) : base(templateId, outputTarget, null)
+        IServiceProxyMappedService serviceProxyMappedService) : base(templateId, outputTarget, new MetadataModel(TypeDefinitionElementId))
     {
         _serviceProxyMappedService = serviceProxyMappedService;
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -36,7 +36,7 @@ public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSh
                 @class.AddProperty("int", "PageCount");
                 @class.AddProperty("int", "PageSize");
                 @class.AddProperty("int", "PageNumber");
-                @class.AddProperty($"IEnumerable<{tData}>", "Data");
+                @class.AddProperty($"List<{tData}>", "Data");
             });
     }
 
@@ -55,4 +55,6 @@ public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSh
             .SelectMany(s => _serviceProxyMappedService.GetMappedEndpoints(s))
             .Any(x => x.TypeReference?.Element?.Id == TypeDefinitionElementId);
     }
+
+    private record MetadataModel(string Id) : IMetadataModel { }
 }

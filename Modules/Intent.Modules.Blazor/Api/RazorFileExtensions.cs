@@ -122,7 +122,10 @@ public static class RazorFileExtensions
                                 method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
                                 mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
                                 var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                response.LastOrDefault()?.WithSemicolon(); // Need to find out why this is necessary.
+                                foreach (var statement in response)
+                                {
+                                    statement.WithSemicolon();
+                                }
                                 method.AddStatements(response);
                             }
                         }
@@ -146,7 +149,7 @@ public static class RazorFileExtensions
                                 
                                 if (route.HasParameterExpression(routeParameter.Name))
                                 {
-                                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd, template.RazorFile)}}}");
+                                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd)}}}");
                                 }
                             }
                         }
@@ -162,6 +165,10 @@ public static class RazorFileExtensions
                 var modelDefinition = child.AsModelDefinitionModel();
                 block.AddClass(modelDefinition.Name, @class =>
                 {
+                    foreach (var genericType in modelDefinition.GenericTypes)
+                    {
+                        @class.AddGenericParameter(genericType);
+                    }
                     foreach (var propertyModel in modelDefinition.Properties)
                     {
                         @class.AddProperty(propertyModel);

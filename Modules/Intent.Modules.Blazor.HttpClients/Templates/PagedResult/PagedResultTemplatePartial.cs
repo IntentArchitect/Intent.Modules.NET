@@ -18,12 +18,13 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.HttpClients.Templates.PagedResult
 {
     [IntentManaged(Mode.Ignore)]
-    public partial class PagedResultTemplate : PagedResultTemplateBase, ICSharpFileBuilderTemplate
+    public partial class PagedResultTemplate : PagedResultTemplateBase, ICSharpFileBuilderTemplate, ITemplateWithModel
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.PagedResult";
 
         public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new HttpServiceProxyMappedService())
         {
+            FulfillsRole("Blazor.HttpClient.Contracts.Dto");
         }
 
         protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)

@@ -15,10 +15,10 @@ public class RazorTextDirectiveMapping : CSharpMappingBase
     {
     }
 
-    public override CSharpStatement GetSourceStatement()
+    public override CSharpStatement GetSourceStatement(bool? targetIsNullable = default)
     {
         var result = Mapping?.MappingExpression ?? throw new Exception($"Could not resolve source path. Mapping expected on '{Model.DisplayText ?? Model.Name}' [{Model.SpecializationType}]. Check that you have a MappingTypeResolver that addresses this scenario.");
-        foreach (var map in GetParsedExpressionMap(Mapping?.MappingExpression, path => GetSourcePathText(Mapping.GetSource(path).Path)))
+        foreach (var map in GetParsedExpressionMap(Mapping?.MappingExpression, path => GetSourcePathText(Mapping.GetSource(path).Path, true)))
         {
             result = result.Replace(map.Key, map.Value.Contains(' ') ? $"@({map.Value})" : $"@{map.Value}");
         }
@@ -30,7 +30,6 @@ public class RazorPropertyBindingMapping : CSharpMappingBase
 {
     public RazorPropertyBindingMapping(MappingModel model, ICSharpTemplate template) : base(model, template)
     {
-        ApplyNullConditionalOperators = false;
     }
 }
 
@@ -38,15 +37,14 @@ public class RazorEventBindingMapping : CSharpMappingBase
 {
     public RazorEventBindingMapping(MappingModel model, ICSharpTemplate template) : base(model, template)
     {
-        ApplyNullConditionalOperators = false;
     }
 
-    public override CSharpStatement GetSourceStatement()
+    public override CSharpStatement GetSourceStatement(bool? targetIsNullable = default)
     {
         var invocation = Mapping.SourceElement.IsEventEmitterModel()
-            ? new CSharpInvocationStatement(base.GetSourceStatement(), "InvokeAsync")
+            ? new CSharpInvocationStatement(base.GetSourceStatement(targetIsNullable), "InvokeAsync")
                 .WithoutSemicolon()
-            : new CSharpInvocationStatement(base.GetSourceStatement())
+            : new CSharpInvocationStatement(base.GetSourceStatement(targetIsNullable))
                 .WithoutSemicolon();
         foreach (var argumentMapping in Children)
         {

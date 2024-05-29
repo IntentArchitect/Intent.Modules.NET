@@ -25,7 +25,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
+        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is null)"), _componentTemplate.RazorFile);
         loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
         {
             loadingBar.AddAttribute("Color", "Color.Primary");
@@ -33,7 +33,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             loadingBar.AddAttribute("Class", "my-7");
         });
         parentNode.AddChildNode(loadingCode);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
+        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("MudTable", mudTable =>
         {
             var mappedEnd = _bindingManager.GetMappedEndFor(table);
@@ -108,8 +108,8 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 {
                     pagerContent.AddHtmlElement("MudPagination", pagination =>
                     {
-                        pagination.AddAttributeIfNotEmpty("Selected", _bindingManager.GetBinding(table, "e09c822e-26fa-435c-aabd-d2f4709b2cc4")?.ToString());
-                        pagination.AddAttributeIfNotEmpty("SelectedChanged", _bindingManager.GetBinding(table, "913e0abf-0bec-43ea-9286-eb70187c84ef")?.ToString());
+                        //pagination.AddAttributeIfNotEmpty("Selected", _bindingManager.GetBinding(table, "e09c822e-26fa-435c-aabd-d2f4709b2cc4")?.ToString());
+                        pagination.AddAttributeIfNotEmpty("SelectedChanged", _bindingManager.GetBinding(table, "913e0abf-0bec-43ea-9286-eb70187c84ef").ToLambda("value"));
                         pagination.AddAttributeIfNotEmpty("Count", _bindingManager.GetBinding(table, "d0c38d62-7399-4eb3-853b-e67902c6d4fc")?.ToString());
                         pagination.AddAttribute("Class", "pa-4");
                     });

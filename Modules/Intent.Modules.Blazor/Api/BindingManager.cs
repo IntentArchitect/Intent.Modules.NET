@@ -22,7 +22,7 @@ public class BindingManager
         return GetBinding(mappedEnd, razorNode).ToLambda();
     }
 
-    public CSharpStatement GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
+    public CSharpStatement GetBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
     {
         if (mappedEnd == null)
         {
@@ -39,7 +39,7 @@ public class BindingManager
             }
         }
 
-        return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd)?.ToString();
+        return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd, isTargetNullable)?.ToString();
     }
 
     public CSharpStatement GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null)
@@ -58,9 +58,9 @@ public class BindingManager
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && (x.TargetPath.Last().Name == mappableNameOrId || x.TargetPath.Last().Id == mappableNameOrId));
     }
 
-    public CSharpStatement GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null)
+    public CSharpStatement GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
     {
         var mappedEnd = GetMappedEndFor(model);
-        return GetBinding(mappedEnd, razorNode);
+        return GetBinding(mappedEnd, razorNode, isTargetNullable);
     }
 }
