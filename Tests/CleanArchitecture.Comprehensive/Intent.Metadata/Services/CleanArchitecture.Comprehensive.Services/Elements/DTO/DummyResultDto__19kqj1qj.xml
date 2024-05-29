@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6ecfef12-e4aa-45d5-bc29-c94f91b6d269" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>DummyResultDto</name>
+  <display>DummyResultDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e564ffb3-ca39-420b-a9c9-959be5542ecf</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

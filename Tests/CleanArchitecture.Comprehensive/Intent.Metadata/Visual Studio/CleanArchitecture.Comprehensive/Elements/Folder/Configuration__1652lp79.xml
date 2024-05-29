@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9f9e5811-85a2-4276-96d0-d8e5aa18eec0" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>23156ea2-5268-45cf-a247-a74d47935f62</parentFolderId>
+  <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+  <packageName>CleanArchitecture.Comprehensive</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="bce90fab-cf98-4689-a585-668c8f94515a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8e5f8b53-67fd-43ac-993c-46768860b500" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Cors.CorsConfiguration</name>
+      <display>Intent.AspNetCore.Cors.CorsConfiguration</display>
+      <externalReference>Intent.AspNetCore.Cors</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f9e2d7e8-736c-4f8b-8b2e-fe38b0361370" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</name>
+      <display>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</display>
+      <externalReference>Intent.AspNetCore.HealthChecks</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3743b45d-f1b4-43dc-8d3e-ed668b54d260" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5cddd0b3-178a-4e05-80b6-1ea8a9f587fa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="67bdb499-8c3f-4a3e-863e-b8a463aa4d1f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e62510b2-efad-42f4-b0c0-6984417122e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

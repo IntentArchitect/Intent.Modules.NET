@@ -11,7 +11,6 @@
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
-    <application id="83f258e8-1f5c-4785-9c9b-c679a771126f" name="CleanArchitecture.TestApplication" relativePath="CleanArchitecture.TestApplication/CleanArchitecture.TestApplication.application.config" />
     <application id="91f282fa-515e-4580-b0ea-4c849d546cdc" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
     <application id="794893b1-0854-4d56-ab58-82e53b116290" name="EntityFrameworkCore.CosmosDb.TestApplication" relativePath="EntityFrameworkCore.CosmosDb.TestApplication/EntityFrameworkCore.CosmosDb.TestApplication.application.config" />
     <application id="8ebf5599-97b8-49b0-9b9a-7ade23c96882" name="Finbuckle.SeparateDatabase.TestApplication" relativePath="Finbuckle.SeparateDatabase.TestApplication/Finbuckle.SeparateDatabase.TestApplication.application.config" />
@@ -116,5 +115,6 @@
     <application id="57cbc783-32a2-4c58-ae6d-13990cf7482c" name="ValueObjects.Record" relativePath="ValueObjects.Record/ValueObjects.Record.application.config" />
     <application id="d4aae382-a4dd-4163-8a36-0d70e2881262" name="AdvancedMappingCrud.RichDomain.ServiceModel.Tests" relativePath="AdvancedMappingCrud.RichDomain.ServiceModel.Tests/AdvancedMappingCrud.RichDomain.ServiceModel.Tests.application.config" />
     <application id="535787bb-de12-40cc-bb4c-258d8c1d19b9" name="TrainingModel.Tests" relativePath="TrainingModel.Tests/TrainingModel.Tests.application.config" />
+    <application id="83f258e8-1f5c-4785-9c9b-c679a771126f" name="CleanArchitecture.Comprehensive" relativePath="CleanArchitecture.Comprehensive/CleanArchitecture.Comprehensive.application.config" />
   </applications>
 </solution>

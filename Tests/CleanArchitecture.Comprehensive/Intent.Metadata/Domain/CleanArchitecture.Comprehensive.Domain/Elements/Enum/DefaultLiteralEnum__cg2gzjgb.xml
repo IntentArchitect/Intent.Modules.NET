@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0181bba5-836b-45c3-8d0e-fe0de6f4810e" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>DefaultLiteralEnum</name>
+  <display>DefaultLiteralEnum</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4d51e908-794f-4613-b541-00b92026d07c</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="cd1ea02f-fd67-48fb-b4bb-7ecaee4ed754" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>DefaultValue</name>
+      <display>DefaultValue = 0</display>
+      <isAbstract>false</isAbstract>
+      <value>0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4e8e6492-1b91-4608-85fd-84a212717851" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>SecondaryValue</name>
+      <display>SecondaryValue = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="403bf280-c439-4c75-9527-018617e925aa" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TertiaryValue</name>
+      <display>TertiaryValue = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0181bba5-836b-45c3-8d0e-fe0de6f4810e</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

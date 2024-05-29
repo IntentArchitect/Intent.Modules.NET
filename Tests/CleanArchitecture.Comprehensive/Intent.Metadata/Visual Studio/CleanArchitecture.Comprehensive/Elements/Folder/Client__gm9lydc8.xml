@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="76b794d3-4350-458f-aa25-ef4fb223a588" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Client</name>
+  <display>Client</display>
+  <externalReference>5390c64a-b598-4e25-ba4f-c881b4e93140</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4db14e1a-8b17-4990-bfef-8951cf818e01</parentFolderId>
+  <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+  <packageName>CleanArchitecture.Comprehensive</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="814d8866-e0b6-45bb-9dbf-21101d866007" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.WebAssembly.ProgramTemplate</name>
+      <display>Intent.Blazor.WebAssembly.ProgramTemplate</display>
+      <externalReference>Intent.Blazor.WebAssembly</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>76b794d3-4350-458f-aa25-ef4fb223a588</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="91e347ac-7d5e-4e7c-9adc-a9eb1ce3f941" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Blazor.Client</name>
+      <display>Blazor.Client</display>
+      <externalReference>fac884ab-46cc-4d7b-8db9-f165a949ed3d</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>76b794d3-4350-458f-aa25-ef4fb223a588</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

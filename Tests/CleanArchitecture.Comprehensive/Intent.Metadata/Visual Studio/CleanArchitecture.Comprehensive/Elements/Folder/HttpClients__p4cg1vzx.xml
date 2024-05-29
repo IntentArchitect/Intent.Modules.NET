@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5112de09-b5eb-4c2b-932c-c6ec1313abac" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>HttpClients</name>
+  <display>HttpClients</display>
+  <externalReference>df40c737-bb70-4e6e-85d4-5ef2d68b2c28</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4db14e1a-8b17-4990-bfef-8951cf818e01</parentFolderId>
+  <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+  <packageName>CleanArchitecture.Comprehensive</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="4b758ae7-0d09-445d-8d58-636ea9567edc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.HttpClientConfiguration</name>
+      <display>Intent.Blazor.HttpClients.HttpClientConfiguration</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f0e099b0-31c6-4fe5-806e-b44d6f099e2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.ServiceContract</name>
+      <display>Intent.Blazor.HttpClients.ServiceContract</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6a11451a-bcae-4a08-a7a7-d2c913964b0b" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Blazor.HttpClient</name>
+      <display>Blazor.HttpClient</display>
+      <externalReference>536aa766-9764-4c16-81ae-f5fd176755b2</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5112de09-b5eb-4c2b-932c-c6ec1313abac</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

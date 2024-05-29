@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="64005771-f36f-4127-b15c-e2267c4bd933" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>CleanArchitecture.TestApplication</name>
+  <display>CleanArchitecture.TestApplication</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8bd5ab71-0f22-4a02-b5b3-ca4d4217102d</parentFolderId>
+  <packageId>8bd5ab71-0f22-4a02-b5b3-ca4d4217102d</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Eventing</packageName>
+  <diagram>
+    <targetPackageId>c07640e3-d918-45e2-b43d-93d04c45400c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
