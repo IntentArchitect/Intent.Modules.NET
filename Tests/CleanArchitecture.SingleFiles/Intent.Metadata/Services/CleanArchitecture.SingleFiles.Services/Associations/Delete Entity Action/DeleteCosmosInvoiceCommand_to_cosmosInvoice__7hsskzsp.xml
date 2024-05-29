@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ba93a86c-7fb1-4141-a192-a2d17bcf5095">
+  <sourceEnd id="69e9c07f-3404-40d5-8eef-9da830d94e5a" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : AdvancedMappingCosmosInvoices.DeleteCosmosInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="9bcfcfa9-ce1c-415f-bdc7-134094e21f4f">
+      <typeId>bebeaf29-7e8b-4180-a336-48fa76a1bc7d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ba93a86c-7fb1-4141-a192-a2d17bcf5095" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>cosmosInvoice</name>
+    <display>[delete] cosmosInvoice: CosmosInvoice</display>
+    <order>1</order>
+    <typeReference id="67188bd6-3f2c-48fe-9ddc-a2daeada7356">
+      <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="bebeaf29-7e8b-4180-a336-48fa76a1bc7d" location="[CleanArchitecture.SingleFiles].[Services].[DeleteCosmosInvoiceCommand]" />
+        <target elementId="6788a348-5d20-4831-93c8-5872106be0a8" location="[CleanArchitecture.SingleFiles].[Services].[CosmosInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" />
+              <target id="09fd4717-9361-4ff2-ad3f-08e0a6f7f816" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="bebeaf29-7e8b-4180-a336-48fa76a1bc7d" name="DeleteCosmosInvoiceCommand" type="element" specialization="Command" />
+                  <target id="d2badc2a-fca0-4715-9ed4-37644fa6a351" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

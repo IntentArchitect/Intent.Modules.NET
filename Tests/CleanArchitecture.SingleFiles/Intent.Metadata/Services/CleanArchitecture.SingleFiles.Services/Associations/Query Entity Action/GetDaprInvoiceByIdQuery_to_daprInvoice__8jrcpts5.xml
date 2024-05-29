@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bbb5927b-a9c2-455c-a2a5-223c47a9de7d">
+  <sourceEnd id="b4abe9d7-422d-4bc0-8b76-9057d284707b" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDaprInvoiceByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a0b4cafc-8a5c-46a4-8f6d-ccb7029aaaf4">
+      <typeId>f316d295-9de2-49ce-bb2b-cf3502af6eee</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bbb5927b-a9c2-455c-a2a5-223c47a9de7d" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>daprInvoice</name>
+    <display>[query] daprInvoice: DaprInvoice</display>
+    <order>1</order>
+    <typeReference id="60f4c730-485c-4540-8e57-f68c0c940146">
+      <typeId>47198a38-4f68-4a44-852b-e3b12186852a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.DaprState</typePackageName>
+      <typePackageId>023085ed-1b46-448a-b8ba-f9430708cc10</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f316d295-9de2-49ce-bb2b-cf3502af6eee" location="[CleanArchitecture.SingleFiles].[Services].[GetDaprInvoiceByIdQuery]" />
+        <target elementId="47198a38-4f68-4a44-852b-e3b12186852a" location="[CleanArchitecture.SingleFiles].[Services].[DaprInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" />
+              <target id="0f5e8c4f-9eee-426e-9a1a-712d990ef027" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f316d295-9de2-49ce-bb2b-cf3502af6eee" name="GetDaprInvoiceByIdQuery" type="element" specialization="Query" />
+                  <target id="d5b0dcc4-5a93-4c76-b578-e9a9a0109bf3" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

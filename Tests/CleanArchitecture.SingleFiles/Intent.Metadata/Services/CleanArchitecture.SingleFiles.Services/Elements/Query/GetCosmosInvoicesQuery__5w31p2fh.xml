@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="216efe54-d9d4-44c5-b6de-36f5a50c6283" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCosmosInvoicesQuery</name>
+  <display>GetCosmosInvoicesQuery: CosmosInvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="22b43a40-6b2e-4d06-adde-553683dab203">
+    <typeId>c05d0317-70b3-404f-8e8f-eaa78dc1193e</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+    <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>6cb5587f-a3e5-46b5-9489-158e0060bc74</parentFolderId>
+  <packageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</packageId>
+  <packageName>CleanArchitecture.SingleFiles.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/advanced/cosmos-invoice" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="CosmosInvoices" />
+  </metadata>
+  <childElements />
+</class>

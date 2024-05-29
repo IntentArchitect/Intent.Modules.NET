@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="09cb75ac-2226-4fd1-a8d7-679043d70900" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetDaprInvoicesQuery</name>
+  <display>GetDaprInvoicesQuery: DaprInvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="433a084f-9e82-4dcb-aee6-5fffb0102d81">
+    <typeId>d5ff2369-8831-4026-bb84-839d5dac8ae3</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+    <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9d45a6c2-45fa-4768-aeb1-45f56a8265d8</parentFolderId>
+  <packageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</packageId>
+  <packageName>CleanArchitecture.SingleFiles.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/advanced-mapping-dapr-invoices" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="DaprInvoices" />
+  </metadata>
+  <childElements />
+</class>

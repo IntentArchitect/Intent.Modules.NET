@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5e452a5d-5d4e-48c4-855f-c6776128b9c7">
+  <sourceEnd id="12f84200-5666-403a-88e6-2fa227b06101" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : AdvancedMappingMongoInvoices.DeleteMongoInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="343b428d-e90a-4191-9c60-8c8eb5670d20">
+      <typeId>1f573b52-d396-483c-b145-7b1315f79d8c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5e452a5d-5d4e-48c4-855f-c6776128b9c7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>mongoInvoice</name>
+    <display>[delete] mongoInvoice: MongoInvoice</display>
+    <order>1</order>
+    <typeReference id="8dd482da-4fa5-4391-a258-54bbbfb12890">
+      <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Mongo</typePackageName>
+      <typePackageId>ae010739-d7b2-4951-9c20-b50c0900adb8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1f573b52-d396-483c-b145-7b1315f79d8c" location="[CleanArchitecture.SingleFiles].[Services].[DeleteMongoInvoiceCommand]" />
+        <target elementId="ce04f551-7e6b-4d47-9eba-48822fb12b65" location="[CleanArchitecture.SingleFiles].[Services].[MongoInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
+              <target id="7725caa0-920a-42f0-8530-341491483a2e" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1f573b52-d396-483c-b145-7b1315f79d8c" name="DeleteMongoInvoiceCommand" type="element" specialization="Command" />
+                  <target id="d51d07c0-99c2-4ef5-b11c-dc5ddcf37de4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

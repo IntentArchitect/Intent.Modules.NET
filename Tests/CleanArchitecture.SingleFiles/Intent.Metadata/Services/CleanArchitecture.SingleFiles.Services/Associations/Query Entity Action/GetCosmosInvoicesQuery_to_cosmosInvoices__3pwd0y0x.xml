@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="29199f35-48df-4a3b-be85-4c1be1e2e794">
+  <sourceEnd id="b494d65b-2eca-46ae-89c8-2390df85f97d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCosmosInvoicesQuery</display>
+    <order>0</order>
+    <typeReference id="27642852-2ec4-430c-8359-4720268f8863">
+      <typeId>216efe54-d9d4-44c5-b6de-36f5a50c6283</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="29199f35-48df-4a3b-be85-4c1be1e2e794" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>cosmosInvoices</name>
+    <display>[query] cosmosInvoices: CosmosInvoice[*]</display>
+    <order>0</order>
+    <typeReference id="dc79b5db-793a-4961-94e3-d0c0f33ebd53">
+      <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="216efe54-d9d4-44c5-b6de-36f5a50c6283" location="[CleanArchitecture.SingleFiles].[Services].[GetCosmosInvoicesQuery]" />
+        <target elementId="6788a348-5d20-4831-93c8-5872106be0a8" location="[CleanArchitecture.SingleFiles].[Services].[CosmosInvoice]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

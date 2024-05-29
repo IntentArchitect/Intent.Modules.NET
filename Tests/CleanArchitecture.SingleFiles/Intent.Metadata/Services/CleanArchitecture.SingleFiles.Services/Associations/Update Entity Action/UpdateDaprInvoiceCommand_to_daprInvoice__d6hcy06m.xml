@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b46fa9b0-7cd1-4e42-8d8d-7eb12732420b">
+  <sourceEnd id="e9127b62-7f17-49ce-b4b6-e8e8eddc30b9" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AdvancedMappingDaprInvoices.UpdateDaprInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="81b68e4b-9d54-452d-a2a9-96cd5100c49b">
+      <typeId>f715c495-8e59-42c0-84f3-800b4a2ebf4b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b46fa9b0-7cd1-4e42-8d8d-7eb12732420b" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>daprInvoice</name>
+    <display>[update] daprInvoice: DaprInvoice</display>
+    <order>2</order>
+    <typeReference id="1bd46253-089b-4cce-803e-3b3a991b0caf">
+      <typeId>47198a38-4f68-4a44-852b-e3b12186852a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.DaprState</typePackageName>
+      <typePackageId>023085ed-1b46-448a-b8ba-f9430708cc10</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f715c495-8e59-42c0-84f3-800b4a2ebf4b" location="[CleanArchitecture.SingleFiles].[Services].[UpdateDaprInvoiceCommand]" />
+        <target elementId="47198a38-4f68-4a44-852b-e3b12186852a" location="[CleanArchitecture.SingleFiles].[Services].[DaprInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" />
+              <target id="0f5e8c4f-9eee-426e-9a1a-712d990ef027" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f715c495-8e59-42c0-84f3-800b4a2ebf4b" name="UpdateDaprInvoiceCommand" type="element" specialization="Command" />
+                  <target id="7dae35d5-1e6e-405a-91de-6343fbf1af55" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f715c495-8e59-42c0-84f3-800b4a2ebf4b" location="[CleanArchitecture.SingleFiles].[Services].[UpdateDaprInvoiceCommand]" />
+        <target elementId="47198a38-4f68-4a44-852b-e3b12186852a" location="[CleanArchitecture.SingleFiles].[Services].[DaprInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" />
+              <target id="be79cf2f-eeca-4e81-99b6-39f926da7610" name="Description" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f715c495-8e59-42c0-84f3-800b4a2ebf4b" name="UpdateDaprInvoiceCommand" type="element" specialization="Command" />
+                  <target id="0600da50-11e0-475d-98fa-cd5e447f720d" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
