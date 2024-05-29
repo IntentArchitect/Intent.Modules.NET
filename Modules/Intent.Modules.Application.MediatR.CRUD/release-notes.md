@@ -4,6 +4,7 @@
 - Fixed: Generating code for advanced mappings where there is a nested target DTO will now properly instantiate that DTO before mapping values.
 - Fixed: Service Call Operations can also now invoke `Operations` on a `Class`.
 - Fixed: Service dependency substitutions can also occur on parameters of a Service Call Operation.
+- Fixed: Command/Query handler implementations failed when the consolidated option was enabled.
 
 ### Version 6.0.9
 

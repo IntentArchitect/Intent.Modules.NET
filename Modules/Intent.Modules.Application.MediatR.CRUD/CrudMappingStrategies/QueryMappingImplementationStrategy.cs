@@ -34,9 +34,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
         public bool IsMatch()
         {
             return _model.HasDomainInteractions();
-
-            //return _model.QueryEntityActions().Any(x => x.Mappings.GetQueryEntityMapping() != null)
-            //    || _model.CallServiceOperationActions().Any(x => x.Mappings.Any());
         }
 
         public void ApplyStrategy()
@@ -57,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.AddMetadata("mapping-manager", csharpMapping);
 

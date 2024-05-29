@@ -39,10 +39,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
-            var @class = _template.CSharpFile.Classes.First();
+            var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+            
             var csharpMapping = new CSharpClassMappingManager(_template);
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
