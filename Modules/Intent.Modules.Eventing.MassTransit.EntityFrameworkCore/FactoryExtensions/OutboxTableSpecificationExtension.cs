@@ -47,6 +47,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
             {
                 var @class = file.Classes.First();
                 var onModelCreatingMethod = @class.Methods.Single(x => x.Name.Equals("OnModelCreating"));
+                file.AddUsing("MassTransit");
                 onModelCreatingMethod.AddStatement("modelBuilder.AddInboxStateEntity();", stmt => stmt.SeparatedFromPrevious());
                 onModelCreatingMethod.AddStatement("modelBuilder.AddOutboxMessageEntity();");
                 onModelCreatingMethod.AddStatement("modelBuilder.AddOutboxStateEntity();");

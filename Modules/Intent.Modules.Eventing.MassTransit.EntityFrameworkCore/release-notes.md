@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Fixed: Missing using directive for Outbox pattern in EF DbContext.
+
 ### Version 5.2.0
 
 - Improvement: Updates based on changes made in `Intent.Eventing.MassTransit`.
