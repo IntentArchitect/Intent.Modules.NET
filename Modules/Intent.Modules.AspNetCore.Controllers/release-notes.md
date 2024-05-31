@@ -1,3 +1,7 @@
+### Version 6.0.7
+
+- Improvement: Application Client Dto type using directives also to be resolved now in Service implementations.
+
 ### Version 6.0.6
 
 - Fixed: `ExceptionFilter` will now return `UnauthorizedResult` when `UnauthorizedAccessException` is caught.

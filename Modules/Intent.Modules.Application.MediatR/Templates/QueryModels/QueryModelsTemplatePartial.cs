@@ -33,10 +33,10 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             AddNugetDependency(NuGetPackages.MediatR);
             
             FulfillsRole("Application.Contract.Query");
-            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
