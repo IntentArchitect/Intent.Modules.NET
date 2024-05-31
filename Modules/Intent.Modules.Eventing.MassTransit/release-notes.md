@@ -1,3 +1,7 @@
+### Version 6.2.1
+
+- Fixed: Updated important dependency version.
+
 ### Version 6.2.0
 
 - Improvement: Concurrent Message Limit setting was introduced for Azure Service Bus and RabbitMQ.
