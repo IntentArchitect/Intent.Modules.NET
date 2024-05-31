@@ -32,8 +32,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
+            
             SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")

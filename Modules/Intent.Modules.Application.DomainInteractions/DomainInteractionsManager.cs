@@ -371,7 +371,7 @@ public class DomainInteractionsManager
 			var entity = entityDetails.ElementModel.AsClassModel();
 			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
 		}
-		else if (TrackedEntities.Any() && returnType.Element.IsTypeDefinitionModel() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
+		else if (TrackedEntities.Any() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.ElementModel.Id);
 			statements.Add($"return {entityDetails.VariableName};");

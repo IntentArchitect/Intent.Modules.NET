@@ -1,3 +1,7 @@
+### Version 4.5.4
+
+- Improvement: Application Client Dto type using directives also to be resolved now in Service implementations.
+
 ### Version 4.5.3
 
 - Fixed: Service Operations didn't generate generic type parameters.

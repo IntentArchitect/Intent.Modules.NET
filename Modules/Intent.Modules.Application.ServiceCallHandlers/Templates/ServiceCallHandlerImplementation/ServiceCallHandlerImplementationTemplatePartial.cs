@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,13 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
         {
             SetDefaultTypeCollectionFormat("List<{0}>");
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             
             FulfillsRole("Application.Implementation.Custom");
 

@@ -44,6 +44,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             template.AddTypeSource(TemplateRoles.Domain.Enum);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
             template.CSharpFile
                 .AddUsing("System")
