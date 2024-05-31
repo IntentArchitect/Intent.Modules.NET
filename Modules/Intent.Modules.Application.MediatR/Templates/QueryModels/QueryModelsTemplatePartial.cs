@@ -31,11 +31,15 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
+            
+            FulfillsRole("Application.Contract.Query");
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
-            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            FulfillsRole("Application.Contract.Query");
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
             CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}")
                 .AddUsing("MediatR")
