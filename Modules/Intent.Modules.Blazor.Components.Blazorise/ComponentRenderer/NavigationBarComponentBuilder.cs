@@ -32,26 +32,26 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             htmlElement.AddAttribute("Background", "Background.Light");
         }
 
-        if (navigationModel.BrandLogo != null)
-        {
-            htmlElement.AddHtmlElement("BarBrand", barBrand =>
-            {
-                foreach (var child in navigationModel.BrandLogo.InternalElement.ChildElements)
-                {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, barBrand);
-                }
+        //if (navigationModel.BrandLogo != null)
+        //{
+        //    htmlElement.AddHtmlElement("BarBrand", barBrand =>
+        //    {
+        //        foreach (var child in navigationModel.BrandLogo.InternalElement.ChildElements)
+        //        {
+        //            _componentResolver.ResolveFor(child).BuildComponent(child, barBrand);
+        //        }
 
-                barBrand.WithText(navigationModel.BrandLogo.Value);
-            });
-        }
+        //        barBrand.WithText(navigationModel.BrandLogo.Value);
+        //    });
+        //}
 
-        if (navigationModel.NavigationItems.Any())
+        if (navigationModel.MenuItems.Any())
         {
             htmlElement.AddHtmlElement("BarMenu", barMenu =>
             {
                 barMenu.AddHtmlElement("BarStart", barStart =>
                 {
-                    foreach (var navigationItemModel in navigationModel.NavigationItems)
+                    foreach (var navigationItemModel in navigationModel.MenuItems)
                     {
                         barStart.AddHtmlElement("BarItem", barItem =>
                         {
@@ -86,7 +86,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                                     barDropdown.AddHtmlElement("BarDropdownToggle", barDropdownToggle => { barDropdownToggle.WithText(navigationItemModel.Value ?? navigationItemModel.Name); });
                                     barDropdown.AddHtmlElement("BarDropdownMenu", barDropdownMenu =>
                                     {
-                                        foreach (var dropdownItemModel in navigationModel.NavigationItems)
+                                        foreach (var dropdownItemModel in navigationModel.MenuItems)
                                         {
                                             barDropdownMenu.AddHtmlElement("BarDropdownItem", barDropdownItem =>
                                             {

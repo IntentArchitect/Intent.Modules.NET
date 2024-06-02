@@ -31,8 +31,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
             }
             var htmlElement = new HtmlElement("MudText", _componentTemplate.RazorFile)
                 .WithText(textValue)
-                .AddAttribute("Typo", $"Typo.h{size}")
-                .AddAttribute("GutterBottom", "true");
+                .AddAttribute("Typo", $"Typo.h{size}");
             parentNode.AddChildNode(htmlElement);
         }
         else

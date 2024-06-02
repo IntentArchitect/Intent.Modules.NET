@@ -11,27 +11,38 @@
   <packageName>${application.name}.UI</packageName>
   <stereotypes />
   <mappings>
-    <mapping type="Layout Binding" typeId="98598d41-6a2e-4c33-bf62-cb99a4bb18fd">
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
       <source applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a562c507-f367-435c-8c93-a236dd3f7070" location="[Blazor.WebAssembly.Metadata].[User Interface].[MainLayout]" />
       <target applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a562c507-f367-435c-8c93-a236dd3f7070" location="[Blazor.WebAssembly.Metadata].[User Interface].[MainLayout]" />
       <mappedEnds>
         <mappedEnd>
-          <expression>{NavigateTo}</expression>
+          <expression>{NavigateToHome}</expression>
           <path>
             <target id="a562c507-f367-435c-8c93-a236dd3f7070" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
             <target id="3f20a5fb-d577-4f17-a04e-a77ad3f1e9ce" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
-            <target id="bbb814d0-6892-40a2-8539-d0de0adb98d0" name="Navigation Bar" type="element" specialization="Navigation Bar" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
-            <target id="39b249f7-ae57-433e-9db2-08b1f5197213" name="Home" type="element" specialization="Navigation Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="bbb814d0-6892-40a2-8539-d0de0adb98d0" name="Navigation Bar" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="39b249f7-ae57-433e-9db2-08b1f5197213" name="Logo" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
             <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
           </path>
           <sources>
-            <source identifier="NavigateTo" mappingType="Invokable Mapping" mappingTypeId="313a3da8-fd70-4129-8456-0b8f6160ec06">
+            <source identifier="NavigateToHome" mappingType="Invokable Mapping" mappingTypeId="e4f0c63b-0f00-42bd-a703-00adf44f3364">
               <path>
                 <target id="a562c507-f367-435c-8c93-a236dd3f7070" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
-                <target id="19f142a9-239c-4971-9728-1833092ad7e9" name="NavigateTo" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+                <target id="19f142a9-239c-4971-9728-1833092ad7e9" name="NavigateToHome" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
               </path>
             </source>
           </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>#####Application</expression>
+          <path>
+            <target id="a562c507-f367-435c-8c93-a236dd3f7070" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="3f20a5fb-d577-4f17-a04e-a77ad3f1e9ce" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="bbb814d0-6892-40a2-8539-d0de0adb98d0" name="Navigation Bar" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="39b249f7-ae57-433e-9db2-08b1f5197213" name="Logo" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="985fd193-f79b-4c61-b91e-847471629772" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
         </mappedEnd>
       </mappedEnds>
     </mapping>
@@ -42,7 +53,7 @@
       <name>Header</name>
       <display>Header</display>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a562c507-f367-435c-8c93-a236dd3f7070</parentFolderId>
@@ -51,7 +62,7 @@
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="bbb814d0-6892-40a2-8539-d0de0adb98d0" type="Navigation Bar" typeId="d7282bf2-1626-4b8b-9446-1d530527db06">
+        <childElement id="bbb814d0-6892-40a2-8539-d0de0adb98d0" type="Navigation Menu" typeId="d7282bf2-1626-4b8b-9446-1d530527db06">
           <name>Navigation Bar</name>
           <display>Navigation Bar</display>
           <isAbstract>false</isAbstract>
@@ -64,11 +75,12 @@
           <stereotypes />
           <metadata />
           <childElements>
-            <childElement id="1bc6d5d7-d57b-4097-bebb-448aab991e78" type="Navigation Brand Logo" typeId="11785c84-a457-497c-9c7a-79c43772aa70">
-              <name>Brand</name>
-              <display>Brand</display>
+            <childElement id="39b249f7-ae57-433e-9db2-08b1f5197213" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Logo</name>
+              <display>Logo</display>
               <isAbstract>false</isAbstract>
-              <sort-children>by-type-then-by-name</sort-children>
+              <value />
+              <sort-children>manually</sort-children>
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>bbb814d0-6892-40a2-8539-d0de0adb98d0</parentFolderId>
@@ -79,12 +91,12 @@
               <childElements>
                 <childElement id="985fd193-f79b-4c61-b91e-847471629772" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
                   <name>Text</name>
-                  <display>Text</display>
+                  <display>Text = #####Application</display>
                   <isAbstract>false</isAbstract>
                   <value>#####Application</value>
                   <genericTypes />
                   <isMapped>false</isMapped>
-                  <parentFolderId>1bc6d5d7-d57b-4097-bebb-448aab991e78</parentFolderId>
+                  <parentFolderId>39b249f7-ae57-433e-9db2-08b1f5197213</parentFolderId>
                   <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
                   <packageName>${application.name}.UI</packageName>
                   <stereotypes />
@@ -92,20 +104,6 @@
                   <childElements />
                 </childElement>
               </childElements>
-            </childElement>
-            <childElement id="39b249f7-ae57-433e-9db2-08b1f5197213" type="Navigation Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
-              <name>Home</name>
-              <display>Home</display>
-              <isAbstract>false</isAbstract>
-              <value />
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>bbb814d0-6892-40a2-8539-d0de0adb98d0</parentFolderId>
-              <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
-              <packageName>${application.name}.UI</packageName>
-              <stereotypes />
-              <metadata />
-              <childElements />
             </childElement>
           </childElements>
         </childElement>
@@ -115,6 +113,7 @@
       <name>Sider</name>
       <display>Sider</display>
       <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a562c507-f367-435c-8c93-a236dd3f7070</parentFolderId>
@@ -122,7 +121,62 @@
       <packageName>${application.name}.UI</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="0bf05652-a86e-47f4-85e5-a5f5af293171" type="Navigation Menu" typeId="d7282bf2-1626-4b8b-9446-1d530527db06">
+          <name>Navigation Menu</name>
+          <display>Navigation Menu</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>by-type-then-manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1cccec0c-8e1d-489b-a74c-1ec02d2b746e</parentFolderId>
+          <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+          <packageName>${application.name}.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="0796d1f5-f58b-4921-962a-f109a4babe2b" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Menu Option 1</name>
+              <display>Menu Option 1</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>0bf05652-a86e-47f4-85e5-a5f5af293171</parentFolderId>
+              <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+              <packageName>${application.name}.UI</packageName>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="c1c5052f-d655-4c00-9c1b-90fe7b674014" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Menu Option 2</name>
+              <display>Menu Option 2</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>0bf05652-a86e-47f4-85e5-a5f5af293171</parentFolderId>
+              <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+              <packageName>${application.name}.UI</packageName>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="e82330e5-f92e-4501-946e-ca4a1dc86a00" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Menu Option 3</name>
+              <display>Menu Option 3</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>0bf05652-a86e-47f4-85e5-a5f5af293171</parentFolderId>
+              <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+              <packageName>${application.name}.UI</packageName>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="31ad07d5-873d-4eac-b7a0-50caa709acd2" type="Layout Body" typeId="11636699-8bad-4693-8c15-8141bd66d04f">
       <name>Body</name>

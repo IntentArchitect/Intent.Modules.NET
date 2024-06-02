@@ -25,14 +25,6 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is null)"), _componentTemplate.RazorFile);
-        loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
-        {
-            loadingBar.AddAttribute("Color", "Color.Primary");
-            loadingBar.AddAttribute("Indeterminate", "true");
-            loadingBar.AddAttribute("Class", "my-7");
-        });
-        parentNode.AddChildNode(loadingCode);
         var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("MudTable", mudTable =>
         {

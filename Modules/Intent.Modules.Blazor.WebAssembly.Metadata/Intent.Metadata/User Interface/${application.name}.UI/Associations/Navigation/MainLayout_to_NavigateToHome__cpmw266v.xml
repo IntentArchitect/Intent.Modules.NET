@@ -19,8 +19,8 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="19f142a9-239c-4971-9728-1833092ad7e9" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
-    <name>NavigateTo</name>
-    <display>NavigateTo: Home</display>
+    <name>NavigateToHome</name>
+    <display>navigate: Home</display>
     <order>3</order>
     <typeReference id="647acfbf-8feb-458b-abf5-a66188c62576">
       <typeId>fb620d93-23a7-4a7c-b7a4-a6e45839d64d</typeId>

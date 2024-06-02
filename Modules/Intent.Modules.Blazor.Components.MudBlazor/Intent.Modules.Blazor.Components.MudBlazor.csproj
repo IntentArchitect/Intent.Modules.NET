@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
+    <PackageReference Include="Intent.Modules.Modelers.UI.Core" Version="1.0.0-alpha.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
   </ItemGroup>
 
 </Project>

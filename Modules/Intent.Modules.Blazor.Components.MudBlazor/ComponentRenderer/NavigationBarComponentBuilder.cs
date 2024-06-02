@@ -25,17 +25,9 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
         var navigationModel = new NavigationMenuModel(component);
         var htmlElement = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
 
-        if (navigationModel.BrandLogo != null)
+        if (navigationModel.MenuItems.Any())
         {
-            foreach (var child in navigationModel.BrandLogo.InternalElement.ChildElements)
-            {
-                _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
-            }
-        }
-
-        if (navigationModel.NavigationItems.Any())
-        {
-            foreach (var navigationItemModel in navigationModel.NavigationItems)
+            foreach (var navigationItemModel in navigationModel.MenuItems)
             {
                 htmlElement.AddHtmlElement("MudNavLink", navLink =>
                 {

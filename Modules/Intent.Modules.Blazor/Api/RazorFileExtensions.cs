@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -103,36 +104,72 @@ public static class RazorFileExtensions
 
                     var mappingManager = template.CreateMappingManager();
                     mappingManager.SetFromReplacement(operation, null);
-                    foreach (var serviceCall in operation.CallServiceOperationActionTargets())
+
+                    if (operation.CallServiceOperationActionTargets().Any())
                     {
+                        var isLoadingProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);
+                        var errorMessageProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2e482e27-b176-43cf-b80a-33123036142a", isTargetNullable: false);
                         method.Async();
-                        var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                        template.RazorFile.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
-                        var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
-                        if (serviceCall.GetMapResponseMapping() != null)
+                        method.AddTryBlock(tryBlock =>
                         {
-                            if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
+                            if (isLoadingProperty != null)
                             {
-                                method.AddStatement(new CSharpAssignmentStatement(
-                                    lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
-                                    rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)).WithSemicolon());
+                                tryBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "true"), s => s.WithSemicolon());
                             }
-                            else
+                            if (errorMessageProperty != null)
                             {
-                                method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
-                                var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                foreach (var statement in response)
+                                tryBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "null"), s => s.WithSemicolon());
+                            }
+
+                            foreach (var serviceCall in operation.CallServiceOperationActionTargets())
+                            {
+                                var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
+                                template.RazorFile.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                                var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
+                                if (serviceCall.GetMapResponseMapping() != null)
                                 {
-                                    statement.WithSemicolon();
+                                    if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
+                                    {
+                                        tryBlock.AddStatement(new CSharpAssignmentStatement(
+                                            lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
+                                            rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                    }
+                                    else
+                                    {
+                                        tryBlock.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
+                                        mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
+                                        var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
+                                        foreach (var statement in response)
+                                        {
+                                            statement.WithSemicolon();
+                                        }
+
+                                        tryBlock.AddStatements(response);
+                                    }
                                 }
-                                method.AddStatements(response);
+                                else
+                                {
+                                    tryBlock.AddStatement(new CSharpAccessMemberStatement($"await {serviceName}", invocation));
+                                }
                             }
-                        }
-                        else
+                        });
+
+                        method.AddCatchBlock(catchBlock =>
                         {
-                            method.AddStatement(new CSharpAccessMemberStatement($"await {serviceName}", invocation));
-                        }
+                            catchBlock.WithExceptionType("Exception").WithParameterName("e");
+                            if (errorMessageProperty != null)
+                            {
+                                catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
+                            }
+                        });
+                        method.AddFinallyBlock(finallyBlock =>
+                        {
+                            if (isLoadingProperty != null)
+                            {
+                                finallyBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "false"), s => s.WithSemicolon());
+                            }
+                        });
+
                     }
 
                     foreach (var navigationModel in operation.NavigateToComponents())
@@ -146,7 +183,7 @@ public static class RazorFileExtensions
                             foreach (var mappedEnd in mapping.MappedEnds)
                             {
                                 var routeParameter = mappedEnd.TargetElement;
-                                
+
                                 if (route.HasParameterExpression(routeParameter.Name))
                                 {
                                     route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd)}}}");

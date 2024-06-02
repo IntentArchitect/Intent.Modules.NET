@@ -23,6 +23,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
+            DefaultRazorComponentBuilderProvider.Register(ComponentViewModel.SpecializationTypeId, (provider, componentTemplate) => new ComponentViewBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(FormModel.SpecializationTypeId, (provider, componentTemplate) => new FormComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(TextInputModel.SpecializationTypeId, (provider, componentTemplate) => new TextInputComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(ButtonModel.SpecializationTypeId, (provider, componentTemplate) => new ButtonComponentBuilder(provider, componentTemplate));

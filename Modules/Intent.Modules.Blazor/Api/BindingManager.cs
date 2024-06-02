@@ -63,4 +63,10 @@ public class BindingManager
         var mappedEnd = GetMappedEndFor(model);
         return GetBinding(mappedEnd, razorNode, isTargetNullable);
     }
+
+    public CSharpStatement GetElementBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
+    {
+        var mappedEnd = GetMappedEndFor(model, mappableNameOrId);
+        return GetBinding(mappedEnd, razorNode, isTargetNullable);
+    }
 }

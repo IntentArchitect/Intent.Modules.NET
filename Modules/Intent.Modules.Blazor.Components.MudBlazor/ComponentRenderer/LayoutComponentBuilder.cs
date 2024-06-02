@@ -57,6 +57,32 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
                 }
                 foreach (var child in layoutModel.Header.InternalElement.ChildElements)
                 {
+                    if (child.IsNavigationMenuModel())
+                    {
+                        var navMenuModel = child.AsNavigationMenuModel();
+                        foreach (var navigationItemModel in navMenuModel.MenuItems)
+                        {
+                            appBar.AddHtmlElement("MudButton", navLink =>
+                            {
+                                var mappingEnd = _bindingManager.GetMappedEndFor(navigationItemModel, "Link To");
+                                navLink.AddAttribute("Href", mappingEnd != null
+                                    ? mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()
+                                    : "/");
+                                navLink.AddAttribute("Color", "Color.Inherit");
+                                navLink.AddAttribute("Class", "mx-1 px-3");
+                                if (!navigationItemModel.InternalElement.ChildElements.Any())
+                                {
+                                    navLink.WithText(!string.IsNullOrWhiteSpace(navigationItemModel.Value) ? navigationItemModel.Value : navigationItemModel.Name);
+                                }
+
+                                foreach (var innerChild in navigationItemModel.InternalElement.ChildElements)
+                                {
+                                    _componentResolver.ResolveFor(innerChild).BuildComponent(innerChild, navLink);
+                                }
+                            });
+                        }
+                        continue;
+                    }
                     _componentResolver.ResolveFor(child).BuildComponent(child, appBar);
                 }
                 appBar.AddHtmlElement("MudSpacer");
