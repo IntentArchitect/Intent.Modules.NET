@@ -31,6 +31,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public ServiceImplementationTemplate(IOutputTarget outputTarget, ServiceModel model)
             : base(TemplateId, outputTarget, model)
         {
+            SetDefaultTypeCollectionFormat("List<{0}>");
+            
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             AddTypeSource(TemplateRoles.Application.Command);
             AddTypeSource(TemplateRoles.Application.Query);
@@ -40,7 +42,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             
-            SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")

@@ -29,10 +29,13 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     public ServiceContractTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget,
         model)
     {
+        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         AddTypeSource(TemplateRoles.Domain.Enum);
-        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", @interface =>
