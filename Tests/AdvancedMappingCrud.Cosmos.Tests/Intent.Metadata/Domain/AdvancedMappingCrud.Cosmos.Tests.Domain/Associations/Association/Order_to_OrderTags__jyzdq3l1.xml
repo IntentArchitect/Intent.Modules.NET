@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="34f57ff5-a96c-48a0-ac5c-4517daddf7ee" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OrderTags</name>
-    <display>OrderTags: OrderTags[*]   [1 --&gt; *]</display>
+    <display>OrderTags: OrderTags[*]</display>
     <order>7</order>
     <typeReference id="8ffd4d38-b5ff-45d5-96b8-2c8fc1fce894">
       <typeId>f0b94a07-ebce-47df-8aae-969790b3329a</typeId>

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="3d74d5f9-e4fa-464a-a8b6-6d4f8108d419" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OrderItems</name>
-    <display>OrderItems: OrderItem[*]   [1 --&gt; *]</display>
+    <display>OrderItems: OrderItem[*]</display>
     <order>6</order>
     <typeReference id="b4d6c64a-6cd9-44f0-a484-5fad0436d15b">
       <typeId>df8b665b-ecc0-47de-b754-60d3b35fdc4b</typeId>
