@@ -1,6 +1,7 @@
 ### Version 4.6.0
 
 - New Feature: Generate methods on Repositories for Bespoke and Entity based Repositories.
+- Improvement: Made the `_dbContext` member protected so it can be accessed in inherited repositories.
 
 ### Version 4.5.7
 

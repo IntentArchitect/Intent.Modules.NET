@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbefc0f3-69a7-4bbd-81cb-bbc4e788b6ee" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>RepositoryAdapterFactoryExtension</name>
+  <display>RepositoryAdapterFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dee361a4-e40c-4dc8-9799-32e59cb7831d</parentFolderId>
+  <packageId>dee361a4-e40c-4dc8-9799-32e59cb7831d</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories.DapperHybrid</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.62" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.66" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -140,5 +140,6 @@
     <application id="86b08c05-fea8-40cb-b37e-122ad0491b3a" name="Intent.OpenApi.Importer" relativePath="Intent.OpenApi.Importer/Intent.OpenApi.Importer.application.config" />
     <application id="672867be-508c-4d6f-955a-d59b79ad1470" name="Intent.Modules.AspNetCore.OutputCaching.Redis" relativePath="Intent.Modules.AspNetCore.OutputCaching.Redis/Intent.Modules.AspNetCore.OutputCaching.Redis.application.config" />
     <application id="902ec392-3140-4eb3-b2f4-3127866b8423" name="Intent.Modules.AmazonS3.ObjectStorage" relativePath="Intent.Modules.AmazonS3.ObjectStorage/Intent.Modules.AmazonS3.ObjectStorage.application.config" />
+    <application id="a415efe1-7ccb-4e9c-bbb1-4381684a918a" name="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid" relativePath="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid/Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.application.config" />
   </applications>
 </solution>
