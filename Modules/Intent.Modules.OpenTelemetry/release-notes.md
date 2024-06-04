@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Bumped `OpenTelemetry` packages to 1.8.0
+
 ### Version 2.0.3
 
 - Improvement: Added `OpenTelemetry Protocol` which acts as a generic exporter for most systems including [Jaeger](https://www.jaegertracing.io/docs/1.48/apis/#opentelemetry-protocol-stable) and [Elastic Search](https://www.elastic.co/guide/en/observability/current/open-telemetry.html).
