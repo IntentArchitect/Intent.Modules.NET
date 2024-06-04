@@ -1,3 +1,7 @@
+### Version 1.3.6
+
+- Improvement: Bumped `Microsoft.NET.Tests.Sdk` to 17.6.0
+
 ### Version 1.3.5
 
 - Fixed: Correct handling of nullable values in generated tests.
