@@ -36,6 +36,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(DtoModelTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             AddTypeSource(ContractEnumModelTemplate.TemplateId);
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
