@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Eventing.Solace</id>
+  <version>1.0.0</version>
+  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <summary>A custom module for Intent.Modules.NET.</summary>
+  <description>A custom module for Intent.Modules.NET.</description>
+  <authors>Intent.Modules.NET</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates>
+    <template id="Intent.Eventing.Solace.BaseMessage" externalReference="80fc50e7-a856-4f20-8b93-056f29eb6829">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing</role>
+      <location></location>
+    </template>
+    <template id="Intent.Eventing.Solace.BaseMessageConverter" externalReference="fad92759-8fa4-417c-8b3d-67d8f756acc2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Messaging</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.DispatchResolver" externalReference="1b3c274b-97fd-4404-84cc-6653e7ef427a">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.DisptchResolver</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.IntegrationEventHandler" externalReference="16549ad8-d7bf-415d-bb1e-6d5fb4f2361e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEvents/EventHandlers</location>
+    </template>
+    <template id="Intent.Eventing.Solace.IntegrationEventHandlerLegacy" externalReference="dd69c2cb-da21-4847-b0e6-942e812e2329">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEvents/EventHandlers</location>
+    </template>
+    <template id="Intent.Eventing.Solace.MessageConfiguration" externalReference="c5294de6-f6ec-48b5-ae98-0740f5100b51">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Messaging</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.MessageRegistry" externalReference="114406f0-e77e-4ff5-ada0-38dbd22e7f14">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Messaging</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.MessageSerializer" externalReference="2f456ca3-f298-4e07-9620-07917460b2ef">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Messaging</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceConfiguration" externalReference="2dc465c5-93d9-49a0-90ab-f0812cae472d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.Solace</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceConsumer" externalReference="6c0703e9-1dd0-43cf-a3ce-aa1dd948bc34">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceConsumingService" externalReference="b41f20e3-466c-4e96-aadc-05bbad651e10">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceEventBus" externalReference="976a4533-1a94-425d-9249-1ddc7bf2a155">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.SolaceEventBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceEventDispatcher" externalReference="abfd356c-f08a-4325-82f1-3af9a2e40aad">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Solace.SolaceEventDispatcherInterface" externalReference="fafa095c-960e-4483-8b6f-abcab6062a84">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.Solace.BaseMessageExtension" externalReference="449f375f-c5af-45f1-b62d-2aadb792cf23" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
+    <dependency id="Intent.Modelers.Eventing" version="5.1.0" />
+    <dependency id="Intent.Modelers.Services" version="3.7.3" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.1.1-pre.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Solace/Intent.Eventing.Solace.pkg.config" externalReference="e5842805-0812-4f7f-a653-c7e9b35d8da1" />
+  </metadata>
+</package>

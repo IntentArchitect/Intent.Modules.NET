@@ -141,5 +141,6 @@
     <application id="672867be-508c-4d6f-955a-d59b79ad1470" name="Intent.Modules.AspNetCore.OutputCaching.Redis" relativePath="Intent.Modules.AspNetCore.OutputCaching.Redis/Intent.Modules.AspNetCore.OutputCaching.Redis.application.config" />
     <application id="902ec392-3140-4eb3-b2f4-3127866b8423" name="Intent.Modules.AmazonS3.ObjectStorage" relativePath="Intent.Modules.AmazonS3.ObjectStorage/Intent.Modules.AmazonS3.ObjectStorage.application.config" />
     <application id="a415efe1-7ccb-4e9c-bbb1-4381684a918a" name="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid" relativePath="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid/Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.application.config" />
+    <application id="5bca5abc-7b7a-40d4-9fec-220705ed94ed" name="Intent.Modules.Eventing.Solace" relativePath="Intent.Modules.Eventing.Solace/Intent.Modules.Eventing.Solace.application.config" />
   </applications>
 </solution>
