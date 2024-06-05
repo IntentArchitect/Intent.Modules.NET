@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b9b9543f-9e65-4830-a340-e6b73abf4f8f">
+  <sourceEnd id="f6b56ab5-1877-43a9-b2be-e4774933d45b" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsServices.FindClientByIdQuery</display>
+    <order>0</order>
+    <typeReference id="56846ffe-a43d-42e0-892d-b15faa5267ac">
+      <typeId>bcee89f0-9ac5-410a-82f2-8535fb76f7c6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b9b9543f-9e65-4830-a340-e6b73abf4f8f" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: FindClientById(...): ClientDto</display>
+    <order>1</order>
+    <typeReference id="e2027edb-b692-4fed-8235-49e7897d6ad7">
+      <typeId>668ff572-cec7-4293-870f-111cb8923dc3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.ServiceProxies</typePackageName>
+      <typePackageId>d0839b91-5ab2-459e-be83-557bd23ccbad</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bcee89f0-9ac5-410a-82f2-8535fb76f7c6" location="[ProxyServiceTests].[Services].[FindClientByIdQuery]" />
+        <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="668ff572-cec7-4293-870f-111cb8923dc3" location="[ProxyServiceTests].[Services].[FindClientById]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FindClientByIdQuery}</expression>
+            <path>
+              <target id="668ff572-cec7-4293-870f-111cb8923dc3" name="FindClientById" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="FindClientByIdQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="bcee89f0-9ac5-410a-82f2-8535fb76f7c6" name="FindClientByIdQuery" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="668ff572-cec7-4293-870f-111cb8923dc3" name="FindClientById" type="element" specialization="Operation" />
+              <target id="3c96ed3b-d9cf-4110-b424-17fe44f9af8a" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="bcee89f0-9ac5-410a-82f2-8535fb76f7c6" name="FindClientByIdQuery" type="element" specialization="Query" />
+                  <target id="6ffb5bdd-a283-427c-a0c1-cb863c2f5e92" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

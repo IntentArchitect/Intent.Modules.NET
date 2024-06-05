@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eaeeeff2-761e-4ec8-9298-d63eff296f64" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>Currency</name>
+  <display>Currency</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>067a5469-c717-4859-9a7b-f840dd4bbc1e</parentFolderId>
+  <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+  <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="30049400-b36a-4eed-b721-c8ec17f3fa25" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ZAR</name>
+      <display>ZAR</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eaeeeff2-761e-4ec8-9298-d63eff296f64</parentFolderId>
+      <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+      <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f99001d0-d2ec-4d7a-8bf1-6e84341fb102" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>USD</name>
+      <display>USD</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eaeeeff2-761e-4ec8-9298-d63eff296f64</parentFolderId>
+      <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+      <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d1d8c57b-d220-4c02-b6b1-e106e075cf81" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>EUR</name>
+      <display>EUR</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eaeeeff2-761e-4ec8-9298-d63eff296f64</parentFolderId>
+      <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+      <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

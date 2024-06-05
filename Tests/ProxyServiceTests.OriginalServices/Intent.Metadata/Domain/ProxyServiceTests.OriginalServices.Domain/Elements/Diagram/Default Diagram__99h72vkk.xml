@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="02fea686-bec6-45ab-94fd-2e8b535d3cf2" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>067a5469-c717-4859-9a7b-f840dd4bbc1e</parentFolderId>
+  <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+  <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+  <diagram>
+    <targetPackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

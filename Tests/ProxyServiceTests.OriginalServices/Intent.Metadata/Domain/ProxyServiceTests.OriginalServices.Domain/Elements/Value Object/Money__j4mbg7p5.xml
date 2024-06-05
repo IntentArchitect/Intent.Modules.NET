@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c319aae9-3a74-43fe-90f9-484efca4cf30" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <name>Money</name>
+  <display>Money</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>067a5469-c717-4859-9a7b-f840dd4bbc1e</parentFolderId>
+  <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+  <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5887942b-0639-4455-8d72-4d8cb66a4155" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Amount</name>
+      <display>Amount: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="60b26abf-4975-43ff-ac9f-42a0ab58d336">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c319aae9-3a74-43fe-90f9-484efca4cf30</parentFolderId>
+      <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+      <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="698c7654-a7b2-4dfb-bf2d-15a7d2e7f2a9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Currency</name>
+      <display>Currency: Currency</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="251a4af6-ee90-4b1e-bdf2-71be2665a509">
+        <typeId>eaeeeff2-761e-4ec8-9298-d63eff296f64</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+        <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c319aae9-3a74-43fe-90f9-484efca4cf30</parentFolderId>
+      <packageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</packageId>
+      <packageName>ProxyServiceTests.OriginalServices.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="927549ff-dd79-4a03-95fc-4eaac5158acf">
+  <sourceEnd id="7b878d13-fd06-48aa-8e25-99dde68f83a8" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Accounts.DeleteAccountCommand</display>
+    <order>0</order>
+    <typeReference id="1e9c059a-9c72-48aa-a512-f2e49935ec56">
+      <typeId>2f661d56-8964-449f-bcf9-6fc20544884d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="927549ff-dd79-4a03-95fc-4eaac5158acf" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>account</name>
+    <display>[delete] account: Account</display>
+    <order>1</order>
+    <typeReference id="8e0518bf-b082-49fe-9fc5-3b768e9e45bf">
+      <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2f661d56-8964-449f-bcf9-6fc20544884d" location="[ProxyServiceTests.OriginalServices].[Services].[DeleteAccountCommand]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c131ad5f-d019-46db-89b7-0feae38586d7" location="[ProxyServiceTests.OriginalServices].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="fdae27a4-b262-497e-89a9-bea4751b8c62" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="2f661d56-8964-449f-bcf9-6fc20544884d" name="DeleteAccountCommand" type="element" specialization="Command" />
+                  <target id="b2cdd01d-d7c5-4775-9345-909fc27aba08" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

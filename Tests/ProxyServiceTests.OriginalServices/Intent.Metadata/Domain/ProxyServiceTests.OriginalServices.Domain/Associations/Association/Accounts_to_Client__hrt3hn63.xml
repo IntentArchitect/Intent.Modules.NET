@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="518426e4-efa2-43c6-bfe2-43056dfa1a24">
+  <sourceEnd id="768f827e-7b24-42af-9ae1-3bee5bed248c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Accounts</name>
+    <display>Accounts: Account[*]</display>
+    <order>0</order>
+    <typeReference id="393c88a7-8b11-4501-9406-2843d5ffb7a3">
+      <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="518426e4-efa2-43c6-bfe2-43056dfa1a24" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Client</name>
+    <display>Client: Client</display>
+    <order>4</order>
+    <typeReference id="aa8409f4-3fbf-448a-ab45-86b98adfc267">
+      <typeId>5ea8c86f-affd-4511-b3ae-c73a2e69fc9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

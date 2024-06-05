@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e2200054-cc51-4945-93c2-7b3923a0c07d">
+  <sourceEnd id="58432a60-86c5-4167-87f9-9592617bbc87" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ClientsService.UpdateClient</display>
+    <order>0</order>
+    <typeReference id="dfe8573f-ce43-465f-9550-e57d29cd4f20">
+      <typeId>3708f699-ccc5-494f-8145-65cff67aafcb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e2200054-cc51-4945-93c2-7b3923a0c07d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>client</name>
+    <display>[update] client: Client</display>
+    <order>2</order>
+    <typeReference id="ff8f36cc-2bee-4186-a47b-ee742c67b9e2">
+      <typeId>5ea8c86f-affd-4511-b3ae-c73a2e69fc9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3708f699-ccc5-494f-8145-65cff67aafcb" location="[ProxyServiceTests.OriginalServices].[Services].[UpdateClient]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" location="[ProxyServiceTests.OriginalServices].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
+              <target id="dfac4f2c-537d-4e75-82f6-52323767bdb8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3708f699-ccc5-494f-8145-65cff67aafcb" name="UpdateClient" type="element" specialization="Operation" />
+                  <target id="91cf6333-5dbe-49e3-b7fb-e19c861e46df" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3708f699-ccc5-494f-8145-65cff67aafcb" location="[ProxyServiceTests.OriginalServices].[Services].[UpdateClient]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" location="[ProxyServiceTests.OriginalServices].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
+              <target id="7f6b4a54-9c14-4d6f-9919-887fa73d2f6b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3708f699-ccc5-494f-8145-65cff67aafcb" name="UpdateClient" type="element" specialization="Operation" />
+                  <target id="d791427b-ceb8-4199-a552-be3d83cff706" name="dto" type="element" specialization="Parameter" />
+                  <target id="9bdd36cf-1601-4b1b-b9df-b43ac3aea270" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

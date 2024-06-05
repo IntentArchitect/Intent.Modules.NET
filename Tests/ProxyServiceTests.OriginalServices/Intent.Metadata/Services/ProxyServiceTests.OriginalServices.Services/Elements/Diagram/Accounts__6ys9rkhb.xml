@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ff73b764-a8be-48a1-9c1f-95b0833e6053" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Accounts</name>
+  <display>Accounts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0ed235d0-2e2d-4ca9-9a72-385242be9bd8</parentFolderId>
+  <packageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</packageId>
+  <packageName>ProxyServiceTests.OriginalServices.Services</packageName>
+  <diagram>
+    <targetPackageId>0ed235d0-2e2d-4ca9-9a72-385242be9bd8</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
