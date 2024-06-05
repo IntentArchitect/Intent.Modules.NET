@@ -68,7 +68,7 @@ namespace Intent.Modules.Constants
                 public const string Command = "Application.Command.Handler";
                 public const string Query = "Application.Query.Handler";
             }
-            
+
             public static class Common
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
@@ -82,7 +82,7 @@ namespace Intent.Modules.Constants
                 public const string Dto = "Application.Contract.Dto";
                 public const string Enum = "Application.Contract.Enum";
             }
-            
+
             public static class Services
             {
                 [Obsolete("Use Distribution.WebApi.Controller")]
@@ -91,7 +91,7 @@ namespace Intent.Modules.Constants
                 public const string Implementation = "Application.Implementation";
                 public const string ClientInterface = "Application.Contracts.Clients";
             }
-            
+
             public static class Eventing
             {
                 public const string EventBusInterface = "Application.Eventing.EventBusInterface";
@@ -130,10 +130,17 @@ namespace Intent.Modules.Constants
 
         public static class Blazor
         {
+            [Obsolete("No longer will be used. Use Blazor.Client instead")]
             public static class WebAssembly
             {
                 public const string Program = "Blazor.WebAssembly.Program";
             }
+            public static class Client
+            {
+                public const string Program = "Blazor.Client.Program";
+                public const string DependencyInjection = "Blazor.Client.DependencyInjection";
+            }
+
         }
     }
 }

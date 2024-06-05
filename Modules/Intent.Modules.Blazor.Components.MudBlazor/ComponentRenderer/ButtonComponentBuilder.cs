@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -21,20 +22,24 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ButtonModel(component); 
+
+        var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")
-            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .AddAttribute("Class", "my-2 mr-2")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
-        ;
+
         foreach (var child in component.ChildElements)
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
 
-        var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         if (onClickMapping != null)
         {
+            if (onClickMapping.SourceElement.AsComponentOperationModel()?.CallServiceOperationActionTargets().Any() == true)
+            {
+                htmlElement.AddAttribute("Color", "Color.Primary");
+            }
             if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
             {
                 var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();

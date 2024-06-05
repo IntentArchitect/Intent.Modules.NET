@@ -279,7 +279,7 @@ public static class RazorFileExtensions
         return result;
     }
 
-    private static IEnumerable<IRazorFileNode> GetAllNodesInHierarchy(this IRazorFileNode node)
+    public static IEnumerable<IRazorFileNode> GetAllNodesInHierarchy(this IRazorFileNode node)
     {
         yield return node;
         if (node.Parent != null)

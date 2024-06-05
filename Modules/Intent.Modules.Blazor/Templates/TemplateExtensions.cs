@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
+using Intent.Modules.Blazor.Templates.Templates.Client.DependencyInjection;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
@@ -21,6 +22,11 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetClientImportsRazorTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ClientImportsRazorTemplate.TemplateId);
+        }
+
+        public static string GetDependencyInjectionName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(DependencyInjectionTemplate.TemplateId);
         }
 
         public static string GetProgramTemplateName(this IIntentTemplate template)

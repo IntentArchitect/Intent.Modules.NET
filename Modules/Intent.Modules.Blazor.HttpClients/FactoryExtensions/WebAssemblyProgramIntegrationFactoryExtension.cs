@@ -33,38 +33,57 @@ namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
 
         private void RegisterHttpClients(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.WebAssembly.Program);
-            if (template is null)
+
+            // NEW PATTERN WITH THE SHARED COMMON DependencyInjection CLASS:
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.Client.DependencyInjection);
+            if (template is not null)
             {
-                return;
-            }
-
-            template.CSharpFile.OnBuild(file =>
-            {
-                template.UseType(template.GetHttpClientConfigurationName());
-
-                var @class = file.Classes.First();
-                var mainMethod = @class.FindMethod("Main");
-                if (mainMethod == null)
-                    return;
-                var lastStatement = mainMethod.FindStatement(s => s.HasMetadata("run-builder"));
-                if (lastStatement == null)
-                    return;
-                lastStatement.InsertAbove("builder.Services.AddHttpClients(builder.Configuration);");
-            });
-
-            var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            startup?.AddNugetDependency(new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.Server", "8.0.3"));
-
-            startup?.CSharpFile.AfterBuild(file =>
-            {
-                startup.StartupFile.ConfigureServices((statements, context) =>
+                template.CSharpFile.OnBuild(file =>
                 {
-                    // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
-                    startup.UseType(startup.GetHttpClientConfigurationName());
-                    statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
+                    template.UseType(template.GetHttpClientConfigurationName());
+
+                    var @class = file.Classes.First();
+                    var mainMethod = @class.FindMethod(x => x.ReturnType == "IServiceCollection");
+                    if (mainMethod == null)
+                        return;
+                    mainMethod.AddStatement("services.AddHttpClients(configuration);");
                 });
-            });
+            }
+            else
+            {
+                // FOR BACKWARD COMPATIBILITY WITH OLD WEBASSEMBLY MODULES:
+                template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.WebAssembly.Program);
+                if (template is null)
+                {
+                    return;
+                }
+
+                template.CSharpFile.OnBuild(file =>
+                {
+                    template.UseType(template.GetHttpClientConfigurationName());
+
+                    var @class = file.Classes.First();
+                    var mainMethod = @class.FindMethod("Main");
+                    if (mainMethod == null)
+                        return;
+                    var lastStatement = mainMethod.FindStatement(s => s.HasMetadata("run-builder"));
+                    if (lastStatement == null)
+                        return;
+                    lastStatement.InsertAbove("builder.Services.AddHttpClients(builder.Configuration);");
+                });
+            }
+            //var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            //startup?.AddNugetDependency(new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.Server", "8.0.3"));
+
+            //startup?.CSharpFile.AfterBuild(file =>
+            //{
+            //    startup.StartupFile.ConfigureServices((statements, context) =>
+            //    {
+            //        // TODO: Firstly, this is a hack, but the service interfaces need to be implemented for InteractiveAuto to work:
+            //        startup.UseType(startup.GetHttpClientConfigurationName());
+            //        statements.AddStatement($"{context.Services}.AddHttpClients({context.Configuration});", s => s.SeparatedFromPrevious());
+            //    });
+            //});
         }
     }
 }

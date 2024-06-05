@@ -46,6 +46,9 @@ public class ComponentViewBuilder : IRazorComponentBuilder
                 parentNode.AddChildNode(errorCode);
             }
         }
+
+        //var mudGrid = new HtmlElement("MudGrid", _componentTemplate.RazorFile);
+        //parentNode.AddChildNode(mudGrid);
         foreach (var child in component.ChildElements)
         {
             _componentResolver.ResolveFor(child).BuildComponent(child, parentNode);

@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 
@@ -21,8 +22,22 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("MudTextField", _componentTemplate.RazorFile);
-        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetElementBinding(textInput)?.ToString())
+        var valueMapping = _bindingManager.GetMappedEndFor(textInput);
+        var valueBinding = _bindingManager.GetBinding(valueMapping)?.ToString();
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", valueBinding)
                         .AddAttributeIfNotEmpty("Label", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
         parentNode.AddChildNode(htmlElement);
+        if (parentNode.GetAllNodesInHierarchy().OfType<HtmlElement>().Any(x => x.Name == "MudForm"))
+        {
+            if (valueMapping != null)
+            {
+                htmlElement.AddAttribute("For", $"@(() => {valueBinding})");
+                //if (valueMapping.SourceElement.TypeReference?.IsNullable == false)
+                //{
+                //    htmlElement.AddAttribute("Required", "true");
+                //    htmlElement.AddAttribute("RequiredError", $"{textInput.GetLabelAddon()?.Label().TrimEnd(':') ?? textInput.Name} is required!");
+                //}
+            }
+        }
     }
 }

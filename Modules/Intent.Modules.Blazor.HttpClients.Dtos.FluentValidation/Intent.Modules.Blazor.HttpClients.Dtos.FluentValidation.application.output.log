@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3652ef3c-111d-4057-becd-ab937c4ce38a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#0153fa6b-0e26-4295-b51f-6285701486fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationBlazorInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationBlazorInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>98a21c3b-18c5-4d9c-8e22-94a186541490</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

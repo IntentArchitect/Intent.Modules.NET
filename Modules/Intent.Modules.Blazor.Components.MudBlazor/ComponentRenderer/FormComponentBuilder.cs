@@ -5,6 +5,8 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -24,7 +26,8 @@ public class FormComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
-        var modelBinding = _bindingManager.GetBinding(formModel, "Model");
+        var modelMapping = _bindingManager.GetMappedEndFor(formModel, "Model");
+        var modelBinding = _bindingManager.GetBinding(modelMapping);
         if (modelBinding == null)
         {
             throw new ElementException(component, "Form component's Model is required and has not been specified.");
@@ -41,56 +44,69 @@ public class FormComponentBuilder : IRazorComponentBuilder
             parentNode.AddChildNode(loadingCode);
         }
         var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
-        codeBlock.AddHtmlElement("EditForm", htmlElement =>
+        parentNode.AddChildNode(codeBlock);
+        codeBlock.AddHtmlElement("MudGrid", x => x.AddHtmlElement("MudItem", mudItem =>
         {
-            htmlElement.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
-            htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
-            htmlElement.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
-
-            htmlElement.AddHtmlElement("MudCard", card =>
+            mudItem.AddAttribute("xs", "12").AddAttribute("sm", "7");
+            mudItem.AddHtmlElement("MudForm", form =>
             {
-                var headerModel = formModel.Containers.Single(x => x.Name == "Header");
-                if (headerModel != null)
+                var formField = formModel.Name.ToCSharpIdentifier().ToCamelCase();
+                _componentTemplate.GetCodeBlock().AddField("MudForm", formField);
+                form.AddAttribute("@ref", $"@{formField}");
+                form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
+
+                var validator = _componentTemplate.ExecutionContext.FindTemplateInstance("Blazor.HttpClient.Contracts.Dto.Validation", modelMapping.SourceElement.TypeReference.Element.Id);
+                if (validator != null)
                 {
-                    card.AddHtmlElement("MudCardHeader", cardHeader =>
+                    form.AddAttribute("Validation", $"@(ValidatorProvider.GetValidationFunc<{_componentTemplate.GetTypeName(validator)}>())");
+                }
+
+                //form.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
+                //form.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
+
+                form.AddHtmlElement("MudCard", card =>
+                {
+                    var headerModel = formModel.Containers.SingleOrDefault(x => x.Name == "Header");
+                    if (headerModel != null)
                     {
-                        cardHeader.AddHtmlElement("CardHeaderContent", cardTitle =>
+                        card.AddHtmlElement("MudCardHeader", cardHeader =>
                         {
-                            foreach (var child in headerModel.InternalElement.ChildElements)
+                            cardHeader.AddHtmlElement("CardHeaderContent", cardTitle =>
                             {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, cardTitle);
+                                foreach (var child in headerModel.InternalElement.ChildElements)
+                                {
+                                    _componentResolver.ResolveFor(child).BuildComponent(child, cardTitle);
+                                }
+                            });
+                        });
+                    }
+
+                    var bodyModel = formModel.Containers.SingleOrDefault(x => x.Name == "Body");
+                    if (bodyModel != null)
+                    {
+                        card.AddHtmlElement("MudCardContent", cardBody =>
+                        {
+                            foreach (var child in bodyModel.InternalElement.ChildElements)
+                            {
+                                _componentResolver.ResolveFor(child).BuildComponent(child, cardBody);
                             }
                         });
-                    });
-                }
-                var bodyModel = formModel.Containers.Single(x => x.Name == "Body");
-                if (bodyModel != null)
-                {
-                    card.AddHtmlElement("MudCardContent", cardBody =>
-                    {
-                        foreach (var child in bodyModel.InternalElement.ChildElements)
-                        {
-                            _componentResolver.ResolveFor(child).BuildComponent(child, cardBody);
-                        }
-                    });
-                }
+                    }
 
-                var footerModel = formModel.Containers.Single(x => x.Name == "Footer");
-                if (footerModel != null)
-                {
-                    card.AddHtmlElement("MudCardActions", cardFooter =>
+                    var footerModel = formModel.Containers.SingleOrDefault(x => x.Name == "Footer");
+                    if (footerModel != null)
                     {
-                        foreach (var child in footerModel.InternalElement.ChildElements)
+                        card.AddHtmlElement("MudCardActions", cardFooter =>
                         {
-                            _componentResolver.ResolveFor(child).BuildComponent(child, cardFooter);
-                        }
-                    });
-                }
+                            foreach (var child in footerModel.InternalElement.ChildElements)
+                            {
+                                _componentResolver.ResolveFor(child).BuildComponent(child, cardFooter);
+                            }
+                        });
+                    }
+                });
             });
-        });
-
-        parentNode.AddChildNode(codeBlock);
-
+        }));
     }
 
 
