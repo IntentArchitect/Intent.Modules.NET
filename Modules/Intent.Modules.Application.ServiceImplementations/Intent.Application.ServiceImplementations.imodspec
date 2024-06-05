@@ -21,7 +21,7 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Application.Contracts" version="5.0.4" />
+    <dependency id="Intent.Application.Contracts" version="5.0.7-pre.1" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.4.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />

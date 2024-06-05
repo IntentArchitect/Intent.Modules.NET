@@ -52,10 +52,10 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.WebApi" version="4.4.1" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.ServiceProxies" version="5.0.0" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="5.2.0-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
-    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.2.0" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <files>
