@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -26,9 +28,9 @@ namespace Intent.Modules.Integration.HttpClients.Templates.JsonResponse
         {
         }
 
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
         {
-            return metadataManager.ServiceProxies(applicationId);
+            return [metadataManager.ServiceProxies(applicationId), metadataManager.Services(applicationId)];
         }
     }
 }

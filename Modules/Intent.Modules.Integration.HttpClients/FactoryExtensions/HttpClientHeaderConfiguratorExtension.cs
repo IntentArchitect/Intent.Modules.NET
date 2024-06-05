@@ -34,7 +34,6 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-
             HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
             UpdateProxyTokenRefreshPopulation(application);
         }

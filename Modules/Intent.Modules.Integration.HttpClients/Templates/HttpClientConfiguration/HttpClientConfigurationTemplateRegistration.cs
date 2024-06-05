@@ -52,6 +52,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         public override IList<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+                .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(p => p.GetMappedEndpoints().Any())
                 .ToArray();
         }

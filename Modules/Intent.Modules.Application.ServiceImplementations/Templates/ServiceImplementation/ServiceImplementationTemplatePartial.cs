@@ -125,7 +125,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         // Due to the nature of how GetTypeName resolves namespaces
         // there are cases where ambiguous references still exist
         // and causes compilation errors, this forces to re-evaluate
-        // a lot of types in this template
+        // a lot of types in this template. For example when a service
+        // is calling a proxy with the same Dto names on both sides.
         private void WorkaroundForGetTypeNameIssue(CSharpFile file)
         {
             var priClass = file.Classes.First();
@@ -188,8 +189,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = OutputTarget.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
-            return GetTypeName(serviceContractTemplate);
+            return GetTypeName(ServiceContractTemplate.TemplateId, Model.Id);
         }
 
         private IReadOnlyCollection<ConstructorParameter> GetConstructorDependencies()

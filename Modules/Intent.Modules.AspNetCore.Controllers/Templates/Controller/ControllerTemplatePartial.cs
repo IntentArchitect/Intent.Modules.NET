@@ -115,7 +115,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         // Due to the nature of how GetTypeName resolves namespaces
         // there are cases where ambiguous references still exist
         // and causes compilation errors, this forces to re-evaluate
-        // a lot of types in this template
+        // a lot of types in this template. For example when a service
+        // is calling a proxy with the same Dto names on both sides.
         private void WorkaroundForGetTypeNameIssue(CSharpFile file)
         {
             var priClass = file.Classes.First();

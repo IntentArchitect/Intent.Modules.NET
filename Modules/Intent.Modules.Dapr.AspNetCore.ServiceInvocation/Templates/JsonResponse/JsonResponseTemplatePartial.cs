@@ -26,9 +26,9 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonRespons
         {
         }
 
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
         {
-            return metadataManager.ServiceProxies(applicationId);
+            return [metadataManager.ServiceProxies(applicationId)];
         }
     }
 }

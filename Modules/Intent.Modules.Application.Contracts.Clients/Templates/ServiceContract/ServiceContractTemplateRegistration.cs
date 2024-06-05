@@ -39,6 +39,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+                .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(x => x.HasMappedEndpoints())
                 .ToArray();
         }
