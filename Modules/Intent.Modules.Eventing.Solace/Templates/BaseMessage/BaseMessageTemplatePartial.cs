@@ -24,12 +24,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.BaseMessage
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddRecord($"BaseMessage", @class =>
                 {
-					@class.Abstract();
-					@class.AddConstructor(ctor =>
+                    @class.Abstract();
+                    @class.AddConstructor(ctor =>
                     {
                         ctor.AddStatement("var type = this.GetType();");
-						ctor.AddStatement("MessageType = $\"{type.Namespace}.{type.Name}\";");
-					});
+                        ctor.AddStatement("MessageType = $\"{type.Namespace}.{type.Name}\";");
+                    });
                     @class.AddProperty("string", "MessageType");
                 });
         }

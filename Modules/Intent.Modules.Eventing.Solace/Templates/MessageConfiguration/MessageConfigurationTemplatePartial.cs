@@ -26,49 +26,38 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageConfiguration
                 {
                     @class.AddConstructor(ctor =>
                     {
-						ctor.AddParameter("Type", "messageType", param =>
+                        ctor.AddParameter("Type", "messageType", param =>
                         {
                             param.IntroduceProperty();
                         });
-						ctor.AddParameter("string", "publishedDestination", param =>
-						{
-							param.IntroduceProperty();
-						});
-						ctor.AddParameter("SubscriptionType", "subscriptionType", param =>
-						{
-							param.IntroduceProperty().WithDefaultValue("SubscriptionType.None");
-						});
-						ctor.AddParameter("string?", "subscribeDestination", param =>
-						{
-							param.IntroduceProperty().WithDefaultValue("null");
-						});
-						ctor.AddStatement("Name = GetName(messageType);");
+                        ctor.AddParameter("string", "publishedDestination", param =>
+                        {
+                            param.IntroduceProperty();
+                        });
+                        ctor.AddParameter("string?", "subscribeDestination", param =>
+                        {
+                            param.IntroduceProperty().WithDefaultValue("null");
+                        });
+                        ctor.AddStatement("Name = GetName(messageType);");
                     });
-					@class.AddMethod("MessageConfiguration", "Create", method =>
-					{
+                    @class.AddMethod("MessageConfiguration", "Create", method =>
+                    {
                         method.Static();
-						method.AddGenericParameter("TMessage");
-						method
+                        method.AddGenericParameter("TMessage");
+                        method
                             .AddParameter("string", "publishedDestination")
-                            .AddParameter("SubscriptionType", "subscriptionType", p => p.WithDefaultValue("SubscriptionType.None"))
                             .AddParameter("string?", "subscribeDestination", p => p.WithDefaultValue("null"));
-						method.AddStatement("return new MessageConfiguration(typeof(TMessage), publishedDestination, subscriptionType, subscribeDestination);");
-					});
+                        method.AddStatement("return new MessageConfiguration(typeof(TMessage), publishedDestination, subscribeDestination);");
+                    });
 
-					@class.AddProperty("string", "Name");
-					@class.AddMethod("string", "GetName", method => 
+                    @class.AddProperty("string", "Name");
+                    @class.AddMethod("string", "GetName", method =>
                     {
                         method.Private();
                         method.AddParameter("Type", "type");
                         method.AddStatement("return $\"{type.Namespace}.{type.Name}\";");
                     });
-                })
-                .AddEnum("SubscriptionType", e => 
-                {
-                    e.AddLiteral("None");
-					e.AddLiteral("ViaTopic");
-					e.AddLiteral("ViaQueue");
-				});
+                });
         }
 
         [IntentManaged(Mode.Fully)]

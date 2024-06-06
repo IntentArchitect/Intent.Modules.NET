@@ -27,9 +27,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.DispatchResolver
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"DispatchResolver", @class =>
                 {
-					@class.AddField("Dictionary<Type, Type>", "_dispatcherMappings", p => p.PrivateReadOnly());
+                    @class.AddField("Dictionary<Type, Type>", "_dispatcherMappings", p => p.PrivateReadOnly());
 
-					@class.AddConstructor(ctor =>
+                    @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter($"{this.GetMessageRegistryName()}", "messageRegistry");
                         ctor.AddStatements(@"_dispatcherMappings = new Dictionary<Type, Type>();
@@ -44,17 +44,17 @@ namespace Intent.Modules.Eventing.Solace.Templates.DispatchResolver
 			}".ConvertToStatements());
                     });
 
-                    @class.AddMethod("object", "ResolveDispatcher", method => 
+                    @class.AddMethod("object", "ResolveDispatcher", method =>
                     {
-						method.AddParameter("Type", "messageType");
-						method.AddParameter("IServiceProvider", "scopedProvider");
+                        method.AddParameter("Type", "messageType");
+                        method.AddParameter("IServiceProvider", "scopedProvider");
                         method.AddStatements(@"if (_dispatcherMappings.TryGetValue(messageType, out var dispatcherType))
 			{
 				return scopedProvider.GetRequiredService(dispatcherType);
 			}
 
 			throw new InvalidOperationException($""Dispatcher for type {messageType.Name} not found"");".ConvertToStatements());
-					});
+                    });
                 });
         }
 

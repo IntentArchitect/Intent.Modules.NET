@@ -78,15 +78,15 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
 
                         method.AddStatement("services.AddSingleton(context);");
                         method.AddStatement("services.AddSingleton(session);");
-						method.AddStatement($"services.AddSingleton<{this.GetDispatchResolverName()}>();");
-						method.AddStatement($"services.AddSingleton<{this.GetMessageSerializerName()}>();");
-						method.AddStatement($"services.AddSingleton<{this.GetMessageRegistryName()}>();");
-						method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
-						method.AddStatement($"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");
-						method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()},{this.GetSolaceEventBusName()}>();");
-						method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");
+                        method.AddStatement($"services.AddSingleton<{this.GetDispatchResolverName()}>();");
+                        method.AddStatement($"services.AddSingleton<{this.GetMessageSerializerName()}>();");
+                        method.AddStatement($"services.AddSingleton<{this.GetMessageRegistryName()}>();");
+                        method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
+                        method.AddStatement($"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");
+                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()},{this.GetSolaceEventBusName()}>();");
+                        method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");
 
-						@class.AddMethod("void", "HandleSessionMessageEvent", method =>
+                        @class.AddMethod("void", "HandleSessionMessageEvent", method =>
                         {
                             method.Private().Static();
                             method.AddParameter("object?", "sender");
@@ -136,6 +136,14 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                 .ToRegister("AddSolaceConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
+
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"Solace", new
+            {
+                Host = "tcp://localhost:55555",
+                VPNName = "default",
+                UserName = "admin",
+                Password = "admin",
+            }));
         }
 
         [IntentManaged(Mode.Fully)]

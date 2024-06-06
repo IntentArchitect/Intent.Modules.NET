@@ -28,8 +28,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventDispatcherInterfac
                     @interface.AddMethod("Task", "Dispatch", method =>
                     {
                         method.AddParameter(tMessage, "message");
-						method.AddParameter("CancellationToken", "cancellationToken");
-					});
+                        method.AddParameter("CancellationToken", "cancellationToken");
+                    });
                 });
         }
 

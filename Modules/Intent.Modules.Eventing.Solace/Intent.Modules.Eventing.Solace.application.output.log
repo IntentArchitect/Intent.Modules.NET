@@ -49,6 +49,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2e67b9cb-0d74-46e3-babc-8c4e49cf1401</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#821b1309-0e6a-4e3e-a332-8298a38ad58e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EventBusInterfaceExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusInterfaceExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a6c98406-2957-4db7-92c9-42304abef86f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

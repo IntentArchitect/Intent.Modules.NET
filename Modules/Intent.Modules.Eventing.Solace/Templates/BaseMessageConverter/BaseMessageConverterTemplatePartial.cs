@@ -34,19 +34,19 @@ namespace Intent.Modules.Eventing.Solace.Templates.BaseMessageConverter
                     {
                         ctor.AddParameter(this.GetMessageRegistryName(), "messageRegistry");
                         ctor.AddStatement("_typeLookup = new Dictionary<string, Type>();");
-                        ctor.AddForEachStatement("message", "messageRegistry.MessageTypes", stmt => 
+                        ctor.AddForEachStatement("message", "messageRegistry.MessageTypes", stmt =>
                         {
                             stmt.AddStatement("_typeLookup.Add(message.Name, message.MessageType);");
                         });
                     });
 
-                    @class.AddMethod($"{this.GetBaseMessageName()}", "Read", method => 
+                    @class.AddMethod($"{this.GetBaseMessageName()}", "Read", method =>
                     {
-						method.Override();
-						method.AddParameter("Utf8JsonReader", "reader", p => p.WithRefParameterModifier());
-						method.AddParameter("Type", "typeToConvert");
-						method.AddParameter("JsonSerializerOptions", "options");
-						method.AddStatements(@"using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
+                        method.Override();
+                        method.AddParameter("Utf8JsonReader", "reader", p => p.WithRefParameterModifier());
+                        method.AddParameter("Type", "typeToConvert");
+                        method.AddParameter("JsonSerializerOptions", "options");
+                        method.AddStatements(@"using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
 			{
 				var root = doc.RootElement;
 				var messageTypeString = root.GetProperty(""MessageType"").GetString();
@@ -62,17 +62,17 @@ namespace Intent.Modules.Eventing.Solace.Templates.BaseMessageConverter
 					throw new Exception($""Unable to deserialize {root.GetRawText()} as {messageType.Name}"");
 				return result;
 			}".ConvertToStatements());
-					});
+                    });
 
-					@class.AddMethod("void", "Write", method =>
-					{
+                    @class.AddMethod("void", "Write", method =>
+                    {
                         method.Override();
                         method.AddParameter("Utf8JsonWriter", "writer");
-						method.AddParameter($"{this.GetBaseMessageName()}", "value");
-						method.AddParameter("JsonSerializerOptions", "options");
-						method.AddStatement("JsonSerializer.Serialize(writer, value, value.GetType(), options);");
-					});
-				});
+                        method.AddParameter($"{this.GetBaseMessageName()}", "value");
+                        method.AddParameter("JsonSerializerOptions", "options");
+                        method.AddStatement("JsonSerializer.Serialize(writer, value, value.GetType(), options);");
+                    });
+                });
         }
 
         [IntentManaged(Mode.Fully)]

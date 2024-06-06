@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,17 +22,111 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"SolaceEventBus", @class =>
+			CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+				.AddUsing("System")
+				.AddUsing("System.Collections.Generic")
+				.AddUsing("System.Threading")
+				.AddUsing("System.Threading.Tasks")
+				.AddUsing("SolaceSystems.Solclient.Messaging")
+				.AddClass($"SolaceEventBus", @class =>
                 {
-                    @class.AddConstructor(ctor =>
+					@class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.AddField("List<object>", "_messagesToPublish", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
+					@class.AddField("List<object>", "_messagesToSend", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
+					@class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
+                        ctor.AddParameter("ISession", "session", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                    });
-                });
+						ctor.AddParameter("MessageRegistry", "messageRegistry", param =>
+						{
+							param.IntroduceReadonlyField();
+						});
+						ctor.AddParameter("MessageSerializer", "messageSerializer", param =>
+						{
+							param.IntroduceReadonlyField();
+						});
+					});
+
+					@class.AddMethod("void", "Publish", method =>
+					{
+						method
+							.AddGenericParameter("TMessage", out var tMessage)
+							.AddParameter(tMessage, "message")
+							.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
+						method.AddStatement("_messagesToPublish.Add(message);");
+					});
+					@class.AddMethod("void", "Send", method =>
+					{
+						method
+							.AddGenericParameter("TMessage", out var tMessage)
+							.AddParameter(tMessage, "message")
+							.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
+						method.AddStatement("_messagesToSend.Add(message);");
+					});
+					@class.AddMethod("Task", "FlushAllAsync", method =>
+					{
+						method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+						method.AddStatements(@"foreach (var toPublish in _messagesToPublish)
+			{
+				PublishEvent(_session, toPublish);
+			}
+
+			_messagesToPublish.Clear();
+			foreach (var toSend in _messagesToSend)
+			{
+				SendCommand(_session, toSend);
+			}
+			_messagesToSend.Clear();
+			return Task.CompletedTask;".ConvertToStatements());
+					});
+
+					@class.AddMethod("void", "PublishEvent", method => 
+                    {
+						method
+							.Private()
+							.AddParameter("ISession", "session")
+							.AddParameter("object", "toPublish");
+						method.AddStatements(@"using (var message = ContextFactory.Instance.CreateMessage())
+			{
+				message.Destination = ContextFactory.Instance.CreateTopic(GetDestinationAddress(toPublish));
+				message.BinaryAttachment = _messageSerializer.SerializeMessage(toPublish);
+
+				var returnCode = session.Send(message);
+				if (returnCode != ReturnCode.SOLCLIENT_OK)
+				{
+					throw new Exception($""Unable to publish message so Solace ({toPublish.GetType().Name}) : {returnCode}"");
+				}
+			}".ConvertToStatements());
+
+					});
+					@class.AddMethod("void", "SendCommand", method =>
+					{
+						method
+							.Private()
+							.AddParameter("ISession", "session")
+							.AddParameter("object", "toSend");
+						method.AddStatements(@"using (var message = ContextFactory.Instance.CreateMessage())
+			{
+				message.Destination = ContextFactory.Instance.CreateQueue(GetDestinationAddress(toSend));
+				message.BinaryAttachment = _messageSerializer.SerializeMessage(toSend);
+
+				var returnCode = session.Send(message);
+				if (returnCode != ReturnCode.SOLCLIENT_OK)
+				{
+					throw new Exception($""Unable to send command so Solace ({toSend.GetType().Name}) : {returnCode}"");
+				}
+			}".ConvertToStatements());
+					});
+					@class.AddMethod("string", "GetDestinationAddress", method =>
+					{
+						method
+							.Private()
+							.AddParameter("object", "message");
+						method.AddStatement("return _messageRegistry.GetConfig(message.GetType()).PublishedDestination;");
+					});
+				});
         }
 
         [IntentManaged(Mode.Fully)]

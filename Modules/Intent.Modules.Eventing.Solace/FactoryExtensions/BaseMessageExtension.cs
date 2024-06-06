@@ -1,8 +1,16 @@
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Eventing.Solace.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -17,30 +25,86 @@ namespace Intent.Modules.Eventing.Solace.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Your custom logic here.
-        }
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
-        {
-            // Your custom logic here.
+            //Events
+            var serviceDesignerSubEvents = application.MetadataManager
+                .Services(application.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+                .SelectMany(x => x.IntegrationEventSubscriptions())
+                .Select(x => x.TypeReference.Element.AsMessageModel());
+
+            var eventingDesignerSubEvents = application.MetadataManager
+                .Eventing(application.GetApplicationConfig().Id).GetApplicationModels()
+                .SelectMany(x => x.SubscribedMessages())
+                .Select(x => x.TypeReference.Element.AsMessageModel());
+
+            var messages = Enumerable.Empty<MessageModel>()
+                .Concat(serviceDesignerSubEvents)
+                .Concat(eventingDesignerSubEvents)
+                .OrderBy(x => x.Name)
+                .ToArray();
+
+            var serviceDesignerPubEvents = application.MetadataManager
+                .GetExplicitlyPublishedMessageModels(application);
+
+            var eventingDesignerPubEvents = application.MetadataManager
+                .Eventing(application.GetApplicationConfig().Id).GetApplicationModels()
+                .SelectMany(x => x.PublishedMessages())
+                .Select(x => x.TypeReference.Element.AsMessageModel());
+
+            messages = messages
+                    .Concat(serviceDesignerPubEvents)
+                    .Concat(eventingDesignerPubEvents)
+                    .OrderBy(x => x.Name)
+                    .ToArray();
+
+            //Commands
+            var serviceDesignerSubCommands = application.MetadataManager
+                .Services(application.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+                .SelectMany(x => x.IntegrationCommandSubscriptions())
+                .Select(x => x.TypeReference.Element.AsIntegrationCommandModel());
+
+            var commands = Enumerable.Empty<IntegrationCommandModel>()
+                .Concat(serviceDesignerSubCommands)
+                .OrderBy(x => x.Name)
+                .ToArray();
+
+            var serviceDesignerPubCommands = application.MetadataManager
+                .GetExplicitlySentIntegrationCommandModels(application);
+
+            commands = commands
+                        .Concat(serviceDesignerPubCommands)
+                        .OrderBy(x => x.Name)
+                        .ToArray();
+
+            foreach (var message in messages)
+            {
+                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationEventMessage", message);
+                if (template == null)
+                {
+                    return;
+                }
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.TypeDeclarations.FirstOrDefault();
+                    @class.WithBaseType(template.GetBaseMessageName());
+                });
+            }
+
+            foreach (var command in commands)
+            {
+                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationCommand", command);
+                if (template == null)
+                {
+                    return;
+                }
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.TypeDeclarations.FirstOrDefault();
+                    @class.WithBaseType(template.GetBaseMessageName());
+                });
+            }
         }
     }
 }
