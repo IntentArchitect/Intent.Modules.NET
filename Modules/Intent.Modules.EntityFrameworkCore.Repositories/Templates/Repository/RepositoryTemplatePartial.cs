@@ -102,7 +102,18 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                             }
                         });
                     }
-                });
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    foreach (var method in @class.Methods)
+                    {
+                        if (!method.Statements.Any())
+                        {
+                            method.AddStatement($"""throw new {UseType("System.NotImplementedException")}("Your implementation here...");""");
+                        }
+                    }
+                }, 1000);
         }
 
         private void AddMethods(CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, CSharpClass rootEntity, bool makeAsync, bool makefully = false)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -25,8 +26,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
         public CustomRepositoryInterfaceTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", _ =>
+                .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", @interface =>
                 {
+                    RepositoryOperationHelper.ApplyMethods(this, @interface, model);
                 });
 
             var storedProcedures = Model.GetStoredProcedureModels();

@@ -1,3 +1,7 @@
+### Version 4.6.0
+
+- New Feature: Generate methods on Repositories for Bespoke and Entity based Repositories.
+
 ### Version 4.5.7
 
 - Fixed: Output parameters now can specify their respective SQL types and character size to prevent exceptions being thrown due to a missing size value.

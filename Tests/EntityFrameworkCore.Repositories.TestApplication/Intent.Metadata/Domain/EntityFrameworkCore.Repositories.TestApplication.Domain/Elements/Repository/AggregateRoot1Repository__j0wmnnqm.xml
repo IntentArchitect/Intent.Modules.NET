@@ -2145,5 +2145,1707 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="30f0f2c2-b088-44d9-98a6-b7810f347feb" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsV_Collection0</name>
+      <display>Operation_Params0_ReturnsV_Collection0(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="580db6af-3949-4533-a39c-68500ed1d4e0">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0afdc210-2f8d-4f8d-9cd4-5c14cf41c584" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsD_Collection0</name>
+      <display>Operation_Params0_ReturnsD_Collection0(): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e36259ba-68d6-4f6e-9ef4-ec772384b7b1">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="929d010c-c19f-47c3-94a1-79ed7375f66b" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsD_Collection1</name>
+      <display>Operation_Params0_ReturnsD_Collection1(): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="42eee72a-8368-49ee-b49f-bd9e61cac73c">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5f30af73-69e6-4c72-8fa3-d6141ca9041c" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsE_Collection0</name>
+      <display>Operation_Params0_ReturnsE_Collection0(): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cab1150a-70d7-4698-a0c4-a97bd5121ef2">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f8833a5d-5ed8-43f2-8ded-1e77952994bd" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsE_Collection1</name>
+      <display>Operation_Params0_ReturnsE_Collection1(): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4130dcda-69f5-4ca9-93d3-d4b26c179e02">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="68080c35-1a45-476d-8c8d-afbeb5e21496" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsV_Collection0Async</name>
+      <display>Operation_Params0_ReturnsV_Collection0Async(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1025e2f1-acc9-4e0a-860f-43582cc9e93b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5a75d886-2287-4c74-a733-0abd7dfe3999" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsD_Collection0Async</name>
+      <display>Operation_Params0_ReturnsD_Collection0Async(): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cf9724fd-4012-4d76-a8ad-6c6ba396af60">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="19067568-54e0-4a37-97ac-01b9e29dfe83" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsD_Collection1Async</name>
+      <display>Operation_Params0_ReturnsD_Collection1Async(): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a05b8019-4e93-4079-9496-258da4733ebb">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f113be6e-e745-42e1-8467-d216086bb270" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsE_Collection0Async</name>
+      <display>Operation_Params0_ReturnsE_Collection0Async(): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="04258cb0-3492-4ff2-ab8c-2dd67ef8baa6">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5735a0ff-f658-4e6e-b745-22a4a31844ca" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params0_ReturnsE_Collection1Async</name>
+      <display>Operation_Params0_ReturnsE_Collection1Async(): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7355b498-4f0a-40f6-bc7c-914ef037dd44">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f1fe247d-47d8-474e-8c06-cb7c3e08a3c7" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsV_Collection0</name>
+      <display>Operation_Params1_ReturnsV_Collection0(param: SpParameter): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="7e9af2f4-1e1e-4e00-81db-4007b7f888ad">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f5ccc7b5-3bb8-48ee-a9c6-3bf10663126e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2da68f4f-6015-44b6-ae67-21ed9fe0fdc6">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f1fe247d-47d8-474e-8c06-cb7c3e08a3c7</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="870b1d21-ff3f-4584-9758-ba7d2a4175fc" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsD_Collection0</name>
+      <display>Operation_Params1_ReturnsD_Collection0(param: SpParameter): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ccad2814-ecc3-403f-a59b-bfec8718a212">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="faa1c6de-236d-4286-9bf7-8d74597672af" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f83ed5fd-389e-4064-96f4-0055fe62334e">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>870b1d21-ff3f-4584-9758-ba7d2a4175fc</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4a5531f7-469c-4993-85d8-d519a0fd3c37" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsD_Collection1</name>
+      <display>Operation_Params1_ReturnsD_Collection1(param: SpParameter): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="78bca571-c2d7-44d3-9d4a-e0d2dbb186f0">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6c4966bb-a424-4b3e-acc1-440ffc08f359" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9a4691ee-8ac9-453e-9255-0bd855259b6e">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4a5531f7-469c-4993-85d8-d519a0fd3c37</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ef80a439-b519-4b7b-abdd-b78508268082" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsE_Collection0</name>
+      <display>Operation_Params1_ReturnsE_Collection0(param: SpParameter): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="94e64644-5718-4533-bd95-506147fc6c8d">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b6a943a9-6b56-431c-83ab-6083415f0c7f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6fe52e12-40b6-47de-9a92-53c8966fb511">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ef80a439-b519-4b7b-abdd-b78508268082</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2acf4258-aaed-41cf-8056-646df6c86981" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsE_Collection1</name>
+      <display>Operation_Params1_ReturnsE_Collection1(param: SpParameter): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="b2bcd458-c215-41eb-85f6-422c09057535">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="81fe1773-9aa1-4c15-86fd-10a6e271c4c9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4527820e-5f81-48e9-81da-2aadc0c11e27">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2acf4258-aaed-41cf-8056-646df6c86981</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f2375abb-8062-4089-9266-eabcd9fa122a" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsV_Collection0Async</name>
+      <display>Operation_Params1_ReturnsV_Collection0Async(param: SpParameter): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="45ed2dd8-1108-4850-a01b-c431479d1c5d">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="79b723e3-7af2-44ea-a749-746c556e9f92" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5fbcfe32-473f-4b50-b722-2db75e3b8cfb">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f2375abb-8062-4089-9266-eabcd9fa122a</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="21b4e2ec-a89e-487f-a0c1-b54c2641b62e" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsD_Collection0Async</name>
+      <display>Operation_Params1_ReturnsD_Collection0Async(param: SpParameter): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4a996dcc-6107-4368-84f9-7389f1daeb2e">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5b4df88b-e182-43a1-87da-ec5f3b6ea33b" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4c1d9c78-142a-43ac-8efd-1fccd88b3ba1">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>21b4e2ec-a89e-487f-a0c1-b54c2641b62e</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b2e046fb-bb38-43f7-8324-fd5addeb6af8" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsD_Collection1Async</name>
+      <display>Operation_Params1_ReturnsD_Collection1Async(param: SpParameter): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="90bd3a74-0943-45eb-9692-3af4d3fe44c8">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e0130344-251a-449f-900a-83b1b9c47f1e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e9ca815a-a91e-4428-b29c-e9972d12be89">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b2e046fb-bb38-43f7-8324-fd5addeb6af8</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8248adc1-820b-4670-90c3-a6a6715ceb07" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsE_Collection0Async</name>
+      <display>Operation_Params1_ReturnsE_Collection0Async(param: SpParameter): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="02153dbf-18b7-4a9e-a8fe-c5289647d8ba">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a183bae1-1ef3-479f-9cee-6895623f2901" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d4bd6d16-a58c-4767-a26f-bf827079664b">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8248adc1-820b-4670-90c3-a6a6715ceb07</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="41ca4c20-e44b-449c-b728-8429f82a82d9" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params1_ReturnsE_Collection1Async</name>
+      <display>Operation_Params1_ReturnsE_Collection1Async(param: SpParameter): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c6b63a08-93c5-4afe-bd92-f238bff64e5e">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5f229fdb-bd27-421e-aa07-10162a4835cd" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9d13a534-4271-4123-9786-80157881af87">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>41ca4c20-e44b-449c-b728-8429f82a82d9</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7eb6202c-18bd-4558-87d7-78bf9df82e20" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsV_Collection0</name>
+      <display>Operation_Params3_ReturnsV_Collection0(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c3f11653-28f0-4f8f-9d82-a87cebbc4a3b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cf0448ca-89de-44b4-a3cc-329fac241ed4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="40d9bcfd-5207-481c-9645-07556787cca1">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7eb6202c-18bd-4558-87d7-78bf9df82e20</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a74a8c99-d37c-4640-bd5b-b5c2327decfe" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="69a685e4-1b90-46f9-aee9-38a02570a628">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7eb6202c-18bd-4558-87d7-78bf9df82e20</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3d006827-c6e9-4610-99eb-c6231d9b2f7d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="842496e3-5a4d-4363-be7e-29a725f6b8e1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7eb6202c-18bd-4558-87d7-78bf9df82e20</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8be6b048-c0d1-4d87-abbd-493ec84c3c94" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsD_Collection0</name>
+      <display>Operation_Params3_ReturnsD_Collection0(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cd42af74-7cdc-4a0b-b6e0-bea127811048">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6b2961b4-297d-450a-a7c7-44b78262179d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="067e089d-c7bf-4b84-a24d-e8fdc93dc84f">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8be6b048-c0d1-4d87-abbd-493ec84c3c94</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8721dfca-70c0-449e-af79-d116b9095f99" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0cd2632e-3504-46ef-b60b-d3445f3992ca">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8be6b048-c0d1-4d87-abbd-493ec84c3c94</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="29b92ae2-fa6d-4b90-b65f-1eee61af9b90" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="71372728-ff8e-4d27-b938-8786fe6d6971">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8be6b048-c0d1-4d87-abbd-493ec84c3c94</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8b090300-6c15-41f4-89d4-b9d164f376d6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsD_Collection1</name>
+      <display>Operation_Params3_ReturnsD_Collection1(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="356e5881-87ee-4d81-a868-2f81e4895dc0">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ad3b0261-645e-414b-a406-1b1c78758089" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0042c96e-d59d-42db-8f44-e700b37b911d">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8b090300-6c15-41f4-89d4-b9d164f376d6</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1f1207b9-5a34-4af7-a8ca-3d58df572c58" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="54aebc41-2fcb-41fa-a0b8-aeb79daf79e8">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8b090300-6c15-41f4-89d4-b9d164f376d6</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d326207b-593f-46b5-be92-3c86e9de166f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9104e22d-7eb5-4e4b-81e1-e260838a82d8">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8b090300-6c15-41f4-89d4-b9d164f376d6</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f81b445f-250f-4188-bb53-9f6a82282e28" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsE_Collection0</name>
+      <display>Operation_Params3_ReturnsE_Collection0(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3d2b1e28-8e2e-48c8-ac80-8dc34ef7292c">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a29dbad4-30c4-448f-a357-aa6aa36f4f6b" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="242d6f16-1758-4dc3-b63b-0bb96e9d9781">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f81b445f-250f-4188-bb53-9f6a82282e28</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="701fe9f7-e799-4242-8df7-b379f7f5d333" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="68531ee3-1d02-402b-8f6e-ab15bb32abe8">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f81b445f-250f-4188-bb53-9f6a82282e28</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fc373da8-cf4a-4c90-9b3d-234de575b799" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d752deef-ea41-4096-ad50-2f1322037b5a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f81b445f-250f-4188-bb53-9f6a82282e28</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8d5a61d6-5bf4-49fa-8bdf-b29636143b4f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsE_Collection1</name>
+      <display>Operation_Params3_ReturnsE_Collection1(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="9b98cce3-7a30-48ff-9f0a-8c373285111b">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="45b7b570-a164-4749-91bc-5de17ed0f846" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4c1f24ea-3c86-41a2-9676-1ff2523795c9">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8d5a61d6-5bf4-49fa-8bdf-b29636143b4f</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0380382d-21d5-4828-94da-135822e4ea4d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3ee9a089-b27c-411d-a9f4-589d20a12291">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8d5a61d6-5bf4-49fa-8bdf-b29636143b4f</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="27cb4603-e6f7-472d-b3f8-df36914455ef" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="20516b77-0c09-4db6-b1a8-fc300a8dbbb4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8d5a61d6-5bf4-49fa-8bdf-b29636143b4f</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="01fa7035-d122-421a-af52-4dda8b546aa5" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsV_Collection0Async</name>
+      <display>Operation_Params3_ReturnsV_Collection0Async(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="819ba5fe-d188-425e-80b9-87052fb2953b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4efbabf2-bde3-46bb-92cf-dfe8ff6ab5c5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7f2e3b69-ed05-4c5e-acba-11ba5e2c6e67">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>01fa7035-d122-421a-af52-4dda8b546aa5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b84cb1ae-ab06-4ebd-b438-20add9a993c6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d90a530c-9160-46c8-8f1e-b61dff5bc035">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>01fa7035-d122-421a-af52-4dda8b546aa5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cfc9caa1-4227-49be-8b29-84491d0a06ca" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dddd275f-6b71-45df-a93d-2fde0d6ecac2">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>01fa7035-d122-421a-af52-4dda8b546aa5</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="158524f9-e2e4-4c0b-8995-b12083441457" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsD_Collection0Async</name>
+      <display>Operation_Params3_ReturnsD_Collection0Async(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="13e57c5a-6ed6-4f61-9be5-648ef56d9f97">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="df147d7f-dff8-4d76-8bf2-3121f5b9b7be" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2d7552bf-65d7-49da-a35f-039d6dafae76">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>158524f9-e2e4-4c0b-8995-b12083441457</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dd8a6507-dcde-4377-8a05-b6c8fb93f073" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f1ca797c-c881-423c-a5a3-82d49c23a77f">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>158524f9-e2e4-4c0b-8995-b12083441457</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25440051-8f6c-461a-bb20-6f7e7996042c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="de01038e-85d9-4a48-b8db-90d9928ba386">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>158524f9-e2e4-4c0b-8995-b12083441457</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsD_Collection1Async</name>
+      <display>Operation_Params3_ReturnsD_Collection1Async(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): SpResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="39582c02-f9a6-472c-992c-e38d755c67e2">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="60420f61-1ebb-4ecc-928c-616a535278f2" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="51c08f89-6e3e-4d12-889c-2dcb82b8f4b6">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb5031ba-ac1a-4947-8da2-6b2799f22b91" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a37cb5ad-edd6-4652-95b8-8a45b0ed7e13">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2a09e334-5eb2-4f3d-b582-dca02cfb4133" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="05571cd1-3ea8-4b47-89db-8f507c41c7d1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="54a9b292-3ebc-476b-9501-748ea5a11ee3" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsE_Collection0Async</name>
+      <display>Operation_Params3_ReturnsE_Collection0Async(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): AggregateRoot1</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6097832d-01fe-4368-8f3e-7111bfde4cf5">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="337de1c5-2307-4775-ab2b-b9d32ef784a1" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="63aaff79-e222-4ff7-b464-399f87e4d39b">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>54a9b292-3ebc-476b-9501-748ea5a11ee3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb6899e7-8525-41c5-a0d6-6156ebeaf7a5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fc8b7c7a-d8ea-4d63-842c-667b44962bb8">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>54a9b292-3ebc-476b-9501-748ea5a11ee3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="91d605da-8be5-4259-8c47-60b8401a9b6b" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7a2a6a4a-0bb9-45f3-a0c1-de2e878a4b48">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>54a9b292-3ebc-476b-9501-748ea5a11ee3</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0336606f-0575-4a0f-ae20-8c81a84d48fd" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation_Params3_ReturnsE_Collection1Async</name>
+      <display>Operation_Params3_ReturnsE_Collection1Async(param: SpParameter, aggrParam: AggregateRoot1, strParam: string): AggregateRoot1[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e8081b57-b377-443e-a504-80fcdcd03288">
+        <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d2d6090e-17c7-4b35-bd6e-e048ec01b406" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: SpParameter</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="03ff50f2-6b33-4f5e-938b-e510945acc8a">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0336606f-0575-4a0f-ae20-8c81a84d48fd</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4177bf0e-6f83-4c9f-a393-ca2f2b653e1f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>aggrParam</name>
+          <display>in : aggrParam: AggregateRoot1</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b99f18a9-6fe2-4d3f-a042-e38c5bb52b96">
+            <typeId>d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0336606f-0575-4a0f-ae20-8c81a84d48fd</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f60d7b53-f13b-4ca1-bf9b-b8bd45a636c3" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>strParam</name>
+          <display>in : strParam: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3abd9d3e-acb0-4b9f-abe4-cff34c387eb7">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0336606f-0575-4a0f-ae20-8c81a84d48fd</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
