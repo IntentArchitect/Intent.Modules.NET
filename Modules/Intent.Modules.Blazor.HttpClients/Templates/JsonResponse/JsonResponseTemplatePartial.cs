@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.JsonResponse
 
         protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
         {
-            return metadataManager.UserInterface(applicationId);
+            return [metadataManager.UserInterface(applicationId)];
         }
     }
 }
