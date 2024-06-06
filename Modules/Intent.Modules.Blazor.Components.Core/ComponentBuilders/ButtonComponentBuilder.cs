@@ -22,7 +22,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
     {
         var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("button", _componentTemplate.RazorFile)
-            .AddAttribute("type", button.GetInteraction().Type().IsSubmit() ? "submit" : "button")
+            .AddAttribute("type", "button")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");

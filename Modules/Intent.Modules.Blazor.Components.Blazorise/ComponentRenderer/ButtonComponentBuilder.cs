@@ -22,8 +22,10 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
     {
         var button = new ButtonModel(component); 
         var htmlElement = new HtmlElement("Button", _componentTemplate.RazorFile)
-            .AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
-            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
+            .AddAttribute("Type", "ButtonType.Button")
+            .AddAttribute("Color", "Color.Primary")
+            //.AddAttribute("Type", button.GetInteraction().Type().IsSubmit() ? "ButtonType.Submit" : "ButtonType.Button")
+            //.AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Secondary")
             .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         ;
         foreach (var child in component.ChildElements)

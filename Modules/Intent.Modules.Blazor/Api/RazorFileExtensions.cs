@@ -104,7 +104,7 @@ public static class RazorFileExtensions
 
                     var mappingManager = template.CreateMappingManager();
                     mappingManager.SetFromReplacement(operation, null);
-
+                    var operationImplementationBlock = (IHasCSharpStatements)method;
                     if (operation.CallServiceOperationActionTargets().Any())
                     {
                         var isLoadingProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);
@@ -112,6 +112,7 @@ public static class RazorFileExtensions
                         method.Async();
                         method.AddTryBlock(tryBlock =>
                         {
+                            operationImplementationBlock = tryBlock;
                             if (isLoadingProperty != null)
                             {
                                 tryBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "true"), s => s.WithSemicolon());
@@ -174,7 +175,6 @@ public static class RazorFileExtensions
 
                     foreach (var navigationModel in operation.NavigateToComponents())
                     {
-                        method.Private();
                         var route = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
 
                         var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
@@ -192,7 +192,7 @@ public static class RazorFileExtensions
                         }
 
                         template.RazorFile.AddInjectDirective("NavigationManager");
-                        method.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
+                        operationImplementationBlock.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                     }
                 });
             }
