@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a353cd6-cd4b-428f-91b7-617c431e60df" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>DataContractObject</name>
+  <display>DataContractObject</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>086ef0af-9891-49d0-b2fe-0ea6e2c14196</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="43937e01-7079-4ab1-b5c4-b3cb0dee9dcd" name="User-Defined Table Type Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+      <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+      <properties>
+        <property name="fe47cbcb-5976-462c-8f85-7dbffcfea97d" display="Name" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

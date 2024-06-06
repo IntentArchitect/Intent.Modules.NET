@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4eb919bb-ab82-4b4d-96a6-47a3c5357812" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomersQuery</name>
+  <display>GetCustomersQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="5e57750b-fef4-48f0-b3c7-f01e31103a5d">
+    <typeId>3a316199-cea4-41b3-81d0-4df3abc97a8f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b6ccc147-1250-4b13-95f9-738aaf907721</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Customers" />
+  </metadata>
+  <childElements />
+</class>

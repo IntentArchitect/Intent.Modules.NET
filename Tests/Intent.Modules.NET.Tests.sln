@@ -39,13 +39,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.Http
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.AspNetCore.TestApplication.Api", "Standard.AspNetCore.TestApplication\Standard.AspNetCore.TestApplication.Api\Standard.AspNetCore.TestApplication.Api.csproj", "{6E9C3713-8EF4-42DA-B25C-89CB49A51E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Domain", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Domain\CleanArchitecture.TestApplication.Domain.csproj", "{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Comprehensive.Domain", "CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Domain\CleanArchitecture.Comprehensive.Domain.csproj", "{4369D89D-2CCD-42E5-AFFE-576C035EC9C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Application", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Application\CleanArchitecture.TestApplication.Application.csproj", "{EB4940FE-9FA6-4877-BB25-2C876B610E89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Comprehensive.Application", "CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Application\CleanArchitecture.Comprehensive.Application.csproj", "{EB4940FE-9FA6-4877-BB25-2C876B610E89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Infrastructure", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Infrastructure\CleanArchitecture.TestApplication.Infrastructure.csproj", "{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Comprehensive.Infrastructure", "CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Infrastructure\CleanArchitecture.Comprehensive.Infrastructure.csproj", "{9A1D2F01-B1FB-4B60-A679-FD3D15236BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.TestApplication.Api", "CleanArchitecture.TestApplication\CleanArchitecture.TestApplication.Api\CleanArchitecture.TestApplication.Api.csproj", "{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Comprehensive.Api", "CleanArchitecture.Comprehensive\CleanArchitecture.Comprehensive.Api\CleanArchitecture.Comprehensive.Api.csproj", "{2CD99B16-83E6-4C79-81EF-E94DB5288EB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.IntegrationTest.HttpClient.CleanArchitecture", "Intent.IntegrationTest.HttpClient.CleanArchitecture\Intent.IntegrationTest.HttpClient.CleanArchitecture.csproj", "{DCA52FE0-B28D-4391-90D5-1845D1ADA25F}"
 EndProject

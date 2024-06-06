@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a0386fbe-2e89-4174-8593-73bcbc393530">
+  <sourceEnd id="6c5c1875-f286-4187-83ce-1a006aa04e07" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetEfInvoicesQuery</display>
+    <order>0</order>
+    <typeReference id="b39bf849-d1de-41ee-92c7-99c8acd8c19f">
+      <typeId>21432c48-bec4-4397-98c0-995344f1e6ec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a0386fbe-2e89-4174-8593-73bcbc393530" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>efInvoices</name>
+    <display>[query] efInvoices: EfInvoice[*]</display>
+    <order>0</order>
+    <typeReference id="d5ed2057-4f9a-4d05-99fb-10bcf8875532">
+      <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="21432c48-bec4-4397-98c0-995344f1e6ec" location="[CleanArchitecture.SingleFiles].[Services].[GetEfInvoicesQuery]" />
+        <target elementId="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" location="[CleanArchitecture.SingleFiles].[Services].[EfInvoice]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

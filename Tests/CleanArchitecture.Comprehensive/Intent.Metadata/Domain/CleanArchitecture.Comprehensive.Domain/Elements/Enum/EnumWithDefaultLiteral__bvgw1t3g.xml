@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="af000d9d-0f5e-4cfc-8a60-df6f6b30331a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EnumWithDefaultLiteral</name>
+  <display>EnumWithDefaultLiteral</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c35f644e-5c14-417c-96e9-fe8a142b6c97</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7717fe90-d753-443b-b6ac-d4c8740b58dc" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>DefaultLiteral</name>
+      <display>DefaultLiteral = 0</display>
+      <isAbstract>false</isAbstract>
+      <value>0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b897d4d1-a8f4-42c3-8511-77179416281e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>FirstLiteral</name>
+      <display>FirstLiteral = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="95b93ff7-612c-43fd-aa42-f489a38eb7a2" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>SecondLiteral</name>
+      <display>SecondLiteral = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fb430a98-9094-4337-b8d6-b8c2dccd3e3a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ThirdLiteral</name>
+      <display>ThirdLiteral = 3</display>
+      <isAbstract>false</isAbstract>
+      <value>3</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>af000d9d-0f5e-4cfc-8a60-df6f6b30331a</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

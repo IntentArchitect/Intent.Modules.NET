@@ -28,9 +28,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.JsonResponse
         {
         }
 
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
         {
-            return null;
+            yield break;
         }
 
         public override bool CanRunTemplate()

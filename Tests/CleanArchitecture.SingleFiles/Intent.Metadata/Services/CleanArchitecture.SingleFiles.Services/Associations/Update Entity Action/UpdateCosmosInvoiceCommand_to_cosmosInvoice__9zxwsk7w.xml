@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3ce7a890-6fc6-4a16-98d8-b8a38c978ac1">
+  <sourceEnd id="fee56fe1-0a79-4a37-9754-93a456cd0817" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AdvancedMappingCosmosInvoices.UpdateCosmosInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="4efc5921-eed7-4071-806b-1051e1385e3f">
+      <typeId>f25ec1bf-8932-47a3-844c-0c19f0b6dc4a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3ce7a890-6fc6-4a16-98d8-b8a38c978ac1" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>cosmosInvoice</name>
+    <display>[update] cosmosInvoice: CosmosInvoice</display>
+    <order>2</order>
+    <typeReference id="ad25482f-b2ad-421d-aaa1-8c24447736e5">
+      <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="f25ec1bf-8932-47a3-844c-0c19f0b6dc4a" location="[CleanArchitecture.SingleFiles].[Services].[UpdateCosmosInvoiceCommand]" />
+        <target elementId="6788a348-5d20-4831-93c8-5872106be0a8" location="[CleanArchitecture.SingleFiles].[Services].[CosmosInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" />
+              <target id="09fd4717-9361-4ff2-ad3f-08e0a6f7f816" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f25ec1bf-8932-47a3-844c-0c19f0b6dc4a" name="UpdateCosmosInvoiceCommand" type="element" specialization="Command" />
+                  <target id="0aed6391-e252-4ea1-a650-021145693c25" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source elementId="f25ec1bf-8932-47a3-844c-0c19f0b6dc4a" location="[CleanArchitecture.SingleFiles].[Services].[UpdateCosmosInvoiceCommand]" />
+        <target elementId="6788a348-5d20-4831-93c8-5872106be0a8" location="[CleanArchitecture.SingleFiles].[Services].[CosmosInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" />
+              <target id="b0a072d7-7122-4801-93e4-25f3992e8786" name="Description" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f25ec1bf-8932-47a3-844c-0c19f0b6dc4a" name="UpdateCosmosInvoiceCommand" type="element" specialization="Command" />
+                  <target id="d2241bfa-81fb-4fa5-8988-ca778b64549c" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="24b2b607-cb7b-4925-8c39-ec89724947c7">
+  <sourceEnd id="7aff1418-97d4-4466-a98e-acc500e15a41" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ClientsService.DeleteClient</display>
+    <order>0</order>
+    <typeReference id="d1c8606f-cbde-47ab-9e52-02447773c8f1">
+      <typeId>ca81f2fc-189e-4825-8c01-4b6dba599924</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="24b2b607-cb7b-4925-8c39-ec89724947c7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>client</name>
+    <display>[delete] client: Client</display>
+    <order>1</order>
+    <typeReference id="346ef151-d497-467b-93c4-77d4029c4d4f">
+      <typeId>5ea8c86f-affd-4511-b3ae-c73a2e69fc9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ca81f2fc-189e-4825-8c01-4b6dba599924" location="[ProxyServiceTests.OriginalServices].[Services].[DeleteClient]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" location="[ProxyServiceTests.OriginalServices].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
+              <target id="dfac4f2c-537d-4e75-82f6-52323767bdb8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ca81f2fc-189e-4825-8c01-4b6dba599924" name="DeleteClient" type="element" specialization="Operation" />
+                  <target id="0d87db84-d6ba-45f9-ba60-52cdcf8f5dd2" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

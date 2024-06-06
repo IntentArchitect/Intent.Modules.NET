@@ -10,13 +10,13 @@
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>CombinedAllTechs.Services</typePackageName>
+    <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
     <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>1873dc5a-9d89-4d77-9c08-46f5471cc3f7</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>

@@ -7,10 +7,12 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.MappingTests;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +50,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<BaseEntityB> BaseEntityBs { get; set; }
         public DbSet<ConcreteEntityA> ConcreteEntityAs { get; set; }
         public DbSet<ConcreteEntityB> ConcreteEntityBs { get; set; }
+        public DbSet<FilteredIndex> FilteredIndices { get; set; }
         public DbSet<NestingParent> NestingParents { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -86,6 +89,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new BaseEntityBConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteEntityAConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteEntityBConfiguration());
+            modelBuilder.ApplyConfiguration(new FilteredIndexConfiguration());
             modelBuilder.ApplyConfiguration(new NestingParentConfiguration());
         }
 

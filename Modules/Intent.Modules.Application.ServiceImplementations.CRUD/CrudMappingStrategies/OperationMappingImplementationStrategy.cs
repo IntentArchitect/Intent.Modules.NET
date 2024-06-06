@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
             method.AddMetadata("mapping-manager", csharpMapping);
 
-            method.AddStatements(domainInteractionManager.CreateInteractionStatements(operationModel));
+            method.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, operationModel));
 
             //foreach (var queryAction in operationModel.QueryEntityActions())
             //{
@@ -103,7 +103,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             if (operationModel.TypeReference.Element != null)
             {
-                var returnStatement = domainInteractionManager.GetReturnStatements(operationModel.TypeReference);
+                var returnStatement = domainInteractionManager.GetReturnStatements(@class, operationModel.TypeReference);
                 method.AddStatements(returnStatement);
             }
         }

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="18431af9-daed-4cc7-aefb-d91c38f7f844">
+  <sourceEnd id="200206b7-17bb-4870-a1f5-a2cd62f44a7f" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Products.CreateProductCommand</display>
+    <order>0</order>
+    <typeReference id="2ec0478a-9a77-446c-96d2-07e552e2f8b7">
+      <typeId>ace6bae7-41aa-4440-a0e3-6ad6d6518666</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Services</typePackageName>
+      <typePackageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="18431af9-daed-4cc7-aefb-d91c38f7f844" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>product</name>
+    <display>[create] product: Constructor</display>
+    <order>3</order>
+    <typeReference id="8d953379-c26b-4bd1-a644-3b27baebc05e">
+      <typeId>421bfe71-f8f0-4104-8983-c0e2e6c3ef26</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ace6bae7-41aa-4440-a0e3-6ad6d6518666" location="[TrainingModel.Tests].[Services].[CreateProductCommand]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a8c0300d-5cac-4eb7-9134-94ad43f24faa" location="[TrainingModel.Tests].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateProductCommand}</expression>
+            <path>
+              <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
+              <target id="421bfe71-f8f0-4104-8983-c0e2e6c3ef26" name="Constructor" type="element" specialization="Class Constructor" />
+            </path>
+            <sources>
+              <source identifier="CreateProductCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="ace6bae7-41aa-4440-a0e3-6ad6d6518666" name="CreateProductCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
+              <target id="421bfe71-f8f0-4104-8983-c0e2e6c3ef26" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="0712aae4-d2c2-4752-9cda-27abac667206" name="name" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ace6bae7-41aa-4440-a0e3-6ad6d6518666" name="CreateProductCommand" type="element" specialization="Command" />
+                  <target id="09419705-ac01-4fbb-820d-764d05a8bb91" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BrandId}</expression>
+            <path>
+              <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
+              <target id="421bfe71-f8f0-4104-8983-c0e2e6c3ef26" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="62874a7e-55fb-4854-ab58-3c053102243b" name="brandId" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="BrandId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ace6bae7-41aa-4440-a0e3-6ad6d6518666" name="CreateProductCommand" type="element" specialization="Command" />
+                  <target id="43e3723a-0cff-4da6-a953-2a8ffc744fe9" name="BrandId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
+              <target id="421bfe71-f8f0-4104-8983-c0e2e6c3ef26" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="19412e66-fb8c-4656-915c-5fa646fbc5c1" name="description" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ace6bae7-41aa-4440-a0e3-6ad6d6518666" name="CreateProductCommand" type="element" specialization="Command" />
+                  <target id="c6eb310a-3429-42b2-b701-88f0ea49941b" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

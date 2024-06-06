@@ -38,8 +38,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
             order.OrderDate = request.OrderDate;
             order.OrderStatus = request.OrderStatus;
             order.OrderTags = UpdateHelper.CreateOrUpdateCollection(order.OrderTags, request.OrderTags, (e, d) => e.Equals(new OrderTags(
-    name: d.Name,
-    value: d.Value)), CreateOrUpdateOrderTags);
+                name: d.Name,
+                value: d.Value)), CreateOrUpdateOrderTags);
 
             _orderRepository.Update(order);
         }
@@ -50,8 +50,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
             if (valueObject is null)
             {
                 return new OrderTags(
-    name: dto.Name,
-    value: dto.Value);
+                    name: dto.Name,
+                    value: dto.Value);
             }
             return valueObject;
         }

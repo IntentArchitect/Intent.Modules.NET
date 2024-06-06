@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eb0819ed-0d3c-45a7-a3c9-38946c1d4401" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetBrandsQuery</name>
+  <display>GetBrandsQuery: BrandDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="d936ee57-d35b-430e-8468-05628206d049">
+    <typeId>d3c20427-b165-4eae-a3bc-450193b17a47</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>TrainingModel.Tests.Services</typePackageName>
+    <typePackageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>8fa0f94a-6ad2-4aa0-86ac-9c06ec1f9363</parentFolderId>
+  <packageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</packageId>
+  <packageName>TrainingModel.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/brand" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Brands" />
+  </metadata>
+  <childElements />
+</class>

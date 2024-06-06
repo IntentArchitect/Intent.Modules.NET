@@ -16,6 +16,7 @@ namespace EntityFrameworkCore.SplitQueries.MySql.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("mysql");
 
             ConfigureModel(modelBuilder);
         }

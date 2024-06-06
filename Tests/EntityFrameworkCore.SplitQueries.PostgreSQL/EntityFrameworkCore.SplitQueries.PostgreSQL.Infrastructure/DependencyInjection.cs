@@ -2,6 +2,7 @@ using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common.Interfaces;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +23,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure
                     {
                         b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                         b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                        b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "pgsql");
                     });
                 options.UseLazyLoadingProxies();
             });

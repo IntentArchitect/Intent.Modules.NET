@@ -1,3 +1,7 @@
+### Version 4.3.1
+
+- Improvement: Application Client Dto type using directives also to be resolved now in Service implementations.
+
 ### Version 4.3.0
 
 - Improvement: Removed its own Service Implementation template (in favor of the existing module's implementation) and converted the SCH template into the File Builder in order for other modules to inject code into the implementation class.

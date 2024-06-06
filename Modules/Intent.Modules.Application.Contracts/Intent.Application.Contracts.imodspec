@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts</id>
-  <version>5.0.6</version>
+  <version>5.0.7-pre.1</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
@@ -16,7 +16,7 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Application.Dtos" version="4.0.2" />
+    <dependency id="Intent.Application.Dtos" version="4.2.1-pre.0" />
     <dependency id="Intent.Common" version="3.4.1" />
     <dependency id="Intent.Common.CSharp" version="3.4.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />

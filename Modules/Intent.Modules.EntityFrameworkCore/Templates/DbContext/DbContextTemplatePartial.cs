@@ -66,6 +66,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                             .AddParameter("ModelBuilder", "modelBuilder");
 
                         method.AddStatement("base.OnModelCreating(modelBuilder);");
+                        if (Model.IsApplicationDbContext && !string.IsNullOrWhiteSpace(ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()))
+                        {
+                            method.AddStatement($@"modelBuilder.HasDefaultSchema(""{ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()}"");");
+                        }
                         method.AddStatement("ConfigureModel(modelBuilder);", s => s.SeparatedFromPrevious());
                     });
 

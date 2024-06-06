@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="690733ee-3bdc-4d7d-b8da-dae120563c26">
+  <sourceEnd id="6bfedf4b-621f-48c0-845b-aaf4aa769c9c" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : AdvancedMappingDaprInvoices.DeleteDaprInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="5c375080-506a-42b0-b9a0-6c5e4974a7da">
+      <typeId>d97c6e8a-db3f-4c74-8e77-c05ceec8d879</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="690733ee-3bdc-4d7d-b8da-dae120563c26" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>daprInvoice</name>
+    <display>[delete] daprInvoice: DaprInvoice</display>
+    <order>1</order>
+    <typeReference id="e98076b1-e36d-421e-ba93-1171e0d88f9d">
+      <typeId>47198a38-4f68-4a44-852b-e3b12186852a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.DaprState</typePackageName>
+      <typePackageId>023085ed-1b46-448a-b8ba-f9430708cc10</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d97c6e8a-db3f-4c74-8e77-c05ceec8d879" location="[CleanArchitecture.SingleFiles].[Services].[DeleteDaprInvoiceCommand]" />
+        <target elementId="47198a38-4f68-4a44-852b-e3b12186852a" location="[CleanArchitecture.SingleFiles].[Services].[DaprInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" />
+              <target id="0f5e8c4f-9eee-426e-9a1a-712d990ef027" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d97c6e8a-db3f-4c74-8e77-c05ceec8d879" name="DeleteDaprInvoiceCommand" type="element" specialization="Command" />
+                  <target id="9ac43c4a-1796-4c95-ad55-1c49a36090a3" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

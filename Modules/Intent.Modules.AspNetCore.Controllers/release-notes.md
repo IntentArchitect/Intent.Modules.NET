@@ -1,3 +1,11 @@
+### Version 6.0.8
+
+- Fixed: Due to the nature of how GetTypeName resolves namespaces there are cases where ambiguous references still exist and causes compilation errors, this fix forces to re-evaluate a lot of types in this module.
+
+### Version 6.0.7
+
+- Improvement: Application Client Dto type using directives also to be resolved now in Service implementations.
+
 ### Version 6.0.6
 
 - Fixed: `ExceptionFilter` will now return `UnauthorizedResult` when `UnauthorizedAccessException` is caught.

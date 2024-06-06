@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="329a0bb8-4e7c-40a9-b1f3-10dbfb6da541">
+  <sourceEnd id="d6a35760-f27a-4e89-9302-e9ba763e6435" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.ChangeNameCommand</display>
+    <order>0</order>
+    <typeReference id="ffc4545b-897d-4879-971d-f745b59dc3d3">
+      <typeId>4750a6d7-a51c-41cf-b818-c3a72dabbd07</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="329a0bb8-4e7c-40a9-b1f3-10dbfb6da541" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>entity</name>
+    <display>[update] entity: Customer</display>
+    <order>3</order>
+    <typeReference id="b201e067-7807-4b92-9d6f-f691d93d11d1">
+      <typeId>21cdffa0-70f5-4a71-8e25-c51d99c183b9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.TestApplication].[Services].[ChangeNameCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Domain].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
+              <target id="38e61981-b663-4efb-b566-32a5fce8a2de" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
+                  <target id="a900a1de-f392-448a-8587-843d93cf81fb" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.TestApplication].[Services].[ChangeNameCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ChangeNameCommand}</expression>
+            <path>
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="ChangeNameCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
+              <target id="9e69a9da-95e3-4757-bb5a-f6829d968895" name="name" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
+                  <target id="663445a0-5fc3-4036-b724-ab37e7ebbe89" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
+              <target id="0879fc77-5600-4c64-a1e3-6502f26f7bfb" name="surname" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
+                  <target id="c3389722-dd8f-4558-aa4d-5f9334643c3d" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

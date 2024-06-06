@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0aac5d91-6143-464d-8639-af5d7e14712f">
+  <sourceEnd id="2956f34e-6176-41d7-b5cd-d4ca8d3808c3" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindClientById</display>
+    <order>0</order>
+    <typeReference id="d57c9362-4552-4f6a-97ee-16766e584b11">
+      <typeId>d39bcee4-894c-4546-bbeb-7ba2eef1b05d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0aac5d91-6143-464d-8639-af5d7e14712f" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>client</name>
+    <display>[query] client: Client</display>
+    <order>1</order>
+    <typeReference id="4ba31b6a-7e87-40d8-b992-5586b50c90f5">
+      <typeId>5ea8c86f-affd-4511-b3ae-c73a2e69fc9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d39bcee4-894c-4546-bbeb-7ba2eef1b05d" location="[ProxyServiceTests.OriginalServices].[Services].[FindClientById]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" location="[ProxyServiceTests.OriginalServices].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
+              <target id="dfac4f2c-537d-4e75-82f6-52323767bdb8" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d39bcee4-894c-4546-bbeb-7ba2eef1b05d" name="FindClientById" type="element" specialization="Operation" />
+                  <target id="7fa239b3-c668-4694-873e-aeae7d668578" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

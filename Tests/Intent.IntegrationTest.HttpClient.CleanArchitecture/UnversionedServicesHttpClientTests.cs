@@ -1,13 +1,13 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using CleanArchitecture.TestApplication.Api.Configuration;
-using CleanArchitecture.TestApplication.Api.Controllers;
-using CleanArchitecture.TestApplication.Api.Services;
-using CleanArchitecture.TestApplication.Application;
-using CleanArchitecture.TestApplication.Application.Common.Eventing;
-using CleanArchitecture.TestApplication.Application.Common.Interfaces;
-using CleanArchitecture.TestApplication.Application.IntegrationServices;
-using CleanArchitecture.TestApplication.Application.Unversioned.Test;
-using CleanArchitecture.TestApplication.Domain.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Api.Configuration;
+using CleanArchitecture.Comprehensive.Api.Controllers;
+using CleanArchitecture.Comprehensive.Api.Services;
+using CleanArchitecture.Comprehensive.Application;
+using CleanArchitecture.Comprehensive.Application.Common.Eventing;
+using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Application.IntegrationServices;
+using CleanArchitecture.Comprehensive.Application.Unversioned.Test;
+using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.IntegrationTest.HttpClient.CleanArchitecture.TestUtils;
 using Intent.IntegrationTest.HttpClient.Common;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Xunit;
 using Xunit.Abstractions;
-using TestCommand = CleanArchitecture.TestApplication.Application.IntegrationServices.Services.Unversioned.TestCommand;
+using TestCommand = CleanArchitecture.Comprehensive.Application.IntegrationServices.Services.Unversioned.TestCommand;
 
 namespace Intent.IntegrationTest.HttpClient.CleanArchitecture;
 

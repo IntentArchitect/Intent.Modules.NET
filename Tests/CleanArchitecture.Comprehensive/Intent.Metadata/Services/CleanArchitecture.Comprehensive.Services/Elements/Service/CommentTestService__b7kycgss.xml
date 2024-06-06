@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0e993a94-e4d2-4617-9dc8-416a97cdada0" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>My Service Comments</comment>
+  <name>CommentTestService</name>
+  <display>CommentTestService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>94bbe4eb-9ecf-4878-b6b5-7e6e4e7bb8b2</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2803e575-f785-4aa7-b286-e69881ca5c4e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>My Op Comments</comment>
+      <name>MyOp</name>
+      <display>MyOp(param1: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="326fc2f9-7f15-4410-bb79-934a20a8d711">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e993a94-e4d2-4617-9dc8-416a97cdada0</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="2963361c-38b2-4519-8831-0cd2ecee0fc4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <comment>Param 1 Comment</comment>
+          <name>param1</name>
+          <display>in : param1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="67f6c987-1c87-4630-a4c3-3379afbecd01">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2803e575-f785-4aa7-b286-e69881ca5c4e</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

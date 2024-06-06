@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="948b436a-08d8-45a9-b193-316ed3f04647">
+  <sourceEnd id="765b6cd4-aa89-4e89-8dea-4d1db8d06ee4" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AdvancedMappingMongoInvoices.UpdateMongoInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="240f8916-3483-4b01-9936-e498bcc7abe3">
+      <typeId>5206e706-481f-4429-ab45-a4ea9ce12115</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="948b436a-08d8-45a9-b193-316ed3f04647" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>mongoInvoice</name>
+    <display>[update] mongoInvoice: MongoInvoice</display>
+    <order>2</order>
+    <typeReference id="213f5ade-73d2-442b-ab0c-d724894968c1">
+      <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Mongo</typePackageName>
+      <typePackageId>ae010739-d7b2-4951-9c20-b50c0900adb8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5206e706-481f-4429-ab45-a4ea9ce12115" location="[CleanArchitecture.SingleFiles].[Services].[UpdateMongoInvoiceCommand]" />
+        <target elementId="ce04f551-7e6b-4d47-9eba-48822fb12b65" location="[CleanArchitecture.SingleFiles].[Services].[MongoInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
+              <target id="7725caa0-920a-42f0-8530-341491483a2e" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5206e706-481f-4429-ab45-a4ea9ce12115" name="UpdateMongoInvoiceCommand" type="element" specialization="Command" />
+                  <target id="2c076e39-c536-4180-9d27-1356145edcb3" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5206e706-481f-4429-ab45-a4ea9ce12115" location="[CleanArchitecture.SingleFiles].[Services].[UpdateMongoInvoiceCommand]" />
+        <target elementId="ce04f551-7e6b-4d47-9eba-48822fb12b65" location="[CleanArchitecture.SingleFiles].[Services].[MongoInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
+              <target id="c4da2549-276c-4fd4-95b6-b1db8170e2ee" name="Description" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5206e706-481f-4429-ab45-a4ea9ce12115" name="UpdateMongoInvoiceCommand" type="element" specialization="Command" />
+                  <target id="e1a55b68-6118-4b5e-b017-f2ce13de94fb" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

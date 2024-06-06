@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7c8d535-3e8d-48d4-9782-ad96506f84b7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>01483867-a07c-4def-865e-6784cdc1de8f</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dad6562d-1b74-4eaa-8c76-791ed9241c1d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="94665aa2-cd52-4284-96ca-b113fc640be6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d5bab6f9-8369-4750-8bc8-5f881c2a9162" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbucklePublishingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbucklePublishingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="816b0fa0-51dd-4ecc-8686-50b9166ad17d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="92537838-d8c4-4636-a9ea-71ae0df3141d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d82d794c-0043-4602-8af2-df2b15029e05" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7c8d535-3e8d-48d4-9782-ad96506f84b7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,375 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.6": {
+        "dependencies": {
+          "Intent.MetadataSynchronizer": "1.0.0",
+          "Intent.Modules.Modelers.Services": "3.4.7",
+          "Intent.Modules.Modelers.Services.CQRS": "4.0.2",
+          "Microsoft.OpenApi.Readers": "1.6.6"
+        },
+        "runtime": {
+          "Intent.MetadataSynchronizer.OpenApi.CLI.dll": {}
+        }
+      },
+      "Intent.Modules.Common/3.4.1": {
+        "dependencies": {
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Intent.Modules.Common.dll": {
+            "assemblyVersion": "3.4.1.0",
+            "fileVersion": "3.4.1.0"
+          }
+        }
+      },
+      "Intent.Modules.Common.Types/3.3.7": {
+        "dependencies": {
+          "Intent.Modules.Common": "3.4.1",
+          "Intent.RoslynWeaver.Attributes": "2.0.1",
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Intent.Modules.Common.Types.dll": {
+            "assemblyVersion": "3.3.7.0",
+            "fileVersion": "3.3.7.0"
+          }
+        }
+      },
+      "Intent.Modules.Modelers.Domain/3.3.0": {
+        "dependencies": {
+          "Intent.Modules.Common": "3.4.1",
+          "Intent.Modules.Common.Types": "3.3.7",
+          "Intent.RoslynWeaver.Attributes": "2.0.1",
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Intent.Modules.Modelers.Domain.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "Intent.Modules.Modelers.Services/3.4.7": {
+        "dependencies": {
+          "Intent.Modules.Common": "3.4.1",
+          "Intent.Modules.Common.Types": "3.3.7",
+          "Intent.RoslynWeaver.Attributes": "2.0.1",
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.dll": {
+            "assemblyVersion": "3.4.7.0",
+            "fileVersion": "3.4.7.0"
+          }
+        }
+      },
+      "Intent.Modules.Modelers.Services.CQRS/4.0.2": {
+        "dependencies": {
+          "Intent.Modules.Common": "3.4.1",
+          "Intent.Modules.Common.Types": "3.3.7",
+          "Intent.Modules.Modelers.Services": "3.4.7",
+          "Intent.RoslynWeaver.Attributes": "2.0.1",
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.CQRS.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.0.2.0"
+          }
+        }
+      },
+      "Intent.RoslynWeaver.Attributes/2.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Intent.RoslynWeaver.Attributes.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
+      "Microsoft.OpenApi/1.6.6": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "1.6.6.0",
+            "fileVersion": "1.6.6.0"
+          }
+        }
+      },
+      "Microsoft.OpenApi.Readers/1.6.6": {
+        "dependencies": {
+          "Microsoft.OpenApi": "1.6.6",
+          "SharpYaml": "2.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OpenApi.Readers.dll": {
+            "assemblyVersion": "1.6.6.0",
+            "fileVersion": "1.6.6.0"
+          }
+        }
+      },
+      "NuGet.Versioning/5.6.0": {
+        "runtime": {
+          "lib/netstandard2.0/NuGet.Versioning.dll": {
+            "assemblyVersion": "5.6.0.5",
+            "fileVersion": "5.6.0.6591"
+          }
+        }
+      },
+      "Serilog/2.12.0": {
+        "runtime": {
+          "lib/net6.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.12.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Console/4.0.2-dev-00890": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.0.2.0"
+          }
+        }
+      },
+      "SharpYaml/2.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/SharpYaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "System.CommandLine/2.0.0-beta3.22114.1": {
+        "runtime": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.22.11401"
+          }
+        },
+        "resources": {
+          "lib/net6.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "System.Reflection.Emit/4.7.0": {},
+      "Intent.IArchitect.Agent.Persistence/1.0.0": {
+        "dependencies": {
+          "Intent.IArchitect.Common": "1.0.0",
+          "Intent.IArchitect.CrossPlatform": "1.0.0",
+          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+        },
+        "runtime": {
+          "Intent.IArchitect.Agent.Persistence.dll": {}
+        }
+      },
+      "Intent.IArchitect.Common/1.0.0": {
+        "dependencies": {
+          "NuGet.Versioning": "5.6.0"
+        },
+        "runtime": {
+          "Intent.IArchitect.Common.dll": {}
+        }
+      },
+      "Intent.IArchitect.CrossPlatform/1.0.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "Intent.IArchitect.CrossPlatform.dll": {}
+        }
+      },
+      "Intent.MetadataSynchronizer/1.0.0": {
+        "dependencies": {
+          "Intent.IArchitect.Agent.Persistence": "1.0.0",
+          "Intent.Modules.Modelers.Domain": "3.3.0",
+          "Serilog.Sinks.Console": "4.0.2-dev-00890",
+          "System.CommandLine": "2.0.0-beta3.22114.1"
+        },
+        "runtime": {
+          "Intent.MetadataSynchronizer.dll": {}
+        }
+      },
+      "Intent.SoftwareFactory.SDK/3.7.0-pre.0": {
+        "runtime": {
+          "Intent.SoftwareFactory.SDK.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intent.Modules.Common/3.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZP7sBZlWlli/CtFJk3cfyofBbkvbl6ud6wZZoG9f+SXHmFaR+BZhECDSEKl8Bm4CEHApc3bB7zwT1MFmmWUI0w==",
+      "path": "intent.modules.common/3.4.1",
+      "hashPath": "intent.modules.common.3.4.1.nupkg.sha512"
+    },
+    "Intent.Modules.Common.Types/3.3.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qAeUMe0pKLeUX4AbDFyzfEGmgageHTSUP6IQZJ+ulKtmOFi1iSHyNxYSJ19OGNYLCtGxEFtcekGJqgeIzOIW9A==",
+      "path": "intent.modules.common.types/3.3.7",
+      "hashPath": "intent.modules.common.types.3.3.7.nupkg.sha512"
+    },
+    "Intent.Modules.Modelers.Domain/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b/lOX3TGMW9fG7TC+6yvRNFJIrvT21U8QGBoSaxbWjVNTQP47nyf113UPdy2y8I6p+CHXv7smIgv7RkJNvc6pQ==",
+      "path": "intent.modules.modelers.domain/3.3.0",
+      "hashPath": "intent.modules.modelers.domain.3.3.0.nupkg.sha512"
+    },
+    "Intent.Modules.Modelers.Services/3.4.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YGIEIHC1WF9zyUt8bYZaXEIzdqgH5Elgd2CmgtnyprnCCeh6Oyqo6jdPst3OXyun63T7CmLABQp/UmemayCZOg==",
+      "path": "intent.modules.modelers.services/3.4.7",
+      "hashPath": "intent.modules.modelers.services.3.4.7.nupkg.sha512"
+    },
+    "Intent.Modules.Modelers.Services.CQRS/4.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rwFNUudpRG9nkLjrqaymM2QkAfEjYYN1VjYVqKXyaa/9k8f7o8zZZxaxPZUdhxuEgtBj55C9xxq3kq1LJs/naw==",
+      "path": "intent.modules.modelers.services.cqrs/4.0.2",
+      "hashPath": "intent.modules.modelers.services.cqrs.4.0.2.nupkg.sha512"
+    },
+    "Intent.RoslynWeaver.Attributes/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DX1LCQnpkAb9hN+hMe868t8Due5R/3wqrMuGPBMER+GHWDr4ceEf4t5VSCg5qepk3dhvCGQ5dWyPqeLg4sI6lA==",
+      "path": "intent.roslynweaver.attributes/2.0.1",
+      "hashPath": "intent.roslynweaver.attributes.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.OpenApi/1.6.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7SE3RTGpdXUN+PkVN4xRrtsATgBI7BpsBvbjg6SykurEinA69vIl4S8DWPeGLaBykaCDq87/Ebf2Ashoh7Ky/g==",
+      "path": "microsoft.openapi/1.6.6",
+      "hashPath": "microsoft.openapi.1.6.6.nupkg.sha512"
+    },
+    "Microsoft.OpenApi.Readers/1.6.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yWNvjxTS1lN9Ix91b0+zoOCSTHr2haZSm5qokko7qRKBiVQo+EDqlY+d93pxtCLcIj6LdHe+8AdfPGi7eAwtGA==",
+      "path": "microsoft.openapi.readers/1.6.6",
+      "hashPath": "microsoft.openapi.readers.1.6.6.nupkg.sha512"
+    },
+    "NuGet.Versioning/5.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UIUh1X1XXSOJwc18a7ssTmCAyN7sDXOTfNJN9HfJnWX8NStzQeZq/6RHfSHYMxUjECk6n5alCQjUA51C36R46A==",
+      "path": "nuget.versioning/5.6.0",
+      "hashPath": "nuget.versioning.5.6.0.nupkg.sha512"
+    },
+    "Serilog/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xaiJLIdu6rYMKfQMYUZgTy8YK7SMZjB4Yk50C/u//Z4OsvxkUfSPJy4nknfvwAC34yr13q7kcyh4grbwhSxyZg==",
+      "path": "serilog/2.12.0",
+      "hashPath": "serilog.2.12.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Console/4.0.2-dev-00890": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5l0OWV0dk0fAzascJUY0tWrAPqrleSs2uhZzW2y9iYXFYtEfMBPTi1+UHPO6Pa76Z4ZG06s2mpGfjAdPSpIxNw==",
+      "path": "serilog.sinks.console/4.0.2-dev-00890",
+      "hashPath": "serilog.sinks.console.4.0.2-dev-00890.nupkg.sha512"
+    },
+    "SharpYaml/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2jBenJ6QN0mj8G3ohrNO/uNhA92OJYsQFuI5dJ4zM/HauVoC/oJzK1sCVlUaVUpuXpHUa/k1waXVkkBR2luP/w==",
+      "path": "sharpyaml/2.1.0",
+      "hashPath": "sharpyaml.2.1.0.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.0-beta3.22114.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QMzk1jj+PzdGbwuVsxII7FcQaCelnK+TcRcAqOGVoPovLBCSQPdikKiEzb56vAidvum5t4LSdDZ34O4j7+ALgw==",
+      "path": "system.commandline/2.0.0-beta3.22114.1",
+      "hashPath": "system.commandline.2.0.0-beta3.22114.1.nupkg.sha512"
+    },
+    "System.Reflection.Emit/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
+    },
+    "Intent.IArchitect.Agent.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intent.IArchitect.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intent.IArchitect.CrossPlatform/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intent.MetadataSynchronizer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intent.SoftwareFactory.SDK/3.7.0-pre.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

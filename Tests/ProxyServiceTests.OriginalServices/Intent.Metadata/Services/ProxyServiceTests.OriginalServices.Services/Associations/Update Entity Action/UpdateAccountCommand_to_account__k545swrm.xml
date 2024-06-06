@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="254b5ff8-2959-4517-b7f2-e4dff5871d3f">
+  <sourceEnd id="5a2625ce-c542-4ce5-8adc-8ad7c33eb2d7" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Accounts.UpdateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="b092c81c-b3c0-4208-a3a4-1a1c9b4e9611">
+      <typeId>b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="254b5ff8-2959-4517-b7f2-e4dff5871d3f" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>account</name>
+    <display>[update] account: Account</display>
+    <order>4</order>
+    <typeReference id="61e327b0-95d8-4373-93f0-8f019010ecef">
+      <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" location="[ProxyServiceTests.OriginalServices].[Services].[UpdateAccountCommand]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c131ad5f-d019-46db-89b7-0feae38586d7" location="[ProxyServiceTests.OriginalServices].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="fdae27a4-b262-497e-89a9-bea4751b8c62" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="0a63e1a0-d244-4dc1-9d1d-85792b72defe" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" location="[ProxyServiceTests.OriginalServices].[Services].[UpdateAccountCommand]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c131ad5f-d019-46db-89b7-0feae38586d7" location="[ProxyServiceTests.OriginalServices].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Number}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="976541b3-32c3-4ccd-a0a4-bb3c7a5af5f7" name="Number" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Number" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="7beeae8c-dc97-487d-8ccb-fe386ef00e43" name="Number" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Amount}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" />
+              <target id="5887942b-0639-4455-8d72-4d8cb66a4155" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Amount" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="78d7f5df-0577-42f8-93c7-1d952930191f" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="7d1bf58b-9583-4591-b18b-ac17d70fd1d8" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Currency}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" />
+              <target id="698c7654-a7b2-4dfb-bf2d-15a7d2e7f2a9" name="Currency" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount.Currency" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="78d7f5df-0577-42f8-93c7-1d952930191f" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="f3b371d3-2c7d-423f-92d6-58beee723871" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ClientId}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="41fa30c0-408e-4f3d-a6e3-629ee02cbf8b" name="ClientId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ClientId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="ae514173-4b60-4aa1-b9ea-687994357da6" name="ClientId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aafbf862-f21a-4468-a937-9118712f2cfa">
+  <sourceEnd id="429a13fa-5b0d-4760-9fab-921b34efcffc" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Brands.UpdateBrandCommand</display>
+    <order>0</order>
+    <typeReference id="74281a63-341c-47e7-8f55-3694dffe9618">
+      <typeId>71327f26-0577-41b5-bda3-20b4136fe788</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Services</typePackageName>
+      <typePackageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aafbf862-f21a-4468-a937-9118712f2cfa" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>brand</name>
+    <display>[update] brand: Brand</display>
+    <order>3</order>
+    <typeReference id="4a9fca63-f27d-4d4e-80b2-10372c5f2137">
+      <typeId>0daeae1a-eaf1-4bee-8074-aac56af9ff2a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="71327f26-0577-41b5-bda3-20b4136fe788" location="[TrainingModel.Tests].[Services].[UpdateBrandCommand]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" location="[TrainingModel.Tests].[Services].[Brand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" name="Brand" type="element" specialization="Class" />
+              <target id="d4477035-083e-4bde-a7b3-de0be400a181" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="71327f26-0577-41b5-bda3-20b4136fe788" name="UpdateBrandCommand" type="element" specialization="Command" />
+                  <target id="a80ca553-bc95-49d7-9cb1-8d7be2ba5b8f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="71327f26-0577-41b5-bda3-20b4136fe788" location="[TrainingModel.Tests].[Services].[UpdateBrandCommand]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" location="[TrainingModel.Tests].[Services].[Brand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" name="Brand" type="element" specialization="Class" />
+              <target id="b7fa4ddd-0421-41aa-9cd4-529c5fdcc037" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="71327f26-0577-41b5-bda3-20b4136fe788" name="UpdateBrandCommand" type="element" specialization="Command" />
+                  <target id="134d0cc7-3ac7-4b4c-adbc-b865cc9bc35a" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="0daeae1a-eaf1-4bee-8074-aac56af9ff2a" name="Brand" type="element" specialization="Class" />
+              <target id="098ebc90-59e0-4307-ae5d-a0056ea0d5f4" name="IsActive" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="71327f26-0577-41b5-bda3-20b4136fe788" name="UpdateBrandCommand" type="element" specialization="Command" />
+                  <target id="e7f471ff-1b38-455b-8cc1-b98eb159afdf" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

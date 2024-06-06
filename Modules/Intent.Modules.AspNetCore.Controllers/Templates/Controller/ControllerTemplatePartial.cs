@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -32,8 +33,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource("Domain.Enum");
-            AddTypeSource("Application.Contract.Dto");
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -83,6 +89,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                     continue;
                                 }
 
+                                // If you change anything here, please check also: WorkaroundForGetTypeNameIssue()
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToParameterName(), param =>
                                 {
                                     param.AddMetadata("model", parameter);
@@ -101,9 +108,42 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
                         });
                     }
-                });
+                })
+                .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
         }
 
+        // Due to the nature of how GetTypeName resolves namespaces
+        // there are cases where ambiguous references still exist
+        // and causes compilation errors, this forces to re-evaluate
+        // a lot of types in this template. For example when a service
+        // is calling a proxy with the same Dto names on both sides.
+        private void WorkaroundForGetTypeNameIssue(CSharpFile file)
+        {
+            var priClass = file.Classes.First();
+            
+            foreach (var method in priClass.Methods)
+            {
+                var parameterTypesToReplace = method.Parameters
+                    .Select((param, index) => new { Param = param, Index = index })
+                    .Where(p => p.Param.HasMetadata("model"))
+                    .ToArray();
+                foreach (var entry in parameterTypesToReplace)
+                {
+                    var paramModel = entry.Param.GetMetadata<IControllerParameterModel>("model");
+                    var param = new CSharpParameter(GetTypeName(paramModel.TypeReference), entry.Param.Name, method);
+                    param.AddMetadata("model", paramModel);
+                    param.AddMetadata("modelId", paramModel.Id);
+                    param.AddMetadata("mappedPayloadProperty", paramModel.MappedPayloadProperty);
+                    param.WithDefaultValue(entry.Param.DefaultValue);
+                    param.WithXmlDocComment(entry.Param.XmlDocComment);
+                    foreach (var attribute in entry.Param.Attributes)
+                    {
+                        param.Attributes.Add(attribute);
+                    }
+                    method.Parameters[entry.Index] = param;
+                }
+            }
+        }
 
         public CSharpFile CSharpFile { get; }
 

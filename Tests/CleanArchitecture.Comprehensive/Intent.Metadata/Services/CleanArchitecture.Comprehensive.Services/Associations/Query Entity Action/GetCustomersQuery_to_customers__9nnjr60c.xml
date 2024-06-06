@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cad2dd8b-9d1a-41e0-84d9-8f5f5c4db3fe">
+  <sourceEnd id="e8985e09-9011-4b4b-94ab-15a5cc5e7cda" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="a52b40e4-4f73-44d7-8e62-eba708ec16fe">
+      <typeId>4eb919bb-ab82-4b4d-96a6-47a3c5357812</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cad2dd8b-9d1a-41e0-84d9-8f5f5c4db3fe" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <typeReference id="fd56e059-9857-485f-8a68-b660140dce41">
+      <typeId>21cdffa0-70f5-4a71-8e25-c51d99c183b9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="4eb919bb-ab82-4b4d-96a6-47a3c5357812" location="GetCustomersQuery" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="Customer" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

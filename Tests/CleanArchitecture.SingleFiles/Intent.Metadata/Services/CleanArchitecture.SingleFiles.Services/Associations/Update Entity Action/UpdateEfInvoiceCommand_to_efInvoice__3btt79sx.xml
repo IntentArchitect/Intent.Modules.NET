@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="46ac7630-efb2-4263-a124-c664411d793d">
+  <sourceEnd id="4e59efdc-1b2b-4513-81c6-83d26bbbb434" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AdvancedMappingEfInvoices.UpdateEfInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="a8b74f63-fc7a-4ffc-bdd4-af1572ad198b">
+      <typeId>3f06b86d-99d6-429c-9985-7456192873d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="46ac7630-efb2-4263-a124-c664411d793d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>efInvoice</name>
+    <display>[update] efInvoice: EfInvoice</display>
+    <order>2</order>
+    <typeReference id="9bbe0baa-30ab-4cbb-b0e3-39ba29c191a9">
+      <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3f06b86d-99d6-429c-9985-7456192873d7" location="[CleanArchitecture.SingleFiles].[Services].[UpdateEfInvoiceCommand]" />
+        <target elementId="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" location="[CleanArchitecture.SingleFiles].[Services].[EfInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+              <target id="c2a76572-b2be-4060-ab86-8c12bef702a4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3f06b86d-99d6-429c-9985-7456192873d7" name="UpdateEfInvoiceCommand" type="element" specialization="Command" />
+                  <target id="8d45580e-5ab6-4e04-9020-82f679ece45a" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3f06b86d-99d6-429c-9985-7456192873d7" location="[CleanArchitecture.SingleFiles].[Services].[UpdateEfInvoiceCommand]" />
+        <target elementId="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" location="[CleanArchitecture.SingleFiles].[Services].[EfInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+              <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3f06b86d-99d6-429c-9985-7456192873d7" name="UpdateEfInvoiceCommand" type="element" specialization="Command" />
+                  <target id="f5f1fc19-cf68-4308-8732-bf9cbc365b44" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

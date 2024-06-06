@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{07F0C1FD-E179-4EF3-AEC1-5895958247FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.OriginalServices.Api", "ProxyServiceTests.OriginalServices.Api\ProxyServiceTests.OriginalServices.Api.csproj", "{87D550FC-6EA5-4E6A-8227-D76AC756A00D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{6E97CD8D-FF5B-4B90-BB2E-B57061999E69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.OriginalServices.Application", "ProxyServiceTests.OriginalServices.Application\ProxyServiceTests.OriginalServices.Application.csproj", "{5AB9D0E6-9717-4653-A67F-99A676886874}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{826D477D-6F9C-4427-8288-8F001BF28570}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.OriginalServices.Domain", "ProxyServiceTests.OriginalServices.Domain\ProxyServiceTests.OriginalServices.Domain.csproj", "{DC658258-FCFA-49BD-A103-EF1CCFC96B3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8207F43B-CF00-49D4-8138-E8EFD85E8AEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.OriginalServices.Infrastructure", "ProxyServiceTests.OriginalServices.Infrastructure\ProxyServiceTests.OriginalServices.Infrastructure.csproj", "{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{87D550FC-6EA5-4E6A-8227-D76AC756A00D} = {07F0C1FD-E179-4EF3-AEC1-5895958247FA}
+		{5AB9D0E6-9717-4653-A67F-99A676886874} = {6E97CD8D-FF5B-4B90-BB2E-B57061999E69}
+		{DC658258-FCFA-49BD-A103-EF1CCFC96B3F} = {826D477D-6F9C-4427-8288-8F001BF28570}
+		{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98} = {8207F43B-CF00-49D4-8138-E8EFD85E8AEF}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87D550FC-6EA5-4E6A-8227-D76AC756A00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D550FC-6EA5-4E6A-8227-D76AC756A00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D550FC-6EA5-4E6A-8227-D76AC756A00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D550FC-6EA5-4E6A-8227-D76AC756A00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB9D0E6-9717-4653-A67F-99A676886874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB9D0E6-9717-4653-A67F-99A676886874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB9D0E6-9717-4653-A67F-99A676886874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB9D0E6-9717-4653-A67F-99A676886874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC658258-FCFA-49BD-A103-EF1CCFC96B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC658258-FCFA-49BD-A103-EF1CCFC96B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC658258-FCFA-49BD-A103-EF1CCFC96B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC658258-FCFA-49BD-A103-EF1CCFC96B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FCC8A4D-1D7A-49A6-9357-D6AC69AF2D98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

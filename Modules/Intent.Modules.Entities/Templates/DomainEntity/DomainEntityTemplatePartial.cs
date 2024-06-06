@@ -54,6 +54,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
                 .AddClass(Model.Name, @class =>
                 {
+                    @class.RepresentsModel(Model);
                     foreach (var genericType in Model.GenericTypes)
                     {
                         @class.AddGenericParameter(genericType);

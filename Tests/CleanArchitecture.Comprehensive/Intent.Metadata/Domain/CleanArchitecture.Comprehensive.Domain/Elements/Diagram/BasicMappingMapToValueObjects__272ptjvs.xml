@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d3083f20-49ba-4f76-a35f-fcf89b5c4cf3" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>BasicMappingMapToValueObjects</name>
+  <display>BasicMappingMapToValueObjects</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8e77a8a9-151b-4584-b555-756814b69d8a</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <diagram>
+    <targetPackageId>8e77a8a9-151b-4584-b555-756814b69d8a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

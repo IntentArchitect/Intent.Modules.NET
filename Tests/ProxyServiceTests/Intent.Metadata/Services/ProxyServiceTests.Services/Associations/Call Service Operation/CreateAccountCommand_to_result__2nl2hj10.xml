@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a7a28b26-e9bd-4f04-a978-850959d86b21">
+  <sourceEnd id="be3dcbe6-5b74-4a25-aee2-aec61a0dd137" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AccountsService.CreateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="7c15338f-75b5-4e98-9c50-0b511d12ba85">
+      <typeId>e7c80056-ecc3-4931-963a-2ef8930bf7b5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a7a28b26-e9bd-4f04-a978-850959d86b21" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: CreateAccountCommand(...): guid</display>
+    <order>1</order>
+    <typeReference id="234464c2-d992-41d6-b97d-4997533b30a8">
+      <typeId>52325a9a-a86c-4bcb-9edd-b02019f4b257</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.ServiceProxies</typePackageName>
+      <typePackageId>d0839b91-5ab2-459e-be83-557bd23ccbad</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e7c80056-ecc3-4931-963a-2ef8930bf7b5" location="[ProxyServiceTests].[Services].[CreateAccountCommand]" />
+        <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="52325a9a-a86c-4bcb-9edd-b02019f4b257" location="[ProxyServiceTests].[Services].[CreateAccountCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateAccountCommand}</expression>
+            <path>
+              <target id="52325a9a-a86c-4bcb-9edd-b02019f4b257" name="CreateAccountCommand" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="CreateAccountCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="e7c80056-ecc3-4931-963a-2ef8930bf7b5" name="CreateAccountCommand" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Command.Number}</expression>
+            <path>
+              <target id="52325a9a-a86c-4bcb-9edd-b02019f4b257" name="CreateAccountCommand" type="element" specialization="Operation" />
+              <target id="60e7fa7b-5f1f-42e2-9006-b9771d5e7dbf" name="command" type="element" specialization="Parameter" />
+              <target id="649541cb-f170-4ed0-a5bb-db462f8e14b8" name="Number" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Command.Number" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="e7c80056-ecc3-4931-963a-2ef8930bf7b5" name="CreateAccountCommand" type="element" specialization="Operation" />
+                  <target id="ded27b54-790d-4608-a813-a635c39344fd" name="Command" type="element" specialization="Parameter" />
+                  <target id="5a6a4183-c33f-4767-87b6-7922d29cb503" name="Number" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Command.Amount.Amount}</expression>
+            <path>
+              <target id="52325a9a-a86c-4bcb-9edd-b02019f4b257" name="CreateAccountCommand" type="element" specialization="Operation" />
+              <target id="60e7fa7b-5f1f-42e2-9006-b9771d5e7dbf" name="command" type="element" specialization="Parameter" />
+              <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" />
+              <target id="48e99cde-7403-469a-b01e-24866577f7d3" name="Amount" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Command.Amount.Amount" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="e7c80056-ecc3-4931-963a-2ef8930bf7b5" name="CreateAccountCommand" type="element" specialization="Operation" />
+                  <target id="ded27b54-790d-4608-a813-a635c39344fd" name="Command" type="element" specialization="Parameter" />
+                  <target id="f308502d-bcf1-497f-9d6f-4b6797cce440" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="8b01c0d1-d056-488e-9864-8568b6dc4941" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Command.Amount.Currency}</expression>
+            <path>
+              <target id="52325a9a-a86c-4bcb-9edd-b02019f4b257" name="CreateAccountCommand" type="element" specialization="Operation" />
+              <target id="60e7fa7b-5f1f-42e2-9006-b9771d5e7dbf" name="command" type="element" specialization="Parameter" />
+              <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" />
+              <target id="dbd1c9cb-20e8-4ec0-956e-ab3bf25a84b1" name="Currency" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Command.Amount.Currency" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="e7c80056-ecc3-4931-963a-2ef8930bf7b5" name="CreateAccountCommand" type="element" specialization="Operation" />
+                  <target id="ded27b54-790d-4608-a813-a635c39344fd" name="Command" type="element" specialization="Parameter" />
+                  <target id="f308502d-bcf1-497f-9d6f-4b6797cce440" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="f434f178-092b-4e23-b1a4-2e982178ebf8" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Command.ClientId}</expression>
+            <path>
+              <target id="52325a9a-a86c-4bcb-9edd-b02019f4b257" name="CreateAccountCommand" type="element" specialization="Operation" />
+              <target id="60e7fa7b-5f1f-42e2-9006-b9771d5e7dbf" name="command" type="element" specialization="Parameter" />
+              <target id="24a0217c-ee63-487b-a7a6-d39c951942de" name="ClientId" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Command.ClientId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="e7c80056-ecc3-4931-963a-2ef8930bf7b5" name="CreateAccountCommand" type="element" specialization="Operation" />
+                  <target id="ded27b54-790d-4608-a813-a635c39344fd" name="Command" type="element" specialization="Parameter" />
+                  <target id="eacc529a-dd6a-4f40-a7c6-dd52fdaa2106" name="ClientId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

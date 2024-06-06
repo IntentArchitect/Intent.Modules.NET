@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="de5899cc-0266-4f2d-bfc0-542ceb0ccc70">
+  <sourceEnd id="2f6f18a9-95ef-4e1d-9da0-bd45de106971" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersPaginatedQuery</display>
+    <order>0</order>
+    <typeReference id="f6602e1b-02af-4c3b-8c98-901069a701af">
+      <typeId>862d4e0c-3448-459b-b6b9-fe17ad45b419</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Services</typePackageName>
+      <typePackageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="de5899cc-0266-4f2d-bfc0-542ceb0ccc70" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>3</order>
+    <typeReference id="ad3d83b3-181e-41c3-aef0-97a2c814b01b">
+      <typeId>8c629227-e45a-42e7-afd9-e784fbf2b462</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+      <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4ac410f9-44dd-4220-8aef-8fb9f391eca1" location="[TrainingModel.Tests].[Services].[GetCustomersQuery]" />
+        <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8c629227-e45a-42e7-afd9-e784fbf2b462" location="[TrainingModel.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

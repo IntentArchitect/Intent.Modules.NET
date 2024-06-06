@@ -1,3 +1,7 @@
+### Version 5.0.7
+
+- Fixed: Due to the nature of how GetTypeName resolves namespaces there are cases where ambiguous references still exist and causes compilation errors, this fix forces to re-evaluate a lot of types in this module.
+
 ### Version 5.0.6
 
 - Fixed: Service Operations didn't generate generic type parameters.

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="009e0b48-dfea-4e09-b6db-1f2225c554e8" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ClientsServices</name>
+  <display>ClientsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7b02bb71-9f7c-4d9a-ac00-db29cca45044</parentFolderId>
+  <packageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</packageId>
+  <packageName>ProxyServiceTests.Services</packageName>
+  <diagram>
+    <targetPackageId>7b02bb71-9f7c-4d9a-ac00-db29cca45044</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -29,11 +29,15 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
+            
+            FulfillsRole("Application.Contract.Command");
+            
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            FulfillsRole("Application.Contract.Command");
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
             CSharpFile = new CSharpFile($"{this.GetCommandNamespace()}", $"{this.GetCommandFolderPath()}")
                 .AddUsing("MediatR")

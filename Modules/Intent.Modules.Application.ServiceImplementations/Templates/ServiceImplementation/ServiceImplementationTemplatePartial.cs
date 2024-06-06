@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
@@ -31,10 +32,17 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public ServiceImplementationTemplate(IOutputTarget outputTarget, ServiceModel model)
             : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
-            AddTypeSource(TemplateRoles.Domain.Enum);
             SetDefaultTypeCollectionFormat("List<{0}>");
+            
+            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -66,9 +74,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, parm =>
+                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name, param =>
                                 {
-                                    parm.WithDefaultValue(parameter.Value)
+                                    // If you change anything here, please check also: WorkaroundForGetTypeNameIssue()
+                                    param.AddMetadata("model", parameter);
+                                    param.WithDefaultValue(parameter.Value)
                                         .WithXmlDocComment(parameter.InternalElement);
                                 });
                             }
@@ -108,7 +118,38 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                             method.AddStatements(output);
                         }
                     }
-                });
+                })
+                .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
+        }
+
+        // Due to the nature of how GetTypeName resolves namespaces
+        // there are cases where ambiguous references still exist
+        // and causes compilation errors, this forces to re-evaluate
+        // a lot of types in this template. For example when a service
+        // is calling a proxy with the same Dto names on both sides.
+        private void WorkaroundForGetTypeNameIssue(CSharpFile file)
+        {
+            var priClass = file.Classes.First();
+            priClass.Interfaces[0] = GetServiceInterfaceName();
+            foreach (var method in priClass.Methods)
+            {
+                var parameterTypesToReplace = method.Parameters
+                    .Select((param, index) => new { Param = param, Index = index })
+                    .Where(p => p.Param.HasMetadata("model"))
+                    .ToArray();
+                foreach (var entry in parameterTypesToReplace)
+                {
+                    var paramModel = entry.Param.GetMetadata<IElementWrapper>("model");
+                    var param = new CSharpParameter(GetTypeName(paramModel.InternalElement.TypeReference), entry.Param.Name, method);
+                    param.WithDefaultValue(entry.Param.DefaultValue);
+                    param.WithXmlDocComment(entry.Param.XmlDocComment);
+                    foreach (var attribute in entry.Param.Attributes)
+                    {
+                        param.Attributes.Add(attribute);
+                    }
+                    method.Parameters[entry.Index] = param;
+                }
+            }
         }
 
         [IntentManaged(Mode.Fully)]
@@ -148,8 +189,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = OutputTarget.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
-            return GetTypeName(serviceContractTemplate);
+            return GetTypeName(ServiceContractTemplate.TemplateId, Model.Id);
         }
 
         private IReadOnlyCollection<ConstructorParameter> GetConstructorDependencies()

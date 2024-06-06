@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2ded664-09fa-49bb-87e0-fb5b1f7885f6">
+  <sourceEnd id="7978fd21-2171-4e1e-af8a-5de82c48e1e1" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : AdvancedMappingEfInvoices.DeleteEfInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="1774fa08-49de-46f1-89e1-07bb49b7d8ec">
+      <typeId>3a4afeb6-f447-4855-9385-a63c31648804</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2ded664-09fa-49bb-87e0-fb5b1f7885f6" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>efInvoice</name>
+    <display>[delete] efInvoice: EfInvoice</display>
+    <order>1</order>
+    <typeReference id="baddb618-d684-458f-adca-694b102a4ad6">
+      <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3a4afeb6-f447-4855-9385-a63c31648804" location="[CleanArchitecture.SingleFiles].[Services].[DeleteEfInvoiceCommand]" />
+        <target elementId="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" location="[CleanArchitecture.SingleFiles].[Services].[EfInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+              <target id="c2a76572-b2be-4060-ab86-8c12bef702a4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3a4afeb6-f447-4855-9385-a63c31648804" name="DeleteEfInvoiceCommand" type="element" specialization="Command" />
+                  <target id="06a95536-c641-484f-8a02-18aa74922a8b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

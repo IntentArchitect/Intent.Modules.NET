@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c9a387df-7c12-420a-85f1-6a0416ea3920" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>AddressType</name>
+  <display>AddressType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e64c4e3c-87a1-4909-b981-7dac32550081</parentFolderId>
+  <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+  <packageName>TrainingModel.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b59f7a4b-59af-43f6-8335-59b90ef1a23a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Delivery</name>
+      <display>Delivery = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9a387df-7c12-420a-85f1-6a0416ea3920</parentFolderId>
+      <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+      <packageName>TrainingModel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="580f1323-afab-4866-8a94-9fb56e5eca88" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Billing</name>
+      <display>Billing = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9a387df-7c12-420a-85f1-6a0416ea3920</parentFolderId>
+      <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+      <packageName>TrainingModel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

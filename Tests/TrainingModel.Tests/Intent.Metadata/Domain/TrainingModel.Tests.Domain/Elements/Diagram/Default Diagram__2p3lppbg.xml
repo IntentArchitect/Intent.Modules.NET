@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fd51cb26-2af5-49b0-9a35-d6b8c2609746" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e64c4e3c-87a1-4909-b981-7dac32550081</parentFolderId>
+  <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+  <packageName>TrainingModel.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>e64c4e3c-87a1-4909-b981-7dac32550081</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

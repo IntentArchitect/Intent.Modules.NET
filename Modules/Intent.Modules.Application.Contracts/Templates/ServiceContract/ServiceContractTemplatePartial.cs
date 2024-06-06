@@ -29,16 +29,19 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
     public ServiceContractTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget,
         model)
     {
+        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         AddTypeSource(TemplateRoles.Domain.Enum);
-        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", @interface =>
             {
                 @interface.RepresentsModel(Model);
-                @interface.ImplementsInterfaces(new[] { UseType("System.IDisposable") });
+                @interface.ImplementsInterfaces([UseType("System.IDisposable")]);
                 @interface.TryAddXmlDocComments(Model.InternalElement);
                 foreach (var operation in Model.Operations)
                 {
@@ -53,7 +56,12 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
 
                         foreach (var parameterModel in operation.Parameters)
                         {
-                            method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name, p => p.WithXmlDocComment(parameterModel.InternalElement));
+                            method.AddParameter(GetTypeName(parameterModel.TypeReference), parameterModel.Name, param =>
+                            {
+                                // If you change anything here, please check also: WorkaroundForGetTypeNameIssue()
+                                param.AddMetadata("model", parameterModel);
+                                param.WithXmlDocComment(parameterModel.InternalElement);
+                            });
                         }
 
                         if (operation.IsAsync())
@@ -63,18 +71,38 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
                         }
                     });
                 }
-            });
+            })
+            .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
     }
-
-    //private string GetOperationReturnType(OperationModel o)
-    //{
-    //    if (o.ReturnType == null)
-    //    {
-    //        return o.IsAsync() ? UseType("System.Threading.Tasks.Task") : "void";
-    //    }
-
-    //    return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
-    //}
+    
+    // Due to the nature of how GetTypeName resolves namespaces
+    // there are cases where ambiguous references still exist
+    // and causes compilation errors, this forces to re-evaluate
+    // a lot of types in this template. For example when a service
+    // is calling a proxy with the same Dto names on both sides.
+    private void WorkaroundForGetTypeNameIssue(CSharpFile file)
+    {
+        var priInterface = file.Interfaces.First();
+        foreach (var method in priInterface.Methods)
+        {
+            var parameterTypesToReplace = method.Parameters
+                .Select((param, index) => new { Param = param, Index = index })
+                .Where(p => p.Param.HasMetadata("model"))
+                .ToArray();
+            foreach (var entry in parameterTypesToReplace)
+            {
+                var paramModel = entry.Param.GetMetadata<IElementWrapper>("model");
+                var param = new CSharpParameter(GetTypeName(paramModel.InternalElement.TypeReference), entry.Param.Name, method);
+                param.WithDefaultValue(entry.Param.DefaultValue);
+                param.WithXmlDocComment(entry.Param.XmlDocComment);
+                foreach (var attribute in entry.Param.Attributes)
+                {
+                    param.Attributes.Add(attribute);
+                }
+                method.Parameters[entry.Index] = param;
+            }
+        }
+    }
 
     [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 

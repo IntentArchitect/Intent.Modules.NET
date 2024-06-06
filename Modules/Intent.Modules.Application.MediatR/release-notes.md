@@ -1,4 +1,8 @@
-﻿### Version 4.2.3
+﻿### Version 4.2.4
+
+- Improvement: Application Client Dto type using directives also to be resolved now in Command/Query handlers.
+
+### Version 4.2.3
 
 - Improvement: Updated Interoperable dependency versions.
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c5010d76-7eb7-4940-8de5-c3683ea5f46f" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>OperationAndConstructorMapping</name>
+  <display>OperationAndConstructorMapping</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <diagram>
+    <targetPackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

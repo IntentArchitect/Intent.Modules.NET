@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="33b1c1bb-9b39-48de-9501-2929ed3b183e" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79effe92-e884-4a07-a9f5-114a2beb4321</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c9fa547f-e77a-4023-9446-c8c6ea98fa38" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ForbiddenAccessException</name>
+      <display>Intent.Application.Identity.ForbiddenAccessException</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>33b1c1bb-9b39-48de-9501-2929ed3b183e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

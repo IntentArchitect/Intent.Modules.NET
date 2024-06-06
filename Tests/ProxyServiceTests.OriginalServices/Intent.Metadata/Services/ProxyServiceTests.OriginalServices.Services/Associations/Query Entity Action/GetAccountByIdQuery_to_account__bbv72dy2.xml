@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="33fac095-32fa-4dd3-a670-d050aa76270e">
+  <sourceEnd id="eaf72b32-de49-4254-b71e-356894e4fb0c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAccountByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a6065432-d866-4558-a1fa-999af2e0eb5f">
+      <typeId>c4542aab-10c2-47d7-a2e1-f3b871d57bef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="33fac095-32fa-4dd3-a670-d050aa76270e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>account</name>
+    <display>[query] account: Account</display>
+    <order>1</order>
+    <typeReference id="09629333-ae83-48d7-82a8-f280c9415dac">
+      <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c4542aab-10c2-47d7-a2e1-f3b871d57bef" location="[ProxyServiceTests.OriginalServices].[Services].[GetAccountByIdQuery]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c131ad5f-d019-46db-89b7-0feae38586d7" location="[ProxyServiceTests.OriginalServices].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="fdae27a4-b262-497e-89a9-bea4751b8c62" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c4542aab-10c2-47d7-a2e1-f3b871d57bef" name="GetAccountByIdQuery" type="element" specialization="Query" />
+                  <target id="cba6e1f6-eef2-4ea8-966a-d5f884d4a70b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

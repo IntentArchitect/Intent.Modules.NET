@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b36c1be3-a33c-463f-932d-0ad24ba89f91">
+  <sourceEnd id="5d814d25-948a-4e48-935a-aeb79e1e141d" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : AdvancedMappingEfInvoices.CreateEfInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="8e365643-8b18-47b6-8a41-ac35c741e5f2">
+      <typeId>ea0bd238-8d5d-48a8-8c7c-17d7fd81d223</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b36c1be3-a33c-463f-932d-0ad24ba89f91" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>efInvoice</name>
+    <display>[create] efInvoice: EfInvoice</display>
+    <order>1</order>
+    <typeReference id="3055a371-202d-47ba-bff7-1e1ab43cbc09">
+      <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.EF</typePackageName>
+      <typePackageId>d1445bd8-9435-40a0-8ce9-7565b07e6251</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ea0bd238-8d5d-48a8-8c7c-17d7fd81d223" location="[CleanArchitecture.SingleFiles].[Services].[CreateEfInvoiceCommand]" />
+        <target elementId="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" location="[CleanArchitecture.SingleFiles].[Services].[EfInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateEfInvoiceCommand}</expression>
+            <path>
+              <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateEfInvoiceCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="ea0bd238-8d5d-48a8-8c7c-17d7fd81d223" name="CreateEfInvoiceCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+              <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="ea0bd238-8d5d-48a8-8c7c-17d7fd81d223" name="CreateEfInvoiceCommand" type="element" specialization="Command" />
+                  <target id="b890d497-5c8d-4343-b403-1f2944391aa4" name="Description" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

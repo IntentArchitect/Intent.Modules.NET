@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b3df90b9-ab87-4ddd-86db-cc7bd0b987f4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>StartupJobs</name>
+  <display>StartupJobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cdbc8c76-fa2e-4885-90b6-4aa819a08523</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="446cb6b1-e7e9-4b90-93c7-5aa2a37aedf9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b3df90b9-ab87-4ddd-86db-cc7bd0b987f4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8a932b0b-fad7-4321-910d-be00d175bd06" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>AsyncableDomainService</name>
+  <display>AsyncableDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b3c546a2-cbe8-4dc1-9bbc-b294e4eb1662</parentFolderId>
+  <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dd6779e8-d0b8-4af1-9247-fc2d303bacca" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Mutation</name>
+      <display>Mutation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4cbfa4ed-79d1-401e-bd49-101919dc6b6e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="609aaec6-3a3d-4c69-9727-e9670f663681" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Mutation</name>
+      <display>Mutation(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f0cef274-a8a0-41da-b96d-3bdf7a84fc75">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ed286de2-239d-41ec-894c-841e2150b35e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b57ab884-6603-4052-9062-87f03f28ef39">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>609aaec6-3a3d-4c69-9727-e9670f663681</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="baf72ff8-9dcd-4663-bdbf-90b35702e7f1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>MutationAsync</name>
+      <display>MutationAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="165328e6-651b-493a-bba0-6dea426436db">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="62c6550d-e1bb-4bfc-b139-627315f73e10" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>MutationAsync</name>
+      <display>MutationAsync(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="65b96ccc-c8f4-429e-ad32-55ca031d41d1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="83da0c75-18c8-49cc-804e-3efe63606e30" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2c6553a0-667e-46d5-9935-48ba2038099a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>62c6550d-e1bb-4bfc-b139-627315f73e10</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="757c08ce-7075-445e-8662-8e1af3c11d09" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Query</name>
+      <display>Query(): string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f0bc5efe-92af-4b11-8aeb-5b476da7d8a5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4a862d5b-fe6b-4dfc-aee3-96af3b894836" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Query</name>
+      <display>Query(param: string): string</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="be2441cc-13fd-4e75-9599-c0a8ff266410">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="21e55381-1753-4359-8e03-bf57766c7794" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4f2c7567-23ca-4957-b10a-e24a69dbb7c6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4a862d5b-fe6b-4dfc-aee3-96af3b894836</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3323553d-fcb2-40f7-bc9b-52c53a40599f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>QueryAsync</name>
+      <display>QueryAsync(): string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="33c521ee-a416-4aca-9a3a-94d13c12fb98">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="df34b5b9-e52f-4d13-a463-caa47b36082a" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>QueryAsync</name>
+      <display>QueryAsync(param: string): string</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1b34d82b-df50-477a-8885-3c4f21986842">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4dd64252-c7c5-496f-9e20-a67a611c7d5f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f15a1790-553b-4e6e-a789-741d73adbdea">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>df34b5b9-e52f-4d13-a463-caa47b36082a</parentFolderId>
+          <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

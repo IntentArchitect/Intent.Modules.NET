@@ -16,6 +16,7 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("sqlserver");
 
             ConfigureModel(modelBuilder);
         }

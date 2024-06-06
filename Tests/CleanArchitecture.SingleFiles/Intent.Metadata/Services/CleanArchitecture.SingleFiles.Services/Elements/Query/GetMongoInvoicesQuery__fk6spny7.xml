@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="05cb22c4-61d1-403e-8d3b-ca966fc7a1bb" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetMongoInvoicesQuery</name>
+  <display>GetMongoInvoicesQuery: MongoInvoiceDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="999b090e-7eff-49d8-a408-ad3c66d8689c">
+    <typeId>0eac58e3-413f-47a6-b430-07925b5499db</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+    <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>576c58ce-30d7-4b5d-9077-fa4c7c0b1c40</parentFolderId>
+  <packageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</packageId>
+  <packageName>CleanArchitecture.SingleFiles.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/advanced-mapping-mongo-invoices" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="MongoInvoices" />
+  </metadata>
+  <childElements />
+</class>

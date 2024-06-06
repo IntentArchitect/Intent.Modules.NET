@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -37,7 +38,10 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetMappedServiceProxyEnumModels();
+            var results = _metadataManager.ServiceProxies(application).GetMappedServiceProxyEnumModels()
+                .Union(_metadataManager.Services(application).GetMappedServiceProxyEnumModels())
+                .ToArray();
+            return results;
         }
     }
 }

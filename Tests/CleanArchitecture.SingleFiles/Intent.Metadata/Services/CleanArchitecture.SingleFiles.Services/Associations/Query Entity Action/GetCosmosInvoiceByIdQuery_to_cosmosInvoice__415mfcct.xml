@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="63946d3a-e755-4f26-bc8e-33aa7aa8e94a">
+  <sourceEnd id="483bf4be-1cf4-45ad-85cc-aef7a438b617" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCosmosInvoiceByIdQuery</display>
+    <order>0</order>
+    <typeReference id="1bb7f26a-b993-40eb-a130-3dc368d8c2f2">
+      <typeId>cbfd5f80-351f-46d0-ba0e-8aa2e3d31fbb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="63946d3a-e755-4f26-bc8e-33aa7aa8e94a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>cosmosInvoice</name>
+    <display>[query] cosmosInvoice: CosmosInvoice</display>
+    <order>1</order>
+    <typeReference id="c84e0d98-7a1a-43e0-bc6d-f4e8d7401164">
+      <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Cosmos</typePackageName>
+      <typePackageId>b16e37e6-5e9c-40a5-a9a2-95f775b1cb93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="cbfd5f80-351f-46d0-ba0e-8aa2e3d31fbb" location="[CleanArchitecture.SingleFiles].[Services].[GetCosmosInvoiceByIdQuery]" />
+        <target elementId="6788a348-5d20-4831-93c8-5872106be0a8" location="[CleanArchitecture.SingleFiles].[Services].[CosmosInvoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" />
+              <target id="09fd4717-9361-4ff2-ad3f-08e0a6f7f816" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="cbfd5f80-351f-46d0-ba0e-8aa2e3d31fbb" name="GetCosmosInvoiceByIdQuery" type="element" specialization="Query" />
+                  <target id="8ca4cbef-70c1-447c-86b1-d72446c15489" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

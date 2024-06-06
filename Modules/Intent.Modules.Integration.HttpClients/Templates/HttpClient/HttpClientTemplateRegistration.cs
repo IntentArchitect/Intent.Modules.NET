@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -37,6 +38,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+                .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(p => p.HasMappedEndpoints());
         }
     }

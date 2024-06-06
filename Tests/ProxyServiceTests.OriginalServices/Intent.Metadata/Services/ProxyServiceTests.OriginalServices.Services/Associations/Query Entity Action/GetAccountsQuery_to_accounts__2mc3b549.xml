@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2845f925-da5c-4b8a-91f7-cc18f73f3b04">
+  <sourceEnd id="b0e94747-37d3-48ef-b652-1e07ce0a2d10" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAccountsQuery</display>
+    <order>0</order>
+    <typeReference id="44663242-6746-4f4c-a65d-8045adcc021c">
+      <typeId>5e56137a-f83f-4b29-981f-588fdcdbe605</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+      <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2845f925-da5c-4b8a-91f7-cc18f73f3b04" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>accounts</name>
+    <display>[query] accounts: Account[*]</display>
+    <order>0</order>
+    <typeReference id="7cd24f4c-34f5-457e-84cf-4afc623b260d">
+      <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.OriginalServices.Domain</typePackageName>
+      <typePackageId>067a5469-c717-4859-9a7b-f840dd4bbc1e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5e56137a-f83f-4b29-981f-588fdcdbe605" location="[ProxyServiceTests.OriginalServices].[Services].[GetAccountsQuery]" />
+        <target applicationId="a2574e70-3bcd-42d0-82ea-d08c81f825ac" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c131ad5f-d019-46db-89b7-0feae38586d7" location="[ProxyServiceTests.OriginalServices].[Services].[Account]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

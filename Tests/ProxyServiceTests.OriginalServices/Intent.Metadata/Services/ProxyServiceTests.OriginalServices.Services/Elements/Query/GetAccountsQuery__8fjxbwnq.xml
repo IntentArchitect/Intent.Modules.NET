@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5e56137a-f83f-4b29-981f-588fdcdbe605" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAccountsQuery</name>
+  <display>GetAccountsQuery: AccountDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="0b6eba79-f521-4e3f-bd4d-5f49f8b99ee1">
+    <typeId>b35cef2a-b80a-4a5c-9cf4-015d80e92f52</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+    <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>0ed235d0-2e2d-4ca9-9a72-385242be9bd8</parentFolderId>
+  <packageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</packageId>
+  <packageName>ProxyServiceTests.OriginalServices.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/account" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Accounts" />
+  </metadata>
+  <childElements />
+</class>

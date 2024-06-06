@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="53ebb767-6a64-4d2a-a547-dd9e565899b6" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>CategoryService</name>
+  <display>CategoryService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e64c4e3c-87a1-4909-b981-7dac32550081</parentFolderId>
+  <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+  <packageName>TrainingModel.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="94e39dcc-6be2-406f-99d7-6106c22e58db" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetOrCreateCategoriesAsync</name>
+      <display>GetOrCreateCategoriesAsync(categoryNames: string[*]): Category[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="93af3853-44dd-4fde-b4ad-65fdcd1a8067">
+        <typeId>8aac8181-3af7-49da-be8e-c6b027daf67d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>TrainingModel.Tests.Domain</typePackageName>
+        <typePackageId>e64c4e3c-87a1-4909-b981-7dac32550081</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>53ebb767-6a64-4d2a-a547-dd9e565899b6</parentFolderId>
+      <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+      <packageName>TrainingModel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4900152a-cfb3-43c9-9fec-9996ad959d70" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>categoryNames</name>
+          <display>in : categoryNames: string[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4dd981b3-cd43-473f-b89f-331a15149d0d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>94e39dcc-6be2-406f-99d7-6106c22e58db</parentFolderId>
+          <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
+          <packageName>TrainingModel.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

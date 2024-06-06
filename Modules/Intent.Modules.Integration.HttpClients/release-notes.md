@@ -1,4 +1,8 @@
-﻿### Version 5.1.2
+﻿### Version 5.1.3
+
+- Improvement: Added support for gathering Service Proxy information from the Services designer too.
+
+### Version 5.1.2
 
 - Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
 
