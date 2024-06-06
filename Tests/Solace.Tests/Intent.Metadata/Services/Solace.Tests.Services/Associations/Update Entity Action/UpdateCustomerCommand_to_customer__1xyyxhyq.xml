@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3c3dfd1b-ff5a-483a-ae7d-00dd1d83eb2d">
+  <sourceEnd id="86de8cc0-53d4-403a-91f8-85310f0166d4" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="e539d7d7-7338-462b-b548-3032f055a825">
+      <typeId>9c8e3119-431d-4b46-a8df-68b06bec11d6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3c3dfd1b-ff5a-483a-ae7d-00dd1d83eb2d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>3</order>
+    <typeReference id="30b031d0-d2c9-4115-8a66-dd2d261975ea">
+      <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c8e3119-431d-4b46-a8df-68b06bec11d6" location="[Solace.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" location="[Solace.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+              <target id="31bbe51d-cfbb-4a57-9756-0bb4db7593b0" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9c8e3119-431d-4b46-a8df-68b06bec11d6" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="2fd5c289-42c8-4a4e-873c-2dc6355e939b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c8e3119-431d-4b46-a8df-68b06bec11d6" location="[Solace.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" location="[Solace.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+              <target id="c9cdac1c-10d3-4668-8d44-3094ac092e8b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9c8e3119-431d-4b46-a8df-68b06bec11d6" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="dc1d748e-27f1-4158-bb65-2abd15a5ad96" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+              <target id="c5629a56-8dfb-4276-82ff-84ec3a1569db" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9c8e3119-431d-4b46-a8df-68b06bec11d6" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="960ee286-11f3-4872-a7d9-e49393ede113" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

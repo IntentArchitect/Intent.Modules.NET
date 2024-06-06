@@ -21,8 +21,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConsumingService
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceConsumingServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+			AddNugetDependency(NuGetPackages.MicrosoftExtensionsHosting);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+			CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")

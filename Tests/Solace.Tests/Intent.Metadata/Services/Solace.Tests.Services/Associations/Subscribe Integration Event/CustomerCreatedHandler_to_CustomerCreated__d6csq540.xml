@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8a9b9bb0-e1fe-4c45-824d-74eb31f534ce">
+  <sourceEnd id="be1f71ba-f535-445e-8b2e-d36c7b1109f0" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Customers.CustomerCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="1dd52585-5944-4d38-a2cd-550a0cbb9218">
+      <typeId>c22e8240-e744-4522-b39a-03e707054765</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8a9b9bb0-e1fe-4c45-824d-74eb31f534ce" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: CustomerCreated</display>
+    <order>0</order>
+    <typeReference id="ff8b469b-3d47-4a3f-a543-119a93594c11">
+      <typeId>5cc60622-97d5-4361-92c6-0fe2d7824e31</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>62549091-f9de-46a1-b478-236d42077f3c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

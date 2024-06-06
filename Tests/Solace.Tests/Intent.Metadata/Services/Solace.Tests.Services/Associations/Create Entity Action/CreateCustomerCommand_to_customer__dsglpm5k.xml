@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e7300db9-1145-49e1-8c16-ba19a14da2f8">
+  <sourceEnd id="9d3b1807-4294-4187-a3d7-4e6662fd9e42" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Customers.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="b394c22b-3d98-4fd1-a88a-e19e3c88f07b">
+      <typeId>b8339131-1940-4e03-ae26-e6aa0b6c13e1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e7300db9-1145-49e1-8c16-ba19a14da2f8" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>customer</name>
+    <display>[create] customer: Customer</display>
+    <order>2</order>
+    <typeReference id="c7e76049-34ba-43d3-8498-32575415d5f9">
+      <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b8339131-1940-4e03-ae26-e6aa0b6c13e1" location="[Solace.Tests].[Services].[CreateCustomerCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" location="[Solace.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCustomerCommand}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+              <target id="c9cdac1c-10d3-4668-8d44-3094ac092e8b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="020020e7-bda1-4899-8699-4bcaa2e8c78e" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="add7afb7-e3ce-4b1d-a0fc-31296f8cb518" name="Customer" type="element" specialization="Class" />
+              <target id="c5629a56-8dfb-4276-82ff-84ec3a1569db" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="47531cac-1080-43aa-acf4-9b67fd614c94" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

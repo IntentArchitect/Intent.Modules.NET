@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bd1a9e20-03f0-4a8c-871f-243534d86961">
+  <sourceEnd id="cf26fd20-1775-4d30-94b9-3d7f8d76ab44" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : Purchases.CreatePurchaseCommand</display>
+    <order>0</order>
+    <typeReference id="3674234f-6d85-40d6-aad0-17f18d8b8898">
+      <typeId>dc6eaa4a-8f90-4916-b907-bd00678f1d5d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bd1a9e20-03f0-4a8c-871f-243534d86961" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] PurchaseCreated</display>
+    <order>3</order>
+    <typeReference id="cc48bc5c-5d25-422e-b866-c313edfa7a84">
+      <typeId>5224d5a1-43a0-4b24-b287-4782cdb758ea</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>62549091-f9de-46a1-b478-236d42077f3c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dc6eaa4a-8f90-4916-b907-bd00678f1d5d" location="[Solace.Tests].[Services].[CreatePurchaseCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5224d5a1-43a0-4b24-b287-4782cdb758ea" location="[Solace.Tests].[Services].[PurchaseCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{purchase.Id}</expression>
+            <path>
+              <target id="5224d5a1-43a0-4b24-b287-4782cdb758ea" name="PurchaseCreated" type="element" specialization="Integration Command" />
+              <target id="bca965ad-f2f2-4ddd-b87b-c310557a44bd" name="Id" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="purchase.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="dc6eaa4a-8f90-4916-b907-bd00678f1d5d" name="CreatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="de5ecc3d-de77-4796-a83b-639e156962ad" name="purchase" type="association" specialization="Create Entity Action Target End" />
+                  <target id="ccc26182-669a-4102-96cb-63f40ff0c67d" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{purchase.AccountId}</expression>
+            <path>
+              <target id="5224d5a1-43a0-4b24-b287-4782cdb758ea" name="PurchaseCreated" type="element" specialization="Integration Command" />
+              <target id="e006ca26-14e0-4bd6-8794-15940b6919ce" name="AccountId" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="purchase.AccountId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="dc6eaa4a-8f90-4916-b907-bd00678f1d5d" name="CreatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="de5ecc3d-de77-4796-a83b-639e156962ad" name="purchase" type="association" specialization="Create Entity Action Target End" />
+                  <target id="6ec955f0-e7fe-4fc1-8247-3aa7e3764c6f" name="AccountId" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{purchase.Amount}</expression>
+            <path>
+              <target id="5224d5a1-43a0-4b24-b287-4782cdb758ea" name="PurchaseCreated" type="element" specialization="Integration Command" />
+              <target id="c7dc27db-4248-4ee1-8828-59052edbb608" name="Amount" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="purchase.Amount" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="dc6eaa4a-8f90-4916-b907-bd00678f1d5d" name="CreatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="de5ecc3d-de77-4796-a83b-639e156962ad" name="purchase" type="association" specialization="Create Entity Action Target End" />
+                  <target id="6cf8033b-c603-4ab1-bf32-64c399b9f68c" name="Amount" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

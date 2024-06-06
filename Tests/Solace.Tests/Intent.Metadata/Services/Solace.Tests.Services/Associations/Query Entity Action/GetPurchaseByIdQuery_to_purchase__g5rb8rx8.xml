@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="03c840cd-bca8-46b7-9c22-03a729777e95">
+  <sourceEnd id="55b9f31f-4e52-48da-acc6-403746e7bf37" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPurchaseByIdQuery</display>
+    <order>0</order>
+    <typeReference id="c337e45f-d6f4-4938-8c07-871da9334227">
+      <typeId>7e76b8fa-5bd2-483c-921d-bc33362f71e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="03c840cd-bca8-46b7-9c22-03a729777e95" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>purchase</name>
+    <display>[query] purchase: Purchase</display>
+    <order>1</order>
+    <typeReference id="1a58f4e5-9e9d-4862-8bdb-a1ecd08f61df">
+      <typeId>7f1d4f99-16d0-4b8f-bc1e-987f800de505</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7e76b8fa-5bd2-483c-921d-bc33362f71e1" location="[Solace.Tests].[Services].[GetPurchaseByIdQuery]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7f1d4f99-16d0-4b8f-bc1e-987f800de505" location="[Solace.Tests].[Services].[Purchase]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7f1d4f99-16d0-4b8f-bc1e-987f800de505" name="Purchase" type="element" specialization="Class" />
+              <target id="ccc26182-669a-4102-96cb-63f40ff0c67d" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7e76b8fa-5bd2-483c-921d-bc33362f71e1" name="GetPurchaseByIdQuery" type="element" specialization="Query" />
+                  <target id="b09176d4-a118-4e7a-91c9-ca766eaf1f37" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

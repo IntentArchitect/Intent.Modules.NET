@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="776e5d98-5490-4468-b925-b5897cd650b4" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Solace.Tests</name>
+  <display>Solace.Tests</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f7c168c4-5e41-4cbe-ac38-2efaa3ab87f2</parentFolderId>
+  <diagram>
+    <targetPackageId>7cfffe8e-be9a-411e-bb66-853b2b96b908</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

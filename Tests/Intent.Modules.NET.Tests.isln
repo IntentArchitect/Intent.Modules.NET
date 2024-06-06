@@ -118,5 +118,6 @@
     <application id="83f258e8-1f5c-4785-9c9b-c679a771126f" name="CleanArchitecture.Comprehensive" relativePath="CleanArchitecture.Comprehensive/CleanArchitecture.Comprehensive.application.config" />
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests" relativePath="ProxyServiceTests/ProxyServiceTests.application.config" />
     <application id="a2574e70-3bcd-42d0-82ea-d08c81f825ac" name="ProxyServiceTests.OriginalServices" relativePath="ProxyServiceTests.OriginalServices/ProxyServiceTests.OriginalServices.application.config" />
+    <application id="0185b841-fb5e-4f25-a564-7e86a8293c46" name="Solace.Tests" relativePath="Solace.Tests/Solace.Tests.application.config" />
   </applications>
 </solution>

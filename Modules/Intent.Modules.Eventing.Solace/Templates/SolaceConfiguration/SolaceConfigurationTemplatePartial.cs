@@ -26,7 +26,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            AddNugetDependency(NuGetPackages.SolaceSystemsSolclientMessaging);
+
+			CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -114,8 +116,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         config.AddProperty("bool?", "SSLValidateCertificate");
                         config.AddProperty("int?", "ProvisionTimeoutInMsecs");
                         config.AddProperty("string?", "EnvironmentPrefix");
+						config.AddProperty("string?", "Application");
 
-                        config.AddMethod("void", "Validate", method =>
+						config.AddMethod("void", "Validate", method =>
                         {
                             method.AddStatements(@"if (Host == null)
 				throw new Exception(""Solace Host not configured"");
@@ -143,7 +146,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                 VPNName = "default",
                 UserName = "admin",
                 Password = "admin",
-            }));
+				Application = OutputTarget.ApplicationName().Replace('.', '/'),
+			}));
         }
 
         [IntentManaged(Mode.Fully)]

@@ -39,26 +39,29 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
-                .AddUsing("SolacePrototype.Eventing.Messages")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"MessageRegistry", @class =>
                 {
                     @class.AddField("List<MessageConfiguration>", "_messageTypes", p => p.PrivateReadOnly());
                     @class.AddField("Dictionary<Type, MessageConfiguration>", "_typeLookup", p => p.PrivateReadOnly());
                     @class.AddField("string", "_environmentPrefix", p => p.PrivateReadOnly().WithAssignment("\"\""));
-                    @class.AddField("string", "_applicationName", p => p.PrivateReadOnly().WithAssignment($"\"{outputTarget.ApplicationName()}\""));
+                    @class.AddField("string", "_applicationPrefix", p => p.PrivateReadOnly().WithAssignment("\"\""));
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IConfiguration", "configuration", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
+                        ctor.AddParameter("IConfiguration", "configuration");
                         ctor.AddStatements(@"var environmentPrefix = configuration[$""Solace:EnvironmentPrefix""] ?? """";
 			if (environmentPrefix != """")
 			{
 				if (!environmentPrefix.EndsWith(""/""))
 					environmentPrefix += ""/"";
 				_environmentPrefix = environmentPrefix;
+			}
+            var applicationPrefix = configuration[$""Solace:Application""] ?? """";
+			if (applicationPrefix != """")
+			{
+				if (!applicationPrefix.EndsWith(""/""))
+					applicationPrefix += ""/"";
+				_applicationPrefix = applicationPrefix;
 			}
 
 			_messageTypes = new List< MessageConfiguration>();
@@ -243,7 +246,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             switch (subscriptionType)
             {
                 case SubscriptionType.ViaTopic:
-                    return $""{_environmentPrefix}{_applicationName}/{logicalPath}"";
+                    return $""{_environmentPrefix}{_applicationPrefix}{logicalPath}"";
                 case SubscriptionType.ViaQueue:
                 case SubscriptionType.None:
                 default:

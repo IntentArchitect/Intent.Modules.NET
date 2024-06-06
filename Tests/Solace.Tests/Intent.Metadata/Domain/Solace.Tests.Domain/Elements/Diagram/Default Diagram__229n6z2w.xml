@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8661041e-d93b-4451-9e29-4535d1a81c63" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</parentFolderId>
+  <packageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</packageId>
+  <packageName>Solace.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
