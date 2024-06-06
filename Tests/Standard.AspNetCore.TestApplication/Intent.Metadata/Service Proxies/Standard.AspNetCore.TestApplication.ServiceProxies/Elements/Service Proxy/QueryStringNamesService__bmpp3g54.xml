@@ -6,7 +6,7 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>a3039e69-7ab0-4ab4-8784-54706aa3fcd8</applicationId>
     <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
@@ -23,8 +23,9 @@
   <childElements>
     <childElement id="893a6a29-b9e6-416d-9a1d-8c6b38a6b1c1" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>Operation</name>
-      <display>Operation(): void</display>
+      <display>Operation(par1: string): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="dbf82f9a-6ee3-40c9-9f78-c8983005074a">
         <isNavigable>true</isNavigable>
@@ -47,7 +48,34 @@
       <packageName>Standard.AspNetCore.TestApplication.ServiceProxies</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="edf087e4-99ce-4ba4-b707-e1eb5154183d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>par1</name>
+          <display>par1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1a0259d4-237a-44ac-b8f1-67e4d98458af">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>893a6a29-b9e6-416d-9a1d-8c6b38a6b1c1</parentFolderId>
+          <packageId>66b18d80-8a0a-427c-ae55-a046e43f655f</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="177bf693-ba09-4569-920e-ec9ee14574ea" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>
