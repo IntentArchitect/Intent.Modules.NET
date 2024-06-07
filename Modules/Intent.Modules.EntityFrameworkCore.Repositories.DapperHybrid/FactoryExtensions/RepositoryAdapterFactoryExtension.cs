@@ -27,14 +27,18 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.FactoryEx
             {
                 return;
             }
-            template.AddNugetDependency(NuGetPackages.Dapper);
-            var @class = template.CSharpFile.TypeDeclarations.First();
-
-            @class.AddMethod("IDbConnection", "GetConnection", method =>
+            template.CSharpFile.OnBuild(file => 
             {
-                method.Protected();
-                method.AddStatement("return _dbContext.Database.GetDbConnection();");
-            });
+				template.AddNugetDependency(NuGetPackages.Dapper);
+				var @class = template.CSharpFile.TypeDeclarations.First();
+
+				@class.AddMethod(template.UseType("System.Data.IDbConnection"), "GetConnection", method =>
+				{
+					method.Protected();
+					method.AddStatement("return _dbContext.Database.GetDbConnection();");
+				});
+
+			});
         }
     }
 }

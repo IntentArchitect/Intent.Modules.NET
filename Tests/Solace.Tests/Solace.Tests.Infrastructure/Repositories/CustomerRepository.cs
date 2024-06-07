@@ -11,6 +11,7 @@ using Solace.Tests.Domain.Contracts;
 using Solace.Tests.Domain.Entities;
 using Solace.Tests.Domain.Repositories;
 using Solace.Tests.Infrastructure.Persistence;
+using Dapper;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
@@ -27,26 +28,26 @@ namespace Solace.Tests.Infrastructure.Repositories
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<Customer>> SearchDapperAsync(CancellationToken cancellationToken = default)
         {
-			var customers = await GetConnection().QueryAsync<Customer>("Select * from [dbo].[Customers]");
-			return customers.ToList();
-		}
+            var customers = await GetConnection().QueryAsync<Customer>("Select * from [dbo].[Customers]");
+            return customers.ToList();
+        }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<Customer>> SearchSqlEFAsync(CancellationToken cancellationToken = default)
         {
-			//return await _dbContext.Customers.FromSql($"Select c.* from [dbo].[Customers] c where IsActive = {true}").Include(c => c.Addresses).ToListAsync(cancellationToken);
-			return await _dbContext.Customers.FromSql($"Select c.* from [dbo].[Customers] c").ToListAsync(cancellationToken);
+            //return await _dbContext.Customers.FromSql($"Select c.* from [dbo].[Customers] c where IsActive = {true}").Include(c => c.Addresses).ToListAsync(cancellationToken);
+            return await _dbContext.Customers.FromSql($"Select c.* from [dbo].[Customers] c").ToListAsync(cancellationToken);
 
 
-		}
+        }
 
-		[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<CustomerCustom>> SearchCustomResultAsync(CancellationToken cancellationToken = default)
         {
-			return await _dbContext.Database.SqlQuery<CustomerCustom>($"Select * from [dbo].[Customers]").ToListAsync(cancellationToken);
-		}
+            return await _dbContext.Database.SqlQuery<CustomerCustom>($"Select * from [dbo].[Customers]").ToListAsync(cancellationToken);
+        }
 
-		public async Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

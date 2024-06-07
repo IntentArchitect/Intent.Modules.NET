@@ -516,6 +516,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#64720ac4-f0c7-44ee-8dd7-c4bfc6e5754e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/CustomerCustomDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerCustomDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#64720ac4-f0c7-44ee-8dd7-c4bfc6e5754e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/CustomerCustomDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerCustomDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e8a0e03e-3cca-477c-ab17-fe76f23fb2d7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
@@ -552,6 +568,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#96ac1588-3dd6-4d9e-9813-6418ae5a0ab3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetCustom/GetCustomQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustom/GetCustomQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#96ac1588-3dd6-4d9e-9813-6418ae5a0ab3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetCustom/GetCustomQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustom/GetCustomQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#96ac1588-3dd6-4d9e-9813-6418ae5a0ab3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetCustom/GetCustomQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustom/GetCustomQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -600,6 +640,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fc2adc23-9a45-425d-8ebb-dc8c8f5b82ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetDapper/GetDapperQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetDapper/GetDapperQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fc2adc23-9a45-425d-8ebb-dc8c8f5b82ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetDapper/GetDapperQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetDapper/GetDapperQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fc2adc23-9a45-425d-8ebb-dc8c8f5b82ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetDapper/GetDapperQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetDapper/GetDapperQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d87c26b5-ba9d-4839-b9aa-623c826a21d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetEFSql/GetEFSqlQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetEFSql/GetEFSqlQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d87c26b5-ba9d-4839-b9aa-623c826a21d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetEFSql/GetEFSqlQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetEFSql/GetEFSqlQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d87c26b5-ba9d-4839-b9aa-623c826a21d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Customers/GetEFSql/GetEFSqlQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetEFSql/GetEFSqlQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using Solace.Tests.Domain.Contracts;
 using Solace.Tests.Domain.Entities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
