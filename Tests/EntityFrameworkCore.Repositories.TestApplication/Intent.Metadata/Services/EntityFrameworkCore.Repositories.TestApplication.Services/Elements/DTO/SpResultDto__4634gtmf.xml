@@ -15,7 +15,7 @@
       <target id="ac220ea1-4718-4f07-986f-bc72141bb099" name="SpResult" type="element" specialization="Data Contract" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>71d92ffa-3295-462d-9db8-ea571a9804bd</parentFolderId>
+  <parentFolderId>90a6bce8-5da4-4dd0-8f7b-4740799d9dd6</parentFolderId>
   <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
   <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
   <stereotypes />

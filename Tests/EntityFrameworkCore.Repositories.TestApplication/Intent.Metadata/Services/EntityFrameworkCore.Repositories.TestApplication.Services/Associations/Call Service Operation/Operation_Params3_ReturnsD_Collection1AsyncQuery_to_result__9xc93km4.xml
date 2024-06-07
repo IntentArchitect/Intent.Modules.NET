@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e114768f-35e8-4f4a-956e-70432c7b32eb">
+  <sourceEnd id="a8639479-78c5-4404-ae4a-e8ba9d21c709" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AggregateRoot1RepoOperationInvocation.Operation_Params3_ReturnsD_Collection1AsyncQuery</display>
+    <order>0</order>
+    <typeReference id="16000732-69a5-4d6b-9f1f-617800b95d2d">
+      <typeId>3a8f1f89-f74b-4f3b-8263-831a1b43b286</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e114768f-35e8-4f4a-956e-70432c7b32eb" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: Operation_Params3_ReturnsD_Collection1Async(...): SpResult[*]</display>
+    <order>17</order>
+    <typeReference id="557c0f85-7d3e-4457-8d98-f99df6943a6e">
+      <typeId>6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3a8f1f89-f74b-4f3b-8263-831a1b43b286" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[Operation_Params3_ReturnsD_Collection1AsyncQuery]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[Operation_Params3_ReturnsD_Collection1Async]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Operation_Params3_ReturnsD_Collection1AsyncQuery}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="Operation_Params3_ReturnsD_Collection1AsyncQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeBinary}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="ef71c5de-7ffd-4f09-a6d5-064af704d997" name="AttributeBinary" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeBinary" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="ae604d91-913c-4dee-bdac-f6b3953c4714" name="AttributeBinary" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeBool}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="0a36a832-752a-45c1-853d-c7e76d25b23e" name="AttributeBool" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeBool" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="e8ca425f-448f-42c6-8fb3-32c7caba058a" name="AttributeBool" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeByte}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="b0073083-87e6-4ef8-abd5-de6ff1ec3738" name="AttributeByte" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeByte" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="7efc2bf6-9a9b-42a1-88ea-045669a386a4" name="AttributeByte" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeDate}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="2f773d71-f7a6-4e18-8e8a-db65cbf32685" name="AttributeDate" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeDate" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="bbdfc321-a215-4677-a962-03bbd4048e24" name="AttributeDate" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeDateTime}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="e62d1c1d-4a5f-4bb8-ba7d-b0532ffb1f79" name="AttributeDateTime" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeDateTime" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="0cc58905-cfeb-48d3-aba2-8f0c5fc80c0b" name="AttributeDateTime" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeDateTimeOffset}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="2f594513-19d1-4762-83f5-6459dcd3da92" name="AttributeDateTimeOffset" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeDateTimeOffset" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="c86cb1df-a6e5-423f-8924-9258eb74882e" name="AttributeDateTimeOffset" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeDecimal}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="5f812096-cc2d-43a7-bf1e-006ab2dc81a8" name="AttributeDecimal" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeDecimal" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="6afbbf86-a164-446b-b012-e55140254520" name="AttributeDecimal" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeDouble}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="9591e31a-dadb-4475-b763-baa8d681fc21" name="AttributeDouble" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeDouble" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="8c88afc1-3f16-4e09-9180-5c647caa8e44" name="AttributeDouble" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeFloat}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="8c478582-0383-401a-b2ab-e14c9448e65b" name="AttributeFloat" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeFloat" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="68cf1efe-efba-4d48-9c7b-1b5673cef070" name="AttributeFloat" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeGuid}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="6c2b3af0-00ec-454f-9fb2-89d8b05e1fef" name="AttributeGuid" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeGuid" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="894fb8ff-3189-465d-8bdc-bbf237ee9881" name="AttributeGuid" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeInt}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="ac92fb50-fe24-4daf-8b84-4ba9df333b8d" name="AttributeInt" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeInt" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="01d61b26-a9b7-4b63-a575-28e7acb80b21" name="AttributeInt" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeLong}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="26912592-56bf-48b1-a1d3-ef1e94250908" name="AttributeLong" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeLong" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="6f56ab96-8e89-443f-a47e-82a16cfc68ae" name="AttributeLong" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeShort}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="7ab43e45-1cff-4728-9a67-bb21e1f02796" name="AttributeShort" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeShort" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="b141aec4-981a-412f-ba7b-9b4c6c7def55" name="AttributeShort" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttributeString}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="60420f61-1ebb-4ecc-928c-616a535278f2" name="param" type="element" specialization="Parameter" />
+              <target id="cf73fabc-7c1a-49cb-9173-3397810ebd68" name="AttributeString" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttributeString" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="a7321128-e967-475f-8382-8d6a31de280f" name="AttributeString" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Tag}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="eb5031ba-ac1a-4947-8da2-6b2799f22b91" name="aggrParam" type="element" specialization="Parameter" />
+              <target id="d103475e-8ecb-4c5a-a92e-f4ee3818743e" name="Tag" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Tag" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="68317fa9-f5cd-461e-89b5-e817a3717129" name="Tag" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{StrParam}</expression>
+            <path>
+              <target id="6bb28a8d-d2e8-4a65-9a7b-8510dfc66bba" name="Operation_Params3_ReturnsD_Collection1Async" type="element" specialization="Operation" />
+              <target id="2a09e334-5eb2-4f3d-b582-dca02cfb4133" name="strParam" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="StrParam" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3a8f1f89-f74b-4f3b-8263-831a1b43b286" name="Operation_Params3_ReturnsD_Collection1AsyncQuery" type="element" specialization="Query" />
+                  <target id="0abdeceb-8084-47d1-a954-37c539a5c427" name="StrParam" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

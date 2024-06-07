@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d0746319-f98c-4bc6-a2ba-68a0d943e6c2" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>Operation_Params0_ReturnsD_Collection0Query</name>
+  <display>Operation_Params0_ReturnsD_Collection0Query: SpResultDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c85209eb-7625-416b-a12c-c97b139f4069">
+    <typeId>7f72b93c-36ed-4e76-9374-e0a0fcd1ddbe</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+    <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>a445955d-7049-44bc-89d2-f2a6e90764dd</parentFolderId>
+  <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

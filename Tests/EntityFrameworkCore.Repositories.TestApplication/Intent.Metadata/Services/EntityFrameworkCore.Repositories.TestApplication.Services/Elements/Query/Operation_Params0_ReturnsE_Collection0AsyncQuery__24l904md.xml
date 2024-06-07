@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="64a6141f-a49a-4052-a95b-a28f9323e3a7" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>Operation_Params0_ReturnsE_Collection0AsyncQuery</name>
+  <display>Operation_Params0_ReturnsE_Collection0AsyncQuery: AggregateRoot1Dto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="6211ff7a-8286-46c8-8308-db1138e6a9bd">
+    <typeId>ba188754-e9ea-4ae6-984b-601f8d668949</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+    <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>71d92ffa-3295-462d-9db8-ea571a9804bd</parentFolderId>
+  <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

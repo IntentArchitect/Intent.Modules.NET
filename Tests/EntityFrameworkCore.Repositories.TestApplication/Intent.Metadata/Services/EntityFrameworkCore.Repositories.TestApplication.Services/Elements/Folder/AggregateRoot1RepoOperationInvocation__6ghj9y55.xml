@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a445955d-7049-44bc-89d2-f2a6e90764dd" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <comment>Script I used to populate this
+
+let repo = lookupTypesOf("Repository").filter(x =&gt; x.getName() === "AggregateRoot1Repository")[0];
+let folder = lookup("a445955d-7049-44bc-89d2-f2a6e90764dd");
+
+repo.getChildren("Operation").forEach(operation =&gt; {
+    let crudTypeName = operation.typeReference?.getTypeId() ? "Query" : "Command";
+    let crudElement = createElement(crudTypeName, operation.getName()+crudTypeName, folder.id);
+    let call = createAssociation("Call Service Operation", crudElement.id, operation.id);
+    let mapping = call.createMapping(crudElement.id, operation.id);
+    mapping.addMappedEnd("Invocation Mapping", [crudElement.id], [operation.id]);
+    
+	operation.getChildren("Parameter").forEach(param =&gt; {
+		let returnType = param.typeReference?.getType();
+		if (!returnType) {
+			return;
+		}
+        if (returnType.specialization === "Class" || returnType.specialization === "Data Contract") {
+            let attributes = returnType.getChildren("Attribute");
+            attributes.forEach(attr =&gt; {
+                let field = createElement("DTO-Field", toPascalCase(attr.getName()), crudElement.id);
+                field.typeReference.setType(attr.typeReference.getTypeId());
+                field.typeReference.setIsCollection(attr.typeReference.isCollection);
+                field.typeReference.setIsNullable(attr.typeReference.isNullable);
+                mapping.addMappedEnd("Data Mapping", [field.id], [param.id, attr.id]);
+            });
+        } else {
+            let field = createElement("DTO-Field", toPascalCase(param.getName()), crudElement.id);
+            field.typeReference.setType(param.typeReference.getTypeId());
+            field.typeReference.setIsCollection(param.typeReference.isCollection);
+            field.typeReference.setIsNullable(param.typeReference.isNullable);
+            mapping.addMappedEnd("Data Mapping", [field.id], [param.id]);
+        }
+	});
+
+    if (operation.typeReference?.getType()) {
+        if (operation.typeReference.getType().specialization === "Class") {
+            crudElement.typeReference.setType("ba188754-e9ea-4ae6-984b-601f8d668949");
+            crudElement.typeReference.setIsCollection(operation.typeReference.isCollection);
+            crudElement.typeReference.setIsNullable(operation.typeReference.isNullable);
+        } else if (operation.typeReference.getType().specialization === "Data Contract") {
+            crudElement.typeReference.setType("7f72b93c-36ed-4e76-9374-e0a0fcd1ddbe");
+            crudElement.typeReference.setIsCollection(operation.typeReference.isCollection);
+            crudElement.typeReference.setIsNullable(operation.typeReference.isNullable);
+        }
+    }
+});</comment>
+  <name>AggregateRoot1RepoOperationInvocation</name>
+  <display>AggregateRoot1RepoOperationInvocation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</parentFolderId>
+  <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>
