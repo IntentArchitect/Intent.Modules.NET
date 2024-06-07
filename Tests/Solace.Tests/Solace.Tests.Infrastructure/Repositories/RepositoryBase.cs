@@ -22,7 +22,7 @@ namespace Solace.Tests.Infrastructure.Repositories
         where TPersistence : class, TDomain
         where TDomain : class
     {
-        private readonly TDbContext _dbContext;
+        protected readonly TDbContext _dbContext;
         private readonly IMapper _mapper;
 
         public RepositoryBase(TDbContext dbContext, IMapper mapper)
@@ -32,6 +32,11 @@ namespace Solace.Tests.Infrastructure.Repositories
         }
 
         public IUnitOfWork UnitOfWork => _dbContext;
+
+        protected IDbConnection GetConnection()
+        {
+            return _dbContext.Database.GetDbConnection();
+        }
 
         public virtual void Remove(TDomain entity)
         {
