@@ -8,13 +8,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 #nullable enable
 public static class RepositoryOperationHelper
 {
-    public static void ApplyMethods(ICSharpFileBuilderTemplate? template, CSharpClass? @class, RepositoryModel repositoryModel)
+    public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, RepositoryModel repositoryModel)
     {
-        if (template is null || @class is null)
-        {
-            return;
-        }
-        
         foreach (var operationModel in repositoryModel.Operations)
         {
             var isAsync = operationModel.Name.EndsWith("Async");
@@ -42,13 +37,8 @@ public static class RepositoryOperationHelper
         }
     }
 
-    public static void ApplyMethods(ICSharpFileBuilderTemplate? template, CSharpInterface? @interface, RepositoryModel repositoryModel)
+    public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpInterface @interface, RepositoryModel repositoryModel)
     {
-        if (template is null || @interface is null)
-        {
-            return;
-        }
-        
         foreach (var operationModel in repositoryModel.Operations)
         {
             var isAsync = operationModel.Name.EndsWith("Async");

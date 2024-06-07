@@ -35,15 +35,31 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             foreach (var entry in classRepositories.Where(p => p.Repository.Operations.Any()))
             {
                 var interfaceTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, entry.Entity);
-                interfaceTemplate?.CSharpFile.OnBuild(file =>
+                if (interfaceTemplate is not null)
                 {
-                    RepositoryOperationHelper.ApplyMethods(interfaceTemplate, interfaceTemplate?.CSharpFile.Interfaces.FirstOrDefault(), entry.Repository);
-                });
+                    interfaceTemplate.CSharpFile.OnBuild(file =>
+                    {
+                        RepositoryOperationHelper.ApplyMethods(interfaceTemplate, interfaceTemplate.CSharpFile.Interfaces.First(), entry.Repository);
+                    });
+                    // so that this template can be found when searched for by its various roles with the repository model (e.g. DomainInteractions with repositories):
+                    foreach (var role in application.GetRolesForTemplate(interfaceTemplate))
+                    {
+                        application.RegisterTemplateInRoleForModel(role, entry.Repository, interfaceTemplate);
+                    }
+
+                    // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
+                    application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, entry.Repository, interfaceTemplate);
+                }
+                
+
                 var repositoryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(RepositoryTemplate.TemplateId, entry.Entity);
-                repositoryTemplate?.CSharpFile.OnBuild(file =>
+                if (repositoryTemplate is not null)
                 {
-                    RepositoryOperationHelper.ApplyMethods(repositoryTemplate, repositoryTemplate?.CSharpFile.Classes.FirstOrDefault(), entry.Repository);
-                });
+                    repositoryTemplate.CSharpFile.OnBuild(file =>
+                    {
+                        RepositoryOperationHelper.ApplyMethods(repositoryTemplate, repositoryTemplate.CSharpFile.Classes.First(), entry.Repository);
+                    });
+                }
             }
         }
     }

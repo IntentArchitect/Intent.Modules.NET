@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Solace.Tests.Domain.Repositories;
@@ -14,15 +15,22 @@ namespace Solace.Tests.Application.Customers.GetDapper
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetDapperQueryHandler : IRequestHandler<GetDapperQuery, List<CustomerDto>>
     {
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IMapper _mapper;
         [IntentManaged(Mode.Merge)]
-        public GetDapperQueryHandler()
+        public GetDapperQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
+            _customerRepository = customerRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetDapperQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Implement return type mapping...");
+            var result = await _customerRepository.SearchDapperAsync(cancellationToken);
+            return result.MapToCustomerDtoList(_mapper);
         }
+
+
     }
 }
