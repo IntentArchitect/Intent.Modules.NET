@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Dapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Solace.Tests.Application.Common.Models;
@@ -11,7 +12,6 @@ using Solace.Tests.Domain.Contracts;
 using Solace.Tests.Domain.Entities;
 using Solace.Tests.Domain.Repositories;
 using Solace.Tests.Infrastructure.Persistence;
-using Dapper;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
