@@ -542,6 +542,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var dbSupportsIncludedProperties = databaseProvider switch
             {
                 DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => true,
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => true,
                 _ => false
             };
 

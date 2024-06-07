@@ -1,4 +1,8 @@
-﻿### Version 5.0.6
+﻿### Version 5.0.7
+
+- Improved: Postgres enabled for having "Included" index columns.
+
+### Version 5.0.6
 
 - Improved: Set your default schema name for your `ApplicationDbContext` and your HistoryTable.
 - Fixed: Checking for types with serialization will also include Record types.
