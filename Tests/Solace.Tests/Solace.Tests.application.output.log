@@ -867,6 +867,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>87147d19-2591-406e-8acc-145095ee1d69</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#701df9ed-578e-4a3a-9b4b-664397aa0d54</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Domain/Contracts/CustomerCustom.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerCustom.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f2b4e0f0-4977-4cc1-890c-eb28f7d52013</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#456da770-d09e-4079-b15b-bf4744cd8bf6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

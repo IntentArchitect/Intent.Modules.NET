@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2232c1cc-ec99-499d-bd1f-09e9e59b504e" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>CustomerRepository</name>
+  <display>CustomerRepository&lt;Customer&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="2f063221-d648-4149-827a-4af80509c1df">
+    <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Solace.Tests.Domain</typePackageName>
+    <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</parentFolderId>
+  <packageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</packageId>
+  <packageName>Solace.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="993a9d84-74ca-4794-b336-495e08f24079" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SearchDapperAsync</name>
+      <display>SearchDapperAsync(): Customer[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="da70b861-45cc-42a9-a497-60ac44a84b5e">
+        <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Solace.Tests.Domain</typePackageName>
+        <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2232c1cc-ec99-499d-bd1f-09e9e59b504e</parentFolderId>
+      <packageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</packageId>
+      <packageName>Solace.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ccbe406a-c1ad-4f81-8ec6-7d7664e9dc32" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SearchSqlEFAsync</name>
+      <display>SearchSqlEFAsync(): Customer[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="af865f45-d5ba-47d8-878b-9a0605c1c595">
+        <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Solace.Tests.Domain</typePackageName>
+        <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2232c1cc-ec99-499d-bd1f-09e9e59b504e</parentFolderId>
+      <packageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</packageId>
+      <packageName>Solace.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b02b86e4-421b-4cea-b1fb-d369243774a6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SearchCustomResultAsync</name>
+      <display>SearchCustomResultAsync(): CustomerCustom[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3bab0b0c-0728-49bb-a7eb-563c9f39a7d0">
+        <typeId>701df9ed-578e-4a3a-9b4b-664397aa0d54</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Solace.Tests.Domain</typePackageName>
+        <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2232c1cc-ec99-499d-bd1f-09e9e59b504e</parentFolderId>
+      <packageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</packageId>
+      <packageName>Solace.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

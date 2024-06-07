@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fc2adc23-9a45-425d-8ebb-dc8c8f5b82ad" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetDapperQuery</name>
+  <display>GetDapperQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="69e32b89-a4b9-4c19-92c4-088fc4eb7f85">
+    <typeId>e8a0e03e-3cca-477c-ab17-fe76f23fb2d7</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Solace.Tests.Services</typePackageName>
+    <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>548dfe43-7834-4de9-9000-583718ed67e5</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
