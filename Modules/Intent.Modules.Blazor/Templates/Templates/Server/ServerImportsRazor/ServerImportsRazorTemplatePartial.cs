@@ -1,25 +1,31 @@
 using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
 {
-    [IntentManaged(Mode.Merge)]
-    public partial class ServerImportsRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
+    /// <summary>
+    /// A Razor template.
+    /// </summary>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class ServerImportsRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
+        /// <inheritdoc cref="IntentTemplateBase.Id"/>
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Server.ServerImportsRazorTemplate";
 
+        /// <summary>
+        /// Creates a new instance of <see cref="ServerImportsRazorTemplate"/>.
+        /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServerImportsRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -38,8 +44,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
             });
         }
 
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
         public RazorFile RazorFile { get; }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
@@ -50,10 +59,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
             );
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override string TransformText()
-        {
-            return RazorFile.Build().ToString();
-        }
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText() => RazorFile.ToString();
     }
 }

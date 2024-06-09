@@ -3,7 +3,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 

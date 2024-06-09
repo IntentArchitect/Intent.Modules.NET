@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
@@ -7,30 +6,33 @@ using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Api.Mappings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.FactoryExtensions;
 using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
-    public partial class RazorComponentTemplate : RazorTemplateBase<ComponentModel>, IRazorComponentTemplate
+    /// <summary>
+    /// A Razor template.
+    /// </summary>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
+    public class RazorComponentTemplate : RazorTemplateBase<ComponentModel>, IRazorComponentTemplate
     {
+        /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
 
-        [IntentIgnoreBody]
+        /// <summary>
+        /// Creates a new instance of <see cref="RazorComponentTemplate"/>.
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
@@ -71,11 +73,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             });
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
-
         public BindingManager BindingManager { get; }
-        public RazorFile RazorFile { get; set; }
+
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public RazorFile RazorFile { get; }
+
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
         public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
@@ -103,6 +106,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             return _codeBlock;
         }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
@@ -113,24 +117,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             );
         }
 
-        [IntentManaged(Mode.Ignore)]
-        public override string TransformText()
-        {
-            var razorFile = RazorFile.Build();
-            foreach (var @using in this.ResolveAllUsings(
-                         "System",
-                         "System.Collections.Generic"
-                     ).Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
-            {
-                razorFile.AddUsing(@using);
-            }
-
-            return razorFile.ToString();
-        }
-
-        public override string RunTemplate()
-        {
-            return TransformText();
-        }
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText() => RazorFile.ToString();
     }
 }

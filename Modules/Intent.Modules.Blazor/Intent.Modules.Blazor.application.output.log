@@ -58,11 +58,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4a938a9b-e670-43dd-8e6d-f03f0c48d812</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4a938a9b-e670-43dd-8e6d-f03f0c48d812</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
@@ -106,11 +106,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
@@ -122,11 +122,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
@@ -138,11 +138,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
@@ -154,11 +154,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Server/AppRazor/AppRazorTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
@@ -170,11 +170,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f4e96c35-f23e-49b2-ae25-151ec6564357</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#f4e96c35-f23e-49b2-ae25-151ec6564357</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>

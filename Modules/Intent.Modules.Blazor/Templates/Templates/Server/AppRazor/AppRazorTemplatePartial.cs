@@ -1,25 +1,31 @@
 using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 {
-    [IntentManaged(Mode.Merge)]
-    public partial class AppRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
+    /// <summary>
+    /// A Razor template.
+    /// </summary>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class AppRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
+        /// <inheritdoc cref="IntentTemplateBase.Id"/>
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Server.AppRazorTemplate";
 
+        /// <summary>
+        /// Creates a new instance of <see cref="AppRazorTemplate"/>.
+        /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AppRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -59,9 +65,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                 });
         }
 
-
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
         public RazorFile RazorFile { get; }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
@@ -72,15 +80,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
             );
         }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return $@"<!DOCTYPE html>
-<html lang=""en"">
+            return $"""
+                    <!DOCTYPE html>
+                    <html lang="en">
 
-{RazorFile.Build().ToString().Trim()}
+                    {RazorFile.ToString().Trim()}
 
-</html>";
+                    </html>
+                    """;
         }
     }
 }

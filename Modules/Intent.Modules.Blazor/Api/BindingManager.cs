@@ -2,7 +2,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Api;
 

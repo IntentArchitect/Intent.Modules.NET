@@ -1,32 +1,35 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Api.Mappings;
-using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Ignore)]
-    public partial class RazorLayoutTemplate : RazorTemplateBase<LayoutModel>, IRazorComponentTemplate
+    /// <summary>
+    /// A Razor template.
+    /// </summary>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
+    public class RazorLayoutTemplate : RazorTemplateBase<LayoutModel>, IRazorComponentTemplate
     {
+        /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorLayoutTemplate";
 
+        /// <summary>
+        /// Creates a new instance of <see cref="RazorLayoutTemplate"/>.
+        /// </summary>
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
         {
@@ -51,7 +54,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
             });
         }
 
-        public RazorFile RazorFile { get; set; }
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public RazorFile RazorFile { get; }
+
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
         public BindingManager BindingManager { get; }
@@ -81,6 +87,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
             return mappingManager;
         }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
@@ -91,15 +98,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
             );
         }
 
-        [IntentManaged(Mode.Ignore)]
-        public override string TransformText()
-        {
-            return RazorFile.Build().ToString();
-        }
-
-        public override string RunTemplate()
-        {
-            return TransformText();
-        }
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText() => RazorFile.ToString();
     }
 }

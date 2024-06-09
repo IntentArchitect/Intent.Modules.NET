@@ -4,7 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Blazor.Api;

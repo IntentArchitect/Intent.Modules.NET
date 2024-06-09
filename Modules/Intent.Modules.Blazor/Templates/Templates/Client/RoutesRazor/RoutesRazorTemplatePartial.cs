@@ -1,27 +1,33 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Razor;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
 {
-    [IntentManaged(Mode.Merge)]
-    public partial class RoutesRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
+    /// <summary>
+    /// A Razor template.
+    /// </summary>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
+    public class RoutesRazorTemplate : RazorTemplateBase<object>, IRazorFileTemplate
     {
+        /// <inheritdoc cref="IntentTemplateBase.Id"/>
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RoutesRazorTemplate";
 
+        /// <summary>
+        /// Creates a new instance of <see cref="RoutesRazorTemplate"/>.
+        /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RoutesRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -51,8 +57,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             });
         }
 
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
         public RazorFile RazorFile { get; }
 
+        /// <inheritdoc />
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override RazorFileConfig DefineRazorConfig()
         {
@@ -63,11 +72,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             );
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override string TransformText()
-        {
-            return RazorFile.Build().ToString();
-        }
-
+        /// <inheritdoc />
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText() => RazorFile.ToString();
     }
 }
