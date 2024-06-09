@@ -6,6 +6,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Razor;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;

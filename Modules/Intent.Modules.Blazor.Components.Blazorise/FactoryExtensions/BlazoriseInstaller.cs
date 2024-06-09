@@ -1,7 +1,6 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
@@ -10,10 +9,10 @@ using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Razor;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 

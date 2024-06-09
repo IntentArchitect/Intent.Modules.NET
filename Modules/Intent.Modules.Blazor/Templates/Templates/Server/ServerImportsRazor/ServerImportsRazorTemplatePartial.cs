@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Razor;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;

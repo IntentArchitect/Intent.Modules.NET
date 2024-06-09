@@ -3,6 +3,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp.Razor;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -21,7 +22,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var button = new ButtonModel(component); 
+        var button = new ButtonModel(component);
 
         var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)

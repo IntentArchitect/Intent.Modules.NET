@@ -2,6 +2,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Razor;
 
 namespace Intent.Modules.Blazor.Components.Core.ComponentBuilders;
 
@@ -23,7 +24,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         var formModel = new FormModel(component);
         var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _componentTemplate.RazorFile);
         var htmlElement = new HtmlElement("EditForm", _componentTemplate.RazorFile);
-        
+
         codeBlock.AddHtmlElement(htmlElement);
         htmlElement.AddAttributeIfNotEmpty("Model", _bindingManager.GetBinding(formModel, "Model")?.ToString());
         htmlElement.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");

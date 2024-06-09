@@ -1,8 +1,7 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.CSharp.Razor;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 

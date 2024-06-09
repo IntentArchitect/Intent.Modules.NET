@@ -2,6 +2,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp.Razor;
 
 namespace Intent.Modules.Blazor.Components.Blazorise.ComponentRenderer;
 
@@ -20,7 +21,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var button = new ButtonModel(component); 
+        var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("Button", _componentTemplate.RazorFile)
             .AddAttribute("Type", "ButtonType.Button")
             .AddAttribute("Color", "Color.Primary")

@@ -1,4 +1,3 @@
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 

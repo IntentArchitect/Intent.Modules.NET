@@ -2,6 +2,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Razor;
 
 namespace Intent.Modules.Blazor.Components.Blazorise.ComponentRenderer;
 
@@ -14,7 +15,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public TableComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
     {
         _componentResolver = componentResolver;
-        _componentTemplate = template; 
+        _componentTemplate = template;
         _bindingManager = template.BindingManager;
     }
 
