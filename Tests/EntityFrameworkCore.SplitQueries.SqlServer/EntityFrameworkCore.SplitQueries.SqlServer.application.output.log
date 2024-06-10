@@ -115,6 +115,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0de7c9ae-7a4a-4f66-acbe-e88dfd0088ab</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#238135a2-233e-4d03-b49f-849f723ed925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Order.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ef13eaa4-48cf-455f-ab42-b4f4ee340f91</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ef13eaa4-48cf-455f-ab42-b4f4ee340f91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -128,6 +136,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7cf8333e-2636-44ae-a93d-ebab3f47debf</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#238135a2-233e-4d03-b49f-849f723ed925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IOrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -171,11 +187,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>806bf187-e8fe-4107-995b-dd63ba25fd34</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#238135a2-233e-4d03-b49f-849f723ed925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/Configurations/OrderConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>75be858f-3393-4a0f-900e-fadf662f3b11</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f04d22a4-1bc4-4c84-bbb9-643bc54035b8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#238135a2-233e-4d03-b49f-849f723ed925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,4 +1,6 @@
 using EntityFrameworkCore.SplitQueries.SqlServer.Domain.Common.Interfaces;
+using EntityFrameworkCore.SplitQueries.SqlServer.Domain.Entities;
+using EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,12 +15,15 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("sqlserver");
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

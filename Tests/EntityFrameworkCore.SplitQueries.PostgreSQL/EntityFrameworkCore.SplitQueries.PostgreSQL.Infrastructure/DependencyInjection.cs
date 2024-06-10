@@ -1,5 +1,7 @@
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common.Interfaces;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Repositories;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -28,6 +30,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IOrderRepository, OrderRepository>();
             return services;
         }
     }

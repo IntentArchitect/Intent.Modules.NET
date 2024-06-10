@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79500756-53d2-4052-b051-6a5a4d71daff" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Order</name>
+  <display>Order</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b74977ab-1027-4522-8f02-fc5dba1801fc</parentFolderId>
+  <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e990cd01-0e2f-4d4d-9ed3-89bc85306991" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="36c550c4-6ddc-4028-a7a3-311f9ff6dd9a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>79500756-53d2-4052-b051-6a5a4d71daff</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="348e2313-42f4-418b-a54b-3703523c6617" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ReferenceNumber</name>
+      <display>ReferenceNumber: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="382b735c-d413-41ef-bf5a-f8d8b94d24e1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>79500756-53d2-4052-b051-6a5a4d71daff</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7533a709-cf92-4e04-9cfb-e56ce37179ad" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Created</name>
+      <display>Created: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0499c5b6-2508-4e8d-bc3d-c1361b6d9419">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>79500756-53d2-4052-b051-6a5a4d71daff</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8ca97f1e-6129-4c59-88ee-8ce67d79e83d" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
+      <name>IX_Orders_ReferenceNumber_Created</name>
+      <display>IX_Orders_ReferenceNumber_Created</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="79500756-53d2-4052-b051-6a5a4d71daff" name="Order" type="element" specialization="Class" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>79500756-53d2-4052-b051-6a5a4d71daff</parentFolderId>
+      <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="18a8e9e7-b8db-41ec-976b-2b6ba0cc4e4d" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="0d83cdc2-7dc3-4693-9767-4c742ebb3188" display="Use Default Name" value="true" isActive="true" />
+            <property name="7cb9624c-677e-4e71-b674-7a109c674d49" display="Unique" value="false" isActive="true" />
+            <property name="b591c208-51fa-4507-bd7c-337a738772e0" display="Filter" value="Default" isActive="true" />
+            <property name="aef6b276-e7fd-4e16-8b30-f7d74a0b402b" display="Filter Custom Value" isActive="false" />
+            <property name="4e876d68-8bde-4b31-bd25-81e2bd935e76" display="Fill Factor" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d77dd3a0-ba08-455f-b4f9-70091928b17d" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+          <name>ReferenceNumber</name>
+          <display>ReferenceNumber</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
+            <autoSyncTypeReference>false</autoSyncTypeReference>
+            <mappedPath>
+              <target id="348e2313-42f4-418b-a54b-3703523c6617" name="ReferenceNumber" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8ca97f1e-6129-4c59-88ee-8ce67d79e83d</parentFolderId>
+          <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+          <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+              <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+              <properties>
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03b6835f-4e72-4006-9ada-bb2728572a59" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+          <name>Created</name>
+          <display>Created</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
+            <autoSyncTypeReference>false</autoSyncTypeReference>
+            <mappedPath>
+              <target id="7533a709-cf92-4e04-9cfb-e56ce37179ad" name="Created" type="element" specialization="Attribute" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>8ca97f1e-6129-4c59-88ee-8ce67d79e83d</parentFolderId>
+          <packageId>b74977ab-1027-4522-8f02-fc5dba1801fc</packageId>
+          <packageName>EntityFrameworkCore.SplitQueries.PostgreSQL.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+              <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+              <properties>
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Included" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
