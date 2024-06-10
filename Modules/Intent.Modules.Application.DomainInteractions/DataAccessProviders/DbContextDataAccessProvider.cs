@@ -31,7 +31,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement SaveChangesAsync()
     {
-        return $"{_dbContextField}.SaveChangesAsync(cancellationToken);";
+        return $"await {_dbContextField}.SaveChangesAsync(cancellationToken);";
     }
 
     public CSharpStatement AddEntity(string entityName)

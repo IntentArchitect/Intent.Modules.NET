@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>48e1ede6-3ba8-4a7f-b0b1-aa1d5473775a</id>
+  <name>Domain Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-name-changed">
+          <script>if (element.typeReference.getType() == null) {
+    return;
+}
+
+const name = `${element.typeReference.getType().getName()}Repository`;
+if (element.getName() === name) {
+    return;
+}
+
+element.setName(name);</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

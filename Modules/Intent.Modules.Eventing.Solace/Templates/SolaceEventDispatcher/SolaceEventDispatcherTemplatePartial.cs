@@ -26,39 +26,39 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventDispatcher
         {
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-				.AddUsing("System")
-				.AddUsing("System.Threading")
-				.AddUsing("System.Threading.Tasks")
-				.AddUsing("System.Transactions")
-				.AddClass($"SolaceEventDispatcher", @class =>
-				{
-					@class.AddGenericParameter("T", out var t);
-					@class.AddGenericTypeConstraint(t, c => c.AddType("class"));
-					@class.ImplementsInterface($"{this.GetSolaceEventDispatcherInterfaceName()}<{t}>");
+                .AddUsing("System")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Transactions")
+                .AddClass($"SolaceEventDispatcher", @class =>
+                {
+                    @class.AddGenericParameter("T", out var t);
+                    @class.AddGenericTypeConstraint(t, c => c.AddType("class"));
+                    @class.ImplementsInterface($"{this.GetSolaceEventDispatcherInterfaceName()}<{t}>");
 
-					@class.AddConstructor(ctor =>
-					{
-						ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", p => p.IntroduceReadonlyField());
-						ctor.AddParameter($"{this.GetIntegrationEventHandlerInterfaceName()}<{t}>", "handler", p => p.IntroduceReadonlyField());
-					});
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter($"{this.GetIntegrationEventHandlerInterfaceName()}<{t}>", "handler", p => p.IntroduceReadonlyField());
+                    });
 
-					@class.AddMethod("void", "Dispatch", method =>
-					{
-						method.Async();
-						method.AddParameter(t, "message");
-						method.AddOptionalCancellationTokenParameter();
+                    @class.AddMethod("void", "Dispatch", method =>
+                    {
+                        method.Async();
+                        method.AddParameter(t, "message");
+                        method.AddOptionalCancellationTokenParameter();
 
-						method.ApplyUnitOfWorkImplementations(
-							template: this,
-							constructor: @class.Constructors.First(),
-							invocationStatement: "await _handler.HandleAsync(message, cancellationToken);",
-							allowTransactionScope: true,
-							cancellationTokenExpression: "cancellationToken");
+                        method.ApplyUnitOfWorkImplementations(
+                            template: this,
+                            constructor: @class.Constructors.First(),
+                            invocationStatement: "await _handler.HandleAsync(message, cancellationToken);",
+                            allowTransactionScope: true,
+                            cancellationTokenExpression: "cancellationToken");
 
-						method.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);", s => s.SeparatedFromPrevious());
-					});
-				});
-		}
+                        method.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);", s => s.SeparatedFromPrevious());
+                    });
+                });
+        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

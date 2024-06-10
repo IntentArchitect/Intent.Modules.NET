@@ -20,12 +20,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventDispatcherInterfac
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceEventDispatcherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
-		{
+        {
 
-			CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-			    .AddUsing("System.Threading")
-			    .AddUsing("System.Threading.Tasks")
-				.AddInterface($"ISolaceEventDispatcher", @interface =>
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddInterface($"ISolaceEventDispatcher", @interface =>
                 {
                     @interface.AddGenericParameter("TMessage", out var tMessage).AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                     @interface.AddMethod("Task", "Dispatch", method =>

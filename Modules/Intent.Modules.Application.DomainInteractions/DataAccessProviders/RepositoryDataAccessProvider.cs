@@ -15,38 +15,71 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     private readonly string _repositoryFieldName;
     private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
+	private readonly bool _hasUnitOfWork;
 
-    public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager)
+	public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork)
     {
-        _repositoryFieldName = repositoryFieldName;
+        _hasUnitOfWork = hasUnitOfWork;
+		_repositoryFieldName = repositoryFieldName;
         _template = template;
         _mappingManager = mappingManager;
     }
 
     public CSharpStatement SaveChangesAsync()
     {
-        return $"{_repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);";
-    }
+        if (_hasUnitOfWork)
+        {
+			return $"await {_repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);";
+		}
+        else
+        {
+            return "";
+        }
+	}
 
     public CSharpStatement AddEntity(string entityName)
     {
-        return new CSharpInvocationStatement(_repositoryFieldName, "Add")
-            .AddArgument(entityName);
-    }
+        if (_hasUnitOfWork)
+        {
+            return new CSharpInvocationStatement(_repositoryFieldName, "Add")
+                .AddArgument(entityName);
+        }
+        else
+        {
+			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "AddAsync")
+				.AddArgument(entityName);
+		}
+	}
 
     public CSharpStatement Update(string entityName)
     {
-        return new CSharpInvocationStatement(_repositoryFieldName, "Update")
-            .AddArgument(entityName);
-    }
+        if (_hasUnitOfWork)
+        { 
+            return new CSharpInvocationStatement(_repositoryFieldName, "Update")
+                .AddArgument(entityName);
+		}
+		else
+		{
+			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "UpdateAsync")
+				.AddArgument(entityName);
+		}
+	}
 
-    public CSharpStatement Remove(string entityName)
+	public CSharpStatement Remove(string entityName)
     {
-        return new CSharpInvocationStatement(_repositoryFieldName, "Remove")
-            .AddArgument(entityName);
-    }
+		if (_hasUnitOfWork)
+		{
+			return new CSharpInvocationStatement(_repositoryFieldName, "Remove")
+				.AddArgument(entityName);
+		}
+		else
+		{
+			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "RemoveAsync")
+				.AddArgument(entityName);
+		}
+	}
 
-    public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
+	public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
         return new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindByIdAsync")
             .AddArgument(pkMaps.Select(x => x.ValueExpression).AsSingleOrTuple())
