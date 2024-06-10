@@ -37,18 +37,18 @@ namespace Intent.Modules.Dapper.Templates.RepositoryInterface
 
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
-						.AddMethod($"Task", "AddAsync", method => method
-							.AddParameter(tDomain, "entity")
-							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-						)
-						.AddMethod($"Task", "UpdateAsync", method => method
-							.AddParameter(tDomain, "entity")
-							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-						)
-						.AddMethod($"Task", "RemoveAsync", method => method
-						    .AddParameter(tDomain, "entity")
-							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-						)
+                        .AddMethod($"Task", "AddAsync", method => method
+                            .AddParameter(tDomain, "entity")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task", "UpdateAsync", method => method
+                            .AddParameter(tDomain, "entity")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task", "RemoveAsync", method => method
+                            .AddParameter(tDomain, "entity")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
                             .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         );

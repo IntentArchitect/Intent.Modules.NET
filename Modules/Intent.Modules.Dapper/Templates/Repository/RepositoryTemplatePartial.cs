@@ -53,88 +53,88 @@ namespace Intent.Modules.Dapper.Templates.Repository
                         ctor.CallsBase(b => b.AddArgument("configuration"));
                     });
 
-					var pks = GetPks(model);
+                    var pks = GetPks(model);
 
                     @class.AddMethod($"Task", "AddAsync", method =>
                     {
                         method
-							.Async()
-							.AddParameter(EntityName, "entity")
+                            .Async()
+                            .AddParameter(EntityName, "entity")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
 
                         method.AddUsingBlock("var connection = GetConnection()", stmt =>
                         {
-							var sqlStatement = CreateInsertStatement(model);
-							stmt.AddStatement($"var sql = @\"{sqlStatement}\";", s => s.SeparatedFromNext());
-							if (pks.Count == 1)
-							{
-								var pk = pks[0];
-								stmt.AddStatement($"var newId = await connection.QuerySingleAsync<{GetTypeName(pk)}>(sql, entity);");
-								stmt.AddStatement("entity.Id = newId;");
-							}
-							else
-							{
-								stmt.AddStatement($"await connection.ExecuteAsync(sql, entity);");
-							}
+                            var sqlStatement = CreateInsertStatement(model);
+                            stmt.AddStatement($"var sql = @\"{sqlStatement}\";", s => s.SeparatedFromNext());
+                            if (pks.Count == 1)
+                            {
+                                var pk = pks[0];
+                                stmt.AddStatement($"var newId = await connection.QuerySingleAsync<{GetTypeName(pk)}>(sql, entity);");
+                                stmt.AddStatement("entity.Id = newId;");
+                            }
+                            else
+                            {
+                                stmt.AddStatement($"await connection.ExecuteAsync(sql, entity);");
+                            }
 
-						});
+                        });
 
-					});
+                    });
                     @class.AddMethod($"Task", "UpdateAsync", method =>
                     {
                         method
-							.Async()
-							.AddParameter(EntityName, "entity")
+                            .Async()
+                            .AddParameter(EntityName, "entity")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
 
                         var sqlStatement = CreateUpdateStatement(model);
 
-						method.AddUsingBlock("var connection = GetConnection()", stmt =>
-						{
-							stmt.AddStatement($"var sql = @\"{sqlStatement}\";", s => s.SeparatedFromNext());
-							stmt.AddStatement($"await connection.ExecuteAsync(sql, entity);");
-						});
+                        method.AddUsingBlock("var connection = GetConnection()", stmt =>
+                        {
+                            stmt.AddStatement($"var sql = @\"{sqlStatement}\";", s => s.SeparatedFromNext());
+                            stmt.AddStatement($"await connection.ExecuteAsync(sql, entity);");
+                        });
 
-					});
-					@class.AddMethod($"Task", "RemoveAsync", method =>
+                    });
+                    @class.AddMethod($"Task", "RemoveAsync", method =>
                     {
                         method
-							.Async()
-							.AddParameter(EntityName, "entity")
+                            .Async()
+                            .AddParameter(EntityName, "entity")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
-						method.AddUsingBlock("var connection = GetConnection()", stmt =>
-						{
-							var clauses = new Clauses(pks, PascalCase, "entity");
-							stmt.AddStatement($"var sql = \"DELETE FROM {model.SqlTableName()} WHERE {clauses.MatchClause}\";", s => s.SeparatedFromNext());
-							stmt.AddStatement($"await connection.ExecuteAsync(sql, new {{{clauses.InitClause}}});");
-						});
-					});
-					@class.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
-					{
+                        method.AddUsingBlock("var connection = GetConnection()", stmt =>
+                        {
+                            var clauses = new Clauses(pks, PascalCase, "entity");
+                            stmt.AddStatement($"var sql = \"DELETE FROM {model.SqlTableName()} WHERE {clauses.MatchClause}\";", s => s.SeparatedFromNext());
+                            stmt.AddStatement($"await connection.ExecuteAsync(sql, new {{{clauses.InitClause}}});");
+                        });
+                    });
+                    @class.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
+                    {
 
                         Clauses clauses;
-						if (pks.Count == 1)
+                        if (pks.Count == 1)
                         {
-							clauses = new Clauses(pks, CamelCase);
-							var pk = pks.First();
+                            clauses = new Clauses(pks, CamelCase);
+                            var pk = pks.First();
                             method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
                         }
                         else
                         {
-							clauses = new Clauses(pks, PascalCase, "id");
-							method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
+                            clauses = new Clauses(pks, PascalCase, "id");
+                            method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
                         }
                         method
-							.Async()
-							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
-                        method.AddUsingBlock("var connection = GetConnection()", stmt => 
+                            .Async()
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
+                        method.AddUsingBlock("var connection = GetConnection()", stmt =>
                         {
-							
-							stmt.AddStatement($"var sql = \"SELECT * FROM {model.SqlTableName()} WHERE {clauses.MatchClause}\";", s => s.SeparatedFromNext());
-							stmt.AddStatement($"return await connection.QuerySingleOrDefaultAsync<{EntityName}>(sql, new {{{clauses.InitClause}}});");
-						});
-					});
-					@class.AddMethod($"Task<List<{EntityName}>>", "FindAllAsync", method =>
+
+                            stmt.AddStatement($"var sql = \"SELECT * FROM {model.SqlTableName()} WHERE {clauses.MatchClause}\";", s => s.SeparatedFromNext());
+                            stmt.AddStatement($"return await connection.QuerySingleOrDefaultAsync<{EntityName}>(sql, new {{{clauses.InitClause}}});");
+                        });
+                    });
+                    @class.AddMethod($"Task<List<{EntityName}>>", "FindAllAsync", method =>
                     {
                         method
                             .Async()
@@ -145,9 +145,9 @@ namespace Intent.Modules.Dapper.Templates.Repository
                             stmt.AddStatement($"var result = await connection.QueryAsync<{EntityName}>(sql);");
                             stmt.AddStatement("return result.ToList();");
 
-						});
-					}); 
-				})
+                        });
+                    });
+                })
                 .AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -161,81 +161,81 @@ namespace Intent.Modules.Dapper.Templates.Repository
                 }, 1000);
         }
 
-		private string CreateUpdateStatement(ClassModel model)
-		{
-			var pks = GetPks(model);
-			var sqlStatement = new StringBuilder();
-			sqlStatement.AppendLine();
-			sqlStatement.AppendLine($"UPDATE {model.SqlTableName()} SET");
-			var columns = model.Attributes.Where(a => !a.HasStereotype("Primary Key")).ToList();
-			for (int i = 0; i < columns.Count; i++)
-			{
-				var attribute = columns[i];
-				var lastColumn = i == columns.Count - 1;
-				sqlStatement.AppendLine($"    {attribute.ColumnName()} = @{attribute.Name}{(lastColumn ? "" : ",")}");
+        private string CreateUpdateStatement(ClassModel model)
+        {
+            var pks = GetPks(model);
+            var sqlStatement = new StringBuilder();
+            sqlStatement.AppendLine();
+            sqlStatement.AppendLine($"UPDATE {model.SqlTableName()} SET");
+            var columns = model.Attributes.Where(a => !a.HasStereotype("Primary Key")).ToList();
+            for (int i = 0; i < columns.Count; i++)
+            {
+                var attribute = columns[i];
+                var lastColumn = i == columns.Count - 1;
+                sqlStatement.AppendLine($"    {attribute.ColumnName()} = @{attribute.Name}{(lastColumn ? "" : ",")}");
 
-			}
-			var clauses = new Clauses(pks, PascalCase, "entity");
-			sqlStatement.AppendLine($"WHERE {clauses.MatchClause}");
-			return sqlStatement.ToString();
-		}
-
-		private string CreateInsertStatement(ClassModel model)
-		{
-			var pks = GetPks(model);
-
-			var sqlStatement = new StringBuilder();
-			sqlStatement.AppendLine();
-			sqlStatement.AppendLine($"INSERT INTO {model.SqlTableName()}");
-			sqlStatement.AppendLine($"({string.Join(", ", model.Attributes.Where(a => !a.HasStereotype("Primary Key")).Select(x => x.Name))})");
-			if (pks.Count == 1)
-			{
-				sqlStatement.AppendLine($"OUTPUT Inserted.{pks[0].ColumnName()}");
-
-			}
-			sqlStatement.AppendLine($"VALUES");
-			sqlStatement.AppendLine($"({string.Join(", ", model.Attributes.Where(a => !a.HasStereotype("Primary Key")).Select(x => $"@{x.ColumnName()}"))})");
+            }
+            var clauses = new Clauses(pks, PascalCase, "entity");
+            sqlStatement.AppendLine($"WHERE {clauses.MatchClause}");
             return sqlStatement.ToString();
-		}
+        }
 
-		private string CamelCase(string s)
+        private string CreateInsertStatement(ClassModel model)
+        {
+            var pks = GetPks(model);
+
+            var sqlStatement = new StringBuilder();
+            sqlStatement.AppendLine();
+            sqlStatement.AppendLine($"INSERT INTO {model.SqlTableName()}");
+            sqlStatement.AppendLine($"({string.Join(", ", model.Attributes.Where(a => !a.HasStereotype("Primary Key")).Select(x => x.Name))})");
+            if (pks.Count == 1)
+            {
+                sqlStatement.AppendLine($"OUTPUT Inserted.{pks[0].ColumnName()}");
+
+            }
+            sqlStatement.AppendLine($"VALUES");
+            sqlStatement.AppendLine($"({string.Join(", ", model.Attributes.Where(a => !a.HasStereotype("Primary Key")).Select(x => $"@{x.ColumnName()}"))})");
+            return sqlStatement.ToString();
+        }
+
+        private string CamelCase(string s)
         {
             return s.ToCamelCase();
         }
-		private string PascalCase(string s)
-		{
-			return s.ToPascalCase();
-		}
+        private string PascalCase(string s)
+        {
+            return s.ToPascalCase();
+        }
 
-		private record Clauses
+        private record Clauses
         {
             public Clauses(IList<AttributeModel> pks, Func<string, string> casing = null, string initPrefix = null)
             {
-			    MatchClause = string.Join("AND ", pks.Select(pk => $"{pk.ColumnName()} = @{pk.Name}"));
-				InitClause = string.Join(", ", pks.Select(pk => $"{pk.Name} = {(initPrefix == null ? "" : $"{initPrefix}.")}{(casing != null ? casing(pk.Name): pk.Name)}"));
-			}
+                MatchClause = string.Join("AND ", pks.Select(pk => $"{pk.ColumnName()} = @{pk.Name}"));
+                InitClause = string.Join(", ", pks.Select(pk => $"{pk.Name} = {(initPrefix == null ? "" : $"{initPrefix}.")}{(casing != null ? casing(pk.Name) : pk.Name)}"));
+            }
 
-			internal string MatchClause { get; }
-			internal string InitClause { get; }
-		}
+            internal string MatchClause { get; }
+            internal string InitClause { get; }
+        }
 
-		private IList<AttributeModel> GetPks(ClassModel entity)
-		{
-			while (entity != null)
-			{
-				var primaryKeys = entity.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
-				if (!primaryKeys.Any())
-				{
-					entity = entity.ParentClass;
-					continue;
-				}
+        private IList<AttributeModel> GetPks(ClassModel entity)
+        {
+            while (entity != null)
+            {
+                var primaryKeys = entity.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
+                if (!primaryKeys.Any())
+                {
+                    entity = entity.ParentClass;
+                    continue;
+                }
 
                 return primaryKeys;
-			}
+            }
             return new List<AttributeModel>();
-		}
+        }
 
-		public override void BeforeTemplateExecution()
+        public override void BeforeTemplateExecution()
         {
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
             if (contractTemplate == null)

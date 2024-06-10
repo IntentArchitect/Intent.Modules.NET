@@ -35,15 +35,15 @@ namespace Intent.Modules.Dapper.Templates.EntityRepositoryInterface
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-			return _metadataManager.Domain(application).GetClassModels()
-				.Where(x => (x.IsAggregateRoot() && (!x.IsAbstract || x.HasStereotype("Table"))) || HasRepository(x)) // TODO: Change "Table" to DefinitionId of Table stereotype definition
-				.ToArray();
-		}
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => (x.IsAggregateRoot() && (!x.IsAbstract || x.HasStereotype("Table"))) || HasRepository(x)) // TODO: Change "Table" to DefinitionId of Table stereotype definition
+                .ToArray();
+        }
 
-		public bool HasRepository(ClassModel model)
-		{
-			return model.HasStereotype("cdc3d50d-0edd-4ffd-996f-08cbdf39595c");
-		}
+        public bool HasRepository(ClassModel model)
+        {
+            return model.HasStereotype("cdc3d50d-0edd-4ffd-996f-08cbdf39595c");
+        }
 
-	}
+    }
 }

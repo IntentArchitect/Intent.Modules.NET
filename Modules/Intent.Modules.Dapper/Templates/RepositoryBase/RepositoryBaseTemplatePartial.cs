@@ -58,30 +58,30 @@ namespace Intent.Modules.Dapper.Templates.RepositoryBase
                     {
                         method.Protected();
                         method.AddStatement("var result = new SqlConnection(_connectionString);");
-						method.AddStatement("result.Open();");
-						method.AddStatement("return result;");
-					});
+                        method.AddStatement("result.Open();");
+                        method.AddStatement("return result;");
+                    });
 
                 });
         }
 
-		public override void BeforeTemplateExecution()
-		{
-			base.BeforeTemplateExecution();
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
 
-			ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings:DefaultConnection",
-				$"Server=.;Initial Catalog={OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(OutputTarget.GetProject())}"
-				));
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings:DefaultConnection",
+                $"Server=.;Initial Catalog={OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(OutputTarget.GetProject())}"
+                ));
 
-		}
-		private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
-		{
-			return project.TryGetMaxNetAppVersion(out var version) && version.Major >= 7
-				? ";Encrypt=False"
-				: string.Empty;
-		}
+        }
+        private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
+        {
+            return project.TryGetMaxNetAppVersion(out var version) && version.Major >= 7
+                ? ";Encrypt=False"
+                : string.Empty;
+        }
 
-		[IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]

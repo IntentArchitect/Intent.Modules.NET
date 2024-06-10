@@ -58,7 +58,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Dapper.EntityRepositoryOperationExtension" externalReference="48c48427-91cb-4e34-9898-d0e7db6c5ffe" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
