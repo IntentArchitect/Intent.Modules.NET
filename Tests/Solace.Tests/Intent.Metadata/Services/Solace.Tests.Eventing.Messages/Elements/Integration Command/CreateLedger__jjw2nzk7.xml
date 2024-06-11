@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5ed061ef-88e6-4ecf-97c7-031c0277bbcc" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>CreateLedger</name>
+  <display>CreateLedger</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62549091-f9de-46a1-b478-236d42077f3c</parentFolderId>
+  <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+  <packageName>Solace.Tests.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="56e898f3-74db-486d-86f9-3e885e7509e6" name="Publishing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
+      <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
+      <properties>
+        <property name="6c4944dd-eefa-4511-915d-118533182e7a" display="Destination" value="Accounting/Ledgers" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d9c8f8c7-5a21-4f1e-871c-531471e6cc35" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2b5785eb-e0c5-4047-9d0e-bc4d38a48e51">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5ed061ef-88e6-4ecf-97c7-031c0277bbcc</parentFolderId>
+      <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+      <packageName>Solace.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a052aff7-079b-48e5-8d98-6246dc2d01f4" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>CustomerId</name>
+      <display>CustomerId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bef16b99-827e-494d-9196-10a4f20e3ba5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5ed061ef-88e6-4ecf-97c7-031c0277bbcc</parentFolderId>
+      <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+      <packageName>Solace.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

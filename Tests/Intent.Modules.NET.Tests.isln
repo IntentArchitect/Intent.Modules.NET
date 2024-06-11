@@ -119,5 +119,6 @@
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests" relativePath="ProxyServiceTests/ProxyServiceTests.application.config" />
     <application id="a2574e70-3bcd-42d0-82ea-d08c81f825ac" name="ProxyServiceTests.OriginalServices" relativePath="ProxyServiceTests.OriginalServices/ProxyServiceTests.OriginalServices.application.config" />
     <application id="0185b841-fb5e-4f25-a564-7e86a8293c46" name="Solace.Tests" relativePath="Solace.Tests/Solace.Tests.application.config" />
+    <application id="38ca8ada-51c1-497d-81a9-e405417c0709" name="Dapper.Tests" relativePath="Dapper.Tests/Dapper.Tests.application.config" />
   </applications>
 </solution>

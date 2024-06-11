@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1def1a7b-8ebd-4fae-a1ad-3cc9fc7ec1f5" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</parentFolderId>
+  <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+  <packageName>Dapper.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

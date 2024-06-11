@@ -724,6 +724,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>088f17eb-30bd-4d14-9598-9d14b88136e9</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#5ed061ef-88e6-4ecf-97c7-031c0277bbcc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationCommands/CreateLedger.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateLedger.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088f17eb-30bd-4d14-9598-9d14b88136e9</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#5224d5a1-43a0-4b24-b287-4782cdb758ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationCommands/PurchaseCreated.cs</ApplicationRelativeFilePath>

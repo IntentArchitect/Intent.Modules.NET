@@ -70,10 +70,11 @@ namespace Intent.Modules.Eventing.Solace.FactoryExtensions
                 .OrderBy(x => x.Name)
                 .ToArray();
 
-            var serviceDesignerPubCommands = application.MetadataManager
-                .GetExplicitlySentIntegrationCommandModels(application);
+			var serviceDesignerPubCommands = application.MetadataManager
+				.GetExplicitlySentIntegrationCommandDispatches(application.GetApplicationConfig().Id)
+				.Select(x => x.TypeReference.Element.AsIntegrationCommandModel());
 
-            commands = commands
+			commands = commands
                         .Concat(serviceDesignerPubCommands)
                         .OrderBy(x => x.Name)
                         .ToArray();

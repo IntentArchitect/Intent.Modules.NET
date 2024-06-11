@@ -349,7 +349,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                 .ToArray();
 
             var serviceDesignerPubCommands = ExecutionContext.MetadataManager
-                .GetExplicitlySentIntegrationCommandModels(OutputTarget.Application);
+                .GetExplicitlySentIntegrationCommandDispatches(OutputTarget.Application.Id)
+				.Select(x => x.TypeReference.Element.AsIntegrationCommandModel()); 
 
 
             _publishedIntegrationCommandModels = Enumerable.Empty<IntegrationCommandModel>()

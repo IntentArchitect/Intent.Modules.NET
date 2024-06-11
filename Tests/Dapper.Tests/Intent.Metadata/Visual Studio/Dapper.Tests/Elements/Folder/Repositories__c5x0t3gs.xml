@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8292eaa1-d4f5-4b21-b587-136708c547e3" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eb483e4e-13e1-40dd-a7b1-dcb079af819b</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="60072e45-8e40-4535-9501-e6d3e4c6663d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapper.CustomRepositoryInterface</name>
+      <display>Intent.Dapper.CustomRepositoryInterface</display>
+      <externalReference>Intent.Dapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8292eaa1-d4f5-4b21-b587-136708c547e3</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="20f59c10-9fa1-453b-9bad-c2da70ce5372" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapper.EntityRepositoryInterface</name>
+      <display>Intent.Dapper.EntityRepositoryInterface</display>
+      <externalReference>Intent.Dapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8292eaa1-d4f5-4b21-b587-136708c547e3</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7996558b-3a72-4931-abdf-4cc71985689d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapper.RepositoryInterface</name>
+      <display>Intent.Dapper.RepositoryInterface</display>
+      <externalReference>Intent.Dapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8292eaa1-d4f5-4b21-b587-136708c547e3</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

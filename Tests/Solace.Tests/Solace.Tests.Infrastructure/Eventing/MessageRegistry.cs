@@ -53,6 +53,8 @@ namespace Solace.Tests.Infrastructure.Eventing
             _messageTypes.Add(GetDefaultMessageConfig<CustomerCreatedEvent>(SubscriptionType.ViaTopic));
             //Integration Commands
             _messageTypes.Add(GetDefaultMessageConfig<PurchaseCreated>(SubscriptionType.ViaQueue));
+            _messageTypes.Add(MessageConfiguration.Create<CreateLedger>(
+                GetDestination<CreateLedger>("Accounting/Ledgers")));
         }
 
         public MessageConfiguration GetConfig(Type messageType)
@@ -108,9 +110,7 @@ namespace Solace.Tests.Infrastructure.Eventing
     public enum SubscriptionType
     {
         None,
-
         ViaTopic,
-
         ViaQueue
     }
 }

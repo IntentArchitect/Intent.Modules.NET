@@ -41,6 +41,11 @@ namespace Solace.Tests.Application.Accounts.CreateAccount
                 Id = account.Id,
                 CustomerId = account.CustomerId
             });
+            _eventBus.Send(new CreateLedger
+            {
+                Id = account.Id,
+                CustomerId = account.CustomerId
+            });
             return account.Id;
         }
     }

@@ -15,7 +15,11 @@ namespace Intent.Modules.Dapper.Templates
 
 		public static string SqlTableName(this ClassModel model)
 		{
-			return$"[{ model.FindSchema()}].[{ model.GetTableName()}]";
+			if (string.IsNullOrEmpty( model.FindSchema()))
+			{
+				return $"[{model.GetTableName()}]";
+			}
+			return $"[{ model.FindSchema()}].[{ model.GetTableName()}]";
 		}
 
 		public static string ColumnName(this AttributeModel model)

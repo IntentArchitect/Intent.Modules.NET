@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5ef2f02b-6da4-44e9-aacd-9ac22c74e716">
+  <sourceEnd id="74d44aab-dec8-4452-95dc-3ae694cea28a" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="6cc19cb2-2e73-4c2c-8d4f-7041d5fd24b6">
+      <typeId>44a91022-40e6-436c-ac70-d41f8e701974</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Services</typePackageName>
+      <typePackageId>351149ba-f900-4678-8499-25d2cd2b9adb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5ef2f02b-6da4-44e9-aacd-9ac22c74e716" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <typeReference id="65e6adf0-2076-4843-b693-c93cc7ff91e0">
+      <typeId>c16ca4ee-4b33-475b-9e2f-4f2061417308</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Domain</typePackageName>
+      <typePackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="44a91022-40e6-436c-ac70-d41f8e701974" location="[Dapper.Tests].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c16ca4ee-4b33-475b-9e2f-4f2061417308" location="[Dapper.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="1b162d98-aaf6-4e69-bf75-3b2cb51b9250" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="44a91022-40e6-436c-ac70-d41f8e701974" name="DeleteCustomerCommand" type="element" specialization="Command" />
+                  <target id="6ab145a2-6e72-46fd-b241-a3957a652522" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

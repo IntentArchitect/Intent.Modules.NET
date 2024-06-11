@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="647bc3a7-66fb-43dc-8e22-9c7e791cb517" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b5421a32-35f9-4f9f-bfa1-7d25b496e7fa</parentFolderId>
+  <packageId>351149ba-f900-4678-8499-25d2cd2b9adb</packageId>
+  <packageName>Dapper.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>b5421a32-35f9-4f9f-bfa1-7d25b496e7fa</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

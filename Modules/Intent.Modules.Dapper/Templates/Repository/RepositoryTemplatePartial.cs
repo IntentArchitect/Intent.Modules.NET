@@ -41,12 +41,13 @@ namespace Intent.Modules.Dapper.Templates.Repository
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"{Model.Name}Repository", @class =>
                 {
                     @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @class.WithBaseType($"RepositoryBase<{EntityName}>");
-                    @class.ImplementsInterface(RepositoryContractName);
+                    @class.ImplementsInterface(this.GetEntityRepositoryInterfaceName());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration");
@@ -251,8 +252,6 @@ namespace Intent.Modules.Dapper.Templates.Repository
         public string EntityName => GetTypeName("Domain.Entity", Model);
 
         public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
-        public string RepositoryContractName => TryGetTypeName(RepositoryInterfaceTemplate.TemplateId, Model) ?? $"I{ClassName}";
-
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
