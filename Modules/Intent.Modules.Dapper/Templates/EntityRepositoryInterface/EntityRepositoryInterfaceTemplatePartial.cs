@@ -44,49 +44,23 @@ namespace Intent.Modules.Dapper.Templates.EntityRepositoryInterface
 
                     @interface.RepresentsModel(model);
 
-                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
-                    {
-                        entityTemplate.CSharpFile.AfterBuild(file =>
-                        {
-                            var rootEntity = file.Classes.First();
-                            while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
-                            {
-                                rootEntity = rootEntity.BaseType;
-                            }
+					@interface.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
+					{
+						var pks = model.GetPks();
 
-                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
-                            {
-                                var genericTypeParameters = model.GenericTypes.Any()
-                                    ? $"<{string.Join(", ", model.GenericTypes)}>"
-                                    : string.Empty;
-                                @interface.AddMethod($"Task<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
-                                {
-                                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                    if (pks.Length == 1)
-                                    {
-                                        var pk = pks.First();
-                                        method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
-                                    }
-                                    else
-                                    {
-                                        method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
-                                    }
-                                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                });
-                                if (pks.Length == 1)
-                                {
-                                    @interface.AddMethod($"Task<List<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}>>", "FindByIdsAsync", method =>
-                                    {
-                                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                                        var pk = pks.First();
-                                        method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
-                                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                    });
-                                }
-                            }
-                        });
-                    }
-                });
+						if (pks.Count == 1)
+						{
+                            var pk = pks[0];
+							method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
+						}
+						else
+						{
+							method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
+						}
+						method
+							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
+					});
+				});
         }
         public string EntityName => GetTypeName("Domain.Entity", Model);
 

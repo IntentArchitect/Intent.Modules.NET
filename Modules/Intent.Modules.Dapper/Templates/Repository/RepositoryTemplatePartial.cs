@@ -54,7 +54,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
                         ctor.CallsBase(b => b.AddArgument("configuration"));
                     });
 
-                    var pks = GetPks(model);
+                    var pks = model.GetPks();
 
                     @class.AddMethod($"Task", "AddAsync", method =>
                     {
@@ -164,7 +164,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
 
         private string CreateUpdateStatement(ClassModel model)
         {
-            var pks = GetPks(model);
+            var pks = model.GetPks();
             var sqlStatement = new StringBuilder();
             sqlStatement.AppendLine();
             sqlStatement.AppendLine($"UPDATE {model.SqlTableName()} SET");
@@ -183,7 +183,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
 
         private string CreateInsertStatement(ClassModel model)
         {
-            var pks = GetPks(model);
+            var pks = model.GetPks();
 
             var sqlStatement = new StringBuilder();
             sqlStatement.AppendLine();
@@ -218,22 +218,6 @@ namespace Intent.Modules.Dapper.Templates.Repository
 
             internal string MatchClause { get; }
             internal string InitClause { get; }
-        }
-
-        private IList<AttributeModel> GetPks(ClassModel entity)
-        {
-            while (entity != null)
-            {
-                var primaryKeys = entity.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
-                if (!primaryKeys.Any())
-                {
-                    entity = entity.ParentClass;
-                    continue;
-                }
-
-                return primaryKeys;
-            }
-            return new List<AttributeModel>();
         }
 
         public override void BeforeTemplateExecution()

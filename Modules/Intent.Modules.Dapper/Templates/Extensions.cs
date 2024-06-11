@@ -13,6 +13,22 @@ namespace Intent.Modules.Dapper.Templates
 	public static class Extensions
 	{
 
+		public static IList<AttributeModel> GetPks(this ClassModel entity)
+		{
+			while (entity != null)
+			{
+				var primaryKeys = entity.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
+				if (!primaryKeys.Any())
+				{
+					entity = entity.ParentClass;
+					continue;
+				}
+
+				return primaryKeys;
+			}
+			return new List<AttributeModel>();
+		}
+
 		public static string SqlTableName(this ClassModel model)
 		{
 			if (string.IsNullOrEmpty( model.FindSchema()))
