@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>21182ff7-aa02-4a05-affa-ac678dcc078a</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#61a7b2f6-9608-4023-9412-1d7fac626423</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b972a5a0-708a-458b-afca-3bf2082df0e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Api/Controllers/AccountsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsController.cs</ProjectRelativeFilePath>
@@ -68,10 +68,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>21182ff7-aa02-4a05-affa-ac678dcc078a</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7b02bb71-9f7c-4d9a-ac00-db29cca45044</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#0cbe3612-6cc1-4ed2-a286-1f8bcd14ae6e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Api/Controllers/ClientsServicesController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServicesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21182ff7-aa02-4a05-affa-ac678dcc078a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#07157103-05f1-46de-a04b-d4329338d3e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Api/Controllers/DeleteAccountsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteAccountsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21182ff7-aa02-4a05-affa-ac678dcc078a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#488b26b0-428a-4cec-aa00-2b2eda417f18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Api/Controllers/DeleteClientsServicesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteClientsServicesController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -148,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e204576b-02f0-405d-aaa5-69e7f20f2ff5</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d32fa53d-2558-4eb7-8a24-d234c3ab20ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/CreateAccountCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/CreateAccountCommand.cs</ProjectRelativeFilePath>
@@ -156,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e204576b-02f0-405d-aaa5-69e7f20f2ff5</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d32fa53d-2558-4eb7-8a24-d234c3ab20ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/CreateAccountCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/CreateAccountCommandValidator.cs</ProjectRelativeFilePath>
@@ -164,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#4a4b7259-368b-4f45-9e2c-deebd4eb19ae</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9688b108-5d0a-43ce-9e34-c449c5abd8df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/CreateAccountMoneyDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/CreateAccountMoneyDto.cs</ProjectRelativeFilePath>
@@ -172,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4a4b7259-368b-4f45-9e2c-deebd4eb19ae</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9688b108-5d0a-43ce-9e34-c449c5abd8df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/CreateAccountMoneyDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/CreateAccountMoneyDtoValidator.cs</ProjectRelativeFilePath>
@@ -180,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#be469084-cd61-470a-b7c0-5b66d81d5b13</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6159d99a-66fe-4437-8c23-967f63a30395</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/UpdateAccountCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/UpdateAccountCommand.cs</ProjectRelativeFilePath>
@@ -188,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#be469084-cd61-470a-b7c0-5b66d81d5b13</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6159d99a-66fe-4437-8c23-967f63a30395</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/UpdateAccountCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/UpdateAccountCommandValidator.cs</ProjectRelativeFilePath>
@@ -196,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#3987f50e-e1f4-40d1-b5b4-e07248a4b23c</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f0c4f49b-e7f9-4052-84c0-420195870c3d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/UpdateAccountMoneyDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/UpdateAccountMoneyDto.cs</ProjectRelativeFilePath>
@@ -204,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3987f50e-e1f4-40d1-b5b4-e07248a4b23c</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f0c4f49b-e7f9-4052-84c0-420195870c3d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/AccountsServices/UpdateAccountMoneyDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsServices/UpdateAccountMoneyDtoValidator.cs</ProjectRelativeFilePath>
@@ -212,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#1ee9574a-46bf-4e69-bc40-873a125625e2</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#db8ef7eb-3b1a-4248-b811-03d9b281867c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/CreateClient/CreateClientCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/CreateClient/CreateClientCommand.cs</ProjectRelativeFilePath>
@@ -220,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#1ee9574a-46bf-4e69-bc40-873a125625e2</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#db8ef7eb-3b1a-4248-b811-03d9b281867c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/CreateClient/CreateClientCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/CreateClient/CreateClientCommandHandler.cs</ProjectRelativeFilePath>
@@ -228,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1ee9574a-46bf-4e69-bc40-873a125625e2</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#db8ef7eb-3b1a-4248-b811-03d9b281867c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/CreateClient/CreateClientCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/CreateClient/CreateClientCommandValidator.cs</ProjectRelativeFilePath>
@@ -236,31 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#952c2f58-5ac9-45d6-a2af-b146e0b0c43c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/DeleteClient/DeleteClientCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientsServices/DeleteClient/DeleteClientCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#952c2f58-5ac9-45d6-a2af-b146e0b0c43c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/DeleteClient/DeleteClientCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientsServices/DeleteClient/DeleteClientCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#952c2f58-5ac9-45d6-a2af-b146e0b0c43c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/DeleteClient/DeleteClientCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientsServices/DeleteClient/DeleteClientCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#bcee89f0-9ac5-410a-82f2-8535fb76f7c6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d3b86f93-8fd2-4ed1-9425-b9bdef30fcc6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClientById/FindClientByIdQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClientById/FindClientByIdQuery.cs</ProjectRelativeFilePath>
@@ -268,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#bcee89f0-9ac5-410a-82f2-8535fb76f7c6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d3b86f93-8fd2-4ed1-9425-b9bdef30fcc6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClientById/FindClientByIdQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClientById/FindClientByIdQueryHandler.cs</ProjectRelativeFilePath>
@@ -276,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#bcee89f0-9ac5-410a-82f2-8535fb76f7c6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d3b86f93-8fd2-4ed1-9425-b9bdef30fcc6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClientById/FindClientByIdQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClientById/FindClientByIdQueryValidator.cs</ProjectRelativeFilePath>
@@ -284,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#24ea7c09-124d-4721-885e-8b79d8f8c27e</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8cb7c110-3b0c-4d34-8916-dc8038fd3a09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClients/FindClientsQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClients/FindClientsQuery.cs</ProjectRelativeFilePath>
@@ -292,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#24ea7c09-124d-4721-885e-8b79d8f8c27e</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8cb7c110-3b0c-4d34-8916-dc8038fd3a09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClients/FindClientsQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClients/FindClientsQueryHandler.cs</ProjectRelativeFilePath>
@@ -300,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#24ea7c09-124d-4721-885e-8b79d8f8c27e</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8cb7c110-3b0c-4d34-8916-dc8038fd3a09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/FindClients/FindClientsQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/FindClients/FindClientsQueryValidator.cs</ProjectRelativeFilePath>
@@ -308,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#301034e5-5aae-4ff9-987e-4c4f39d83064</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6ea328e0-b629-418c-a3f8-9218cfff5a6b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/UpdateClient/UpdateClientCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/UpdateClient/UpdateClientCommand.cs</ProjectRelativeFilePath>
@@ -316,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#301034e5-5aae-4ff9-987e-4c4f39d83064</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6ea328e0-b629-418c-a3f8-9218cfff5a6b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/UpdateClient/UpdateClientCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/UpdateClient/UpdateClientCommandHandler.cs</ProjectRelativeFilePath>
@@ -324,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#301034e5-5aae-4ff9-987e-4c4f39d83064</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6ea328e0-b629-418c-a3f8-9218cfff5a6b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/ClientsServices/UpdateClient/UpdateClientCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServices/UpdateClient/UpdateClientCommandValidator.cs</ProjectRelativeFilePath>
@@ -516,6 +508,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#408d9cc2-3e72-4370-b500-8cf8f28ea327</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/DeleteClientsServices/DeleteClient/DeleteClientCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteClientsServices/DeleteClient/DeleteClientCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#408d9cc2-3e72-4370-b500-8cf8f28ea327</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteClientsServices/DeleteClient/DeleteClientCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#408d9cc2-3e72-4370-b500-8cf8f28ea327</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/DeleteClientsServices/DeleteClient/DeleteClientCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteClientsServices/DeleteClient/DeleteClientCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -524,10 +540,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3fd9c2-2e99-451c-b4cf-30e43435e9c4</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#61a7b2f6-9608-4023-9412-1d7fac626423</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#b972a5a0-708a-458b-afca-3bf2082df0e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/Implementation/AccountsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3fd9c2-2e99-451c-b4cf-30e43435e9c4</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#07157103-05f1-46de-a04b-d4329338d3e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/Implementation/DeleteAccountsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteAccountsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -627,11 +651,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e8470cc9-ce1a-4e8c-8755-0efbe08ac485</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#4625f7f1-515f-465f-b9a0-ac789f9670d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/IntegrationServices/IDeleteAccountsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDeleteAccountsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8470cc9-ce1a-4e8c-8755-0efbe08ac485</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#8dff7e77-c84b-473b-8c9a-98fbc1fed6bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/IntegrationServices/IDeleteClientsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDeleteClientsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bb1ee2c5-fb7f-499e-aca7-2dc9a5aaa7f5</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#61a7b2f6-9608-4023-9412-1d7fac626423</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#b972a5a0-708a-458b-afca-3bf2082df0e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/Interfaces/IAccountsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAccountsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bb1ee2c5-fb7f-499e-aca7-2dc9a5aaa7f5</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#07157103-05f1-46de-a04b-d4329338d3e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Application/Interfaces/IDeleteAccountsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDeleteAccountsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -744,6 +792,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/ClientsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee382ca5-df43-4dfa-a614-b4bf6762b37b</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#4625f7f1-515f-465f-b9a0-ac789f9670d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/DeleteAccountsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteAccountsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee382ca5-df43-4dfa-a614-b4bf6762b37b</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#8dff7e77-c84b-473b-8c9a-98fbc1fed6bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/DeleteClientsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteClientsServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

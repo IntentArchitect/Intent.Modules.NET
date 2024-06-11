@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{F0F42063-FC53-4817-BA58-0724DC993432}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.Proxy.PTH.Api", "ProxyServiceTests.Proxy.PTH.Api\ProxyServiceTests.Proxy.PTH.Api.csproj", "{CD55FA04-D785-460B-84E5-2FAD89AF8DDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EE3EF2BB-48EC-48F4-A7E7-C1219308BF62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.Proxy.PTH.Application", "ProxyServiceTests.Proxy.PTH.Application\ProxyServiceTests.Proxy.PTH.Application.csproj", "{3741F823-7755-468D-8830-87BDFC8E9B06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{16DDA5F4-0167-4639-9E97-3BE025F8769B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.Proxy.PTH.Domain", "ProxyServiceTests.Proxy.PTH.Domain\ProxyServiceTests.Proxy.PTH.Domain.csproj", "{26732266-F366-4B2C-A045-82E044C57D8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{1EB9477B-A889-4D0E-AAF1-9B7759ED47DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServiceTests.Proxy.PTH.Infrastructure", "ProxyServiceTests.Proxy.PTH.Infrastructure\ProxyServiceTests.Proxy.PTH.Infrastructure.csproj", "{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD55FA04-D785-460B-84E5-2FAD89AF8DDB} = {F0F42063-FC53-4817-BA58-0724DC993432}
+		{3741F823-7755-468D-8830-87BDFC8E9B06} = {EE3EF2BB-48EC-48F4-A7E7-C1219308BF62}
+		{26732266-F366-4B2C-A045-82E044C57D8B} = {16DDA5F4-0167-4639-9E97-3BE025F8769B}
+		{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8} = {1EB9477B-A889-4D0E-AAF1-9B7759ED47DE}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD55FA04-D785-460B-84E5-2FAD89AF8DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD55FA04-D785-460B-84E5-2FAD89AF8DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD55FA04-D785-460B-84E5-2FAD89AF8DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD55FA04-D785-460B-84E5-2FAD89AF8DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3741F823-7755-468D-8830-87BDFC8E9B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3741F823-7755-468D-8830-87BDFC8E9B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3741F823-7755-468D-8830-87BDFC8E9B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3741F823-7755-468D-8830-87BDFC8E9B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26732266-F366-4B2C-A045-82E044C57D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26732266-F366-4B2C-A045-82E044C57D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26732266-F366-4B2C-A045-82E044C57D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26732266-F366-4B2C-A045-82E044C57D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE688D06-442E-4F24-9AEF-8D3F1C3DDBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

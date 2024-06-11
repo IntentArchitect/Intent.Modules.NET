@@ -4,10 +4,8 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Contracts.Clients.Shared;
-using System.Buffers;
-using Intent.Metadata.WebApi.Api;
 using Intent.Modules.Contracts.Clients.Http.Shared;
+using Intent.Modules.Metadata.WebApi.Models;
 
 
 namespace Intent.Modules.Integration.HttpClients.Shared
@@ -29,13 +27,15 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 method.InsertStatement(0, "services.AddHttpContextAccessor();");
 
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _)).Cast<CSharpMethodChainStatement>().ToArray();
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
+                    .Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    if (proxyModel.HasMappedEndpoints() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) || proxyModel.MappedService.TryGetSecured(out _)))
+                    if (proxyModel.HasMappedEndpoints() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
+                                                            (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddHeaders")
                             .AddArgument(new CSharpLambdaBlock("config"), a =>
@@ -48,6 +48,5 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 }
             });
         }
-
     }
 }

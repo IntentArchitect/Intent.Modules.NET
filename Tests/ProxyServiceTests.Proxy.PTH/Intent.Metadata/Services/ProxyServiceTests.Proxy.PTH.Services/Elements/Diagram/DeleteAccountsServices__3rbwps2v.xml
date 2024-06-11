@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b577c001-9f75-43e9-9815-a299e49ba879" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DeleteAccountsServices</name>
+  <display>DeleteAccountsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>09febd0f-e15a-4ce9-ba42-3076729a504f</parentFolderId>
+  <packageId>d4fe4ebd-098a-4912-a4da-c3aa192f7266</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH.Services</packageName>
+  <diagram>
+    <targetPackageId>09febd0f-e15a-4ce9-ba42-3076729a504f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -44,12 +44,6 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteAccountCommand(Guid id, CancellationToken cancellationToken = default)
-        {
-            await _ntegrationServicesIAccountsService.DeleteAccountAsync(id, cancellationToken);
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateAccountCommand(
             Guid id,
             AccountsServices.UpdateAccountCommand command,

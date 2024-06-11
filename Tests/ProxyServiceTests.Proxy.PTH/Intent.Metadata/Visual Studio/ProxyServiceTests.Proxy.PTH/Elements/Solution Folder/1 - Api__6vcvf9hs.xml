@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f0f42063-fc53-4817-ba58-0724dc993432" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</parentFolderId>
+  <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

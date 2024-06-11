@@ -81,62 +81,6 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="09b71224-e628-4a29-af14-ec7638328d7c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
-      <name>DeleteAccountCommand</name>
-      <display>DeleteAccountCommand(id: guid): void</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
-      <genericTypes />
-      <typeReference id="9e2f9966-54e6-4a6b-9cf7-30e71aaf5eb3">
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="2f661d56-8964-449f-bcf9-6fc20544884d" name="DeleteAccountCommand" type="element" specialization="Command" />
-        </mappedPath>
-      </mappedClass>
-      <parentFolderId>7a4cbabb-62f2-4575-bc69-d636c734924b</parentFolderId>
-      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
-      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements>
-        <childElement id="0b067c67-bdba-45b3-91b8-0935dd646ca0" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
-          <name>id</name>
-          <display>id: guid</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="aca699d0-3782-47b7-814c-c12d99f29a59">
-            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>09b71224-e628-4a29-af14-ec7638328d7c</parentFolderId>
-          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
-          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
-          <stereotypes />
-          <metadata>
-            <entry key="endpoint-input-id" value="b2cdd01d-d7c5-4775-9345-909fc27aba08" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="a9b49d91-3a50-4ec7-957e-34173c767c89" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>UpdateAccountCommand</name>
       <display>UpdateAccountCommand(id: guid, command: UpdateAccountCommand): void</display>

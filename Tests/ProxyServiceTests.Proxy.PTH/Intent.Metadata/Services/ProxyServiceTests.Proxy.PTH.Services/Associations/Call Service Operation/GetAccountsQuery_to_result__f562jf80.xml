@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e73086be-0d0f-407c-8caf-6fa385517797">
+  <sourceEnd id="34b29aef-2891-4883-b8cc-19c7665d61aa" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AccountsService.GetAccountsQuery</display>
+    <order>0</order>
+    <typeReference id="d7918ac2-5690-4248-89f5-1860d2aa5fc2">
+      <typeId>bc4f7f65-4898-4ee3-acbf-fa87c6e292dc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7266</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e73086be-0d0f-407c-8caf-6fa385517797" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetAccountsQuery(...): AccountDto[*]</display>
+    <order>0</order>
+    <typeReference id="d554aac6-a312-450d-9195-487ed6e551f6">
+      <typeId>083aec6d-ac8d-4022-adf5-5e9aac416cdb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</typePackageName>
+      <typePackageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bc4f7f65-4898-4ee3-acbf-fa87c6e292dc" location="[ProxyServiceTests.Proxy.PTH].[Services].[GetAccountsQuery]" />
+        <target applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="083aec6d-ac8d-4022-adf5-5e9aac416cdb" location="[ProxyServiceTests.Proxy.PTH].[Services].[GetAccountsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetAccountsQuery}</expression>
+            <path>
+              <target id="083aec6d-ac8d-4022-adf5-5e9aac416cdb" name="GetAccountsQuery" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="GetAccountsQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="bc4f7f65-4898-4ee3-acbf-fa87c6e292dc" name="GetAccountsQuery" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

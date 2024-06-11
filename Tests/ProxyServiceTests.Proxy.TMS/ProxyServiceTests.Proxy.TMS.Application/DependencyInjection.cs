@@ -33,6 +33,7 @@ namespace ProxyServiceTests.Proxy.TMS.Application
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IAccountsService, AccountsService>();
+            services.AddTransient<IDeleteAccountsService, DeleteAccountsService>();
             return services;
         }
     }

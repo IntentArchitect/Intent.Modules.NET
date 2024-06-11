@@ -119,21 +119,6 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.HttpClients
             }
         }
 
-        public async Task DeleteClientAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/clients/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
-                }
-            }
-        }
-
         public void Dispose()
         {
         }

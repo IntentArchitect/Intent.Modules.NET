@@ -14,7 +14,6 @@ namespace ProxyServiceTests.Proxy.TMS.Application.IntegrationServices
     public interface IAccountsService : IDisposable
     {
         Task<Guid> CreateAccountAsync(CreateAccountCommand command, CancellationToken cancellationToken = default);
-        Task DeleteAccountAsync(Guid id, CancellationToken cancellationToken = default);
         Task UpdateAccountAsync(Guid id, UpdateAccountCommand command, CancellationToken cancellationToken = default);
         Task<AccountDto> GetAccountByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<AccountDto>> GetAccountsAsync(CancellationToken cancellationToken = default);

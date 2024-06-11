@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2ef09607-1eb6-4f8c-8d06-701fa6bc1b37" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26732266-f366-4b2c-a045-82e044c57d8b</parentFolderId>
+  <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="fb621d69-ed2c-4274-813a-c25f56e553c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.EntityRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.EntityRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="57cd86ef-b9fd-435b-97cd-a4fc07272aec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e6c77e6a-c065-4e6c-896c-216c484d897f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="02dae907-a739-4e03-a152-c49319023dd9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3617806d-b2d7-480e-b80d-12095d128cce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

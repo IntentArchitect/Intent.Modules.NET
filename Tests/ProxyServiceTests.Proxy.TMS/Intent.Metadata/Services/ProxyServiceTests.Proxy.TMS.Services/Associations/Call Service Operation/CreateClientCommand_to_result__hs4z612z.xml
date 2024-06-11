@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2e6150e4-fe8b-4e0d-91e7-92aa3f618047">
+  <sourceEnd id="5d3f603e-847f-417a-9e8e-683426ab77ba" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsServices.CreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="bd7d7014-8cab-4f65-980f-61c8d43e691f">
+      <typeId>db8ef7eb-3b1a-4248-b811-03d9b281867c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2e6150e4-fe8b-4e0d-91e7-92aa3f618047" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: CreateClient(...): guid</display>
+    <order>1</order>
+    <typeReference id="d9a4d718-146f-42f1-8fe0-75662498f25b">
+      <typeId>a9801c92-2a6d-4114-a126-618cf6d10302</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</typePackageName>
+      <typePackageId>d0839b91-5ab2-459e-be83-557bd23ccbad</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="db8ef7eb-3b1a-4248-b811-03d9b281867c" location="[ProxyServiceTests.Proxy.TMS].[Services].[CreateClientCommand]" />
+        <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="a9801c92-2a6d-4114-a126-618cf6d10302" location="[ProxyServiceTests.Proxy.TMS].[Services].[CreateClient]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateClientCommand}</expression>
+            <path>
+              <target id="a9801c92-2a6d-4114-a126-618cf6d10302" name="CreateClient" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="CreateClientCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="db8ef7eb-3b1a-4248-b811-03d9b281867c" name="CreateClientCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a9801c92-2a6d-4114-a126-618cf6d10302" name="CreateClient" type="element" specialization="Operation" />
+              <target id="3f028012-5a63-442a-9dea-c1a776fbe3f2" name="dto" type="element" specialization="Parameter" />
+              <target id="d9e9cf81-cae9-444e-9720-91804b183633" name="Name" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="db8ef7eb-3b1a-4248-b811-03d9b281867c" name="CreateClientCommand" type="element" specialization="Command" />
+                  <target id="77579623-ea33-4c88-b053-0766d107d43d" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

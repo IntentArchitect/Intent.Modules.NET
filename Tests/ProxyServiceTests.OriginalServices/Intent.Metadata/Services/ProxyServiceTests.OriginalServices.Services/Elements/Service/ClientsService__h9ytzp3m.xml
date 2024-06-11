@@ -333,6 +333,14 @@
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" isActive="true" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata />
       <childElements>

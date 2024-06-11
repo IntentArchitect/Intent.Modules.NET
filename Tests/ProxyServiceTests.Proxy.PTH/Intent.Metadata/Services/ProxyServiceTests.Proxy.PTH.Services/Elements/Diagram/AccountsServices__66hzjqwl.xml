@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9824db59-0783-436d-bd60-c5f63118dbf8" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>AccountsServices</name>
+  <display>AccountsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3398d71e-22b4-4fcf-bd46-030d14658b3c</parentFolderId>
+  <packageId>d4fe4ebd-098a-4912-a4da-c3aa192f7266</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH.Services</packageName>
+  <diagram>
+    <targetPackageId>3398d71e-22b4-4fcf-bd46-030d14658b3c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

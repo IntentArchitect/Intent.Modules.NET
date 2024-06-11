@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0aa87303-602a-4956-b6d7-f6819b8d7f25">
+  <sourceEnd id="f50d2169-8b8f-4171-9380-d121fdaaa528" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : DeleteAccountsService.DeleteAccountCommand</display>
+    <order>0</order>
+    <typeReference id="5e0eccc7-075c-4a7f-b2b6-2d627c4a037e">
+      <typeId>6c1f608d-5b86-47c8-830d-11b4296a42f9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0aa87303-602a-4956-b6d7-f6819b8d7f25" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : DeleteAccountCommand(...): void</display>
+    <order>1</order>
+    <typeReference id="5b392375-4273-46b7-9135-81e2d0dfc625">
+      <typeId>0ea0b039-b84a-4139-a6e3-ea744570bb10</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</typePackageName>
+      <typePackageId>d0839b91-5ab2-459e-be83-557bd23ccbad</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6c1f608d-5b86-47c8-830d-11b4296a42f9" location="[ProxyServiceTests.Proxy.TMS].[Services].[DeleteAccountCommand]" />
+        <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="0ea0b039-b84a-4139-a6e3-ea744570bb10" location="[ProxyServiceTests.Proxy.TMS].[Services].[DeleteAccountCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{DeleteAccountCommand}</expression>
+            <path>
+              <target id="0ea0b039-b84a-4139-a6e3-ea744570bb10" name="DeleteAccountCommand" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="DeleteAccountCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="6c1f608d-5b86-47c8-830d-11b4296a42f9" name="DeleteAccountCommand" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="0ea0b039-b84a-4139-a6e3-ea744570bb10" name="DeleteAccountCommand" type="element" specialization="Operation" />
+              <target id="9f1edde4-a350-4478-b249-0c5e64f942c3" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="6c1f608d-5b86-47c8-830d-11b4296a42f9" name="DeleteAccountCommand" type="element" specialization="Operation" />
+                  <target id="64dcad88-16ad-498d-923d-8659e14e5810" name="Id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

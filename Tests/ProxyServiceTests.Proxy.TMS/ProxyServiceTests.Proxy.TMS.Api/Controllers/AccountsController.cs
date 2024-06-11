@@ -61,30 +61,6 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Successfully deleted.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteAccountCommand(
-            [FromRoute] Guid id,
-            CancellationToken cancellationToken = default)
-        {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-            {
-                await _appService.DeleteAccountCommand(id, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
-            }
-            return Ok();
-        }
-
-        /// <summary>
-        /// </summary>
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>

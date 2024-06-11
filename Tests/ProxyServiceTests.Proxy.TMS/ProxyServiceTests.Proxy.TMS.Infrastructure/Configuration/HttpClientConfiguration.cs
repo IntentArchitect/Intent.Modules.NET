@@ -32,6 +32,22 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.Configuration
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
                     http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
                 });
+
+            services
+                .AddHttpClient<IDeleteAccountsService, DeleteAccountsServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:DeleteAccountsService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:DeleteAccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                })
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteAccountsService:IdentityClientKey") ?? "default");
+
+            services
+                .AddHttpClient<IDeleteClientsService, DeleteClientsServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:DeleteClientsService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:DeleteClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                })
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteClientsService:IdentityClientKey") ?? "default");
         }
     }
 }

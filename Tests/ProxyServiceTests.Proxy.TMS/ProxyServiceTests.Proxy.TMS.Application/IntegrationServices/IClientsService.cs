@@ -17,6 +17,5 @@ namespace ProxyServiceTests.Proxy.TMS.Application.IntegrationServices
         Task<ClientDto> FindClientByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<ClientDto>> FindClientsAsync(CancellationToken cancellationToken = default);
         Task UpdateClientAsync(Guid id, ClientUpdateDto dto, CancellationToken cancellationToken = default);
-        Task DeleteClientAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }
