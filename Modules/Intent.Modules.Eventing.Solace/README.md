@@ -10,7 +10,7 @@ For more information on Solace, check out their [official docs](https://solace.c
 
 ## Overview
 
-This module generates code to work with Solace's [`olaceSystems.Solclient.Messaging` NuGet package](https://www.nuget.org/packages/SolaceSystems.Solclient.Messaging), in particular:
+This module generates code to work with Solace's [`SolaceSystems.Solclient.Messaging` NuGet package](https://www.nuget.org/packages/SolaceSystems.Solclient.Messaging), in particular:
 
 - SolaceEventBus, for publishing messages.
 - SolaceConsumingService, for subscribing to and processing messages.
