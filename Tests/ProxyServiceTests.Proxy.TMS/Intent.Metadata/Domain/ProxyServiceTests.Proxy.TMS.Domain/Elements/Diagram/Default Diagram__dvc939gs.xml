@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d768efb9-a2fb-457a-a054-9b396e733c32" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c149aa31-a660-45d8-8ac5-0953bc8170cf</parentFolderId>
+  <packageId>c149aa31-a660-45d8-8ac5-0953bc8170cf</packageId>
+  <packageName>ProxyServiceTests.Proxy.TMS.Domain</packageName>
+  <diagram>
+    <targetPackageId>c149aa31-a660-45d8-8ac5-0953bc8170cf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
