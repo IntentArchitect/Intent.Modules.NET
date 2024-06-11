@@ -19,7 +19,6 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
 
             services
                 .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
@@ -47,10 +46,6 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
                 {
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:SecureServicesService:Uri");
                     http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:SecureServicesService:Timeout") ?? TimeSpan.FromSeconds(100);
-                })
-                .AddHeaders(config =>
-                {
-                    config.AddFromHeader("Authorization");
                 })
                 .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ?? "default");
 

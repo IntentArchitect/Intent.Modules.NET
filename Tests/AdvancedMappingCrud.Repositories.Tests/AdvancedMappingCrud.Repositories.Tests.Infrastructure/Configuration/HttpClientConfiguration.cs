@@ -18,7 +18,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
 
             services
                 .AddHttpClient<ICustomersServiceProxy, CustomersServiceProxyHttpClient>(http =>

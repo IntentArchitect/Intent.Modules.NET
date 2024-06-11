@@ -18,7 +18,6 @@ namespace ProxyServiceTests.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
 
             services
                 .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
