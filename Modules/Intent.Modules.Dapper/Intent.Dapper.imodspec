@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapper</id>
-  <version>1.0.0-beta.0</version>
+  <version>1.0.0-beta.1</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Provides basic repository pattern for Dapper.</summary>
   <description>Provides basic repository pattern for Dapper.</description>

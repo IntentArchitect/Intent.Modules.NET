@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Dapper;
 using Dapper.Tests.Domain.Entities;
 using Dapper.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
