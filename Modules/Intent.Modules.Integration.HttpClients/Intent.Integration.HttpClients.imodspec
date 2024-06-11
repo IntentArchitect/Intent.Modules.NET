@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>5.1.3-pre.0</version>
+  <version>5.1.3-pre.1</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -63,19 +63,32 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension" externalReference="64e99652-0ac6-4285-8209-b4dbd505e91f" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="f3da943d-d685-47cf-9982-59f1ac7127fd" title="Http Client Settings" externalReference="f3da943d-d685-47cf-9982-59f1ac7127fd">
+      <settings>
+        <setting id="72a03013-072b-4bb7-a67c-dad65bd14b02" title="Authorization Type" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>token-management-server</defaultValue>
+          <options>
+            <option value="passthrough-auth-header" description="Passthrough Authorization Header" />
+            <option value="token-management-server" description="Token Management Server" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="5.0.7-pre.0" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.1" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.5.3-pre.0" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.4" />
+    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.ServiceProxies" version="5.2.0-pre.0" />
-    <dependency id="Intent.Modelers.Services" version="3.5.1" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
+    <dependency id="Intent.Modelers.Services" version="3.7.3" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="4.2.0" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.3.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

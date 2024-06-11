@@ -13,7 +13,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientDaprHandler
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
     public partial class HttpClientDaprHandlerTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate";
@@ -35,7 +35,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
                     {
                         method
                             .Static()
-                            .AddParameter("IHttpClientBuilder", "builder", p=> p.WithThisModifier())
+                            .AddParameter("IHttpClientBuilder", "builder", p => p.WithThisModifier())
                             .AddStatement(@"builder.ConfigureHttpClient(http => http.DefaultRequestHeaders.UserAgent.Add(UserAgent()));
                 builder.AddHttpMessageHandler(services =>
                 {
@@ -43,7 +43,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
                 });
                 return builder;");
                     });
-                    @class.AddMethod("ProductInfoHeaderValue", "UserAgent", method => 
+                    @class.AddMethod("ProductInfoHeaderValue", "UserAgent", method =>
                     {
                         method
                             .Static()

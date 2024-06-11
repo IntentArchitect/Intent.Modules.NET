@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.ProblemDeta
     {
         public override string TemplateId => ProblemDetailsWithErrorsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ProblemDetailsWithErrorsTemplate(outputTarget);

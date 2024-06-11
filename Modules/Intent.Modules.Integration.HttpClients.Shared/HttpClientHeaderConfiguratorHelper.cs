@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using System.Buffers;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 
 
@@ -34,7 +35,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    if (proxyModel.HasMappedEndpoints() && proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization))
+                    if (proxyModel.HasMappedEndpoints() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) || proxyModel.MappedService.TryGetSecured(out _)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddHeaders")
                             .AddArgument(new CSharpLambdaBlock("config"), a =>

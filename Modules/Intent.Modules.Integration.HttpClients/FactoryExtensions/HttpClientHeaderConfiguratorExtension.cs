@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
+using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -28,14 +29,20 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
     {
         public override string Id => "Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
-            UpdateProxyTokenRefreshPopulation(application);
+            if (application.Settings.GetHttpClientSettings().AuthorizationType().IsPassthroughAuthHeader())
+            {
+                HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
+            }
+
+            if (application.Settings.GetHttpClientSettings().AuthorizationType().IsTokenManagementServer())
+            {
+                UpdateProxyTokenRefreshPopulation(application);
+            }
         }
 
 
@@ -43,7 +50,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         {
             var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplate.TemplateId);
 
-            if (httpClientConfigurationTemplate == null) return;
+            if (httpClientConfigurationTemplate is null) return;
 
             httpClientConfigurationTemplate.CSharpFile.OnBuild(file =>
             {
@@ -52,13 +59,17 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 var method = @class.FindMethod("AddHttpClients");
                 if (method == null) return;
 
-                method.InsertStatement(0, @"services.AddAccessTokenManagement(options =>
-            {
-                configuration.GetSection(""IdentityClients"").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
-");
+                method.InsertStatement(0,
+                    """
+                    services.AddAccessTokenManagement(options =>
+                                {
+                                    configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
+                                }).ConfigureBackchannelHttpClient();
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _)).Cast<CSharpMethodChainStatement>().ToArray();
+                    """);
+
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
+                    .Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
@@ -66,7 +77,8 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
                     if (RequiresMessageHandler(proxyModel))
                     {
-                        proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler").AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
+                        proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
+                            .AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
                     }
                 }
             });

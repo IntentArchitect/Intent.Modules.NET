@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientR
     {
         public override string TemplateId => HttpClientRequestExceptionTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new HttpClientRequestExceptionTemplate(outputTarget);

@@ -1,6 +1,7 @@
 ﻿### Version 5.1.3
 
 - Improvement: Added support for gathering Service Proxy information from the Services designer too.
+- Fixed: Added setting to either make use of Pass-through Authorization Headers or Token Management Servers (both cannot be used at the same time per http client).
 
 ### Version 5.1.2
 

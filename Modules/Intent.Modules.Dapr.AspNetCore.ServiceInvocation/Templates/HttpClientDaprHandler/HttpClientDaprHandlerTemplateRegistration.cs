@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
     {
         public override string TemplateId => HttpClientDaprHandlerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new HttpClientDaprHandlerTemplate(outputTarget);

@@ -18,6 +18,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientHeaderHandl
     {
         public override string TemplateId => HttpClientHeaderHandlerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new HttpClientHeaderHandlerTemplate(outputTarget);

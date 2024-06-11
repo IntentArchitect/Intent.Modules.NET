@@ -14,7 +14,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.ProblemDetailsWithErrors
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
     public partial class ProblemDetailsWithErrorsTemplate : ProblemDetailsWithErrorsBase
     {
         public const string TemplateId = "Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors";

@@ -14,7 +14,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Integration.HttpClients.Templates.ProblemDetailsWithErrors
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
     public partial class ProblemDetailsWithErrorsTemplate : ProblemDetailsWithErrorsBase
     {
         public const string TemplateId = "Intent.Integration.HttpClients.ProblemDetailsWithErrors";

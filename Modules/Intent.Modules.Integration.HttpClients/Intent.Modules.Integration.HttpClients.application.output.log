@@ -3,7 +3,7 @@
   <ApplicationId>33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#78075161-6339-4286-984a-4cf583868c5c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#78075161-6339-4286-984a-4cf583868c5c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -33,11 +33,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>46ad781b-04fc-4d8d-9a46-4dbffe73628d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ProjectId>af9fe366-dacb-436f-a281-342545fc8817</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#078cefb0-8647-40bf-9099-a7c96c4d8e85</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -62,7 +62,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>

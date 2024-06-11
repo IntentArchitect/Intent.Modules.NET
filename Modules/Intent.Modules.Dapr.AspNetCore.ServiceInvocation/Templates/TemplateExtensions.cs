@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration;
@@ -17,12 +18,12 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetHttpClientName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
+        public static string GetHttpClientName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHttpClientName(this IIntentTemplate template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel model)
+        public static string GetHttpClientName(this IIntentTemplate template, ServiceProxyModel model)
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, model);
         }

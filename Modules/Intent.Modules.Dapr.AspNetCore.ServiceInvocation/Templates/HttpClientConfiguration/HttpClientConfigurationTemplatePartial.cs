@@ -24,7 +24,7 @@ using static System.Net.WebRequestMethods;
 
 namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
     public partial class HttpClientConfigurationTemplate : HttpClientConfigurationBase
     {
         public const string TemplateId = "Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate";

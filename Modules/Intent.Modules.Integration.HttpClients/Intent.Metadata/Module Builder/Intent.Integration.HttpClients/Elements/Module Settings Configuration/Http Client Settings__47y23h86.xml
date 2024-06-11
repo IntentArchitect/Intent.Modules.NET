@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f3da943d-d685-47cf-9982-59f1ac7127fd" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Http Client Settings</name>
+  <display>Http Client Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>078cefb0-8647-40bf-9099-a7c96c4d8e85</parentFolderId>
+  <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+  <packageName>Intent.Integration.HttpClients</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="72a03013-072b-4bb7-a67c-dad65bd14b02" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Authorization Type</name>
+      <display>Authorization Type</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f3da943d-d685-47cf-9982-59f1ac7127fd</parentFolderId>
+      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+      <packageName>Intent.Integration.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="token-management-server" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1276a3f9-cff8-4787-9241-c694b3a556c9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Passthrough Authorization Header</name>
+          <display>Passthrough Authorization Header</display>
+          <isAbstract>false</isAbstract>
+          <value>passthrough-auth-header</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="efa33b06-35b7-4efb-b1cb-7cf5e2f84fae" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Token Management Server</name>
+          <display>Token Management Server</display>
+          <isAbstract>false</isAbstract>
+          <value>token-management-server</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
