@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
@@ -52,14 +53,22 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
+
+            if (ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
+            }
+
             foreach (var proxy in _typedModels.Distinct(new ServiceModelComparer()))
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost:{app_port}/"));
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
+                if (ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+                {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
+                }
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Timeout"), "00:01:00"));
             }
         }

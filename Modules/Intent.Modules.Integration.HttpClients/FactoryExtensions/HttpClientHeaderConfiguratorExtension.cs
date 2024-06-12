@@ -34,12 +34,12 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (application.Settings.GetHttpClientSettings().AuthorizationType().IsPassthroughAuthHeader())
+            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsTransmittableAccessToken())
             {
                 HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
             }
 
-            if (application.Settings.GetHttpClientSettings().AuthorizationType().IsTokenManagementServer())
+            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 UpdateProxyTokenRefreshPopulation(application);
             }

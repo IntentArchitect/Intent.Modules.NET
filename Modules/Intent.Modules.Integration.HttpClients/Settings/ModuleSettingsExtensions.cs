@@ -38,42 +38,49 @@ namespace Intent.Modules.Integration.HttpClients.Settings
         {
             return _groupSettings.GetSetting(settingId);
         }
-        public AuthorizationTypeOptions AuthorizationType() => new AuthorizationTypeOptions(_groupSettings.GetSetting("72a03013-072b-4bb7-a67c-dad65bd14b02")?.Value);
+        public AuthorizationSetupOptions AuthorizationSetup() => new AuthorizationSetupOptions(_groupSettings.GetSetting("72a03013-072b-4bb7-a67c-dad65bd14b02")?.Value);
 
-        public class AuthorizationTypeOptions
+        public class AuthorizationSetupOptions
         {
             public readonly string Value;
 
-            public AuthorizationTypeOptions(string value)
+            public AuthorizationSetupOptions(string value)
             {
                 Value = value;
             }
 
-            public AuthorizationTypeOptionsEnum AsEnum()
+            public AuthorizationSetupOptionsEnum AsEnum()
             {
                 return Value switch
                 {
-                    "passthrough-auth-header" => AuthorizationTypeOptionsEnum.PassthroughAuthHeader,
-                    "token-management-server" => AuthorizationTypeOptionsEnum.TokenManagementServer,
+                    "client-access-token-management" => AuthorizationSetupOptionsEnum.ClientAccessTokenManagement,
+                    "transmittable-access-token" => AuthorizationSetupOptionsEnum.TransmittableAccessToken,
+                    "none" => AuthorizationSetupOptionsEnum.None,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsPassthroughAuthHeader()
+            public bool IsClientAccessTokenManagement()
             {
-                return Value == "passthrough-auth-header";
+                return Value == "client-access-token-management";
             }
 
-            public bool IsTokenManagementServer()
+            public bool IsTransmittableAccessToken()
             {
-                return Value == "token-management-server";
+                return Value == "transmittable-access-token";
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
             }
         }
 
-        public enum AuthorizationTypeOptionsEnum
+        public enum AuthorizationSetupOptionsEnum
         {
-            PassthroughAuthHeader,
-            TokenManagementServer,
+            ClientAccessTokenManagement,
+            TransmittableAccessToken,
+            None,
         }
     }
 }
