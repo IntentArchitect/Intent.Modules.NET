@@ -658,7 +658,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel) || _enforceColumnOrdering)
                 {
-                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel, _columnCurrentOrder++);
+                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel, _enforceColumnOrdering ? _columnCurrentOrder++ : null);
                 }
             }
         }
