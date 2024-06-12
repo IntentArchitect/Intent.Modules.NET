@@ -31,7 +31,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         {
             return;
         }
-        htmlElement.AddCodeBlock($"foreach (var item in {_bindingManager.GetBinding(selectModel, "Options")})", code =>
+        htmlElement.AddCodeBlock($"@foreach (var item in {_bindingManager.GetBinding(selectModel, "Options")})", code =>
         {
             htmlElement.AddMappingReplacement(mappedEnd.SourceElement, "item");
             code.AddHtmlElement("MudSelectItem", selectItem =>

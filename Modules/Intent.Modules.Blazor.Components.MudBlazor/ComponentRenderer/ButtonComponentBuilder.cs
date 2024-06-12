@@ -28,7 +28,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")
             .AddAttribute("Class", "my-2 mr-2")
-            .WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
+            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Default");
 
         foreach (var child in component.ChildElements)
         {
@@ -37,19 +37,77 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
         if (onClickMapping != null)
         {
-            if (onClickMapping.SourceElement.AsComponentOperationModel()?.CallServiceOperationActionTargets().Any() == true)
+            htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+            
+            _componentTemplate.RazorFile.OnBuild(file =>
             {
-                htmlElement.AddAttribute("Color", "Color.Primary");
-            }
-            if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
-            {
-                var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
-            }
-            else
-            {
-                htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
-            }
+                _componentTemplate.GetCodeBlock().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
+                if (reference is CSharpClassMethod method)
+                {
+                    var form = component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
+                    if (form != null)
+                    {
+                        ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatements(0, 
+                            $$"""
+                                  await {{form.Name.ToPrivateMemberName()}}!.Validate();
+                                  if (!{{form.Name.ToPrivateMemberName()}}.IsValid)
+                                  {
+                                      return;
+                                  }
+                                  """.ConvertToStatements().ToList());
+                    }
+
+                    if (!method.IsAsync)
+                    {
+                        htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
+                        return;
+                    }
+                    var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
+                    _componentTemplate.GetCodeBlock().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
+                    ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
+                    ((CSharpFinallyBlock)method.FindStatement(x => x is CSharpFinallyBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
+
+                    htmlElement.AddAttribute("Disabled", $"@{processingFieldName}");
+                    htmlElement.AddCodeBlock($"@if ({processingFieldName})", code =>
+                    {
+                        code.AddHtmlElement("MudProgressCircular", spinner =>
+                        {
+                            spinner.AddAttribute("Class", "ms-n1");
+                            spinner.AddAttribute("Size", "Size.Small");
+                            spinner.AddAttribute("Indeterminate", "true");
+                        });
+                        code.AddHtmlElement("MudText", text =>
+                        {
+                            text.AddAttribute("Class", "ms-2");
+                            text.WithText("Processing");
+                        });
+                    });
+                    htmlElement.AddCodeBlock("else", code =>
+                    {
+                        code.AddHtmlElement("MudText", text => text.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name));
+                    });
+                }
+
+
+            });
+
+            //if (onClickMapping.SourceElement.AsComponentOperationModel()?.CallServiceOperationActionTargets().Any() == true)
+            //{
+            //    htmlElement.AddAttribute("Color", "Color.Primary");
+            //}
+            //if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
+            //{
+            //    var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
+            //    htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+            //}
+            //else
+            //{
+            //    htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
+            //}
+        }
+        else
+        {
+            htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         }
 
         //foreach (var child in component.ChildElements)

@@ -103,6 +103,8 @@ public static class RazorFileExtensions
                     var mappingManager = template.CreateMappingManager();
                     mappingManager.SetFromReplacement(operation, null);
                     var operationImplementationBlock = (IHasCSharpStatements)method;
+                    var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
+                    var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
                     if (operation.CallServiceOperationActionTargets().Any())
                     {
                         var isLoadingProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);
@@ -119,6 +121,13 @@ public static class RazorFileExtensions
                             {
                                 tryBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "null"), s => s.WithSemicolon());
                             }
+
+                            //if (mappedButton != null)
+                            //{
+                            //    var processingFieldName = $"{operation.Name}Processing".ToPrivateMemberName();
+                            //    block.AddField("bool", processingFieldName, f => f.WithAssignment("false"));
+                            //    tryBlock.AddStatement(new CSharpAssignmentStatement(processingFieldName, "true"));
+                            //}
 
                             foreach (var serviceCall in operation.CallServiceOperationActionTargets())
                             {
@@ -167,6 +176,10 @@ public static class RazorFileExtensions
                             {
                                 finallyBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "false"), s => s.WithSemicolon());
                             }
+                            //if (mappings.Any(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button")))
+                            //{
+                            //    finallyBlock.AddStatement(new CSharpAssignmentStatement($"{operation.Name}Processing".ToPrivateMemberName(), "false"));
+                            //}
                         });
 
                     }

@@ -53,7 +53,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 .AddHtmlElement("tbody", tbody =>
                 {
                     var mappedEnd = _bindingManager.GetMappedEndFor(table);
-                    tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
+                    tbody.AddCodeBlock($"@foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
                     {
                         parentNode.AddMappingReplacement(mappedEnd.SourceElement, "item");
                         block.AddHtmlElement("tr", tr =>

@@ -54,7 +54,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                 {
                     return;
                 }
-                tbody.AddCodeBlock($"foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
+                tbody.AddCodeBlock($"@foreach(var item in {_bindingManager.GetBinding(mappedEnd, parentNode)})", block =>
                 {
                     tbody.AddMappingReplacement(mappedEnd.SourceElement, "item");
                     block.AddHtmlElement("TableRow", tr =>

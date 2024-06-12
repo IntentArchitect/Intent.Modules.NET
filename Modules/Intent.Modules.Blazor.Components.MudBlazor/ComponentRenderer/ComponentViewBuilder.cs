@@ -26,7 +26,7 @@ public class ComponentViewBuilder : IRazorComponentBuilder
         if (view.HasLoaderSettings())
         {
             var isLoadingProperty = _bindingManager.GetElementBinding(view, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);
-            var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({isLoadingProperty})"), _componentTemplate.RazorFile);
+            var loadingCode = new RazorCodeDirective(new CSharpStatement($"@if ({isLoadingProperty})"), _componentTemplate.RazorFile);
             loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
             {
                 loadingBar.AddAttribute("Color", "Color.Primary");
@@ -38,7 +38,7 @@ public class ComponentViewBuilder : IRazorComponentBuilder
             var errorMessageProperty = _bindingManager.GetElementBinding(view, "2e482e27-b176-43cf-b80a-33123036142a", isTargetNullable: true);
             if (errorMessageProperty != null)
             {
-                var errorCode = new RazorCodeDirective(new CSharpStatement($"if (!{isLoadingProperty} && {errorMessageProperty} != null)"), _componentTemplate.RazorFile);
+                var errorCode = new RazorCodeDirective(new CSharpStatement($"@if (!{isLoadingProperty} && {errorMessageProperty} != null)"), _componentTemplate.RazorFile);
                 errorCode.AddHtmlElement("MudAlert", alert =>
                 {
                     alert.AddAttribute("Severity", "Severity.Error");

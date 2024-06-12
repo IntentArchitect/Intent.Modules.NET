@@ -34,7 +34,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         }
         if (_bindingManager.GetMappedEndFor(formModel, "Model").SourceElement?.TypeReference.IsNullable == true)
         {
-            var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is null)"), _componentTemplate.RazorFile);
+            var loadingCode = new RazorCodeDirective(new CSharpStatement($"@if ({modelBinding} is null)"), _componentTemplate.RazorFile);
             loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
             {
                 loadingBar.AddAttribute("Color", "Color.Primary");
@@ -43,22 +43,24 @@ public class FormComponentBuilder : IRazorComponentBuilder
             });
             parentNode.AddChildNode(loadingCode);
         }
-        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
+        var codeBlock = new RazorCodeDirective(new CSharpStatement($"@if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         parentNode.AddChildNode(codeBlock);
         codeBlock.AddHtmlElement("MudGrid", x => x.AddHtmlElement("MudItem", mudItem =>
         {
             mudItem.AddAttribute("xs", "12").AddAttribute("sm", "7");
             mudItem.AddHtmlElement("MudForm", form =>
             {
-                var formField = formModel.Name.ToCSharpIdentifier().ToCamelCase();
+                var formField = formModel.Name.ToCSharpIdentifier().ToPrivateMemberName();
                 _componentTemplate.GetCodeBlock().AddField("MudForm", formField);
                 form.AddAttribute("@ref", $"@{formField}");
                 form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
+                
 
                 var validator = _componentTemplate.ExecutionContext.FindTemplateInstance("Blazor.HttpClient.Contracts.Dto.Validation", modelMapping.SourceElement.TypeReference.Element.Id);
                 if (validator != null)
                 {
-                    form.AddAttribute("Validation", $"@(ValidatorProvider.GetValidationFunc<{_componentTemplate.GetTypeName(validator)}>())");
+                    _componentTemplate.RazorFile.AddInjectDirective(_componentTemplate.GetTypeName("Blazor.Client.Validation.ValidatorProvider"));
+                    form.AddAttribute("Validation", $"@(ValidatorProvider.GetValidationFunc<{_componentTemplate.GetTypeName((IElement)modelMapping.SourceElement.TypeReference.Element)}>())");
                 }
 
                 //form.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
