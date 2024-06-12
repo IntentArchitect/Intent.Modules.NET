@@ -2,6 +2,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
+using System;
 using System.Linq;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
@@ -9,10 +10,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 public class EfCoreKeyColumnPropertyStatement : CSharpStatement
 {
     private readonly AttributeModel _model;
+	private readonly int? _implicitOrder;
 
-    public EfCoreKeyColumnPropertyStatement(AttributeModel model) : base(null)
+	public EfCoreKeyColumnPropertyStatement(AttributeModel model, int? implicitOrder) : base(null)
     {
         _model = model;
+		_implicitOrder = implicitOrder;
     }
 
     public override string GetText(string indentation)
@@ -31,12 +34,20 @@ public class EfCoreKeyColumnPropertyStatement : CSharpStatement
 {indentation}    .HasColumnType(""{_model.GetColumn().Type()}"")";
         }
 
-        var valueGeneratedOnAdd = NonConventionalOrdinalPrimaryKeyRequiresConfiguration(_model)
+		var order = string.Empty;
+		var columnOrder = _model.GetColumn()?.Order();
+		if (columnOrder != null || _implicitOrder!= null)
+		{
+			order = $@"
+{indentation}    .HasColumnOrder({columnOrder ?? _implicitOrder})";
+		}
+
+		var valueGeneratedOnAdd = NonConventionalOrdinalPrimaryKeyRequiresConfiguration(_model)
             ? $@"
 {indentation}    .ValueGeneratedOnAdd()"
             : string.Empty;
 
-        return @$"{indentation}builder.Property(x => x.{_model.Name.ToPascalCase()}){name}{type}{valueGeneratedOnAdd};";
+        return @$"{indentation}builder.Property(x => x.{_model.Name.ToPascalCase()}){name}{type}{order}{valueGeneratedOnAdd};";
     }
 
     public static bool RequiresConfiguration(AttributeModel attribute)

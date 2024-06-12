@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using Intent.Engine;
@@ -34,13 +35,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         private IIntentTemplate _entityTemplate;
+        private readonly bool _enforceColumnOrdering = false;
+        private int _columnCurrentOrder = 0;
 
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
+			_enforceColumnOrdering = ExecutionContext.Settings.GetDatabaseSettings().MaintainColumnOrdering();
+
+			AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
 
@@ -49,7 +54,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .AddUsing("Microsoft.EntityFrameworkCore.Metadata.Builders")
                 .AddClass($"{Model.Name}Configuration", @class =>
                 {
-                    if (!TryGetTemplate("Domain.Entity.State", Model, out _entityTemplate))
+
+					if (!TryGetTemplate("Domain.Entity.State", Model, out _entityTemplate))
                     {
                         _entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
                     }
@@ -268,6 +274,22 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     yield return ToTableStatement(model);
                 }
+                if (_enforceColumnOrdering)
+                {
+                    var currentParent = model.ParentClass;
+                    while (currentParent != null)
+                    {
+                        _columnCurrentOrder = currentParent.Attributes.Count;
+                        if (currentParent.IsAggregateRoot() && IsInheriting(currentParent) && ParentConfigurationExists(currentParent))
+                        {
+                            currentParent = currentParent.ParentClass;
+                        }
+                        else
+                        {
+                            currentParent = null;
+                        }
+                    }
+                }
 
                 yield return $@"builder.HasBaseType<{GetTypeName(TemplateRoles.Domain.Entity.Primary, model.ParentClass)}>();";
             }
@@ -418,7 +440,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
-                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings());
+				return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings(), _enforceColumnOrdering ? _columnCurrentOrder++ : null );
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
@@ -634,9 +656,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
-                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel))
+                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel) || _enforceColumnOrdering)
                 {
-                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel, _columnCurrentOrder++);
                 }
             }
         }

@@ -1,6 +1,7 @@
 ﻿### Version 5.0.7
 
 - Improved: Postgres enabled for having "Included" index columns.
+- Improved: Added `Maintain Column Ordering` setting, which configures SQL column ordering to reflect the model order. 
 
 ### Version 5.0.6
 
