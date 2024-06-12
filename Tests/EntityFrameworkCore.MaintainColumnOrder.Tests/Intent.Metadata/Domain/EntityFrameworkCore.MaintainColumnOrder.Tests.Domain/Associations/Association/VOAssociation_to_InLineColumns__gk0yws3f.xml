@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ec6984d2-ddc4-409b-bd3e-250971c45231">
+  <sourceEnd id="db89f57b-3025-4b80-9897-38c781b8c049" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>VOAssociation</name>
+    <display>VOAssociation: VOAssociation</display>
+    <order>0</order>
+    <typeReference id="2d480a0c-4319-4403-84d9-25303ae37364">
+      <typeId>8bde8abf-425c-4c77-b4eb-e4969599abba</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ec6984d2-ddc4-409b-bd3e-250971c45231" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>InLineColumns</name>
+    <display>InLineColumns: InLineColumns</display>
+    <order>4</order>
+    <typeReference id="a9f479f3-0f27-4e1a-bb40-f157abf353ae">
+      <typeId>c9de9d81-ed07-454e-b128-95a8313a6781</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
