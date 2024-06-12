@@ -324,6 +324,8 @@ public class DomainInteractionsManager
             dataAccessProvider = null;
             return false;
         }
+
+        //This is being done for Dapper
         bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
 		dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork);
