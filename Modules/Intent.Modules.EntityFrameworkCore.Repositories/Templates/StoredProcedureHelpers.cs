@@ -58,7 +58,8 @@ internal static class StoredProcedureHelpers
                                 parameter.Name.ToLocalVariableName());
                         }
 
-                        method.AddParameter("CancellationToken", "cancellationToken", m => m.WithDefaultValue("default"));
+                        method.AddOptionalCancellationTokenParameter();
+                        method.AddDeconstructedReturnMembers(GetReturnProperties(template, storedProcedure).Select(s => s.Name.ToCamelCase()).ToList());
                     });
                 }
             });
@@ -90,6 +91,7 @@ internal static class StoredProcedureHelpers
                     @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
                         method.RepresentsModel(storedProcedure);
+                        
                         var returnTupleProperties = storedProcedure.Parameters
                             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
                             .Select(parameter =>
@@ -129,7 +131,7 @@ internal static class StoredProcedureHelpers
                                 parameter.Name.ToLocalVariableName());
                         }
 
-                        method.AddParameter("CancellationToken", "cancellationToken", m => m.WithDefaultValue("default"));
+                        method.AddOptionalCancellationTokenParameter();
 
                         var nameInSchema = storedProcedure.GetStoredProcedureSettings()?.NameInSchema();
                         var spName = !string.IsNullOrWhiteSpace(nameInSchema)
@@ -224,6 +226,8 @@ internal static class StoredProcedureHelpers
                                 ReturnsCollection: returnsCollection,
                                 ReturnTupleProperties: returnTupleProperties));
                         }
+                        
+                        
                     });
                 }
             })
@@ -347,25 +351,32 @@ internal static class StoredProcedureHelpers
         }
     }
 
-    private static string GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
+    private record TupleEntry(string Name, string TypeName);
+
+    private static IReadOnlyList<TupleEntry> GetReturnProperties(IntentTemplateBase template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = storedProcedure.Parameters
             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
-            .Select(parameter => new
-            {
-                Name = parameter.Name.ToPascalCase().EnsureSuffixedWith("Output"),
-                TypeName = template.GetTypeName(parameter)
-            })
+            .Select(parameter => new TupleEntry(
+                Name: parameter.Name.ToPascalCase().EnsureSuffixedWith("Output"),
+                TypeName: template.GetTypeName(parameter)
+            ))
             .ToList();
 
         if (storedProcedure.TypeReference.Element != null)
         {
-            tupleProperties.Insert(0, new
-            {
-                Name = storedProcedure.TypeReference.IsCollection ? "Results" : "Result",
-                TypeName = template.GetTypeName(storedProcedure.TypeReference, "System.Collections.Generic.IReadOnlyCollection<{0}>")
-            });
+            tupleProperties.Insert(0, new TupleEntry(
+                Name: storedProcedure.TypeReference.IsCollection ? "Results" : "Result",
+                TypeName: template.GetTypeName(storedProcedure.TypeReference, "System.Collections.Generic.IReadOnlyCollection<{0}>")
+            ));
         }
+
+        return tupleProperties;
+    }
+    
+    private static string GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
+    {
+        var tupleProperties = GetReturnProperties(template, storedProcedure);
 
         return tupleProperties.Count switch
         {

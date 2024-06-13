@@ -234,7 +234,7 @@ public class DomainInteractionsManager
 
             var statements = new List<CSharpStatement>();
             statements.AddRange(prerequisiteStatement);
-            statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", queryInvocation).SeparatedFromPrevious());
+            statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
             if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
             {
@@ -442,11 +442,11 @@ public class DomainInteractionsManager
 
 				WireupDomainServicesForConstructors(handlerClass, createAction, constructionStatement);
 
-				statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", constructionStatement).WithSemicolon());
+				statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), constructionStatement).WithSemicolon());
 			}
 			else
             {
-                statements.Add(new CSharpAssignmentStatement($"var {entityVariableName}", $"new {entity.Name}();"));
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), $"new {entity.Name}();"));
             }
 
             _csharpMapping.SetFromReplacement(createAction.InternalAssociationEnd, entityVariableName);
@@ -541,7 +541,7 @@ public class DomainInteractionsManager
 						}
                         if (hasReturn)
                         {
-                            updateStatements[i] = new CSharpAssignmentStatement($"var {variableName}", updateStatements[i]);
+                            updateStatements[i] = new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), updateStatements[i]);
                         }
 					}
 				}
@@ -602,24 +602,30 @@ public class DomainInteractionsManager
             var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
 
-			if (methodInvocation is CSharpInvocationStatement s)
+            var invStatement = methodInvocation as CSharpInvocationStatement;
+			if (invStatement?.IsAsyncInvocation() == true)
 			{
-				if (s.IsAsyncInvocation())
-				{
-					s.AddArgument("cancellationToken");
-					invoke = new CSharpAwaitExpression(invoke);
-				}
+                invStatement.AddArgument("cancellationToken");
+                invoke = new CSharpAwaitExpression(invoke);
 			}
+            
 			var operationModel = (IElement)callServiceOperation.Element;
 			if (operationModel.TypeReference.Element != null)
             {
-                string variableName = callServiceOperation.Name.ToLocalVariableName();
+                var variableName = callServiceOperation.Name.ToLocalVariableName();
                 _csharpMapping.SetFromReplacement(callServiceOperation, variableName);
                 _csharpMapping.SetToReplacement(callServiceOperation, variableName);
-                statements.Add(new CSharpAssignmentStatement($"var {variableName}", invoke));
+                
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), invoke));
 
 
 				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, operationModel.TypeReference.IsCollection));
+            }
+            else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
+                     methodDeclaration.DeconstructedReturnTypeMembers.Count > 1)
+            {
+                var declaration = new CSharpDeconstructedVariableDeclaration(methodDeclaration.DeconstructedReturnTypeMembers);
+                statements.Add(new CSharpAssignmentStatement(declaration, invoke));
             }
             else
             {
@@ -942,7 +948,7 @@ public class DomainInteractionsManager
             Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}.");
         }
 
-        statements.Add(new CSharpAssignmentStatement($"var {aggregateVariableName}", aggregateDataAccess.FindByIdAsync(idFields)));
+        statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(aggregateVariableName), aggregateDataAccess.FindByIdAsync(idFields)));
 
         statements.Add(CreateIfNullThrowNotFoundStatement(
             template: _template,
