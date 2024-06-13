@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="df6dff0c-c69c-49ab-8f63-f635170c5254">
   <sourceEnd id="17f5a65e-6a73-4e74-9ea0-221c6c6caaf3" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
-    <display>called by : OperationInvocation.Operation_Params3_ReturnsE_Collection1AsyncQuery</display>
+    <display>called by : CustomRepoOperationInvocation.Operation_Params3_ReturnsE_Collection1AsyncQuery</display>
     <order>0</order>
     <typeReference id="f5d93190-6d49-4da1-b487-2f8e36bcf058">
       <typeId>fa09ce8d-89f6-4526-b9d0-42de2b476bbe</typeId>

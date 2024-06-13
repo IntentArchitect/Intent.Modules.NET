@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
@@ -80,6 +81,35 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE sp_out_params_decimal_specific {outputParameter} OUTPUT", cancellationToken);
 
             return (decimal)outputParameter.Value;
+        }
+
+        public async Task<(string Param1Output, DateTime Param2Output, bool Param3Output)> Sp_out_params_multiple(CancellationToken cancellationToken = default)
+        {
+            var param1Parameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Output,
+                SqlDbType = SqlDbType.VarChar,
+                Size = 255,
+                ParameterName = "@param1"
+            };
+
+            var param2Parameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Output,
+                SqlDbType = SqlDbType.DateTime2,
+                ParameterName = "@param2"
+            };
+
+            var param3Parameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Output,
+                SqlDbType = SqlDbType.Bit,
+                ParameterName = "@param3"
+            };
+
+            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE sp_out_params_multiple {param1Parameter} OUTPUT, {param2Parameter} OUTPUT, {param3Parameter} OUTPUT", cancellationToken);
+
+            return ((string)param1Parameter.Value, (DateTime)param2Parameter.Value, (bool)param3Parameter.Value);
         }
     }
 }
