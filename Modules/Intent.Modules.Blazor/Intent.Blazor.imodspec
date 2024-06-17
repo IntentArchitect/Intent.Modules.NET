@@ -13,7 +13,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.Client.Imports</role>
+      <role>Blazor.Client.Imports,RazorImportsFile</role>
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.Client.DependencyInjection" externalReference="21e2413b-645f-477d-a38b-730820f9191b">
@@ -69,7 +69,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
   </templates>
