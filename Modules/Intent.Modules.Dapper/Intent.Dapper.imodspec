@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapper</id>
   <version>1.0.0-beta.2</version>
@@ -64,24 +64,24 @@
     <id></id>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD" version="6.0.11-pre.0" />
+        <package id="Intent.Application.MediatR.CRUD" version="6.0.11" />
       </install>
     </detect>
     <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
       <install>
-        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="5.0.8-pre.0" />
+        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="5.0.8" />
       </install>
     </detect>
     <detect id="Intent.MediatR.DomainEvents">
       <install>
-        <package id="Intent.MediatR.DomainEvents" version="5.0.9-pre.0" />
+        <package id="Intent.MediatR.DomainEvents" version="5.0.9" />
       </install>
     </detect>
     <detect id="Intent.Modelers.Services.DomainInteractions">
       <install>
-        <package id="Intent.Modelers.Services.DomainInteractions" version="1.1.4-pre.3" />
+        <package id="Intent.Modelers.Services.DomainInteractions" version="1.1.4" />
       </install>
-    </detect>    
+    </detect>
   </interoperability>
   <decorators></decorators>
   <factoryExtensions>
@@ -94,7 +94,7 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Metadata.RDBMS" version="3.6.1" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
-    <dependency id="Intent.Modelers.Domain.Repositories" version="3.5.0-pre.0" />
+    <dependency id="Intent.Modelers.Domain.Repositories" version="3.5.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

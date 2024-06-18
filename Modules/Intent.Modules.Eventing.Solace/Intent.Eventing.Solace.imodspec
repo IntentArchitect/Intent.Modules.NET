@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Solace</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Solace, a enterprise-grade messaging platform, with events modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Solace, a enterprise-grade messaging platform, with events modeled in Intent Architect's designers.</description>
@@ -138,7 +138,7 @@
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.Eventing" version="5.1.0" />
     <dependency id="Intent.Modelers.Services" version="3.7.3" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.1.1-pre.0" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.1.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
