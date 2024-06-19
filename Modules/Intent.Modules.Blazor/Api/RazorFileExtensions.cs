@@ -11,17 +11,17 @@ namespace Intent.Modules.Blazor.Api;
 
 public static class RazorFileExtensions
 {
-    public static HtmlElement SelectHtmlElement(this RazorFile razorFile, string selector)
+    public static IHtmlElement SelectHtmlElement(this IRazorFile razorFile, string selector)
     {
         return razorFile.SelectHtmlElements(selector).SingleOrDefault();
     }
 
-    public static IEnumerable<HtmlElement> SelectHtmlElements(this RazorFile razorFile, string selector)
+    public static IEnumerable<IHtmlElement> SelectHtmlElements(this IRazorFile razorFile, string selector)
     {
-        return razorFile.ChildNodes.OfType<HtmlElement>().SelectHtmlElements(selector.Split("/", StringSplitOptions.RemoveEmptyEntries));
+        return razorFile.ChildNodes.OfType<IHtmlElement>().SelectHtmlElements(selector.Split("/", StringSplitOptions.RemoveEmptyEntries));
     }
 
-    public static IEnumerable<HtmlElement> SelectHtmlElements(this IEnumerable<HtmlElement> nodes, string[] parts)
+    public static IEnumerable<IHtmlElement> SelectHtmlElements(this IEnumerable<IHtmlElement> nodes, string[] parts)
     {
         var firstPart = parts.FirstOrDefault();
         var foundNodes = nodes.Where(x => x.Name == firstPart).ToList();
@@ -32,14 +32,14 @@ public static class RazorFileExtensions
                 yield return found;
             }
 
-            foreach (var foundChildren in found.ChildNodes.OfType<HtmlElement>().SelectHtmlElements(parts.Skip(1).ToArray()))
+            foreach (var foundChildren in found.ChildNodes.OfType<IHtmlElement>().SelectHtmlElements(parts.Skip(1).ToArray()))
             {
                 yield return foundChildren;
             }
         }
     }
 
-    public static void AddCodeBlockMembers(this IBuildsCSharpMembers block, IRazorComponentTemplate template, IElement componentElement)
+    public static void AddCodeBlockMembers(this IBuildsCSharpMembersActual block, IRazorComponentTemplate template, IElement componentElement)
     {
         foreach (var child in componentElement.ChildElements)
         {
@@ -79,7 +79,7 @@ public static class RazorFileExtensions
                 }
                 block.AddMethod(template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
-                    method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
+                    method.Class.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase) && operation.CallServiceOperationActionTargets().Any())
                     {
                         method.Async();

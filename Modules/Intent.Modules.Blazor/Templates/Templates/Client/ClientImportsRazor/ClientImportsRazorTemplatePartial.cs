@@ -30,7 +30,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ClientImportsRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = new RazorFile(this).Configure(file =>
+            RazorFile = IRazorFile.Create(this, "_Imports").Configure(file =>
             {
                 file.AddUsing("System.Net.Http");
                 file.AddUsing("System.Net.Http.Json");
@@ -53,17 +53,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public RazorFile RazorFile { get; }
+        public IRazorFile RazorFile { get; }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return new RazorFileConfig(
-                className: $"_Imports",
-                @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath()
-            );
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

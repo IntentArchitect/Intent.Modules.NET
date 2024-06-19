@@ -40,7 +40,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             AddTypeSource("Blazor.HttpClient.Contracts.Dto");
             AddTypeSource("Blazor.HttpClient.ServiceContract");
             AddTypeSource(TemplateId);
-            RazorFile = new RazorFile(this);
+            RazorFile = IRazorFile.Create(this, $"{Model.Name}");
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
             ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);// new RazorComponentBuilderProvider(this);
 
@@ -77,7 +77,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public RazorFile RazorFile { get; }
+        public IRazorFile RazorFile { get; }
 
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
@@ -96,8 +96,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             return mappingManager;
         }
 
-        private IBuildsCSharpMembers _codeBlock;
-        public IBuildsCSharpMembers GetCodeBlock()
+        private IBuildsCSharpMembersActual _codeBlock;
+        public IBuildsCSharpMembersActual GetCodeBlock()
         {
             if (_codeBlock == null)
             {
@@ -107,14 +107,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return new RazorFileConfig(
-                className: $"{Model.Name}",
-                @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath()
-            );
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

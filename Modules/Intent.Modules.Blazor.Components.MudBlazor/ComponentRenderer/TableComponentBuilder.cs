@@ -25,7 +25,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"@if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is not null)"), _componentTemplate.RazorFile);
+        var tableCode = IRazorCodeDirective.Create(new CSharpStatement($"@if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("MudTable", mudTable =>
         {
             var mappedEnd = _bindingManager.GetMappedEndFor(table);

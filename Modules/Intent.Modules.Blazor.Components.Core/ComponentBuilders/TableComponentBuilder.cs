@@ -22,7 +22,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
-        var loadingCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
+        var loadingCode = IRazorCodeDirective.Create(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is null)"), _componentTemplate.RazorFile);
         loadingCode.AddHtmlElement("div", rowDiv =>
         {
             rowDiv.AddAttribute("class", "row");
@@ -33,7 +33,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             });
         });
         parentNode.AddChildNode(loadingCode);
-        var tableCode = new RazorCodeDirective(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
+        var tableCode = IRazorCodeDirective.Create(new CSharpStatement($"if ({_bindingManager.GetElementBinding(table)} is not null)"), _componentTemplate.RazorFile);
         tableCode.AddHtmlElement("table", htmlTable =>
         {
             htmlTable.AddAttribute("class", "table")

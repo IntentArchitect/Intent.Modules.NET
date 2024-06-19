@@ -22,7 +22,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new FormModel(component);
-        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _componentTemplate.RazorFile);
+        var codeBlock = IRazorCodeDirective.Create(new CSharpStatement($"if ({formModel.GetContent()?.Model().Trim('{', '}')} is not null)"), _componentTemplate.RazorFile);
         var htmlElement = new HtmlElement("EditForm", _componentTemplate.RazorFile);
 
         codeBlock.AddHtmlElement(htmlElement);

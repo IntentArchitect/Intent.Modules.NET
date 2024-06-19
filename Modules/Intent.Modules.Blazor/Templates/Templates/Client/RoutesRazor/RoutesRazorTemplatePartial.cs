@@ -31,7 +31,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RoutesRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = new RazorFile(this).Configure(file =>
+            RazorFile = IRazorFile.Create(this, "Routes").Configure(file =>
             {
                 file.AddHtmlElement("Router", router =>
                 {
@@ -59,17 +59,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public RazorFile RazorFile { get; }
+        public IRazorFile RazorFile { get; }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return new RazorFileConfig(
-                className: $"Routes",
-                @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath()
-            );
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

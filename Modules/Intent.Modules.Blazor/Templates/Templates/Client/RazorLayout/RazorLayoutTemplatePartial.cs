@@ -33,7 +33,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = new RazorFile(this);
+            RazorFile = IRazorFile.Create(this, $"{Model.Name}");
             BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
             ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);
 
@@ -44,7 +44,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
                 ComponentBuilderProvider.ResolveFor(Model.InternalElement)
                     .BuildComponent(Model.InternalElement, RazorFile);
 
-                if (file.ChildNodes.All(x => x is not HtmlElement))
+                if (file.ChildNodes.All(x => x is not IHtmlElement))
                 {
                     file.AddHtmlElement("div", div => div.WithText("@Body"));
                 }
@@ -56,14 +56,14 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public RazorFile RazorFile { get; }
+        public IRazorFile RazorFile { get; }
 
         public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
         public BindingManager BindingManager { get; }
 
-        private IBuildsCSharpMembers _codeBlock;
-        public IBuildsCSharpMembers GetCodeBlock()
+        private IBuildsCSharpMembersActual _codeBlock;
+        public IBuildsCSharpMembersActual GetCodeBlock()
         {
             if (_codeBlock == null)
             {
@@ -88,14 +88,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return new RazorFileConfig(
-                className: $"{Model.Name}",
-                @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath()
-            );
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />

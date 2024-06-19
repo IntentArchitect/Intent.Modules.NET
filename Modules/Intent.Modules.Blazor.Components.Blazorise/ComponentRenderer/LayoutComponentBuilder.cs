@@ -21,7 +21,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
-        var layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
+        IHtmlElement layoutHtml = new HtmlElement("Layout", _componentTemplate.RazorFile);
         parentNode.AddChildNode(layoutHtml);
 
         if (layoutModel.Header != null)

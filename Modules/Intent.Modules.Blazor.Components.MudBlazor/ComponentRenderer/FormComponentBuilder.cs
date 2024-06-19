@@ -34,7 +34,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         }
         if (_bindingManager.GetMappedEndFor(formModel, "Model").SourceElement?.TypeReference.IsNullable == true)
         {
-            var loadingCode = new RazorCodeDirective(new CSharpStatement($"@if ({modelBinding} is null)"), _componentTemplate.RazorFile);
+            var loadingCode = IRazorCodeDirective.Create(new CSharpStatement($"@if ({modelBinding} is null)"), _componentTemplate.RazorFile);
             loadingCode.AddHtmlElement("MudProgressLinear", loadingBar =>
             {
                 loadingBar.AddAttribute("Color", "Color.Primary");
@@ -43,7 +43,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             });
             parentNode.AddChildNode(loadingCode);
         }
-        var codeBlock = new RazorCodeDirective(new CSharpStatement($"@if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
+        var codeBlock = IRazorCodeDirective.Create(new CSharpStatement($"@if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         parentNode.AddChildNode(codeBlock);
         codeBlock.AddHtmlElement("MudGrid", x => x.AddHtmlElement("MudItem", mudItem =>
         {

@@ -29,7 +29,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
         {
             throw new ElementException(component, "Form component's Model is required and has not been specified.");
         }
-        var codeBlock = new RazorCodeDirective(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
+        var codeBlock = IRazorCodeDirective.Create(new CSharpStatement($"if ({modelBinding} is not null)"), _componentTemplate.RazorFile);
         codeBlock.AddHtmlElement("EditForm", htmlElement =>
         {
             htmlElement.AddAttributeIfNotEmpty("Model", modelBinding.ToString());

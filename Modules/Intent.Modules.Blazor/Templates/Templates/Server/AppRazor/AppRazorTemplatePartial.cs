@@ -29,7 +29,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AppRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = new RazorFile(this)
+            RazorFile = IRazorFile.Create(this, "App")
                 .Configure(file =>
                 {
                     file.AddHtmlElement("head", head =>
@@ -67,17 +67,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]
-        public RazorFile RazorFile { get; }
+        public IRazorFile RazorFile { get; }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         protected override RazorFileConfig DefineRazorConfig()
         {
-            return new RazorFileConfig(
-                className: $"App",
-                @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath()
-            );
+            return RazorFile.GetConfig();
         }
 
         /// <inheritdoc />
