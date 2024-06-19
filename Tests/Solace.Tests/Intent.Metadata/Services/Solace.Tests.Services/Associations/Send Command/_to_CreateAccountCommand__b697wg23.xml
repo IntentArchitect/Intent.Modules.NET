@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a29aa193-ca8c-4efe-a5b2-e7a1caf3e5fa">
+  <sourceEnd id="6710109e-cd74-4330-a681-8755267a6d6c" type="Send Command Source End" typeId="6b9e34dd-b50f-4998-a3cf-93dde7b2d51e">
+    <display>published by : CustomerCreatedHandler.</display>
+    <order>0</order>
+    <typeReference id="d6bc39f8-e0c2-4722-8741-fdc8884a6602">
+      <typeId>8a9b9bb0-e1fe-4c45-824d-74eb31f534ce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a29aa193-ca8c-4efe-a5b2-e7a1caf3e5fa" type="Send Command Target End" typeId="d3096261-1268-440f-8db3-0a6b8b4786cc">
+    <display>publish: CreateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="55f3f1b5-611b-4b29-b842-27d2bbe7d8c8">
+      <typeId>cc3cac24-8c07-46cc-8a87-589b4147b13b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Integration Event Handler Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5cc60622-97d5-4361-92c6-0fe2d7824e31" location="[Solace.Tests].[Services].[CustomerCreated]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cc3cac24-8c07-46cc-8a87-589b4147b13b" location="[Solace.Tests].[Services].[CreateAccountCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cc3cac24-8c07-46cc-8a87-589b4147b13b" name="CreateAccountCommand" type="element" specialization="Command" />
+              <target id="5d90e0b6-12b7-41f1-87fd-48b16ced0e1a" name="CustomerId" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="5cc60622-97d5-4361-92c6-0fe2d7824e31" name="CustomerCreated" type="element" specialization="Message" />
+                  <target id="265dc953-4bc0-442c-aac6-13f7dafdc7df" name="Id" type="element" specialization="Property" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Command</associationType>
+  <associationTypeId>38a3de5a-ca88-4f6e-88b9-88e5953936b2</associationTypeId>
+  <stereotypes />
+</association>

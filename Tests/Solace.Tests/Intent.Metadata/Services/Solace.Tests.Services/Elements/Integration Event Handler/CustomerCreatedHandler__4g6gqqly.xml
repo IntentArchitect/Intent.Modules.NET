@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c22e8240-e744-4522-b39a-03e707054765" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CustomerCreatedHandler</name>
+  <display>CustomerCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>548dfe43-7834-4de9-9000-583718ed67e5</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

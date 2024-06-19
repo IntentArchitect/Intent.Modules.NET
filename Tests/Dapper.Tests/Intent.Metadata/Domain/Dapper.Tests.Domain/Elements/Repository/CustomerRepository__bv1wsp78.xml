@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a6fcda9c-e793-473c-bea2-7fa02ae38d2b" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>CustomerRepository</name>
+  <display>CustomerRepository&lt;Customer&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="f23292b5-e21b-4451-b241-72b851ff9e6e">
+    <typeId>c16ca4ee-4b33-475b-9e2f-4f2061417308</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Dapper.Tests.Domain</typePackageName>
+    <typePackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</parentFolderId>
+  <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+  <packageName>Dapper.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b3d3cf36-22bf-4ec8-9661-ecf895597ccb" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SearchCustomer</name>
+      <display>SearchCustomer(searchTerm: string): Customer[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6ec7ac02-4aa2-4ba9-8132-cec715da16bf">
+        <typeId>c16ca4ee-4b33-475b-9e2f-4f2061417308</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Dapper.Tests.Domain</typePackageName>
+        <typePackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a6fcda9c-e793-473c-bea2-7fa02ae38d2b</parentFolderId>
+      <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+      <packageName>Dapper.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d1e3d87c-678e-4d9b-be3a-5518a8407984" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>searchTerm</name>
+          <display>in : searchTerm: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f3b2c8fb-51bc-4dee-9150-e65ad4bad0e0">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b3d3cf36-22bf-4ec8-9661-ecf895597ccb</parentFolderId>
+          <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
+          <packageName>Dapper.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

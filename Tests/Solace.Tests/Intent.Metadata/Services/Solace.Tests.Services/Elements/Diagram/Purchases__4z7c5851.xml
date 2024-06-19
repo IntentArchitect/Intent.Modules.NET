@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5c63fd47-0753-4c4e-b776-2655ef443978" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Purchases</name>
+  <display>Purchases</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26676775-61c5-4ef8-9373-c69f4db223b7</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>26676775-61c5-4ef8-9373-c69f4db223b7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

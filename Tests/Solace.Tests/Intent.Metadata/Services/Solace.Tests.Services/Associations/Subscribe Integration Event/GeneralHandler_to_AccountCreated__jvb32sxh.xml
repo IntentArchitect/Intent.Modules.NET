@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2336cbf3-e18b-4050-b8fd-63994488ee72">
+  <sourceEnd id="38748e6d-6ee6-44a4-ad49-bbe374ee2d54" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Solace.Tests.Services.GeneralHandler</display>
+    <order>0</order>
+    <typeReference id="524d8c63-345c-4ff5-a781-effd0e848203">
+      <typeId>8912ca43-636f-429f-ae4e-bba36cca0173</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2336cbf3-e18b-4050-b8fd-63994488ee72" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: AccountCreated</display>
+    <order>0</order>
+    <typeReference id="449a10cf-841b-4bcb-abaf-a682b2aa4c6d">
+      <typeId>1a30b1aa-5823-4810-9a23-302393d7d278</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>62549091-f9de-46a1-b478-236d42077f3c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="600ea351-52b9-4b32-982f-614fb5b26ed1" name="Subscribing">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
+        <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
+        <properties>
+          <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="General" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="600ea351-52b9-4b32-982f-614fb5b26ed1" name="Subscribing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
+      <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
+      <properties>
+        <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="General" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

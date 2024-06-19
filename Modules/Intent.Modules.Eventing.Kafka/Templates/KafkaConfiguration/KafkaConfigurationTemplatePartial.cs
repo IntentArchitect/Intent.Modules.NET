@@ -148,7 +148,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         {
             var messageTypeName = this.GetIntegrationEventMessageName(message);
             var keyProperty = message.Properties.SingleOrDefault(x => x.HasKey());
-            
+
             if (keyProperty == null)
             {
                 return $"CreateProducer<{UseType("Confluent.Kafka.Null")}, {messageTypeName}>(serviceProvider)";

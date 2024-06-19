@@ -1,3 +1,7 @@
+### Version 5.0.9
+
+- Improvement: Added basic support non UOW based repositories.
+
 ### Version 5.0.8
 
 - Improvement: Add support for Data Contract mappings with the Advanced mapping system.

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a343e1a1-c593-4150-9bfd-72237f43e596">
+  <sourceEnd id="cd1664b0-6544-4a17-b7f2-c72f75a83c83" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.GetCustomQuery</display>
+    <order>0</order>
+    <typeReference id="9aa80a19-116f-4abd-97b7-ad8acab5abea">
+      <typeId>96ac1588-3dd6-4d9e-9813-6418ae5a0ab3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a343e1a1-c593-4150-9bfd-72237f43e596" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: SearchCustomResultAsync(...): CustomerCustom[*]</display>
+    <order>0</order>
+    <typeReference id="474ad59e-908a-483c-8332-5b6292238396">
+      <typeId>b02b86e4-421b-4cea-b1fb-d369243774a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="96ac1588-3dd6-4d9e-9813-6418ae5a0ab3" location="[Solace.Tests].[Services].[GetCustomQuery]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b02b86e4-421b-4cea-b1fb-d369243774a6" location="[Solace.Tests].[Services].[SearchCustomResultAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetCustomQuery}</expression>
+            <path>
+              <target id="b02b86e4-421b-4cea-b1fb-d369243774a6" name="SearchCustomResultAsync" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="GetCustomQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="96ac1588-3dd6-4d9e-9813-6418ae5a0ab3" name="GetCustomQuery" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

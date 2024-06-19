@@ -19,7 +19,6 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
 
             services
                 .AddHttpClient<IIntegrationServiceProxy, IntegrationServiceProxyHttpClient>(http =>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3a3441ad-15b4-4373-a436-7f697309367b">
+  <sourceEnd id="2707e720-65d5-44f2-8360-a477cb06b653" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Customers.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="af429fbe-4b8d-43e0-ba0e-6d6137fab782">
+      <typeId>b8339131-1940-4e03-ae26-e6aa0b6c13e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3a3441ad-15b4-4373-a436-7f697309367b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] CustomerCreated</display>
+    <order>3</order>
+    <typeReference id="1a472ece-4f00-4fc0-b995-d5737cda910b">
+      <typeId>5cc60622-97d5-4361-92c6-0fe2d7824e31</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>62549091-f9de-46a1-b478-236d42077f3c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b8339131-1940-4e03-ae26-e6aa0b6c13e1" location="[Solace.Tests].[Services].[CreateCustomerCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5cc60622-97d5-4361-92c6-0fe2d7824e31" location="[Solace.Tests].[Services].[CustomerCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{customer.Id}</expression>
+            <path>
+              <target id="5cc60622-97d5-4361-92c6-0fe2d7824e31" name="CustomerCreated" type="element" specialization="Message" />
+              <target id="265dc953-4bc0-442c-aac6-13f7dafdc7df" name="Id" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="customer.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="e7300db9-1145-49e1-8c16-ba19a14da2f8" name="customer" type="association" specialization="Create Entity Action Target End" />
+                  <target id="31bbe51d-cfbb-4a57-9756-0bb4db7593b0" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{customer.Name}</expression>
+            <path>
+              <target id="5cc60622-97d5-4361-92c6-0fe2d7824e31" name="CustomerCreated" type="element" specialization="Message" />
+              <target id="436e6e4c-f926-48a8-a98f-fffc8c8025f2" name="Name" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="customer.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="e7300db9-1145-49e1-8c16-ba19a14da2f8" name="customer" type="association" specialization="Create Entity Action Target End" />
+                  <target id="c9cdac1c-10d3-4668-8d44-3094ac092e8b" name="Name" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{customer.Surname}</expression>
+            <path>
+              <target id="5cc60622-97d5-4361-92c6-0fe2d7824e31" name="CustomerCreated" type="element" specialization="Message" />
+              <target id="7943a54e-7da8-41db-aaae-f60f2f620d53" name="Surname" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="customer.Surname" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b8339131-1940-4e03-ae26-e6aa0b6c13e1" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="e7300db9-1145-49e1-8c16-ba19a14da2f8" name="customer" type="association" specialization="Create Entity Action Target End" />
+                  <target id="c5629a56-8dfb-4276-82ff-84ec3a1569db" name="Surname" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

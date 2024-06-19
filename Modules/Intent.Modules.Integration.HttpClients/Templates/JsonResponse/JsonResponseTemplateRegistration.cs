@@ -18,6 +18,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.JsonResponse
     {
         public override string TemplateId => JsonResponseTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new JsonResponseTemplate(outputTarget);

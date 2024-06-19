@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8a6f57e1-59a2-4395-b836-31455b0e99b2">
+  <sourceEnd id="3abfea2a-0e6c-4ca3-a414-ce4530840c71" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Purchases.DeletePurchaseCommand</display>
+    <order>0</order>
+    <typeReference id="722eed96-84cd-41a4-869b-0be0a76d4dc3">
+      <typeId>c56117a5-ba0b-4f2c-bbd2-4cc437329dd8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8a6f57e1-59a2-4395-b836-31455b0e99b2" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>purchase</name>
+    <display>[delete] purchase: Purchase</display>
+    <order>1</order>
+    <typeReference id="3baa92a6-06fe-4ca9-ba7a-a1ab02ea9aec">
+      <typeId>7f1d4f99-16d0-4b8f-bc1e-987f800de505</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c56117a5-ba0b-4f2c-bbd2-4cc437329dd8" location="[Solace.Tests].[Services].[DeletePurchaseCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7f1d4f99-16d0-4b8f-bc1e-987f800de505" location="[Solace.Tests].[Services].[Purchase]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7f1d4f99-16d0-4b8f-bc1e-987f800de505" name="Purchase" type="element" specialization="Class" />
+              <target id="ccc26182-669a-4102-96cb-63f40ff0c67d" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c56117a5-ba0b-4f2c-bbd2-4cc437329dd8" name="DeletePurchaseCommand" type="element" specialization="Command" />
+                  <target id="5f1adaae-d913-46d8-8226-294be42f8e5a" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

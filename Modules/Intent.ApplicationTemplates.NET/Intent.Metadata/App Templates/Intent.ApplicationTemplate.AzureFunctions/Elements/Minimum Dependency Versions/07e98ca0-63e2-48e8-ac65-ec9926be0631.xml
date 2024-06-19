@@ -15,9 +15,9 @@
   <childElements>
     <childElement id="54c18d24-0b6f-4f27-b29e-cd2c0baac0b5" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.Contracts</name>
-      <display>Intent.Application.Contracts 5.0.5</display>
+      <display>Intent.Application.Contracts 5.0.7</display>
       <isAbstract>false</isAbstract>
-      <value>5.0.6</value>
+      <value>5.0.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -71,7 +71,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.6.1</display>
+      <display>Intent.Common.CSharp 3.6.3</display>
       <isAbstract>false</isAbstract>
       <value>3.6.3</value>
       <genericTypes />
@@ -141,9 +141,9 @@
     </childElement>
     <childElement id="8145a726-472b-47fd-9c2d-5d8dedadbae8" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain.Repositories</name>
-      <display>Intent.Modelers.Domain.Repositories 3.4.0</display>
+      <display>Intent.Modelers.Domain.Repositories 3.5.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.4.0</value>
+      <value>3.5.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -183,7 +183,7 @@
     </childElement>
     <childElement id="0e9ad9d2-b0a2-458f-b2d4-3aecae09bb9c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.7.1</display>
+      <display>Intent.Modelers.Services 3.7.3</display>
       <isAbstract>false</isAbstract>
       <value>3.7.3</value>
       <genericTypes />

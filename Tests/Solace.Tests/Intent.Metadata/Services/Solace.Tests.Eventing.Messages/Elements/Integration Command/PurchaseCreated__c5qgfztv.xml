@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5224d5a1-43a0-4b24-b287-4782cdb758ea" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>PurchaseCreated</name>
+  <display>PurchaseCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62549091-f9de-46a1-b478-236d42077f3c</parentFolderId>
+  <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+  <packageName>Solace.Tests.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="bca965ad-f2f2-4ddd-b87b-c310557a44bd" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1819b730-122b-45bd-8626-44842ef50857">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5224d5a1-43a0-4b24-b287-4782cdb758ea</parentFolderId>
+      <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+      <packageName>Solace.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e006ca26-14e0-4bd6-8794-15940b6919ce" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>AccountId</name>
+      <display>AccountId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d57f8ce0-7fb3-4fe3-8340-bdbb388da720">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5224d5a1-43a0-4b24-b287-4782cdb758ea</parentFolderId>
+      <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+      <packageName>Solace.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c7dc27db-4248-4ee1-8828-59052edbb608" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Amount</name>
+      <display>Amount: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="eabff0d5-38f7-4412-b3d2-de687d2dc01b">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5224d5a1-43a0-4b24-b287-4782cdb758ea</parentFolderId>
+      <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+      <packageName>Solace.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

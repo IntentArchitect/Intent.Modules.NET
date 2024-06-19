@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7a4cbabb-62f2-4575-bc69-d636c734924b" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>AccountsService</name>
+  <display>AccountsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a2574e70-3bcd-42d0-82ea-d08c81f825ac</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
+      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>d0839b91-5ab2-459e-be83-557bd23ccbad</parentFolderId>
+  <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+  <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="52325a9a-a86c-4bcb-9edd-b02019f4b257" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateAccountCommand</name>
+      <display>CreateAccountCommand(command: CreateAccountCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2d95e60b-58bf-40a9-a7fc-db8480626579">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>7a4cbabb-62f2-4575-bc69-d636c734924b</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="60e7fa7b-5f1f-42e2-9006-b9771d5e7dbf" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateAccountCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2b26896b-e017-4c4c-b262-46c92356e1de">
+            <typeId>17474e7d-6631-495d-a0aa-ba048b114453</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+            <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>52325a9a-a86c-4bcb-9edd-b02019f4b257</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="17474e7d-6631-495d-a0aa-ba048b114453" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a9b49d91-3a50-4ec7-957e-34173c767c89" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateAccountCommand</name>
+      <display>UpdateAccountCommand(id: guid, command: UpdateAccountCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3aa6cc93-33b2-4d0c-b219-2770c252f817">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>7a4cbabb-62f2-4575-bc69-d636c734924b</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6193b8b4-9bc3-4c7e-8fd2-fc3d19fcf58a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="eea690fe-d249-4ee9-9e90-8f0d87ea7662">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9b49d91-3a50-4ec7-957e-34173c767c89</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="0a63e1a0-d244-4dc1-9d1d-85792b72defe" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="75c5906a-40e4-49e8-b9f9-fd3b32e4a132" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateAccountCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="528cce00-149c-4375-90bb-b49143d9aa20">
+            <typeId>b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+            <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9b49d91-3a50-4ec7-957e-34173c767c89</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="986569e6-7da2-44ac-b0c2-d3c690eb36e0" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAccountByIdQuery</name>
+      <display>GetAccountByIdQuery(id: guid): AccountDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3371d51f-e312-4b1c-9ade-3a234d18b96d">
+        <typeId>b35cef2a-b80a-4a5c-9cf4-015d80e92f52</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c4542aab-10c2-47d7-a2e1-f3b871d57bef" name="GetAccountByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>7a4cbabb-62f2-4575-bc69-d636c734924b</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="0d3c001f-82fc-4890-a1f9-4c1ad3764699" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="01a57446-85d7-40e8-92b6-28de6303fd98">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>986569e6-7da2-44ac-b0c2-d3c690eb36e0</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="cba6e1f6-eef2-4ea8-966a-d5f884d4a70b" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="54f6e550-1260-4068-bea8-ec7966ec3702" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetAccountsQuery</name>
+      <display>GetAccountsQuery(): AccountDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d7d46fd9-203a-4527-b6c5-871e65215f46">
+        <typeId>b35cef2a-b80a-4a5c-9cf4-015d80e92f52</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="5e56137a-f83f-4b29-981f-588fdcdbe605" name="GetAccountsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>7a4cbabb-62f2-4575-bc69-d636c734924b</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

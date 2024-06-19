@@ -1,5 +1,7 @@
 using System;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common.Interfaces;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Entities;
+using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence.Configurations.Converters;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -15,12 +17,15 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("pgsql");
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

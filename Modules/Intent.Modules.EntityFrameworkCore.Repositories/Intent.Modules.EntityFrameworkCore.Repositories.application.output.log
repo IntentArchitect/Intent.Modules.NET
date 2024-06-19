@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#043fffe7-7452-4ce7-9d0b-3bbc740c0049</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EntityRepositoryOperationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityRepositoryOperationExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9e59c198-59ae-4bda-ab55-caa7830d951f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/StoredProcedureFactoryExtension.cs</ApplicationRelativeFilePath>

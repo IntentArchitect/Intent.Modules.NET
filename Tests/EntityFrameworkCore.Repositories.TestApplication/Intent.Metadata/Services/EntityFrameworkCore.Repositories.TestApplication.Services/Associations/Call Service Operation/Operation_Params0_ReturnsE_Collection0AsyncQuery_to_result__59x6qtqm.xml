@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="afa6f84c-0be0-4f49-b0df-14ebf79470ff">
+  <sourceEnd id="b93e15ae-9744-4915-ba2f-e3d873e61c08" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AggregateRoot1RepoOperationInvocation.Operation_Params0_ReturnsE_Collection0AsyncQuery</display>
+    <order>0</order>
+    <typeReference id="2a317038-be81-4458-aa12-74c913d16bd5">
+      <typeId>20837f1f-90b9-40ad-b97d-f5f6109f2749</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+      <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="afa6f84c-0be0-4f49-b0df-14ebf79470ff" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: Operation_Params0_ReturnsE_Collection0Async(...): AggregateRoot1</display>
+    <order>0</order>
+    <typeReference id="aff14c0a-2a96-4e62-b469-a6ba012108e1">
+      <typeId>f113be6e-e745-42e1-8467-d216086bb270</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="20837f1f-90b9-40ad-b97d-f5f6109f2749" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[Operation_Params0_ReturnsE_Collection0AsyncQuery]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f113be6e-e745-42e1-8467-d216086bb270" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[Operation_Params0_ReturnsE_Collection0Async]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Operation_Params0_ReturnsE_Collection0AsyncQuery}</expression>
+            <path>
+              <target id="f113be6e-e745-42e1-8467-d216086bb270" name="Operation_Params0_ReturnsE_Collection0Async" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="Operation_Params0_ReturnsE_Collection0AsyncQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="20837f1f-90b9-40ad-b97d-f5f6109f2749" name="Operation_Params0_ReturnsE_Collection0AsyncQuery" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

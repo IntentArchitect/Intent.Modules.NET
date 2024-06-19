@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{D8827180-47D4-4388-BDF1-FD5C6A1AE688}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Tests.Api", "Dapper.Tests.Api\Dapper.Tests.Api.csproj", "{851D211C-3146-4371-86B4-14145F3C4E1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D442E6DF-D4F1-42D0-B46A-2B4E768DADC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Tests.Application", "Dapper.Tests.Application\Dapper.Tests.Application.csproj", "{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{41E65048-B76E-41D7-89B7-76D329A681A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Tests.Domain", "Dapper.Tests.Domain\Dapper.Tests.Domain.csproj", "{EB483E4E-13E1-40DD-A7B1-DCB079AF819B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EDCB5557-F027-4ADF-929C-6D1A6E7BAE9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Tests.Infrastructure", "Dapper.Tests.Infrastructure\Dapper.Tests.Infrastructure.csproj", "{06CD2FB4-9668-4578-9D45-B76B1C90F11D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{851D211C-3146-4371-86B4-14145F3C4E1D} = {D8827180-47D4-4388-BDF1-FD5C6A1AE688}
+		{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD} = {D442E6DF-D4F1-42D0-B46A-2B4E768DADC8}
+		{EB483E4E-13E1-40DD-A7B1-DCB079AF819B} = {41E65048-B76E-41D7-89B7-76D329A681A8}
+		{06CD2FB4-9668-4578-9D45-B76B1C90F11D} = {EDCB5557-F027-4ADF-929C-6D1A6E7BAE9B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{851D211C-3146-4371-86B4-14145F3C4E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851D211C-3146-4371-86B4-14145F3C4E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851D211C-3146-4371-86B4-14145F3C4E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851D211C-3146-4371-86B4-14145F3C4E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1BC09D-C3A8-45D4-8BB2-1878937A0CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB483E4E-13E1-40DD-A7B1-DCB079AF819B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB483E4E-13E1-40DD-A7B1-DCB079AF819B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB483E4E-13E1-40DD-A7B1-DCB079AF819B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB483E4E-13E1-40DD-A7B1-DCB079AF819B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06CD2FB4-9668-4578-9D45-B76B1C90F11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06CD2FB4-9668-4578-9D45-B76B1C90F11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06CD2FB4-9668-4578-9D45-B76B1C90F11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06CD2FB4-9668-4578-9D45-B76B1C90F11D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

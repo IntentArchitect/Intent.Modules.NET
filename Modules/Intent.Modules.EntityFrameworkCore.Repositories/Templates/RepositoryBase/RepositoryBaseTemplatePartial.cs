@@ -53,7 +53,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                         .AddType("class")
                         .AddType(tDomain));
                     @class.AddGenericTypeConstraint(tDomain, constr => constr.AddType("class"));
-                    @class.AddField(tDbContext, "_dbContext", field => field.PrivateReadOnly());
+                    @class.AddField(tDbContext, "_dbContext", field => field.ProtectedReadOnly());
                     @class.AddConstructor(ctor => ctor
                         .AddParameter(tDbContext, "dbContext")
                         .AddStatement($"_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));"));

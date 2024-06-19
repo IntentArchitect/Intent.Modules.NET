@@ -324,7 +324,11 @@ public class DomainInteractionsManager
             dataAccessProvider = null;
             return false;
         }
-        dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping);
+
+        //This is being done for Dapper
+        bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
+
+		dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork);
         return true;
     }
 
@@ -348,7 +352,7 @@ public class DomainInteractionsManager
 
 		foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
 		{
-			statements.Add($"await {entity.DataAccessProvider.SaveChangesAsync()}");
+			statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
 		}
 
 		if (TrackedEntities.Any() && returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))

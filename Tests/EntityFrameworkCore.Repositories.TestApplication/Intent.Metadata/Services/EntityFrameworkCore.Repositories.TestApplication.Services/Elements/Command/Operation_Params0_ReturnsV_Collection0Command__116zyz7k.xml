@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a9900a0f-1d79-4d07-a9e6-ff05083303ce" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>Operation_Params0_ReturnsV_Collection0Command</name>
+  <display>Operation_Params0_ReturnsV_Collection0Command: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="3a376b8b-fb32-4cb3-88bb-aecf6e5a17f9">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>71d92ffa-3295-462d-9db8-ea571a9804bd</parentFolderId>
+  <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

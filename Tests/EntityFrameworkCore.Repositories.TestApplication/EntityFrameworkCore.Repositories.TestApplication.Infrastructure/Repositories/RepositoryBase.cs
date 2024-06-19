@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         where TPersistence : class, TDomain
         where TDomain : class
     {
-        private readonly TDbContext _dbContext;
+        protected readonly TDbContext _dbContext;
         private readonly IMapper _mapper;
 
         public RepositoryBase(TDbContext dbContext, IMapper mapper)

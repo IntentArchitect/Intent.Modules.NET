@@ -14,11 +14,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
-            {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
 
             services
                 .AddHttpClient<ICustomersServiceProxy, CustomersServiceProxyHttpClient>(http =>

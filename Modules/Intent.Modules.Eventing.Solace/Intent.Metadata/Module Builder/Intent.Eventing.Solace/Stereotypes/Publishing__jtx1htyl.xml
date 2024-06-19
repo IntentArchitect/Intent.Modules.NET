@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="56e898f3-74db-486d-86f9-3e885e7509e6" version="3.1.0">
+  <name>Publishing</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAA7hJREFUeF7t2k1IFGEYB/D/M2vpVkQdqktBXYKCoJIggkKJqCg7acc+6JC7phBl62riXHRNSymZXeuQRLckgrJDH9gHHYpAIyLoEF26pIeQMj/amTd0Cco0Z+aZ2R3l8Sjv/5n3+e2zzjvrEuSHJUCstIQhgMwhEEABZAow4zKBWQNMNR1kXmtuxSO1PXY2bH8Ck83KTsF5syZaY8vG1qJJFAGcdjYEcKa3jEwg84+JAAogU4AZ93wC5RjDvIkwX9D5Grd/F56vAsy+BFAAmQLMeJAnkJBsKoGmEcpr7gII5KNkcAGvNa1HWnuWGRAqQjT2gTksvsSDCdieWIuFeA6iNRk/fEb65y5U1n/yRYFRNJiARvNjEHZP6asX0Zqpv2O07k00WIBX9UUw85MAHZ2+PXUTobFynNR/eNM+v0pwAJUidLZUQql2ANoMrVkAnUHk3GUQBeKmEhzAVOIYFKUAFMwyF6MgVYFI/Dp/fvgVggFotGwGWQ8ArLTVksIgNLUXkXi/rfU+Lso9YEfrOoTMPgDLnPWphpBOF6Kq/qOznLercwvY1hZG/vh9EIpdtvUUodEDubyp5A7wSmU+8lbfAdR+l3iZmFIPYS4+hKqqMVYdl+HcARoJHUTnAYRc7v13zIRlNeJUbQOzjqt49gEnjiupliMg1QXl0XdzJo40CicwMHIDum65knAZyj6gcWEDYL0E0VKXe54+RhgC5e1A+dn3ntadpVh2ATuaN0FTj0C0yqcmBwBzD6J1b32q/0/Z7AF26QUYKXgCYLu/zalXCI8V4bg+6u91MtWzA2joS4BwN0jty0ZTk3fm71opYrFvfl/Pf8CyshCKC3UAtf95xvW6TwtKJbCirwGHu02vi/9Zz39AI3EaRK0eHFecOphQZgwVdZecBp2s9xfQaCwGhW4DWO5kUx6u/QpSpYjEez2s+Vcp/wA7L26ElX4DYIFfm7dZNw0ytyBS987mekfL/AG81RbG4PgLELY62o1/i/sxHNqJ6uphry/hD6DTXSYT9wBy+A1Y1YNovMTppbxeL4BMUQEUQKYAMy4TKIBMAWZcJlAAmQLMuEygADIFmHGZQAFkCjDjMoHzAtBIbIOmnP2jyaIvqIi/ZvbPjgdjAtlt5K6AADLtgwEob2HmyygfqAogU4AZlwkUQKYAMy4TKIBMAWZcjjFMwDkcD8ZBWgCZAvIWZgLKXVgAmQLMuEygADIFmHGZQAFkCjDjcoxhAs7huDyJMF88ARRApgAzLhMogEwBZvwX+GVZYBIiMjMAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5dde2aee-1d1d-4b4f-9a0a-210233948103</parentFolderId>
+  <order>0</order>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <properties>
+    <property id="6c4944dd-eefa-4511-915d-118533182e7a">
+      <hint>Topic or Queue name</hint>
+      <name>Destination</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

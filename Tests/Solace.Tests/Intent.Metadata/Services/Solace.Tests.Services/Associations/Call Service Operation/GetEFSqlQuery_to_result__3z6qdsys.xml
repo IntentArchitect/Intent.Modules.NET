@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9fd48239-e93c-45f7-bf18-84b9a274c65a">
+  <sourceEnd id="f15c8349-93b5-4fb3-b07c-3f43f99ed31a" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.GetEFSqlQuery</display>
+    <order>0</order>
+    <typeReference id="657323b6-bb83-48f1-80d8-dd9dad27c3de">
+      <typeId>d87c26b5-ba9d-4839-b9aa-623c826a21d1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9fd48239-e93c-45f7-bf18-84b9a274c65a" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: SearchSqlEFAsync(...): Customer[*]</display>
+    <order>0</order>
+    <typeReference id="72fcf5df-6f69-4b15-a15e-a53539c3b95b">
+      <typeId>ccbe406a-c1ad-4f81-8ec6-7d7664e9dc32</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d87c26b5-ba9d-4839-b9aa-623c826a21d1" location="[Solace.Tests].[Services].[GetEFSqlQuery]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ccbe406a-c1ad-4f81-8ec6-7d7664e9dc32" location="[Solace.Tests].[Services].[SearchSqlEFAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetEFSqlQuery}</expression>
+            <path>
+              <target id="ccbe406a-c1ad-4f81-8ec6-7d7664e9dc32" name="SearchSqlEFAsync" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="GetEFSqlQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="d87c26b5-ba9d-4839-b9aa-623c826a21d1" name="GetEFSqlQuery" type="element" specialization="Query" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b988f918-87dd-430a-98d7-bb0d71bd07b5">
+  <sourceEnd id="6254b4f7-2711-43c0-947d-0cc471aaab7a" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="e1bb261c-b792-4859-9ae2-e934bab5375e">
+      <typeId>b46017c9-1a92-4db9-bb77-398bc6579784</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Services</typePackageName>
+      <typePackageId>351149ba-f900-4678-8499-25d2cd2b9adb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b988f918-87dd-430a-98d7-bb0d71bd07b5" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>5</order>
+    <typeReference id="9f5f7495-6a62-4502-af96-f8ad49ca9429">
+      <typeId>c16ca4ee-4b33-475b-9e2f-4f2061417308</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Domain</typePackageName>
+      <typePackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b46017c9-1a92-4db9-bb77-398bc6579784" location="[Dapper.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c16ca4ee-4b33-475b-9e2f-4f2061417308" location="[Dapper.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="1b162d98-aaf6-4e69-bf75-3b2cb51b9250" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b46017c9-1a92-4db9-bb77-398bc6579784" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="305b307e-ab51-405a-ac4f-e8c500e1a7d4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b46017c9-1a92-4db9-bb77-398bc6579784" location="[Dapper.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c16ca4ee-4b33-475b-9e2f-4f2061417308" location="[Dapper.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="b43af42a-826f-4a18-b9b5-2f404461e941" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b46017c9-1a92-4db9-bb77-398bc6579784" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="f0716345-4d6d-4c5c-a98c-fe1eda90a404" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="ffd2ce64-2c29-4adc-92b7-10c6d79e6a03" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b46017c9-1a92-4db9-bb77-398bc6579784" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="c0eca64a-eda7-401a-92af-7c1194cd0af7" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="61c28784-3999-4440-aa7d-42d820c53d40" name="Email" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b46017c9-1a92-4db9-bb77-398bc6579784" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="40908686-b950-43a7-9076-3caf4b94166c" name="Email" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="c16ca4ee-4b33-475b-9e2f-4f2061417308" name="Customer" type="element" specialization="Class" />
+              <target id="503aa65c-9a3a-4e59-80d7-78f7b96668d4" name="IsActive" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b46017c9-1a92-4db9-bb77-398bc6579784" name="UpdateCustomerCommand" type="element" specialization="Command" />
+                  <target id="5e50da25-42e0-424c-84af-be1b3c091bb9" name="IsActive" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

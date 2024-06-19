@@ -16,7 +16,6 @@ namespace WindowsServiceHost.Tests.Configuration
             {
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
-            services.AddHttpContextAccessor();
         }
     }
 }

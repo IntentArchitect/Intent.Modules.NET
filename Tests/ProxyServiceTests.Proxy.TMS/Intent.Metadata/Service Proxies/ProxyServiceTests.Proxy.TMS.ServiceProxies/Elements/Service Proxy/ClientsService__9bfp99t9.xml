@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="81891887-9f6a-4867-992e-1c06614b0405" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ClientsService</name>
+  <display>ClientsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a2574e70-3bcd-42d0-82ea-d08c81f825ac</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
+      <target id="0fe9afdd-7892-494c-9152-9e0562ea5578" name="ClientsService" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>d0839b91-5ab2-459e-be83-557bd23ccbad</parentFolderId>
+  <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+  <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a9801c92-2a6d-4114-a126-618cf6d10302" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateClient</name>
+      <display>CreateClient(dto: ClientCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2e39b9df-64c5-4438-89f0-1b2a15de0dc6">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="becaf9ea-12e9-4d96-a8bf-90bd1c5e28f7" name="CreateClient" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>81891887-9f6a-4867-992e-1c06614b0405</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3f028012-5a63-442a-9dea-c1a776fbe3f2" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>dto</name>
+          <display>dto: ClientCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a005bc5f-e4c1-4803-a293-37acf85b7665">
+            <typeId>8d11b072-9c6c-45be-981f-4e467df3897b</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+            <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9801c92-2a6d-4114-a126-618cf6d10302</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="92d5a7c4-179d-4427-abd2-35613935bfff" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="668ff572-cec7-4293-870f-111cb8923dc3" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>FindClientById</name>
+      <display>FindClientById(id: guid): ClientDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0626f6f3-399a-4fc0-8b01-b7d63dcc3966">
+        <typeId>5a91102f-9206-4dfd-8f65-c02cf4b29080</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d39bcee4-894c-4546-bbeb-7ba2eef1b05d" name="FindClientById" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>81891887-9f6a-4867-992e-1c06614b0405</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3c96ed3b-d9cf-4110-b424-17fe44f9af8a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b22527e9-42aa-40d4-b2e9-cc126c955260">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>668ff572-cec7-4293-870f-111cb8923dc3</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7fa239b3-c668-4694-873e-aeae7d668578" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="09d8f41f-07ad-4dd3-a8c7-faad24ea4c48" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>FindClients</name>
+      <display>FindClients(): ClientDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bfbcb325-22eb-48d8-86e7-451cffa6f73d">
+        <typeId>5a91102f-9206-4dfd-8f65-c02cf4b29080</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="68961565-2b3e-4cf1-a609-67098bb293b0" name="FindClients" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>81891887-9f6a-4867-992e-1c06614b0405</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2ca84172-623d-45a1-a3b3-80dec59a0f4e" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateClient</name>
+      <display>UpdateClient(id: guid, dto: ClientUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a54414da-5b2a-45a3-9716-30302dbd408f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="3708f699-ccc5-494f-8145-65cff67aafcb" name="UpdateClient" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>81891887-9f6a-4867-992e-1c06614b0405</parentFolderId>
+      <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="323a40ec-e6c3-4633-a7f5-3adc8ac9d5a9" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="225cb8d9-6488-45be-82fa-2f34fc76bdb7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2ca84172-623d-45a1-a3b3-80dec59a0f4e</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="91cf6333-5dbe-49e3-b7fb-e19c861e46df" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="25b61840-d6ff-4f7c-91cb-bb68b6a98ade" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>dto</name>
+          <display>dto: ClientUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="357849be-e5ef-4699-80fc-0848c9f515d0">
+            <typeId>3d5121d7-70ae-4812-9bbb-e82f81956739</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+            <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2ca84172-623d-45a1-a3b3-80dec59a0f4e</parentFolderId>
+          <packageId>d0839b91-5ab2-459e-be83-557bd23ccbad</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="d791427b-ceb8-4199-a552-be3d83cff706" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

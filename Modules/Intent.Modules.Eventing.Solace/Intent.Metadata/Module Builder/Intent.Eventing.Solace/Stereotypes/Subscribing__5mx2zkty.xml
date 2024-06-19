@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="600ea351-52b9-4b32-982f-614fb5b26ed1" version="3.1.0">
+  <name>Subscribing</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="16fa2952-79e6-4150-b5ab-45aa4c106de4">Subscribe Integration Event Target End</type>
+    <type id="efa73bdb-69b7-4f52-aa10-15c19874b394">Subscribe Integration Command Target End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5dde2aee-1d1d-4b4f-9a0a-210233948103</parentFolderId>
+  <order>0</order>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <properties>
+    <property id="2c512ee7-13fd-453e-979d-8c4bcd6c6a49">
+      <name>Queue</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

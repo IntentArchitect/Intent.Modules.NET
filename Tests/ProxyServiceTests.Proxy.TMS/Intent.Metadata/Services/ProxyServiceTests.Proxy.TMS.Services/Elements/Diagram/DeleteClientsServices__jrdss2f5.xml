@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c3276ff2-dd0d-47fb-9d9e-128dbe45f67c" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DeleteClientsServices</name>
+  <display>DeleteClientsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>488b26b0-428a-4cec-aa00-2b2eda417f18</parentFolderId>
+  <packageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</packageId>
+  <packageName>ProxyServiceTests.Proxy.TMS.Services</packageName>
+  <diagram>
+    <targetPackageId>488b26b0-428a-4cec-aa00-2b2eda417f18</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,3 +1,7 @@
+### Version 6.0.11
+
+- Improvement: Added basic support non UOW based repositories.
+
 ### Version 6.0.10
 
 - Improvement: Add support for Data Contract mappings with the Advanced mapping system.

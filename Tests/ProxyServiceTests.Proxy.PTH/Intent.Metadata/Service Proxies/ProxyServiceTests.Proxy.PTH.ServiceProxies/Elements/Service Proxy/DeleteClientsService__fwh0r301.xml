@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3560edc8-0de2-4510-a4aa-08d3bb543eb6" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>DeleteClientsService</name>
+  <display>DeleteClientsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a2574e70-3bcd-42d0-82ea-d08c81f825ac</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
+      <target id="0fe9afdd-7892-494c-9152-9e0562ea5578" name="ClientsService" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
+  <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c66659db-5716-4dbb-9186-62632fa575c7" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteClient</name>
+      <display>DeleteClient(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="8e9bdbc1-078d-4014-aeb0-58c27a76c8c7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ca81f2fc-189e-4825-8c01-4b6dba599924" name="DeleteClient" type="element" specialization="Operation" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>3560edc8-0de2-4510-a4aa-08d3bb543eb6</parentFolderId>
+      <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1cf20c90-06f5-4370-8d94-4df118d4add5" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6a257ce1-28cd-49aa-a09a-85ca27b54116">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c66659db-5716-4dbb-9186-62632fa575c7</parentFolderId>
+          <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+          <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="0d87db84-d6ba-45f9-ba60-52cdcf8f5dd2" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,4 +1,8 @@
-﻿### Version 2.2.3
+﻿### Version 2.2.4
+
+- Improvement: Improved internal module code.
+
+### Version 2.2.3
 
 - Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
 

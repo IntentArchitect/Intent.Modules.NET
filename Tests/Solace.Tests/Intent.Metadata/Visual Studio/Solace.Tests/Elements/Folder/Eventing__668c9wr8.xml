@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="abc5bd59-aeaf-406d-a1a4-57012f3d59ba" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>09a258ac-0d55-4b5b-b63d-9aa3cc8afa0e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7e0fd4c1-da07-4594-8878-663ff6fbac7d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.BaseMessageConverter</name>
+      <display>Intent.Eventing.Solace.BaseMessageConverter</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="668f7670-ce37-4265-a989-c571365e8ce8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.DispatchResolver</name>
+      <display>Intent.Eventing.Solace.DispatchResolver</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6bdf5517-3864-4ec8-bec0-dbaee5db33f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.MessageConfiguration</name>
+      <display>Intent.Eventing.Solace.MessageConfiguration</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c5ef75c9-1e1b-48a2-a76e-ceb501e5fb8e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.MessageRegistry</name>
+      <display>Intent.Eventing.Solace.MessageRegistry</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="072d4a2d-6c04-4285-85ba-aef86e1f89a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.MessageSerializer</name>
+      <display>Intent.Eventing.Solace.MessageSerializer</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="62461eb0-dfdc-4718-bd4d-150a00545b23" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceConsumer</name>
+      <display>Intent.Eventing.Solace.SolaceConsumer</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d7c75a76-cfab-4db0-8b40-7c46de547187" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceConsumingService</name>
+      <display>Intent.Eventing.Solace.SolaceConsumingService</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="acc708d2-a459-43a6-99d8-9a1e08a64fe8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceEventBus</name>
+      <display>Intent.Eventing.Solace.SolaceEventBus</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="be6baed8-a797-43e9-8a35-e6ef6ea0313e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceEventDispatcher</name>
+      <display>Intent.Eventing.Solace.SolaceEventDispatcher</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="66d28050-3fcd-4556-9dd0-c04d6a5d1665" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Solace.SolaceEventDispatcherInterface</name>
+      <display>Intent.Eventing.Solace.SolaceEventDispatcherInterface</display>
+      <externalReference>Intent.Eventing.Solace</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

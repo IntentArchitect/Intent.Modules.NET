@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="17edce3f-d0f2-4eeb-b3d5-daef0f101de7" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomersQuery</name>
+  <display>GetCustomersQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="6fa748f1-a478-4367-92d5-6d34908aa7d9">
+    <typeId>611e4c37-02d4-4cb0-ba85-098fb035c648</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Dapper.Tests.Services</typePackageName>
+    <typePackageId>351149ba-f900-4678-8499-25d2cd2b9adb</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b5421a32-35f9-4f9f-bfa1-7d25b496e7fa</parentFolderId>
+  <packageId>351149ba-f900-4678-8499-25d2cd2b9adb</packageId>
+  <packageName>Dapper.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/customer" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Customers" />
+  </metadata>
+  <childElements />
+</class>

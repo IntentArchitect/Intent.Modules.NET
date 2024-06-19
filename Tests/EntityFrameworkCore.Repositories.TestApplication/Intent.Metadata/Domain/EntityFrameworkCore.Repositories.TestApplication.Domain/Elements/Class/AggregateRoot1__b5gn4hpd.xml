@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="d103475e-8ecb-4c5a-a92e-f4ee3818743e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>tag</name>
-      <display>tag: string</display>
+      <name>Tag</name>
+      <display>Tag: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0263bc61-95bc-4c57-a780-f5885f8dfe57">

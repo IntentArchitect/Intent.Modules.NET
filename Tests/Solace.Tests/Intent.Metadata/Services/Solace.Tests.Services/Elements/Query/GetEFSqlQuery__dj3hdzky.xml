@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d87c26b5-ba9d-4839-b9aa-623c826a21d1" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetEFSqlQuery</name>
+  <display>GetEFSqlQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="1ee3974a-a81b-4e15-a11e-88ef58483884">
+    <typeId>e8a0e03e-3cca-477c-ab17-fe76f23fb2d7</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Solace.Tests.Services</typePackageName>
+    <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>548dfe43-7834-4de9-9000-583718ed67e5</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

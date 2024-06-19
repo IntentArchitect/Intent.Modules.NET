@@ -28,7 +28,7 @@ namespace TrainingModel.Tests.Application.Products.GetProducts
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productRepository.FindAllAsync(cancellationToken);
+            var products = await _productRepository.FindAllAsync(x => x.IsActive == true, cancellationToken);
             return products.MapToProductDtoList(_mapper);
         }
     }

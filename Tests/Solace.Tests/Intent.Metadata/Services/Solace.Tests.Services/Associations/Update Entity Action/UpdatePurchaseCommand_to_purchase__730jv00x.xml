@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4343b166-3a0a-425e-b527-b4fc7fdf7d1a">
+  <sourceEnd id="38226583-e38b-42a7-90de-3d4871691c1f" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Purchases.UpdatePurchaseCommand</display>
+    <order>0</order>
+    <typeReference id="829ff8f2-1168-4c67-9209-96d26e72bc1e">
+      <typeId>b2f2173c-255e-4b81-86e4-f8f4c6a5e468</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4343b166-3a0a-425e-b527-b4fc7fdf7d1a" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>purchase</name>
+    <display>[update] purchase: Purchase</display>
+    <order>3</order>
+    <typeReference id="c90c3891-fa0d-478b-8c94-28e31b43f000">
+      <typeId>7f1d4f99-16d0-4b8f-bc1e-987f800de505</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b2f2173c-255e-4b81-86e4-f8f4c6a5e468" location="[Solace.Tests].[Services].[UpdatePurchaseCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7f1d4f99-16d0-4b8f-bc1e-987f800de505" location="[Solace.Tests].[Services].[Purchase]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7f1d4f99-16d0-4b8f-bc1e-987f800de505" name="Purchase" type="element" specialization="Class" />
+              <target id="ccc26182-669a-4102-96cb-63f40ff0c67d" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b2f2173c-255e-4b81-86e4-f8f4c6a5e468" name="UpdatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="76792a9e-7405-4ec3-916d-21698301b0d7" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b2f2173c-255e-4b81-86e4-f8f4c6a5e468" location="[Solace.Tests].[Services].[UpdatePurchaseCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7f1d4f99-16d0-4b8f-bc1e-987f800de505" location="[Solace.Tests].[Services].[Purchase]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{AccountId}</expression>
+            <path>
+              <target id="7f1d4f99-16d0-4b8f-bc1e-987f800de505" name="Purchase" type="element" specialization="Class" />
+              <target id="6ec955f0-e7fe-4fc1-8247-3aa7e3764c6f" name="AccountId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AccountId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b2f2173c-255e-4b81-86e4-f8f4c6a5e468" name="UpdatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="fde5e4ad-0f20-40fc-b94a-ebce33f11f78" name="AccountId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="7f1d4f99-16d0-4b8f-bc1e-987f800de505" name="Purchase" type="element" specialization="Class" />
+              <target id="6cf8033b-c603-4ab1-bf32-64c399b9f68c" name="Amount" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b2f2173c-255e-4b81-86e4-f8f4c6a5e468" name="UpdatePurchaseCommand" type="element" specialization="Command" />
+                  <target id="daa0094e-676b-4583-9cf3-6bad9db5b9bb" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

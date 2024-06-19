@@ -1,5 +1,7 @@
 using EntityFrameworkCore.SplitQueries.SqlServer.Domain.Common.Interfaces;
+using EntityFrameworkCore.SplitQueries.SqlServer.Domain.Repositories;
 using EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Persistence;
+using EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -28,6 +30,7 @@ namespace EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IOrderRepository, OrderRepository>();
             return services;
         }
     }

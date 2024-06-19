@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="229d1a0b-bdf9-41da-b10e-1863870e7f06">
+  <sourceEnd id="fc9ce4eb-bd75-4cf2-8cd1-ee007a8cbcbb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Account</name>
+    <display>Account: Account?</display>
+    <order>0</order>
+    <typeReference id="c5940a6f-59ca-4c68-a9a2-cf8f3ac45477">
+      <typeId>456da770-d09e-4079-b15b-bf4744cd8bf6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="229d1a0b-bdf9-41da-b10e-1863870e7f06" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>2</order>
+    <typeReference id="b54f907d-8511-4ab3-822c-c16119de4575">
+      <typeId>add7afb7-e3ce-4b1d-a0fc-31296f8cb518</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

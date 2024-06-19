@@ -37,7 +37,7 @@ public class CompositeDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement SaveChangesAsync()
     {
-        return $"{_saveChangesAccessor}.SaveChangesAsync(cancellationToken);";
+        return $"await {_saveChangesAccessor}.SaveChangesAsync(cancellationToken);";
     }
 
     public CSharpStatement AddEntity(string entityName)

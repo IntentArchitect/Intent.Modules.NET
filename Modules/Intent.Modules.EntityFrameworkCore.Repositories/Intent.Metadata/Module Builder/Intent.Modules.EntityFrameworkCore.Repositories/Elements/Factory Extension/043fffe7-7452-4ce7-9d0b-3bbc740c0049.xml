@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="043fffe7-7452-4ce7-9d0b-3bbc740c0049" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityRepositoryOperationExtension</name>
+  <display>EntityRepositoryOperationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
+  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

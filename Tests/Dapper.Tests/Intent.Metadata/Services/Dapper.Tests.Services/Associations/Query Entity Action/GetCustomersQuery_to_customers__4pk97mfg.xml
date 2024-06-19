@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="194ff043-3d6e-43b4-bb66-ff8f7a766e4f">
+  <sourceEnd id="06b6bd07-2733-4bb5-b535-f06f510adf00" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="6d58833b-4728-4e38-9dd3-da64410b4949">
+      <typeId>17edce3f-d0f2-4eeb-b3d5-daef0f101de7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Services</typePackageName>
+      <typePackageId>351149ba-f900-4678-8499-25d2cd2b9adb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="194ff043-3d6e-43b4-bb66-ff8f7a766e4f" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <typeReference id="fa61ae14-ce9c-41ba-acae-22c593278499">
+      <typeId>c16ca4ee-4b33-475b-9e2f-4f2061417308</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Dapper.Tests.Domain</typePackageName>
+      <typePackageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="17edce3f-d0f2-4eeb-b3d5-daef0f101de7" location="[Dapper.Tests].[Services].[GetCustomersQuery]" />
+        <target applicationId="38ca8ada-51c1-497d-81a9-e405417c0709" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c16ca4ee-4b33-475b-9e2f-4f2061417308" location="[Dapper.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

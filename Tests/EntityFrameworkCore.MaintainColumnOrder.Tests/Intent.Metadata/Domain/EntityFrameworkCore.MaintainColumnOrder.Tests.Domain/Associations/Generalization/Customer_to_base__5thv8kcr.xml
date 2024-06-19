@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="68c44054-d69e-4fe9-a651-7122ece61546">
+  <sourceEnd id="9de64f94-c12d-4546-8832-7633216d3896" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: Customer</display>
+    <order>0</order>
+    <typeReference id="f26df44b-cb39-478f-8543-c0b1f482950c">
+      <typeId>a1e49931-0ca9-40c9-8d10-787b469a3b01</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="68c44054-d69e-4fe9-a651-7122ece61546" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends Person</display>
+    <order>0</order>
+    <typeReference id="4cea0131-2d91-4f4e-a61b-f7479bf66f2a">
+      <typeId>cee2224e-6f82-4fe5-b101-7991308b2db4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

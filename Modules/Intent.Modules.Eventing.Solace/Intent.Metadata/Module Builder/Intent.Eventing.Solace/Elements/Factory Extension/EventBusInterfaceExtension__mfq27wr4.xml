@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="821b1309-0e6a-4e3e-a332-8298a38ad58e" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusInterfaceExtension</name>
+  <display>EventBusInterfaceExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5842805-0812-4f7f-a653-c7e9b35d8da1</parentFolderId>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -20,7 +20,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories
         where TPersistence : class, TDomain
         where TDomain : class
     {
-        private readonly TDbContext _dbContext;
+        protected readonly TDbContext _dbContext;
 
         public RepositoryBase(TDbContext dbContext)
         {

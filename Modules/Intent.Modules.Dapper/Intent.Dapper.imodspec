@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Dapper</id>
+  <version>1.0.0-beta.2</version>
+  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <summary>Provides basic repository pattern for Dapper.</summary>
+  <description>Provides basic repository pattern for Dapper.</description>
+  <authors>Intent Architect</authors>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <tags>csharp dotnet persistence dapper rdbms</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Dapper/README.md</projectUrl>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iUXVlcnkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTAgNTAiPgogIDxwYXRoIGQ9Ik0zOC44LDkuOGwtMi45LDEuOC0uMy4yLTgsNS4xLTguOSw1LjctMi41LDEuNi0zLjEtMS45aDBsMTkuOC0xMi42Yy0yLjctMS44LTUuOS0yLjktOS40LTMuMmgtMTUuMnYxMi44bC0zLjMtMi4xVjMuMWgxOC41YzMuOCwwLDcuNCwxLjIsMTAuNSwzLC4yLDAsLjQuMi42LjQuNS4zLDEuMS43LDEuNiwxLjEuNi40LDEuMS44LDEuNiwxLjMuMy4zLjcuNiwxLDFoMFoiIGZpbGw9IiNlZDg1MmYiIHN0cm9rZS13aWR0aD0iMCIvPgogIDxwYXRoIGQ9Ik00NS4xLDI1YzAsNy45LTQuMiwxNC44LTEwLjUsMTguNi0uNC4yLS45LjUtMS4zLjctLjQuMi0uOS41LTEuMy43LS41LjItMS4xLjUtMS43LjctLjUuMi0xLjEuNC0xLjcuNXYtMjcuNmwzLjMtMi4xdjI0LjRjNS43LTMuMyw5LjQtOS4yLDkuNC0xNS45cy0xLjctOC41LTQuNC0xMS43bDIuOS0xLjhoMGwuMi0uMmMzLjEsMy44LDUuMSw4LjQsNS4xLDEzLjdoMFoiIGZpbGw9IiMzYWE5YzQiIHN0cm9rZS13aWR0aD0iMCIvPgogIDxwYXRoIGQ9Ik04LjQsMjUuMnYxOC41aDE1LjJjMS4xLDAsMi4zLS4zLDMuNC0uNXYzLjRjLTEuMi4yLTIuNC4zLTMuNi40SDQuOXYtMjcuOWwyLjUsMS41LjkuNiw0LDIuNSwxNC44LDkuNHYzLjlsLTE4LjctMTEuOFoiIGZpbGw9IiNlNTI4NmMiIHN0cm9rZS13aWR0aD0iMCIvPgo8L3N2Zz4=</iconUrl>
+  <templates>
+    <template id="Intent.Dapper.CustomRepository" externalReference="918bf4b7-1a03-4cfa-bcf6-4fe2798faabf">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Dapper.CustomRepositoryInterface" externalReference="3c9c0772-c6d6-4cd1-8527-819d61753fc8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Entity</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Dapper.EntityRepositoryInterface" externalReference="e10c1921-7cc8-45f2-83a8-daeb9955e3a4">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Entity</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Dapper.Repository" externalReference="8aa6eb7a-f25d-4cf3-b090-7b5d4a31bae8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Dapper.RepositoryBase" externalReference="871a6fad-1b57-48e7-85a0-6cb6966ff99b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Dapper.RepositoryInterface" externalReference="6aefa45a-378c-480e-9daf-e85f959b5018">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Entity</role>
+      <location>Repositories</location>
+    </template>
+  </templates>
+  <interoperability>
+    <id></id>
+    <detect id="Intent.Application.MediatR.CRUD">
+      <install>
+        <package id="Intent.Application.MediatR.CRUD" version="6.0.11" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
+      <install>
+        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="5.0.8" />
+      </install>
+    </detect>
+    <detect id="Intent.MediatR.DomainEvents">
+      <install>
+        <package id="Intent.MediatR.DomainEvents" version="5.0.9" />
+      </install>
+    </detect>
+    <detect id="Intent.Modelers.Services.DomainInteractions">
+      <install>
+        <package id="Intent.Modelers.Services.DomainInteractions" version="1.1.4" />
+      </install>
+    </detect>
+  </interoperability>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Dapper.EntityRepositoryOperationExtension" externalReference="48c48427-91cb-4e34-9898-d0e7db6c5ffe" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.6.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
+    <dependency id="Intent.Modelers.Domain.Repositories" version="3.5.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install src="modelers/Domain Extensions.designer.settings" externalReference="48e1ede6-3ba8-4a7f-b0b1-aa1d5473775a" />
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Dapper/Intent.Dapper.pkg.config" externalReference="6eb3f92d-a569-4d84-973a-6ff217c8cde5" />
+  </metadata>
+</package>

@@ -23,105 +23,15 @@ For more information on MassTransit, check out their [official docs](https://mas
 
 From version `6.0.0` of this Module, modeling Integration Events can be achieved from within the Services designer.
 
-### Create Eventing Package
-
-In order to start modeling Integration Events and Commands, it is recommended to start with creating a new Eventing package.
-
-![Create New Package](docs/images/create-new-package.png)
-
-Give it a name that will become the `base Namespace` for all Events and Commands that will be modeled and placed inside it.
+This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. For details on modeling integration events and commands, refer to its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md).
 
 > ⚠️ **IMPORTANT**
-> 
+>
 > MassTransit requires that both the Publisher and Subscriber have Messages with the exact same Names and Namespaces.
-
-![Create New Package Dialog](docs/images/create-new-eventing-package-dialog.png)
-
-Once its created, you will need to reference this package from your Services package.
-
-![Add Package Reference](docs/images/add-package-reference.png)
-
-Now select your Eventing Package from the list.
-
-![Add Package Reference Dialog](docs/images/add-package-reference-dialog.png)
-
-### Publishing Integration Events
-
-Create an Integration Event by right-clicking on the Eventing Package or Folder and selecting `New Message`.
-
-![New Message](docs/images/new-message.png)
-
-You can drag that Message onto the diagram in order to make publish from elements or subscribe handlers to those Events.
-
-Right click on an element you wish to publish from (that has the context menu option available).
-
-![Publish Integration Event](docs/images/publish-integration-event.png)
-
-Drag the line to the Message that needs to be published. 
-
-![Publish Integration Event with line](docs/images/publish-integration-event-with-line.png)
-
-Finally map what the element should populate on the Message by right-clicking on the dotted line and selecting the `Map to Message` option.
-
-![Publish Integration Event mapping option](docs/images/publish-integration-event-mapping-option.png)
-
-### Subscribing to Integration Events
-
-Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
-
-![New Integration Event Handler](docs/images/integration-event-handler-new.png)
-
-Introduce the Message that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#publishing-integration-events) or by referencing the package that contains that Event in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
-Ensure that the Message is present on the diagram. 
-
-To subscribe to the Event, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Event`.
-
-![Subscribe Integration Event](docs/images/integration-event-handler-subscribe-event.png)
-
-Drag the line to the Event message and will then add a handler operation to work from.
-
-![Subscribed to Integration Event](docs/images/integration-event-handler-event-associated.png)
-
-### Sending Integration Commands
-
-Create an Integration Command by right-clicking on the Eventing Package or Folder and selecting `New Integration Command`.
-
-![New Integration Command](docs/images/new-integration-command.png)
-
-You can drag that Integration Command onto the diagram in order to make publish from elements or subscribe handlers to those Commands.
-
-Right click on an element you wish to publish from (that has the context menu option available).
-
-![Send Integration Command](docs/images/send-integration-command.png)
-
-Drag the line to the Command that needs to be Sent.
-
-![Send Integration Command with line](docs/images/send-integration-command-with-line.png)
-
-Finally map what the element should populate on the Command by right-clicking on the dotted line and selecting the `Map to Message` option.
-
-![Send Integration Command mapping option](docs/images/send-integration-command-mapping-option.png)
-
-### Subscribing to Integration Commands
-
-Right click on the diagram or the Services tree-view and select `New Integration Event Handler`.
-
-![New Integration Event Handler](docs/images/integration-event-handler-new.png)
-
-Introduce the Integration Command that you want to subscribe to by either creating it (as a duplicate potentially) as done [here](#sending-integration-commands) or by referencing the package that contains that Integration Command in Intent Architect through right-clicking on `References` of your Services package and selecting `Add Package Reference...`.
-Ensure that the Integration Command is present on the diagram.
-
-To subscribe to the Integration Command, right-click on the newly created Integration Event Handler and select `Subscribe to Integration Command`.
-
-![Subscribe Integration Command](docs/images/integration-event-handler-subscribe-command.png)
-
-Drag the line to the Integration Command and will then add a handler operation to work from.
-
-![Subscribed to Integration Command](docs/images/integration-event-handler-command-associated.png)
 
 ### Integration Command Queues
 
-By default a Command will be sent to a Queue directly with a name that uses the Integration Command name as the convention. If you need to change this name (especially if you want different kinds of Commands to be sent to the same queue since order is important) there is a `Command Distribution` stereotype found on the association line. 
+By default a Command will be sent to a Queue directly with a name that uses the Integration Command name as the convention. If you need to change this name (especially if you want different kinds of Commands to be sent to the same queue since order is important) there is a `Command Distribution` stereotype found on the association line.
 
 When updating this on the Sending side: left-click on the line between the element and the Integration Command and you will see this in your properties panel:
 
@@ -143,7 +53,7 @@ Configure what your underlying message broker is, the supported options are:
 * Amazon SQS
 
 > ⚠️ **NOTE**
-> 
+>
 > The in-memory transport is a great tool for testing, as it doesn't require a message broker to be installed or running. It's also very fast. But it isn't durable, and messages are gone if the bus is stopped or the process terminates. So, it's generally not a smart option for a production system
 
 ### Outbox Pattern Setting
@@ -155,7 +65,7 @@ Configure your Outbox pattern implementation, the supported options are:
 * [Entity Framework](https://masstransit.io/documentation/patterns/transactional-outbox)
 
 > ⚠️ **NOTE**
-> 
+>
 > Using an Outbox pattern for Consumers will also introduce idempotency to ensure that the same messages doesn't get processed more than once.
 
 ### Retry Policy Setting
@@ -170,14 +80,6 @@ Configure the messaging retry strategy. Once the retry strategy is exhausted, th
 
 For more information on these options check out the MassTransit [documentation](https://masstransit.io/documentation/concepts/exceptions#retry).
 
-## Designer Support - Eventing Designer
-
-The eventing designer can be used to describe messaging from an Applications perspective. This really boils down to the following:
-
-* The message contracts, i.e. the message content.
-* Which messages the application publishes.
-* Which messages the application subscribes to.
-
 ## MassTransit Message Broker Implementation
 
 Provider a MassTransit specific implementation of the `IEventBus` interface.
@@ -188,7 +90,7 @@ Message publishing can be done through the `IEventBus` interface using the `Publ
 
 ## Message Consumption
 
-For every message subscribed to in the `Eventing Designer`, this module will register up an Infrasrtuctual handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer inegration message handler, which implements `IIntegrationEventHandler`.
+For every message subscribed to in the `Eventing Designer`, this module will register up an Infrastructural handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer integration message handler, which implements `IIntegrationEventHandler`.
 
 An example of the technical message handler registration:
 
@@ -341,4 +243,4 @@ If you are running docker you can get RabbitMQ upo and running using a command l
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.11-management
 ```
 
-You should be able to access the admin console through `http://localhost:15672/`.  
+You should be able to access the admin console through `http://localhost:15672/`.

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2dc42de5-3047-43be-85ab-8cd639b623ba">
+  <sourceEnd id="5383c3f9-61e0-4b68-aa6d-1a2de88e9e75" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsServices.UpdateClientCommand</display>
+    <order>0</order>
+    <typeReference id="0ea0abc0-2a75-4c92-b925-5b1b01e6504d">
+      <typeId>b5e9ecc3-5cd3-4635-ba29-6d2184dbe512</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7266</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2dc42de5-3047-43be-85ab-8cd639b623ba" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : UpdateClient(...): void</display>
+    <order>3</order>
+    <typeReference id="2b8d517c-625f-41ba-a6e7-1f3fa92f307e">
+      <typeId>6daa0f7d-8179-4e57-ac11-1386fc57a0ed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</typePackageName>
+      <typePackageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b5e9ecc3-5cd3-4635-ba29-6d2184dbe512" location="[ProxyServiceTests.Proxy.PTH].[Services].[UpdateClientCommand]" />
+        <target applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="6daa0f7d-8179-4e57-ac11-1386fc57a0ed" location="[ProxyServiceTests.Proxy.PTH].[Services].[UpdateClient]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateClientCommand}</expression>
+            <path>
+              <target id="6daa0f7d-8179-4e57-ac11-1386fc57a0ed" name="UpdateClient" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdateClientCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="b5e9ecc3-5cd3-4635-ba29-6d2184dbe512" name="UpdateClientCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6daa0f7d-8179-4e57-ac11-1386fc57a0ed" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="5179cdeb-8433-416a-b968-88b949bf4d7c" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="b5e9ecc3-5cd3-4635-ba29-6d2184dbe512" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="c5a21b78-0405-4d40-b722-f63174adbfea" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ClientUpdateDtoId}</expression>
+            <path>
+              <target id="6daa0f7d-8179-4e57-ac11-1386fc57a0ed" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="cc8a9eb4-58bc-458e-a480-c02de9a82c03" name="dto" type="element" specialization="Parameter" />
+              <target id="17e5f2ec-04b6-47c7-8eca-2520d60d6fe7" name="Id" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="ClientUpdateDtoId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="b5e9ecc3-5cd3-4635-ba29-6d2184dbe512" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="a3804e3a-e648-4ea1-8cd5-0623a5ae423d" name="ClientUpdateDtoId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="6daa0f7d-8179-4e57-ac11-1386fc57a0ed" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="cc8a9eb4-58bc-458e-a480-c02de9a82c03" name="dto" type="element" specialization="Parameter" />
+              <target id="9bdd36cf-1601-4b1b-b9df-b43ac3aea270" name="Name" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="b5e9ecc3-5cd3-4635-ba29-6d2184dbe512" name="UpdateClientCommand" type="element" specialization="Command" />
+                  <target id="86c59cf4-50d3-446a-8249-10a4651bf11a" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

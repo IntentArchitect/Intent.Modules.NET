@@ -38,7 +38,16 @@
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
         <source applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2c040699-711d-4c7f-b5c3-4d072fdaebb8" location="[TrainingModel.Tests].[Services].[GetProductsQuery]" />
         <target applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a8c0300d-5cac-4eb7-9134-94ad43f24faa" location="[TrainingModel.Tests].[Services].[Product]" />
-        <mappedEnds />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>true</expression>
+            <path>
+              <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
+              <target id="45bf04b9-4a43-49e8-bc37-bfea98163f48" name="IsActive" type="element" specialization="Attribute" />
+            </path>
+            <sources />
+          </mappedEnd>
+        </mappedEnds>
       </mapping>
     </mappings>
     <metadata />

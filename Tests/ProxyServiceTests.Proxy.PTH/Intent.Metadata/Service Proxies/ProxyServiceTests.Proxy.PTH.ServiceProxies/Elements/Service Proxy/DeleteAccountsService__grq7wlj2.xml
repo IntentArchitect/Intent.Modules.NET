@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d365a3d5-e3a5-4b91-a16b-de559f40fac3" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>DeleteAccountsService</name>
+  <display>DeleteAccountsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a2574e70-3bcd-42d0-82ea-d08c81f825ac</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
+      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
+  <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="93610645-5f4f-4f67-8aef-2e9d5c352274" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteAccountCommand</name>
+      <display>DeleteAccountCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3acb3386-87df-4020-9682-fc57f5dc90d9">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="2f661d56-8964-449f-bcf9-6fc20544884d" name="DeleteAccountCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d365a3d5-e3a5-4b91-a16b-de559f40fac3</parentFolderId>
+      <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5557a3bf-6a63-4e26-900d-8e12d2807c34" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6017f210-8581-4f33-b61e-05ac252fdbbe">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>93610645-5f4f-4f67-8aef-2e9d5c352274</parentFolderId>
+          <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+          <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="b2cdd01d-d7c5-4775-9345-909fc27aba08" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

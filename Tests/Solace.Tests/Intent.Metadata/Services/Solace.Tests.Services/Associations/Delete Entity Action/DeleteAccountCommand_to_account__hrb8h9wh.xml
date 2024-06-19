@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2452ede3-811e-4b74-bd3a-153ff03860e5">
+  <sourceEnd id="06c895b2-0404-4af4-bf3f-1181fb19084f" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Accounts.DeleteAccountCommand</display>
+    <order>0</order>
+    <typeReference id="12f098b8-6d73-4671-b716-d18873c2f35f">
+      <typeId>aa553eb2-13a4-4ef1-9f61-b9c537ed0181</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2452ede3-811e-4b74-bd3a-153ff03860e5" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>account</name>
+    <display>[delete] account: Account</display>
+    <order>1</order>
+    <typeReference id="fd0da913-80f8-4573-9d34-41922c3cc67a">
+      <typeId>456da770-d09e-4079-b15b-bf4744cd8bf6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Domain</typePackageName>
+      <typePackageId>5305f909-ce3d-4bbb-b6da-ab7fd011b2d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="aa553eb2-13a4-4ef1-9f61-b9c537ed0181" location="[Solace.Tests].[Services].[DeleteAccountCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="456da770-d09e-4079-b15b-bf4744cd8bf6" location="[Solace.Tests].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="456da770-d09e-4079-b15b-bf4744cd8bf6" name="Account" type="element" specialization="Class" />
+              <target id="c26884b5-97f6-4c7d-bc15-0ffd95b97564" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="aa553eb2-13a4-4ef1-9f61-b9c537ed0181" name="DeleteAccountCommand" type="element" specialization="Command" />
+                  <target id="d22d3fbf-1815-4bea-949b-2a4557ced5a3" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

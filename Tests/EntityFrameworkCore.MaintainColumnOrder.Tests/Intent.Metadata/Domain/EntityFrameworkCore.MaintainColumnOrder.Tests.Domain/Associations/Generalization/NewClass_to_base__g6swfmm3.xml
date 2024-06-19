@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8e41becd-ee35-4cbb-b62f-2f87ee03fcee">
+  <sourceEnd id="3987f4ca-0722-413e-afee-e65c494535c9" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: NewClass</display>
+    <order>0</order>
+    <typeReference id="47feb4d9-e059-41be-adf3-f464416f0ca7">
+      <typeId>50246957-d5f9-4d9c-924a-62767ff185b0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8e41becd-ee35-4cbb-b62f-2f87ee03fcee" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends BaseWithLast</display>
+    <order>0</order>
+    <typeReference id="42f8e1a3-a318-44dc-9955-dd4c668d6976">
+      <typeId>52d9aac0-7a29-4477-b107-633da4b32fa9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.MaintainColumnOrder.Tests.Domain</typePackageName>
+      <typePackageId>a4825ffc-2148-4a53-8c27-28150b434ba8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

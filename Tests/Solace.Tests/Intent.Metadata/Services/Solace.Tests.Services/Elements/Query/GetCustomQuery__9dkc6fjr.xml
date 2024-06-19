@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="96ac1588-3dd6-4d9e-9813-6418ae5a0ab3" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomQuery</name>
+  <display>GetCustomQuery: CustomerCustomDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c3f9f67a-764b-40db-82d5-3c46230eda66">
+    <typeId>64720ac4-f0c7-44ee-8dd7-c4bfc6e5754e</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Solace.Tests.Services</typePackageName>
+    <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>548dfe43-7834-4de9-9000-583718ed67e5</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

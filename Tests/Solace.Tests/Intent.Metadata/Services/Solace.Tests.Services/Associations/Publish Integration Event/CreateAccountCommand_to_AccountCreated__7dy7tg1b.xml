@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d24d536b-466d-46a4-b15b-4c657608fd0d">
+  <sourceEnd id="c9e9dd2a-a640-47de-b959-cd153c9606c8" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Accounts.CreateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="c34a2472-a9bf-4242-8725-f30a2c5165d4">
+      <typeId>cc3cac24-8c07-46cc-8a87-589b4147b13b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Services</typePackageName>
+      <typePackageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d24d536b-466d-46a4-b15b-4c657608fd0d" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] AccountCreated</display>
+    <order>2</order>
+    <typeReference id="d0144876-98c7-4ac6-bc4e-35ca33a655b3">
+      <typeId>1a30b1aa-5823-4810-9a23-302393d7d278</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Solace.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>62549091-f9de-46a1-b478-236d42077f3c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cc3cac24-8c07-46cc-8a87-589b4147b13b" location="[Solace.Tests].[Services].[CreateAccountCommand]" />
+        <target applicationId="0185b841-fb5e-4f25-a564-7e86a8293c46" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1a30b1aa-5823-4810-9a23-302393d7d278" location="[Solace.Tests].[Services].[AccountCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{account.Id}</expression>
+            <path>
+              <target id="1a30b1aa-5823-4810-9a23-302393d7d278" name="AccountCreated" type="element" specialization="Message" />
+              <target id="62c33297-7257-4ef0-90bd-429e85efe24c" name="Id" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="account.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="cc3cac24-8c07-46cc-8a87-589b4147b13b" name="CreateAccountCommand" type="element" specialization="Command" />
+                  <target id="dc058477-c270-459d-96ef-072aa7e4412a" name="account" type="association" specialization="Create Entity Action Target End" />
+                  <target id="c26884b5-97f6-4c7d-bc15-0ffd95b97564" name="Id" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{account.CustomerId}</expression>
+            <path>
+              <target id="1a30b1aa-5823-4810-9a23-302393d7d278" name="AccountCreated" type="element" specialization="Message" />
+              <target id="0f0c5117-2600-40f7-804e-d8613703b491" name="CustomerId" type="element" specialization="Property" />
+            </path>
+            <sources>
+              <source identifier="account.CustomerId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="cc3cac24-8c07-46cc-8a87-589b4147b13b" name="CreateAccountCommand" type="element" specialization="Command" />
+                  <target id="dc058477-c270-459d-96ef-072aa7e4412a" name="account" type="association" specialization="Create Entity Action Target End" />
+                  <target id="f8a6abaa-3ebc-4caa-bfbd-ff2d9ac24132" name="CustomerId" type="element" specialization="Attribute" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

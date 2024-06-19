@@ -19,18 +19,20 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
 
     public static EfCoreFieldConfigStatement CreateProperty(AttributeModel attribute,
-        DatabaseSettings dbSettings)
+        DatabaseSettings dbSettings,
+        int? columnOrder = null)
     {
         var databaseProvider = dbSettings.DatabaseProvider().AsEnum();
         var field = new EfCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute);
-        if (!attribute.Type.IsNullable)
+
+		if (!attribute.Type.IsNullable)
         {
             field.AddStatement(".IsRequired()");
         }
 
         if (databaseProvider != DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos)
         {
-            field.AddStatements(field.AddRdbmsMappingStatements(attribute, dbSettings));
+            field.AddStatements(field.AddRdbmsMappingStatements(attribute, dbSettings, columnOrder));
         }
 
         return field;
@@ -91,7 +93,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
     }
 
-    private List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings)
+    private List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings, int? implicitColumnOrder)
     {
         var statements = new List<CSharpStatement>();
 
@@ -187,7 +189,13 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
             statements.Add($".HasColumnName(\"{EscapeHelper.EscapeName(columnName)}\")");
         }
 
-        var computedValueSql = attribute.GetComputedValue()?.SQL();
+		var columnOrder = attribute.GetColumn()?.Order();
+		if (columnOrder != null || implicitColumnOrder != null)
+		{
+			statements.Add($".HasColumnOrder({columnOrder ?? implicitColumnOrder})");
+		}
+
+		var computedValueSql = attribute.GetComputedValue()?.SQL();
         if (!string.IsNullOrWhiteSpace(computedValueSql))
         {
 

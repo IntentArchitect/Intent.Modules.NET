@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8dde2d5e-53da-464c-9f38-da77feeae321" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ClientsServices</name>
+  <display>ClientsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0cbe3612-6cc1-4ed2-a286-1f8bcd14ae6e</parentFolderId>
+  <packageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</packageId>
+  <packageName>ProxyServiceTests.Proxy.TMS.Services</packageName>
+  <diagram>
+    <targetPackageId>0cbe3612-6cc1-4ed2-a286-1f8bcd14ae6e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d934c211-26ab-4731-810d-8b50a504a0a0">
+  <sourceEnd id="a7075989-99f7-4fe5-a39d-79d524043036" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AccountsService.GetAccountByIdQuery</display>
+    <order>0</order>
+    <typeReference id="5cb75fd1-38a3-4df1-9c18-0599f8a87802">
+      <typeId>0fbde5d1-e709-4848-9e66-87b7c76f50e2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7265</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d934c211-26ab-4731-810d-8b50a504a0a0" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetAccountByIdQuery(...): AccountDto</display>
+    <order>1</order>
+    <typeReference id="176fff9d-0be6-47b0-8f89-4783c34827f8">
+      <typeId>986569e6-7da2-44ac-b0c2-d3c690eb36e0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.TMS.ServiceProxies</typePackageName>
+      <typePackageId>d0839b91-5ab2-459e-be83-557bd23ccbad</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0fbde5d1-e709-4848-9e66-87b7c76f50e2" location="[ProxyServiceTests.Proxy.TMS].[Services].[GetAccountByIdQuery]" />
+        <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="986569e6-7da2-44ac-b0c2-d3c690eb36e0" location="[ProxyServiceTests.Proxy.TMS].[Services].[GetAccountByIdQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetAccountByIdQuery}</expression>
+            <path>
+              <target id="986569e6-7da2-44ac-b0c2-d3c690eb36e0" name="GetAccountByIdQuery" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="GetAccountByIdQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="0fbde5d1-e709-4848-9e66-87b7c76f50e2" name="GetAccountByIdQuery" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="986569e6-7da2-44ac-b0c2-d3c690eb36e0" name="GetAccountByIdQuery" type="element" specialization="Operation" />
+              <target id="0d3c001f-82fc-4890-a1f9-4c1ad3764699" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="0fbde5d1-e709-4848-9e66-87b7c76f50e2" name="GetAccountByIdQuery" type="element" specialization="Operation" />
+                  <target id="da7a9514-1f72-46e7-9f4c-dbe31f56fd1f" name="Id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>
