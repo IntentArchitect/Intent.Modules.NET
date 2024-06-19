@@ -136,7 +136,8 @@ public static class RazorFileExtensions
                                 var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                                 if (serviceCall.GetMapResponseMapping() != null)
                                 {
-                                    if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == "28165dfb-a6a6-4c2b-9d64-421f1da81bc9")
+                                    var responseStaticElementId = "28165dfb-a6a6-4c2b-9d64-421f1da81bc9";
+                                    if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
                                     {
                                         tryBlock.AddStatement(new CSharpAssignmentStatement(
                                             lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
@@ -145,7 +146,7 @@ public static class RazorFileExtensions
                                     else
                                     {
                                         tryBlock.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                        mappingManager.SetFromReplacement(new StaticMetadata("28165dfb-a6a6-4c2b-9d64-421f1da81bc9"), serviceCall.Name.ToLocalVariableName());
+                                        mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), serviceCall.Name.ToLocalVariableName());
                                         var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
                                         foreach (var statement in response)
                                         {
@@ -169,6 +170,9 @@ public static class RazorFileExtensions
                             {
                                 catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
                             }
+
+                            template.RazorFile.AddInjectDirective("ISnackbar", "Snackbar");
+                            catchBlock.AddStatement("Snackbar.Add(e.Message, Severity.Error);");
                         });
                         method.AddFinallyBlock(finallyBlock =>
                         {

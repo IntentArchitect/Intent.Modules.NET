@@ -37,10 +37,11 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
         }
 
+        htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         if (onClickMapping != null)
         {
             htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
-            
+
             _componentTemplate.RazorFile.OnBuild(file =>
             {
                 _componentTemplate.GetCodeBlock().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
@@ -49,7 +50,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                     var form = component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
                     if (form != null)
                     {
-                        ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatements(0, 
+                        ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatements(0,
                             $$"""
                                   await {{form.Name.ToPrivateMemberName()}}!.Validate();
                                   if (!{{form.Name.ToPrivateMemberName()}}.IsValid)
@@ -61,9 +62,9 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
                     if (!method.IsAsync)
                     {
-                        htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
                         return;
                     }
+                    htmlElement.WithText(null); // clear text
                     var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
                     _componentTemplate.GetCodeBlock().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
                     ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
@@ -106,10 +107,6 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             //{
             //    htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
             //}
-        }
-        else
-        {
-            htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
         }
 
         //foreach (var child in component.ChildElements)

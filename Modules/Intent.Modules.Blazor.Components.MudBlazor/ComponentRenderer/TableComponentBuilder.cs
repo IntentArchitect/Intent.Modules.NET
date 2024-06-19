@@ -77,7 +77,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     rowTemplate.AddHtmlElement("MudTd", td =>
                     {
 
-
+                        td.AddAttributeIfNotEmpty("Class", !string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()) ? "cursor-pointer" : null);
                         var columnMapping = _bindingManager.GetElementBinding(column, rowTemplate);
                         if (columnMapping != null)
                         {
