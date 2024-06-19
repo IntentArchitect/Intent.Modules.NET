@@ -79,7 +79,7 @@ public static class RazorFileExtensions
                 }
                 block.AddMethod(template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
-                    method.Class.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
+                    method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase) && operation.CallServiceOperationActionTargets().Any())
                     {
                         method.Async();

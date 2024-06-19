@@ -15,7 +15,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common" version="3.7.0-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
   </dependencies>
   <files>
