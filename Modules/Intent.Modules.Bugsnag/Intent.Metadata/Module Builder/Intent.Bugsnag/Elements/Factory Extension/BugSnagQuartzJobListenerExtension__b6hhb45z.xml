@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e3a7b993-3652-40f7-afed-4eb9e6cdb85a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BugSnagQuartzJobListenerExtension</name>
+  <display>BugSnagQuartzJobListenerExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>519716a0-7fda-470a-b8f2-28248a51130e</parentFolderId>
+  <packageId>519716a0-7fda-470a-b8f2-28248a51130e</packageId>
+  <packageName>Intent.Bugsnag</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

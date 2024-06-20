@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguation
+namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class QuartzConfiguationTemplateRegistration : SingleFileTemplateRegistration
+    public class BugSnagQuartzJobListenerTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => QuartzConfiguationTemplate.TemplateId;
+        public override string TemplateId => BugSnagQuartzJobListenerTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new QuartzConfiguationTemplate(outputTarget);
+            return new BugSnagQuartzJobListenerTemplate(outputTarget);
         }
     }
 }

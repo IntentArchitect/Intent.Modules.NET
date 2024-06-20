@@ -56,7 +56,7 @@ namespace BugSnagTest.Api.Configuration
                 options =>
                 {
                     options.RoutePrefix = "swagger";
-                    options.OAuthAppName("BugSnagTest API");
+                    options.OAuthAppName("BugSnagTest.AspNetCore API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
                     options.DefaultModelsExpandDepth(2);

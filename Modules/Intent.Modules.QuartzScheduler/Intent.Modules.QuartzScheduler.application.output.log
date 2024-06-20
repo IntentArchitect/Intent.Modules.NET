@@ -108,16 +108,16 @@
       <ProjectId>598d5835-f098-4250-889e-149779c63ae4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#59acfaab-ddbb-43bf-b06b-57477478d89d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QuartzConfiguation/QuartzConfiguationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QuartzConfiguation/QuartzConfiguationTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QuartzConfiguration/QuartzConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>598d5835-f098-4250-889e-149779c63ae4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#59acfaab-ddbb-43bf-b06b-57477478d89d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QuartzConfiguation/QuartzConfiguationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QuartzConfiguation/QuartzConfiguationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/QuartzConfiguration/QuartzConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QuartzConfiguration/QuartzConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

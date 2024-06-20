@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.46" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.WindowsServiceHost" version="1.0.8" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -122,5 +122,6 @@
     <application id="71818a31-10de-47a0-b6c8-30c34717ee01" name="EntityFrameworkCore.MaintainColumnOrder.Tests" relativePath="EntityFrameworkCore.MaintainColumnOrder.Tests/EntityFrameworkCore.MaintainColumnOrder.Tests.application.config" />
     <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PTH" relativePath="ProxyServiceTests.Proxy.PTH/ProxyServiceTests.Proxy.PTH.application.config" />
     <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients.NET8" relativePath="CloudBlobStorageClients.NET8/CloudBlobStorageClients.NET8.application.config" />
+    <application id="481b3f15-06af-424a-bd6c-40f99ce14793" name="BugSnagTest.ServiceHost" relativePath="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.application.config" />
   </applications>
 </solution>

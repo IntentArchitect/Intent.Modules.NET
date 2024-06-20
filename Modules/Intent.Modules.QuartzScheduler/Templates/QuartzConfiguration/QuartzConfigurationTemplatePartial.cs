@@ -18,15 +18,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguation
+namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class QuartzConfiguationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class QuartzConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.QuartzScheduler.QuartzConfiguation";
+        public const string TemplateId = "Intent.QuartzScheduler.QuartzConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public QuartzConfiguationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public QuartzConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(ScheduledJobTemplate.TemplateId);
 
@@ -86,7 +86,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguation
                                 .AddChainStatement(new CSharpInvocationStatement("AddQuartzHostedService")
                                     .AddArgument(new CSharpLambdaBlock("options")
                                     .AddStatement("options.WaitForJobsToComplete = true;")
-                                ));
+                                ).WithoutSemicolon());
                         });
 
 

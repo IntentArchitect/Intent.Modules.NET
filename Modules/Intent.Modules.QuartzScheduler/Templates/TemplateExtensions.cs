@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.QuartzScheduler.Templates.QuartzConfiguation;
+using Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration;
 using Intent.Modules.QuartzScheduler.Templates.ScheduledJob;
 using Intent.QuartzScheduler.Api;
 using Intent.RoslynWeaver.Attributes;
@@ -13,9 +13,9 @@ namespace Intent.Modules.QuartzScheduler.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetQuartzConfiguationName(this IIntentTemplate template)
+        public static string GetQuartzConfigurationName(this IIntentTemplate template)
         {
-            return template.GetTypeName(QuartzConfiguationTemplate.TemplateId);
+            return template.GetTypeName(QuartzConfigurationTemplate.TemplateId);
         }
         public static string GetScheduledJobName<T>(this IIntentTemplate<T> template) where T : ScheduledJobModel
         {
