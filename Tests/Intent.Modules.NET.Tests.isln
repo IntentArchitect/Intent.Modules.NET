@@ -102,7 +102,6 @@
     <application id="6e5e03eb-f608-4392-9a67-c392120303a3" name="Standard.AspNetCore.Serilog" relativePath="Standard.AspNetCore.Serilog/Standard.AspNetCore.Serilog.application.config" />
     <application id="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" name="CosmosDB.MultiTenancy.SeperateDB" relativePath="CosmosDB.MultiTenancy.SeperateDB/CosmosDB.MultiTenancy.SeperateDB.application.config" />
     <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
-    <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients" relativePath="CloudBlobStorageClients/CloudBlobStorageClients.application.config" />
     <application id="555d779f-5d5d-49fd-b0eb-598c02922aeb" name="OutputCachingRedis.Tests" relativePath="OutputCachingRedis.Tests/OutputCachingRedis.Tests.application.config" />
     <application id="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" name="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.application.config" />
     <application id="52adfd77-8ba4-4570-940a-61cf3d6c85f6" name="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.application.config" />
@@ -122,5 +121,6 @@
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TMS" relativePath="ProxyServiceTests.Proxy.TMS/ProxyServiceTests.Proxy.TMS.application.config" />
     <application id="71818a31-10de-47a0-b6c8-30c34717ee01" name="EntityFrameworkCore.MaintainColumnOrder.Tests" relativePath="EntityFrameworkCore.MaintainColumnOrder.Tests/EntityFrameworkCore.MaintainColumnOrder.Tests.application.config" />
     <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PTH" relativePath="ProxyServiceTests.Proxy.PTH/ProxyServiceTests.Proxy.PTH.application.config" />
+    <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients.NET8" relativePath="CloudBlobStorageClients.NET8/CloudBlobStorageClients.NET8.application.config" />
   </applications>
 </solution>
