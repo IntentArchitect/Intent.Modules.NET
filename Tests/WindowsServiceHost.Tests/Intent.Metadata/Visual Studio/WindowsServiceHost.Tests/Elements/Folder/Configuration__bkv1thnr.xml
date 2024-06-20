@@ -23,9 +23,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="90b88498-e54e-441b-bfff-f6cdbd64deaf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.QuartzScheduler.QuartzConfiguation</name>
-      <display>Intent.QuartzScheduler.QuartzConfiguation</display>
+    <childElement id="f931b5bb-195a-48a7-a80b-786fed2086da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.QuartzConfiguration</name>
+      <display>Intent.QuartzScheduler.QuartzConfiguration</display>
       <externalReference>Intent.QuartzScheduler</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

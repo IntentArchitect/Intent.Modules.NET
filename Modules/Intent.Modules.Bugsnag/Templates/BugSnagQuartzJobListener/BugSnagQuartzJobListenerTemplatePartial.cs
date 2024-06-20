@@ -55,6 +55,11 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
                 });
         }
 
+        public override bool CanRunTemplate()
+        {
+            return TryGetTemplate<ICSharpFileBuilderTemplate>("Distribution.DependencyInjection.Quartz", out _);
+        }
+
         [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]

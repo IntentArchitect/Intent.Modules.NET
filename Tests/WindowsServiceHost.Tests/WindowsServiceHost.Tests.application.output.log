@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>debb0499-35a8-49c0-b28f-327431d8db87</ProjectId>
-      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguation</CorrelationId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>

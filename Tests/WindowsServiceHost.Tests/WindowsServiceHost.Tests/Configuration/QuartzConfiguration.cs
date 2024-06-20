@@ -7,7 +7,7 @@ using Quartz;
 using WindowsServiceHost.Tests.Jobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguation", Version = "1.0")]
+[assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguration", Version = "1.0")]
 
 namespace WindowsServiceHost.Tests.Configuration
 {
@@ -50,7 +50,7 @@ namespace WindowsServiceHost.Tests.Configuration
                 .AddQuartzHostedService(options =>
                 {
                     options.WaitForJobsToComplete = true;
-                }); ;
+                });
 
             return services;
         }
